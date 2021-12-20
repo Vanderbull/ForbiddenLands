@@ -32,5 +32,4 @@
 *.app
 
 # Other
-README.md
-*
+bin/*
