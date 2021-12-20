@@ -1,0 +1,111 @@
+###########
+#
+###########
+11,1,PODAL_PLAZA
+###########
+# GENERAL DESCRIPTIONS
+###########
+1,0,PODAL_PLAZA
+###########
+# 2. Priestess of Sune
+###########
+1,2,PODAL_PLAZA
+###########
+# 3. INN
+###########
+1,14,PODAL_PLAZA
+1,14,PODAL_PLAZA
+4,12,PODAL_PLAZA
+4,12,PODAL_PLAZA
+6,12,PODAL_PLAZA
+6,12,PODAL_PLAZA
+###########
+# 4. Priest of Tempus
+###########
+1,13,PODAL_PLAZA
+###########
+# 5. ARMS AND ARMOR SHOP
+###########
+8,13,PODAL_PLAZA
+8,13,PODAL_PLAZA
+8,11,PODAL_PLAZA
+8,11,PODAL_PLAZA
+11,12,PODAL_PLAZA
+11,12,PODAL_PLAZA
+13,8,PODAL_PLAZA
+13,8,PODAL_PLAZA
+9,13,PODAL_PLAZA
+9,13,PODAL_PLAZA
+############
+# 6. SILVER ITEMS SHOP
+############
+10,13,PODAL_PLAZA
+10,13,PODAL_PLAZA
+11,10,PODAL_PLAZA
+11,10,PODAL_PLAZA
+############
+#7.     Shopkeeper 
+############
+9,10,PODAL_PLAZA
+9,10,PODAL_PLAZA
+9,11,PODAL_PLAZA
+9,11,PODAL_PLAZA
+11,11,PODAL_PLAZA
+11,11,PODAL_PLAZA
+12,10,PODAL_PLAZA
+12,10,PODAL_PLAZA
+15,8,PODAL_PLAZA
+15,8,PODAL_PLAZA
+###########
+#8.     Tavern 
+############
+8,9,PODAL_PLAZA
+8,9,PODAL_PLAZA
+10,8,PODAL_PLAZA
+10,8,PODAL_PLAZA
+15,10,PODAL_PLAZA
+15,10,PODAL_PLAZA
+15,14,PODAL_PLAZA
+15,14,PODAL_PLAZA
+############
+#9.     Jewelry Shop 
+############
+8,10,PODAL_PLAZA
+8,10,PODAL_PLAZA
+############
+#10.  Council Clerk 
+############
+#5,5,PODAL_PLAZA
+#5,5,PODAL_PLAZA
+5,5,PODAL_PLAZA 
+5,5,PODAL_PLAZA
+############
+#11.  Councilman Cadorna 
+############
+5,6,PODAL_PLAZA
+5,6,PODAL_PLAZA
+############
+#12.  Cadorna’s Chamber 
+############
+6,5,PODAL_PLAZA
+6,5,PODAL_PLAZA
+############
+#13.  Lord Urslingen 
+############
+6,7,PODAL_PLAZA
+############
+#14.  Priest of Tyr 
+############
+8,6,PODAL_PLAZA
+8,6,PODAL_PLAZA
+10,4,PODAL_PLAZA
+10,4,PODAL_PLAZA
+###########
+#15.  Bishop Braccio 
+############
+8,6,PODAL_PLAZA
+8,6,PODAL_PLAZA
+############ 
+#16.  Passenger Dock 
+############
+11,1,PODAL_PLAZA

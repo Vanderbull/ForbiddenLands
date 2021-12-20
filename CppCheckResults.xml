@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<results version="2">
+    <cppcheck version="1.82" />
+    <errors>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file="include/Item.h" line="28" />
+            <location file="include/Item.h" line="65" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file="include/Item.h" line="28" />
+            <location file="include/Item.h" line="79" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file="include/Item.h" line="28" />
+            <location file="include/Item.h" line="94" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file="include/Item.h" line="53" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file="include/Item.h" line="67" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file="include/Item.h" line="81" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file="include/Item.h" line="96" />
+        </error>
+        <error id="uselessAssignmentArg" severity="style" msg="Assignment of function parameter has no effect outside the function." verbose="Assignment of function parameter has no effect outside the function." cwe="398">
+            <location file="include/functions.h" line="33" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;m_font&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;m_font&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/functions.h" line="18" />
+            <location file="include/functions.h" line="17" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::Manufacturer&apos; is never used." verbose="struct member &apos;_PCX_HEADER::Manufacturer&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="34" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::Version&apos; is never used." verbose="struct member &apos;_PCX_HEADER::Version&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="35" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::Encoding&apos; is never used." verbose="struct member &apos;_PCX_HEADER::Encoding&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="36" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::BitsPerPixel&apos; is never used." verbose="struct member &apos;_PCX_HEADER::BitsPerPixel&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="37" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::XMin&apos; is never used." verbose="struct member &apos;_PCX_HEADER::XMin&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="38" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::YMin&apos; is never used." verbose="struct member &apos;_PCX_HEADER::YMin&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="39" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::XMax&apos; is never used." verbose="struct member &apos;_PCX_HEADER::XMax&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="40" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::YMax&apos; is never used." verbose="struct member &apos;_PCX_HEADER::YMax&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="41" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::HDpi&apos; is never used." verbose="struct member &apos;_PCX_HEADER::HDpi&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="42" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::VDPI&apos; is never used." verbose="struct member &apos;_PCX_HEADER::VDPI&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="43" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::Colormap&apos; is never used." verbose="struct member &apos;_PCX_HEADER::Colormap&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="44" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::Reserved&apos; is never used." verbose="struct member &apos;_PCX_HEADER::Reserved&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="45" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::NPlanes&apos; is never used." verbose="struct member &apos;_PCX_HEADER::NPlanes&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="46" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::BytesPerLine&apos; is never used." verbose="struct member &apos;_PCX_HEADER::BytesPerLine&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="47" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::PaletteInfo&apos; is never used." verbose="struct member &apos;_PCX_HEADER::PaletteInfo&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="48" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::HScreenSize&apos; is never used." verbose="struct member &apos;_PCX_HEADER::HScreenSize&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="49" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::VScreenSize&apos; is never used." verbose="struct member &apos;_PCX_HEADER::VScreenSize&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="50" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_PCX_HEADER::Filler&apos; is never used." verbose="struct member &apos;_PCX_HEADER::Filler&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="51" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::IDLength&apos; is never used." verbose="struct member &apos;_TGA_HEADER::IDLength&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="56" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ColorMap&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ColorMap&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="57" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ImageType&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ImageType&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="58" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ColorSpec_FirstEntry&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ColorSpec_FirstEntry&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="59" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ColorSpec_Length&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ColorSpec_Length&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="60" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ColorSpec_EntrySize&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ColorSpec_EntrySize&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="61" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ImageSpec_XOrig&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ImageSpec_XOrig&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="62" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ImageSpec_YOrig&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ImageSpec_YOrig&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="63" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ImageSpec_Width&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ImageSpec_Width&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="64" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ImageSpec_Height&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ImageSpec_Height&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="65" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ImageSpec_Depth&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ImageSpec_Depth&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="66" />
+        </error>
+        <error id="unusedStructMember" severity="style" msg="struct member &apos;_TGA_HEADER::ImageSpec_Desc&apos; is never used." verbose="struct member &apos;_TGA_HEADER::ImageSpec_Desc&apos; is never used." cwe="563">
+            <location file="include/macros.h" line="67" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="225" />
+            <location file="include/menu_resource.h" line="224" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="263" />
+            <location file="include/menu_resource.h" line="262" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="286" />
+            <location file="include/menu_resource.h" line="285" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="309" />
+            <location file="include/menu_resource.h" line="308" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="332" />
+            <location file="include/menu_resource.h" line="331" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="355" />
+            <location file="include/menu_resource.h" line="354" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="378" />
+            <location file="include/menu_resource.h" line="377" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="401" />
+            <location file="include/menu_resource.h" line="400" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="424" />
+            <location file="include/menu_resource.h" line="423" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="447" />
+            <location file="include/menu_resource.h" line="446" />
+        </error>
+        <error id="redundantAssignment" severity="style" msg="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." verbose="Variable &apos;gHigh&apos; is reassigned a value before the old one has been used." cwe="563">
+            <location file="include/menu_resource.h" line="470" />
+            <location file="include/menu_resource.h" line="469" />
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &apos;equipmentHitBox[10]&apos; accessed at index 11, which is out of bounds." verbose="Array &apos;equipmentHitBox[10]&apos; accessed at index 11, which is out of bounds." cwe="119">
+            <location file="include/resource.h" line="1006" info="Array index out of bounds" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function logFile.empty() is not used." verbose="Return value of function logFile.empty() is not used." cwe="252">
+            <location file="include/resource.h" line="96" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function mainLog.empty() is not used." verbose="Return value of function mainLog.empty() is not used." cwe="252">
+            <location file="include/resource.h" line="97" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file="include/resource.h" line="360" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file="include/resource.h" line="370" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file="include/resource.h" line="421" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file="include/resource.h" line="1720" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;x1&apos; can be reduced." verbose="The scope of the variable &apos;x1&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file="include/resource.h" line="1092" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;y1&apos; can be reduced." verbose="The scope of the variable &apos;y1&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file="include/resource.h" line="1092" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;x2&apos; can be reduced." verbose="The scope of the variable &apos;x2&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file="include/resource.h" line="1092" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;y2&apos; can be reduced." verbose="The scope of the variable &apos;y2&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file="include/resource.h" line="1092" />
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;backpackText&apos; is assigned a value that is never used." verbose="Variable &apos;backpackText&apos; is assigned a value that is never used." cwe="563">
+            <location file="include/resource.h" line="782" />
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;room&apos; is assigned a value that is never used." verbose="Variable &apos;room&apos; is assigned a value that is never used." cwe="563">
+            <location file="include/resource.h" line="2084" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="235" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="235" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="235" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." cwe="398">
+            <location file="include/resource.h" line="235" />
+        </error>
+        <error id="noConstructor" severity="style" msg="The class &apos;inputhandler&apos; does not have a constructor." verbose="The class &apos;inputhandler&apos; does not have a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398">
+            <location file="include/resource.h" line="761" />
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;Description&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;Description&apos; a value by passing the value to the constructor in the initialization list." cwe="398">
+            <location file="include/resource.h" line="235" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="include/resource.h" file="include/Item.h" line="28" />
+            <location file0="include/resource.h" file="include/Item.h" line="65" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="include/resource.h" file="include/Item.h" line="28" />
+            <location file0="include/resource.h" file="include/Item.h" line="79" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="include/resource.h" file="include/Item.h" line="28" />
+            <location file0="include/resource.h" file="include/Item.h" line="94" />
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;inGameObject&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;inGameObject&apos; has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided." cwe="398">
+            <location file="include/resource.h" line="235" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="include/resource.h" file="include/Item.h" line="53" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="include/resource.h" file="include/Item.h" line="67" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="include/resource.h" file="include/Item.h" line="81" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="include/resource.h" file="include/Item.h" line="96" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;Desc&apos; should be passed by reference." verbose="Parameter &apos;Desc&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file="include/resource.h" line="235" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;two&apos; should be passed by reference." verbose="Parameter &apos;two&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file="include/resource.h" line="1656" />
+        </error>
+        <error id="uselessCallsEmpty" severity="warning" msg="Ineffective call of function &apos;empty()&apos;. Did you intend to call &apos;clear()&apos; instead?" verbose="Ineffective call of function &apos;empty()&apos;. Did you intend to call &apos;clear()&apos; instead?" cwe="398">
+            <location file="include/resource.h" line="97" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::supply&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::supply&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::time&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::time&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_iron&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_iron&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_wood&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_wood&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_leather&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_leather&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_cloth&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_cloth&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_tallow&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_tallow&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_stone&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_stone&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_feather&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_feather&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_pelt&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_pelt&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_meat&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_meat&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_fish&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_fish&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::resource_vegetables&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::resource_vegetables&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;Item::effect&apos; is not initialized in the constructor." verbose="Member variable &apos;Item::effect&apos; is not initialized in the constructor." cwe="398">
+            <location file="src/Item.cpp" line="3" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="src/Item.cpp" file="include/Item.h" line="28" />
+            <location file0="src/Item.cpp" file="include/Item.h" line="65" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="src/Item.cpp" file="include/Item.h" line="28" />
+            <location file0="src/Item.cpp" file="include/Item.h" line="79" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="src/Item.cpp" file="include/Item.h" line="28" />
+            <location file0="src/Item.cpp" file="include/Item.h" line="94" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/Item.cpp" file="include/Item.h" line="53" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/Item.cpp" file="include/Item.h" line="67" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/Item.cpp" file="include/Item.h" line="81" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/Item.cpp" file="include/Item.h" line="96" />
+        </error>
+        <error id="toomanyconfigs" severity="information" msg="Too many #ifdef configurations - cppcheck only checks 12 of 103 configurations. Use --force to check all configurations." verbose="The checking of the file will be interrupted because there are too many #ifdef configurations. Checking of all #ifdef configurations can be forced by --force command line option or from GUI preferences. However that may increase the checking time." cwe="398">
+            <location file="src/main.cpp" line="0" />
+        </error>
+        <error id="uselessAssignmentArg" severity="style" msg="Assignment of function parameter has no effect outside the function." verbose="Assignment of function parameter has no effect outside the function." cwe="398">
+            <location file0="src/main.cpp" file="include/functions.h" line="33" />
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &apos;equipmentHitBox[10]&apos; accessed at index 11, which is out of bounds." verbose="Array &apos;equipmentHitBox[10]&apos; accessed at index 11, which is out of bounds." cwe="119">
+            <location file0="src/main.cpp" file="include/resource.h" line="1006" info="Array index out of bounds" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function logFile.empty() is not used." verbose="Return value of function logFile.empty() is not used." cwe="252">
+            <location file0="src/main.cpp" file="include/resource.h" line="96" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function mainLog.empty() is not used." verbose="Return value of function mainLog.empty() is not used." cwe="252">
+            <location file0="src/main.cpp" file="include/resource.h" line="97" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file0="src/main.cpp" file="include/resource.h" line="360" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file0="src/main.cpp" file="include/resource.h" line="370" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file0="src/main.cpp" file="include/resource.h" line="421" />
+        </error>
+        <error id="ignoredReturnValue" severity="warning" msg="Return value of function std::to_string() is not used." verbose="Return value of function std::to_string() is not used." cwe="252">
+            <location file0="src/main.cpp" file="include/resource.h" line="1720" />
+        </error>
+        <error id="knownConditionTrueFalse" severity="style" msg="Condition &apos;minimapActive&apos; is always true" verbose="Condition &apos;minimapActive&apos; is always true" cwe="571">
+            <location file0="src/main.cpp" file="include/resource.h" line="2096" info="Condition &apos;minimapActive&apos; is always true" />
+            <location file0="src/main.cpp" file="include/resource.h" line="2095" info="Assignment &apos;minimapActive=true&apos;, assigned value is 1" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;x1&apos; can be reduced." verbose="The scope of the variable &apos;x1&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="1092" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;y1&apos; can be reduced." verbose="The scope of the variable &apos;y1&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="1092" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;x2&apos; can be reduced." verbose="The scope of the variable &apos;x2&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="1092" />
+        </error>
+        <error id="variableScope" severity="style" msg="The scope of the variable &apos;y2&apos; can be reduced." verbose="The scope of the variable &apos;y2&apos; can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops. Here is an example where cppcheck will write that the scope for &apos;i&apos; can be reduced:\012void f(int x)\012{\012    int i = 0;\012    if (x) {\012        // it&apos;s safe to move &apos;int i = 0;&apos; here\012        for (int n = 0; n &lt; 10; ++n) {\012            // it is possible but not safe to move &apos;int i = 0;&apos; here\012            do_something(&amp;i);\012        }\012    }\012}\012When you see this message it is always safe to reduce the variable scope 1 level." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="1092" />
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;backpackText&apos; is assigned a value that is never used." verbose="Variable &apos;backpackText&apos; is assigned a value that is never used." cwe="563">
+            <location file0="src/main.cpp" file="include/resource.h" line="782" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: aSurface" verbose="Unused variable: aSurface" cwe="563">
+            <location file="src/main.cpp" line="560" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: w" verbose="Unused variable: w" cwe="563">
+            <location file="src/main.cpp" line="566" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: h" verbose="Unused variable: h" cwe="563">
+            <location file="src/main.cpp" line="566" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: w" verbose="Unused variable: w" cwe="563">
+            <location file="src/main.cpp" line="589" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: h" verbose="Unused variable: h" cwe="563">
+            <location file="src/main.cpp" line="589" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: w" verbose="Unused variable: w" cwe="563">
+            <location file="src/main.cpp" line="601" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: h" verbose="Unused variable: h" cwe="563">
+            <location file="src/main.cpp" line="601" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: w" verbose="Unused variable: w" cwe="563">
+            <location file="src/main.cpp" line="613" />
+        </error>
+        <error id="unusedVariable" severity="style" msg="Unused variable: h" verbose="Unused variable: h" cwe="563">
+            <location file="src/main.cpp" line="613" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="234" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::DragAndDrop&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="235" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::x&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="235" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::y&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="235" />
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." verbose="Member variable &apos;inGameObject::Image&apos; is not initialized in the constructor." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="235" />
+        </error>
+        <error id="noConstructor" severity="style" msg="The class &apos;inputhandler&apos; does not have a constructor." verbose="The class &apos;inputhandler&apos; does not have a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="761" />
+        </error>
+        <error id="useInitializationList" severity="performance" msg="Variable &apos;Description&apos; is assigned in constructor body. Consider performing initialization in initialization list." verbose="When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don&apos;t explicitly write them to the initialization list. You could avoid assigning &apos;Description&apos; a value by passing the value to the constructor in the initialization list." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="235" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Appliance&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="src/main.cpp" file="include/Item.h" line="28" />
+            <location file0="src/main.cpp" file="include/Item.h" line="65" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Liquid&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="src/main.cpp" file="include/Item.h" line="28" />
+            <location file0="src/main.cpp" file="include/Item.h" line="79" />
+        </error>
+        <error id="duplInheritedMember" severity="warning" msg="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." verbose="The class &apos;Amulet&apos; defines member variable with name &apos;effect&apos; also defined in its parent class &apos;Item&apos;." cwe="398">
+            <location file0="src/main.cpp" file="include/Item.h" line="28" />
+            <location file0="src/main.cpp" file="include/Item.h" line="94" />
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;inGameObject&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;inGameObject&apos; has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="235" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/main.cpp" file="include/Item.h" line="53" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/main.cpp" file="include/Item.h" line="67" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/main.cpp" file="include/Item.h" line="81" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;n&apos; should be passed by reference." verbose="Parameter &apos;n&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/main.cpp" file="include/Item.h" line="96" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;Desc&apos; should be passed by reference." verbose="Parameter &apos;Desc&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="235" />
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;two&apos; should be passed by reference." verbose="Parameter &apos;two&apos; is passed by value. It could be passed as a (const) reference which is usually faster and recommended in C++." cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="1656" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/menu_resource.h" line="137" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/menu_resource.h" line="138" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/menu_resource.h" line="139" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/menu_resource.h" line="153" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="329" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2090" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2311" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2312" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2341" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2346" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2352" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2364" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2370" />
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704">
+            <location file0="src/main.cpp" file="include/resource.h" line="2382" />
+        </error>
+        <error id="uselessCallsEmpty" severity="warning" msg="Ineffective call of function &apos;empty()&apos;. Did you intend to call &apos;clear()&apos; instead?" verbose="Ineffective call of function &apos;empty()&apos;. Did you intend to call &apos;clear()&apos; instead?" cwe="398">
+            <location file0="src/main.cpp" file="include/resource.h" line="97" />
+        </error>
+        <error id="purgedConfiguration" severity="information" msg="The configuration &apos;BUILD_SDL&apos; was not checked because its code equals another one." verbose="The configuration &apos;BUILD_SDL&apos; was not checked because its code equals another one.">
+            <location file="src/main.cpp" line="0" />
+        </error>
+        <error id="purgedConfiguration" severity="information" msg="The configuration &apos;BUILD_SDL;__BORLANDC__&apos; was not checked because its code equals another one." verbose="The configuration &apos;BUILD_SDL;__BORLANDC__&apos; was not checked because its code equals another one.">
+            <location file="src/main.cpp" line="0" />
+        </error>
+        <error id="purgedConfiguration" severity="information" msg="The configuration &apos;PRIX64&apos; was not checked because its code equals another one." verbose="The configuration &apos;PRIX64&apos; was not checked because its code equals another one.">
+            <location file="src/main.cpp" line="0" />
+        </error>
+        <error id="purgedConfiguration" severity="information" msg="The configuration &apos;PRIs64&apos; was not checked because its code equals another one." verbose="The configuration &apos;PRIs64&apos; was not checked because its code equals another one.">
+            <location file="src/main.cpp" line="0" />
+        </error>
+        <error id="purgedConfiguration" severity="information" msg="The configuration &apos;PRIu64&apos; was not checked because its code equals another one." verbose="The configuration &apos;PRIu64&apos; was not checked because its code equals another one.">
+            <location file="src/main.cpp" line="0" />
+        </error>
+        <error id="purgedConfiguration" severity="information" msg="The configuration &apos;PRIx64&apos; was not checked because its code equals another one." verbose="The configuration &apos;PRIx64&apos; was not checked because its code equals another one.">
+            <location file="src/main.cpp" line="0" />
+        </error>
+        <error id="ConfigurationNotChecked" severity="information" msg="Skipping configuration &apos;SDL_CreateThread&apos; since the value of &apos;SDL_CreateThread&apos; is unknown. Use -D if you want to check it. You can use -U to skip it explicitly." verbose="Skipping configuration &apos;SDL_CreateThread&apos; since the value of &apos;SDL_CreateThread&apos; is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.">
+            <location file="../../../../../usr/include/SDL2/SDL_thread.h" line="163" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;Button&apos; is never used." verbose="The function &apos;Button&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="149" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;Delete&apos; is never used." verbose="The function &apos;Delete&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="218" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;DrawBackpack&apos; is never used." verbose="The function &apos;DrawBackpack&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="290" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;DrawRect&apos; is never used." verbose="The function &apos;DrawRect&apos; is never used." cwe="561">
+            <location file="include/functions.h" line="96" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;GetAmulet&apos; is never used." verbose="The function &apos;GetAmulet&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1651" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;GetArmor&apos; is never used." verbose="The function &apos;GetArmor&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1607" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;GetHunger&apos; is never used." verbose="The function &apos;GetHunger&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1487" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;GetThirst&apos; is never used." verbose="The function &apos;GetThirst&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1526" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;GetWeapon&apos; is never used." verbose="The function &apos;GetWeapon&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1565" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;Highlight&apos; is never used." verbose="The function &apos;Highlight&apos; is never used." cwe="561">
+            <location file="include/functions.h" line="66" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;RandomTreasure&apos; is never used." verbose="The function &apos;RandomTreasure&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="728" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;RenderCardonaTextileHouseEdges&apos; is never used." verbose="The function &apos;RenderCardonaTextileHouseEdges&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1358" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;RenderKhutosWellEdges&apos; is never used." verbose="The function &apos;RenderKhutosWellEdges&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1169" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;RenderMantorsLibraryEdges&apos; is never used." verbose="The function &apos;RenderMantorsLibraryEdges&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1232" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;RenderPodalPlazaEdges&apos; is never used." verbose="The function &apos;RenderPodalPlazaEdges&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1295" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;RenderSlumsEdges&apos; is never used." verbose="The function &apos;RenderSlumsEdges&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1106" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;SDL_main&apos; is never used." verbose="The function &apos;SDL_main&apos; is never used." cwe="561">
+            <location file="src/main.cpp" line="76" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;StojsnowGateEdges&apos; is never used." verbose="The function &apos;StojsnowGateEdges&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1421" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;TestFunction&apos; is never used." verbose="The function &apos;TestFunction&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1656" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;battleView&apos; is never used." verbose="The function &apos;battleView&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2028" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;copyFile&apos; is never used." verbose="The function &apos;copyFile&apos; is never used." cwe="561">
+            <location file="include/functions.h" line="78" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;dec_experience&apos; is never used." verbose="The function &apos;dec_experience&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1691" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;execute&apos; is never used." verbose="The function &apos;execute&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="756" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;getDescription&apos; is never used." verbose="The function &apos;getDescription&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="237" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;getInitiative&apos; is never used." verbose="The function &apos;getInitiative&apos; is never used." cwe="561">
+            <location file="include/common.h" line="48" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;getMonsterLevelXP&apos; is never used." verbose="The function &apos;getMonsterLevelXP&apos; is never used." cwe="561">
+            <location file="include/common.h" line="25" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;getexepath&apos; is never used." verbose="The function &apos;getexepath&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="721" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;inc_experience&apos; is never used." verbose="The function &apos;inc_experience&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1687" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;npcEngine&apos; is never used." verbose="The function &apos;npcEngine&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2040" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;package&apos; is never used." verbose="The function &apos;package&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2046" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;personalView&apos; is never used." verbose="The function &apos;personalView&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2037" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;renderExperience&apos; is never used." verbose="The function &apos;renderExperience&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1982" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;renderGearView&apos; is never used." verbose="The function &apos;renderGearView&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1706" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;renderSpeechBubble&apos; is never used." verbose="The function &apos;renderSpeechBubble&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="1948" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;rpgDataEngine&apos; is never used." verbose="The function &apos;rpgDataEngine&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2049" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;setBestiaryDescriptions&apos; is never used." verbose="The function &apos;setBestiaryDescriptions&apos; is never used." cwe="561">
+            <location file="include/common.h" line="55" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;shopView&apos; is never used." verbose="The function &apos;shopView&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2034" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;showlist&apos; is never used." verbose="The function &apos;showlist&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="678" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;showstack&apos; is never used." verbose="The function &apos;showstack&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="700" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;storyboardEngine&apos; is never used." verbose="The function &apos;storyboardEngine&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2043" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;supriseCheck&apos; is never used." verbose="The function &apos;supriseCheck&apos; is never used." cwe="561">
+            <location file="include/common.h" line="43" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;talkView&apos; is never used." verbose="The function &apos;talkView&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2031" />
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;worldView&apos; is never used." verbose="The function &apos;worldView&apos; is never used." cwe="561">
+            <location file="include/resource.h" line="2025" />
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Cppcheck cannot find all the include files (use --check-config for details)" verbose="Cppcheck cannot find all the include files. Cppcheck can check the code without the include files found. But the results will probably be more accurate if all the include files are found. Please check your project&apos;s include directories and add all of them as include directories for Cppcheck. To see what files Cppcheck cannot find use --check-config." />
+    </errors>
+</results>

@@ -1,0 +1,16 @@
+
+
+Its a 3 step process, using external libraries.
+
+    Model in blender. Export from Blender to .obj format (also containing .mtl file with reference to textures used).
+
+Refer to
+
+https://blender.stackexchange.com/questions/121/how-do-i-export-a-model-to-obj-format
+
+    Use a library like Assimp to produce vertices and attributes.
+
+    Use the vertices and attributes in your OpenGL application, using a method like described in,
+
+https://nickthecoder.wordpress.com/2013/01/20/mesh-loading-with-assimp/
+

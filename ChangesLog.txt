@@ -1,0 +1,29 @@
+16 December 2021
+   released version 1.0.3 of Forbidden Lands
+
+     Change log:
+        -Added: Now possible to drop items from inventory.
+
+16 December 2021
+   released version 1.0.3 of Forbidden Lands
+
+     Change log:
+        -New: Added missing battleBackground.png image
+        -Added: Using the new encounter boolean for rendering  swat guy in the 3D view
+        -Added: Improvement for quest object.
+        -New: Added so that you can trigger a battle of encounter flag is set
+
+16 December 2021
+   released version 1.0.3 of Forbidden Lands
+
+     Change log:
+        -Fixed: Fixed bug where the quest log window would get green when using admin tools.
+
+27 November 2021
+   released version 1.0.0 of Forbidden Lands
+
+     Change log:
+        -Cleaned: Removed alot of image content and added AutoVersion and OS info
+        -Added: VersionInfo to menu screen
+        -Fixed: Map loading and switching
+

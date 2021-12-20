@@ -1,0 +1,111 @@
+###########
+#
+###########
+11,1,SLUMS
+###########
+# GENERAL DESCRIPTIONS
+###########
+1,0,SLUMS
+###########
+# 2. Priestess of Sune
+###########
+1,2,SLUMS
+###########
+# 3. INN
+###########
+1,14,SLUMS
+1,14,SLUMS
+4,12,SLUMS
+4,12,SLUMS
+6,12,SLUMS
+6,12,SLUMS
+###########
+# 4. Priest of Tempus
+###########
+1,13,SLUMS
+###########
+# 5. ARMS AND ARMOR SHOP
+###########
+8,13,SLUMS
+8,13,SLUMS
+8,11,SLUMS
+8,11,SLUMS
+11,12,SLUMS
+11,12,SLUMS
+13,8,SLUMS
+13,8,SLUMS
+9,13,SLUMS
+9,13,SLUMS
+############
+# 6. SILVER ITEMS SHOP
+############
+10,13,SLUMS
+10,13,SLUMS
+11,10,SLUMS
+11,10,SLUMS
+############
+#7.     Shopkeeper 
+############
+9,10,SLUMS
+9,10,SLUMS
+9,11,SLUMS
+9,11,SLUMS
+11,11,SLUMS
+11,11,SLUMS
+12,10,SLUMS
+12,10,SLUMS
+15,8,SLUMS
+15,8,SLUMS
+###########
+#8.     Tavern 
+############
+8,9,SLUMS
+8,9,SLUMS
+10,8,SLUMS
+10,8,SLUMS
+15,10,SLUMS
+15,10,SLUMS
+15,14,SLUMS
+15,14,SLUMS
+############
+#9.     Jewelry Shop 
+############
+8,10,SLUMS
+8,10,SLUMS
+############
+#10.  Council Clerk 
+############
+#5,5,SLUMS
+#5,5,SLUMS
+5,5,SLUMS 
+5,5,SLUMS
+############
+#11.  Councilman Cadorna 
+############
+5,6,SLUMS
+5,6,SLUMS
+############
+#12.  Cadorna’s Chamber 
+############
+6,5,SLUMS
+6,5,SLUMS
+############
+#13.  Lord Urslingen 
+############
+6,7,SLUMS
+############
+#14.  Priest of Tyr 
+############
+8,6,SLUMS
+8,6,SLUMS
+10,4,SLUMS
+10,4,SLUMS
+###########
+#15.  Bishop Braccio 
+############
+8,6,SLUMS
+8,6,SLUMS
+############ 
+#16.  Passenger Dock 
+############
+11,1,SLUMS

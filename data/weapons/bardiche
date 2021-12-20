@@ -1,0 +1,16 @@
+#"Name": 
+Bardiche
+#"Weight (coins)": 
+125
+#"Value (gold)":
+7
+#"H": hands needed to equip the item.
+2
+#"T": damage type: 
+S
+#"Damage v. S/M": damage weapon does against Small or Medium opponents
+2d4
+#"Damage v. L+": damage weapon does against Large or larger opponents
+3d4
+#"Thrown Range": this weapon may also be thrown; ranges are short/medium/long.
+0

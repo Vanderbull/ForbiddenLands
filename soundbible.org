@@ -1,0 +1,8 @@
+pool_of_radiance_theme.ogg
+155_Outpost_31.ogg
+157_Field_of_Heroes.ogg
+151_Metropolis_Fanfare.ogg
+tavern
+153_Secret_Garden.ogg
+..
+.

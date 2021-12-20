@@ -1,0 +1,1021 @@
+# depslib dependency file v1.0
+1573985775 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/aCity.cpp
+	<iostream>
+	<string>
+	"aCity.h"
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/aCity.h
+	<SDL2/SDL.h>
+
+1573985775 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/aGame.cpp
+	"aGame.h"
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/aGame.h
+	<iostream>
+	<vector>
+	<string>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+
+1573985775 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/aInventory.cpp
+	<ctime>
+	<iostream>
+	<string>
+	<array>
+	<fstream>
+	<sstream>
+	<iterator>
+	<vector>
+	<iomanip>
+	<map>
+	<algorithm>
+	<string>
+	<limits.h>
+	<unistd.h>
+	"aInventory.h"
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/aInventory.h
+
+1573985775 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/aLibrary.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"aLibrary.h"
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/aLibrary.h
+
+1585510808 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/CharacterCreator.cpp
+	<iostream>
+	<string>
+	"CharacterCreator.h"
+
+1585510808 /home/rickard/Documents/GitHub/ForbiddenLands/include/CharacterCreator.h
+
+1573985775 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/Item.cpp
+	"Item.h"
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/Item.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1585866513 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/main.cpp
+	<cassert>
+	<ctime>
+	<iostream>
+	<string>
+	<list>
+	<array>
+	<stack>
+	<deque>
+	<queue>
+	<fstream>
+	<sstream>
+	<iterator>
+	<vector>
+	<iomanip>
+	<map>
+	<algorithm>
+	<string>
+	<limits.h>
+	<unistd.h>
+	<sys/stat.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL_net.h>
+	"../include/texture_resource.h"
+	"../include/sound_resource.h"
+	"../include/map_resource.h"
+	"../include/functions.h"
+	"../include/resource.h"
+	"../include/ccamera.h"
+	"../include/aGame.h"
+	"../include/macros.h"
+	"../include/CharacterCreator.h"
+	"../include/aLibrary.h"
+	"../include/aInventory.h"
+	"../include/aCity.h"
+	"backpack.h"
+	<stdio.h>
+	<direct.h>
+	<unistd.h>
+
+1539993016 /usr/include/SDL2/SDL_net.h
+	<stdint.h>
+	"SDL.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_sensor.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	<sal.h>
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_config.h
+	"SDL_platform.h"
+
+1568963350 /usr/include/SDL2/SDL_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/begin_code.h
+
+1568963350 /usr/include/SDL2/close_code.h
+
+1568963350 /usr/include/SDL2/SDL_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<sys/cpuinline.h>
+	<mbarrier.h>
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<armintr.h>
+	<arm_neon.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1568963350 /usr/include/SDL2/SDL_scancode.h
+	"SDL_stdinc.h"
+
+1568963350 /usr/include/SDL2/SDL_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1568963350 /usr/include/SDL2/SDL_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1568963350 /usr/include/SDL2/SDL_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1585732351 /home/rickard/Documents/GitHub/ForbiddenLands/include/texture_resource.h
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/sound_resource.h
+
+1582324510 /home/rickard/Documents/GitHub/ForbiddenLands/include/map_resource.h
+
+1585773751 /home/rickard/Documents/GitHub/ForbiddenLands/include/functions.h
+
+1585867358 /home/rickard/Documents/GitHub/ForbiddenLands/include/resource.h
+	"Monster.h"
+	"Item.h"
+	"colors.h"
+	"rectangles.h"
+	<iostream>
+	<fstream>
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/Monster.h
+	<iostream>
+	<string>
+	<vector>
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/ccamera.h
+
+1573985774 /home/rickard/Documents/GitHub/ForbiddenLands/include/macros.h
+
+1573985775 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/Monster.cpp
+	"Monster.h"
+
+1560284547 source:/home/rickard/Documents/GitHub/ForbiddenLands/loguru-master/loguru.cpp
+	"loguru.hpp"
+	<algorithm>
+	<atomic>
+	<chrono>
+	<cstdarg>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<mutex>
+	<regex>
+	<string>
+	<thread>
+	<vector>
+	<direct.h>
+	<signal.h>
+	<sys/stat.h>
+	<unistd.h>
+	<linux/limits.h>
+	<limits.h>
+	"TargetConditionals.h"
+	<cxxabi.h>
+	<dlfcn.h>
+	<execinfo.h>
+	<pthread.h>
+	<pthread_np.h>
+	<sys/thr.h>
+	<pthread_np.h>
+	<windows.h>
+
+1560284547 /home/rickard/Documents/GitHub/ForbiddenLands/loguru-master/loguru.hpp
+	<loguru.hpp>
+	<sal.h>
+	<fmt/format.h>
+	<cstdarg>
+	<sstream>
+	<string>
+
+1574450231 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/backpack.cpp
+	"backpack.h"
+
+1574450410 /home/rickard/Documents/GitHub/ForbiddenLands/include/backpack.h
+	<iostream>
+
+1577620972 source:/home/administrator/Documents/Github/ForbiddenLands/src/aCity.cpp
+	<iostream>
+	<string>
+	"aCity.h"
+
+1577620971 /home/administrator/Documents/Github/ForbiddenLands/include/aCity.h
+	<SDL2/SDL.h>
+
+1577620972 source:/home/administrator/Documents/Github/ForbiddenLands/src/aGame.cpp
+	"aGame.h"
+
+1577620971 /home/administrator/Documents/Github/ForbiddenLands/include/aGame.h
+	<iostream>
+	<vector>
+	<string>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+
+1577620972 source:/home/administrator/Documents/Github/ForbiddenLands/src/aInventory.cpp
+	<ctime>
+	<iostream>
+	<string>
+	<array>
+	<fstream>
+	<sstream>
+	<iterator>
+	<vector>
+	<iomanip>
+	<map>
+	<algorithm>
+	<string>
+	<limits.h>
+	<unistd.h>
+	"aInventory.h"
+
+1577620971 /home/administrator/Documents/Github/ForbiddenLands/include/aInventory.h
+
+1577620972 source:/home/administrator/Documents/Github/ForbiddenLands/src/aLibrary.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"aLibrary.h"
+
+1577620971 /home/administrator/Documents/Github/ForbiddenLands/include/aLibrary.h
+
+1577620972 source:/home/administrator/Documents/Github/ForbiddenLands/src/backpack.cpp
+	"backpack.h"
+
+1577620971 /home/administrator/Documents/Github/ForbiddenLands/include/backpack.h
+	<iostream>
+
+1577620972 source:/home/administrator/Documents/Github/ForbiddenLands/src/CharacterCreator.cpp
+	<iostream>
+	<string>
+	"CharacterCreator.h"
+
+1577620971 /home/administrator/Documents/Github/ForbiddenLands/include/CharacterCreator.h
+
+1587632921 source:/home/administrator/Documents/Github/ForbiddenLands/src/Item.cpp
+	"Item.h"
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/Item.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1587704743 source:/home/administrator/Documents/Github/ForbiddenLands/src/main.cpp
+	<cassert>
+	<ctime>
+	<iostream>
+	<string>
+	<list>
+	<array>
+	<stack>
+	<deque>
+	<queue>
+	<fstream>
+	<sstream>
+	<iterator>
+	<vector>
+	<iomanip>
+	<map>
+	<algorithm>
+	<string>
+	<limits.h>
+	<unistd.h>
+	<sys/stat.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL_net.h>
+	"../include/texture_resource.h"
+	"../include/sound_resource.h"
+	"../include/map_resource.h"
+	"../include/resource.h"
+	"../include/ccamera.h"
+	"../include/macros.h"
+	<stdio.h>
+	<direct.h>
+	<unistd.h>
+
+1568963350 /usr/include/SDL2/SDL_sensor.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/texture_resource.h
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/sound_resource.h
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/map_resource.h
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/functions.h
+
+1587705129 /home/administrator/Documents/Github/ForbiddenLands/include/resource.h
+	"Item.h"
+	"colors.h"
+	"functions.h"
+	<iostream>
+	<fstream>
+
+1577620971 /home/administrator/Documents/Github/ForbiddenLands/include/Monster.h
+	<iostream>
+	<string>
+	<vector>
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/ccamera.h
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/macros.h
+
+1577620972 source:/home/administrator/Documents/Github/ForbiddenLands/src/Monster.cpp
+	"Monster.h"
+
+1578864053 /home/rickard/Documents/GitHub/ForbiddenLands/include/colors.h
+
+1579067250 /home/rickard/Documents/GitHub/ForbiddenLands/include/rectangles.h
+
+1587632919 /home/administrator/Documents/Github/ForbiddenLands/include/colors.h
+
+1586638440 source:/home/rickard/Documents/ForbiddenLands/src/Item.cpp
+	"Item.h"
+
+1631861678 /home/rickard/Documents/ForbiddenLands/include/Item.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1639695455 source:/home/rickard/Documents/ForbiddenLands/src/main.cpp
+	<cassert>
+	<ctime>
+	<iostream>
+	<string>
+	<list>
+	<array>
+	<stack>
+	<deque>
+	<queue>
+	<fstream>
+	<sstream>
+	<iterator>
+	<vector>
+	<iomanip>
+	<map>
+	<algorithm>
+	<string>
+	<limits.h>
+	<unistd.h>
+	<sys/stat.h>
+	<stdint.h>
+	<sys/utsname.h>
+	<experimental/filesystem>
+	<iostream>
+	<chrono>
+	<iomanip>
+	<fstream>
+	<sys/types.h>
+	<dirent.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdio.h>
+	<random>
+	<sqlite3.h>
+	"../rapidxml-1.13/rapidxml.hpp"
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	"../version.h"
+	"../include/resource.h"
+	"../include/world_view.h"
+	"../include/battle_view.h"
+	<direct.h>
+	<unistd.h>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/texture_resource.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/sound_resource.h
+
+1639801296 /home/rickard/Documents/ForbiddenLands/include/map_resource.h
+	"common.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/resource.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"functions.h"
+	"texture_resource.h"
+	"common.h"
+	"bestiary.h"
+	"map_resource.h"
+	"menu_resource.h"
+	"sound_resource.h"
+	"spells.h"
+	"render.h"
+	"boat.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/colors.h
+
+1639869710 /home/rickard/Documents/ForbiddenLands/include/functions.h
+	<cstdlib>
+	<random>
+
+1586638439 /home/rickard/Documents/ForbiddenLands/include/ccamera.h
+
+1586638439 /home/rickard/Documents/ForbiddenLands/include/macros.h
+
+1639535955 /home/rickard/Documents/ForbiddenLands/version.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/menu_resource.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"main_menu.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/common.h
+	<bits/stdc++.h>
+	"colors.h"
+	"coordinates.h"
+	"player_characters.h"
+	"savegame.h"
+
+1637895594 /home/rickard/Documents/ForbiddenLands/include/character_locations.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1600052752 source:/home/rickard/Documents/ForbiddenLands/src/character_locations.cpp
+	"character_locations.h"
+
+1603370447 source:/home/rickard/Documents/ForbiddenLands/src/world_view.cpp
+	"world_view.h"
+
+1639871136 /home/rickard/Documents/ForbiddenLands/include/world_view.h
+	<regex>
+	"common.h"
+
+1639869710 /home/rickard/Documents/ForbiddenLands/include/render_silvershop.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/render_generalshop.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/render_jewelleryshop.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/render_tavern.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"healing_character.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/main_menu.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"renderSaveMenu.h"
+	"renderLoadMenu.h"
+	"renderSettings.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/render_smith.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639695333 /home/rickard/Documents/ForbiddenLands/include/player_characters.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"common.h"
+
+1639870114 /home/rickard/Documents/ForbiddenLands/include/battle_view.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"common.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/savegame.h
+	<bits/stdc++.h>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/render_temple.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"healing_character.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/healing_character.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1633028294 /home/rickard/Documents/ForbiddenLands/include/liquids.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1637895594 /home/rickard/Documents/ForbiddenLands/include/treasure.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1639535955 source:/home/rickard/Documents/ForbiddenLands/src/boat.cpp
+	"boat.h"
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/boat.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1637897995 /home/rickard/Documents/ForbiddenLands/include/version.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/render_trainer.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/coordinates.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/renderSaveMenu.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/renderLoadMenu.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/renderSettings.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells.h
+	"../include/spells/bless.h"
+	"../include/spells/command.h"
+	"../include/spells/cure_critical_wounds.h"
+	"../include/spells/cure_light_wounds.h"
+	"../include/spells/cure_serious_wounds.h"
+	"../include/spells/detect_evil.h"
+	"../include/spells/detect_magic.h"
+	"../include/spells/light.h"
+	"../include/spells/protection_from_evil.h"
+	"../include/spells/purify_food_and_drink.h"
+	"../include/spells/remove_fear.h"
+	"../include/spells/resist_cold.h"
+	"../include/spells/sanctuary.h"
+	"../include/spells/create_water.h"
+
+1637901111 /home/rickard/Documents/ForbiddenLands/include/cure_light_wounds.h
+
+1637901148 /home/rickard/Documents/ForbiddenLands/include/cure_serious_wounds.h
+
+1637901173 /home/rickard/Documents/ForbiddenLands/include/cure_critical_wounds.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/render.h
+	"render_trainer.h"
+	"render_generalshop.h"
+	"render_jewelleryshop.h"
+	"render_smith.h"
+	"render_tavern.h"
+	"render_temple.h"
+	"render_silvershop.h"
+
+1637942335 /home/rickard/Documents/ForbiddenLands/include/bless.h
+
+1637943306 /home/rickard/Documents/ForbiddenLands/include/command.h
+
+1637943465 /home/rickard/Documents/ForbiddenLands/include/create_water.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/bestiary.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/cure_light_wounds.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/cure_serious_wounds.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/cure_critical_wounds.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/bless.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/command.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/create_water.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/detect_evil.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/detect_magic.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/light.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/protection_from_evil.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/purify_food_and_drink.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/remove_fear.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/resist_cold.h
+
+1639535953 /home/rickard/Documents/ForbiddenLands/include/spells/sanctuary.h
+
+1639695333 /home/rickard/Documents/ForbiddenLands/rapidxml-1.13/rapidxml.hpp
+	<cstdlib>
+	<cassert>
+	<new>
+	<exception>
+

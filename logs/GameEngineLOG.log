@@ -1,0 +1,10 @@
+[Log] Mon Dec 20 14:15:08 2021 ./logs/GameEngineLOG.txt file opened: Success
+[Log] Mon Dec 20 14:15:09 2021 initialize SDL and all its subsystems: Success
+[Log] Mon Dec 20 14:15:09 2021 TTF_Init: Success!
+[Log] Mon Dec 20 14:15:09 2021 Display #0: current display mode is 2560x1440px @ 60hz.
+[Log] Mon Dec 20 14:15:09 2021 SDL Window creation: SUCCESS
+[Log] Mon Dec 20 14:15:09 2021 SDL Renderer creation: SUCCESS
+[Log] Mon Dec 20 14:15:09 2021 Loading Window Icon initiated...
+[Log] Mon Dec 20 14:15:09 2021 Version: 1.0.3.183
+[Log] Mon Dec 20 14:15:09 2021 Audio successfully initiated...
+[Log] Mon Dec 20 14:15:09 2021 The current working directory is /home/rickard/Documents/ForbiddenLands
