@@ -36,3 +36,4 @@ bin/*
 images/blender/*
 logs/*
 *.layout
+ForbiddenLands.layout
