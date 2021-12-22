@@ -1019,3 +1019,295 @@
 	<new>
 	<exception>
 
+1640005964 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/boat.cpp
+	"boat.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/boat.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1640197109 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+	<cassert>
+	<ctime>
+	<iostream>
+	<string>
+	<list>
+	<array>
+	<stack>
+	<deque>
+	<queue>
+	<fstream>
+	<sstream>
+	<iterator>
+	<vector>
+	<iomanip>
+	<map>
+	<algorithm>
+	<string>
+	<limits.h>
+	<unistd.h>
+	<sys/stat.h>
+	<stdint.h>
+	<sys/utsname.h>
+	<experimental/filesystem>
+	<iostream>
+	<chrono>
+	<iomanip>
+	<fstream>
+	<sys/types.h>
+	<dirent.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdio.h>
+	<random>
+	<sqlite3.h>
+	"../rapidxml-1.13/rapidxml.hpp"
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	"../version.h"
+	"../include/resource.h"
+	"../include/world_view.h"
+	"../include/battle_view.h"
+	<direct.h>
+	<unistd.h>
+
+1640005964 /home/rickard/Documents/Vanderbull/ForbiddenLands/rapidxml-1.13/rapidxml.hpp
+	<cstdlib>
+	<cassert>
+	<new>
+	<exception>
+
+1640005965 /home/rickard/Documents/Vanderbull/ForbiddenLands/version.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"functions.h"
+	"texture_resource.h"
+	"common.h"
+	"bestiary.h"
+	"map_resource.h"
+	"menu_resource.h"
+	"sound_resource.h"
+	"spells.h"
+	"render.h"
+	"boat.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
+	<cstdlib>
+	<random>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
+
+1640050345 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
+	<bits/stdc++.h>
+	"colors.h"
+	"coordinates.h"
+	"player_characters.h"
+	"savegame.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/colors.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/coordinates.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"common.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/savegame.h
+	<bits/stdc++.h>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/bestiary.h
+
+1640197562 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/map_resource.h
+	"common.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/menu_resource.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"main_menu.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"renderSaveMenu.h"
+	"renderLoadMenu.h"
+	"renderSettings.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSaveMenu.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderLoadMenu.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSettings.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/sound_resource.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells.h
+	"../include/spells/bless.h"
+	"../include/spells/command.h"
+	"../include/spells/cure_critical_wounds.h"
+	"../include/spells/cure_light_wounds.h"
+	"../include/spells/cure_serious_wounds.h"
+	"../include/spells/detect_evil.h"
+	"../include/spells/detect_magic.h"
+	"../include/spells/light.h"
+	"../include/spells/protection_from_evil.h"
+	"../include/spells/purify_food_and_drink.h"
+	"../include/spells/remove_fear.h"
+	"../include/spells/resist_cold.h"
+	"../include/spells/sanctuary.h"
+	"../include/spells/create_water.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/bless.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/command.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_critical_wounds.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_light_wounds.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_serious_wounds.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/detect_evil.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/detect_magic.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/light.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/protection_from_evil.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/purify_food_and_drink.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/remove_fear.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/resist_cold.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/sanctuary.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/create_water.h
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render.h
+	"render_trainer.h"
+	"render_generalshop.h"
+	"render_jewelleryshop.h"
+	"render_smith.h"
+	"render_tavern.h"
+	"render_temple.h"
+	"render_silvershop.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_trainer.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_generalshop.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_jewelleryshop.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_smith.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_tavern.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"healing_character.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/healing_character.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_temple.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"healing_character.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_silvershop.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/world_view.h
+	<regex>
+	"common.h"
+
+1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/battle_view.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"common.h"
+

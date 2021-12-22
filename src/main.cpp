@@ -460,14 +460,18 @@ int main(int argc, char ** argv)
     init_portals("./data/maps/slums/slums_portals");
     init_portals("./data/maps/khutos_well/khutos_well_portals");
     init_portals("./data/maps/podal_plaza/podal_plaza_portals");
+    init_portals("./data/maps/cardorna_textile_house/cardorna_textile_house_portals");
+    init_portals("./data/maps/kovel_mansion/kovel_mansion_portals");
+    init_portals("./data/maps/mendors_library/mendors_library_portals");
+    init_portals("./data/maps/sokol_keep/sokol_keep_portals");
+    init_portals("./data/maps/stojanov_gate/stojanov_gate_portals");
+    init_portals("./data/maps/vahlingen_graveyard/vahlingen_graveyard_portals");
+    init_portals("./data/maps/valjevo_castle/valjevo_castle_portals");
+    init_portals("./data/maps/wealthy_area/wealthy_area_portals");
 
     loadPortals();
 
     std::chrono::system_clock::time_point timeNow = std::chrono::system_clock::now();
-    int last_time = 0;
-    int cur_time = 0;
-    int diff_time = 0;
-    int accumulator = 0;
 
     initShop();
     generateSmithShopItems();

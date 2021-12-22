@@ -95,6 +95,16 @@ portal phlan_portals[16][16];
 portal slums_portals[16][16];
 portal khutos_well_portals[16][16];
 portal podal_plaza_portals[16][16];
+
+portal cardorna_textile_house_portals[16][16];
+portal kovel_mansion_portals[16][16];
+portal mendors_library_portals[16][16];
+portal sokol_keep_portals[16][16];
+portal stojanov_gate_portals[16][16];
+portal vahlingen_graveyard_portals[16][16];
+portal valjevo_castle_portals[16][16];
+portal wealthy_area_portals[16][16];
+
 portal save_portals[16][16];
 
 void init_portals(std::string _dataFilePath)
@@ -132,6 +142,38 @@ void init_portals(std::string _dataFilePath)
         else if( _dataFilePath == "./data/maps/podal_plaza/podal_plaza_portals" )
         {
             podal_plaza_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/cardorna_textile_house/cardorna_textile_house_portals" )
+        {
+            cardorna_textile_house_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/kovel_mansion/kovel_mansion_portals" )
+        {
+            kovel_mansion_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/mendors_library/mendors_library_portals" )
+        {
+            mendors_library_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/sokol_keep/sokol_keep_portals" )
+        {
+            sokol_keep_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/stojanov_gate/stojanov_gate_portals" )
+        {
+            stojanov_gate_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/vahlingen_graveyard/vahlingen_graveyard_portals" )
+        {
+            vahlingen_graveyard_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/valjevo_castle/valjevo_castle_portals" )
+        {
+            valjevo_castle_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        else if( _dataFilePath == "./data/maps/wealthy_area/wealthy_area_portals" )
+        {
+            wealthy_area_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
         }
         else
         {
