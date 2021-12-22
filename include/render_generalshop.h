@@ -8,10 +8,25 @@
 #include <functional>
 #include <ctime>
 
+std::vector<items> generalShopItems;
+
+void generateGeneralShopItems()
+{
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+    generalShopItems.push_back(items());
+};
+
 void renderGeneralShop()
 {
     renderBackground("./images/shops/shop3.jpg");
-    //initShop();
     renderShopScrollbars();
     renderShopCoins();
     RenderText("GENERAL SHOP", White, current.w - 400, 20,48);

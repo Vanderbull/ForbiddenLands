@@ -8,6 +8,22 @@
 #include <functional>
 #include <ctime>
 
+std::vector<items> silverShopItems;
+
+void silverShopItems()
+{
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+    silverShopItems.push_back(items());
+};
+
 void renderSilverShop()
 {
     SDL_Rect StatsBox = {1000,100,400,425};
