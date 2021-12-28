@@ -683,6 +683,125 @@ int main(int argc, char ** argv)
                                                 PlayerCoordinate.x--;
                                         }
                                     } break;
+                                case 5: // kovel_mansion
+                                    {
+                                        if( kovel_mansion_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
+                                case 6: // mendors_library
+                                    {
+                                        if( mendors_library_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
+                                case 7: // sokol_keep
+                                    {
+                                        if( sokol_keep_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
+                                case 8: // stojanov_gate
+                                    {
+                                        if( stojanov_gate_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
+                                case 9: // vahlingen_graveyard
+                                    {
+                                        if( vahlingen_graveyard_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
+                                case 10: // valjevo_castle
+                                    {
+                                        if( valjevo_castle_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
+                                case 11: // wealthy_area
+                                    {
+                                        if( wealthy_area_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
                                 }
                                 LastPlayerCoordinate.y = PlayerCoordinate.y;
                                 LastPlayerCoordinate.x = PlayerCoordinate.x;
