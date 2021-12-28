@@ -1028,7 +1028,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1640712482 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1640715580 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<cassert>
 	<ctime>
 	<iostream>
@@ -1109,8 +1109,9 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
-1640710636 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
+1640715561 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
 	<bits/stdc++.h>
+	<chrono>
 	"colors.h"
 	"coordinates.h"
 	"player_characters.h"
@@ -1144,7 +1145,7 @@
 	<ctime>
 	"main_menu.h"
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
+1640715678 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
 	<iostream>
 	<fstream>
 	<thread>

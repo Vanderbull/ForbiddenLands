@@ -478,6 +478,7 @@ int main(int argc, char ** argv)
 
     while (!quit)
     {
+        start = high_resolution_clock::now();
         for( int i=0; i < 6; i++ )
         {
             playerCharacter[i].update();
@@ -873,26 +874,22 @@ int main(int argc, char ** argv)
             navigationButtons();
         }
 
-        if( loadingScreen == 1 )
-        {
-            LoadingScreen();
-        };
-
-
         // What is this doing here??
         IMG_Quit();
         fps.update();
-        if( loadingScreen != 1)
-        {
-            //SDL_Delay(fps.get());
-            bestiaryFile.close();
-        }
 
         renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
         renderFPS(fps.get());
 
         SDL_RenderPresent(renderer);
+
+        stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+
+        std::cout << "MAIN microseconds: " << duration.count() << endl;
     }
-    bestiaryFile.close();
+
+    SDL_DestroyTexture(currentViewTexture);
+
     return 0;
 }

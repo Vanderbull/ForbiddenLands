@@ -2,11 +2,17 @@
 #define COMMON_H
 
 #include <bits/stdc++.h>
+#include <chrono>
+using namespace std::chrono;
 
 #include "colors.h"
 #include "coordinates.h"
 #include "player_characters.h"
 #include "savegame.h"
+
+void renderShopCoins();
+
+auto start = high_resolution_clock::now(), stop = high_resolution_clock::now();
 
 int randomEncounters = 0;
 
@@ -340,11 +346,34 @@ void mouseUpdate(void)
     m_iWheelY=0;
 }
 
+SDL_Texture *backgroundTexture = NULL;
+
+static bool loadedBackground = false;
+void loadBackground(std::string image)
+{
+    backgroundTexture = LoadTexture(image.c_str(),255);
+};
+
 void renderBackground(std::string image)
 {
-    currentViewTexture = LoadTexture(image.c_str(),255);
-    SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
-    SDL_DestroyTexture(currentViewTexture);
+    start = high_resolution_clock::now();
+
+    if( !loadedBackground )
+    {
+        loadBackground(image);
+        loadedBackground = true;
+    }
+
+    SDL_RenderClear(renderer);
+    //currentViewTexture = LoadTexture(image.c_str(),255);
+    SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
+    //SDL_DestroyTexture(currentViewTexture);
+
+    stop = high_resolution_clock::now();
+
+    auto duration = duration_cast<microseconds>(stop - start);
+
+    std::cout << "microseconds: " << duration.count() << endl;
 };
 
 int rowcounter = 0;
@@ -421,8 +450,6 @@ void renderCharacterViewItems()
         }
     }
 }
-
-void renderShopCoins();
 
 void renderCharacterView()
 {

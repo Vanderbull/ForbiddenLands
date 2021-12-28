@@ -57,7 +57,7 @@ void MainMenu()
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-            SDL_RenderFillRect(renderer, &buttonPosition);
+            //SDL_RenderFillRect(renderer, &buttonPosition);
 
             SDL_PumpEvents();
             state = SDL_GetMouseState(NULL, NULL);
@@ -119,6 +119,7 @@ void MainMenu()
         ++Repeat;
     }
 
+
     if( SettingsMenu == 1 )
     {
         renderSettings();
@@ -135,7 +136,6 @@ void MainMenu()
     {
         renderCharacterCreation();
     }
-    //renderVersion();
 };
 
 #endif // MAIN_MENU_H
