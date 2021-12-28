@@ -249,6 +249,7 @@ void RenderLoadMenu()
     SDL_Rect ExitButton = {current.w - 220,current.h - 50,200,30};
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
     SDL_RenderFillRect(renderer, &ExitButton);
+    RenderText("EXIT", White, ExitButton.x,ExitButton.y,fontSize);
 
     if( SDL_PointInRect(&mousePosition, &ExitButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
