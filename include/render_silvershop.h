@@ -10,7 +10,7 @@
 
 std::vector<items> silverShopItems;
 
-void silverShopItems()
+void generateSilverShopItems()
 {
     silverShopItems.push_back(items());
     silverShopItems.push_back(items());

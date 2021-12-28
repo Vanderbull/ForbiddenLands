@@ -8,6 +8,22 @@
 #include <functional>
 #include <ctime>
 
+std::vector<items> jewelleryShopItems;
+
+void generateJewelleryShopItems()
+{
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+    jewelleryShopItems.push_back(items());
+};
+
 void renderJewelleryShop()
 {
     renderBackground("./images/shops/shop3.jpg");
