@@ -335,6 +335,158 @@ bool podal_plaza_portal(int x, int y, std::string rotation)
     return podal_plaza_portals[x][y].active_portal(rotation);
 };
 
+bool cardona_textile_house_portal(int x, int y, std::string rotation)
+{
+    if( cardona_textile_house_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = cardona_textile_house_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( cardona_textile_house_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( cardona_textile_house_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = cardona_textile_house_portals[x][y].getX();
+    }
+    return cardona_textile_house_portals[x][y].active_portal(rotation);
+};
+
+bool kovel_mansion_portal(int x, int y, std::string rotation)
+{
+    if( kovel_mansion_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = kovel_mansion_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( kovel_mansion_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( kovel_mansion_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = kovel_mansion_portals[x][y].getX();
+    }
+    return kovel_mansion_portals[x][y].active_portal(rotation);
+};
+
+bool mendors_library_portal(int x, int y, std::string rotation)
+{
+    if( mendors_library_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = mendors_library_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( mendors_library_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( mendors_library_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = mendors_library_portals[x][y].getX();
+    }
+    return mendors_library_portals[x][y].active_portal(rotation);
+};
+
+bool sokol_keep_portal(int x, int y, std::string rotation)
+{
+    if( sokol_keep_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = sokol_keep_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( sokol_keep_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( sokol_keep_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = sokol_keep_portals[x][y].getX();
+    }
+    return sokol_keep_portals[x][y].active_portal(rotation);
+};
+
+bool stojanov_gate_portal(int x, int y, std::string rotation)
+{
+    if( stojanov_gate_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = stojanov_gate_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( stojanov_gate_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( stojanov_gate_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = stojanov_gate_portals[x][y].getX();
+    }
+    return stojanov_gate_portals[x][y].active_portal(rotation);
+};
+
+bool vahlingen_graveyard_portal(int x, int y, std::string rotation)
+{
+    if( vahlingen_graveyard_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = vahlingen_graveyard_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( vahlingen_graveyard_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( vahlingen_graveyard_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = vahlingen_graveyard_portals[x][y].getX();
+    }
+    return vahlingen_graveyard_portals[x][y].active_portal(rotation);
+};
+
+bool valjevo_castle_portal(int x, int y, std::string rotation)
+{
+    if( valjevo_castle_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = valjevo_castle_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( valjevo_castle_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( valjevo_castle_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = valjevo_castle_portals[x][y].getX();
+    }
+    return valjevo_castle_portals[x][y].active_portal(rotation);
+};
+
+bool wealthy_area_portal(int x, int y, std::string rotation)
+{
+    if( wealthy_area_portals[x][y].getMap(Rotation) != "")
+    {
+        mapActive = wealthy_area_portals[x][y].getMap(Rotation);
+        if(mapActive == "khutos_well")
+        {
+            worldMap = 2;
+            loadPortals();
+        }
+    }
+    if( wealthy_area_portals[x][y].getMap(Rotation) != "podal_plaza")
+    {
+        if( wealthy_area_portals[x][y].getX() != -1 )
+            PlayerCoordinate.x = wealthy_area_portals[x][y].getX();
+    }
+    return wealthy_area_portals[x][y].active_portal(rotation);
+};
+
 void renderCompass()
 {
     square = {current.w / 2 - 90, 20, 180, 60};

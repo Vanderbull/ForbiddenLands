@@ -666,6 +666,23 @@ int main(int argc, char ** argv)
                                                 PlayerCoordinate.x--;
                                         }
                                     } break;
+                                case 4: // cardona_textile_house_portal
+                                    {
+                                        if( cardona_textile_house_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+                                        {
+                                            if( Rotation  == "N" )
+                                                PlayerCoordinate.y--;
+                                            else
+                                            if( Rotation  == "S" )
+                                                PlayerCoordinate.y++;
+                                            else
+                                            if( Rotation  == "E" )
+                                                PlayerCoordinate.x++;
+                                            else
+                                            if( Rotation  == "W" )
+                                                PlayerCoordinate.x--;
+                                        }
+                                    } break;
                                 }
                                 LastPlayerCoordinate.y = PlayerCoordinate.y;
                                 LastPlayerCoordinate.x = PlayerCoordinate.x;
