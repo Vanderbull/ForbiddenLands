@@ -748,11 +748,12 @@ int main(int argc, char ** argv)
         fps.update();
         if( loadingScreen != 1)
         {
-            SDL_Delay(fps.get());
+            //SDL_Delay(fps.get());
             bestiaryFile.close();
         }
 
         renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
+        renderFPS(fps.get());
 
         SDL_RenderPresent(renderer);
     }

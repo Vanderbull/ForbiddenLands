@@ -359,6 +359,11 @@ void print(std::vector<std::string> const &readyInventory,int x, int y, int font
     }
 }
 
+void renderFPS(unsigned int fps)
+{
+    RenderText("FPS: " + std::to_string(fps),Green,0,0,48);
+};
+
 void renderCharacterViewItems()
 {
     rowcounter = 0;
