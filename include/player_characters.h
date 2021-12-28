@@ -546,6 +546,18 @@ items gameItems[100];
 
 void initItems();
 
+bool lootDropped = false;
+bool droppedLoot()
+{
+    lootDropped = true;
+    return lootDropped;
+};
+
+void resetLootDropped()
+{
+    lootDropped = false;
+}
+
 typedef struct playerCharacter
 {
     std::vector<int> readyCharacterInventoryAC;
@@ -684,6 +696,7 @@ typedef struct playerCharacter
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                 {
                     carriedItems.erase(carriedItems.begin() + rowcounter);
+                    droppedLoot();
                     SDL_Delay(50);
                 }
             }

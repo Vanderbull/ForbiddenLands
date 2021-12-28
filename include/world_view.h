@@ -352,6 +352,12 @@ void navigationButtons()
 
 void renderWorldViewA()
 {
+    if( lootDropped )
+    {
+    save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot = lootDropped;
+    resetLootDropped();
+
+    }
     std::string location, room, position;
     std::string fileType = ".png";
 
@@ -505,6 +511,11 @@ void renderWorldViewA()
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,128);
     SDL_RenderDrawRect(renderer, &faceBox[playerCharacterSelected]);
+
+    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot )
+    {
+        RenderText("LOOT HERE!!",Green,600,0,48);
+    }
 };
 
 void renderWorldViewB()

@@ -8,6 +8,7 @@ using namespace std;
 static int done = 0;
 struct portal
 {
+    bool droppedLoot = false;
     bool encounter;
     std::string rotation;
     bool west;
