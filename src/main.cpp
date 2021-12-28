@@ -751,6 +751,9 @@ int main(int argc, char ** argv)
             SDL_Delay(fps.get());
             bestiaryFile.close();
         }
+
+        renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
+
         SDL_RenderPresent(renderer);
     }
     bestiaryFile.close();

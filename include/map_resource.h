@@ -438,6 +438,67 @@ std::string renderDescription(int x, int y)
     int skip_return = 0;
     std::ifstream dataFile;
 
+    if( !std::experimental::filesystem::exists("./data/render_descriptions") )
+    {
+        std::cout << "renderDescription 1" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_slums") )
+    {
+        std::cout << "renderDescription 2" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_khutos_well") )
+    {
+        std::cout << "renderDescription 3" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_podal_plaza") )
+    {
+        std::cout << "renderDescription 4" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_cardona_textile_house") )
+    {
+        std::cout << "renderDescription 5" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_kovel_mansion") )
+    {
+        std::cout << "renderDescription 6" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_mendors_library") )
+    {
+        std::cout << "renderDescription 7" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_sokol_keep") )
+    {
+        std::cout << "renderDescription 8" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_stojanov_gate") )
+    {
+        std::cout << "renderDescription 9" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_vahlingen_graveyard") )
+    {
+        std::cout << "renderDescription 10" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_valjevo_castle") )
+    {
+        std::cout << "renderDescription 11" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/render_descriptions_wealthy_area") )
+    {
+        std::cout << "renderDescription 12" << std::endl;
+        exit(99);
+    }
+
     if( mapActive == "phlan")
         dataFile.open("./data/render_descriptions");
     else
@@ -449,6 +510,30 @@ std::string renderDescription(int x, int y)
     else
     if( mapActive == "podal_plaza")
         dataFile.open("./data/render_descriptions_podal_plaza");
+    else
+    if( mapActive == "cardorna_textile_house")
+        dataFile.open("./data/render_descriptions_cardorna_textile_house");
+    else
+    if( mapActive == "kovel_mansion")
+        dataFile.open("./data/render_descriptions_kovel_mansion");
+    else
+    if( mapActive == "mendors_library")
+        dataFile.open("./data/render_descriptions_mendors_library");
+    else
+    if( mapActive == "sokol_keep")
+        dataFile.open("./data/render_descriptions_sokol_keep");
+    else
+    if( mapActive == "stojanov_gate")
+        dataFile.open("./data/render_descriptions_stojanov_gate");
+    else
+    if( mapActive == "vahlingen_graveyard")
+        dataFile.open("./data/render_descriptions_vahlingen_graveyard");
+    else
+    if( mapActive == "valjevo_castle")
+        dataFile.open("./data/render_descriptions_valjevo_castle");
+    else
+    if( mapActive == "wealthy_area")
+        dataFile.open("./data/render_descriptions_wealthy_area");
 
     std::string line;
     std::string descriptions;
@@ -479,58 +564,59 @@ std::string renderDescription(int x, int y)
                     {
                         if( phlanTourCoordinateN[2] == "TRAINING_HALL")
                         {
-                            mainLog.push_back("There is a traininghall here, do you want to enter?");
+                            std::cout << "There is a traininghall here, do you want to enter?" << std::endl;
                             shop = 1;
                             trainingHall = 1;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "ARMS_ARMOUR")
                         {
-                            mainLog.push_back("There is a Armory here, do you want to enter?");
+                            std::cout << "There is a Armory here, do you want to enter?" << std::endl;
                             shop = 1;
                             armsAndarmourShop = 1;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "TAVERN_TALES")
                         {
-                            mainLog.push_back("There is a tavern here, do you want to enter?");
+                            std::cout << "There is a tavern here, do you want to enter?" << std::endl;
                             tavern = 1;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "GENERAL_SHOP")
                         {
-                            mainLog.push_back("There is a general shop here, do you want to enter?");
+                            std::cout << "There is a general shop here, do you want to enter?" << std::endl;
                             shop = 1;
                             generalShop = 1;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "JEWELERY_SHOP")
                         {
-                            mainLog.push_back("There is a jewellery shop here, do you want to enter?");
+                            std::cout << "There is a jewellery shop here, do you want to enter?" << std::endl;
                             shop = 1;
                             jewelleryShop = 1;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "PROCLAMATIONS")
                         {
-                            mainLog.push_back(Proclamations( (rand()%19 + 1) ));
+                            std::cout << Proclamations( (rand()%19 + 1) ) << std::endl;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "PRIESTHOOD")
                         {
-                            mainLog.push_back("There is a priesthood here, do you want to enter?");
+                            std::cout << "There is a priesthood here, do you want to enter?" << std::endl;
                             templeShop = 1;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "SILVER_SHOP")
                         {
-                            mainLog.push_back("There is a silver shop here, do you want to enter?");
+                            std::cout << "There is a silver shop here, do you want to enter" << std::endl;
                             shop = 1;
                             silverShop = 1;
                             skip_return = 1;
                         }
                         if( phlanTourCoordinateN[2] == "ROLF")
                         {
+                            std::cout << "Rolf is here, do you want to take a tour?" << std::endl;
                             //rolf = 1;
                             skip_return = 1;
                         }

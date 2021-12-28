@@ -656,59 +656,6 @@ void renderPCstatus()
     pc[4] = pad_right(playerCharacter[4].getName(),20) + pad_right(std::to_string(playerCharacter[4].getArmourClass()),8) + std::to_string(playerCharacter[4].getHitpoints()) + "/" + std::to_string(playerCharacter[4].hitpoints_max);
     pc[5] = pad_right(playerCharacter[5].getName(),20) + pad_right(std::to_string(playerCharacter[5].getArmourClass()),8) + std::to_string(playerCharacter[5].getHitpoints()) + "/" + std::to_string(playerCharacter[5].hitpoints_max);
 
-//    SDL_Rect toolbeltBackground = {current.w - 168*4, current.h - 176,168*4,176};
-//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-//    SDL_RenderFillRect(renderer, &toolbeltBackground);
-
-//    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 192);
-//    SDL_Rect pcBackground = {current.w - offset_x, current.h - 160, 500, 160};
-//    SDL_RenderFillRect(renderer, &pcBackground);
-//
-//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
-//    pcBackground = {current.w - offset_x_border, current.h - 155, 490, 150};
-//    SDL_RenderFillRect(renderer, &pcBackground);
-//
-//    SDL_Rect pcTitlesRect = {current.w - offset_x_pc, current.h - 160,200,20};
-//
-//    RenderText(pcTitles, White, pcTitlesRect.x, pcTitlesRect.y,fontSize);
-//    RenderText(pc[0], White, Button[0].x, Button[0].y,fontSize);
-//    RenderText(pc[1], White, Button[1].x, Button[1].y,fontSize);
-//    RenderText(pc[2], White, Button[2].x, Button[2].y,fontSize);
-//    RenderText(pc[3], White, Button[3].x, Button[3].y,fontSize);
-//    RenderText(pc[4], White, Button[4].x, Button[4].y,fontSize);
-//    RenderText(pc[5], White, Button[5].x, Button[5].y,fontSize);
-//
-//    switch( playerCharacterSelected )
-//    {
-//    case 0:  RenderText(pc[0], Green, Button[0].x, Button[0].y,fontSize);
-//        break;
-//    case 1:  RenderText(pc[1], Green, Button[1].x, Button[1].y,fontSize);
-//        break;
-//    case 2:  RenderText(pc[2], Green, Button[2].x, Button[2].y,fontSize);
-//        break;
-//    case 3:  RenderText(pc[3], Green, Button[3].x, Button[3].y,fontSize);
-//        break;
-//    case 4:  RenderText(pc[4], Green, Button[4].x, Button[4].y,fontSize);
-//        break;
-//    case 5:  RenderText(pc[5], Green, Button[5].x, Button[5].y,fontSize);
-//        break;
-//    }
-//
-//    for( int i = 0; i < 6; i++ )
-//    {
-//        if( SDL_PointInRect(&mousePosition, &Button[i]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//        {
-//            RenderText(pc[i], Green, Button[i].x, Button[i].y,fontSize);
-//
-//            SDL_PumpEvents();
-//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//            {
-//                playerCharacterSelected = i;
-//                offset2 = 0;
-//            }
-//        }
-//    }
-
     encampButton = {current.w - 168*2, 0,160,160};
     lookButton = {current.w - 168, 0,160,160};
     backpackButton = {current.w - 168*3, 0,160,160};
