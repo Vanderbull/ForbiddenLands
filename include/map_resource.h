@@ -96,7 +96,7 @@ portal slums_portals[16][16];
 portal khutos_well_portals[16][16];
 portal podal_plaza_portals[16][16];
 
-portal cardorna_textile_house_portals[16][16];
+portal cardona_textile_house_portals[16][16];
 portal kovel_mansion_portals[16][16];
 portal mendors_library_portals[16][16];
 portal sokol_keep_portals[16][16];
@@ -143,9 +143,9 @@ void init_portals(std::string _dataFilePath)
         {
             podal_plaza_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
         }
-        else if( _dataFilePath == "./data/maps/cardorna_textile_house/cardorna_textile_house_portals" )
+        else if( _dataFilePath == "./data/maps/cardona_textile_house/cardona_textile_house_portals" )
         {
-            cardorna_textile_house_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+            cardona_textile_house_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
         }
         else if( _dataFilePath == "./data/maps/kovel_mansion/kovel_mansion_portals" )
         {
@@ -369,7 +369,66 @@ SDL_Rect SimulatePlayer[10];
 
 void renderMinimap(std::string mapFile, std::string mapName)
 {
-    simulatePlayerRenderDelayCounter++;
+    if( !std::experimental::filesystem::exists("./data/maps/phlan/phlan.png") )
+    {
+        std::cout << "renderDescription 1" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/slums/slums.png") )
+    {
+        std::cout << "renderDescription 2" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/khutos_well/khutos_well.png") )
+    {
+        std::cout << "renderDescription 3" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/podal_plaza/podal_plaza.png") )
+    {
+        std::cout << "renderDescription 4" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/cardona_textile_house/cardona_textile_house.png") )
+    {
+        std::cout << "renderDescription 5" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/kovel_mansion/kovel_mansion.png") )
+    {
+        std::cout << "renderDescription 6" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/mendors_library/mendors_library.png") )
+    {
+        std::cout << "renderDescription 7" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/sokol_keep/sokol_keep.png") )
+    {
+        std::cout << "renderDescription 8" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/stojanov_gate/stojanov_gate.png") )
+    {
+        std::cout << "renderDescription 9" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/vahlingen_graveyard/vahlingen_graveyard.png") )
+    {
+        std::cout << "renderDescription 10" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/valjevo_castle/valjevo_castle.png") )
+    {
+        std::cout << "renderDescription 11" << std::endl;
+        exit(99);
+    }
+    if( !std::experimental::filesystem::exists("./data/maps/wealthy_area/wealthy_area.png") )
+    {
+        std::cout << "renderDescription 12" << std::endl;
+        exit(99);
+    }
 
     if( mapName == "phlan")
     {
@@ -387,6 +446,22 @@ void renderMinimap(std::string mapFile, std::string mapName)
     {
         gTexture = LoadTexture("./data/maps/podal_plaza/podal_plaza.png",255);
     }
+    else if( mapName == "cardona_textile_house")
+        gTexture = LoadTexture("./data/maps/cardona_textile_house/cardona_textile_house.png",255);
+    else if( mapName == "kovel_mansion")
+        gTexture = LoadTexture("./data/maps/kovel_mansion/kovel_mansion.png",255);
+    else if( mapName == "mendors_library")
+        gTexture = LoadTexture("./data/maps/mendors_library/mendors_library.png",255);
+    else if( mapName == "sokol_keep")
+        gTexture = LoadTexture("./data/maps/sokol_keep/sokol_keep.png",255);
+    else if( mapName == "stojanov_gate")
+        gTexture = LoadTexture("./data/maps/stojanov_gate/stojanov_gate.png",255);
+    else if( mapName == "vahlingen_graveyard")
+        gTexture = LoadTexture("./data/maps/vahlingen_graveyard/vahlingen_graveyard.png",255);
+    else if( mapName == "valjevo_castle")
+        gTexture = LoadTexture("./data/maps/valjevo_castle/valjevo_castle.png",255);
+    else if( mapName == "wealthy_area")
+        gTexture = LoadTexture("./data/maps/wealthy_area/wealthy_area.png",255);
 
     SDL_Rect imageSize = {0, 0,256,256};
     SDL_Rect renderLocation = {50, 50,256,256};
@@ -511,8 +586,8 @@ std::string renderDescription(int x, int y)
     if( mapActive == "podal_plaza")
         dataFile.open("./data/render_descriptions_podal_plaza");
     else
-    if( mapActive == "cardorna_textile_house")
-        dataFile.open("./data/render_descriptions_cardorna_textile_house");
+    if( mapActive == "cardona_textile_house")
+        dataFile.open("./data/render_descriptions_cardona_textile_house");
     else
     if( mapActive == "kovel_mansion")
         dataFile.open("./data/render_descriptions_kovel_mansion");

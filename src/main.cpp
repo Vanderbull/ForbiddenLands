@@ -460,7 +460,7 @@ int main(int argc, char ** argv)
     init_portals("./data/maps/slums/slums_portals");
     init_portals("./data/maps/khutos_well/khutos_well_portals");
     init_portals("./data/maps/podal_plaza/podal_plaza_portals");
-    init_portals("./data/maps/cardorna_textile_house/cardorna_textile_house_portals");
+    init_portals("./data/maps/cardona_textile_house/cardona_textile_house_portals");
     init_portals("./data/maps/kovel_mansion/kovel_mansion_portals");
     init_portals("./data/maps/mendors_library/mendors_library_portals");
     init_portals("./data/maps/sokol_keep/sokol_keep_portals");
