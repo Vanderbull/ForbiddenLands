@@ -379,7 +379,7 @@ int main(int argc, char ** argv)
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
         current.w, current.h,
-        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
+        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
 
     if (window == NULL)
     {
