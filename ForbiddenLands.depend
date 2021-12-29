@@ -1028,7 +1028,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1640737162 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1640753975 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<cassert>
 	<ctime>
 	<iostream>
@@ -1172,7 +1172,7 @@
 	<functional>
 	<ctime>
 
-1640738928 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSettings.h
+1640754660 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSettings.h
 	<iostream>
 	<fstream>
 	<thread>

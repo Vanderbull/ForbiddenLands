@@ -18,8 +18,9 @@ void renderSettings()
     static int display_in_use = 0; /* Only using first display */
 
     int i, display_mode_count;
-    SDL_DisplayMode mode;
+    SDL_DisplayMode mode, last_display_mode;
     Uint32 f;
+    SDL_Rect aButton;
 
     SDL_Log("SDL_GetNumVideoDisplays(): %i", SDL_GetNumVideoDisplays());
 
@@ -31,15 +32,18 @@ void renderSettings()
 
     for (i = 0; i < display_mode_count; ++i)
     {
-        SDL_Rect aButton = {current.w - 400,210+i*50,500,40};
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(renderer, &aButton);
-
         if (SDL_GetDisplayMode(display_in_use, i, &mode) != 0)
         {
             SDL_Log("SDL_GetDisplayMode failed: %s", SDL_GetError());
         }
         f = mode.format;
+
+        if( last_display_mode.w != mode.w )
+        {
+            aButton = {current.w - 400,210+i*50,500,40};
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+            SDL_RenderFillRect(renderer, &aButton);
+        }
 
         if( SDL_PointInRect(&mousePosition, &aButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -50,7 +54,6 @@ void renderSettings()
             {
                 loadedBackground = false;
                 loadedBackground = false;
-
 
                 std::string Resolution = "";
                 Resolution += std::to_string(mode.w);
@@ -73,10 +76,8 @@ void renderSettings()
                 renderer2 = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
                 SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
                 SDL_RenderSetScale(renderer,1.0,1.0);
+                SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
                 current = mode;
-//                SDL_SetWindowDisplayMode(window, &mode);
-//                SDL_SetWindowSize(window,mode.w,mode.h);
-                //SDL_RenderClear(renderer);
             }
 
             std::string ResolutionText = "";
@@ -89,68 +90,50 @@ void renderSettings()
             RenderText(ResolutionText.c_str(),Red,300,0,48);
         }
 
-        SDL_Log("Mode %i\tbpp %i\t%s\t%i x %i", i,
-        SDL_BITSPERPIXEL(f), SDL_GetPixelFormatName(f), mode.w, mode.h);
+        if( last_display_mode.w != mode.w )
+        {
+            SDL_Log("Mode %i\tbpp %i\t%s\t%i x %i", i,
+            SDL_BITSPERPIXEL(f), SDL_GetPixelFormatName(f), mode.w, mode.h);
 
-        std::string ResolutionText = "";
-        ResolutionText += std::to_string(mode.w);
-        ResolutionText += "x";
-        ResolutionText += std::to_string(mode.h);
-        ResolutionText += " ( ";
-        ResolutionText += std::to_string(SDL_BITSPERPIXEL(f));
-        ResolutionText += " ) ";
-        RenderText(ResolutionText.c_str(),Red,current.w - 400,210+i*50,fontSize);
+            std::string ResolutionText = "";
+            ResolutionText += std::to_string(mode.w);
+            ResolutionText += "x";
+            ResolutionText += std::to_string(mode.h);
+            ResolutionText += " ( ";
+            ResolutionText += std::to_string(SDL_BITSPERPIXEL(f));
+            ResolutionText += " ) ";
+            RenderText(ResolutionText.c_str(),Red,current.w - 400,210+i*50,fontSize);
+        }
+        last_display_mode = mode;
     }
 
-//    for( int i = 0; i < 2; i++)
+//    SDL_GetRelativeMouseState(&x,&y);
+//    if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
 //    {
-//        std::string ResolutionText = "";
-//        ResolutionText += std::to_string(monitor[i].w);
-//        ResolutionText += "x";
-//        ResolutionText += std::to_string(monitor[i].h);
-//        ResolutionText += "@";
-//        ResolutionText += std::to_string(monitor[i].refresh_rate);
-//        ResolutionText += " ( ";
-//        ResolutionText += std::to_string(SDL_BITSPERPIXEL(monitor[i].format));
-//        ResolutionText += " ) ";
-//        RenderText(ResolutionText.c_str(),White,current.w - 400,210+i*50,fontSize);
-//        RenderText(std::to_string(SDL_GetNumRenderDrivers()).c_str() ,White,current.w - 1200,390,fontSize);
-//        SDL_RendererInfo info;
-//        SDL_GetRenderDriverInfo(i,&info);
-//        RenderText(std::string(info.name),White,current.w - 800,210+i*50,fontSize);
-//        bool isHardware      = info.flags & SDL_RENDERER_ACCELERATED;
-//        bool isSoftware      = info.flags & SDL_RENDERER_SOFTWARE;
-//        if (isHardware) RenderText("HW",White,current.w - 1200,210+i*50,fontSize);
-//        if (isSoftware) RenderText("SW",White,current.w - 1200,210+i*50,fontSize);
+//        if( mousePosition.y > volumeSlider.y && mousePosition.y < volumeSlider.y + volumeSlider.w )
+//        {
+//            triggered = 1;
+//        }
+//        if(triggered)
+//        if( (mousePosition.x > 0 + volumeSlider.w / 2) && (mousePosition.x < current.w - volumeSlider.w / 2) )
+//        {
+//            volumeSlider.x = mousePosition.x;
+//            volumeSlider.x = volumeSlider.x - (volumeSlider.w / 2);
+//            volumeSlider.x = volumeSlider.x + x;
+//            if( volumeSlider.x < 0)
+//                volumeSlider.x = 0;
+//            if( volumeSlider.x > current.w - volumeSlider.w)
+//                volumeSlider.x = current.w - volumeSlider.w;
+//        }
 //    }
-
-    SDL_GetRelativeMouseState(&x,&y);
-    if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-    {
-        if( mousePosition.y > volumeSlider.y && mousePosition.y < volumeSlider.y + volumeSlider.w )
-        {
-            triggered = 1;
-        }
-        if(triggered)
-        if( (mousePosition.x > 0 + volumeSlider.w / 2) && (mousePosition.x < current.w - volumeSlider.w / 2) )
-        {
-            volumeSlider.x = mousePosition.x;
-            volumeSlider.x = volumeSlider.x - (volumeSlider.w / 2);
-            volumeSlider.x = volumeSlider.x + x;
-            if( volumeSlider.x < 0)
-                volumeSlider.x = 0;
-            if( volumeSlider.x > current.w - volumeSlider.w)
-                volumeSlider.x = current.w - volumeSlider.w;
-        }
-    }
-
-    RenderText("Sound",White,0,volumeSlider.y - 48,32);
-    SDL_Rect sliderBar = {0,volumeSlider.y,current.w,volumeSlider.h};
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-    SDL_RenderFillRect(renderer, &sliderBar);
-    RenderText(std::to_string( Mix_VolumeMusic( volumeSlider.x / 19 ) ).c_str() ,White,0,0,fontSize);
-
-    SDL_RenderFillRect(renderer, &volumeSlider);
+//
+//    RenderText("Sound",White,0,volumeSlider.y - 48,32);
+//    SDL_Rect sliderBar = {0,volumeSlider.y,current.w,volumeSlider.h};
+//    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//    SDL_RenderFillRect(renderer, &sliderBar);
+//    RenderText(std::to_string( Mix_VolumeMusic( volumeSlider.x / 19 ) ).c_str() ,White,0,0,fontSize);
+//    SDL_RenderFillRect(renderer, &volumeSlider);
+//
     SDL_Rect ExitButton = {current.w - 220,current.h - 50,200,30};
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
     SDL_RenderFillRect(renderer, &ExitButton);
