@@ -610,6 +610,33 @@ typedef struct playerCharacter
     int damage_vs_large = 0;
     int face = Generate(0,20);
 
+    int hunger = 0;
+    int thirst = 0;
+
+    void increaseHunger()
+    {
+        if( hunger < 100 )
+        hunger++;
+    }
+
+    void increaseThirst()
+    {
+        if( thirst < 100 )
+        thirst++;
+    }
+
+    void decreaseHunger()
+    {
+        if( hunger > 0 )
+        hunger--;
+    }
+
+    void decreaseThirst()
+    {
+        if( thirst > 0 )
+        thirst--;
+    }
+
     void calculateStats()
     {
         int count = 0;

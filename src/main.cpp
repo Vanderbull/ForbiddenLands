@@ -556,6 +556,9 @@ int main(int argc, char ** argv)
                             teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
                             playerCharacter[playerCharacterSelected].carriedItems.push_back(createWater());
                             //playercreateWater();
+
+                            playerCharacter[playerCharacterSelected].increaseHunger();
+                            playerCharacter[playerCharacterSelected].increaseThirst();
                         } break;
                         case SDLK_PLUS:
                         {

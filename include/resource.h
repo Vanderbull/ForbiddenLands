@@ -5,9 +5,11 @@
 #include <functional>
 #include <ctime>
 
+
 #include "functions.h"
 #include "texture_resource.h"
 #include "common.h"
+#include "npc.h"
 #include "bestiary.h"
 #include "map_resource.h"
 #include "menu_resource.h"
@@ -16,6 +18,8 @@
 
 #include "render.h"
 #include "boat.h"
+
+npcEngine NPCs;
 
 std::string getexepath()
 {

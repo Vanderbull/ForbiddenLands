@@ -187,6 +187,14 @@ void navigationButtons()
 
     SDL_Rect randomEncounterButton = {50,current.h - 850,200,50};
 
+    SDL_Rect hunger = {250,current.h - 350,playerCharacter[playerCharacterSelected].hunger*1,25};
+    SDL_Rect thirst = {250,current.h - 300,playerCharacter[playerCharacterSelected].thirst*1,25};
+
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(renderer, &hunger);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
+    SDL_RenderFillRect(renderer, &thirst);
+
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
     SDL_RenderFillRect(renderer, &save);
     SDL_RenderFillRect(renderer, &load);

@@ -9,318 +9,39 @@
 #include "common.h"
 
 int initBattleFlag = 0;
-
-int npc_active = 0;
-int npc_health[6] = {0,0,0,0,0,0};
-int npc_initiative[6] = {0,0,0,0,0,0};
-int npc_action[6] = {1,1,1,1,1,1};
 int character_initiative[6] = {0,0,0,0,0,0};
 int character_action[6] = {1,1,1,1,1,1};
-int npc_max, npc_min, character_min, character_max;
-int enemyImageID[6] = {0,0,0,0,0,0};
+int character_min, character_max;
 int fadeSize = 0;
 int damage = 0;
-int npc_experience[6] = {0,0,0,0,0,0};
-int npc_armour_class[6] = {0,0,0,0,0,0};
-int npc_damage[6] = {0,0,0,0,0,0};
 
 void initBattle()
 {
     damage = 0;
 
-    for(int i = 0; i < 6; i++)
-    {
-        if( enemyImageID[i] == 0) // Goblin guard
-        {
-            npc_health[i] = 5;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 11;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 1) // Goblin leader
-        {
-            npc_health[i] = 7;
-            npc_initiative[i] = 4;
-            npc_experience[i] = 20;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 2) // Orc
-        {
-            npc_health[i] = 5;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 20;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 3) // Orc leader
-        {
-            npc_health[i] = 8;
-            npc_initiative[i] = 5;
-            npc_experience[i] = 20;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 4) // Hobgoblin
-        {
-            npc_health[i] = 5;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 22;
-            npc_armour_class[i] = 5;
-            npc_damage[i] = 8;
-        }
-        if( enemyImageID[i] == 5) // Hobgoblin leader
-        {
-            npc_health[i] = 5;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 22;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 8;
-        }
-        if( enemyImageID[i] == 6) // ogre
-        {
-            npc_health[i] = 5;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 20;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 7) // ogre leader
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 0;
-        }
-        if( enemyImageID[i] == 8) // 4th level fighter
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 9) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 10) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 11) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 12) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 13) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 14) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 15) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 16) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 17) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 18) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 19) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 20) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 21) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 22) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 23) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 24) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 25) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 26) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 27) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 28) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-        if( enemyImageID[i] == 29) // kobold
-        {
-            npc_health[i] = 15;
-            npc_initiative[i] = 6;
-            npc_experience[i] = 40;
-            npc_armour_class[i] = 6;
-            npc_damage[i] = 6;
-        }
-    }
+    NPCs.init();
 
     for(int i = 0; i < 6; i++)
     {
-        npc_action[i] == 1;
         character_action[i] == 1;
     }
 };
 
-void getEnemyImageID()
-{
-    for( int i = 0; i < 6; i++ )
-    {
-        enemyImageID[i] = Generate(0,29);
-    }
-};
-
-int npc_current_damage = 0;
-int npc_targeted = 0;
 int turns = 0;
 bool HOLD = false;
 
 Mix_Chunk *gPunch = NULL;
 
 int turnDamage = Generate(1,10);
-int npcDefending = Generate(1,10);
-
-/*
-Actions
--------
-Attack
-Defend
-Cast spell
-quaff potion
-Idle
-
-*/
-
 bool turnActive = true;
 
 void battleView()
 {
     SDL_Texture* Texture;
-
     SDL_Rect character[6];
-    SDL_Rect npc[6];
     SDL_Rect character_fighting;
-    SDL_Rect npc_fighting;
 
     character_fighting = {700, 500,300,300};
-    npc_fighting = {1000, 500,300,300};
 
     character[0] = {500, 300,100,144};
     character[1] = {500, 450,100,144};
@@ -329,13 +50,6 @@ void battleView()
     character[4] = {500, 900,100,144};
     character[5] = {500, 1050,100,144};
 
-    npc[0] = {current.w - 500, 300,100,144};
-    npc[1] = {current.w - 500, 450,100,144};
-    npc[2] = {current.w - 500, 600,100,144};
-    npc[3] = {current.w - 500, 750,100,144};
-    npc[4] = {current.w - 500, 900,100,144};
-    npc[5] = {current.w - 500, 1050,100,144};
-
     SDL_Rect attack = {current.w / 3, current.h - 50,100,30};
     SDL_Rect magic = {current.w / 3 + 110, current.h - 50,100,30};
     SDL_Rect exit = {current.w / 3 + 220, current.h - 50,100,30};
@@ -343,9 +57,7 @@ void battleView()
     SDL_Rect missile = {current.w / 3 + 440, current.h - 50,100,30};
 
     SDL_Rect characterActionText[6];
-    SDL_Rect npcActionText[6];
 
-    std::vector<std::string> enemyImages;
     std::vector<std::string> playerImages;
 
     int characterActionsReset = 0;
@@ -364,42 +76,6 @@ void battleView()
     npcActionText[3] = {current.w - 300, character[3].y + character[3].h,225,25};
     npcActionText[4] = {current.w - 300, character[4].y + character[4].h,225,25};
     npcActionText[5] = {current.w - 300, character[5].y + character[5].h,225,25};
-
-    enemyImages.clear();
-    enemyImages.push_back("./data/monsters/001_goblin_guard-0.png");
-    enemyImages.push_back("./data/monsters/002_goblin_leader-0.png");
-    enemyImages.push_back("./data/monsters/003_orc-0.png");
-    enemyImages.push_back("./data/monsters/004_orc_leader-0.png");
-    enemyImages.push_back("./data/monsters/005_hobgoblin-0.png");
-    enemyImages.push_back("./data/monsters/006_hobgoblin_leader-0.png");
-    enemyImages.push_back("./data/monsters/007_ogre-0.png");
-    enemyImages.push_back("./data/monsters/008_ogre_leader-0.png");
-    enemyImages.push_back("./data/monsters/009_4th_lvl_fighter-0.png");
-    enemyImages.push_back("./data/monsters/010_kobold-0.png");
-    enemyImages.push_back("./data/monsters/011_kobold_leader-0.png");
-    enemyImages.push_back("./data/monsters/012_goblin_guard-0.png");
-    enemyImages.push_back("./data/monsters/013_kobold_leader-0.png");
-    enemyImages.push_back("./data/monsters/014_spectre-0.png");
-    enemyImages.push_back("./data/monsters/031_level_6_mu-0.png");
-
-    enemyImages.push_back("./data/monsters/032_mad_man-0.png");
-    enemyImages.push_back("./data/monsters/033_basilisk-0.png");
-    enemyImages.push_back("./data/monsters/034_troll-0.png");
-    enemyImages.push_back("./data/monsters/035_aides-0.png");
-    enemyImages.push_back("./data/monsters/036_hill_giant-0.png");
-
-    enemyImages.push_back("./data/monsters/037_bugbear-0.png");
-    enemyImages.push_back("./data/monsters/038_ettin-0.png");
-    enemyImages.push_back("./data/monsters/039_gnoll-0.png");
-    enemyImages.push_back("./data/monsters/040_6th_lvl_fighter-0.png");
-    enemyImages.push_back("./data/monsters/042_5th_lvl_mu-0.png");
-
-    enemyImages.push_back("./data/monsters/043_level_3_mu-0.png");
-    enemyImages.push_back("./data/monsters/045_nomad-0.png");
-    enemyImages.push_back("./data/monsters/046_4th_lvl_fighter-0.png");
-    enemyImages.push_back("./data/monsters/047_1st_lvl_thief-0.png");
-    enemyImages.push_back("./data/monsters/049_aides-0.png");
-
 
     playerImages.clear();
     playerImages.push_back("./data/characters/134_4th_lvl_fighter-0.png");
@@ -658,7 +334,7 @@ void battleView()
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             SDL_Texture* Texture = LoadTexture(enemyImages.at(enemyImageID[i]).c_str(),255);
-            npc[i].x += 32*i;
+            npc[i].x = 32*i + current.w - (32*12);
             SDL_RenderCopyEx(renderer, Texture, NULL, &npc[i],0,0,SDL_FLIP_HORIZONTAL);
             SDL_DestroyTexture(Texture);
         }
@@ -717,6 +393,7 @@ void battleView()
     RenderText("HP: " + std::to_string(playerCharacter[playerCharacterSelected].getHitpoints()), Black, 100, current.h - 100,20);
     RenderText("Actions: " + std::to_string(character_action[playerCharacterSelected]), Black, 100, current.h - 50,20);
 
+    RenderText(npc_name, Blue, current.w - 200, current.h - 150,20);
     RenderText("HP: " + std::to_string(npc_health[npc_active]), Black, current.w - 200, current.h - 100,20);
     RenderText("Actions: " + std::to_string(npc_action[npc_active]), Black, current.w - 200, current.h - 50,20);
     RenderText("HEALING POTIONS: " + std::to_string(healingPotion[playerCharacterSelected]), Black, current.w / 2, current.h - 200,20);
