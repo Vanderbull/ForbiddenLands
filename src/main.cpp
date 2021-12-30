@@ -555,8 +555,6 @@ int main(int argc, char ** argv)
                             std::cout<<"Fps: "<<fps.get()<<'\n';
                             teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
                             playerCharacter[playerCharacterSelected].carriedItems.push_back(createWater());
-                            //playercreateWater();
-
                             playerCharacter[playerCharacterSelected].increaseHunger();
                             playerCharacter[playerCharacterSelected].increaseThirst();
                         } break;
@@ -615,6 +613,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 1: // SLUMS
@@ -632,6 +638,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 2: // KHUTOS WELL
@@ -649,6 +663,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 3: // PODAL_PLAZA
@@ -666,6 +688,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 4: // cardona_textile_house_portal
@@ -683,6 +713,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 5: // kovel_mansion
@@ -700,6 +738,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 6: // mendors_library
@@ -717,6 +763,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 7: // sokol_keep
@@ -734,6 +788,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 8: // stojanov_gate
@@ -751,6 +813,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 9: // vahlingen_graveyard
@@ -768,6 +838,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 10: // valjevo_castle
@@ -785,6 +863,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 case 11: // wealthy_area
@@ -802,6 +888,14 @@ int main(int argc, char ** argv)
                                             else
                                             if( Rotation  == "W" )
                                                 PlayerCoordinate.x--;
+
+                                            playerCharacter[playerCharacterSelected].increaseHunger();
+                                            playerCharacter[playerCharacterSelected].increaseThirst();
+
+                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
+                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
                                         }
                                     } break;
                                 }

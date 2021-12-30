@@ -1,63 +1,6 @@
 # FORBIDDEN LANDS
 
-## Classes
-
-### ASSASSIN
-Assassins are stealthy killers, trained by their shadowy guilds
-in the arts of spying, disguise, poison, and murder. Although
-assassins of lower level are little more than well-trained thugs,
-the eminences of this reprehensible profession are so feared
-as to be spoken of only in whispers. High-level assassins are
-artists of murder, and their experience with hunting highly-
-placed targets, coupled with extensive education and training,
-often gives the sinister nobility of this class a silken, refi ned
-veneer over their true, murderous natures. This veneer, like
-many things pertaining to the assassins, is deceptive; survival
-in the higher echelons of an assassins’ guild requires animal
-cunning and a complete absence of mercy. Assassin characters
-must begin with an evil alignment.
-
-Virtually all cities (and many towns) will have a guild of as-
-sassins operating within the city walls and in the surrounding
-region, made up of 6-24 assassins of varying level. Player char-
-acter assassins, if they are identifi ed by the local guild, will be
-invited to join (such invitations ranging from polite to violent).
-Joining a guild places the assassin under the command of the
-local guildmaster, which may be inconvenient (and will require
-the assassin to pay a share of his take to the guild), but assas-
-sins’ guilds take a very dim view of freelancers working in their
-territory. Freelance assassins—and their companions—do not
-ordinarily live to enjoy old age. There are, of course, benefi ts
-to joining such a guild; training costs may be reduced, and the
-guild may be a good source of information about potential
-missions or nearby enemies.
-
-Assassins’ guilds are controlled by a guildmaster of 14th level—
-an assassin of lower level might take control, but would be
-unable to inspire the fear necessary to keep rival guilds from
-forming. To gain 14th level, an assassin character must take
-control of an assassins’ guild by killing (directly or indirectly)
-the existing guildmaster. Whenever the control of an assassins’
-guild changes hands, most of the assassins will abandon the
-guild and depart the area, normally leaving the guild reduced
-to a quarter of its original membership.
-The grandmaster of assassins (a campaign may have one or
-more) is a fi gure of legend and fear. These dark eminences
-usually live far from the cities, in remote and well-guarded
-locations—their fame is such that those who need their serv-
-ices will seek them out. To advance to 15th level, an assassin
-must fi nd and kill one of the existing grandmasters.
-
-### CLERIC
-### DRUID
-### FIGHTER
-### ILLUSIONIST
-### PALADIN
-### RANGER
-### THIEF
-### MAGIC USER
-
-##
+![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
 
 ## Races
 
@@ -110,10 +53,6 @@ this particular talent in order to gain information).
 ### HALFLING
 ### HALF-ORC
 ### HUMAN
-
-##
-
-![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
 
 ## Spells
 

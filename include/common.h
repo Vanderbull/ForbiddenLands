@@ -1149,6 +1149,8 @@ int statPoints[6] = {5,5,5,5,5,5};
 
 void renderCharacterCreation()
 {
+    std::string raceDescriptions;
+
     int localCounter = 0;
     SDL_Rect TextFrame = {0, 0, 0, 0};
     SDL_Rect TextFrame2 = {0, 0, 0, 0};
@@ -1320,8 +1322,8 @@ void renderCharacterCreation()
 
             if( playerCharacter[currentCharacter].race == 0)
             {
-            std::string dwarfs;
-             dwarfs = "Dwarfs\n" \
+            std::string raceDescriptions;
+             raceDescriptions = "Dwarfs\n" \
              "Dwarfs are a short and burly race, living in mountain fastnesses"\
              "underground. They are loyal friends and fierce adversaries,"\
              "known for their steadfastness in all things."\
@@ -1337,7 +1339,7 @@ void renderCharacterCreation()
              "loving the lustre of gold, the glitter of gems, and the quality"\
              "of well-wrought metals. Dwarfs can live to an age of 350 years"\
              "or more.";
-             RenderText3(dwarfs.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
 
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
@@ -1350,8 +1352,8 @@ void renderCharacterCreation()
             else
             if( playerCharacter[currentCharacter].race == 1)
             {
-            std::string dwarfs;
-             dwarfs = "Elves\n"\
+            std::string raceDescriptions;
+             raceDescriptions = "Elves\n"\
 "Elves are thinner and generally smaller in stature than humans."\
 "The elves have a powerful bond with nature and do not have"\
 "souls; their thinking and motives are quite alien to those of"\
@@ -1367,7 +1369,7 @@ void renderCharacterCreation()
 "and, at worst, cruel. Different as they are, these varied elven cul-"\
 "tures all share the same racial abilities, unless the GM chooses"\
 "otherwise. Elves can live to an age of 1,000 years or more.";
-             RenderText3(dwarfs.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
@@ -1379,8 +1381,8 @@ void renderCharacterCreation()
             else
             if( playerCharacter[currentCharacter].race == 2)
             {
-            std::string dwarfs;
-             dwarfs = "GnOmeS\n"\
+            std::string raceDescriptions;
+             raceDescriptions = "Gnomes\n"\
 "Gnomes are small folk imbued with the wilding power of il-"\
 "lusion and misdirection. They are inveterate burrowers, often"\
 "seeking hilly lands where gems and precious metals may be"\
@@ -1390,7 +1392,7 @@ void renderCharacterCreation()
 "time in the distant and mythical past, gnomes are quite re-"\
 "sistant to magic and sensitive to the nuances of construction."\
 "Gnomes can live to an age of 650 years or more.";
-             RenderText3(dwarfs.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
@@ -1402,8 +1404,8 @@ void renderCharacterCreation()
             else
             if( playerCharacter[currentCharacter].race == 3)
             {
-            std::string dwarfs;
-             dwarfs = "Halflings\n"\
+            std::string raceDescriptions;
+             raceDescriptions = "Halflings\n"\
 "Halﬂings are a small and unprepossessing race, often living"\
 "near human settlements at an agreeable remove from the bus-"\
 "tle and hurriedness characteristic of humans. Halﬂ ing society"\
@@ -1416,7 +1418,7 @@ void renderCharacterCreation()
 "ing very quietly and are excellent marksmen; given the right"\
 "personality, halﬂ ings can become excellent thieves. Halﬂ ings"\
 "live to be 150 or more years old.";
-             RenderText3(dwarfs.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
@@ -1428,14 +1430,14 @@ void renderCharacterCreation()
             else
             if( playerCharacter[currentCharacter].race == 4)
             {
-            std::string dwarfs;
-             dwarfs = "half elVeS\n"\
+            std::string raceDescriptions;
+             raceDescriptions = "half-elves\n"\
 "It is possible for elves and humans to interbreed, although el-"\
 "ven fastidiousness makes this a fairly uncommon occurrence."\
 "Half elves do not have a separate culture or civilisation of their"\
 "own, usually assimilating into the elven or human society in"\
 "which they were raised.";
-             RenderText3(dwarfs.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
@@ -1447,8 +1449,8 @@ void renderCharacterCreation()
             else
             if( playerCharacter[currentCharacter].race == 5)
             {
-            std::string dwarfs;
-             dwarfs = "half-ORcS\n"\
+            std::string raceDescriptions;
+             raceDescriptions = "half-orcs\n"\
 "The progeny of human/orc breeding are normally indistin-"\
 "guishable from orcs. However, a few are suffi ciently human"\
 "to gain levels in a character class, although they are severely"\
@@ -1459,7 +1461,7 @@ void renderCharacterCreation()
 "but the same ancestry makes them deadly adversaries when"\
 "the chips are down and the swords are out. Half-orcs can live"\
 "to be 70 years old or older.";
-             RenderText3(dwarfs.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
@@ -1471,8 +1473,8 @@ void renderCharacterCreation()
             else
             if( playerCharacter[currentCharacter].race == 6)
             {
-            std::string dwarfs;
-             dwarfs = "hUmanS\n"\
+            std::string raceDescriptions;
+             raceDescriptions = "Humans\n"\
 "Humans are the standard for the game, and as such, humans"\
 "have no unusual abilities or limitations in game terms. Because"\
 "of their potential for unlimited progression in all the character"\
@@ -1485,7 +1487,7 @@ void renderCharacterCreation()
 "such a house rule for their own OSRIC-compatible games are"\
 "advised to ensure that in most campaigns, humans should still"\
 "represent an attractive choice for their players.";
-             RenderText3(dwarfs.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
