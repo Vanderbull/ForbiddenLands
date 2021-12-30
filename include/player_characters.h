@@ -650,7 +650,7 @@ typedef struct playerCharacter
     }
 
     int startCounter = 0;
-    int stopCounter = 2;
+    int stopCounter = 6;
     int moveIndex = 0;
 
     void renderCharacterViewItems()
@@ -659,7 +659,14 @@ typedef struct playerCharacter
         damage_vs_small = 0;
         moveIndex = 0;
 
-        SDL_Rect increase = {500,500,500,500};
+        if( stopCounter < startCounter+5)
+        {
+            stopCounter = startCounter+5;
+            if( stopCounter > carriedItems.size() -1 )
+                stopCounter = carriedItems.size() -1;
+        }
+
+        SDL_Rect increase = {2510,500,50,50};
         SDL_SetRenderDrawColor(renderer,255,128,128,255);
         SDL_RenderFillRect(renderer, &increase);
           SDL_Point mousePosition;
@@ -678,7 +685,7 @@ typedef struct playerCharacter
         }
         RenderText(std::to_string(stopCounter) ,White, increase.x,increase.y, 48);
 
-        SDL_Rect decrease = {0,500,500,500};
+        SDL_Rect decrease = {2510,100,50,50};
         SDL_SetRenderDrawColor(renderer,255,128,128,255);
         SDL_RenderFillRect(renderer, &decrease);
           //SDL_Point mousePosition;
@@ -830,6 +837,11 @@ typedef struct playerCharacter
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                 {
                     carriedItems.erase(carriedItems.begin() + rowcounter);
+                    if( startCounter > 0 )
+                    {
+                        startCounter--;
+                        stopCounter--;
+                    }
                     //renderItem = NULL;
                     droppedLoot();
                     SDL_Delay(50);
