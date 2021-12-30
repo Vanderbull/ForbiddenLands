@@ -146,7 +146,29 @@ The caster and anyone else teleporting with him or
 her arrive beneath the destination point, causing instant death
 if the area is solid.
 
-### Bless
+### Bless ( Reversible )
+- Clerical Conjuration/Summoning
+- level: Cleric 1
+- Range: 60 ft
+- duration: 6 rounds
+- area of effect: 50 x 50 ft
+- components: V,S,M
+- casting time: 1 round
+- Saving throw: None
+
+<p>
+This minor benison raises the morale and attack rolls of any
+creatures allied with the casting cleric by +1 or +5% as appro-
+priate. Any creatures already engaged in melee combat will
+not gain the spell’s benefi ts. The spell is reversible, allowing
+the cleric to curse his or her enemies with—5% morale and
+–1 to hit.
+The spell’s area of effect is a circular area centred at the tar-
+get point, which cannot be more than 60 ft from the cleric.
+Holy water is required to cast the spell (unholy water for the
+reverse).
+</p>
+
 ### Command
 ### Create water
 ### Cure critical wounds
