@@ -12,8 +12,7 @@ void teleport(int dest_x , int dest_y, int& src_x, int& src_y)
 teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
 ```
 
-<details>
-<summary>MORE</summary>
+<details><summary>MORE</summary>
 <p>
 - On target
 The caster appears in the correct location.
