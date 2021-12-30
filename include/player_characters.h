@@ -53,7 +53,7 @@ void NameGen(char* PlayerName)
 // Move this structure to its own file when possible
 struct items
 {
-    std::string icon = "./icons/uiAtlas/ui_game_symbol_spatula.png";
+    std::string icon = "./icons/uiAtlas/ui_game_symbol_other.png";
     std::string name_1 = "";
     std::string name_2 = "";
     std::string name_3 = "";
@@ -649,18 +649,68 @@ typedef struct playerCharacter
         }
     }
 
+    int startCounter = 0;
+    int stopCounter = 2;
+    int moveIndex = 0;
+
     void renderCharacterViewItems()
     {
         rowcounter = 0;
         damage_vs_small = 0;
+        moveIndex = 0;
 
-        RenderText("READY ITEM",White, 1500,100, 48);
+        SDL_Rect increase = {500,500,500,500};
+        SDL_SetRenderDrawColor(renderer,255,128,128,255);
+        SDL_RenderFillRect(renderer, &increase);
+          SDL_Point mousePosition;
+            SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+        if( SDL_PointInRect(&mousePosition, &increase) )
+        {
+            SDL_PumpEvents();
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                if( stopCounter < carriedItems.size()-1 )
+                {
+                startCounter++;
+                stopCounter++;
+                }
+            }
+        }
+        RenderText(std::to_string(stopCounter) ,White, increase.x,increase.y, 48);
+
+        SDL_Rect decrease = {0,500,500,500};
+        SDL_SetRenderDrawColor(renderer,255,128,128,255);
+        SDL_RenderFillRect(renderer, &decrease);
+          //SDL_Point mousePosition;
+           // SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+        if( SDL_PointInRect(&mousePosition, &decrease) )
+        {
+            SDL_PumpEvents();
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                if( startCounter > 0)
+                {
+                    startCounter--;
+                    stopCounter--;
+                }
+            }
+        }
+        RenderText(std::to_string(startCounter) ,White, decrease.x,decrease.y, 48);
+
+        if( stopCounter >= carriedItems.size())
+            stopCounter = carriedItems.size();
+
+        RenderText(std::to_string(carriedItems.size()) + " READY ITEM",White, 1500,100, 48);
         RenderText(getName() + "'S ITEMS",Blue, 1500,70, 24);
 
         // Render character inventory
 
         for (auto & renderItem: carriedItems)
         {
+            if( rowcounter >= startCounter && rowcounter <= stopCounter )
+            {
+
+
             SDL_Point mousePosition;
             SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
@@ -685,7 +735,7 @@ typedef struct playerCharacter
             infoBox.h = 160;
             infoBox.w = 160;
             infoBox.x = 1800;
-            infoBox.y = 200 + (infoBox.h*rowcounter);
+            infoBox.y = 200 + (infoBox.h*moveIndex);
 
             SDL_SetRenderDrawColor(renderer,128,128,128,255);
             SDL_RenderFillRect(renderer, &infoBox);
@@ -712,35 +762,14 @@ typedef struct playerCharacter
                 }
             }
 
-            SDL_Rect dropBox = {0,0,0,0};
-
-            dropBox.h = 160;
-            dropBox.w = 160;
-            dropBox.x = 2000;
-            dropBox.y = 200 + (dropBox.h*rowcounter);
-
-            SDL_SetRenderDrawColor(renderer,128,128,128,255);
-            SDL_RenderFillRect(renderer, &dropBox);
-            RenderText("DROP",White,dropBox.x, dropBox.y - textHeight /2, 24);
-
-            if( SDL_PointInRect(&mousePosition, &dropBox) )
-            {
-                SDL_PumpEvents();
-                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-                {
-                    carriedItems.erase(carriedItems.begin() + rowcounter);
-                    droppedLoot();
-                    SDL_Delay(50);
-                }
-            }
-
             SDL_Rect itemBox = {0,0,0,0};
 
             itemBox.h = 160 ;
             itemBox.w = 160;
             itemBox.x = 1300;
-            itemBox.y = 200 + (itemBox.h*rowcounter);
+            itemBox.y = 200 + (itemBox.h*moveIndex);
 
+            if( renderItem.icon != "" )
             if( renderItem.equipped )
             {
                 gTexture = NULL;
@@ -783,7 +812,33 @@ typedef struct playerCharacter
                     SDL_Delay(100);
                 }
             }
+
+            SDL_Rect dropBox = {0,0,0,0};
+
+            dropBox.h = 160;
+            dropBox.w = 160;
+            dropBox.x = 2000;
+            dropBox.y = 200 + (dropBox.h*moveIndex);
+
+            SDL_SetRenderDrawColor(renderer,128,128,128,255);
+            SDL_RenderFillRect(renderer, &dropBox);
+            RenderText("DROP",White,dropBox.x, dropBox.y - textHeight /2, 24);
+
+            if( SDL_PointInRect(&mousePosition, &dropBox) )
+            {
+                SDL_PumpEvents();
+                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                {
+                    carriedItems.erase(carriedItems.begin() + rowcounter);
+                    //renderItem = NULL;
+                    droppedLoot();
+                    SDL_Delay(50);
+                }
+            }
+            moveIndex++;
+            }
             rowcounter++;
+
         }
     };
 

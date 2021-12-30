@@ -139,6 +139,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/spells/remove_fear.h" />
 		<Unit filename="include/spells/resist_cold.h" />
 		<Unit filename="include/spells/sanctuary.h" />
+		<Unit filename="include/spells/teleport.h" />
 		<Unit filename="include/texture_resource.h" />
 		<Unit filename="include/wands/magic_missile_wand.h" />
 		<Unit filename="include/world_view.h" />
