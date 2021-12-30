@@ -3,10 +3,96 @@
 ## Spells
 
 ### cleRIc SpellS BY leVel
-| Level one | Level two | Level three |
-|     :---:      |     :---:      |     :---:      |
-| Bless     | Augury     | Animate dead     |
-| Command       | Chant       | Continual light       |
+
+#### Level one
+Bless
+Command
+Create Water
+Cure Light Wounds
+Detect Evil
+Detect Magic
+Light
+Protection From Evil
+Purify Food and Drink
+Remove Fear
+Resist Cold
+Sanctuary
+
+#### Level two
+Augury
+Chant
+Detect Charm
+Find Traps
+Hold Person
+Know Alignment
+Resist Fire
+Silence 15’ Radius
+Slow Poison
+Snake Charm
+Speak With Animals
+Spiritual Weapon
+
+#### Level three
+Animate Dead
+Continual Light
+Create Food and Water
+Cure Blindness
+Cure Disease
+Dispel Magic
+Feign Death
+Glyph of Warding
+Locate Object
+Prayer
+Remove Curse
+Speak with Dead
+
+#### Level four
+Cure Serious Wounds
+Detect Lie
+Divination
+Exorcise
+Lower Water
+Neutralise Poison
+Protection From Evil 10 ft Radius
+Speak With Plants
+Sticks to Snakes
+Tongues
+
+#### Level five
+Atonement
+Commune
+Cure Critical Wounds
+Dispel Evil
+Flame Strike
+Insect Plague
+Plane Shift
+Quest
+Raise Dead
+True Seeing
+
+#### Level Six
+Aerial Servant
+Animate Object
+Blade Barrier
+Conjure Animals
+Find the Path
+Heal
+Part Water
+Speak With Monsters
+Stone Tell
+Word of Recall
+
+#### Level Seven
+Astral Spell
+Control Weather
+Earthquake
+Gate
+Holy Word
+Regenerate
+Restoration
+Resurrection
+Symbol
+Wind Walk
 
 ### dRUId SpellS BY leVel
 | Level one | Level two | Level three |
