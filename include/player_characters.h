@@ -7,8 +7,6 @@
 
 #include <SDL2/SDL.h>
 
-#include "common.h"
-
 std::vector<std::string> readyCharacterInventory[6];
 std::vector<std::string> playerCharacterInventory[6];
 
@@ -672,18 +670,46 @@ typedef struct playerCharacter
             if( TTF_SizeText(m_font, "GET THIS HEIGHT VALUE", &textWidth, &textHeight) )
             {
             }
-            else
-            {
-                //printf("width=%d height=%d\n",textWidth,textHeight);
-            }
+
             TTF_CloseFont(m_font);
             m_font = NULL;
 
+            SDL_Rect infoBox = {0,0,0,0};
+
+            infoBox.h = 160;
+            infoBox.w = 160;
+            infoBox.x = 1800;
+            infoBox.y = 200 + (infoBox.h*rowcounter);
+
+            SDL_SetRenderDrawColor(renderer,128,128,128,255);
+            SDL_RenderFillRect(renderer, &infoBox);
+            RenderText("INFO",White,infoBox.x, infoBox.y - textHeight /2, 24);
+
+            if( SDL_PointInRect(&mousePosition, &infoBox) )
+            {
+                SDL_PumpEvents();
+                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                {
+                    SDL_Rect infoBox = {0,0,0,0};
+
+                    infoBox.h = 640;
+                    infoBox.w = 480;
+                    infoBox.x = 2560 - infoBox.w;
+                    infoBox.y = 0;
+
+                    SDL_SetRenderDrawColor(renderer,128,128,128,255);
+                    SDL_RenderFillRect(renderer, &infoBox);
+                    RenderTextWrapped("INFO more information about this item and stuff that are really cool and stuff.",White,infoBox.x + infoBox.w / 2, infoBox.y + infoBox.h / 2, 24,infoBox.w / 2);
+
+                    SDL_Delay(50);
+                }
+            }
+
             SDL_Rect dropBox = {0,0,0,0};
 
-            dropBox.h = 160 ;
+            dropBox.h = 160;
             dropBox.w = 160;
-            dropBox.x = 1000;
+            dropBox.x = 2000;
             dropBox.y = 200 + (dropBox.h*rowcounter);
 
             SDL_SetRenderDrawColor(renderer,128,128,128,255);
