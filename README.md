@@ -35,6 +35,21 @@ The caster and anyone else teleporting with him or
 her arrive beneath the destination point, causing instant death
 if the area is solid.
 
+### Bless
+### Command
+### Create water
+### Cure critical wounds
+### Cure serious wounds
+### Cure light wounds
+### Detect evil
+### Detect magic
+### Light
+### Protection from evil
+### Purify food and drink
+### Remove fear
+### Resist cold
+### Sanctuary
+
 sudo apt install g++
 sudo apt-get install -y libsqlite3-dev
 sudo apt install libsdl2*
