@@ -1028,7 +1028,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1640833103 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1640838310 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<cassert>
 	<ctime>
 	<iostream>
@@ -1121,7 +1121,7 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/coordinates.h
 
-1640831221 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
+1640838471 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
 	<iostream>
 	<string>
 	<vector>
@@ -1181,7 +1181,7 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/sound_resource.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells.h
+1640833981 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells.h
 	"../include/spells/bless.h"
 	"../include/spells/command.h"
 	"../include/spells/cure_critical_wounds.h"
@@ -1196,6 +1196,7 @@
 	"../include/spells/resist_cold.h"
 	"../include/spells/sanctuary.h"
 	"../include/spells/create_water.h"
+	"../include/spells/teleport.h"
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/bless.h
 
@@ -1223,7 +1224,7 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/sanctuary.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/create_water.h
+1640838490 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/create_water.h
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render.h
 	"render_trainer.h"
@@ -1310,4 +1311,6 @@
 	<vector>
 	<SDL2/SDL.h>
 	"common.h"
+
+1640834285 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/teleport.h
 

@@ -517,6 +517,11 @@ struct items
         }
     };
 
+    items( int aValue )
+    {
+        name_1 = "WATER GOT DAMN IT";
+    };
+
     std::string getName()
     {
         return name_1 + " " + name_2 + " " + name_3;

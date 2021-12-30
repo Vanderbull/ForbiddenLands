@@ -554,6 +554,8 @@ int main(int argc, char ** argv)
                         {
                             std::cout<<"Fps: "<<fps.get()<<'\n';
                             teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
+                            playerCharacter[playerCharacterSelected].carriedItems.push_back(createWater());
+                            //playercreateWater();
                         } break;
                         case SDLK_PLUS:
                         {
