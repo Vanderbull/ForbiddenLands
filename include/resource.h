@@ -63,7 +63,7 @@ void initGame()
     MenuChoices.push_back("PLAY");
     MenuChoices.push_back("SAVE");
     MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CREATE CHARACTER");
+    MenuChoices.push_back("CHARACTER MANAGER");
     MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
 

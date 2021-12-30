@@ -99,6 +99,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/main_menu.h" />
 		<Unit filename="include/map_resource.h" />
 		<Unit filename="include/menu_resource.h" />
+		<Unit filename="include/npc.h" />
 		<Unit filename="include/player_characters.h" />
 		<Unit filename="include/potions/efreet_bottle.h" />
 		<Unit filename="include/potions/flask_of_oil.h" />

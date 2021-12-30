@@ -57,7 +57,6 @@ void MainMenu()
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-            //SDL_RenderFillRect(renderer, &buttonPosition);
 
             SDL_PumpEvents();
             state = SDL_GetMouseState(NULL, NULL);
@@ -86,7 +85,7 @@ void MainMenu()
                         SettingsMenu = 0;
                         CreateCharacter = 0;
                     }
-                    if(MenuChoice == "CREATE CHARACTER")
+                    if(MenuChoice == "CHARACTER MANAGER")
                     {
                         SaveMenu = 0;
                         LoadMenu = 0;
