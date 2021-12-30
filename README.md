@@ -2,6 +2,15 @@
 
 ## Spells
 ### Teleport
+```
+void teleport(int dest_x , int dest_y, int& src_x, int& src_y)
+{
+    src_x=dest_x;
+    src_y=dest_y;
+}
+
+teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
+```
 
 sudo apt install g++
 sudo apt-get install -y libsqlite3-dev
