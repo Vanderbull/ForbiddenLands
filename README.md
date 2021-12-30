@@ -2,7 +2,7 @@
 
 ## Spells
 ### Teleport
-```
+```c++
 void teleport(int dest_x , int dest_y, int& src_x, int& src_y)
 {
     src_x=dest_x;
@@ -11,6 +11,34 @@ void teleport(int dest_x , int dest_y, int& src_x, int& src_y)
 
 teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
 ```
+
+<details>
+<summary>MORE</summary>
+<p>
+- On target
+The caster appears in the correct location.
+- Off target
+The caster appears safely, a random distance away
+from the destination in a random direction. Distance off target
+is 1d10x1d10% of the distance that was to be travelled. The
+direction off target is determined randomly
+- Similar area
+The caster winds up in an area that is visually or
+thematically (depending on how the caster identifi ed it while
+casting) similar to the target area. It is possible (25% chance)
+that this result will indicate that the correct location has been
+reached but that the caster and party will arrive too high, fall-
+ing 1d% ft unless there is means to arrest the fall. If the party
+arrives too high and the result would entomb them in a solid
+surface, they die instantly. Generally, the caster will appear
+in the closest similar place within range. If no such area exists
+within the spell’s range, the spell simply fails.
+- Mishap
+The caster and anyone else teleporting with him or
+her arrive beneath the destination point, causing instant death
+if the area is solid.
+</p>
+</details>
 
 sudo apt install g++
 sudo apt-get install -y libsqlite3-dev
