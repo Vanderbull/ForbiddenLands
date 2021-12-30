@@ -32,6 +32,22 @@ to joining such a guild; training costs may be reduced, and the
 guild may be a good source of information about potential
 missions or nearby enemies.
 
+Assassins’ guilds are controlled by a guildmaster of 14th level—
+an assassin of lower level might take control, but would be
+unable to inspire the fear necessary to keep rival guilds from
+forming. To gain 14th level, an assassin character must take
+control of an assassins’ guild by killing (directly or indirectly)
+the existing guildmaster. Whenever the control of an assassins’
+guild changes hands, most of the assassins will abandon the
+guild and depart the area, normally leaving the guild reduced
+to a quarter of its original membership.
+The grandmaster of assassins (a campaign may have one or
+more) is a fi gure of legend and fear. These dark eminences
+usually live far from the cities, in remote and well-guarded
+locations—their fame is such that those who need their serv-
+ices will seek them out. To advance to 15th level, an assassin
+must fi nd and kill one of the existing grandmasters.
+
 ### CLERIC
 ### DRUID
 ### FIGHTER
