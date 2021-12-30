@@ -36,7 +36,6 @@ tongue. Regardless of intelligence, a dwarf may only ever learn
 two languages in addition to those listed.
 
 - Infravision * : 60 ft
-* Infravision is defi ned under Light and Vision on page 119.
 Within ten ft, a dwarf can detect certain facts concerning
 engineering, stonework, etc. Although no signifi cant time is
 required, the character must deliberately observe his or her
