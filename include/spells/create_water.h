@@ -4,6 +4,7 @@
 items createWater()
 {
     items waterBottle(0);
+    waterBottle.icon = "./icons/potion.png";
     std::cout << "creating water..." << std::endl;
     return waterBottle;
 };

@@ -53,6 +53,7 @@ void NameGen(char* PlayerName)
 // Move this structure to its own file when possible
 struct items
 {
+    std::string icon = "./icons/uiAtlas/ui_game_symbol_spatula.png";
     std::string name_1 = "";
     std::string name_2 = "";
     std::string name_3 = "";
@@ -743,7 +744,8 @@ typedef struct playerCharacter
             if( renderItem.equipped )
             {
                 gTexture = NULL;
-                gTexture = LoadTexture("./icons/uiAtlas/ui_game_symbol_spatula.png",255);
+                //gTexture = LoadTexture("./icons/uiAtlas/ui_game_symbol_spatula.png",255);
+                gTexture = LoadTexture(renderItem.icon,255);
                 SDL_SetTextureColorMod(gTexture, 0, 255, 0); //set yellow letters
                 SDL_RenderCopy(renderer, gTexture, NULL, &itemBox);
                 SDL_DestroyTexture(gTexture);
@@ -754,7 +756,7 @@ typedef struct playerCharacter
             else
             {
                 gTexture = NULL;
-                gTexture = LoadTexture("./icons/uiAtlas/ui_game_symbol_spatula.png",255);
+                gTexture = LoadTexture(renderItem.icon,255);
                 SDL_SetTextureColorMod(gTexture, 255, 255, 255); //set yellow letters
                 SDL_RenderCopy(renderer, gTexture, NULL, &itemBox);
                 SDL_DestroyTexture(gTexture);
