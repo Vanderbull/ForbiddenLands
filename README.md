@@ -37,8 +37,9 @@ within the spell’s range, the spell simply fails.
 The caster and anyone else teleporting with him or
 her arrive beneath the destination point, causing instant death
 if the area is solid.
-</p>
 ```
+</p>
+
 </details>
 
 sudo apt install g++
