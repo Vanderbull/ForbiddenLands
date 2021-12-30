@@ -3,6 +3,35 @@
 ## Classes
 
 ### ASSASSIN
+Assassins are stealthy killers, trained by their shadowy guilds
+in the arts of spying, disguise, poison, and murder. Although
+assassins of lower level are little more than well-trained thugs,
+the eminences of this reprehensible profession are so feared
+as to be spoken of only in whispers. High-level assassins are
+artists of murder, and their experience with hunting highly-
+placed targets, coupled with extensive education and training,
+often gives the sinister nobility of this class a silken, refi ned
+veneer over their true, murderous natures. This veneer, like
+many things pertaining to the assassins, is deceptive; survival
+in the higher echelons of an assassins’ guild requires animal
+cunning and a complete absence of mercy. Assassin characters
+must begin with an evil alignment.
+
+Virtually all cities (and many towns) will have a guild of as-
+sassins operating within the city walls and in the surrounding
+region, made up of 6-24 assassins of varying level. Player char-
+acter assassins, if they are identifi ed by the local guild, will be
+invited to join (such invitations ranging from polite to violent).
+Joining a guild places the assassin under the command of the
+local guildmaster, which may be inconvenient (and will require
+the assassin to pay a share of his take to the guild), but assas-
+sins’ guilds take a very dim view of freelancers working in their
+territory. Freelance assassins—and their companions—do not
+ordinarily live to enjoy old age. There are, of course, benefi ts
+to joining such a guild; training costs may be reduced, and the
+guild may be a good source of information about potential
+missions or nearby enemies.
+
 ### CLERIC
 ### DRUID
 ### FIGHTER
