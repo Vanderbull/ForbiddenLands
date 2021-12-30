@@ -1,5 +1,8 @@
 # FORBIDDEN LANDS
 
+## Spells
+### Teleport
+
 sudo apt install g++
 sudo apt-get install -y libsqlite3-dev
 sudo apt install libsdl2*
