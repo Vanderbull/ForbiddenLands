@@ -14,6 +14,7 @@ teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
 
 <details><summary>MORE</summary>
 <p>
+```
 - On target
 The caster appears in the correct location.
 - Off target
@@ -37,6 +38,7 @@ The caster and anyone else teleporting with him or
 her arrive beneath the destination point, causing instant death
 if the area is solid.
 </p>
+```
 </details>
 
 sudo apt install g++
