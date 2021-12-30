@@ -1,6 +1,31 @@
 # FORBIDDEN LANDS
 
 ## Spells
+
+### cleRIc SpellS BY leVel
+| Level one | Level two | Level three |
+|     :---:      |     :---:      |     :---:      |
+| Bless     | Augury     | Animate dead     |
+| Command       | Chant       | Continual light       |
+
+### dRUId SpellS BY leVel
+| Level one | Level two | Level three |
+|     :---:      |     :---:      |     :---:      |
+| Bless     | Augury     | Animate dead     |
+| Command       | Chant       | Continual light       |
+
+### maGIc USeR SpellS BY leVel
+| Level one | Level two | Level three |
+|     :---:      |     :---:      |     :---:      |
+| Bless     | Augury     | Animate dead     |
+| Command       | Chant       | Continual light       |
+
+### IllUSIOnISt SpellS BY leVel
+| Level one | Level two | Level three |
+|     :---:      |     :---:      |     :---:      |
+| Bless     | Augury     | Animate dead     |
+| Command       | Chant       | Continual light       |
+
 ### Teleport
 ```c++
 void teleport(int dest_x , int dest_y, int& src_x, int& src_y)
