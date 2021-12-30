@@ -165,8 +165,8 @@
 4 10 0 0 0 1 phlan phlan phlan phlan -1 -1 no_description
 5 10 1 1 0 1 phlan phlan phlan phlan -1 -1 no_description
 6 10 1 0 0 1 phlan phlan phlan phlan -1 -1 no_description
-7 10 0 0 1 1 phlan phlan phlan phlan -1 -1 no_description
-8 10 0 1 0 0 phlan phlan phlan phlan -1 -1 no_description
+7 10 0 1 1 1 phlan phlan phlan phlan -1 -1 no_description
+8 10 1 0 0 0 phlan phlan phlan phlan -1 -1 no_description
 9 10 1 1 0 0 phlan phlan phlan phlan -1 -1 no_description
 10 10 1 0 1 1 phlan phlan phlan phlan -1 -1 no_description
 11 10 1 1 1 1 phlan phlan phlan phlan -1 -1 no_description

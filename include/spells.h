@@ -15,5 +15,6 @@
 #include "../include/spells/resist_cold.h"
 #include "../include/spells/sanctuary.h"
 #include "../include/spells/create_water.h"
+#include "../include/spells/teleport.h"
 
 #endif

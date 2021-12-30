@@ -655,14 +655,6 @@ std::string Proclamations( int _ID )
 
 std::string renderDescription(int x, int y)
 {
-    templeShop = 0;
-    trainingHall = 0;
-    shop = 0;
-    armsAndarmourShop = 0;
-    jewelleryShop = 0;
-    generalShop = 0;
-    silverShop = 0;
-    tavern = 0;
     int skip_return = 0;
     std::ifstream dataFile;
 
@@ -792,61 +784,57 @@ std::string renderDescription(int x, int y)
                     {
                         if( phlanTourCoordinateN[2] == "TRAINING_HALL")
                         {
-                            std::cout << "There is a traininghall here, do you want to enter?" << std::endl;
-                            shop = 1;
                             trainingHall = 1;
                             skip_return = 1;
+                            RenderText("There is a traininghall here, do you want to enter?",Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "ARMS_ARMOUR")
                         {
-                            std::cout << "There is a Armory here, do you want to enter?" << std::endl;
-                            shop = 1;
                             armsAndarmourShop = 1;
                             skip_return = 1;
+                            RenderText("There is a Armory here, do you want to enter?",Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "TAVERN_TALES")
                         {
-                            std::cout << "There is a tavern here, do you want to enter?" << std::endl;
                             tavern = 1;
                             skip_return = 1;
+                            RenderText("There is a tavern here, do you want to enter?",Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "GENERAL_SHOP")
                         {
-                            std::cout << "There is a general shop here, do you want to enter?" << std::endl;
-                            shop = 1;
                             generalShop = 1;
                             skip_return = 1;
+                            RenderText("There is a general shop here, do you want to enter?",Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "JEWELERY_SHOP")
                         {
-                            std::cout << "There is a jewellery shop here, do you want to enter?" << std::endl;
-                            shop = 1;
                             jewelleryShop = 1;
                             skip_return = 1;
+                            RenderText("There is a jewellery shop here, do you want to enter?",Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "PROCLAMATIONS")
                         {
                             std::cout << Proclamations( (rand()%19 + 1) ) << std::endl;
                             skip_return = 1;
+                            RenderText(Proclamations( (rand()%19 + 1) ),Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "PRIESTHOOD")
                         {
-                            std::cout << "There is a priesthood here, do you want to enter?" << std::endl;
                             templeShop = 1;
                             skip_return = 1;
+                            RenderText("There is a priesthood here, do you want to enter?",Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "SILVER_SHOP")
                         {
-                            std::cout << "There is a silver shop here, do you want to enter" << std::endl;
-                            shop = 1;
                             silverShop = 1;
                             skip_return = 1;
+                            RenderText("There is a silver shop here, do you want to enter?",Red,100,0,48);
                         }
                         if( phlanTourCoordinateN[2] == "ROLF")
                         {
-                            std::cout << "Rolf is here, do you want to take a tour?" << std::endl;
-                            //rolf = 1;
+                            rolf = 1;
                             skip_return = 1;
+                            RenderText("Rolf is here, do you want to take a tour?",Red,100,0,48);
                         }
                         phlanTourCoordinateN[2] += phlanTourCoordinateN[0];
                         phlanTourCoordinateN[2] += phlanTourCoordinateN[1];

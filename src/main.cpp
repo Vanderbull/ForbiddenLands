@@ -393,11 +393,6 @@ int main(int argc, char ** argv)
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         renderer2 = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
 
-        //SDL_GLContext glcontext = SDL_GL_CreateContext(window);
-
-        // Once finished with OpenGL functions, the SDL_GLContext can be deleted.
-        //SDL_GL_DeleteContext(glcontext);
-
         SDL_Log("SDL Renderer creation: SUCCESS");
 
         SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
@@ -558,6 +553,7 @@ int main(int argc, char ** argv)
                         case SDLK_F12:
                         {
                             std::cout<<"Fps: "<<fps.get()<<'\n';
+                            teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
                         } break;
                         case SDLK_PLUS:
                         {

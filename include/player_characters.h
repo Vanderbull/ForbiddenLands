@@ -697,9 +697,10 @@ typedef struct playerCharacter
                     infoBox.x = 2560 - infoBox.w;
                     infoBox.y = 0;
 
+
                     SDL_SetRenderDrawColor(renderer,128,128,128,255);
                     SDL_RenderFillRect(renderer, &infoBox);
-                    RenderTextWrapped("INFO more information about this item and stuff that are really cool and stuff.",White,infoBox.x + infoBox.w / 2, infoBox.y + infoBox.h / 2, 24,infoBox.w / 2);
+                    RenderTextWrapped(renderItem.name_1 + " " + renderItem.name_2 + " " + renderItem.name_3 + " " + "INFO more information about this item and stuff that are really cool and stuff.",White,infoBox.x + infoBox.w / 2, infoBox.y + infoBox.h / 4, 24,infoBox.w / 2);
 
                     SDL_Delay(50);
                 }

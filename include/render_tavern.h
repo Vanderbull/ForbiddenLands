@@ -104,6 +104,7 @@ void renderTavern()
             PlayerCoordinate.x = LastPlayerCoordinate.x;
             PlayerCoordinate.y = LastPlayerCoordinate.y;
             tavern = 0;
+            shop = 0;
         }
     }
     renderPCstatus();

@@ -96,6 +96,7 @@ void renderSmithShop()
             PlayerCoordinate.x = LastPlayerCoordinate.x;
             PlayerCoordinate.y = LastPlayerCoordinate.y;
             armsAndarmourShop = 0;
+            shop = 0;
         }
     }
     renderPCstatus();

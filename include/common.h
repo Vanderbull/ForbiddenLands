@@ -392,64 +392,64 @@ void renderFPS(unsigned int fps)
 {
     RenderText("FPS: " + std::to_string(fps),Green,0,0,48);
 };
-
-void renderCharacterViewItems()
-{
-    rowcounter = 0;
-    int row = 0;
-
-    rowcounter = 0;
-    for(const auto& s: readyCharacterInventory[playerCharacterSelected])
-    {
-        SDL_Rect itemBox = {0,0,0,0};
-        itemBox.h = 20;
-        itemBox.w = 40;
-        itemBox.x = 1500;
-        itemBox.y = 200 + (20*rowcounter);
-        if( SDL_PointInRect(&mousePosition, &itemBox) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-        {
-            RenderText(s.c_str(),Green,itemBox.x,itemBox.y,fontSize);
-
-            RenderText(playerCharacterInventory[playerCharacterSelected].at(rowcounter).c_str(),Green,current.w - 500,itemBox.y,fontSize);
-            RenderText("AC: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter)),Green,current.w - 500,itemBox.y + 25,fontSize);
-            RenderText("THACO: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter)),Green,current.w - 500,itemBox.y + 50,fontSize);
-            RenderText("COST: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryCost.at(rowcounter)),Green,current.w - 500,itemBox.y + 75,fontSize);
-            RenderText("DAMAGE: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryDamage.at(rowcounter)),Green,current.w - 500,itemBox.y + 100,fontSize);
-            SDL_PumpEvents();
-            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-            {
-                if( readyCharacterInventory[playerCharacterSelected].at(rowcounter) == "YES" )
-                {
-                    readyCharacterInventory[playerCharacterSelected].at(rowcounter) = "NO";
-                    playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter) = 0;
-                    playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter) = 0;
-                }
-                else
-                {
-                    readyCharacterInventory[playerCharacterSelected].at(rowcounter) = "YES";
-                    playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter) = 1;
-                    playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter) = 1;
-                }
-                SDL_Delay(75);
-            }
-        }
-        rowcounter++;
-    }
-
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-    SDL_Rect exitButton = {current.w - 210, current.h - 40, 200, 30};
-    SDL_RenderFillRect(renderer, &exitButton);
-    RenderText("EXIT", Black, current.w - 200, current.h - 37,fontSize);
-
-    if( SDL_PointInRect(&mousePosition, &exitButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_PumpEvents();
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            viewItems = !viewItems;
-        }
-    }
-}
+//
+//void renderCharacterViewItems()
+//{
+//    rowcounter = 0;
+//    int row = 0;
+//
+//    rowcounter = 0;
+//    for(const auto& s: readyCharacterInventory[playerCharacterSelected])
+//    {
+//        SDL_Rect itemBox = {0,0,0,0};
+//        itemBox.h = 20;
+//        itemBox.w = 40;
+//        itemBox.x = 1500;
+//        itemBox.y = 200 + (20*rowcounter);
+//        if( SDL_PointInRect(&mousePosition, &itemBox) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//        {
+//            RenderText(s.c_str(),Green,itemBox.x,itemBox.y,fontSize);
+//
+//            RenderText(playerCharacterInventory[playerCharacterSelected].at(rowcounter).c_str(),Green,current.w - 500,itemBox.y,fontSize);
+//            RenderText("AC: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter)),Green,current.w - 500,itemBox.y + 25,fontSize);
+//            RenderText("THACO: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter)),Green,current.w - 500,itemBox.y + 50,fontSize);
+//            RenderText("COST: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryCost.at(rowcounter)),Green,current.w - 500,itemBox.y + 75,fontSize);
+//            RenderText("DAMAGE: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryDamage.at(rowcounter)),Green,current.w - 500,itemBox.y + 100,fontSize);
+//            SDL_PumpEvents();
+//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//            {
+//                if( readyCharacterInventory[playerCharacterSelected].at(rowcounter) == "YES" )
+//                {
+//                    readyCharacterInventory[playerCharacterSelected].at(rowcounter) = "NO";
+//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter) = 0;
+//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter) = 0;
+//                }
+//                else
+//                {
+//                    readyCharacterInventory[playerCharacterSelected].at(rowcounter) = "YES";
+//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter) = 1;
+//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter) = 1;
+//                }
+//                SDL_Delay(75);
+//            }
+//        }
+//        rowcounter++;
+//    }
+//
+//    SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+//    SDL_Rect exitButton = {current.w - 210, current.h - 40, 200, 30};
+//    SDL_RenderFillRect(renderer, &exitButton);
+//    RenderText("EXIT", Black, current.w - 200, current.h - 37,fontSize);
+//
+//    if( SDL_PointInRect(&mousePosition, &exitButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_PumpEvents();
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//            viewItems = !viewItems;
+//        }
+//    }
+//}
 
 void renderCharacterView()
 {
