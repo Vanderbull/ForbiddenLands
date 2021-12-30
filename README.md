@@ -1,6 +1,18 @@
 # FORBIDDEN LANDS
 
-![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
+## Classes
+
+### ASSASSIN
+### CLERIC
+### DRUID
+### FIGHTER
+### ILLUSIONIST
+### PALADIN
+### RANGER
+### THIEF
+### MAGIC USER
+
+##
 
 ## Races
 
@@ -53,6 +65,10 @@ this particular talent in order to gain information).
 ### HALFLING
 ### HALF-ORC
 ### HUMAN
+
+##
+
+![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
 
 ## Spells
 
