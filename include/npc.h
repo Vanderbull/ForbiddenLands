@@ -110,7 +110,6 @@ struct npcEngine
         enemyImages.push_back("./data/monsters/046_4th_lvl_fighter-0.png");
         enemyImages.push_back("./data/monsters/047_1st_lvl_thief-0.png");
         enemyImages.push_back("./data/monsters/049_aides-0.png");
-
     };
 
     void init()

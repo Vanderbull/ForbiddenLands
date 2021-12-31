@@ -696,8 +696,9 @@ typedef struct playerCharacter
         SDL_Rect increase = {2510,500,50,50};
         SDL_SetRenderDrawColor(renderer,255,128,128,255);
         SDL_RenderFillRect(renderer, &increase);
-          SDL_Point mousePosition;
-            SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+        SDL_Point mousePosition;
+        SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+
         if( SDL_PointInRect(&mousePosition, &increase) )
         {
             SDL_PumpEvents();
@@ -705,11 +706,12 @@ typedef struct playerCharacter
             {
                 if( stopCounter < carriedItems.size()-1 )
                 {
-                startCounter++;
-                stopCounter++;
+                    startCounter++;
+                    stopCounter++;
                 }
             }
         }
+
         RenderText(std::to_string(stopCounter) ,White, increase.x,increase.y, 48);
 
         SDL_Rect decrease = {2510,100,50,50};
@@ -743,138 +745,133 @@ typedef struct playerCharacter
         {
             if( rowcounter >= startCounter && rowcounter <= stopCounter )
             {
+                SDL_Point mousePosition;
+                SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
-
-            SDL_Point mousePosition;
-            SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-
-            int textWidth = 0;
-            int textHeight = 0;
-            TTF_Font* m_font = NULL;
-            m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-            if(!m_font)
-            {
-                printf("TTF_OpenFont: %s\n", TTF_GetError());
-                // handle error
-            }
-            if( TTF_SizeText(m_font, "GET THIS HEIGHT VALUE", &textWidth, &textHeight) )
-            {
-            }
-
-            TTF_CloseFont(m_font);
-            m_font = NULL;
-
-            SDL_Rect infoBox = {0,0,0,0};
-
-            infoBox.h = 160;
-            infoBox.w = 160;
-            infoBox.x = 1800;
-            infoBox.y = 200 + (infoBox.h*moveIndex);
-
-            SDL_SetRenderDrawColor(renderer,128,128,128,255);
-            SDL_RenderFillRect(renderer, &infoBox);
-            RenderText("INFO",White,infoBox.x, infoBox.y - textHeight /2, 24);
-
-            if( SDL_PointInRect(&mousePosition, &infoBox) )
-            {
-                SDL_PumpEvents();
-                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                int textWidth = 0;
+                int textHeight = 0;
+                TTF_Font* m_font = NULL;
+                m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+                if(!m_font)
                 {
-                    SDL_Rect infoBox = {0,0,0,0};
-
-                    infoBox.h = 640;
-                    infoBox.w = 480;
-                    infoBox.x = 2560 - infoBox.w;
-                    infoBox.y = 0;
-
-
-                    SDL_SetRenderDrawColor(renderer,128,128,128,255);
-                    SDL_RenderFillRect(renderer, &infoBox);
-                    RenderTextWrapped(renderItem.name_1 + " " + renderItem.name_2 + " " + renderItem.name_3 + " " + "INFO more information about this item and stuff that are really cool and stuff.",White,infoBox.x + infoBox.w / 2, infoBox.y + infoBox.h / 4, 24,infoBox.w / 2);
-
-                    SDL_Delay(50);
+                    printf("TTF_OpenFont: %s\n", TTF_GetError());
+                    // handle error
                 }
-            }
-
-            SDL_Rect itemBox = {0,0,0,0};
-
-            itemBox.h = 160 ;
-            itemBox.w = 160;
-            itemBox.x = 1300;
-            itemBox.y = 200 + (itemBox.h*moveIndex);
-
-            if( renderItem.icon != "" )
-            if( renderItem.equipped )
-            {
-                gTexture = NULL;
-                //gTexture = LoadTexture("./icons/uiAtlas/ui_game_symbol_spatula.png",255);
-                gTexture = LoadTexture(renderItem.icon,255);
-                SDL_SetTextureColorMod(gTexture, 0, 255, 0); //set yellow letters
-                SDL_RenderCopy(renderer, gTexture, NULL, &itemBox);
-                SDL_DestroyTexture(gTexture);
-                gTexture = NULL;
-
-                damage_vs_small += renderItem.damage_vs_small;
-            }
-            else
-            {
-                gTexture = NULL;
-                gTexture = LoadTexture(renderItem.icon,255);
-                SDL_SetTextureColorMod(gTexture, 255, 255, 255); //set yellow letters
-                SDL_RenderCopy(renderer, gTexture, NULL, &itemBox);
-                SDL_DestroyTexture(gTexture);
-                gTexture = NULL;
-
-                RenderText(renderItem.getName(),White,itemBox.x + itemBox.w, itemBox.y, 24);
-                RenderText(std::to_string(renderItem.amount),White,itemBox.x, itemBox.y, 24);
-            }
-
-            if( SDL_PointInRect(&mousePosition, &itemBox) )
-            {
-                SDL_PumpEvents();
-                if (SDL_GetMouseState(NULL, NULL) == 0)
+                if( TTF_SizeText(m_font, "GET THIS HEIGHT VALUE", &textWidth, &textHeight) )
                 {
-                    SDL_Rect hooverBox = {mousePosition.x,mousePosition.y - textHeight /2,textWidth,textHeight};
-                    SDL_SetRenderDrawColor(renderer,128,128,128,255);
-                    SDL_RenderFillRect(renderer, &hooverBox);
-                    RenderText(renderItem.getName(),White,mousePosition.x, mousePosition.y - textHeight /2, 24);
                 }
-                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+
+                TTF_CloseFont(m_font);
+                m_font = NULL;
+
+                SDL_Rect infoBox = {0,0,0,0};
+
+                infoBox.h = 160;
+                infoBox.w = 160;
+                infoBox.x = 1800;
+                infoBox.y = 200 + (infoBox.h*moveIndex);
+
+                SDL_SetRenderDrawColor(renderer,128,128,128,255);
+                SDL_RenderFillRect(renderer, &infoBox);
+                RenderText("INFO",White,infoBox.x, infoBox.y - textHeight /2, 24);
+
+                if( SDL_PointInRect(&mousePosition, &infoBox) )
                 {
-                    //RenderText("PRESSED THE BUTTON",Red, mousePosition.x,mousePosition.y - textHeight /2, 24);
-                    renderItem.equipped = !renderItem.equipped;
-                    SDL_Delay(100);
-                }
-            }
-
-            SDL_Rect dropBox = {0,0,0,0};
-
-            dropBox.h = 160;
-            dropBox.w = 160;
-            dropBox.x = 2000;
-            dropBox.y = 200 + (dropBox.h*moveIndex);
-
-            SDL_SetRenderDrawColor(renderer,128,128,128,255);
-            SDL_RenderFillRect(renderer, &dropBox);
-            RenderText("DROP",White,dropBox.x, dropBox.y - textHeight /2, 24);
-
-            if( SDL_PointInRect(&mousePosition, &dropBox) )
-            {
-                SDL_PumpEvents();
-                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-                {
-                    carriedItems.erase(carriedItems.begin() + rowcounter);
-                    if( startCounter > 0 )
+                    SDL_PumpEvents();
+                    if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                     {
-                        startCounter--;
-                        stopCounter--;
+                        SDL_Rect infoBox = {0,0,0,0};
+
+                        infoBox.h = 640;
+                        infoBox.w = 480;
+                        infoBox.x = 2560 - infoBox.w;
+                        infoBox.y = 0;
+
+                        SDL_SetRenderDrawColor(renderer,128,128,128,255);
+                        SDL_RenderFillRect(renderer, &infoBox);
+                        RenderTextWrapped(renderItem.name_1 + " " + renderItem.name_2 + " " + renderItem.name_3 + " " + "INFO more information about this item and stuff that are really cool and stuff.",White,infoBox.x + infoBox.w / 2, infoBox.y + infoBox.h / 4, 24,infoBox.w / 2);
+
+                        SDL_Delay(50);
                     }
-                    //renderItem = NULL;
-                    droppedLoot();
-                    SDL_Delay(50);
                 }
-            }
-            moveIndex++;
+
+                SDL_Rect itemBox = {0,0,0,0};
+
+                itemBox.h = 160 ;
+                itemBox.w = 160;
+                itemBox.x = 1300;
+                itemBox.y = 200 + (itemBox.h*moveIndex);
+
+                if( renderItem.icon != "" )
+                if( renderItem.equipped )
+                {
+                    gTexture = NULL;
+                    //gTexture = LoadTexture("./icons/uiAtlas/ui_game_symbol_spatula.png",255);
+                    gTexture = LoadTexture(renderItem.icon,255);
+                    SDL_SetTextureColorMod(gTexture, 0, 255, 0); //set yellow letters
+                    SDL_RenderCopy(renderer, gTexture, NULL, &itemBox);
+                    SDL_DestroyTexture(gTexture);
+                    gTexture = NULL;
+
+                    damage_vs_small += renderItem.damage_vs_small;
+                }
+                else
+                {
+                    gTexture = NULL;
+                    gTexture = LoadTexture(renderItem.icon,255);
+                    SDL_SetTextureColorMod(gTexture, 255, 255, 255); //set yellow letters
+                    SDL_RenderCopy(renderer, gTexture, NULL, &itemBox);
+                    SDL_DestroyTexture(gTexture);
+                    gTexture = NULL;
+
+                    RenderText(renderItem.getName(),White,itemBox.x + itemBox.w, itemBox.y, 24);
+                    RenderText(std::to_string(renderItem.amount),White,itemBox.x, itemBox.y, 24);
+                }
+
+                if( SDL_PointInRect(&mousePosition, &itemBox) )
+                {
+                    SDL_PumpEvents();
+                    if (SDL_GetMouseState(NULL, NULL) == 0)
+                    {
+                        SDL_Rect hooverBox = {mousePosition.x,mousePosition.y - textHeight /2,textWidth,textHeight};
+                        SDL_SetRenderDrawColor(renderer,128,128,128,255);
+                        SDL_RenderFillRect(renderer, &hooverBox);
+                        RenderText(renderItem.getName(),White,mousePosition.x, mousePosition.y - textHeight /2, 24);
+                    }
+                    if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                    {
+                        renderItem.equipped = !renderItem.equipped;
+                        SDL_Delay(100);
+                    }
+                }
+
+                SDL_Rect dropBox = {0,0,0,0};
+
+                dropBox.h = 160;
+                dropBox.w = 160;
+                dropBox.x = 2000;
+                dropBox.y = 200 + (dropBox.h*moveIndex);
+
+                SDL_SetRenderDrawColor(renderer,128,128,128,255);
+                SDL_RenderFillRect(renderer, &dropBox);
+                RenderText("DROP",White,dropBox.x, dropBox.y - textHeight /2, 24);
+
+                if( SDL_PointInRect(&mousePosition, &dropBox) )
+                {
+                    SDL_PumpEvents();
+                    if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                    {
+                        carriedItems.erase(carriedItems.begin() + rowcounter);
+                        if( startCounter > 0 )
+                        {
+                            startCounter--;
+                            stopCounter--;
+                        }
+                        droppedLoot();
+                        SDL_Delay(50);
+                    }
+                }
+                moveIndex++;
             }
             rowcounter++;
 

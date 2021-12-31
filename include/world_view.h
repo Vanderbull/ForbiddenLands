@@ -195,6 +195,52 @@ void navigationButtons()
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &thirst);
 
+    SDL_Rect health[6];
+    SDL_Rect experience[6];
+
+    health[0] = {610,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     experience[0] = {610,current.h - 200,105,25};
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(renderer, &health[0]);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
+    SDL_RenderFillRect(renderer, &experience[0]);
+
+     health[1] = {720,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     experience[1] = {720,current.h - 200,105,25};
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(renderer, &health[1]);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
+    SDL_RenderFillRect(renderer, &experience[1]);
+
+     health[2] = {830,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     experience[2] = {830,current.h - 200,105,25};
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(renderer, &health[2]);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
+    SDL_RenderFillRect(renderer, &experience[2]);
+
+     health[3] = {940,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     experience[3] = {940,current.h - 200,105,25};
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(renderer, &health[3]);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
+    SDL_RenderFillRect(renderer, &experience[3]);
+
+     health[4] = {1050,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     experience[4] = {1050,current.h - 200,105,25};
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(renderer, &health[4]);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
+    SDL_RenderFillRect(renderer, &experience[4]);
+
+     health[5] = {1160,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     experience[5] = {1160,current.h - 200,105,25};
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(renderer, &health[5]);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
+    SDL_RenderFillRect(renderer, &experience[5]);
+
+
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
     SDL_RenderFillRect(renderer, &save);
     SDL_RenderFillRect(renderer, &load);
