@@ -1340,13 +1340,13 @@ void renderCharacterCreation()
              "or more.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
 
-                 std::string stats = "Strength 8/18\n"\
-                                    "Dexterity 3/17\n"\
-                                    "Constitution 12/19\n"\
-                                    "Intelligence 3/18\n"\
-                                    "Wisdom 3/18\n"\
+                 std::string stats = "Strength 8/18\n\n"\
+                                    "Dexterity 3/17\n\n"\
+                                    "Constitution 12/19\n\n"\
+                                    "Intelligence 3/18\n\n"\
+                                    "Wisdom 3/18\n\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 1)
@@ -1369,13 +1369,13 @@ void renderCharacterCreation()
 "tures all share the same racial abilities, unless the GM chooses"\
 "otherwise. Elves can live to an age of 1,000 years or more.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n"\
-                                    "Dexterity 3/17\n"\
-                                    "Constitution 12/19\n"\
-                                    "Intelligence 3/18\n"\
-                                    "Wisdom 3/18\n"\
+                 std::string stats = "Strength 8/18\n\n"\
+                                    "Dexterity 3/17\n\n"\
+                                    "Constitution 12/19\n\n"\
+                                    "Intelligence 3/18\n\n"\
+                                    "Wisdom 3/18\n\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 2)
@@ -1392,13 +1392,13 @@ void renderCharacterCreation()
 "sistant to magic and sensitive to the nuances of construction."\
 "Gnomes can live to an age of 650 years or more.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n"\
-                                    "Dexterity 3/17\n"\
-                                    "Constitution 12/19\n"\
-                                    "Intelligence 3/18\n"\
-                                    "Wisdom 3/18\n"\
+                 std::string stats = "Strength 8/18\n\n"\
+                                    "Dexterity 3/17\n\n"\
+                                    "Constitution 12/19\n\n"\
+                                    "Intelligence 3/18\n\n"\
+                                    "Wisdom 3/18\n\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 3)
@@ -1418,13 +1418,13 @@ void renderCharacterCreation()
 "personality, halﬂ ings can become excellent thieves. Halﬂ ings"\
 "live to be 150 or more years old.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n"\
-                                    "Dexterity 3/17\n"\
-                                    "Constitution 12/19\n"\
-                                    "Intelligence 3/18\n"\
-                                    "Wisdom 3/18\n"\
+                 std::string stats = "Strength 8/18\n\n"\
+                                    "Dexterity 3/17\n\n"\
+                                    "Constitution 12/19\n\n"\
+                                    "Intelligence 3/18\n\n"\
+                                    "Wisdom 3/18\n\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 4)
@@ -1437,13 +1437,13 @@ void renderCharacterCreation()
 "own, usually assimilating into the elven or human society in"\
 "which they were raised.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n"\
-                                    "Dexterity 3/17\n"\
-                                    "Constitution 12/19\n"\
-                                    "Intelligence 3/18\n"\
-                                    "Wisdom 3/18\n"\
+                 std::string stats = "Strength 8/18\n\n"\
+                                    "Dexterity 3/17\n\n"\
+                                    "Constitution 12/19\n\n"\
+                                    "Intelligence 3/18\n\n"\
+                                    "Wisdom 3/18\n\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 5)
@@ -1461,13 +1461,13 @@ void renderCharacterCreation()
 "the chips are down and the swords are out. Half-orcs can live"\
 "to be 70 years old or older.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n"\
-                                    "Dexterity 3/17\n"\
-                                    "Constitution 12/19\n"\
-                                    "Intelligence 3/18\n"\
-                                    "Wisdom 3/18\n"\
+                 std::string stats = "Strength 8/18\n\n"\
+                                    "Dexterity 3/17\n\n"\
+                                    "Constitution 12/19\n\n"\
+                                    "Intelligence 3/18\n\n"\
+                                    "Wisdom 3/18\n\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 6)
@@ -1487,13 +1487,13 @@ void renderCharacterCreation()
 "advised to ensure that in most campaigns, humans should still"\
 "represent an attractive choice for their players.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n"\
-                                    "Dexterity 3/17\n"\
-                                    "Constitution 12/19\n"\
-                                    "Intelligence 3/18\n"\
-                                    "Wisdom 3/18\n"\
+                 std::string stats = "Strength 8/18\n\n"\
+                                    "Dexterity 3/17\n\n"\
+                                    "Constitution 12/19\n\n"\
+                                    "Intelligence 3/18\n\n"\
+                                    "Wisdom 3/18\n\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
         }
         if( SDL_PointInRect(&mousePosition, &raceElements[i]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
