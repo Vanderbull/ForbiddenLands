@@ -1147,6 +1147,15 @@ void renderShopCoins()
 int currentCharacter = 0;
 int statPoints[6] = {5,5,5,5,5,5};
 
+int statPointsRequirements[7][6] = { {5,5,5,5,5,5},
+                                    {5,5,5,5,5,5},
+                                    {5,5,5,5,5,5},
+                                    {5,5,5,5,5,5},
+                                    {5,5,5,5,5,5},
+                                    {5,5,5,5,5,5},
+                                    {5,5,5,5,5,5}
+                                    };
+
 void renderCharacterCreation()
 {
     std::string raceDescriptions;
