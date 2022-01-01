@@ -1166,12 +1166,12 @@ void renderCharacterCreation()
 
     playerCharacter[currentCharacter].renderFace();
 
-    RenderText(std::to_string(statPoints[currentCharacter]) + " Stat Points Left",White, 150,100, 24);
+    RenderText(std::to_string(statPoints[currentCharacter]) + " Stat Points Left",White, 50,325, 24);
     counter = 0;
 
     for (std::string textElement : textElements)
     {
-        RenderText(textElement.c_str()+std::to_string(playerCharacter[currentCharacter].current_stats[counter]),Green, 150,370+(counter*50), 24);
+        RenderText(textElement.c_str()+std::to_string(playerCharacter[currentCharacter].current_stats[counter]),Green, 50,370+(counter*50), 24);
 
         TextFrame = FrameText("+",300, 370+(counter*50), 24);
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -1225,7 +1225,7 @@ void renderCharacterCreation()
     for (std::string textElement : raceTextElements)
     {
         SDL_Rect rect;
-        rect.x = 400;
+        rect.x = current.w - 1300;
         rect.y = 220+(counter*40);
         rect.w = 300;
         rect.h = 30;
@@ -1237,7 +1237,7 @@ void renderCharacterCreation()
     for (std::string textElement : classTextElements)
     {
         SDL_Rect rect;
-        rect.x = 720;
+        rect.x = current.w - 900;
         rect.y = 220+(counter*40);
         rect.w = 300;
         rect.h = 30;
@@ -1265,13 +1265,13 @@ void renderCharacterCreation()
         counter++;
     }
 
-    Gender[0] = {current.w / 2,220,600,30};
-    Gender[1] = {current.w / 2,260,600,30};
+    Gender[0] = {current.w - 500,220,600,30};
+    Gender[1] = {current.w - 500,260,600,30};
 
-    SDL_Rect nextCharacter = {current.w / 2,300,600,30};
+    SDL_Rect nextCharacter = {current.w - 500,300,600,30};
     SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
     SDL_RenderFillRect(renderer, &nextCharacter);
-    RenderText("NEXT CHARACTER",Black,current.w / 2,300,FontSize);
+    RenderText("NEXT CHARACTER",Black,current.w - 500,300,FontSize);
 
     counter = 0;
     for (std::string textElement : raceTextElements)
@@ -1284,10 +1284,10 @@ void renderCharacterCreation()
 
     SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
     SDL_RenderFillRect(renderer, &Gender[0]);
-    RenderText("MALE",Black,current.w / 2,Gender[0].y,FontSize);
+    RenderText("MALE",Black,current.w - 500,Gender[0].y,FontSize);
 
     SDL_RenderFillRect(renderer, &Gender[1]);
-    RenderText("FEMALE",Black,current.w / 2,Gender[1].y,FontSize);
+    RenderText("FEMALE",Black,current.w - 500,Gender[1].y,FontSize);
 
     if( SDL_PointInRect(&mousePosition, &nextCharacter) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
@@ -1338,7 +1338,7 @@ void renderCharacterCreation()
              "loving the lustre of gold, the glitter of gems, and the quality"\
              "of well-wrought metals. Dwarfs can live to an age of 350 years"\
              "or more.";
-             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
 
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
@@ -1346,7 +1346,7 @@ void renderCharacterCreation()
                                     "Intelligence 3/18\n"\
                                     "Wisdom 3/18\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1000,900, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 1)
@@ -1368,14 +1368,14 @@ void renderCharacterCreation()
 "and, at worst, cruel. Different as they are, these varied elven cul-"\
 "tures all share the same racial abilities, unless the GM chooses"\
 "otherwise. Elves can live to an age of 1,000 years or more.";
-             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
                                     "Intelligence 3/18\n"\
                                     "Wisdom 3/18\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1000,900, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 2)
@@ -1391,14 +1391,14 @@ void renderCharacterCreation()
 "time in the distant and mythical past, gnomes are quite re-"\
 "sistant to magic and sensitive to the nuances of construction."\
 "Gnomes can live to an age of 650 years or more.";
-             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
                                     "Intelligence 3/18\n"\
                                     "Wisdom 3/18\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1000,900, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 3)
@@ -1417,14 +1417,14 @@ void renderCharacterCreation()
 "ing very quietly and are excellent marksmen; given the right"\
 "personality, halﬂ ings can become excellent thieves. Halﬂ ings"\
 "live to be 150 or more years old.";
-             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
                                     "Intelligence 3/18\n"\
                                     "Wisdom 3/18\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1000,900, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 4)
@@ -1436,14 +1436,14 @@ void renderCharacterCreation()
 "Half elves do not have a separate culture or civilisation of their"\
 "own, usually assimilating into the elven or human society in"\
 "which they were raised.";
-             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
                                     "Intelligence 3/18\n"\
                                     "Wisdom 3/18\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1000,900, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 5)
@@ -1460,14 +1460,14 @@ void renderCharacterCreation()
 "but the same ancestry makes them deadly adversaries when"\
 "the chips are down and the swords are out. Half-orcs can live"\
 "to be 70 years old or older.";
-             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
                                     "Intelligence 3/18\n"\
                                     "Wisdom 3/18\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1000,900, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
             }
             else
             if( playerCharacter[currentCharacter].race == 6)
@@ -1486,14 +1486,14 @@ void renderCharacterCreation()
 "such a house rule for their own OSRIC-compatible games are"\
 "advised to ensure that in most campaigns, humans should still"\
 "represent an attractive choice for their players.";
-             RenderText3(raceDescriptions.c_str(),White, 500,900, 24);
+             RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
                  std::string stats = "Strength 8/18\n"\
                                     "Dexterity 3/17\n"\
                                     "Constitution 12/19\n"\
                                     "Intelligence 3/18\n"\
                                     "Wisdom 3/18\n"\
                                     "Charisma 3/16";
-                RenderText3(stats.c_str(),White, current.w - 1000,900, 24);
+                RenderText3(stats.c_str(),White, current.w - 1600,325, 24);
             }
         }
         if( SDL_PointInRect(&mousePosition, &raceElements[i]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
