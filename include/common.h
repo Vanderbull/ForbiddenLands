@@ -1166,7 +1166,6 @@ void renderCharacterCreation()
 
     playerCharacter[currentCharacter].renderFace();
 
-    renderShopCoins();
     RenderText(std::to_string(statPoints[currentCharacter]) + " Stat Points Left",White, 150,100, 24);
     counter = 0;
 
