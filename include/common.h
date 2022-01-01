@@ -1217,7 +1217,7 @@ void renderCharacterCreation()
     if( currentCharacter > 5 )
         currentCharacter = 0;
 
-    RenderText("Number: " + std::to_string(currentCharacter),White,800,100,FontSize);
+    RenderText("Number: " + std::to_string(currentCharacter),White,current.w - 700,0,FontSize);
     int HorizontalPosition = current.w - 400;
 
     counter = 0;
@@ -1250,7 +1250,7 @@ void renderCharacterCreation()
     {
         SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
         SDL_RenderFillRect(renderer, &classElements[counter]);
-        RenderText(textElement.c_str()+std::to_string(playerCharacter[currentCharacter].characterClass),Black,classElements[counter].x,classElements[counter].y,FontSize);
+        RenderText(textElement.c_str(),Black,classElements[counter].x,classElements[counter].y,FontSize);
 
         if( SDL_PointInRect(&mousePosition, &classElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -1268,17 +1268,17 @@ void renderCharacterCreation()
     Gender[0] = {current.w - 500,220,600,30};
     Gender[1] = {current.w - 500,260,600,30};
 
-    SDL_Rect nextCharacter = {current.w - 500,300,600,30};
+    SDL_Rect nextCharacter = {current.w - 500,0,600,30};
     SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
     SDL_RenderFillRect(renderer, &nextCharacter);
-    RenderText("NEXT CHARACTER",Black,current.w - 500,300,FontSize);
+    RenderText("NEXT CHARACTER",Black,current.w - 500,0,FontSize);
 
     counter = 0;
     for (std::string textElement : raceTextElements)
     {
         SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
         SDL_RenderFillRect(renderer, &raceElements[counter]);
-        RenderText(textElement.c_str()+std::to_string(playerCharacter[currentCharacter].race),Black,raceElements[counter].x,raceElements[counter].y,FontSize);
+        RenderText(textElement.c_str(),Black,raceElements[counter].x,raceElements[counter].y,FontSize);
         counter++;
     }
 
