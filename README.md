@@ -227,6 +227,8 @@ Holy water is required to cast the spell (unholy water for the
 reverse).
 </p>
 
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
+
 ### Command
 ### Create Water (Reversible)
 - Clerical Transmutation/Alteration
@@ -247,17 +249,29 @@ cannot see. The reverse of the spell destroys water (including
 fog, steam, mist, etc.) in the same quantities as create water .
 </p>
 
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Cure critical wounds
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Cure serious wounds
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Cure light wounds
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Detect evil
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Detect magic
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Light
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Protection from evil
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Purify food and drink
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Remove fear
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Resist cold
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Sanctuary
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 
 sudo apt install g++
 sudo apt-get install -y libsqlite3-dev
