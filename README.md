@@ -58,7 +58,7 @@ this particular talent in order to gain information).
 
 ## Spells
 
-### cleRIc SpellS BY leVel
+### Cleric spells by level
 
 #### Level one
 Bless
