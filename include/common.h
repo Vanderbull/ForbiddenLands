@@ -1157,7 +1157,7 @@ int statPointsRequirements[7][6] = { {5,5,5,5,5,5}, // Elves
                                     };
 
 // Minimum / Maximum Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma
-int raacialLimitations[7][12] = { {8,18,3,17,12,19,3,18,3,18,3,16}, // Dwarfs
+int racialLimitations[7][12] = { {8,18,3,17,12,19,3,18,3,18,3,16}, // Dwarfs
                                  {3,18,7,19,8,17,8,18,3,18,8,19},   // Elves
                                  {6,18,3,18,8,18,7,18,3,18,3,18},   // Gnomes
                                  {3,18,6,18,6,18,4,18,3,18,3,18},   // Half elves
@@ -1380,12 +1380,13 @@ void renderCharacterCreation()
              "or more.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
 
-                 std::string stats = "Strength 8/18\n\n"\
-                                    "Dexterity 3/17\n\n"\
-                                    "Constitution 12/19\n\n"\
-                                    "Intelligence 3/18\n\n"\
-                                    "Wisdom 3/18\n\n"\
-                                    "Charisma 3/16";
+                 std::string stats = "Strength " + std::to_string(racialLimitations[0][0]) + "/" + std::to_string(racialLimitations[0][1]) + "\n\n"\
+                                    "Dexterity " + std::to_string(racialLimitations[0][2]) + "/" + std::to_string(racialLimitations[0][3]) + "\n\n"\
+                                    "Constitution " + std::to_string(racialLimitations[0][4]) + "/" + std::to_string(racialLimitations[0][5]) + "\n\n"\
+                                    "Intelligence " + std::to_string(racialLimitations[0][6]) + "/" + std::to_string(racialLimitations[0][7]) + "\n\n"\
+                                    "Wisdom " + std::to_string(racialLimitations[0][8]) + "/" + std::to_string(racialLimitations[0][9]) + "\n\n"\
+                                    "Charisma " + std::to_string(racialLimitations[0][10]) + "/" + std::to_string(racialLimitations[0][11]) + "\n\n";
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
                 RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
@@ -1409,12 +1410,13 @@ void renderCharacterCreation()
 "tures all share the same racial abilities, unless the GM chooses"\
 "otherwise. Elves can live to an age of 1,000 years or more.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n\n"\
-                                    "Dexterity 3/17\n\n"\
-                                    "Constitution 12/19\n\n"\
-                                    "Intelligence 3/18\n\n"\
-                                    "Wisdom 3/18\n\n"\
-                                    "Charisma 3/16";
+                 std::string stats = "Strength " + std::to_string(racialLimitations[1][0]) + "/" + std::to_string(racialLimitations[1][1]) + "\n\n"\
+                                    "Dexterity " + std::to_string(racialLimitations[1][2]) + "/" + std::to_string(racialLimitations[1][3]) + "\n\n"\
+                                    "Constitution " + std::to_string(racialLimitations[1][4]) + "/" + std::to_string(racialLimitations[1][5]) + "\n\n"\
+                                    "Intelligence " + std::to_string(racialLimitations[1][6]) + "/" + std::to_string(racialLimitations[1][7]) + "\n\n"\
+                                    "Wisdom " + std::to_string(racialLimitations[1][8]) + "/" + std::to_string(racialLimitations[1][9]) + "\n\n"\
+                                    "Charisma " + std::to_string(racialLimitations[1][10]) + "/" + std::to_string(racialLimitations[1][11]) + "\n\n";
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
                 RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
@@ -1432,12 +1434,13 @@ void renderCharacterCreation()
 "sistant to magic and sensitive to the nuances of construction."\
 "Gnomes can live to an age of 650 years or more.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n\n"\
-                                    "Dexterity 3/17\n\n"\
-                                    "Constitution 12/19\n\n"\
-                                    "Intelligence 3/18\n\n"\
-                                    "Wisdom 3/18\n\n"\
-                                    "Charisma 3/16";
+                 std::string stats = "Strength " + std::to_string(racialLimitations[2][0]) + "/" + std::to_string(racialLimitations[2][1]) + "\n\n"\
+                                    "Dexterity " + std::to_string(racialLimitations[2][2]) + "/" + std::to_string(racialLimitations[2][3]) + "\n\n"\
+                                    "Constitution " + std::to_string(racialLimitations[2][4]) + "/" + std::to_string(racialLimitations[2][5]) + "\n\n"\
+                                    "Intelligence " + std::to_string(racialLimitations[2][6]) + "/" + std::to_string(racialLimitations[2][7]) + "\n\n"\
+                                    "Wisdom " + std::to_string(racialLimitations[2][8]) + "/" + std::to_string(racialLimitations[2][9]) + "\n\n"\
+                                    "Charisma " + std::to_string(racialLimitations[2][10]) + "/" + std::to_string(racialLimitations[2][11]) + "\n\n";
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
                 RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
@@ -1458,12 +1461,13 @@ void renderCharacterCreation()
 "personality, halﬂ ings can become excellent thieves. Halﬂ ings"\
 "live to be 150 or more years old.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n\n"\
-                                    "Dexterity 3/17\n\n"\
-                                    "Constitution 12/19\n\n"\
-                                    "Intelligence 3/18\n\n"\
-                                    "Wisdom 3/18\n\n"\
-                                    "Charisma 3/16";
+                 std::string stats = "Strength " + std::to_string(racialLimitations[3][0]) + "/" + std::to_string(racialLimitations[3][1]) + "\n\n"\
+                                    "Dexterity " + std::to_string(racialLimitations[3][2]) + "/" + std::to_string(racialLimitations[3][3]) + "\n\n"\
+                                    "Constitution " + std::to_string(racialLimitations[3][4]) + "/" + std::to_string(racialLimitations[3][5]) + "\n\n"\
+                                    "Intelligence " + std::to_string(racialLimitations[3][6]) + "/" + std::to_string(racialLimitations[3][7]) + "\n\n"\
+                                    "Wisdom " + std::to_string(racialLimitations[3][8]) + "/" + std::to_string(racialLimitations[3][9]) + "\n\n"\
+                                    "Charisma " + std::to_string(racialLimitations[3][10]) + "/" + std::to_string(racialLimitations[3][11]) + "\n\n";
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
                 RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
@@ -1477,12 +1481,13 @@ void renderCharacterCreation()
 "own, usually assimilating into the elven or human society in"\
 "which they were raised.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n\n"\
-                                    "Dexterity 3/17\n\n"\
-                                    "Constitution 12/19\n\n"\
-                                    "Intelligence 3/18\n\n"\
-                                    "Wisdom 3/18\n\n"\
-                                    "Charisma 3/16";
+                 std::string stats = "Strength " + std::to_string(racialLimitations[4][0]) + "/" + std::to_string(racialLimitations[4][1]) + "\n\n"\
+                                    "Dexterity " + std::to_string(racialLimitations[4][2]) + "/" + std::to_string(racialLimitations[4][3]) + "\n\n"\
+                                    "Constitution " + std::to_string(racialLimitations[4][4]) + "/" + std::to_string(racialLimitations[4][5]) + "\n\n"\
+                                    "Intelligence " + std::to_string(racialLimitations[4][6]) + "/" + std::to_string(racialLimitations[4][7]) + "\n\n"\
+                                    "Wisdom " + std::to_string(racialLimitations[4][8]) + "/" + std::to_string(racialLimitations[4][9]) + "\n\n"\
+                                    "Charisma " + std::to_string(racialLimitations[4][10]) + "/" + std::to_string(racialLimitations[4][11]) + "\n\n";
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
                 RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
@@ -1501,12 +1506,12 @@ void renderCharacterCreation()
 "the chips are down and the swords are out. Half-orcs can live"\
 "to be 70 years old or older.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n\n"\
-                                    "Dexterity 3/17\n\n"\
-                                    "Constitution 12/19\n\n"\
-                                    "Intelligence 3/18\n\n"\
-                                    "Wisdom 3/18\n\n"\
-                                    "Charisma 3/16";
+                 std::string stats = "Strength " + std::to_string(racialLimitations[5][0]) + "/" + std::to_string(racialLimitations[5][1]) + "\n\n"\
+                                    "Dexterity " + std::to_string(racialLimitations[5][2]) + "/" + std::to_string(racialLimitations[5][3]) + "\n\n"\
+                                    "Constitution " + std::to_string(racialLimitations[5][4]) + "/" + std::to_string(racialLimitations[5][5]) + "\n\n"\
+                                    "Intelligence " + std::to_string(racialLimitations[5][6]) + "/" + std::to_string(racialLimitations[5][7]) + "\n\n"\
+                                    "Wisdom " + std::to_string(racialLimitations[5][8]) + "/" + std::to_string(racialLimitations[5][9]) + "\n\n"\
+                                    "Charisma " + std::to_string(racialLimitations[5][10]) + "/" + std::to_string(racialLimitations[5][11]) + "\n\n";
                 RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
             else
@@ -1527,12 +1532,13 @@ void renderCharacterCreation()
 "advised to ensure that in most campaigns, humans should still"\
 "represent an attractive choice for their players.";
              RenderText3(raceDescriptions.c_str(),White, 550,900, 24);
-                 std::string stats = "Strength 8/18\n\n"\
-                                    "Dexterity 3/17\n\n"\
-                                    "Constitution 12/19\n\n"\
-                                    "Intelligence 3/18\n\n"\
-                                    "Wisdom 3/18\n\n"\
-                                    "Charisma 3/16";
+                 std::string stats = "Strength " + std::to_string(racialLimitations[6][0]) + "/" + std::to_string(racialLimitations[6][1]) + "\n\n"\
+                                    "Dexterity " + std::to_string(racialLimitations[6][2]) + "/" + std::to_string(racialLimitations[6][3]) + "\n\n"\
+                                    "Constitution " + std::to_string(racialLimitations[6][4]) + "/" + std::to_string(racialLimitations[6][5]) + "\n\n"\
+                                    "Intelligence " + std::to_string(racialLimitations[6][6]) + "/" + std::to_string(racialLimitations[6][7]) + "\n\n"\
+                                    "Wisdom " + std::to_string(racialLimitations[6][8]) + "/" + std::to_string(racialLimitations[6][9]) + "\n\n"\
+                                    "Charisma " + std::to_string(racialLimitations[6][10]) + "/" + std::to_string(racialLimitations[6][11]) + "\n\n";
+                RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
                 RenderText3(stats.c_str(),White, current.w - 1600,500, 24);
             }
         }
