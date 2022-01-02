@@ -200,6 +200,8 @@ The caster and anyone else teleporting with him or
 her arrive beneath the destination point, causing instant death
 if the area is solid.
 
+<img src="https://user-images.githubusercontent.com/1743820/147882641-b59d7eea-24dc-4e21-af9a-22ef5a8fd5d0.png" width="150" height="150">
+
 ### Bless ( Reversible )
 - Clerical Conjuration/Summoning
 - level: Cleric 1
