@@ -59,6 +59,7 @@ this particular talent in order to gain information).
 ## Spells
 
 <img src="https://user-images.githubusercontent.com/1743820/147883826-9ac12230-5733-4860-b60a-8371d15ab066.png" width="150" height="150">
+
 ## Mana
 
 Mana is the source with which the spellcaster use when casting spells and is drained in accordance to how powerfull the spell is.
