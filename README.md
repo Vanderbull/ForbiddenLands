@@ -54,6 +54,8 @@ this particular talent in order to gain information).
 ### HALF-ORC
 ### HUMAN
 
+<img src="https://user-images.githubusercontent.com/1743820/147883692-05e8ff52-c1a6-4221-8e2e-a738796848eb.png" width="150" height="150">
+
 ## Spells
 
 ### cleRIc SpellS BY leVel
