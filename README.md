@@ -166,6 +166,8 @@ Wind Walk
 | Bless     | Augury     | Animate dead     |
 | Command       | Chant       | Continual light       |
 
+<img src="https://user-images.githubusercontent.com/1743820/147883065-d65eac70-4d8e-4dd9-9f4d-efde43d89d72.png" width="150" height="150">
+
 ### Teleport
 ```c++
 void teleport(int dest_x , int dest_y, int& src_x, int& src_y)
