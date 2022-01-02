@@ -1223,6 +1223,27 @@ void renderCharacterCreation()
         counter++;
     }
 
+    SDL_Rect rerollButton = {700, 600, 100, 50};
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(renderer, &rerollButton);
+    RenderText("Re roll",Black, 700,600, 24);
+
+    if( SDL_PointInRect(&mousePosition, &rerollButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            playerCharacter[currentCharacter].current_stats[0] = Generate(3,18);
+            playerCharacter[currentCharacter].current_stats[1] = Generate(3,18);
+            playerCharacter[currentCharacter].current_stats[2] = Generate(3,18);
+            playerCharacter[currentCharacter].current_stats[3] = Generate(3,18);
+            playerCharacter[currentCharacter].current_stats[4] = Generate(3,18);
+            playerCharacter[currentCharacter].current_stats[5] = Generate(3,18);
+
+            statPoints[currentCharacter] = 5;
+            SDL_Delay(50);
+        }
+    }
+
     if( currentCharacter > 5 )
         currentCharacter = 0;
 
