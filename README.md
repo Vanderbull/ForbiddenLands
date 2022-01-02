@@ -166,6 +166,8 @@ Wind Walk
 | Bless     | Augury     | Animate dead     |
 | Command       | Chant       | Continual light       |
 
+<img src="https://user-images.githubusercontent.com/1743820/147883065-d65eac70-4d8e-4dd9-9f4d-efde43d89d72.png" width="150" height="150">
+
 ### Teleport
 ```c++
 void teleport(int dest_x , int dest_y, int& src_x, int& src_y)
@@ -200,6 +202,8 @@ The caster and anyone else teleporting with him or
 her arrive beneath the destination point, causing instant death
 if the area is solid.
 
+<img src="https://user-images.githubusercontent.com/1743820/147882641-b59d7eea-24dc-4e21-af9a-22ef5a8fd5d0.png" width="150" height="150">
+
 ### Bless ( Reversible )
 - Clerical Conjuration/Summoning
 - level: Cleric 1
@@ -223,7 +227,10 @@ Holy water is required to cast the spell (unholy water for the
 reverse).
 </p>
 
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
+
 ### Command
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Create Water (Reversible)
 - Clerical Transmutation/Alteration
 - level: Cleric 1
@@ -243,17 +250,29 @@ cannot see. The reverse of the spell destroys water (including
 fog, steam, mist, etc.) in the same quantities as create water .
 </p>
 
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Cure critical wounds
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Cure serious wounds
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Cure light wounds
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Detect evil
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Detect magic
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Light
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Protection from evil
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Purify food and drink
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Remove fear
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Resist cold
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Sanctuary
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 
 sudo apt install g++
 sudo apt-get install -y libsqlite3-dev
