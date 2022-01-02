@@ -1166,6 +1166,17 @@ int racialLimitations[7][12] = { {8,18,3,17,12,19,3,18,3,18,3,16}, // Dwarfs
                                  {3,18,3,18,3,18,3,18,3,18,3,18}      // Humans
                             };
 
+int levelLimitations[9][7] = {   {9,1,3,1,1,1,3}, // Assassin
+                                 {8,1,7,1,8,1,8},   // Cleric
+                                 {-1,1,3,1,8,1,7},   // Druid
+                                 {9,1,6,1,6,1,4},   // Fighter
+                                 {-1,1,8,1,1,1,6},  // Illusionist
+                                 {-1,1,3,1,1,1,3},  // Magic user
+                                 {-1,1,3,1,3,1,3},      // Paladin
+                                 {-1,1,3,1,3,1,1},      // Ranger
+                                 {0,1,3,1,3,1,3}      // Thief
+                            };
+
 void renderCharacterCreation()
 {
     std::string raceDescriptions;
