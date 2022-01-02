@@ -1147,7 +1147,7 @@ void renderShopCoins()
 int currentCharacter = 0;
 int statPoints[6] = {5,5,5,5,5,5};
 
-int statPointsRequirements[7][6] = { {5,5,5,5,5,5},
+int statPointsRequirements[7][6] = { {5,5,5,5,5,5}, // Elves
                                     {5,5,5,5,5,5},
                                     {5,5,5,5,5,5},
                                     {5,5,5,5,5,5},
@@ -1155,6 +1155,16 @@ int statPointsRequirements[7][6] = { {5,5,5,5,5,5},
                                     {5,5,5,5,5,5},
                                     {5,5,5,5,5,5}
                                     };
+
+// Minimum / Maximum Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma
+int raacialLimitations[7][12] = { {8,18,3,17,12,19,3,18,3,18,3,16}, // Dwarfs
+                                 {3,18,7,19,8,17,8,18,3,18,8,19},   // Elves
+                                 {6,18,3,18,8,18,7,18,3,18,3,18},   // Gnomes
+                                 {3,18,6,18,6,18,4,18,3,18,3,18},   // Half elves
+                                 {6,17,8,19,10,18,6,18,3,17,3,18},  // Halflings
+                                 {6,18,3,17,13,19,3,17,3,14,3,12},  // Half orcs
+                                 {3,18,3,18,3,18,3,18,3,18,3,18}      // Humans
+                            };
 
 void renderCharacterCreation()
 {
