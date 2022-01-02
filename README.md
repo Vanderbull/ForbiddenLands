@@ -230,6 +230,7 @@ reverse).
 <img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 
 ### Command
+<img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 ### Create Water (Reversible)
 - Clerical Transmutation/Alteration
 - level: Cleric 1
