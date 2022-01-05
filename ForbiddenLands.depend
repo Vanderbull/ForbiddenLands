@@ -1110,7 +1110,7 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
-1641105354 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
+1641143228 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
 	<bits/stdc++.h>
 	<chrono>
 	"colors.h"
@@ -1122,7 +1122,7 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/coordinates.h
 
-1640902505 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
+1641356722 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
 	<iostream>
 	<string>
 	<vector>
@@ -1199,7 +1199,7 @@
 	"../include/spells/create_water.h"
 	"../include/spells/teleport.h"
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/bless.h
+1641354360 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/bless.h
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/command.h
 
@@ -1306,10 +1306,14 @@
 	<regex>
 	"common.h"
 
-1640864597 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/battle_view.h
+1641370100 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/battle_view.h
 	<iostream>
 	<string>
 	<vector>
+	<algorithm>
+	<functional>
+	<array>
+	<iostream>
 	<SDL2/SDL.h>
 	"common.h"
 

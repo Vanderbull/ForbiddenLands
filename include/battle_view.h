@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <functional>
+#include <array>
+#include <iostream>
 
 #include <SDL2/SDL.h>
 #include "common.h"
@@ -17,8 +21,6 @@ int damage = 0;
 
 void initBattle()
 {
-    damage = 0;
-
     NPCs.init();
 
     for(int i = 0; i < 6; i++)
@@ -140,6 +142,9 @@ void battleView()
     RenderText("HEALING", White, actionButton4.x, actionButton4.y,20);
     RenderText("MiSSILE", White, actionButton5.x, actionButton5.y,20);
 
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderDrawRect(renderer, &character[playerCharacterSelected]);
+    SDL_RenderDrawRect(renderer, &npc[npc_active]);
 
 
     if( !HOLD )
@@ -339,10 +344,6 @@ void battleView()
             SDL_DestroyTexture(Texture);
         }
     }
-
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderDrawRect(renderer, &character[playerCharacterSelected]);
-    SDL_RenderDrawRect(renderer, &npc[npc_active]);
 
     for( int i=0; i< 6; i++ )
     {
