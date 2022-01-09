@@ -19,7 +19,7 @@ SDL_Rect npcActionText[6];
 std::vector<std::string> enemyImages;
 
 SDL_Rect npc_fighting = {1000, 500,300,300};
-SDL_Rect npc[6];
+//SDL_Rect npc[6];
 
 std::string npc_name = "Unnameable";
 
@@ -47,6 +47,7 @@ struct npcEngine
         int _currentDamage;
         int _targeted;
         int _defending;
+        SDL_Rect SDL_Rectangle;
 
         character()
         {
@@ -69,12 +70,12 @@ struct npcEngine
 
     npcEngine()
     {
-        npc[0] = {current.w - 500, 300,100,144};
-        npc[1] = {current.w - 500, 450,100,144};
-        npc[2] = {current.w - 500, 600,100,144};
-        npc[3] = {current.w - 500, 750,100,144};
-        npc[4] = {current.w - 500, 900,100,144};
-        npc[5] = {current.w - 500, 1050,100,144};
+        NPC[0].SDL_Rectangle = {current.w - 500, 300,100,144};
+        NPC[1].SDL_Rectangle = {current.w - 500, 450,100,144};
+        NPC[2].SDL_Rectangle = {current.w - 500, 600,100,144};
+        NPC[3].SDL_Rectangle = {current.w - 500, 750,100,144};
+        NPC[4].SDL_Rectangle = {current.w - 500, 900,100,144};
+        NPC[5].SDL_Rectangle = {current.w - 500, 1050,100,144};
 
         enemyImages.clear();
         enemyImages.push_back("./data/monsters/001_goblin_guard-0.png");

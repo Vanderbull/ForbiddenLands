@@ -144,8 +144,7 @@ void battleView()
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &character[playerCharacterSelected]);
-    SDL_RenderDrawRect(renderer, &npc[npc_active]);
-
+    SDL_RenderDrawRect(renderer, &NPCs.NPC[npc_active].SDL_Rectangle);
 
     if( !HOLD )
     if( SDL_PointInRect(&mousePosition, &actionButton1) & SDL_BUTTON(SDL_BUTTON_LEFT) )
@@ -327,7 +326,7 @@ void battleView()
     if( fadeSize > 0)
     {
         fadeSize--;
-        RenderText(std::to_string(damage), Black, npc[npc_active].x, npc[npc_active].y - npc[npc_active].h,fadeSize*4);
+        RenderText(std::to_string(damage), Black, NPCs.NPC[npc_active].SDL_Rectangle.x, NPCs.NPC[npc_active].SDL_Rectangle.y - NPCs.NPC[npc_active].SDL_Rectangle.h,fadeSize*4);
         RenderText(std::to_string(npc_current_damage), Black, character[npc_targeted].x, character[npc_targeted].y,fadeSize*4);
     }
 
@@ -339,8 +338,8 @@ void battleView()
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             SDL_Texture* Texture = LoadTexture(enemyImages.at(enemyImageID[i]).c_str(),255);
-            npc[i].x = 32*i + current.w - (32*12);
-            SDL_RenderCopyEx(renderer, Texture, NULL, &npc[i],0,0,SDL_FLIP_HORIZONTAL);
+            NPCs.NPC[i].SDL_Rectangle.x = 32*i + current.w - (32*12);
+            SDL_RenderCopyEx(renderer, Texture, NULL, &NPCs.NPC[i].SDL_Rectangle,0,0,SDL_FLIP_HORIZONTAL);
             SDL_DestroyTexture(Texture);
         }
     }
@@ -348,10 +347,10 @@ void battleView()
     for( int i=0; i< 6; i++ )
     {
         if( npc_health[i] >= 0 )
-        if( SDL_PointInRect(&mousePosition, &npc[i]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( SDL_PointInRect(&mousePosition, &NPCs.NPC[i].SDL_Rectangle) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-            SDL_RenderDrawRect(renderer, &npc[i]);
+            SDL_RenderDrawRect(renderer, &NPCs.NPC[i].SDL_Rectangle);
             SDL_PumpEvents();
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
