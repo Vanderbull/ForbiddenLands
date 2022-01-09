@@ -199,6 +199,23 @@ struct Point
     int y;
 };
 
+std::string getTimeOfDay()
+{
+    if( inGameTime > 24 )
+    {
+        inGameTime = 0;
+    }
+
+    if( inGameTime > 6 && inGameTime < 18 )
+    {
+        return "Day time";
+    }
+    else
+    {
+        return "Night time";
+    }
+};
+
 // need to fix traversing subfolders
 
 static int countFiles(const char *dir)

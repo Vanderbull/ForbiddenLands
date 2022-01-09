@@ -784,33 +784,48 @@ std::string renderDescription(int x, int y)
                     {
                         if( phlanTourCoordinateN[2] == "TRAINING_HALL")
                         {
-                            trainingHall = 1;
-                            skip_return = 1;
-                            RenderText("There is a traininghall here, do you want to enter?",Red,100,0,48);
+                            if( getTimeOfDay() == "Day time")
+                            {
+                                trainingHall = 1;
+                                skip_return = 1;
+                                RenderText("There is a traininghall here, do you want to enter?",Red,100,0,48);
+                            }
                         }
                         if( phlanTourCoordinateN[2] == "ARMS_ARMOUR")
                         {
-                            armsAndarmourShop = 1;
-                            skip_return = 1;
-                            RenderText("There is a Armory here, do you want to enter?",Red,100,0,48);
+                            if( getTimeOfDay() == "Day time")
+                            {
+                                armsAndarmourShop = 1;
+                                skip_return = 1;
+                                RenderText("There is a Armory here, do you want to enter?",Red,100,0,48);
+                            }
                         }
                         if( phlanTourCoordinateN[2] == "TAVERN_TALES")
                         {
-                            tavern = 1;
-                            skip_return = 1;
-                            RenderText("There is a tavern here, do you want to enter?",Red,100,0,48);
+                            if( getTimeOfDay() == "Day time")
+                            {
+                                tavern = 1;
+                                skip_return = 1;
+                                RenderText("There is a tavern here, do you want to enter?",Red,100,0,48);
+                            }
                         }
                         if( phlanTourCoordinateN[2] == "GENERAL_SHOP")
                         {
-                            generalShop = 1;
-                            skip_return = 1;
-                            RenderText("There is a general shop here, do you want to enter?",Red,100,0,48);
+                            if( getTimeOfDay() == "Day time")
+                            {
+                                generalShop = 1;
+                                skip_return = 1;
+                                RenderText("There is a general shop here, do you want to enter?",Red,100,0,48);
+                            }
                         }
                         if( phlanTourCoordinateN[2] == "JEWELERY_SHOP")
                         {
-                            jewelleryShop = 1;
-                            skip_return = 1;
-                            RenderText("There is a jewellery shop here, do you want to enter?",Red,100,0,48);
+                            if( getTimeOfDay() == "Day time")
+                            {
+                                jewelleryShop = 1;
+                                skip_return = 1;
+                                RenderText("There is a jewellery shop here, do you want to enter?",Red,100,0,48);
+                            }
                         }
                         if( phlanTourCoordinateN[2] == "PROCLAMATIONS")
                         {
@@ -820,15 +835,21 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "PRIESTHOOD")
                         {
-                            templeShop = 1;
-                            skip_return = 1;
-                            RenderText("There is a priesthood here, do you want to enter?",Red,100,0,48);
+                            if( getTimeOfDay() == "Day time")
+                            {
+                                templeShop = 1;
+                                skip_return = 1;
+                                RenderText("There is a priesthood here, do you want to enter?",Red,100,0,48);
+                            }
                         }
                         if( phlanTourCoordinateN[2] == "SILVER_SHOP")
                         {
-                            silverShop = 1;
-                            skip_return = 1;
-                            RenderText("There is a silver shop here, do you want to enter?",Red,100,0,48);
+                            if( getTimeOfDay() == "Day time")
+                            {
+                                silverShop = 1;
+                                skip_return = 1;
+                                RenderText("There is a silver shop here, do you want to enter?",Red,100,0,48);
+                            }
                         }
                         if( phlanTourCoordinateN[2] == "ROLF")
                         {
