@@ -45,12 +45,13 @@ void battleView()
 
     character_fighting = {700, 500,300,300};
 
-    character[0] = {500, 300,100,144};
-    character[1] = {500, 450,100,144};
-    character[2] = {500, 600,100,144};
-    character[3] = {500, 750,100,144};
-    character[4] = {500, 900,100,144};
-    character[5] = {500, 1050,100,144};
+    SDL_GetCurrentDisplayMode(0, &current);
+    character[0] = {0, 0,100,144};
+    character[1] = {0, 150,100,144};
+    character[2] = {0, 300,100,144};
+    character[3] = {0, 450,100,144};
+    character[4] = {0, 600,100,144};
+    character[5] = {0, 750,100,144};
 
     SDL_Rect attack = {current.w / 3, current.h - 50,100,30};
     SDL_Rect magic = {current.w / 3 + 110, current.h - 50,100,30};
@@ -206,7 +207,7 @@ void battleView()
         if( playerCharacter[i].hitpoints_current > 0 )
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-            character[i].x -= 32*i;
+            //character[i].x -= 32*i;
             SDL_RenderCopy(renderer, Texture, NULL, &character[i]);
         }
     }
