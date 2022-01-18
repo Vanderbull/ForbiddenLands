@@ -570,6 +570,9 @@ void renderWorldViewA()
     {
         RenderText("LOOT HERE!!",Green,600,0,48);
     }
+
+    RenderText("Season: " + cweather_engine.get_season(), White, current.w - 300,0,24);
+    RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 300,24,24);
 };
 
 void renderWorldViewB()

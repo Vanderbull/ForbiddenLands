@@ -5,10 +5,10 @@
 #include <functional>
 #include <ctime>
 
-
 #include "functions.h"
 #include "texture_resource.h"
 #include "common.h"
+#include "weather/weather.h"
 #include "npc.h"
 #include "bestiary.h"
 #include "map_resource.h"
@@ -58,7 +58,6 @@ void initGame()
 
     std::cout << "Verified savegames..." << std::endl;
 
-
     MenuChoices.clear();
     MenuChoices.push_back("PLAY");
     MenuChoices.push_back("SAVE");
@@ -76,12 +75,7 @@ void initGame()
     West = LoadTexture("./images/compass/west.png",255);
     South = LoadTexture("./images/compass/south.png",255);
     East = LoadTexture("./images/compass/east.png",255);
-
-    //menuBackgroundTexture = LoadTexture("./images/menus/menuBackgroundTexture.png",255);
-    //std::cout << "Loaded menu background graphics..." << std::endl;
 };
-
-
 
 void getCompassDirection()
 {
@@ -126,9 +120,9 @@ int Button(SDL_Point mousePosition, SDL_Rect Area, SDL_Renderer* Renderer )
 
 class Command
 {
-public:
-virtual ~Command() {}
-virtual void execute() = 0;
+    public:
+    virtual ~Command() {}
+    virtual void execute() = 0;
 };
 
 class JumpCommand : public Command
@@ -166,107 +160,16 @@ struct rpg_data_engine
     //battle, and other CRPGs even limit saves to only certain spots (Final Fantasy VII saving posts).
 };
 
+struct storyboard_engine
+{
+
+};
+
+struct npc_engine
+{
+
+};
+
 rpg_data_engine crpg_data_engine;
-
-void talkView()
-{
-};
-void shopView()
-{
-};
-void personalView()
-{
-};
-void npcEngine()
-{
-};
-void storyboardEngine()
-{
-};
-void package()
-{
-};
-void rpgDataEngine()
-{
-};
-
-void determineSuprise()
-{
-};
-
-SDL_Rect player = {5 * 48, 5 * 48, 48, 48};
-SDL_Rect enemy = {5 * 48, 6 * 48, 48, 48};
-int playerMovement = 12;
-int enemyMovement = 12;
-
-void fighting()
-{
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-    SDL_RenderClear( renderer );
-    for( int y = 0; y < 25; y++)
-    {
-        for( int x = 0; x < 50; x++)
-        {
-            SDL_Rect squared = {x * 48, y * 48, 48, 48};
-            SDL_SetRenderDrawColor(renderer, 0, 0, 0,255);
-            SDL_RenderDrawRect(renderer, &squared);
-
-            if( SDL_PointInRect(&mousePosition, &squared) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-            {
-                SDL_PumpEvents();
-                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-                {
-                    SDL_SetRenderDrawColor(renderer, 255, 255, 0,255);
-                    SDL_RenderFillRect(renderer, &squared);
-
-                    if( !Clicked )
-                    {
-                    }
-                }
-                else
-                {
-                    SDL_SetRenderDrawColor(renderer, 0, 0, 0,255);
-                    SDL_RenderDrawRect(renderer, &squared);
-                    Clicked = false;
-                }
-            }
-        }
-    }
-
-                    SDL_SetRenderDrawColor(renderer, 255, 255, 0,255);
-                    SDL_RenderFillRect(renderer, &player);
-                    SDL_SetRenderDrawColor(renderer, 255, 0, 255,255);
-                    SDL_RenderFillRect(renderer, &enemy);
-            if( SDL_PointInRect(&mousePosition, &player) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-            {
-                    RenderText("FIDGET", White, 1600, 920,12);
-                    RenderText("Hitpoints: 10", White, 1600, 940,12);
-                    RenderText("ac: 6", White, 1600, 960,12);
-                    RenderText("Long sword +2", White, 1600, 980,12);
-                    if(playerMovement > 0 )
-                    {
-                        player.x += 48;
-                        playerMovement--;
-                    }
-
-            }
-            if( SDL_PointInRect(&mousePosition, &enemy) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-            {
-                    RenderText("FLOCKER MONSTRA", White, 1600, 920,12);
-                    RenderText("Hitpoints: 100", White, 1600, 940,12);
-                    RenderText("ac: 6", White, 1600, 960,12);
-                    RenderText("", White, 1600, 980,12);
-                    if(enemyMovement > 0 )
-                    {
-                        enemy.x += rand()%enemyMovement * 48;
-                        enemyMovement--;
-                    }
-            }
-
-            RenderText("VIEW", White, 1900, 940,12);
-            RenderText("AIM", White, 1900, 960,12);
-            RenderText("USE", White, 1900, 980,12);
-            RenderText("CAST", White, 1900, 1000,12);
-            RenderText("QUICK", White, 1900, 1020,12);
-            RenderText("DONE", White, 1900, 1040,12);
-}
+storyboard_engine cstoryboard_engine;
+npc_engine cnpc_engine;
