@@ -470,6 +470,12 @@ int main(int argc, char ** argv)
 
     initShop();
     generateSmithShopItems();
+    playerCharacter[0].loadCharacterFace();
+    playerCharacter[1].loadCharacterFace();
+    playerCharacter[2].loadCharacterFace();
+    playerCharacter[3].loadCharacterFace();
+    playerCharacter[4].loadCharacterFace();
+    playerCharacter[5].loadCharacterFace();
 
     while (!quit)
     {

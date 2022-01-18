@@ -539,12 +539,12 @@ void renderWorldViewA()
     faceBox[5] = {500 + 110*6,current.h - 165,105,165};
 
     SDL_Texture* faceTexture = LoadTexture("./icons/faces/11.png",255);
-    SDL_RenderCopy(renderer, faceTexture, NULL, &faceBox[0]);
-    SDL_RenderCopy(renderer, faceTexture, NULL, &faceBox[1]);
-    SDL_RenderCopy(renderer, faceTexture, NULL, &faceBox[2]);
-    SDL_RenderCopy(renderer, faceTexture, NULL, &faceBox[3]);
-    SDL_RenderCopy(renderer, faceTexture, NULL, &faceBox[4]);
-    SDL_RenderCopy(renderer, faceTexture, NULL, &faceBox[5]);
+    SDL_RenderCopy(renderer, playerCharacter[0].faceImage, NULL, &faceBox[0]);
+    SDL_RenderCopy(renderer, playerCharacter[1].faceImage, NULL, &faceBox[1]);
+    SDL_RenderCopy(renderer, playerCharacter[2].faceImage, NULL, &faceBox[2]);
+    SDL_RenderCopy(renderer, playerCharacter[3].faceImage, NULL, &faceBox[3]);
+    SDL_RenderCopy(renderer, playerCharacter[4].faceImage, NULL, &faceBox[4]);
+    SDL_RenderCopy(renderer, playerCharacter[5].faceImage, NULL, &faceBox[5]);
     SDL_DestroyTexture(faceTexture);
 
     for( int i = 0; i < 6; i++ )

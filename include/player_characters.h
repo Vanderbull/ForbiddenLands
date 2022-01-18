@@ -1093,10 +1093,12 @@ typedef struct playerCharacter
 
     int damage_vs_small = 0;
     int damage_vs_large = 0;
-    int face = Generate(0,20);
+    int face = 0;
 
     int hunger = 0;
     int thirst = 0;
+
+    SDL_Texture* faceImage;
 
     void increaseHunger()
     {
@@ -1365,6 +1367,7 @@ typedef struct playerCharacter
 
     playerCharacter()
     {
+        std::cout << "loading playerCharacter..." << std::endl;
         race = rand()% 7;
         characterClass = rand()% 10;
         gender = rand()% 2;
@@ -1377,18 +1380,39 @@ typedef struct playerCharacter
         name = setName();
         gender = rand()%2;
         uuid++;
+        face = Generate(0,20);
+        faceImage = NULL;
+    };
+
+    void loadCharacterFace()
+    {
+        if( faceImage == NULL )
+        {
+            std::cout << "trying to load ./icons/faces/" << std::to_string(face) << ".png" << std::endl;
+            faceImage = LoadTexture("./icons/faces/" + std::to_string(face) + ".png",255);
+            if( faceImage == NULL )
+            {
+                std::cout << "failed to load ./icons/faces/" << std::to_string(face) << ".png" << std::endl;
+                exit(99);
+            }
+            else
+            {
+                std::cout << "loaded ./icons/faces/" << std::to_string(face) << ".png" << std::endl;
+            }
+        }
     };
 
     void renderFace()
     {
+        //loadCharacterFace();
         SDL_Rect FaceFrame = {64,64, 256, 256};
 
-        SDL_DestroyTexture(gTexture);
-        gTexture = NULL;
-        gTexture = LoadTexture("./icons/faces/" + std::to_string(face) + ".png",255);
-        SDL_RenderCopy(renderer, gTexture, NULL, &FaceFrame);
-        SDL_DestroyTexture(gTexture);
-        gTexture = NULL;
+        //SDL_DestroyTexture(gTexture);
+        //gTexture = NULL;
+        //gTexture = LoadTexture("./icons/faces/" + std::to_string(face) + ".png",255);
+        SDL_RenderCopy(renderer, faceImage, NULL, &FaceFrame);
+        //SDL_DestroyTexture(gTexture);
+        //gTexture = NULL;
     };
 
     std::string setName()
