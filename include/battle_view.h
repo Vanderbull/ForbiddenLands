@@ -42,6 +42,8 @@ void battleView()
     SDL_Texture* Texture;
     SDL_Rect character[6];
     SDL_Rect character_fighting;
+    SDL_Rect characterActionText[6];
+    SDL_Rect actionButton[6];
 
     character_fighting = {700, 500,300,300};
 
@@ -58,8 +60,6 @@ void battleView()
     SDL_Rect exit = {current.w / 3 + 220, current.h - 50,100,30};
     SDL_Rect healing = {current.w / 3 + 330, current.h - 50,100,30};
     SDL_Rect missile = {current.w / 3 + 440, current.h - 50,100,30};
-
-    SDL_Rect characterActionText[6];
 
     std::vector<std::string> playerImages;
 
@@ -126,32 +126,32 @@ void battleView()
     SDL_Rect statsBackground = {0,current.h - 200,current.w, 200};
     SDL_RenderFillRect(renderer, &statsBackground);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_Rect actionButton1 = {300,current.h - 180,160, 160};
-    SDL_Rect actionButton2 = {500,current.h - 180,160, 160};
-    SDL_Rect actionButton3 = {700,current.h - 180,160, 160};
-    SDL_Rect actionButton4 = {900,current.h - 180,160, 160};
-    SDL_Rect actionButton5 = {1100,current.h - 180,160, 160};
-    SDL_RenderFillRect(renderer, &actionButton1);
-    SDL_RenderFillRect(renderer, &actionButton2);
-    SDL_RenderFillRect(renderer, &actionButton3);
-    SDL_RenderFillRect(renderer, &actionButton4);
-    SDL_RenderFillRect(renderer, &actionButton5);
+    actionButton[0] = {300,current.h - 180,160, 160};
+    actionButton[1] = {500,current.h - 180,160, 160};
+    actionButton[2] = {700,current.h - 180,160, 160};
+    actionButton[3] = {900,current.h - 180,160, 160};
+    actionButton[4] = {1100,current.h - 180,160, 160};
+    SDL_RenderFillRect(renderer, &actionButton[0]);
+    SDL_RenderFillRect(renderer, &actionButton[1]);
+    SDL_RenderFillRect(renderer, &actionButton[2]);
+    SDL_RenderFillRect(renderer, &actionButton[3]);
+    SDL_RenderFillRect(renderer, &actionButton[4]);
 
-    RenderText("ATTACK " + std::to_string(turnDamage), White, actionButton1.x, actionButton1.y,20);
-    RenderText("MAGIC", White, actionButton2.x, actionButton2.y,20);
-    RenderText("EXIT", White, actionButton3.x, actionButton3.y,20);
-    RenderText("HEALING", White, actionButton4.x, actionButton4.y,20);
-    RenderText("MiSSILE", White, actionButton5.x, actionButton5.y,20);
+    RenderText("ATTACK " + std::to_string(turnDamage), White, actionButton[0].x, actionButton[0].y,20);
+    RenderText("MAGIC", White, actionButton[1].x, actionButton[1].y,20);
+    RenderText("EXIT", White, actionButton[2].x, actionButton[2].y,20);
+    RenderText("HEALING", White, actionButton[3].x, actionButton[3].y,20);
+    RenderText("MiSSILE", White, actionButton[4].x, actionButton[4].y,20);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &character[playerCharacterSelected]);
     SDL_RenderDrawRect(renderer, &NPCs.NPC[npc_active].SDL_Rectangle);
 
     if( !HOLD )
-    if( SDL_PointInRect(&mousePosition, &actionButton1) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &actionButton[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton1);
+        SDL_RenderFillRect(renderer, &actionButton[0]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             HOLD = true;
@@ -162,28 +162,28 @@ void battleView()
             SDL_Delay(45);
         }
     }
-    if( SDL_PointInRect(&mousePosition, &actionButton2) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &actionButton[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton2);
+        SDL_RenderFillRect(renderer, &actionButton[1]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
         }
     }
-    if( SDL_PointInRect(&mousePosition, &actionButton3) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &actionButton[2]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton3);
+        SDL_RenderFillRect(renderer, &actionButton[2]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
                 activeView = dungeon;
                 initBattleFlag = 0;
         }
     }
-    if( SDL_PointInRect(&mousePosition, &actionButton4) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton4);
+        SDL_RenderFillRect(renderer, &actionButton[3]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             healingPotion[playerCharacterSelected] -= 1;
@@ -192,10 +192,10 @@ void battleView()
             SDL_Delay(100);
         }
     }
-    if( SDL_PointInRect(&mousePosition, &actionButton5) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton5);
+        SDL_RenderFillRect(renderer, &actionButton[4]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
         }
