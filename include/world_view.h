@@ -496,15 +496,15 @@ void renderWorldViewA()
         SDL_DestroyTexture(swatTexture);
     }
 
-    xcoord = std::to_string(PlayerCoordinate.x);
-    ycoord = std::to_string(PlayerCoordinate.y);
-
-    rotationString = "Rotation: ";
-    coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
-
-    rotationString += Rotation.c_str();
-    RenderText(rotationString.c_str(),White,160,300,14);
-    RenderText(coordinateString.c_str(),White, 50, 300,14);
+//    xcoord = std::to_string(PlayerCoordinate.x);
+//    ycoord = std::to_string(PlayerCoordinate.y);
+//
+//    rotationString = "Rotation: ";
+//    coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
+//
+//    rotationString += Rotation.c_str();
+//    RenderText(rotationString.c_str(),White,160,300,14);
+//    RenderText(coordinateString.c_str(),White, 50, 300,14);
 
     RenderText(getTimeOfDay().c_str(),White, 50, 25,14);
 
@@ -571,8 +571,11 @@ void renderWorldViewA()
         RenderText("LOOT HERE!!",Green,600,0,48);
     }
 
-    RenderText("Season: " + cweather_engine.get_season(), White, current.w - 300,0,24);
-    RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 300,24,24);
+    if( activeView == dungeon && viewingCharacter == 0)
+    {
+        RenderText("Season: " + cweather_engine.get_season(), White, current.w - 300,0,24);
+        RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 300,24,24);
+    }
 };
 
 void renderWorldViewB()
@@ -663,15 +666,15 @@ void renderWorldViewB()
         SDL_DestroyTexture(swatTexture);
     }
 
-    xcoord = std::to_string(PlayerCoordinate.x);
-    ycoord = std::to_string(PlayerCoordinate.y);
-
-    rotationString = "Rotation: ";
-    coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
-
-    rotationString += Rotation.c_str();
-    RenderText(rotationString.c_str(),White,160,300,14);
-    RenderText(coordinateString.c_str(),White, 50, 300,14);
+//    xcoord = std::to_string(PlayerCoordinate.x);
+//    ycoord = std::to_string(PlayerCoordinate.y);
+//
+//    rotationString = "Rotation: ";
+//    coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
+//
+//    rotationString += Rotation.c_str();
+//    RenderText(rotationString.c_str(),White,160,300,14);
+//    RenderText(coordinateString.c_str(),White, 50, 300,14);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
 

@@ -707,7 +707,7 @@ void renderPCstatus()
 
     encampButton = {current.w - 168*2, 0,160,160};
     lookButton = {current.w - 168, 0,160,160};
-    backpackButton = {current.w - 168*3, 0,160,160};
+    backpackButton = {current.w - 1300, current.h - 160,160,160};
     SDL_Rect cogButton = {current.w - 168*4, 0,160,160};
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
@@ -739,44 +739,46 @@ void renderPCstatus()
         }
     }
 
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
-    SDL_RenderFillRect(renderer, &lookButton);
+//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
+//    SDL_RenderFillRect(renderer, &lookButton);
+//
+//    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
+//    SDL_RenderCopy(renderer, Texture, NULL, &lookButton);
+//    SDL_DestroyTexture(Texture);
+//
+//    Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_character.png",255);
+//    SDL_RenderCopy(renderer, Texture, NULL, &lookButton);
+//    SDL_DestroyTexture(Texture);
+//
+//    RenderText("CHARACTER", Black, lookButton.x, lookButton.y,20);
+//    if( SDL_PointInRect(&mousePosition, &lookButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//    }
+//
+//    if( SDL_PointInRect(&mousePosition, &lookButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_PumpEvents();
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//            playerCharacterSelected2 = 0;
+//            viewingCharacter = 1;
+//        }
+//    }
 
-    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
-    SDL_RenderCopy(renderer, Texture, NULL, &lookButton);
-    SDL_DestroyTexture(Texture);
+    //SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
+    //SDL_RenderFillRect(renderer, &backpackButton);
 
-    Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_character.png",255);
-    SDL_RenderCopy(renderer, Texture, NULL, &lookButton);
-    SDL_DestroyTexture(Texture);
+//    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
+//    SDL_RenderCopy(renderer, Texture, NULL, &backpackButton);
+//    SDL_DestroyTexture(Texture);
 
-    RenderText("CHARACTER", Black, lookButton.x, lookButton.y,20);
-    if( SDL_PointInRect(&mousePosition, &lookButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-    }
-
-    if( SDL_PointInRect(&mousePosition, &lookButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_PumpEvents();
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            playerCharacterSelected2 = 0;
-            viewingCharacter = 1;
-        }
-    }
-
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
-    SDL_RenderFillRect(renderer, &backpackButton);
-
-    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
-    SDL_RenderCopy(renderer, Texture, NULL, &backpackButton);
-    SDL_DestroyTexture(Texture);
 
     Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_fetch_loot.png",255);
+    SDL_SetTextureColorMod(Texture, 0, 255, 0); //set yellow letters
     SDL_RenderCopy(renderer, Texture, NULL, &backpackButton);
     SDL_DestroyTexture(Texture);
 
-    RenderText("INVENTORY", Black, backpackButton.x, backpackButton.y,20);
+    //RenderText("INVENTORY", Black, backpackButton.x, backpackButton.y,20);
 
     if( SDL_PointInRect(&mousePosition, &backpackButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
@@ -1148,13 +1150,15 @@ void renderShopScrollbars()
 
 void renderShopCoins()
 {
-    SDL_Rect poolBackground = {current.w / 4,0,1000,50};
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderDrawRect(renderer,&poolBackground);
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(renderer, &poolBackground);
+//    SDL_Rect poolBackground = {current.w / 4,0,1000,50};
+//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+//    SDL_RenderDrawRect(renderer,&poolBackground);
+//    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+//    SDL_RenderFillRect(renderer, &poolBackground);
 
-    RenderText("Gold: " + std::to_string(playerCharacter[playerCharacterSelected].coins_gold),Black,poolBackground.x + 400,poolBackground.y + 10,FontSize);
+    RenderText("Gold: " + std::to_string(playerCharacter[playerCharacterSelected].coins_gold),White,510,210,FontSize);
+    RenderText("Hunger: " + std::to_string(playerCharacter[playerCharacterSelected].hunger),White,510,230,FontSize);
+    RenderText("Thirst: " + std::to_string(playerCharacter[playerCharacterSelected].thirst),White,510,250,FontSize);
 };
 
 int currentCharacter = 0;

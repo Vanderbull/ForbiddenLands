@@ -1196,8 +1196,8 @@ typedef struct playerCharacter
         if( stopCounter >= carriedItems.size())
             stopCounter = carriedItems.size();
 
-        RenderText(std::to_string(carriedItems.size()) + " READY ITEM",White, 1500,100, 48);
-        RenderText(getName() + "'S ITEMS",Blue, 1500,70, 24);
+//        RenderText(std::to_string(carriedItems.size()) + " READY ITEM",White, 1500,100, 48);
+//        RenderText(getName() + "'S ITEMS",Blue, 1500,70, 24);
 
         // Render character inventory
 
