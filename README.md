@@ -1,10 +1,12 @@
-![image](https://user-images.githubusercontent.com/1743820/147884056-ab5a5aa0-71e5-497e-afae-7cd7329a3223.png)
-![image](https://user-images.githubusercontent.com/1743820/147885099-d5ce1171-0f8c-4a9b-b027-3308452dcd48.png)
-
-
 # FORBIDDEN LANDS
 
 ![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
+
+## Currency
+
+### 2022-01-21
+The currency in the game was changed from having the old classic gold,silver,copper to one single currency gold. This was changed
+to make it a bit more simple as having more types more or less just complicates things and dont add any real ingame value.
 
 ## Races
 
