@@ -988,7 +988,7 @@ int main(int argc, char ** argv)
         auto duration = duration_cast<microseconds>(stop - start);
 
         std::cout << "MAIN microseconds: " << duration.count() << endl;
-        SDL_Delay(1);
+        SDL_Delay(10);
     }
 
     SDL_DestroyTexture(currentViewTexture);

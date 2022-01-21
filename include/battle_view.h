@@ -179,16 +179,21 @@ void battleView()
                 initBattleFlag = 0;
         }
     }
+
+    // Healing potion quaff
     if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
         SDL_RenderFillRect(renderer, &actionButton[3]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
-            healingPotion[playerCharacterSelected] -= 1;
-            cureLightWounds();
-            character_action[playerCharacterSelected] = 0;
-            SDL_Delay(100);
+            if( healingPotion[playerCharacterSelected] > 0 )
+            {
+                healingPotion[playerCharacterSelected] -= 1;
+                cureLightWounds();
+                character_action[playerCharacterSelected] = 0;
+                SDL_Delay(100);
+            }
         }
     }
     if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
@@ -324,7 +329,7 @@ void battleView()
     if( fadeSize > 0)
     {
         fadeSize--;
-        RenderText(std::to_string(damage), Black, NPCs.NPC[npc_active].SDL_Rectangle.x, NPCs.NPC[npc_active].SDL_Rectangle.y - NPCs.NPC[npc_active].SDL_Rectangle.h,fadeSize*4);
+        RenderText(std::to_string(playerCharacter[playerCharacterSelected].damage_vs_small), Black, NPCs.NPC[npc_active].SDL_Rectangle.x, NPCs.NPC[npc_active].SDL_Rectangle.y - NPCs.NPC[npc_active].SDL_Rectangle.h,fadeSize*4);
         RenderText(std::to_string(npc_current_damage), Black, character[npc_targeted].x, character[npc_targeted].y,fadeSize*4);
     }
 
@@ -387,7 +392,7 @@ void battleView()
     }
 
     RenderText(playerCharacter[playerCharacterSelected].name, Blue, 100, current.h - 150,20);
-    RenderText("HP: " + std::to_string(playerCharacter[playerCharacterSelected].getHitpoints()), Black, 100, current.h - 100,20);
+    RenderText("HP: " + std::to_string(playerCharacter[playerCharacterSelected].getHitpoints()) + " / " + std::to_string(playerCharacter[playerCharacterSelected].hitpoints_max), Black, 100, current.h - 100,20);
     RenderText("Actions: " + std::to_string(character_action[playerCharacterSelected]), Black, 100, current.h - 50,20);
 
     RenderText(npc_name, Blue, current.w - 200, current.h - 150,20);
