@@ -1,6 +1,9 @@
 # FORBIDDEN LANDS
 
 ![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
+## New image editing tool
+### 2022-01-21
+pixlr.com a online image editor
 
 ## Currency
 
@@ -20,7 +23,7 @@ most magic, including all spells, wands, rods, and staves. The
 amount of the bonus depends upon the dwarf’s constitution:
 every 3.5 points of constitution (rounding down fractions)
 grants a bonus of +1 against such magic. Moreover, the hardy
-dwarfi sh nature imparts a similar bonus on any saving throws
+dwarfi sh nature imparts a 22-01-21similar bonus on any saving throws
 against poison.
 Dwarfs are not a numerous folk, but they are adventurous,
 loving the lustre of gold, the glitter of gems, and the quality
