@@ -1307,7 +1307,7 @@
 	<regex>
 	"common.h"
 
-1642741284 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/battle_view.h
+1642742458 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/battle_view.h
 	<iostream>
 	<string>
 	<vector>
@@ -1320,7 +1320,7 @@
 
 1640879282 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/teleport.h
 
-1642324956 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/npc.h
+1642742458 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/npc.h
 
 1642534351 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/weather/weather.h
 	<iostream>

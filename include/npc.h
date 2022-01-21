@@ -70,13 +70,7 @@ struct npcEngine
 
     npcEngine()
     {
-        NPC[0].SDL_Rectangle = {current.w - 500, 300,100,144};
-        NPC[1].SDL_Rectangle = {current.w - 500, 450,100,144};
-        NPC[2].SDL_Rectangle = {current.w - 500, 600,100,144};
-        NPC[3].SDL_Rectangle = {current.w - 500, 750,100,144};
-        NPC[4].SDL_Rectangle = {current.w - 500, 900,100,144};
-        NPC[5].SDL_Rectangle = {current.w - 500, 1050,100,144};
-
+        // why not simply load all the images here?
         enemyImages.clear();
         enemyImages.push_back("./data/monsters/001_goblin_guard-0.png");
         enemyImages.push_back("./data/monsters/002_goblin_leader-0.png");
@@ -392,6 +386,14 @@ struct npcEngine
                 npc_armour_class[i] = 6;
                 npc_damage[i] = 6;
             }
+
+            int imageSize = 100;
+            NPC[0].SDL_Rectangle = {current.w - imageSize, 0,imageSize,144};
+            NPC[1].SDL_Rectangle = {current.w - imageSize, 150,imageSize,144};
+            NPC[2].SDL_Rectangle = {current.w - imageSize, 300,imageSize,144};
+            NPC[3].SDL_Rectangle = {current.w - imageSize, 450,imageSize,144};
+            NPC[4].SDL_Rectangle = {current.w - imageSize, 600,imageSize,144};
+            NPC[5].SDL_Rectangle = {current.w - imageSize, 750,imageSize,144};
         }
     };
 };

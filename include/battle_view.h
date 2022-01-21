@@ -336,7 +336,6 @@ void battleView()
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             SDL_Texture* Texture = LoadTexture(enemyImages.at(enemyImageID[i]).c_str(),255);
-            NPCs.NPC[i].SDL_Rectangle.x = 32*i + current.w - (32*12);
             SDL_RenderCopyEx(renderer, Texture, NULL, &NPCs.NPC[i].SDL_Rectangle,0,0,SDL_FLIP_HORIZONTAL);
             SDL_DestroyTexture(Texture);
         }
