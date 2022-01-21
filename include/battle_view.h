@@ -155,7 +155,8 @@ void battleView()
         {
             HOLD = true;
             npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage_vs_small;
-            playerCharacter[playerCharacterSelected].hitpoints_current -= playerCharacter[playerCharacterSelected].damage_vs_small;
+            // damage player
+            playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
             character_action[playerCharacterSelected] = 0;
             fadeSize = 25;
             SDL_Delay(45);
@@ -389,6 +390,10 @@ void battleView()
         for( int i=0; i< 6; i++ )
             character_action[i] = 1;
         quit = 1;
+
+        Texture = LoadTexture("./data/gameover/gameover.png",255);
+        SDL_RenderCopyEx(renderer, Texture, NULL, NULL,0,0,SDL_FLIP_NONE);
+        SDL_DestroyTexture(Texture);
     }
 
     RenderText(playerCharacter[playerCharacterSelected].name, Blue, 100, current.h - 150,20);
@@ -396,7 +401,7 @@ void battleView()
     RenderText("Actions: " + std::to_string(character_action[playerCharacterSelected]), Black, 100, current.h - 50,20);
 
     RenderText(npc_name, Blue, current.w - 200, current.h - 150,20);
-    RenderText("HP: " + std::to_string(npc_health[npc_active]), Black, current.w - 200, current.h - 100,20);
+    RenderText("HP: " + std::to_string(npc_health[npc_active]) + " / " + std::to_string(NPCs.NPC[npc_active]._damage), Black, current.w - 200, current.h - 100,20);
     RenderText("Actions: " + std::to_string(npc_action[npc_active]), Black, current.w - 200, current.h - 50,20);
     RenderText("HEALING POTIONS: " + std::to_string(healingPotion[playerCharacterSelected]), Black, current.w / 2, current.h - 200,20);
 };

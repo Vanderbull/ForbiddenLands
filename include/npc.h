@@ -105,6 +105,7 @@ struct npcEngine
         enemyImages.push_back("./data/monsters/046_4th_lvl_fighter-0.png");
         enemyImages.push_back("./data/monsters/047_1st_lvl_thief-0.png");
         enemyImages.push_back("./data/monsters/049_aides-0.png");
+        init();
     };
 
     void init()
@@ -123,7 +124,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 11;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 1) // Goblin leader
             {
@@ -132,7 +133,7 @@ struct npcEngine
                 npc_initiative[i] = 4;
                 npc_experience[i] = 20;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 2) // Orc
             {
@@ -141,7 +142,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 20;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 3) // Orc leader
             {
@@ -150,7 +151,7 @@ struct npcEngine
                 npc_initiative[i] = 5;
                 npc_experience[i] = 20;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 4) // Hobgoblin
             {
@@ -159,7 +160,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 22;
                 npc_armour_class[i] = 5;
-                npc_damage[i] = 8;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 5) // Hobgoblin leader
             {
@@ -168,7 +169,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 22;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 8;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 6) // ogre
             {
@@ -177,7 +178,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 20;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 7) // ogre leader
             {
@@ -186,7 +187,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 0;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 8) // 4th level fighter
             {
@@ -195,7 +196,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 9) // kobold
             {
@@ -204,7 +205,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 10) // kobold
             {
@@ -213,7 +214,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 11) // kobold
             {
@@ -222,7 +223,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 12) // kobold
             {
@@ -231,7 +232,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 13) // kobold
             {
@@ -240,7 +241,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 14) // kobold
             {
@@ -249,7 +250,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 15) // kobold
             {
@@ -258,7 +259,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 16) // kobold
             {
@@ -267,7 +268,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 17) // kobold
             {
@@ -276,7 +277,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 18) // kobold
             {
@@ -285,7 +286,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 19) // kobold
             {
@@ -294,7 +295,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 20) // kobold
             {
@@ -303,7 +304,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 21) // kobold
             {
@@ -312,7 +313,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 22) // kobold
             {
@@ -321,7 +322,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 23) // kobold
             {
@@ -330,7 +331,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 24) // kobold
             {
@@ -339,7 +340,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 25) // kobold
             {
@@ -348,7 +349,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 26) // kobold
             {
@@ -357,7 +358,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 27) // kobold
             {
@@ -366,7 +367,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 28) // kobold
             {
@@ -375,7 +376,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
             if( enemyImageID[i] == 29) // kobold
             {
@@ -384,7 +385,7 @@ struct npcEngine
                 npc_initiative[i] = 6;
                 npc_experience[i] = 40;
                 npc_armour_class[i] = 6;
-                npc_damage[i] = 6;
+                                NPC[i]._damage = 6;
             }
 
             int imageSize = 100;
