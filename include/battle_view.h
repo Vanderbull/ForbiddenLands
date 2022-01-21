@@ -34,7 +34,6 @@ bool HOLD = false;
 
 Mix_Chunk *gPunch = NULL;
 
-int turnDamage = Generate(1,10);
 bool turnActive = true;
 
 void battleView()
@@ -137,7 +136,7 @@ void battleView()
     SDL_RenderFillRect(renderer, &actionButton[3]);
     SDL_RenderFillRect(renderer, &actionButton[4]);
 
-    RenderText("ATTACK " + std::to_string(turnDamage), White, actionButton[0].x, actionButton[0].y,20);
+    RenderText("ATTACK " + std::to_string(playerCharacter[playerCharacterSelected].damage_vs_small), White, actionButton[0].x, actionButton[0].y,20);
     RenderText("MAGIC", White, actionButton[1].x, actionButton[1].y,20);
     RenderText("EXIT", White, actionButton[2].x, actionButton[2].y,20);
     RenderText("HEALING", White, actionButton[3].x, actionButton[3].y,20);
@@ -155,8 +154,8 @@ void battleView()
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             HOLD = true;
-            npc_health[npc_active] -= turnDamage;
-            playerCharacter[playerCharacterSelected].hitpoints_current -= turnDamage;
+            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage_vs_small;
+            playerCharacter[playerCharacterSelected].hitpoints_current -= playerCharacter[playerCharacterSelected].damage_vs_small;
             character_action[playerCharacterSelected] = 0;
             fadeSize = 25;
             SDL_Delay(45);
@@ -279,8 +278,6 @@ void battleView()
 
     if( characterActionsReset == 0)
     {
-        turnDamage = Generate(1,10);
-
         playerCharacterSelected = 0;
 
         for( int i = 0; i < 6; i++)
@@ -372,7 +369,7 @@ void battleView()
         {
             mainLog.push_back("You found some treasure");
             playerCharacter[playerCharacterSelected].carriedItems.push_back(items());
-            playerCharacter[playerCharacterSelected].coins_copper += Generate(0,1000);
+            playerCharacter[playerCharacterSelected].coins_gold += Generate(0,1000);
         }
         for( int i=0; i< 6; i++ )
         playerCharacter[i].experience += Generate(0,1000);

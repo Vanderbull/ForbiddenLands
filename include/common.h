@@ -1154,11 +1154,7 @@ void renderShopCoins()
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderFillRect(renderer, &poolBackground);
 
-    RenderText("Copper: " + std::to_string(playerCharacter[playerCharacterSelected].coins_copper),Black,poolBackground.x,poolBackground.y + 10,FontSize);
-    RenderText("Electrum: " + std::to_string(playerCharacter[playerCharacterSelected].coins_electrum),Black,poolBackground.x + 200,poolBackground.y + 10,FontSize);
     RenderText("Gold: " + std::to_string(playerCharacter[playerCharacterSelected].coins_gold),Black,poolBackground.x + 400,poolBackground.y + 10,FontSize);
-    RenderText("Platinum: " + std::to_string(playerCharacter[playerCharacterSelected].coins_platinum),Black,poolBackground.x + 600,poolBackground.y + 10,FontSize);
-    RenderText("Silver: " + std::to_string(playerCharacter[playerCharacterSelected].coins_silver),Black,poolBackground.x + 800,poolBackground.y + 10,FontSize);
 };
 
 int currentCharacter = 0;

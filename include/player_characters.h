@@ -1048,27 +1048,15 @@ void resetLootDropped()
 
 typedef struct playerCharacter
 {
-    std::vector<int> readyCharacterInventoryAC;
-    std::vector<int> readyCharacterInventoryTHACO;
-    std::vector<int> readyCharacterInventoryDamage;
-    std::vector<int> readyCharacterInventoryCost;
     std::vector<std::string> readyCharacterInventoryName;
     std::vector<items> carriedItems;
     std::vector<spells> carriedSpells;
-
     int current_stats[6]; // 5 = CON
-
     std::string name = "default";
-
     int race = 0; // None
     int characterClass = 0; // None
-
     // Make a array of these instead
-    int coins_copper = 0;
-    int coins_silver = 0;
-    int coins_electrum = 0;
     int coins_gold = 0;
-    int coins_platinum = 0;
     int gender = 0;
     int ac_base = 10;
     int thaco_base = 20;
@@ -1083,21 +1071,16 @@ typedef struct playerCharacter
     int level_fighter = 0;
     int level_magic_user = 0;
     int level_thief = 0;
-
     int uuid = 0;
-
     int rowcounter = 0;
     int fontSize = 24;
     int xMouse = 0, yMouse = 0;
     SDL_Point mousePosition;
-
     int damage_vs_small = 0;
     int damage_vs_large = 0;
     int face = 0;
-
     int hunger = 0;
     int thirst = 0;
-
     SDL_Texture* faceImage;
 
     void increaseHunger()
@@ -1132,16 +1115,6 @@ typedef struct playerCharacter
             current_stats[count] = Generate(3, 18);//rand() % 15 + 3;
             count++;
         }
-    };
-
-    // Improve this function
-    void calculateCoins()
-    {
-        coins_copper = 0;
-        coins_electrum = 0;
-        coins_platinum = 0;
-        coins_silver = 0;
-        coins_gold = ( rand()% 15 + 3 ) * 10;
     };
 
     void printGameItems(std::vector<items> &readyInventory,int x, int y, int fontsize)
@@ -1361,7 +1334,6 @@ typedef struct playerCharacter
                 moveIndex++;
             }
             rowcounter++;
-
         }
     };
 
@@ -1369,16 +1341,14 @@ typedef struct playerCharacter
     {
         std::cout << "loading playerCharacter..." << std::endl;
         race = rand()% 7;
-        characterClass = rand()% 10;
-        gender = rand()% 2;
-        calculateCoins();
+        characterClass = Generate(0,10);
+        gender = Generate(0,2);
         calculateStats();
         calculateHitPoints();
         initItems();
         readyCharacterInventoryName.push_back(carriedItems.at(0).getName());
         update();
         name = setName();
-        gender = rand()%2;
         uuid++;
         face = Generate(0,20);
         faceImage = NULL;
@@ -1515,11 +1485,7 @@ typedef struct playerCharacter
     int getEncumbrance()
     {
         int encumbranceTotal = 0;
-        encumbranceTotal += coins_copper;
-        encumbranceTotal += coins_silver;
-        encumbranceTotal += coins_electrum;
         encumbranceTotal += coins_gold;
-        encumbranceTotal += coins_platinum;
         return encumbranceTotal;
     }
 
@@ -1613,6 +1579,7 @@ typedef struct playerCharacter
             return "MALE";
     }
 
+    // remove no class selected
     std::string getClass()
     {
         if( characterClass == 0)
@@ -1626,7 +1593,7 @@ typedef struct playerCharacter
         if( characterClass == 4)
         return "FIGHTER";
         if( characterClass == 5)
-        return "Illusionist";
+        return "ILLUSIONIST";
         if( characterClass == 6)
         return "PALADIN";
         if( characterClass == 7)
@@ -1659,14 +1626,12 @@ typedef struct playerCharacter
     {
         getEncumbrance();
     }
+
     void initItems()
     {
         carriedItems.push_back(items());
-        //carriedItems.at(0) = gameItems[0];
         carriedItems.push_back(items());
-        //carriedItems.at(1) = gameItems[1];
         carriedItems.push_back(items());
-        //carriedItems.at(1) = gameItems[2];
 
         playerCharacterInventory[0].push_back(carriedItems.at(0).getName());
         playerCharacterInventory[1].push_back(carriedItems.at(1).getName());
@@ -1675,34 +1640,7 @@ typedef struct playerCharacter
         playerCharacterInventory[4].push_back(carriedItems.at(0).getName());
         playerCharacterInventory[5].push_back(carriedItems.at(1).getName());
         readyCharacterInventory[0].push_back("NO");
-
-        readyCharacterInventoryAC.push_back(0);
-        readyCharacterInventoryAC.push_back(0);
-        readyCharacterInventoryAC.push_back(0);
-        readyCharacterInventoryAC.push_back(0);
-        readyCharacterInventoryAC.push_back(0);
-        readyCharacterInventoryAC.push_back(0);
-        readyCharacterInventoryTHACO.push_back(0);
-        readyCharacterInventoryTHACO.push_back(0);
-        readyCharacterInventoryTHACO.push_back(0);
-        readyCharacterInventoryTHACO.push_back(0);
-        readyCharacterInventoryTHACO.push_back(0);
-        readyCharacterInventoryTHACO.push_back(0);
-        readyCharacterInventoryDamage.push_back(0);
-        readyCharacterInventoryDamage.push_back(0);
-        readyCharacterInventoryDamage.push_back(0);
-        readyCharacterInventoryDamage.push_back(0);
-        readyCharacterInventoryDamage.push_back(0);
-        readyCharacterInventoryDamage.push_back(0);
-        readyCharacterInventoryCost.push_back(0);
-        readyCharacterInventoryCost.push_back(0);
-        readyCharacterInventoryCost.push_back(0);
-        readyCharacterInventoryCost.push_back(0);
-        readyCharacterInventoryCost.push_back(0);
-        readyCharacterInventoryCost.push_back(0);
     }
 } playerCharacters;
-
-
 
 #endif // PLAYER_CHARACTERS

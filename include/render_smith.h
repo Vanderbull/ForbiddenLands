@@ -47,7 +47,7 @@ void renderSmithShop()
             {
                 if( playerCharacter[playerCharacterSelected].carriedItems.size() > 0 )
                 {
-                    playerCharacter[playerCharacterSelected].coins_copper += playerCharacter[playerCharacterSelected].carriedItems.at(i).value;
+                    playerCharacter[playerCharacterSelected].coins_gold += playerCharacter[playerCharacterSelected].carriedItems.at(i).value;
                     smithItems.push_back(playerCharacter[playerCharacterSelected].carriedItems.at(i));
                     playerCharacter[playerCharacterSelected].carriedItems.erase(playerCharacter[playerCharacterSelected].carriedItems.begin() + i);
                 }
@@ -70,9 +70,9 @@ void renderSmithShop()
             {
                 if( smithItems.size() > 0 )
                 {
-                    if( playerCharacter[playerCharacterSelected].coins_copper >= smithItems.at(i).value)
+                    if( playerCharacter[playerCharacterSelected].coins_gold >= smithItems.at(i).value)
                     {
-                        playerCharacter[playerCharacterSelected].coins_copper -= smithItems.at(i).value;
+                        playerCharacter[playerCharacterSelected].coins_gold -= smithItems.at(i).value;
                         playerCharacter[playerCharacterSelected].carriedItems.push_back(smithItems.at(i));
                         smithItems.erase(smithItems.begin() + i);
                     }

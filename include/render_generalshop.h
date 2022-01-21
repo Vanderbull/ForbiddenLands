@@ -56,7 +56,7 @@ void renderGeneralShop()
                 {
                     removeIndex = counter2;
                     triggerRemove = 1;
-                    playerCharacter[playerCharacterSelected].coins_copper += 9;
+                    playerCharacter[playerCharacterSelected].coins_gold += 9;
                 }
                 SDL_Delay(75);
             }
@@ -98,10 +98,10 @@ void renderGeneralShop()
                 playerCharacterInventory[playerCharacterSelected].push_back(generalStoreItems.at(i).c_str());
                 readyCharacterInventory[playerCharacterSelected].push_back("NO");
 
-                playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.push_back(0);
-                playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.push_back(0);
+                //playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.push_back(0);
+                //playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.push_back(0);
 
-                playerCharacter[playerCharacterSelected].coins_copper -= 9;
+                playerCharacter[playerCharacterSelected].coins_gold -= 9;
                 SDL_Delay(75);
             }
         }

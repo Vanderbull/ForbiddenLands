@@ -71,8 +71,8 @@ void renderTavern()
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
-            playerCharacter[playerCharacterSelected].coins_copper -= 100;
-            mainLog.push_back("Payed 100 copper for a meal");
+            playerCharacter[playerCharacterSelected].coins_gold -= 100;
+            mainLog.push_back("Payed 100 gold for a meal");
             healingCharacter();
         }
     }
@@ -84,8 +84,8 @@ void renderTavern()
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
-             playerCharacter[playerCharacterSelected].coins_copper -= 100;
-             mainLog.push_back("Payed 100 copper for a drink");
+             playerCharacter[playerCharacterSelected].coins_gold -= 100;
+             mainLog.push_back("Payed 100 gold for a drink");
              healingCharacter();
         }
     }

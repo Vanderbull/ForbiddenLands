@@ -77,7 +77,7 @@ void renderSilverShop()
                     removeIndex = counter2;
                     triggerRemove = 1;
                     //pooled_coins_copper += armsAndArmoursValue.at(i);
-                    playerCharacter[playerCharacterSelected].coins_copper += armsAndArmoursValue.at(i);
+                    playerCharacter[playerCharacterSelected].coins_gold += armsAndArmoursValue.at(i);
                 }
             }
             SDL_Delay(75);
@@ -110,13 +110,13 @@ void renderSilverShop()
             SDL_PumpEvents();
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                if( armsAndArmoursValue.at(i) < playerCharacter[playerCharacterSelected].coins_copper)
+                if( armsAndArmoursValue.at(i) < playerCharacter[playerCharacterSelected].coins_gold)
                 {
                     playerCharacterInventory[playerCharacterSelected].push_back(silverStoreItems.at(i).c_str());
                     readyCharacterInventory[playerCharacterSelected].push_back("NO");
-                    playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.push_back(0);
-                    playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.push_back(0);
-                    playerCharacter[playerCharacterSelected].coins_copper -= armsAndArmoursValue.at(i);
+                    //playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.push_back(0);
+                    //playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.push_back(0);
+                    playerCharacter[playerCharacterSelected].coins_gold -= armsAndArmoursValue.at(i);
                     SDL_Delay(75);
                 }
             }
