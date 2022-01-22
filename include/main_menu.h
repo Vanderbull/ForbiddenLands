@@ -66,7 +66,7 @@ void MainMenu()
                 {
                     if(MenuChoice == "PLAY")
                     {
-                        activeView = dungeon;
+                        activeView = DUNGEON;
                         LoadMenu = 0;
                         SaveMenu = 0;
                         CreateCharacter = 0;

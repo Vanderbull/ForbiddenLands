@@ -1082,6 +1082,7 @@ typedef struct playerCharacter
     int hunger = 0;
     int thirst = 0;
     SDL_Texture* faceImage;
+    int healingPotions = 1;
 
     void increaseHunger()
     {

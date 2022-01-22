@@ -78,7 +78,7 @@ void RenderLoadMenu()
     }
     else if( MenuCounterSwitch == 1)
     {
-        activeView = dungeon;
+        activeView = DUNGEON;
         LoadMenu = 0;
         SaveMenu = 0;
         MenuCounterSwitch = 0;
@@ -173,7 +173,7 @@ void RenderLoadMenu()
             std::ofstream SaveGame;
             loadingGameData("./data/savegames/savgamf.dat");
             RenderText("Loading game...", Red, 700,100,42);
-            activeView = dungeon;
+            activeView = DUNGEON;
             LoadMenu = 0;
             SaveMenu = 0;
         }
@@ -190,7 +190,7 @@ void RenderLoadMenu()
             std::ofstream SaveGame;
             loadingGameData("./data/savegames/savgamg.dat");
             RenderText("Loading game...", Red, 700,100,42);
-            activeView = dungeon;
+            activeView = DUNGEON;
             LoadMenu = 0;
             SaveMenu = 0;
         }
@@ -207,7 +207,7 @@ void RenderLoadMenu()
             std::ofstream SaveGame;
             loadingGameData("./data/savegames/savgamh.dat");
             RenderText("Loading game...", Red, 700,100,42);
-            activeView = dungeon;
+            activeView = DUNGEON;
             LoadMenu = 0;
             SaveMenu = 0;
         }
@@ -224,7 +224,7 @@ void RenderLoadMenu()
             std::ofstream SaveGame;
             loadingGameData("./data/savegames/savgami.dat");
             RenderText("Loading game...", Red, 700,100,42);
-            activeView = dungeon;
+            activeView = DUNGEON;
             LoadMenu = 0;
             SaveMenu = 0;
         }
@@ -241,7 +241,7 @@ void RenderLoadMenu()
             std::ofstream SaveGame;
             loadingGameData("./data/savegames/savgamj.dat");
             RenderText("Loading game...", Red, 700,100,42);
-            activeView = dungeon;
+            activeView = DUNGEON;
             LoadMenu = 0;
             SaveMenu = 0;
         }

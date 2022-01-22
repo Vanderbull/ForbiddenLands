@@ -154,8 +154,11 @@ void renderQuestProgress()
     }
 };
 
-void renderQuests()
+void renderQuests( bool hidden = true )
 {
+    if( hidden )
+        return;
+
     int i = 0;
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0,128);
@@ -198,48 +201,50 @@ void navigationButtons()
     SDL_Rect health[6];
     SDL_Rect experience[6];
 
-    health[0] = {610,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+    float theValue = ( 105.0f / playerCharacter[0].hitpoints_max ) * playerCharacter[0].hitpoints_current;
+    std::cout << "theValue: " << theValue << std::endl;
+
+    health[0] = {610,current.h - 225, ( 105.0f / playerCharacter[0].hitpoints_max ) * playerCharacter[0].hitpoints_current, 25};
      experience[0] = {610,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[0]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[0]);
 
-     health[1] = {720,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     health[1] = {720,current.h - 225,( 105.0f / playerCharacter[1].hitpoints_max ) * playerCharacter[1].hitpoints_current,25};
      experience[1] = {720,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[1]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[1]);
 
-     health[2] = {830,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     health[2] = {830,current.h - 225,( 105.0f / playerCharacter[2].hitpoints_max ) * playerCharacter[2].hitpoints_current,25};
      experience[2] = {830,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[2]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[2]);
 
-     health[3] = {940,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     health[3] = {940,current.h - 225,( 105.0f / playerCharacter[3].hitpoints_max ) * playerCharacter[3].hitpoints_current,25};
      experience[3] = {940,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[3]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[3]);
 
-     health[4] = {1050,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     health[4] = {1050,current.h - 225,( 105.0f / playerCharacter[4].hitpoints_max ) * playerCharacter[4].hitpoints_current,25};
      experience[4] = {1050,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[4]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[4]);
 
-     health[5] = {1160,current.h - 225,105 / playerCharacter[playerCharacterSelected].hitpoints_max * playerCharacter[playerCharacterSelected].hitpoints_current,25};
+     health[5] = {1160,current.h - 225,( 105.0f / playerCharacter[5].hitpoints_max ) * playerCharacter[5].hitpoints_current,25};
      experience[5] = {1160,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[5]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[5]);
-
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
     SDL_RenderFillRect(renderer, &save);
@@ -254,7 +259,7 @@ void navigationButtons()
             SDL_PumpEvents();
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                activeView = battle;
+                activeView = BATTLE;
                 randomEncounters = 1;
                 SDL_Delay(50);
             }
@@ -496,39 +501,8 @@ void renderWorldViewA()
         SDL_DestroyTexture(swatTexture);
     }
 
-//    xcoord = std::to_string(PlayerCoordinate.x);
-//    ycoord = std::to_string(PlayerCoordinate.y);
-//
-//    rotationString = "Rotation: ";
-//    coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
-//
-//    rotationString += Rotation.c_str();
-//    RenderText(rotationString.c_str(),White,160,300,14);
-//    RenderText(coordinateString.c_str(),White, 50, 300,14);
-
-    RenderText(getTimeOfDay().c_str(),White, 50, 25,14);
-
     navigationButtons();
     adventureMenu();
-
-    SDL_Rect dayTimeBox = {0,0,50,50};
-
-    SDL_Texture* dayTimeTexture = NULL;
-
-    if( getTimeOfDay() == "Night time")
-        dayTimeTexture = LoadTexture("./icons/ball-48.png",255);
-    else
-        dayTimeTexture = LoadTexture("./icons/48.png",255);
-
-    SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
-    SDL_DestroyTexture(dayTimeTexture);
-
-    if( getTimeOfDay() == "Night time")
-    {
-        dayTimeTexture = LoadTexture("./icons/night.png",128);
-        SDL_RenderCopy(renderer, dayTimeTexture, NULL, NULL);
-        SDL_DestroyTexture(dayTimeTexture);
-    }
 
     SDL_Rect faceBox[6];
     faceBox[0] = {500 + 110,current.h - 165,105,165};
@@ -571,10 +545,30 @@ void renderWorldViewA()
         RenderText("LOOT HERE!!",Green,600,0,48);
     }
 
-    if( activeView == dungeon && viewingCharacter == 0)
+    if( activeView == DUNGEON && viewingCharacter == 0)
     {
-        RenderText("Season: " + cweather_engine.get_season(), White, current.w - 300,0,24);
-        RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 300,24,24);
+        SDL_Rect dayTimeBox = {current.w - 1150,25,50,50};
+
+        SDL_Texture* dayTimeTexture = NULL;
+
+        if( getTimeOfDay() == "Night time")
+            dayTimeTexture = LoadTexture("./icons/ball-48.png",255);
+        else
+            dayTimeTexture = LoadTexture("./icons/48.png",255);
+
+        SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
+        SDL_DestroyTexture(dayTimeTexture);
+
+        if( getTimeOfDay() == "Night time")
+        {
+            dayTimeTexture = LoadTexture("./icons/night.png",128);
+            SDL_RenderCopy(renderer, dayTimeTexture, NULL, NULL);
+            SDL_DestroyTexture(dayTimeTexture);
+        }
+
+        RenderText("Season: " + cweather_engine.get_season(), White, current.w - 1050,100,24);
+        RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 1050,124,24);
+        RenderText("Time of day: " + getTimeOfDay(),White, current.w - 1050, 148,24);
     }
 };
 
@@ -666,29 +660,9 @@ void renderWorldViewB()
         SDL_DestroyTexture(swatTexture);
     }
 
-//    xcoord = std::to_string(PlayerCoordinate.x);
-//    ycoord = std::to_string(PlayerCoordinate.y);
-//
-//    rotationString = "Rotation: ";
-//    coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
-//
-//    rotationString += Rotation.c_str();
-//    RenderText(rotationString.c_str(),White,160,300,14);
-//    RenderText(coordinateString.c_str(),White, 50, 300,14);
-
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
 
     adventureMenu();
-
-    if( SDL_PointInRect(&mousePosition, &lookButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_PumpEvents();
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            playerCharacterSelected2 = 0;
-            viewingCharacter = 1;
-        }
-    }
 };
 
 #endif

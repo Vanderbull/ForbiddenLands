@@ -38,6 +38,14 @@ bool turnActive = true;
 
 void battleView()
 {
+    if( playerCharacter[0].getHitpoints() <= 0 )
+    if( playerCharacter[1].getHitpoints() <= 0 )
+    if( playerCharacter[2].getHitpoints() <= 0 )
+    if( playerCharacter[3].getHitpoints() <= 0 )
+    if( playerCharacter[4].getHitpoints() <= 0 )
+    if( playerCharacter[5].getHitpoints() <= 0 )
+        exit(99);
+
     SDL_Texture* Texture;
     SDL_Rect character[6];
     SDL_Rect character_fighting;
@@ -53,12 +61,6 @@ void battleView()
     character[3] = {0, 450,100,144};
     character[4] = {0, 600,100,144};
     character[5] = {0, 750,100,144};
-
-    SDL_Rect attack = {current.w / 3, current.h - 50,100,30};
-    SDL_Rect magic = {current.w / 3 + 110, current.h - 50,100,30};
-    SDL_Rect exit = {current.w / 3 + 220, current.h - 50,100,30};
-    SDL_Rect healing = {current.w / 3 + 330, current.h - 50,100,30};
-    SDL_Rect missile = {current.w / 3 + 440, current.h - 50,100,30};
 
     std::vector<std::string> playerImages;
 
@@ -176,7 +178,7 @@ void battleView()
         SDL_RenderFillRect(renderer, &actionButton[2]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
-                activeView = dungeon;
+                activeView = DUNGEON;
                 initBattleFlag = 0;
         }
     }
@@ -188,15 +190,16 @@ void battleView()
         SDL_RenderFillRect(renderer, &actionButton[3]);
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
-            if( healingPotion[playerCharacterSelected] > 0 )
+            if( playerCharacter[playerCharacterSelected].healingPotions > 0 )
             {
-                healingPotion[playerCharacterSelected] -= 1;
+                playerCharacter[playerCharacterSelected].healingPotions -= 1;
                 cureLightWounds();
                 character_action[playerCharacterSelected] = 0;
                 SDL_Delay(100);
             }
         }
     }
+
     if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
@@ -365,7 +368,7 @@ void battleView()
     // Battle ended when all enemies are dead
     if(npc_health[0] <= 0 && npc_health[1] <= 0 && npc_health[2] <= 0 && npc_health[3] <= 0 && npc_health[4] <= 0 && npc_health[5] <= 0)
     {
-        activeView = dungeon;
+        activeView = DUNGEON;
         initBattleFlag = 0;
         playerCharacterSelected = 0;
         for( int i=0; i< 6; i++ )
@@ -384,7 +387,7 @@ void battleView()
     if( playerCharacter[0].hitpoints_current <= 0 && playerCharacter[1].hitpoints_current <= 0 && playerCharacter[2].hitpoints_current <= 0 &&
         playerCharacter[3].hitpoints_current <= 0 && playerCharacter[4].hitpoints_current <= 0 && playerCharacter[5].hitpoints_current <= 0)
     {
-        activeView = dungeon;
+        activeView = DUNGEON;
         initBattleFlag = 0;
         playerCharacterSelected = 0;
         for( int i=0; i< 6; i++ )
@@ -394,6 +397,7 @@ void battleView()
         Texture = LoadTexture("./data/gameover/gameover.png",255);
         SDL_RenderCopyEx(renderer, Texture, NULL, NULL,0,0,SDL_FLIP_NONE);
         SDL_DestroyTexture(Texture);
+        exit(99);
     }
 
     RenderText(playerCharacter[playerCharacterSelected].name, Blue, 100, current.h - 150,20);
@@ -403,7 +407,7 @@ void battleView()
     RenderText(npc_name, Blue, current.w - 200, current.h - 150,20);
     RenderText("HP: " + std::to_string(npc_health[npc_active]) + " / " + std::to_string(NPCs.NPC[npc_active]._damage), Black, current.w - 200, current.h - 100,20);
     RenderText("Actions: " + std::to_string(npc_action[npc_active]), Black, current.w - 200, current.h - 50,20);
-    RenderText("HEALING POTIONS: " + std::to_string(healingPotion[playerCharacterSelected]), Black, current.w / 2, current.h - 200,20);
+    RenderText("HEALING POTIONS: " + std::to_string(playerCharacter[playerCharacterSelected].healingPotions), Black, current.w / 2, current.h - 200,20);
 };
 
  #endif // BATTLE_VIEW

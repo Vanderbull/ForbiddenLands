@@ -16,17 +16,10 @@ auto start = high_resolution_clock::now(), stop = high_resolution_clock::now();
 
 int randomEncounters = 0;
 
-int two_d[15][15];
-
-int healingPotion[6] = {1,1,1,1,1,1};
 // Quest states
 enum { PENDING,UNLOCKED,IN_PROGRESS,COMPLETED,DONE,CANCELED };
 
-int mouse_counter = 0;
-
 playerCharacters playerCharacter[6];
-
-SDL_Rect volumeSlider = {0,750,50,50};
 
 int removeIndex = 0;
 int triggerRemove = 0;
@@ -34,10 +27,6 @@ int triggerRemove = 0;
 unsigned char MusicVolume = 0;
 int gHighTriggered = 0;
 int disableSound = 0;
-
-int spawn = 0;
-
-std::string generated;
 
 int LoadMenu = 0;
 int SaveMenu = 0;
@@ -48,27 +37,14 @@ int MenuCounterSwitch = 0;
 std::vector<std::string> MenuChoices;
 
 // VIEWS CONSTANTS
-const int mainmenu = 2;
-const int dungeon = 4;
-const int wilderness = 5;
-const int battle = 17;
+enum { MAIN_MENU,DUNGEON,WILDERNESS,BATTLE,SETTINGS };
 
-int activeView = mainmenu;
-
+int activeView = MAIN_MENU;
 int SettingsMenu = 0;
-
 int looping = 0;
 
-SDL_Rect encampButton;
-SDL_Rect lookButton;
-SDL_Rect backpackButton;
-SDL_Rect itemsButton;
-SDL_Rect spellsButton;
-SDL_Rect tradeButton;
-SDL_Rect dropButton;
 SDL_Rect exitButton;
 SDL_Rect readyButton;
-SDL_Rect decreaseButton;
 
 bool newGame = true;
 
@@ -409,64 +385,6 @@ void renderFPS(unsigned int fps)
 {
     RenderText("FPS: " + std::to_string(fps),Green,0,0,48);
 };
-//
-//void renderCharacterViewItems()
-//{
-//    rowcounter = 0;
-//    int row = 0;
-//
-//    rowcounter = 0;
-//    for(const auto& s: readyCharacterInventory[playerCharacterSelected])
-//    {
-//        SDL_Rect itemBox = {0,0,0,0};
-//        itemBox.h = 20;
-//        itemBox.w = 40;
-//        itemBox.x = 1500;
-//        itemBox.y = 200 + (20*rowcounter);
-//        if( SDL_PointInRect(&mousePosition, &itemBox) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//        {
-//            RenderText(s.c_str(),Green,itemBox.x,itemBox.y,fontSize);
-//
-//            RenderText(playerCharacterInventory[playerCharacterSelected].at(rowcounter).c_str(),Green,current.w - 500,itemBox.y,fontSize);
-//            RenderText("AC: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter)),Green,current.w - 500,itemBox.y + 25,fontSize);
-//            RenderText("THACO: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter)),Green,current.w - 500,itemBox.y + 50,fontSize);
-//            RenderText("COST: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryCost.at(rowcounter)),Green,current.w - 500,itemBox.y + 75,fontSize);
-//            RenderText("DAMAGE: " + std::to_string(playerCharacter[playerCharacterSelected].readyCharacterInventoryDamage.at(rowcounter)),Green,current.w - 500,itemBox.y + 100,fontSize);
-//            SDL_PumpEvents();
-//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//            {
-//                if( readyCharacterInventory[playerCharacterSelected].at(rowcounter) == "YES" )
-//                {
-//                    readyCharacterInventory[playerCharacterSelected].at(rowcounter) = "NO";
-//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter) = 0;
-//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter) = 0;
-//                }
-//                else
-//                {
-//                    readyCharacterInventory[playerCharacterSelected].at(rowcounter) = "YES";
-//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryAC.at(rowcounter) = 1;
-//                    playerCharacter[playerCharacterSelected].readyCharacterInventoryTHACO.at(rowcounter) = 1;
-//                }
-//                SDL_Delay(75);
-//            }
-//        }
-//        rowcounter++;
-//    }
-//
-//    SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-//    SDL_Rect exitButton = {current.w - 210, current.h - 40, 200, 30};
-//    SDL_RenderFillRect(renderer, &exitButton);
-//    RenderText("EXIT", Black, current.w - 200, current.h - 37,fontSize);
-//
-//    if( SDL_PointInRect(&mousePosition, &exitButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_PumpEvents();
-//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//        {
-//            viewItems = !viewItems;
-//        }
-//    }
-//}
 
 void renderCharacterView()
 {
@@ -681,49 +599,39 @@ std::string pad_right(std::string const& str, size_t s)
         return str;
 }
 
+enum buttonName {ENCAMP,BACKPACK};
+
+SDL_Texture* Texture[100];
+SDL_Rect button[4];
+
+void loadPCstatusData()
+{
+    Texture[ENCAMP] = LoadTexture("./icons/uiAtlas/ui_game_symbol_campfire.png",255);
+    Texture[BACKPACK] = LoadTexture("./icons/uiAtlas/ui_game_symbol_fetch_loot.png",255);
+    button[ENCAMP] = {current.w - 168*2, 0,160,160};
+    button[BACKPACK] = {1260, current.h - 160,160,160};
+};
+
+void unloadPCstatusData()
+{
+    SDL_DestroyTexture(Texture[ENCAMP]);
+    SDL_DestroyTexture(Texture[BACKPACK]);
+};
+
 void renderPCstatus()
 {
-    SDL_Texture* Texture = NULL;
-    SDL_Rect Button[6];
-    std::string pc[6];
-    int offset_x = current.w / 2;
-    int offset_x_border = current.w / 2 - 5;
-    int offset_x_pc = current.w / 2 - 10;
-
-    Button[0] = {current.w - offset_x_pc, current.h - 140, 200 ,20};
-    Button[1] = {current.w - offset_x_pc, current.h - 120, 200 ,20};
-    Button[2] = {current.w - offset_x_pc, current.h - 100, 200, 20};
-    Button[3] = {current.w - offset_x_pc, current.h - 80, 200, 20};
-    Button[4] = {current.w - offset_x_pc, current.h - 60, 200, 20};
-    Button[5] = {current.w - offset_x_pc, current.h - 40, 200, 20};
-
-    std::string pcTitles = pad_right("NAME",20) + pad_right("AC",8)+"HP";
-    pc[0] = pad_right(playerCharacter[0].getName(),20) + pad_right(std::to_string(playerCharacter[0].getArmourClass()),8) + std::to_string(playerCharacter[0].getHitpoints()) + "/" + std::to_string(playerCharacter[0].hitpoints_max);
-    pc[1] = pad_right(playerCharacter[1].getName(),20) + pad_right(std::to_string(playerCharacter[1].getArmourClass()),8) + std::to_string(playerCharacter[1].getHitpoints()) + "/" + std::to_string(playerCharacter[1].hitpoints_max);
-    pc[2] = pad_right(playerCharacter[2].getName(),20) + pad_right(std::to_string(playerCharacter[2].getArmourClass()),8) + std::to_string(playerCharacter[2].getHitpoints()) + "/" + std::to_string(playerCharacter[2].hitpoints_max);
-    pc[3] = pad_right(playerCharacter[3].getName(),20) + pad_right(std::to_string(playerCharacter[3].getArmourClass()),8) + std::to_string(playerCharacter[3].getHitpoints()) + "/" + std::to_string(playerCharacter[3].hitpoints_max);
-    pc[4] = pad_right(playerCharacter[4].getName(),20) + pad_right(std::to_string(playerCharacter[4].getArmourClass()),8) + std::to_string(playerCharacter[4].getHitpoints()) + "/" + std::to_string(playerCharacter[4].hitpoints_max);
-    pc[5] = pad_right(playerCharacter[5].getName(),20) + pad_right(std::to_string(playerCharacter[5].getArmourClass()),8) + std::to_string(playerCharacter[5].getHitpoints()) + "/" + std::to_string(playerCharacter[5].hitpoints_max);
-
-    encampButton = {current.w - 168*2, 0,160,160};
-    lookButton = {current.w - 168, 0,160,160};
-    backpackButton = {current.w - 1300, current.h - 160,160,160};
-    SDL_Rect cogButton = {current.w - 168*4, 0,160,160};
-
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
-    SDL_RenderFillRect(renderer, &encampButton);
+    SDL_RenderFillRect(renderer, &button[ENCAMP]);
 
-    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
-    SDL_RenderCopy(renderer, Texture, NULL, &encampButton);
-    SDL_DestroyTexture(Texture);
+    SDL_RenderCopy(renderer, Texture[ENCAMP], NULL, &button[ENCAMP]);
 
-    Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_campfire.png",255);
-    SDL_RenderCopy(renderer, Texture, NULL, &encampButton);
-    SDL_DestroyTexture(Texture);
+    SDL_SetTextureColorMod(Texture[BACKPACK], 0, 255, 0); //set yellow letters
+    SDL_RenderCopy(renderer, Texture[BACKPACK], NULL, &button[BACKPACK]);
+    SDL_RenderCopy(renderer, Texture[BACKPACK], NULL, &button[BACKPACK]);
 
-    RenderText("ENCAMP", Black, encampButton.x, encampButton.y,20);
+    RenderText("ENCAMP", Black, button[ENCAMP].x, button[ENCAMP].y,20);
 
-    if( SDL_PointInRect(&mousePosition, &encampButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &button[ENCAMP]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -739,85 +647,13 @@ void renderPCstatus()
         }
     }
 
-//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
-//    SDL_RenderFillRect(renderer, &lookButton);
-//
-//    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
-//    SDL_RenderCopy(renderer, Texture, NULL, &lookButton);
-//    SDL_DestroyTexture(Texture);
-//
-//    Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_character.png",255);
-//    SDL_RenderCopy(renderer, Texture, NULL, &lookButton);
-//    SDL_DestroyTexture(Texture);
-//
-//    RenderText("CHARACTER", Black, lookButton.x, lookButton.y,20);
-//    if( SDL_PointInRect(&mousePosition, &lookButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//    }
-//
-//    if( SDL_PointInRect(&mousePosition, &lookButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_PumpEvents();
-//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//        {
-//            playerCharacterSelected2 = 0;
-//            viewingCharacter = 1;
-//        }
-//    }
-
-    //SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
-    //SDL_RenderFillRect(renderer, &backpackButton);
-
-//    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
-//    SDL_RenderCopy(renderer, Texture, NULL, &backpackButton);
-//    SDL_DestroyTexture(Texture);
-
-
-    Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_fetch_loot.png",255);
-    SDL_SetTextureColorMod(Texture, 0, 255, 0); //set yellow letters
-    SDL_RenderCopy(renderer, Texture, NULL, &backpackButton);
-    SDL_DestroyTexture(Texture);
-
-    //RenderText("INVENTORY", Black, backpackButton.x, backpackButton.y,20);
-
-    if( SDL_PointInRect(&mousePosition, &backpackButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-    }
-
-    if( SDL_PointInRect(&mousePosition, &backpackButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &button[BACKPACK]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             playerCharacterSelected2 = 0;
             viewingCharacter = 1;
-        }
-    }
-
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 192);
-    SDL_RenderFillRect(renderer, &cogButton);
-
-    Texture = LoadTexture("./icons/uiAtlas/smxlib_ui_game_element_panel_background_dense.png",255);
-    SDL_RenderCopy(renderer, Texture, NULL, &cogButton);
-    SDL_DestroyTexture(Texture);
-
-    Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_modded.png",255);
-    SDL_RenderCopy(renderer, Texture, NULL, &cogButton);
-    SDL_DestroyTexture(Texture);
-
-    RenderText("SETTINGS", Black, cogButton.x, cogButton.y,20);
-
-    if( SDL_PointInRect(&mousePosition, &cogButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-    }
-
-    if( SDL_PointInRect(&mousePosition, &cogButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_PumpEvents();
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            //playerCharacterSelected2 = 0;
-            //viewingCharacter = 1;
         }
     }
 };
@@ -1150,12 +986,6 @@ void renderShopScrollbars()
 
 void renderShopCoins()
 {
-//    SDL_Rect poolBackground = {current.w / 4,0,1000,50};
-//    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-//    SDL_RenderDrawRect(renderer,&poolBackground);
-//    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-//    SDL_RenderFillRect(renderer, &poolBackground);
-
     RenderText("Gold: " + std::to_string(playerCharacter[playerCharacterSelected].coins_gold),White,510,210,FontSize);
     RenderText("Hunger: " + std::to_string(playerCharacter[playerCharacterSelected].hunger),White,510,230,FontSize);
     RenderText("Thirst: " + std::to_string(playerCharacter[playerCharacterSelected].thirst),White,510,250,FontSize);

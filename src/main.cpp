@@ -477,6 +477,8 @@ int main(int argc, char ** argv)
     playerCharacter[4].loadCharacterFace();
     playerCharacter[5].loadCharacterFace();
 
+    loadPCstatusData();
+
     while (!quit)
     {
         start = high_resolution_clock::now();
@@ -516,7 +518,7 @@ int main(int argc, char ** argv)
                         } break;
                         case SDLK_ESCAPE:
                         {
-                            if(activeView == mainmenu)
+                            if(activeView == MAIN_MENU)
                             {
                                 if( SettingsMenu )                                {
                                     SettingsMenu = 0;
@@ -538,9 +540,9 @@ int main(int argc, char ** argv)
                                     quit = 1;
                                 }
                             }
-                            else if(activeView == dungeon)
+                            else if(activeView == DUNGEON)
                             {
-                                activeView = mainmenu;
+                                activeView = MAIN_MENU;
                             }
                         } break;
                     } break;
@@ -575,7 +577,7 @@ int main(int argc, char ** argv)
                         case SDLK_LEFT:
                         case SDLK_q:
                         {
-                            if( activeView == dungeon )
+                            if( activeView == DUNGEON )
                             {
                                 rotateCounterClockWise();
                                 getCompassDirection();
@@ -587,7 +589,7 @@ int main(int argc, char ** argv)
                         case SDLK_RIGHT:
                         case SDLK_e:
                         {
-                            if( activeView == dungeon )
+                            if( activeView == DUNGEON )
                             {
                                 rotateClockWise();
                                 getCompassDirection();
@@ -599,7 +601,7 @@ int main(int argc, char ** argv)
                         case SDLK_UP:
                         case SDLK_w:
                             inGameTime++;
-                            if( activeView == dungeon )
+                            if( activeView == DUNGEON )
                             {
                                 // We are in dungeonMode
                                 switch( worldMap )
@@ -915,19 +917,19 @@ int main(int argc, char ** argv)
 
         m_uPreviousMouseState=m_uCurrentMouseState;
 
-        if( activeView == battle )
+        if( activeView == BATTLE )
         {
             battleView();
         }
-        else if( activeView == mainmenu )
+        else if( activeView == MAIN_MENU )
         {
             MainMenu();
         }
-        else if(activeView == wilderness)
+        else if(activeView == WILDERNESS)
         {
             renderWorldViewB();
         }
-        else if(activeView == dungeon)
+        else if(activeView == DUNGEON)
         {
             renderWorldViewA();
 
@@ -970,7 +972,7 @@ int main(int argc, char ** argv)
             }
         } // end dungeonView
 
-        if(!mainmenu)
+        if(!activeView == MAIN_MENU)
         {
             navigationButtons();
         }
@@ -993,6 +995,7 @@ int main(int argc, char ** argv)
 
     SDL_DestroyTexture(currentViewTexture);
     SDL_DestroyTexture(backgroundTexture);
+    unloadPCstatusData();
 
     return 0;
 }
