@@ -252,20 +252,25 @@ void navigationButtons()
 
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter )
     {
-        SDL_RenderFillRect(renderer, &randomEncounterButton);
-        RenderText("BATTLE IT", Black, randomEncounterButton.x, randomEncounterButton.y,12);
-        if( SDL_PointInRect(&mousePosition, &randomEncounterButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( activeView == DUNGEON )
         {
-            SDL_PumpEvents();
-            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            SDL_RenderFillRect(renderer, &randomEncounterButton);
+            RenderText("BATTLE IT", Black, randomEncounterButton.x, randomEncounterButton.y,12);
+            if( SDL_PointInRect(&mousePosition, &randomEncounterButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
             {
-                activeView = BATTLE;
-                randomEncounters = 1;
-                SDL_Delay(50);
+                SDL_PumpEvents();
+                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                {
+                    activeView = BATTLE;
+                    randomEncounters = 1;
+                    SDL_Delay(50);
+                }
             }
         }
     }
 
+if( activeView == DUNGEON )
+{
     if( SDL_PointInRect(&mousePosition, &save) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
@@ -407,6 +412,8 @@ void navigationButtons()
     RenderText("Encounter: " + std::to_string(save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter), Black, 0, load.y - 450,24);
 
     renderQuests();
+}
+
 };
 
 void renderWorldViewA()
