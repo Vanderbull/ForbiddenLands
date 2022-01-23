@@ -11,28 +11,28 @@ struct items
     int unidentified = 0;
     int type = 0;
     int bonus = 0;
-    int save = 0; // armour class
+    int armour_class = 0;
     int cursed = 0;
     int amount = 0;
     int weight = 0;
     int value = 0;
-    int properties_1 = 0;
-    int properties_2 = 0;
-    int properties_3 = 0;
     int equipped = 0;
     int damage_vs_small = 0;
     int damage_vs_large = 0;
 
+    bool ammo = false;
+
+    bool ArmourAndShield = false;
+    bool MiscellaneousMagic = false;
+    bool MiscellaneousWeapons = false;
+    bool Potions = false;
+    bool Rings = false;
+    bool RodsStavesAndWands = false;
+    bool Scrolls = false;
+    bool Swords = false;
     items()
     {
-        bool ArmourAndShield = false;
-        bool MiscellaneousMagic = false;
-        bool MiscellaneousWeapons = false;
-        bool Potions = false;
-        bool Rings = false;
-        bool RodsStavesAndWands = false;
-        bool Scrolls = false;
-        bool Swords = false;
+
 
         value = Generate(0,256);
         amount = Generate(0,256);
@@ -89,30 +89,36 @@ struct items
                     {
                         name_2 = "+1";
                         bonus = 1;
+                        armour_class = 1;
                     } break;
                     case 1:
                     {
                         name_2 = "+2";
                         bonus = 2;
+                        armour_class = 2;
                     } break;
                     case 2:
                     {
                         name_2 = "+3";
                         bonus = 3;
+                        armour_class = 3;
                     } break;
                     case 3:
                     {
                         name_2 = "+4/+5";
                         bonus = 4;
+                        armour_class = 4;
                     } break;
                     case 4:
                     {
                         name_2 = "Cursed";
                         cursed = 1;
+                        armour_class = -1;
                     } break;
                     case 5:
                     {
                         name_2 = "Special";
+                        armour_class = 5;
                     } break;
                 };
             }break;
@@ -404,34 +410,9 @@ struct items
         case 7:
             {
                 Swords = true;
-                // FORM
-               switch( Generate(0,3) )
-                {
-                    case 0:
-                    {
-                        name_1 = "Bastard Sword";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
-                    } break;
-                    case 1:
-                    {
-                        name_1 = "Broadsword";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
-                    } break;
-                    case 2:
-                    {
-                        name_1 = "Longsword";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
-                    } break;
-                    case 3:
-                    {
-                        name_1 = "Shortsword";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
-                    } break;
-                };
+
+                first_property();
+
                 //PROPERTIES
                 switch( Generate(0,5) )
                 {
@@ -466,12 +447,44 @@ struct items
                     } break;
                 };
             }break;
-        }
+        };
     };
 
     items( int aValue )
     {
         name_1 = "WATER GOT DAMN IT";
+    };
+
+    void first_property()
+    {
+        if( Swords == true )
+        switch( Generate(0,3) )
+        {
+            case 0:
+            {
+                name_1 = "Bastard Sword";
+                damage_vs_small = 6;
+                damage_vs_large = 6;
+            } break;
+            case 1:
+            {
+                name_1 = "Broadsword";
+                damage_vs_small = 6;
+                damage_vs_large = 6;
+            } break;
+            case 2:
+            {
+                name_1 = "Longsword";
+                damage_vs_small = 6;
+                damage_vs_large = 6;
+            } break;
+            case 3:
+            {
+                name_1 = "Shortsword";
+                damage_vs_small = 6;
+                damage_vs_large = 6;
+            } break;
+        };
     };
 
     std::string getName()
@@ -485,14 +498,11 @@ struct items
                   << a.unidentified << ' '
                   << a.type << ' '
                   << a.bonus << ' '
-                  << a.save << ' '
+                  << a.armour_class << ' '
                   << a.cursed << ' '
                   << a.amount << ' '
                   << a.weight << ' '
                   << a.value << ' '
-                  << a.properties_1 << ' '
-                  << a.properties_2 << ' '
-                  << a.properties_3 << ' '
                   << a.equipped << ' ';
     }
 };

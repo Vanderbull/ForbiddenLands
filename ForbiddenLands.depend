@@ -1085,7 +1085,7 @@
 
 1640005965 /home/rickard/Documents/Vanderbull/ForbiddenLands/version.h
 
-1642937393 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
+1642954190 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1094,6 +1094,8 @@
 	<ctime>
 	"functions.h"
 	"texture_resource.h"
+	"items/item.h"
+	"spells/spell.h"
 	"common.h"
 	"weather/weather.h"
 	"npc.h"
@@ -1112,7 +1114,7 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
-1642937251 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
+1642977130 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
 	<bits/stdc++.h>
 	<chrono>
 	"colors.h"
@@ -1124,7 +1126,7 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/coordinates.h
 
-1642936878 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
+1642976620 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
 	<iostream>
 	<string>
 	<vector>
@@ -1329,4 +1331,8 @@
 	<vector>
 
 1642937577 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/quests/quest.h
+
+1642977055 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/items/item.h
+
+1642954349 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/spell.h
 

@@ -157,6 +157,29 @@ typedef struct playerCharacter
     int stopCounter = 6;
     int moveIndex = 0;
 
+    void renderItemData(items renderItem)
+    {
+        SDL_Rect infoBox = {0,0,0,0};
+
+        infoBox.h = 640;
+        infoBox.w = 480;
+        infoBox.x = 2560 - infoBox.w;
+        infoBox.y = 0;
+
+        SDL_SetRenderDrawColor(renderer,128,128,128,255);
+        SDL_RenderFillRect(renderer, &infoBox);
+        RenderTextWrapped(renderItem.name_1 + " " + renderItem.name_2 + " " + renderItem.name_3 + "\n" +
+                          "Amount: " + std::to_string(renderItem.amount) + "\n" +
+                          "Bonus: " + std::to_string(renderItem.bonus) + "\n" +
+                          "Cursed: " + std::to_string(renderItem.cursed) + "\n" +
+                          "D v L: " + std::to_string(renderItem.damage_vs_large) + "\n" +
+                          "D v S: " + std::to_string(renderItem.damage_vs_small) + "\n" +
+                          "Equipped: " + std::to_string(renderItem.equipped) + "\n" +
+                          "Armour class: " + std::to_string(renderItem.armour_class) + "\n" +
+                          "Icon: " + renderItem.icon.c_str() + "\n"
+                          ,White,infoBox.x + infoBox.w / 2, infoBox.y + infoBox.h / 4, 24,infoBox.w / 2);
+    };
+
     void renderCharacterViewItems()
     {
         rowcounter = 0;
@@ -213,9 +236,6 @@ typedef struct playerCharacter
         if( stopCounter >= carriedItems.size())
             stopCounter = carriedItems.size();
 
-//        RenderText(std::to_string(carriedItems.size()) + " READY ITEM",White, 1500,100, 48);
-//        RenderText(getName() + "'S ITEMS",Blue, 1500,70, 24);
-
         // Render character inventory
 
         for (auto & renderItem: carriedItems)
@@ -257,17 +277,7 @@ typedef struct playerCharacter
                     SDL_PumpEvents();
                     if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                     {
-                        SDL_Rect infoBox = {0,0,0,0};
-
-                        infoBox.h = 640;
-                        infoBox.w = 480;
-                        infoBox.x = 2560 - infoBox.w;
-                        infoBox.y = 0;
-
-                        SDL_SetRenderDrawColor(renderer,128,128,128,255);
-                        SDL_RenderFillRect(renderer, &infoBox);
-                        RenderTextWrapped(renderItem.name_1 + " " + renderItem.name_2 + " " + renderItem.name_3 + " " + "INFO more information about this item and stuff that are really cool and stuff.",White,infoBox.x + infoBox.w / 2, infoBox.y + infoBox.h / 4, 24,infoBox.w / 2);
-
+                        renderItemData(renderItem);
                         SDL_Delay(50);
                     }
                 }
@@ -290,6 +300,8 @@ typedef struct playerCharacter
                     SDL_DestroyTexture(gTexture);
                     gTexture = NULL;
 
+                    RenderText(renderItem.getName(),White,itemBox.x + itemBox.w, itemBox.y, 24);
+
                     damage_vs_small += renderItem.damage_vs_small;
                 }
                 else
@@ -302,7 +314,7 @@ typedef struct playerCharacter
                     gTexture = NULL;
 
                     RenderText(renderItem.getName(),White,itemBox.x + itemBox.w, itemBox.y, 24);
-                    RenderText(std::to_string(renderItem.amount),White,itemBox.x, itemBox.y, 24);
+                    //RenderText(std::to_string(renderItem.amount),White,itemBox.x, itemBox.y, 24);
                 }
 
                 if( SDL_PointInRect(&mousePosition, &itemBox) )
@@ -512,7 +524,7 @@ typedef struct playerCharacter
         for(const auto& value: carriedItems)
         {
             if( value.equipped == 1)
-                ac_current += value.bonus;
+                ac_current += value.armour_class;
         }
         return ac_current;
     }
@@ -656,7 +668,6 @@ typedef struct playerCharacter
         playerCharacterInventory[3].push_back(carriedItems.at(1).getName());
         playerCharacterInventory[4].push_back(carriedItems.at(0).getName());
         playerCharacterInventory[5].push_back(carriedItems.at(1).getName());
-        readyCharacterInventory[0].push_back("NO");
     }
 } playerCharacters;
 

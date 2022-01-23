@@ -989,6 +989,7 @@ void renderShopCoins()
     RenderText("Gold: " + std::to_string(playerCharacter[playerCharacterSelected].coins_gold),White,510,210,FontSize);
     RenderText("Hunger: " + std::to_string(playerCharacter[playerCharacterSelected].hunger),White,510,230,FontSize);
     RenderText("Thirst: " + std::to_string(playerCharacter[playerCharacterSelected].thirst),White,510,250,FontSize);
+    RenderText("Armour class: " + std::to_string(playerCharacter[playerCharacterSelected].getArmourClass()),White,510,270,FontSize);
 };
 
 int currentCharacter = 0;
