@@ -178,17 +178,112 @@ void renderQuests( bool hidden = true )
     renderQuestProgress();
 };
 
+TTF_Font* worldViewFont = NULL;
+
+void loadWorldViewFont(int fontSize = 24)
+{
+    worldViewFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    if(!worldViewFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(99);
+    }
+};
+
+void unloadWorldViewFont()
+{
+    TTF_CloseFont(worldViewFont);
+    worldViewFont = NULL;
+}
+
+enum {WEST,EAST,NORTH,SOUTH};
+SDL_Rect compassPoint[4];
+
+void initCompassPoint()
+{
+    compassPoint[WEST] = {0,current.h - 100,50,50};
+    compassPoint[EAST] = {100,current.h - 100,50,50};
+    compassPoint[NORTH]= {50,current.h - 150,50,50};
+    compassPoint[SOUTH] = {50,current.h - 50,50,50};
+}
+
+void renderCompassPoint(int fontSize = 12)
+{
+    SDL_RenderFillRect(renderer, &compassPoint[WEST]);
+    SDL_RenderFillRect(renderer, &compassPoint[EAST]);
+    SDL_RenderFillRect(renderer, &compassPoint[NORTH]);
+    SDL_RenderFillRect(renderer, &compassPoint[SOUTH]);
+
+    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].west == 1)
+    {
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+    }
+    SDL_RenderFillRect(renderer, &compassPoint[WEST]);
+
+    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].east == 1)
+    {
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+    }
+    SDL_RenderFillRect(renderer, &compassPoint[EAST]);
+
+    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].north == 1)
+    {
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+    }
+    SDL_RenderFillRect(renderer, &compassPoint[NORTH]);
+
+    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].south == 1)
+    {
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+    }
+    SDL_RenderFillRect(renderer, &compassPoint[SOUTH]);
+
+    RenderText("W", Black, compassPoint[WEST].x, compassPoint[WEST].y,fontSize);
+    RenderText("E", Black, compassPoint[EAST].x, compassPoint[EAST].y,fontSize);
+    RenderText("N", Black, compassPoint[NORTH].x, compassPoint[NORTH].y,fontSize);
+    RenderText("S", Black, compassPoint[SOUTH].x, compassPoint[SOUTH].y,fontSize);
+};
+
+SDL_Rect health[6];
+void renderHealthbar(int id = 0, int x = 0, int y = 0)
+{
+    float theValue = ( 105.0f / playerCharacter[id].hitpoints_max ) * playerCharacter[id].hitpoints_current;
+    std::cout << "theValue: " << theValue << std::endl;
+
+    health[id] = {x,y, ( 105.0f / playerCharacter[id].hitpoints_max ) * playerCharacter[id].hitpoints_current, 25};
+};
+
 void navigationButtons()
 {
-    SDL_Rect west = {0,current.h - 100,50,50};
-    SDL_Rect east = {100,current.h - 100,50,50};
-    SDL_Rect north = {50,current.h - 150,50,50};
-    SDL_Rect south = {50,current.h - 50,50,50};
+    if( activeView == DUNGEON )
+    {
+        if( viewingCharacter == 0 )
+        {
+            initCompassPoint();
+            renderCompassPoint();
+        }
+    }
 
     SDL_Rect save = {200,current.h - 50,50,50};
     SDL_Rect load = {200,current.h - 150,50,50};
 
-    SDL_Rect randomEncounterButton = {50,current.h - 850,200,50};
+    SDL_Rect randomEncounterButton = {0 + (current.w / 2) - 100,0 + (current.h / 2) - 25,200,50};
 
     SDL_Rect hunger = {250,current.h - 350,playerCharacter[playerCharacterSelected].hunger*1,25};
     SDL_Rect thirst = {250,current.h - 300,playerCharacter[playerCharacterSelected].thirst*1,25};
@@ -198,72 +293,93 @@ void navigationButtons()
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &thirst);
 
-    SDL_Rect health[6];
+    renderHealthbar(0,610,current.h - 225);
+    renderHealthbar(1,720,current.h - 225);
+    renderHealthbar(2,830,current.h - 225);
+    renderHealthbar(3,940,current.h - 225);
+    renderHealthbar(4,1050,current.h - 225);
+    renderHealthbar(5,1160,current.h - 225);
+
     SDL_Rect experience[6];
-
-    float theValue = ( 105.0f / playerCharacter[0].hitpoints_max ) * playerCharacter[0].hitpoints_current;
-    std::cout << "theValue: " << theValue << std::endl;
-
-    health[0] = {610,current.h - 225, ( 105.0f / playerCharacter[0].hitpoints_max ) * playerCharacter[0].hitpoints_current, 25};
      experience[0] = {610,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[0]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[0]);
 
-     health[1] = {720,current.h - 225,( 105.0f / playerCharacter[1].hitpoints_max ) * playerCharacter[1].hitpoints_current,25};
      experience[1] = {720,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[1]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[1]);
 
-     health[2] = {830,current.h - 225,( 105.0f / playerCharacter[2].hitpoints_max ) * playerCharacter[2].hitpoints_current,25};
      experience[2] = {830,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[2]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[2]);
 
-     health[3] = {940,current.h - 225,( 105.0f / playerCharacter[3].hitpoints_max ) * playerCharacter[3].hitpoints_current,25};
      experience[3] = {940,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[3]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[3]);
 
-     health[4] = {1050,current.h - 225,( 105.0f / playerCharacter[4].hitpoints_max ) * playerCharacter[4].hitpoints_current,25};
      experience[4] = {1050,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[4]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[4]);
 
-     health[5] = {1160,current.h - 225,( 105.0f / playerCharacter[5].hitpoints_max ) * playerCharacter[5].hitpoints_current,25};
      experience[5] = {1160,current.h - 200,105,25};
     SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
     SDL_RenderFillRect(renderer, &health[5]);
     SDL_SetRenderDrawColor(renderer, 0, 0, 255,255);
     SDL_RenderFillRect(renderer, &experience[5]);
 
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-    SDL_RenderFillRect(renderer, &save);
-    SDL_RenderFillRect(renderer, &load);
-
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter )
     {
         if( activeView == DUNGEON )
         {
-            SDL_RenderFillRect(renderer, &randomEncounterButton);
-            RenderText("BATTLE IT", Black, randomEncounterButton.x, randomEncounterButton.y,12);
-            if( SDL_PointInRect(&mousePosition, &randomEncounterButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+            if( viewingCharacter == 0 )
             {
-                SDL_PumpEvents();
-                if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                int fontSize = 24;
+                std::string text = "BATTLE IT";
+                int textWidth = 0;
+                int textHeight = 0;
+                TTF_Font* m_font = NULL;
+                m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+                if(!m_font)
                 {
-                    activeView = BATTLE;
-                    randomEncounters = 1;
-                    SDL_Delay(50);
+                    printf("TTF_OpenFont: %s\n", TTF_GetError());
+                    exit(99);
+                }
+
+                if( TTF_SizeText(m_font, text.c_str(), &textWidth, &textHeight) )
+                {
+                    // error
+                    exit(99);
+                }
+                else
+                {
+                    randomEncounterButton.w = textWidth;
+                    randomEncounterButton.h = textHeight;
+                }
+
+                TTF_CloseFont(m_font);
+                m_font = NULL;
+
+                SDL_RenderFillRect(renderer, &randomEncounterButton);
+                RenderText(text.c_str(), Black, randomEncounterButton.x, randomEncounterButton.y,fontSize);
+                if( SDL_PointInRect(&mousePosition, &randomEncounterButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+                {
+                    SDL_PumpEvents();
+                    if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+                    {
+                        activeView = BATTLE;
+                        randomEncounters = 1;
+                        SDL_Delay(50);
+                    }
                 }
             }
         }
@@ -271,6 +387,12 @@ void navigationButtons()
 
 if( activeView == DUNGEON )
 {
+    if( viewingCharacter == 0 )
+    {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+        SDL_RenderFillRect(renderer, &save);
+        SDL_RenderFillRect(renderer, &load);
+
     if( SDL_PointInRect(&mousePosition, &save) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
@@ -289,7 +411,7 @@ if( activeView == DUNGEON )
         }
     }
 
-    if( SDL_PointInRect(&mousePosition, &west) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &compassPoint[WEST]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -305,7 +427,7 @@ if( activeView == DUNGEON )
         }
         SDL_Delay(50);
     }
-    if( SDL_PointInRect(&mousePosition, &east) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &compassPoint[EAST]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -321,7 +443,7 @@ if( activeView == DUNGEON )
         }
         SDL_Delay(50);
     }
-    if( SDL_PointInRect(&mousePosition, &north) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &compassPoint[NORTH]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -337,7 +459,7 @@ if( activeView == DUNGEON )
         }
         SDL_Delay(50);
     }
-    if( SDL_PointInRect(&mousePosition, &south) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    if( SDL_PointInRect(&mousePosition, &compassPoint[SOUTH]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -362,7 +484,7 @@ if( activeView == DUNGEON )
     {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
     }
-    SDL_RenderFillRect(renderer, &west);
+    //SDL_RenderFillRect(renderer, &compassPoint[WEST]);
 
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].east == 1)
     {
@@ -372,7 +494,7 @@ if( activeView == DUNGEON )
     {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
     }
-    SDL_RenderFillRect(renderer, &east);
+    //SDL_RenderFillRect(renderer, &compassPoint[EAST]);
 
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].north == 1)
     {
@@ -382,7 +504,7 @@ if( activeView == DUNGEON )
     {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
     }
-    SDL_RenderFillRect(renderer, &north);
+    //SDL_RenderFillRect(renderer, &compassPoint[NORTH]);
 
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].south == 1)
     {
@@ -392,14 +514,11 @@ if( activeView == DUNGEON )
     {
         SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
     }
-    SDL_RenderFillRect(renderer, &south);
+    //SDL_RenderFillRect(renderer, &compassPoint[SOUTH]);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
 
-    RenderText("W", Black, west.x, west.y,12);
-    RenderText("E", Black, east.x, east.y,12);
-    RenderText("N", Black, north.x, north.y,12);
-    RenderText("S", Black, south.x, south.y,12);
+
 
     RenderText("SAVE", Black, save.x, save.y,12);
     RenderText("LOAD", Black, load.x, load.y,12);
@@ -412,6 +531,8 @@ if( activeView == DUNGEON )
     RenderText("Encounter: " + std::to_string(save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter), Black, 0, load.y - 450,24);
 
     renderQuests();
+
+    }
 }
 
 };
@@ -519,17 +640,12 @@ void renderWorldViewA()
     faceBox[4] = {500 + 110*5,current.h - 165,105,165};
     faceBox[5] = {500 + 110*6,current.h - 165,105,165};
 
-    SDL_Texture* faceTexture = LoadTexture("./icons/faces/11.png",255);
-    SDL_RenderCopy(renderer, playerCharacter[0].faceImage, NULL, &faceBox[0]);
-    SDL_RenderCopy(renderer, playerCharacter[1].faceImage, NULL, &faceBox[1]);
-    SDL_RenderCopy(renderer, playerCharacter[2].faceImage, NULL, &faceBox[2]);
-    SDL_RenderCopy(renderer, playerCharacter[3].faceImage, NULL, &faceBox[3]);
-    SDL_RenderCopy(renderer, playerCharacter[4].faceImage, NULL, &faceBox[4]);
-    SDL_RenderCopy(renderer, playerCharacter[5].faceImage, NULL, &faceBox[5]);
-    SDL_DestroyTexture(faceTexture);
-
     for( int i = 0; i < 6; i++ )
     {
+        SDL_Texture* faceTexture = LoadTexture("./icons/faces/11.png",255);
+        SDL_RenderCopy(renderer, playerCharacter[i].faceImage, NULL, &faceBox[i]);
+        SDL_DestroyTexture(faceTexture);
+
         if( SDL_PointInRect(&mousePosition, &faceBox[i]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255,128);
@@ -544,16 +660,15 @@ void renderWorldViewA()
         }
     }
 
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255,128);
-    SDL_RenderDrawRect(renderer, &faceBox[playerCharacterSelected]);
-
-    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot )
-    {
-        RenderText("LOOT HERE!!",Green,600,0,48);
-    }
-
     if( activeView == DUNGEON && viewingCharacter == 0)
     {
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255,128);
+        SDL_RenderDrawRect(renderer, &faceBox[playerCharacterSelected]);
+
+        if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot )
+        {
+            RenderText("LOOT HERE!!",Green,600,0,48);
+        }
         SDL_Rect dayTimeBox = {current.w - 1150,25,50,50};
 
         SDL_Texture* dayTimeTexture = NULL;
