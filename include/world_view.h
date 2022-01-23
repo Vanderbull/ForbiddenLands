@@ -7,6 +7,15 @@
 
 int OFFSET = 50;
 
+struct quest {
+        int id;
+        std::string name;
+        int experience;
+        int gold;
+};
+
+std::map<int, quest> quests;
+
 /**
  * @brief Tokenize the given vector
    according to the regex
@@ -99,7 +108,6 @@ void savePortals()
     }
 };
 
-<<<<<<< Updated upstream
 // Should be able to generate quest items here
 quest MakeQuest( int n, const char* s, int experience = 0, int gold = 0 )
 {
@@ -261,8 +269,6 @@ void renderHealthbar(int id = 0, int x = 0, int y = 0)
     health[id] = {x,y, ( 105.0f / playerCharacter[id].hitpoints_max ) * playerCharacter[id].hitpoints_current, 25};
 };
 
-=======
->>>>>>> Stashed changes
 void navigationButtons()
 {
     if( activeView == DUNGEON )
@@ -623,11 +629,6 @@ void renderWorldViewA()
         SDL_DestroyTexture(swatTexture);
     }
 
-<<<<<<< Updated upstream
-=======
-    RenderText(getTimeOfDay().c_str(),White, 50, 25,14);
-
->>>>>>> Stashed changes
     navigationButtons();
     adventureMenu();
 
