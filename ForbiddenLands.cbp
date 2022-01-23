@@ -110,6 +110,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/potions/potion_of_poison.h" />
 		<Unit filename="include/potions/potion_of_speed.h" />
 		<Unit filename="include/potions/potion_of_strength.h" />
+		<Unit filename="include/quests/quest.h" />
 		<Unit filename="include/render.h" />
 		<Unit filename="include/renderLoadMenu.h" />
 		<Unit filename="include/renderSaveMenu.h" />

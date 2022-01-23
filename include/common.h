@@ -647,7 +647,20 @@ void renderPCstatus()
         }
     }
 
+<<<<<<< Updated upstream
     if( SDL_PointInRect(&mousePosition, &button[BACKPACK]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+=======
+    Texture = LoadTexture("./icons/uiAtlas/ui_game_symbol_fetch_loot.png",255);
+    SDL_SetTextureColorMod(Texture, 0, 255, 0); //set yellow letters
+    SDL_RenderCopy(renderer, Texture, NULL, &backpackButton);
+    SDL_DestroyTexture(Texture);
+
+    if( SDL_PointInRect(&mousePosition, &backpackButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+    }
+
+    if( SDL_PointInRect(&mousePosition, &backpackButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+>>>>>>> Stashed changes
     {
         SDL_PumpEvents();
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
