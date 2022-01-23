@@ -15,6 +15,7 @@
 #include "menu_resource.h"
 #include "sound_resource.h"
 #include "spells.h"
+#include "quests/quest.h"
 
 #include "render.h"
 #include "boat.h"
