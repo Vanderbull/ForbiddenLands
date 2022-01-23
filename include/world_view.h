@@ -99,8 +99,6 @@ void savePortals()
     }
 };
 
-
-
 void navigationButtons()
 {
     SDL_Rect west = {0,current.h - 100,50,50};

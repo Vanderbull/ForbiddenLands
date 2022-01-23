@@ -5,8 +5,11 @@
 #include <functional>
 #include <ctime>
 
+
 #include "functions.h"
 #include "texture_resource.h"
+#include "items/item.h"
+#include "spells/spell.h"
 #include "common.h"
 #include "weather/weather.h"
 #include "npc.h"
@@ -16,6 +19,7 @@
 #include "sound_resource.h"
 #include "spells.h"
 #include "quests/quest.h"
+
 
 #include "render.h"
 #include "boat.h"

@@ -1,12 +1,13 @@
 #ifndef QUEST_H
 #define QUEST_H
-struct quest {
-        int id;
-        std::string name;
-        int experience;
-        int gold;
-};
 
+struct quest
+{
+    int id;
+    std::string name;
+    int experience;
+    int gold;
+};
 std::map<int, quest> quests;
 
 // Should be able to generate quest items here
@@ -75,9 +76,7 @@ void renderQuests( bool hidden = true )
              i++;
         }
     }
-
     renderQuestProgress();
 };
-
 
 #endif

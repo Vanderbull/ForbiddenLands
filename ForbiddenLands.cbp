@@ -96,6 +96,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/coordinates.h" />
 		<Unit filename="include/functions.h" />
 		<Unit filename="include/healing_character.h" />
+		<Unit filename="include/items/item.h" />
 		<Unit filename="include/main_menu.h" />
 		<Unit filename="include/map_resource.h" />
 		<Unit filename="include/menu_resource.h" />
@@ -110,6 +111,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/potions/potion_of_poison.h" />
 		<Unit filename="include/potions/potion_of_speed.h" />
 		<Unit filename="include/potions/potion_of_strength.h" />
+		<Unit filename="include/quests/quest.h" />
 		<Unit filename="include/render.h" />
 		<Unit filename="include/renderLoadMenu.h" />
 		<Unit filename="include/renderSaveMenu.h" />
@@ -140,6 +142,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/spells/remove_fear.h" />
 		<Unit filename="include/spells/resist_cold.h" />
 		<Unit filename="include/spells/sanctuary.h" />
+		<Unit filename="include/spells/spell.h" />
 		<Unit filename="include/spells/teleport.h" />
 		<Unit filename="include/texture_resource.h" />
 		<Unit filename="include/wands/magic_missile_wand.h" />
