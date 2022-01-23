@@ -478,7 +478,6 @@ int main(int argc, char ** argv)
     playerCharacter[5].loadCharacterFace();
 
     loadPCstatusData();
-    loadWorldViewFont();
 
     while (!quit)
     {
@@ -997,7 +996,6 @@ int main(int argc, char ** argv)
     SDL_DestroyTexture(currentViewTexture);
     SDL_DestroyTexture(backgroundTexture);
     unloadPCstatusData();
-    unloadWorldViewFont();
 
     return 0;
 }
