@@ -330,14 +330,8 @@ void navigationButtons()
     renderQuests();
 };
 
-void renderWorldViewA()
+std::string generateImagePath()
 {
-    if( lootDropped )
-    {
-    save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot = lootDropped;
-    resetLootDropped();
-
-    }
     std::string location, room, position;
     std::string fileType = ".png";
 
@@ -367,21 +361,11 @@ void renderWorldViewA()
     location += Rotation;
     location += fileType;
 
-    if( PlayerCoordinate.x > 15 )
-    {
-        std::cout << "There was some strange error please check" << std::endl;
-        exit(16);
-    }
+    return location;
+};
 
-    currentViewTexture = LoadTexture(location.c_str(),255);
-    SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
-    SDL_DestroyTexture(currentViewTexture);
-    renderCompass();
-
-    if(minimapActive)
-    {
-        renderMinimap("./data/maps/phlan/phlan_minimap", mapActive);
-
+void renderMinimapCharacterLocation()
+{
         gRect.x = PlayerCoordinate.x*16 + OFFSET;
         gRect.y = PlayerCoordinate.y*16 + OFFSET;
         gRect.h = 16;
@@ -403,6 +387,32 @@ void renderWorldViewA()
         {
             SDL_RenderCopy(renderer, West, NULL, &gRect);
         }
+}
+void renderWorldViewA()
+{
+    if( lootDropped )
+    {
+        save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot = lootDropped;
+        resetLootDropped();
+    }
+
+    std::string location = generateImagePath();
+
+    if( PlayerCoordinate.x > 15 )
+    {
+        std::cout << "There was some strange error please check" << std::endl;
+        exit(16);
+    }
+
+    currentViewTexture = LoadTexture(location.c_str(),255);
+    SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
+    SDL_DestroyTexture(currentViewTexture);
+    renderCompass();
+
+    if(minimapActive)
+    {
+        renderMinimap("./data/maps/phlan/phlan_minimap", mapActive);
+        renderMinimapCharacterLocation();
     }
 
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter )
@@ -495,34 +505,7 @@ void renderWorldViewA()
 
 void renderWorldViewB()
 {
-    std::string location, room, position;
-    std::string fileType = ".png";
-
-    location += "./images/test_map/";
-    room  = "";
-
-    if(PlayerCoordinate.x < 10)
-    {
-        room += "0";
-    }
-
-    room += std::to_string(PlayerCoordinate.x);
-
-    if(PlayerCoordinate.y < 10)
-    {
-        room += "0";
-    }
-
-    room += std::to_string(PlayerCoordinate.y);
-
-    position = room;
-    room += "/";
-
-    room += position;
-    location += position;
-
-    location += Rotation;
-    location += fileType;
+    std::string location = generateImagePath();
 
     currentViewTexture = LoadTexture(location.c_str(),255);
     SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
@@ -540,28 +523,7 @@ void renderWorldViewB()
     if(minimapActive)
     {
         renderMinimap("./data/maps/phlan/phlan_minimap",mapActive);
-
-        gRect.x = PlayerCoordinate.x*15 + OFFSET;
-        gRect.y = PlayerCoordinate.y*15 + OFFSET;
-        gRect.h = 15;
-        gRect.w = 15;
-
-        if( Rotation == "N")
-        {
-            SDL_RenderCopy(renderer, North, NULL, &gRect);
-        }
-        if( Rotation == "E")
-        {
-            SDL_RenderCopy(renderer, East, NULL, &gRect);
-        }
-        if( Rotation == "S")
-        {
-            SDL_RenderCopy(renderer, South, NULL, &gRect);
-        }
-        if( Rotation == "W")
-        {
-            SDL_RenderCopy(renderer, West, NULL, &gRect);
-        }
+        renderMinimapCharacterLocation();
     }
 
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter )
