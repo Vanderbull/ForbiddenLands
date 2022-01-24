@@ -62,6 +62,47 @@ void resetLootDropped()
     lootDropped = false;
 }
 
+struct ICollidableObject
+{
+    virtual ~ICollidableObject( ) { }
+    virtual signed int QueryDamage( ) const = 0;
+};
+
+struct CollidableObject : ICollidableObject
+{
+    private:
+        signed int Damage_;
+
+    public:
+        signed int QueryDamage( ) const
+        { return( this->Damage_ ); }
+};
+
+struct IActor
+{
+    virtual ~IActor( ) { }
+    virtual void Kill( ) = 0;
+    virtual void Resurrect( ) = 0;
+};
+
+class Player : IActor
+{
+    private:
+        signed int Health_;
+
+    public:
+        void Kill( ){};
+        void Resurrect( ){};
+        void OnObjectCollision( ICollidableObject *Object_ )
+        {
+            this->Health_ -= Object_->QueryDamage( );
+            if( this->Health_ < 0 )
+                this->Kill( );
+        }
+};
+
+     Player myPlayer;
+
 typedef struct playerCharacter
 {
     std::vector<std::string> readyCharacterInventoryName;
@@ -75,10 +116,8 @@ typedef struct playerCharacter
     int coins_gold = 0;
     int gender = 0;
     int ac_base = 10;
-    int thaco_base = 20;
     int experience = 0;
     int encumbrance = 0;
-    int thaco_current = 0;
     int ac_current = 0;
     int hitpoints_current = 0;
     int hitpoints_max = 0;
@@ -87,10 +126,7 @@ typedef struct playerCharacter
     int level_fighter = 0;
     int level_magic_user = 0;
     int level_thief = 0;
-    int uuid = 0;
     int rowcounter = 0;
-    int fontSize = 24;
-    int xMouse = 0, yMouse = 0;
     SDL_Point mousePosition;
     int damage_vs_small = 0;
     int damage_vs_large = 0;
@@ -106,16 +142,16 @@ typedef struct playerCharacter
         hunger++;
     }
 
-    void increaseThirst()
-    {
-        if( thirst < 100 )
-        thirst++;
-    }
-
     void decreaseHunger()
     {
         if( hunger > 0 )
         hunger--;
+    }
+
+    void increaseThirst()
+    {
+        if( thirst < 100 )
+        thirst++;
     }
 
     void decreaseThirst()
@@ -134,7 +170,7 @@ typedef struct playerCharacter
         }
     };
 
-    void printGameItems(std::vector<items> &readyInventory,int x, int y, int fontsize)
+    void printGameItems(std::vector<items> &readyInventory,int x, int y, int fontSize)
     {
         rowcounter = 0;
         for (auto & renderItem: readyInventory)
@@ -369,7 +405,7 @@ typedef struct playerCharacter
     playerCharacter()
     {
         std::cout << "loading playerCharacter..." << std::endl;
-        race = rand()% 7;
+        race = Generate(0,7);
         characterClass = Generate(0,10);
         gender = Generate(0,2);
         calculateStats();
@@ -378,7 +414,6 @@ typedef struct playerCharacter
         readyCharacterInventoryName.push_back(carriedItems.at(0).getName());
         update();
         name = setName();
-        uuid++;
         face = Generate(0,20);
         faceImage = NULL;
     };
@@ -403,15 +438,8 @@ typedef struct playerCharacter
 
     void renderFace()
     {
-        //loadCharacterFace();
         SDL_Rect FaceFrame = {64,64, 256, 256};
-
-        //SDL_DestroyTexture(gTexture);
-        //gTexture = NULL;
-        //gTexture = LoadTexture("./icons/faces/" + std::to_string(face) + ".png",255);
         SDL_RenderCopy(renderer, faceImage, NULL, &FaceFrame);
-        //SDL_DestroyTexture(gTexture);
-        //gTexture = NULL;
     };
 
     std::string setName()
@@ -527,77 +555,6 @@ typedef struct playerCharacter
                 ac_current += value.armour_class;
         }
         return ac_current;
-    }
-
-    int getToHitArmourClass()
-    {
-        // Attack roll ≥ THAC0 - AC
-        switch( level_cleric )
-        {
-            case 1:
-                thaco_base = 20;
-                break;
-            case 2:
-                thaco_base = 20;
-                break;
-            case 3:
-                thaco_base = 20;
-                break;
-            case 4:
-                thaco_base = 18;
-                break;
-            case 5:
-                thaco_base = 18;
-                break;
-            case 6:
-                thaco_base = 18;
-                break;
-            case 7:
-                thaco_base = 16;
-                break;
-            case 8:
-                thaco_base = 16;
-                break;
-            case 9:
-                thaco_base = 16;
-                break;
-            case 10:
-                thaco_base = 14;
-                break;
-            case 11:
-                thaco_base = 14;
-                break;
-            case 12:
-                thaco_base = 14;
-                break;
-            case 13:
-                thaco_base = 12;
-                break;
-            case 14:
-                thaco_base = 12;
-                break;
-            case 15:
-                thaco_base = 12;
-                break;
-            case 16:
-                thaco_base = 10;
-                break;
-            case 17:
-                thaco_base = 10;
-                break;
-            case 18:
-                thaco_base = 10;
-                break;
-            case 19:
-                thaco_base = 8;
-                break;
-            case 20:
-                thaco_base = 8;
-                break;
-        }
-        thaco_current = thaco_base;
-
-        return thaco_current;
     }
 
     std::string getGender()
