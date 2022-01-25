@@ -11,6 +11,38 @@ When speaking of skills and character progression specifically, lists such as fo
 
 The freeform list provides a greater sense of agency for the player, allowing a greater number of options. The more guided tree provides a simpler system to consider and anticipate as a designer, resulting in a system easier to balance. So, the end result is that you have a choice for a potentially more balanced system versus a system that provides more agency.
 
+
+Summary: Lists provide more agency, while trees provide more easily anticipated results that are simpler to balance and utilize in design.
+
+To be as concise as possible, the difference between lists and trees of decisions is the level of freedom the individual making the choices has.
+
+When speaking of skills and character progression specifically, lists such as found in Elder Scrolls provide freeform decision making. Trees provide a more guided approach, usually representing classes or sub-classes of some form. There is less freedom in character progression/creation, as the concept of a tree necessitates requirements to unlock latter levels/branches.
+
+The freeform list provides a greater sense of agency for the player, allowing a greater number of options. The more guided tree provides a simpler system to consider and anticipate as a designer, resulting in a system easier to balance. So, the end result is that you have a choice for a potentially more balanced system versus a system that provides more agency.
+
+To answer your edit questions:
+
+    Complexity largely depends on the specifics of implementation. However, all else being equal, a freeform system is far more complex as the potential number of results are significantly higher.
+
+    Yes, the traditional usage of the two is for lists to be atomic actions (such as Elder Scrolls' system) while trees are used for "Perks" or "Abilities" to simulate a focus on developing enhanced skills in a specific domain. However, this is hardly a requirement.
+
+    Much changed between Morrowind and Skyrim, largely due to a number of decisions far too complex to attribute simply to "using a list-based skill system".
+
+A skill tree works usually better in a scenario, where:
+
+    The skill points are limited,
+    Skills provide a more significant advantage,
+    The game 'feels' better, if the player characters are more specialized (the character classes / roles are easier to distinguish).
+
+The Elder Scrolls - style skill advancement is on the other hand:
+
+    More realistic,
+    Encourages players to try many different approaches (the player won't have a significant disadvantage if he switches from melee to magic at level 30, for example),
+    Easier to balance,
+    Provides a feel of continuous progression (no "the best skill is unlocked at level 30 in the fire magic skill tree, I'll just try to survive until then" effect).
+
+In my opinion, the Elder Scrolls approach is more viable in a single-player game. The player doesn't have to start over if he wants to try a different play style. In Morrowind for example, you can be an armored melee fighter for the first 30 levels or so - and then decide to try the thieving skills / quests without receiving any penalty (or having to create a new character and start from level 1).
+
 ![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
 ## New image editing tool
 ### 2022-01-21
