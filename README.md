@@ -1,5 +1,8 @@
 # FORBIDDEN LANDS
 
+## Skill tree v.s Skill list
+https://gamedev.stackexchange.com/questions/57553/when-should-i-use-skill-trees-versus-skill-lists-in-an-rpg
+
 ![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
 ## New image editing tool
 ### 2022-01-21
