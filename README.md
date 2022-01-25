@@ -3,6 +3,14 @@
 ## Skill tree v.s Skill list
 https://gamedev.stackexchange.com/questions/57553/when-should-i-use-skill-trees-versus-skill-lists-in-an-rpg
 
+Summary: Lists provide more agency, while trees provide more easily anticipated results that are simpler to balance and utilize in design.
+
+To be as concise as possible, the difference between lists and trees of decisions is the level of freedom the individual making the choices has.
+
+When speaking of skills and character progression specifically, lists such as found in Elder Scrolls provide freeform decision making. Trees provide a more guided approach, usually representing classes or sub-classes of some form. There is less freedom in character progression/creation, as the concept of a tree necessitates requirements to unlock latter levels/branches.
+
+The freeform list provides a greater sense of agency for the player, allowing a greater number of options. The more guided tree provides a simpler system to consider and anticipate as a designer, resulting in a system easier to balance. So, the end result is that you have a choice for a potentially more balanced system versus a system that provides more agency.
+
 ![image](https://user-images.githubusercontent.com/1743820/147721022-8b4d722f-9ca1-48e1-a2df-37edf2b1f3e7.png)
 ## New image editing tool
 ### 2022-01-21
