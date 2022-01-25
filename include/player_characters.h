@@ -135,6 +135,12 @@ typedef struct playerCharacter
     int thirst = 0;
     SDL_Texture* faceImage;
     int healingPotions = 1;
+    int initiative = 0;
+
+    void generateInitiative()
+    {
+            initiative = Generate(1,6);
+    };
 
     void increaseHunger()
     {

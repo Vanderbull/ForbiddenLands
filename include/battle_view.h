@@ -18,9 +18,32 @@ int character_action[6] = {1,1,1,1,1,1};
 int character_min, character_max;
 int fadeSize = 0;
 int damage = 0;
+int playerSupriseSegments = 0;
+int npcSupriseSegments = 0;
+
+int supriseRollSegments()
+{
+    int playerRoll = Generate(1,6);
+    int npcRoll = Generate(1,6);
+
+    if( playerRoll == 1 )
+        playerSupriseSegments = 1;
+    else if( playerRoll == 2)
+        playerSupriseSegments = 2;
+    else if( playerRoll > 2 )
+        playerSupriseSegments = 0;
+
+    if( npcRoll == 1 )
+        npcSupriseSegments = 1;
+    else if( npcRoll == 2)
+        npcSupriseSegments = 2;
+    else if( npcRoll > 2 )
+        npcSupriseSegments = 0;
+};
 
 void initBattle()
 {
+    supriseRollSegments();
     NPCs.init();
 
     for(int i = 0; i < 6; i++)
@@ -95,6 +118,18 @@ void battleView()
         gPunch = Mix_LoadWAV( "data/sfx/Punch.wav" );
         npc_active = 0;
         turnActive = true;
+        playerCharacter[0].generateInitiative();
+        playerCharacter[1].generateInitiative();
+        playerCharacter[2].generateInitiative();
+        playerCharacter[3].generateInitiative();
+        playerCharacter[4].generateInitiative();
+        playerCharacter[5].generateInitiative();
+        NPCs.NPC[0].generateInitiative();
+        NPCs.NPC[1].generateInitiative();
+        NPCs.NPC[2].generateInitiative();
+        NPCs.NPC[3].generateInitiative();
+        NPCs.NPC[4].generateInitiative();
+        NPCs.NPC[5].generateInitiative();
     }
 
     SDL_PumpEvents();
@@ -137,6 +172,22 @@ void battleView()
     SDL_RenderFillRect(renderer, &actionButton[2]);
     SDL_RenderFillRect(renderer, &actionButton[3]);
     SDL_RenderFillRect(renderer, &actionButton[4]);
+
+    RenderText("PLAYER SS: " + std::to_string(playerSupriseSegments), White, current.w / 2, 0,20);
+    RenderText("NPC SS: " + std::to_string(npcSupriseSegments), White, current.w / 2, 30,20);
+    RenderText("INITIATIVE[0]" + std::to_string(playerCharacter[0].initiative), White, current.w / 2, 60, 20);
+    RenderText("INITIATIVE[1]" + std::to_string(playerCharacter[1].initiative), White, current.w / 2, 90, 20);
+    RenderText("INITIATIVE[2]" + std::to_string(playerCharacter[2].initiative), White, current.w / 2, 120, 20);
+    RenderText("INITIATIVE[3]" + std::to_string(playerCharacter[3].initiative), White, current.w / 2, 150, 20);
+    RenderText("INITIATIVE[4]" + std::to_string(playerCharacter[4].initiative), White, current.w / 2, 180, 20);
+    RenderText("INITIATIVE[5]" + std::to_string(playerCharacter[5].initiative), White, current.w / 2, 210, 20);
+
+    RenderText("NPC INITIATIVE[0]" + std::to_string(NPCs.NPC[0]._initiative), White, current.w / 3, 60, 20);
+    RenderText("NPC INITIATIVE[1]" + std::to_string(NPCs.NPC[1]._initiative), White, current.w / 3, 90, 20);
+    RenderText("NPC INITIATIVE[2]" + std::to_string(NPCs.NPC[2]._initiative), White, current.w / 3, 120, 20);
+    RenderText("NPC INITIATIVE[3]" + std::to_string(NPCs.NPC[3]._initiative), White, current.w / 3, 150, 20);
+    RenderText("NPC INITIATIVE[4]" + std::to_string(NPCs.NPC[4]._initiative), White, current.w / 3, 180, 20);
+    RenderText("NPC INITIATIVE[5]" + std::to_string(NPCs.NPC[5]._initiative), White, current.w / 3, 210, 20);
 
     RenderText("ATTACK " + std::to_string(playerCharacter[playerCharacterSelected].damage_vs_small), White, actionButton[0].x, actionButton[0].y,20);
     RenderText("MAGIC", White, actionButton[1].x, actionButton[1].y,20);

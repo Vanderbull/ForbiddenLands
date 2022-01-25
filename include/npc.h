@@ -64,6 +64,11 @@ struct npcEngine
             _targeted = 0;
             _defending = Generate(1,10);
         }
+
+        void generateInitiative()
+        {
+            _initiative = Generate(1,6);
+        };
     };
 
     character NPC[6];
