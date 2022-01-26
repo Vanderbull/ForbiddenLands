@@ -19,6 +19,7 @@
 #include "sound_resource.h"
 #include "spells.h"
 #include "quests/quest.h"
+#include "skilltree/skilltree.h"
 
 
 #include "render.h"

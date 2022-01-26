@@ -109,7 +109,7 @@ void navigationButtons()
     SDL_Rect save = {200,current.h - 50,50,50};
     SDL_Rect load = {200,current.h - 150,50,50};
 
-    SDL_Rect randomEncounterButton = {50,current.h - 850,200,50};
+    SDL_Rect randomEncounterButton = {current.w / 2,350,200,50};
 
     SDL_Rect hunger = {250,current.h - 350,playerCharacter[playerCharacterSelected].hunger*1,25};
     SDL_Rect thirst = {250,current.h - 300,playerCharacter[playerCharacterSelected].thirst*1,25};
@@ -174,7 +174,14 @@ void navigationButtons()
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter )
     {
         SDL_RenderFillRect(renderer, &randomEncounterButton);
-        RenderText("BATTLE IT", Black, randomEncounterButton.x, randomEncounterButton.y,12);
+        randomEncounterButton.x += 2;
+        randomEncounterButton.y += 2;
+        randomEncounterButton.w -= 4;
+        randomEncounterButton.h -= 4;
+        SDL_SetRenderDrawColor(renderer, 255, 0, 255,255);
+        SDL_RenderFillRect(renderer, &randomEncounterButton);
+
+        RenderText("BATTLE IT", White, randomEncounterButton.x +10, randomEncounterButton.y +10 / 2,20);
         if( SDL_PointInRect(&mousePosition, &randomEncounterButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_PumpEvents();

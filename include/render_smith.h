@@ -27,7 +27,7 @@ void generateSmithShopItems()
 void renderSmithShop()
 {
     renderBackground("./images/shops/shop3.jpg");
-    renderShopCoins();
+    //renderShopCoins();
 
     RenderText("SMITHY", White, current.w - 400, 20,48);
 
@@ -35,7 +35,7 @@ void renderSmithShop()
 
     for( int i = 0; i < playerCharacter[playerCharacterSelected].carriedItems.size(); i++ )
     {
-        SDL_Rect itemButton = {current.w / 3,i*40 + 200,400,25};
+        SDL_Rect itemButton = {current.w / 2,i*40 + 200,400,25};
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(renderer, &itemButton);
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -58,7 +58,22 @@ void renderSmithShop()
 
     for( int i = 0; i < smithItems.size(); i++ )
     {
-        SDL_Rect itemButton = {current.w / 6,i*40 + 200,400,25};
+        SDL_Rect itemBox = {0,0,0,0};
+
+        itemBox.h = 40 ;
+        itemBox.w = 40;
+        itemBox.x = current.w / 6 - 60;
+        itemBox.y = 200 + (i*40);
+
+        gTexture = NULL;
+        //gTexture = LoadTexture("./icons/uiAtlas/ui_game_symbol_spatula.png",255);
+        gTexture = LoadTexture(smithItems.at(i).icon,255);
+        SDL_SetTextureColorMod(gTexture, 0, 255, 0); //set yellow letters
+        SDL_RenderCopy(renderer, gTexture, NULL, &itemBox);
+        SDL_DestroyTexture(gTexture);
+        gTexture = NULL;
+
+        SDL_Rect itemButton = {current.w / 6,i*40 + 200,600,25};
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(renderer, &itemButton);
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -80,6 +95,8 @@ void renderSmithShop()
                 SDL_Delay(75);
             }
         }
+
+
     }
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);

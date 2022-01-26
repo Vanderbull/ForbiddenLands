@@ -343,6 +343,7 @@ void battleView()
         for( int i = 0; i < 6; i++)
         {
             character_action[i] = 1;
+            turns++;
         }
     }
     // end of character action check
@@ -485,6 +486,8 @@ void battleView()
         turns++;
         turnActive = true;
     }
+    skilltree();
+    skill_list();
 };
 
  #endif // BATTLE_VIEW
