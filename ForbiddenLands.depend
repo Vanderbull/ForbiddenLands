@@ -1028,7 +1028,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1643160217 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1643212949 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<cassert>
 	<ctime>
 	<iostream>
@@ -1077,15 +1077,15 @@
 	<direct.h>
 	<unistd.h>
 
-1640005964 /home/rickard/Documents/Vanderbull/ForbiddenLands/rapidxml-1.13/rapidxml.hpp
+1640675937 /home/rickard/Documents/Vanderbull/ForbiddenLands/rapidxml-1.13/rapidxml.hpp
 	<cstdlib>
 	<cassert>
 	<new>
 	<exception>
 
-1643164384 /home/rickard/Documents/Vanderbull/ForbiddenLands/version.h
+1643206664 /home/rickard/Documents/Vanderbull/ForbiddenLands/version.h
 
-1643164537 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
+1643206664 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1109,13 +1109,13 @@
 	"render.h"
 	"boat.h"
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
 	<cstdlib>
 	<random>
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
+1643213263 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
-1642977130 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
+1643062446 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
 	<bits/stdc++.h>
 	<chrono>
 	"colors.h"
@@ -1123,25 +1123,25 @@
 	"player_characters.h"
 	"savegame.h"
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/colors.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/colors.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/coordinates.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/coordinates.h
 
-1643125466 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
+1643213304 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
 	<iostream>
 	<string>
 	<vector>
 	<SDL2/SDL.h>
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/savegame.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/savegame.h
 	<bits/stdc++.h>
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/bestiary.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/bestiary.h
 
-1641719609 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/map_resource.h
+1642324956 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/map_resource.h
 	"common.h"
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/menu_resource.h
+1643213375 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/menu_resource.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1150,7 +1150,7 @@
 	<ctime>
 	"main_menu.h"
 
-1642936878 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
+1642852920 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1161,7 +1161,7 @@
 	"renderLoadMenu.h"
 	"renderSettings.h"
 
-1640734347 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSaveMenu.h
+1640773656 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSaveMenu.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1169,7 +1169,7 @@
 	<functional>
 	<ctime>
 
-1642936878 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderLoadMenu.h
+1642852909 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderLoadMenu.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1177,7 +1177,7 @@
 	<functional>
 	<ctime>
 
-1640824228 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSettings.h
+1640773656 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderSettings.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1185,9 +1185,9 @@
 	<functional>
 	<ctime>
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/sound_resource.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/sound_resource.h
 
-1640833981 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells.h
+1640879282 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells.h
 	"../include/spells/bless.h"
 	"../include/spells/command.h"
 	"../include/spells/cure_critical_wounds.h"
@@ -1204,35 +1204,35 @@
 	"../include/spells/create_water.h"
 	"../include/spells/teleport.h"
 
-1641354360 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/bless.h
+1642324956 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/bless.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/command.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/command.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_critical_wounds.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_critical_wounds.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_light_wounds.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_light_wounds.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_serious_wounds.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/cure_serious_wounds.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/detect_evil.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/detect_evil.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/detect_magic.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/detect_magic.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/light.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/light.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/protection_from_evil.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/protection_from_evil.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/purify_food_and_drink.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/purify_food_and_drink.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/remove_fear.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/remove_fear.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/resist_cold.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/resist_cold.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/sanctuary.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/sanctuary.h
 
-1640843216 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/create_water.h
+1640879282 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/create_water.h
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render.h
 	"render_trainer.h"
 	"render_generalshop.h"
 	"render_jewelleryshop.h"
@@ -1241,7 +1241,7 @@
 	"render_temple.h"
 	"render_silvershop.h"
 
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_trainer.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_trainer.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1249,7 +1249,7 @@
 	<functional>
 	<ctime>
 
-1642765602 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_generalshop.h
+1642741110 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_generalshop.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1257,7 +1257,7 @@
 	<functional>
 	<ctime>
 
-1642765602 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_jewelleryshop.h
+1642741157 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_jewelleryshop.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1265,7 +1265,7 @@
 	<functional>
 	<ctime>
 
-1643193275 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_smith.h
+1643206664 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_smith.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1273,24 +1273,7 @@
 	<functional>
 	<ctime>
 
-1642765602 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_tavern.h
-	<iostream>
-	<fstream>
-	<thread>
-	<chrono>
-	<functional>
-	<ctime>
-	"healing_character.h"
-
-1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/healing_character.h
-	<iostream>
-	<fstream>
-	<thread>
-	<chrono>
-	<functional>
-	<ctime>
-
-1640716383 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_temple.h
+1642741229 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_tavern.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1299,7 +1282,7 @@
 	<ctime>
 	"healing_character.h"
 
-1642765602 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_silvershop.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/healing_character.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1307,11 +1290,28 @@
 	<functional>
 	<ctime>
 
-1643164362 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/world_view.h
+1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_temple.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+	"healing_character.h"
+
+1642741272 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/render_silvershop.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
+
+1643206664 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/world_view.h
 	<regex>
 	"common.h"
 
-1643164825 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/battle_view.h
+1643206664 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/battle_view.h
 	<iostream>
 	<string>
 	<vector>
@@ -1322,20 +1322,20 @@
 	<SDL2/SDL.h>
 	"common.h"
 
-1640834285 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/teleport.h
+1640879282 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/teleport.h
 
-1643125466 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/npc.h
+1643112200 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/npc.h
 
-1642497181 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/weather/weather.h
+1642534351 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/weather/weather.h
 	<iostream>
 	<string>
 	<vector>
 
-1642937577 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/quests/quest.h
+1643062446 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/quests/quest.h
 
-1642977055 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/items/item.h
+1643062446 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/items/item.h
 
-1642954349 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/spell.h
+1643062446 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/spell.h
 
-1643188554 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/skilltree/skilltree.h
+1643206664 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/skilltree/skilltree.h
 

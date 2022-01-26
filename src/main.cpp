@@ -753,10 +753,8 @@ int main(int argc, char ** argv)
         {
             renderWorldViewA();
 
-            // Clean up this part and make a nice graphics for the TimeOfDay cycle
             if( getTimeOfDay() == "Night time")
             {
-                //RenderText("SHOPS ARE CLOSED DURING THE NIGHT",Green,0,0,40);
                 shop = 0;
             }
             if(shop)
@@ -792,12 +790,6 @@ int main(int argc, char ** argv)
             }
         } // end dungeonView
 
-//        if(!activeView == MAIN_MENU)
-//        {
-//            navigationButtons();
-//        }
-
-        // What is this doing here??
         IMG_Quit();
         fps.update();
 

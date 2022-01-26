@@ -81,14 +81,13 @@ void adventureMenu()
     }
     else if( encamped )
     {
-        SDL_Texture* Texture;
         if( toggleIndex() == 0 )
-            Texture = LoadTexture("./images/encamp/encamp.png",255);
+            encampTexture = LoadTexture("./images/encamp/encamp.png",255);
         else
-            Texture = LoadTexture("./images/encamp/encamp2.png",255);
+            encampTexture = LoadTexture("./images/encamp/encamp2.png",255);
 
-        SDL_RenderCopy(renderer, Texture, NULL, NULL);
-        SDL_DestroyTexture(Texture);
+        SDL_RenderCopy(renderer, encampTexture, NULL, NULL);
+        SDL_DestroyTexture(encampTexture);
         RenderText2("YOU SET UP CAMP...", White, current.w / 2, 200,32);
 
         SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
