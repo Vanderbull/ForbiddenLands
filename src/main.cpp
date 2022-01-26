@@ -198,8 +198,6 @@ void read_directory(const std::string& name, stringvec& v)
 
 Fps fps;
 
-unsigned int randomSeed = 0;
-
 int Generate(const int from, const int to);
 
 static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
@@ -211,6 +209,32 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
    }
    printf("\n");
    return 0;
+}
+
+void updatePlayerLocation(std::string Rotation)
+{
+    if( Rotation  == "N" )
+        PlayerCoordinate.y--;
+    else
+    if( Rotation  == "S" )
+        PlayerCoordinate.y++;
+    else
+    if( Rotation  == "E" )
+        PlayerCoordinate.x++;
+    else
+    if( Rotation  == "W" )
+        PlayerCoordinate.x--;
+}
+
+void updateHungerAndThirst()
+{
+    playerCharacter[playerCharacterSelected].increaseHunger();
+    playerCharacter[playerCharacterSelected].increaseThirst();
+
+    if( playerCharacter[playerCharacterSelected].hunger == 100 )
+        playerCharacter[playerCharacterSelected].hitpoints_current--;
+    if( playerCharacter[playerCharacterSelected].thirst == 100 )
+        playerCharacter[playerCharacterSelected].hitpoints_current--;
 }
 
 int main(int argc, char ** argv)
@@ -610,300 +634,96 @@ int main(int argc, char ** argv)
                                     {
                                         if( phlan_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 1: // SLUMS
                                     {
                                         if( slum_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 2: // KHUTOS WELL
                                     {
                                         if( khutos_well_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 3: // PODAL_PLAZA
                                     {
                                         if( podal_plaza_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 4: // cardona_textile_house_portal
                                     {
                                         if( cardona_textile_house_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 5: // kovel_mansion
                                     {
                                         if( kovel_mansion_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 6: // mendors_library
                                     {
                                         if( mendors_library_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 7: // sokol_keep
                                     {
                                         if( sokol_keep_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 8: // stojanov_gate
                                     {
                                         if( stojanov_gate_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 9: // vahlingen_graveyard
                                     {
                                         if( vahlingen_graveyard_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 10: // valjevo_castle
                                     {
                                         if( valjevo_castle_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 case 11: // wealthy_area
                                     {
                                         if( wealthy_area_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
                                         {
-                                            if( Rotation  == "N" )
-                                                PlayerCoordinate.y--;
-                                            else
-                                            if( Rotation  == "S" )
-                                                PlayerCoordinate.y++;
-                                            else
-                                            if( Rotation  == "E" )
-                                                PlayerCoordinate.x++;
-                                            else
-                                            if( Rotation  == "W" )
-                                                PlayerCoordinate.x--;
-
-                                            playerCharacter[playerCharacterSelected].increaseHunger();
-                                            playerCharacter[playerCharacterSelected].increaseThirst();
-
-                                            if( playerCharacter[playerCharacterSelected].hunger == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
-                                            if( playerCharacter[playerCharacterSelected].thirst == 100 )
-                                                playerCharacter[playerCharacterSelected].hitpoints_current--;
+                                            updatePlayerLocation(Rotation);
+                                            updateHungerAndThirst();
                                         }
                                     } break;
                                 }
