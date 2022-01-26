@@ -972,10 +972,10 @@ int main(int argc, char ** argv)
             }
         } // end dungeonView
 
-        if(!activeView == MAIN_MENU)
-        {
-            navigationButtons();
-        }
+//        if(!activeView == MAIN_MENU)
+//        {
+//            navigationButtons();
+//        }
 
         // What is this doing here??
         IMG_Quit();

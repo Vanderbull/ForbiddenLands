@@ -432,8 +432,11 @@ void renderWorldViewA()
         SDL_DestroyTexture(swatTexture);
     }
 
-    navigationButtons();
-    adventureMenu();
+    if( activeView != BATTLE )
+    {
+        navigationButtons();
+        adventureMenu();
+    }
 
     SDL_Rect faceBox[6];
     faceBox[0] = {500 + 110,current.h - 165,105,165};
