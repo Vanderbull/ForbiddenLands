@@ -337,6 +337,61 @@ void navigationButtons()
     renderQuests();
 };
 
+// Should preload all sthe images here to speedup framerate
+
+void loadMapTextures()
+{
+    std::string location, room, position;
+    std::string fileType = ".png";
+
+    for(int x = 0; x < 16; x++ )
+    for(int y = 0; y < 16; y++ )
+    for(int z = 0; z < 4; z++ )
+    {
+    location = "";
+    room = "";
+    position = "";
+
+    location += "./images/test_map/";
+    room  = "";
+
+    if(x < 10)
+    {
+        room += "0";
+    }
+
+    room += std::to_string(x);
+
+    if(y < 10)
+    {
+        room += "0";
+    }
+
+    room += std::to_string(y);
+
+    position = room;
+    room += "/";
+
+    room += position;
+    location += position;
+
+    //location += Rotation;
+    if(z == 0)
+        location += "N";
+    if(z == 1)
+        location += "S";
+    if(z == 2)
+        location += "W";
+    if(z == 3)
+        location += "E";
+
+    location += fileType;
+    std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
+    mapTextureFile[x][y][z] = location;
+    mapTexture[x][y][z] = LoadTexture(location.c_str(),255);
+    }
+};
+
 std::string generateImagePath()
 {
     std::string location, room, position;
@@ -411,9 +466,22 @@ void renderWorldViewA()
         exit(16);
     }
 
-    currentViewTexture = LoadTexture(location.c_str(),255);
-    SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
-    SDL_DestroyTexture(currentViewTexture);
+    int z = 0;
+    if(Rotation == "N")
+        z= 0;
+    if(Rotation == "S")
+        z= 1;
+    if(Rotation == "W")
+        z = 2;
+    if(Rotation == "E")
+        z=3;
+    //currentViewTexture = LoadTexture(location.c_str(),255);
+    std::cout << location << " = " << mapTextureFile[PlayerCoordinate.x][PlayerCoordinate.y][z] << std::endl;
+
+    SDL_RenderCopy(renderer, mapTexture[PlayerCoordinate.x][PlayerCoordinate.y][z], NULL, NULL);
+    //SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
+    //SDL_DestroyTexture(currentViewTexture);
+
     renderCompass();
 
     if(minimapActive)
@@ -434,9 +502,9 @@ void renderWorldViewA()
         else
             zeros = "0";
         std::string frameCount = zeros + std::to_string(frame++);
-        swatTexture = LoadTexture("./images/swat/swat" + frameCount + ".png",255);
-        SDL_RenderCopy(renderer, swatTexture, NULL, NULL);
-        SDL_DestroyTexture(swatTexture);
+        //swatTexture = LoadTexture("./images/swat/swat" + frameCount + ".png",255);
+        //SDL_RenderCopy(renderer, swatTexture, NULL, NULL);
+        //SDL_DestroyTexture(swatTexture);
     }
 
     if( activeView != BATTLE )

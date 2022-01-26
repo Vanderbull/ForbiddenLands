@@ -9,5 +9,8 @@ SDL_Texture* swatTexture;
 SDL_Texture* menuBackgroundTexture;
 SDL_Texture* currentViewTexture;
 SDL_Texture* encampTexture;
+SDL_Texture* gTexture;
+SDL_Texture* mapTexture[16][16][4];
+std::string mapTextureFile[16][16][4];
 
 #endif

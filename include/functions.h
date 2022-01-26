@@ -5,11 +5,12 @@
 #include <random>
 using namespace std;
 
+#include "texture_resource.h"
 
 SDL_Rect gRect;
 SDL_Surface* gSurface;
 SDL_Surface *screen;
-SDL_Texture* gTexture;
+//SDL_Texture* gTexture;
 SDL_Renderer * renderer;
 SDL_Renderer * renderer2;
 FILE * pFile;

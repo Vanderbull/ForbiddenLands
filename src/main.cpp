@@ -502,6 +502,7 @@ int main(int argc, char ** argv)
     playerCharacter[5].loadCharacterFace();
 
     loadPCstatusData();
+    loadMapTextures();
 
     while (!quit)
     {

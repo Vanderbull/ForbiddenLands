@@ -1028,7 +1028,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1643212949 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1643234921 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<cassert>
 	<ctime>
 	<iostream>
@@ -1109,11 +1109,12 @@
 	"render.h"
 	"boat.h"
 
-1640675935 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
+1643233467 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
 	<cstdlib>
 	<random>
+	"texture_resource.h"
 
-1643213263 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
+1643236729 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
 1643062446 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
 	<bits/stdc++.h>
@@ -1307,7 +1308,7 @@
 	<functional>
 	<ctime>
 
-1643206664 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/world_view.h
+1643237485 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/world_view.h
 	<regex>
 	"common.h"
 
