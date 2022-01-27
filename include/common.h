@@ -1004,22 +1004,6 @@ SDL_Rect leftScrollButtonDown = {700,620,25,25};
 SDL_Rect rightScrollButtonUp = {1900,200,25,25};
 SDL_Rect rightScrollButtonDown = {1900,620,25,25};
 
-void renderShopScrollbars()
-{
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-
-    SDL_RenderFillRect(renderer, &leftScrollButtonUp);
-    SDL_RenderFillRect(renderer, &leftScrollButtonDown);
-    SDL_RenderFillRect(renderer, &rightScrollButtonUp);
-    SDL_RenderFillRect(renderer, &rightScrollButtonDown);
-
-    RenderText(std::to_string(offsetPlayerCharacterList),Black,rightScrollButtonUp.x,rightScrollButtonUp.y,FontSize);
-    RenderText(std::to_string(offsetPlayerCharacterList + showEntries),Black,rightScrollButtonDown.x,rightScrollButtonDown.y,FontSize);
-
-    RenderText(std::to_string(scrollOffsetShop),Black,leftScrollButtonUp.x,leftScrollButtonUp.y,FontSize);
-    RenderText(std::to_string(scrollOffsetShop + showEntriesInShop),Black,leftScrollButtonDown.x,leftScrollButtonDown.y,FontSize);
-}
-
 void renderShopCoins()
 {
     RenderText("Gold: " + std::to_string(playerCharacter[playerCharacterSelected].coins_gold),White,510,210,FontSize);

@@ -117,7 +117,7 @@ void battleView()
         turns = 0;
         gPunch = Mix_LoadWAV( "data/sfx/Punch.wav" );
         npc_active = 0;
-        turnActive = true;
+        turnActive = false;
         playerCharacter[0].generateInitiative();
         playerCharacter[1].generateInitiative();
         playerCharacter[2].generateInitiative();
@@ -137,8 +137,8 @@ void battleView()
         HOLD = false;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_Rect statsBackground = {0,current.h - 200,current.w, 200};
-    SDL_RenderFillRect(renderer, &statsBackground);
+    RenderFillRect(0,current.h - 200,current.w, 200);
+
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     actionButton[0] = {300,current.h - 180,160, 160};
     actionButton[1] = {500,current.h - 180,160, 160};
@@ -149,7 +149,7 @@ void battleView()
     SDL_RenderFillRect(renderer, &actionButton[1]);
     SDL_RenderFillRect(renderer, &actionButton[2]);
     SDL_RenderFillRect(renderer, &actionButton[3]);
-    //SDL_RenderFillRect(renderer, &actionButton[4]);
+    SDL_RenderFillRect(renderer, &actionButton[4]);
 
     RenderText("PLAYER SS: " + std::to_string(playerSupriseSegments), White, current.w / 2, 0,20);
     RenderText("NPC SS: " + std::to_string(npcSupriseSegments), White, current.w / 2, 30,20);
@@ -171,6 +171,7 @@ void battleView()
     RenderText("MAGIC", White, actionButton[1].x, actionButton[1].y,20);
     RenderText("FLEE", White, actionButton[2].x, actionButton[2].y,20);
     RenderText("HEALING", White, actionButton[3].x, actionButton[3].y,20);
+    RenderText("SKIP", White, actionButton[4].x, actionButton[4].y,20);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &character[playerCharacterSelected]);
@@ -230,6 +231,7 @@ void battleView()
             SDL_RenderFillRect(renderer, &actionButton[3]);
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
+                if( character_action[playerCharacterSelected] > 0)
                 if( playerCharacter[playerCharacterSelected].healingPotions > 0 )
                 {
                     playerCharacter[playerCharacterSelected].healingPotions -= 1;
@@ -251,14 +253,15 @@ void battleView()
         }
     }
 
-//    if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-//        SDL_RenderFillRect(renderer, &actionButton[4]);
-//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//        {
-//        }
-//    }
+    if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+        SDL_RenderFillRect(renderer, &actionButton[4]);
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            character_action[playerCharacterSelected] = 0;
+        }
+    }
 
     Texture = LoadTexture(playerImages.at(0).c_str(),255);
     for( int i = 0; i < sizeof(character) / sizeof(SDL_Rect); i++ )
@@ -280,20 +283,6 @@ void battleView()
     Texture = LoadTexture(enemyImages.at(enemyImageID[npc_active]).c_str(),255);
     SDL_RenderCopyEx(renderer, Texture, NULL, &npc_fighting,0,0,SDL_FLIP_HORIZONTAL);
     SDL_DestroyTexture(Texture);
-//
-//    playerCharacterSelected = 0;
-//    for( int i = 0; i < 6; i++ )
-//    {
-//        if( playerCharacter[playerCharacterSelected].hitpoints_current <= 0 )
-//        {
-//            playerCharacterSelected++;
-//        }
-//        else if( character_action[playerCharacterSelected] <= 0 )
-//        {
-//            character_action[playerCharacterSelected] = 0;
-//            playerCharacterSelected++;
-//        }
-//    }
 
     // Check if the current active enemy is killed or not
     if( npc_health[npc_active] <= 0 )
@@ -334,28 +323,16 @@ void battleView()
         {
             characterActionsReset++;
         }
-    }
-
-    if( characterActionsReset == 0)
-    {
-        playerCharacterSelected = 0;
-
-        for( int i = 0; i < 6; i++)
-        {
-            character_action[i] = 1;
-            turns++;
-        }
-    }
-    // end of character action check
-
-    // Check resetting of the npc actions of none left
-
-    for( int i = 0; i < 6; i++ )
-    {
         if( npc_action[i] == 1 )
         {
             npcActionsReset == 0;
         }
+    }
+
+    if( characterActionsReset == 0)
+    {
+        turnActive = true;
+        playerCharacterSelected = 0;
     }
 
     if( npcActionsReset == 0)
@@ -378,18 +355,7 @@ void battleView()
     if( playerCharacter[playerCharacterSelected].damage_vs_small <= 0 )
         playerCharacter[playerCharacterSelected].damage_vs_small = 1;
 
-    RenderText(std::to_string(turns), Black, 0, 0,40);
-
     npc_targeted = Generate(0,5);
-
-    if( fadeSize > 0)
-    {
-        fadeSize--;
-        RenderText(std::to_string(playerCharacter[playerCharacterSelected].damage_vs_small), Black, NPCs.NPC[npc_active].SDL_Rectangle.x, NPCs.NPC[npc_active].SDL_Rectangle.y - NPCs.NPC[npc_active].SDL_Rectangle.h,fadeSize*4);
-        RenderText(std::to_string(npc_current_damage), Black, character[npc_targeted].x, character[npc_targeted].y,fadeSize*4);
-    }
-
-    int spacing = 100;
 
     for( int i = 0; i < 6; i++ )
     {
@@ -400,10 +366,7 @@ void battleView()
             SDL_RenderCopyEx(renderer, Texture, NULL, &NPCs.NPC[i].SDL_Rectangle,0,0,SDL_FLIP_HORIZONTAL);
             SDL_DestroyTexture(Texture);
         }
-    }
 
-    for( int i=0; i< 6; i++ )
-    {
         if( npc_health[i] >= 0 )
         if( SDL_PointInRect(&mousePosition, &NPCs.NPC[i].SDL_Rectangle) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -465,11 +428,10 @@ void battleView()
     if(turnActive)
     {
         SDL_Rect turnButton = {current.w - 400,current.h - 170,160, 160};
-         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
         SDL_RenderFillRect(renderer, &turnButton);
         RenderText("TURN " + std::to_string(turns), Black, current.w - 400, current.h - 170,20);
 
-        if( !HOLD )
         if( SDL_PointInRect(&mousePosition, &turnButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
@@ -477,17 +439,19 @@ void battleView()
             RenderText("TURN " + std::to_string(turns), White, current.w - 400, current.h - 170,20);
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
+                turns++;
+                for( int i = 0; i < 6; i++)
+                {
+                    character_action[i] = 1;
+                }
+                SDL_Delay(25);
                 turnActive = false;
             }
         }
     }
-    else
-    {
-        turns++;
-        turnActive = true;
-    }
-    skilltree();
-    skill_list();
+
+    //skilltree();
+    //skill_list();
 };
 
  #endif // BATTLE_VIEW

@@ -27,9 +27,6 @@ void generateJewelleryShopItems()
 void renderJewelleryShop()
 {
     renderBackground("./images/shops/shop3.jpg");
-    //initShop();
-    renderShopScrollbars();
-    renderShopCoins();
     RenderText("JEWELLERY SHOP", White, current.w - 400, 20,48);
 
     int counter2 = 0;

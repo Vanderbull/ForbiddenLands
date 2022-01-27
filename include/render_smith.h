@@ -95,8 +95,6 @@ void renderSmithShop()
                 SDL_Delay(75);
             }
         }
-
-
     }
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);

@@ -29,9 +29,6 @@ void renderSilverShop()
     SDL_Rect StatsBox = {1000,100,400,425};
 
     renderBackground("./images/shops/shop3.jpg");
-    renderShopScrollbars();
-    renderShopCoins();
-
     RenderText("SILVER SHOP", White, current.w - 400, 20,48);
 
     int counter2 = 0;

@@ -27,8 +27,6 @@ void generateGeneralShopItems()
 void renderGeneralShop()
 {
     renderBackground("./images/shops/shop3.jpg");
-    renderShopScrollbars();
-    renderShopCoins();
     RenderText("GENERAL SHOP", White, current.w - 400, 20,48);
 
     int counter2 = 0;
