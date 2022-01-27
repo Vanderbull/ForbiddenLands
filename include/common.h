@@ -175,22 +175,58 @@ struct Point
     int y;
 };
 
-std::string getTimeOfDay()
-{
-    if( inGameTime > 24 )
-    {
-        inGameTime = 0;
-    }
+void naturalHealing();
 
-    if( inGameTime > 6 && inGameTime < 18 )
-    {
-        return "Day time";
-    }
-    else
-    {
-        return "Night time";
-    }
+enum timeOfDay
+{
+    day,
+    night
 };
+
+int currentDay = 0;
+int currentTime = 0;
+int currentTimeOfDay = day;
+
+int currentTimeElapse(bool tick = false )
+{
+    if( tick )
+    {
+        currentTime++;
+        if( currentTime > 24 )
+        {
+            currentTime = 0;
+            currentDay++;
+            naturalHealing();
+        }
+        if( currentTime > 6 && currentTime < 18 )
+        {
+            currentTimeOfDay = day;
+        }
+        else
+        {
+            currentTimeOfDay = night;
+        }
+    }
+    return currentTimeOfDay;
+};
+
+//std::string getTimeOfDay()
+//{
+//    if( inGameTime > 24 )
+//    {
+//        naturalHealing();
+//        inGameTime = 0;
+//    }
+//
+//    if( inGameTime > 6 && inGameTime < 18 )
+//    {
+//        return "Day time";
+//    }
+//    else
+//    {
+//        return "Night time";
+//    }
+//};
 
 // need to fix traversing subfolders
 

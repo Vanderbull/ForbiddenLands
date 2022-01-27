@@ -27,6 +27,16 @@
 
 npcEngine NPCs;
 
+void naturalHealing()
+{
+    playerCharacter[0].hitpoints_current++;
+    playerCharacter[1].hitpoints_current++;
+    playerCharacter[2].hitpoints_current++;
+    playerCharacter[3].hitpoints_current++;
+    playerCharacter[4].hitpoints_current++;
+    playerCharacter[5].hitpoints_current++;
+};
+
 std::string getexepath()
 {
     char result[ PATH_MAX ];

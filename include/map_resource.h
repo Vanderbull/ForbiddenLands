@@ -784,7 +784,7 @@ std::string renderDescription(int x, int y)
                     {
                         if( phlanTourCoordinateN[2] == "TRAINING_HALL")
                         {
-                            if( getTimeOfDay() == "Day time")
+                            if( currentTimeElapse() == day )
                             {
                                 trainingHall = 1;
                                 skip_return = 1;
@@ -793,7 +793,7 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "ARMS_ARMOUR")
                         {
-                            if( getTimeOfDay() == "Day time")
+                            if( currentTimeElapse() == day )
                             {
                                 armsAndarmourShop = 1;
                                 skip_return = 1;
@@ -802,7 +802,7 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "TAVERN_TALES")
                         {
-                            if( getTimeOfDay() == "Day time")
+                            if( currentTimeElapse() == day )
                             {
                                 tavern = 1;
                                 skip_return = 1;
@@ -811,7 +811,7 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "GENERAL_SHOP")
                         {
-                            if( getTimeOfDay() == "Day time")
+                            if( currentTimeElapse() == day )
                             {
                                 generalShop = 1;
                                 skip_return = 1;
@@ -820,7 +820,7 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "JEWELERY_SHOP")
                         {
-                            if( getTimeOfDay() == "Day time")
+                            if( currentTimeElapse() == day )
                             {
                                 jewelleryShop = 1;
                                 skip_return = 1;
@@ -835,7 +835,7 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "PRIESTHOOD")
                         {
-                            if( getTimeOfDay() == "Day time")
+                            if( currentTimeElapse() == day )
                             {
                                 templeShop = 1;
                                 skip_return = 1;
@@ -844,7 +844,7 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "SILVER_SHOP")
                         {
-                            if( getTimeOfDay() == "Day time")
+                            if( currentTimeElapse() == day )
                             {
                                 silverShop = 1;
                                 skip_return = 1;

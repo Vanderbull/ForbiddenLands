@@ -560,7 +560,7 @@ void renderWorldViewA()
 
         SDL_Texture* dayTimeTexture = NULL;
 
-        if( getTimeOfDay() == "Night time")
+        if( currentTimeElapse() == night )
             dayTimeTexture = LoadTexture("./icons/ball-48.png",255);
         else
             dayTimeTexture = LoadTexture("./icons/48.png",255);
@@ -568,7 +568,7 @@ void renderWorldViewA()
         SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
         SDL_DestroyTexture(dayTimeTexture);
 
-        if( getTimeOfDay() == "Night time")
+        if( currentTimeElapse() == night )
         {
             dayTimeTexture = LoadTexture("./icons/night.png",128);
             SDL_RenderCopy(renderer, dayTimeTexture, NULL, NULL);
@@ -577,7 +577,9 @@ void renderWorldViewA()
 
         RenderText("Season: " + cweather_engine.get_season(), White, current.w - 1050,100,24);
         RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 1050,124,24);
-        RenderText("Time of day: " + getTimeOfDay(),White, current.w - 1050, 148,24);
+        //RenderText("Time of day: " + getTimeOfDay(),White, current.w - 1050, 148,24);
+        RenderText("currentTime: " + std::to_string(currentTime),White, current.w - 1050, 170,24);
+        RenderText("currentDay: " + std::to_string(currentDay),White, current.w - 1050, 190,24);
     }
 };
 

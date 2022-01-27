@@ -626,6 +626,7 @@ int main(int argc, char ** argv)
                         case SDLK_UP:
                         case SDLK_w:
                             inGameTime++;
+                            currentTimeElapse(true);
                             if( activeView == DUNGEON )
                             {
                                 // We are in dungeonMode
@@ -754,7 +755,7 @@ int main(int argc, char ** argv)
         {
             renderWorldViewA();
 
-            if( getTimeOfDay() == "Night time")
+            if( currentTimeElapse() == night )
             {
                 shop = 0;
             }
