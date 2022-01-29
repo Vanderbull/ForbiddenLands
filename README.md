@@ -1,5 +1,9 @@
 # FORBIDDEN LANDS
 
+## Character classes
+Should we have character classes or not? What do they contribute to the the immersion of the game?
+- Is it better to just let the player develop its character how it wants and let them decide if they are a magician or a warrior bunny?
+
 ## Two stamina system
 Daily and action based stamina
 - What is a good number for daily stamina?
