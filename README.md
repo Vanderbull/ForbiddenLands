@@ -5,7 +5,7 @@
 - Define what actions that can be executed in the world view
 - How should the actions available be presented to the player?
 
-
+## General game development decisions
 - NO classes
 - NO genders
 - NO general experience points or level
