@@ -10,6 +10,7 @@ void skill_list()
     SDL_Rect background = {0,0,current.w, current.h - 300 };
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderFillRect(renderer, &background);
+
     RenderText("Combat arts", White, 20, 100,50);
     RenderText("Strength", White, 20, 150,40);
     RenderText("Blunt", White, 20, 200,30);

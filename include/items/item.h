@@ -1,7 +1,6 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-// Move this structure to its own file when possible
 struct items
 {
     std::string icon = "./icons/uiAtlas/ui_game_symbol_other.png";
@@ -32,8 +31,6 @@ struct items
     bool Swords = false;
     items()
     {
-
-
         value = Generate(0,256);
         amount = Generate(0,256);
         // MASTER MAGIC ITEM TABLES
@@ -507,6 +504,88 @@ struct items
     }
 };
 
+struct food : items
+{
+    food()
+    {
+        name_1 = "food";
+    };
+};
+
+struct armour : items
+{
+    armour()
+    {
+        name_1 = "armour";
+    };
+};
+
+struct weapon : items
+{
+    weapon()
+    {
+        name_1 = "weapon";
+    };
+};
+
+struct scroll : items
+{
+    scroll()
+    {
+        name_1 = "scroll";
+    };
+};
+
+struct book : items
+{
+    book()
+    {
+        name_1 = "book";
+    };
+};
+
+struct potion : items
+{
+    potion()
+    {
+        name_1 = "potion";
+    };
+};
 items gameItems[100];
+
+struct trader
+{
+    std::vector<items> traderItems;
+
+    trader()
+    {
+        for( int i = 0; i < 10; i++ )
+        {
+            switch( Generate(0,6) )
+            {
+            case 0:
+                traderItems.push_back(food());
+                break;
+            case 1:
+                traderItems.push_back(armour());
+                break;
+            case 2:
+                traderItems.push_back(weapon());
+                break;
+            case 3:
+                traderItems.push_back(scroll());
+                break;
+            case 4:
+                traderItems.push_back(book());
+                break;
+            case 5:
+                traderItems.push_back(potion());
+                break;
+            }
+        }
+    };
+};
+
+trader traders[100];
 
 #endif

@@ -451,10 +451,10 @@ void renderCharacterView()
 
     SDL_Rect TextFrame = {0, 0, 0, 0};
 
-    RenderText("LVL " + std::to_string(playerCharacter[playerCharacterSelected].level_cleric) + " " + playerCharacter[playerCharacterSelected].getClass(),Blue, 512,70, 48);
+    RenderText(playerCharacter[playerCharacterSelected].getClass(),Blue, 512,70, 48);
 
     std::stringstream genderRaceAge;
-    genderRaceAge << playerCharacter[playerCharacterSelected].getRace() << " " << playerCharacter[playerCharacterSelected].getGender();
+    genderRaceAge << playerCharacter[playerCharacterSelected].getRace();
 
     RenderText(genderRaceAge.str(),White, 512,120, 24);
     RenderText("XP: " + std::to_string(playerCharacter[playerCharacterSelected].getExperience()),White, 512,170, 24);
@@ -707,10 +707,10 @@ void savingGameData( std::string saveFile )
     {
         SaveGame << playerCharacter[i].getArmourClass() << std::endl;
     }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame << playerCharacter[i].getClericLevel() << std::endl;
-    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame << playerCharacter[i].getClericLevel() << std::endl;
+//    }
     for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
     {
         SaveGame << playerCharacter[i].getEncumbrance() << std::endl;
@@ -719,10 +719,10 @@ void savingGameData( std::string saveFile )
     {
         SaveGame << playerCharacter[i].getExperience() << std::endl;
     }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame << playerCharacter[i].getFighterLevel() << std::endl;
-    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame << playerCharacter[i].getFighterLevel() << std::endl;
+//    }
     SaveGame << PlayerCoordinate.x << std::endl;
     SaveGame << PlayerCoordinate.y << std::endl;
     SaveGame.close();
@@ -740,10 +740,10 @@ void loadingGameData( std::string saveFile )
     {
         SaveGame >> playerCharacter[i].ac_current;
     }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame >> playerCharacter[i].level_cleric;
-    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame >> playerCharacter[i].level_cleric;
+//    }
     for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
     {
         SaveGame >> playerCharacter[i].encumbrance;
@@ -752,10 +752,10 @@ void loadingGameData( std::string saveFile )
     {
         SaveGame >> playerCharacter[i].experience;
     }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame >> playerCharacter[i].level_fighter;
-    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame >> playerCharacter[i].level_fighter;
+//    }
 
     SaveGame >> PlayerCoordinate.x;
     SaveGame >> PlayerCoordinate.y;
@@ -1055,9 +1055,9 @@ void renderCharacterCreation()
     std::vector<std::string> textElements = { "STR ", "INT ", "WIS ", "DEX ", "CON ", "CHA "};
     std::vector<SDL_Rect> raceElements;
     std::vector<std::string> raceTextElements = { "DWARF", "ELF", "GNOME", "HALFELF", "HALFLING", "HALFORC", "HUMAN"};
-    std::vector<SDL_Rect> classElements;
-    std::vector<std::string> classTextElements = { "ASSASSIN", "CLERIC", "DRUID", "FIGHTER", "ILLUSIONIST", "PALADIN", "RANGER", "THIEF", "MAGIC USER"};
-    SDL_Rect Gender[2];
+    //std::vector<SDL_Rect> classElements;
+    //std::vector<std::string> classTextElements = { "ASSASSIN", "CLERIC", "DRUID", "FIGHTER", "ILLUSIONIST", "PALADIN", "RANGER", "THIEF", "MAGIC USER"};
+    //SDL_Rect Gender[2];
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
@@ -1152,40 +1152,40 @@ void renderCharacterCreation()
         counter++;
     }
 
-    counter = 0;
-    for (std::string textElement : classTextElements)
-    {
-        SDL_Rect rect;
-        rect.x = current.w - 900;
-        rect.y = 220+(counter*40);
-        rect.w = 300;
-        rect.h = 30;
-        classElements.push_back(rect);
-        counter++;
-    }
+//    counter = 0;
+//    for (std::string textElement : classTextElements)
+//    {
+//        SDL_Rect rect;
+//        rect.x = current.w - 900;
+//        rect.y = 220+(counter*40);
+//        rect.w = 300;
+//        rect.h = 30;
+//        classElements.push_back(rect);
+//        counter++;
+//    }
+//
+//    counter = 0;
+//    for (std::string textElement : classTextElements)
+//    {
+//        SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
+//        SDL_RenderFillRect(renderer, &classElements[counter]);
+//        RenderText(textElement.c_str(),Black,classElements[counter].x,classElements[counter].y,FontSize);
+//
+//        if( SDL_PointInRect(&mousePosition, &classElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//        {
+//            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//            SDL_RenderFillRect(renderer, &classElements[counter]);
+//            SDL_PumpEvents();
+//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//            {
+//                playerCharacter[currentCharacter].characterClass = counter;
+//            }
+//        }
+//        counter++;
+//    }
 
-    counter = 0;
-    for (std::string textElement : classTextElements)
-    {
-        SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
-        SDL_RenderFillRect(renderer, &classElements[counter]);
-        RenderText(textElement.c_str(),Black,classElements[counter].x,classElements[counter].y,FontSize);
-
-        if( SDL_PointInRect(&mousePosition, &classElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-        {
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-            SDL_RenderFillRect(renderer, &classElements[counter]);
-            SDL_PumpEvents();
-            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-            {
-                playerCharacter[currentCharacter].characterClass = counter;
-            }
-        }
-        counter++;
-    }
-
-    Gender[0] = {current.w - 500,220,600,30};
-    Gender[1] = {current.w - 500,260,600,30};
+//    Gender[0] = {current.w - 500,220,600,30};
+//    Gender[1] = {current.w - 500,260,600,30};
 
     SDL_Rect nextCharacter = {current.w - 500,0,600,30};
     SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
@@ -1201,12 +1201,12 @@ void renderCharacterCreation()
         counter++;
     }
 
-    SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
-    SDL_RenderFillRect(renderer, &Gender[0]);
-    RenderText("MALE",Black,current.w - 500,Gender[0].y,FontSize);
-
-    SDL_RenderFillRect(renderer, &Gender[1]);
-    RenderText("FEMALE",Black,current.w - 500,Gender[1].y,FontSize);
+//    SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
+//    SDL_RenderFillRect(renderer, &Gender[0]);
+//    RenderText("MALE",Black,current.w - 500,Gender[0].y,FontSize);
+//
+//    SDL_RenderFillRect(renderer, &Gender[1]);
+//    RenderText("FEMALE",Black,current.w - 500,Gender[1].y,FontSize);
 
     if( SDL_PointInRect(&mousePosition, &nextCharacter) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
@@ -1223,14 +1223,14 @@ void renderCharacterCreation()
         }
     }
 
-    for( int i = 0; i < 9; i++ )
-    {
-        if( playerCharacter[currentCharacter].characterClass == i )
-        {
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-            SDL_RenderFillRect(renderer, &classElements[i]);
-        }
-    }
+//    for( int i = 0; i < 9; i++ )
+//    {
+//        if( playerCharacter[currentCharacter].characterClass == i )
+//        {
+//            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//            SDL_RenderFillRect(renderer, &classElements[i]);
+//        }
+//    }
     for( int i = 0; i < 7; i++ )
     {
         if( playerCharacter[currentCharacter].race == i )
@@ -1432,38 +1432,38 @@ void renderCharacterCreation()
             }
         }
     }
+//
+//    if( playerCharacter[currentCharacter].gender == 1 )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//        SDL_RenderFillRect(renderer, &Gender[0]);
+//    }
+//    if( playerCharacter[currentCharacter].gender == 2 )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//        SDL_RenderFillRect(renderer, &Gender[1]);
+//    }
 
-    if( playerCharacter[currentCharacter].gender == 1 )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(renderer, &Gender[0]);
-    }
-    if( playerCharacter[currentCharacter].gender == 2 )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(renderer, &Gender[1]);
-    }
-
-    if( SDL_PointInRect(&mousePosition, &Gender[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(renderer, &Gender[0]);
-        SDL_PumpEvents();
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            playerCharacter[currentCharacter].gender = 1;
-        }
-    }
-    if( SDL_PointInRect(&mousePosition, &Gender[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(renderer, &Gender[1]);
-        SDL_PumpEvents();
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            playerCharacter[currentCharacter].gender = 2;
-        }
-    }
+//    if( SDL_PointInRect(&mousePosition, &Gender[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//        SDL_RenderFillRect(renderer, &Gender[0]);
+//        SDL_PumpEvents();
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//            playerCharacter[currentCharacter].gender = 1;
+//        }
+//    }
+//    if( SDL_PointInRect(&mousePosition, &Gender[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//        SDL_RenderFillRect(renderer, &Gender[1]);
+//        SDL_PumpEvents();
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//            playerCharacter[currentCharacter].gender = 2;
+//        }
+//    }
 
     SDL_Rect ExitButton = {current.w - 220,current.h - 50,200,30};
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);

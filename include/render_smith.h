@@ -56,6 +56,11 @@ void renderSmithShop()
         }
     }
 
+    for( int i = 0; i < traders[0].traderItems.size(); i++ )
+    {
+        RenderText(traders[0].traderItems.at(i).getName() +  " value: " + std::to_string(traders[0].traderItems.at(i).value),White,0 ,i * 30,24);
+    }
+
     for( int i = 0; i < smithItems.size(); i++ )
     {
         SDL_Rect itemBox = {0,0,0,0};
