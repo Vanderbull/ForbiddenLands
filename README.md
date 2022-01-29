@@ -1,5 +1,10 @@
 # FORBIDDEN LANDS
 
+
+## World actions
+Define what actions that can be executed in the world view
+
+
 - NO classes
 - NO genders
 - NO general experience points or level
