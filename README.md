@@ -2,7 +2,8 @@
 
 
 ## World actions
-Define what actions that can be executed in the world view
+- Define what actions that can be executed in the world view
+- How should the actions available be presented to the player?
 
 
 - NO classes
