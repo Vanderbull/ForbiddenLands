@@ -1,5 +1,8 @@
 # FORBIDDEN LANDS
 
+## Character generation idea
+- Define generations of relatives for the character
+
 
 ## World actions
 - Define what actions that can be executed in the world view
