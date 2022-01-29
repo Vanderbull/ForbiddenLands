@@ -1,8 +1,8 @@
 # FORBIDDEN LANDS
 
-## Shops
+## Shops & Traders
 
-- Shop types ( Food, Smithy, Herbalist )
+- Shop or trader types ( Food, Smithy, Herbalist, General )
 - Tiers 1,2,3
 - Shops can have random items from lower tiers
 
