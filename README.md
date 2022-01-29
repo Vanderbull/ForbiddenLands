@@ -2,6 +2,22 @@
 
 ## Two stamina system
 Daily and action based stamina
+- What is a good number for daily stamina?
+- Should the action based stamina drain be the same for daily stamina?
+- Should the action based stamina be affected by the daily stamina?
+
+### Examples on stamina draining actions
+- Sneaking
+- Searching
+- Moving
+- Fighting
+
+
+### Examples on stamina recovering actions
+- Eating & Drinking
+- Resting
+- Quaff recovering potions
+
 
 ## Skill tree v.s Skill list
 https://gamedev.stackexchange.com/questions/57553/when-should-i-use-skill-trees-versus-skill-lists-in-an-rpg
