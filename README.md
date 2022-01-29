@@ -1,5 +1,8 @@
 # FORBIDDEN LANDS
 
+## Two stamina system
+Daily and action based stamina
+
 ## Skill tree v.s Skill list
 https://gamedev.stackexchange.com/questions/57553/when-should-i-use-skill-trees-versus-skill-lists-in-an-rpg
 
