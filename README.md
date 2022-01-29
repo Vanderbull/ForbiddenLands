@@ -2,7 +2,7 @@
 
 - NO classes
 - NO genders
-
+- NO general experience points or level
 
 ## Experience development
 Should the characters develop there skills by using them or should they improve them by getting experience and leveling up and distribute experience points.
