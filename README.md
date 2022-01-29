@@ -1,5 +1,12 @@
 # FORBIDDEN LANDS
 
+## Shops
+
+- Shop types ( Food, Smithy, Herbalist )
+- Tiers 1,2,3
+- Shops can have random items from lower tiers
+
+
 ## Character generation idea
 - Define generations of relatives for the character
 
