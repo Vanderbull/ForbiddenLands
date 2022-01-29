@@ -1,5 +1,15 @@
 # FORBIDDEN LANDS
 
+## Experience development
+Should the characters develop there skills by using them or should they improve them by getting experience and leveling up and distribute experience points.
+
+### Pros usage of skills
+- More dynamic development of the character
+### Cons usage of skills
+- More difficult to learn new skills
+
+
+
 ## Character classes
 Should we have character classes or not? What do they contribute to the the immersion of the game?
 - Is it better to just let the player develop its character how it wants and let them decide if they are a magician or a warrior bunny?
