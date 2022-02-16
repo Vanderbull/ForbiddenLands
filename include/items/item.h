@@ -508,6 +508,7 @@ struct food : items
 {
     food()
     {
+        std::string icon = "./icons/items/food.png";
         name_1 = "food";
     };
 };
@@ -516,6 +517,7 @@ struct armour : items
 {
     armour()
     {
+        std::string icon = "./icons/items/armour.png";
         name_1 = "armour";
     };
 };
@@ -524,6 +526,7 @@ struct weapon : items
 {
     weapon()
     {
+        std::string icon = "./icons/items/weapon.png";
         name_1 = "weapon";
     };
 };
@@ -532,6 +535,7 @@ struct scroll : items
 {
     scroll()
     {
+        std::string icon = "./icons/items/scroll.png";
         name_1 = "scroll";
     };
 };
@@ -540,6 +544,7 @@ struct book : items
 {
     book()
     {
+        std::string icon = "./icons/items/potion.png";
         name_1 = "book";
     };
 };
@@ -548,10 +553,19 @@ struct potion : items
 {
     potion()
     {
+        std::string icon = "./icons/items/potion.png";
         name_1 = "potion";
     };
 };
 items gameItems[100];
+
+void loadItemIcons()
+{
+    for( int i = 0; i < 100; i++ )
+    {
+        gameItems[i].icon = "";
+    };
+};
 
 struct trader
 {
