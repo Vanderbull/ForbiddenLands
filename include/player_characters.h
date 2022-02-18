@@ -105,7 +105,6 @@ class Player : IActor
 
 typedef struct playerCharacter
 {
-    std::vector<std::string> readyCharacterInventoryName;
     std::vector<items> carriedItems;
     std::vector<spells> carriedSpells;
     int current_stats[6]; // 5 = CON
@@ -113,18 +112,12 @@ typedef struct playerCharacter
     int race = 0; // None
     int characterClass = 0; // None
     int coins_gold = 0;
-//    int gender = 0;
     int ac_base = 10;
     int experience = 0;
     int encumbrance = 0;
     int ac_current = 0;
     int hitpoints_current = 0;
     int hitpoints_max = 0;
-    // Make the class levels into a array
-//    int level_cleric = 10;
-//    int level_fighter = 0;
-//    int level_magic_user = 0;
-//    int level_thief = 0;
     int rowcounter = 0;
     SDL_Point mousePosition;
     int damage_vs_small = 0;
@@ -182,25 +175,6 @@ typedef struct playerCharacter
             count++;
         }
     };
-
-//    void printGameItems(std::vector<items> &readyInventory,int x, int y, int fontSize)
-//    {
-//        rowcounter = 0;
-//        for (auto & renderItem: readyInventory)
-//        {
-//            if( renderItem.equipped )
-//            {
-//                RenderText("EQUIPPED ",White,x,y + (20*rowcounter),fontSize);
-//                RenderText(renderItem.getName(),White,x + 175,y + (20*rowcounter),fontSize);
-//            }
-//            else
-//            {
-//                RenderText("NOT EQUIPPED ",White,x,y + (20*rowcounter),fontSize);
-//                RenderText(renderItem.getName(),White,x + 175,y + (20*rowcounter),fontSize);
-//            }
-//            rowcounter++;
-//        }
-//    }
 
     int startCounter = 0;
     int stopCounter = 6;
@@ -419,12 +393,9 @@ typedef struct playerCharacter
     {
         std::cout << "loading playerCharacter..." << std::endl;
         race = Generate(0,7);
-        //characterClass = Generate(0,10);
-        //gender = Generate(0,2);
         calculateStats();
         calculateHitPoints();
         initItems();
-        readyCharacterInventoryName.push_back(carriedItems.at(0).getName());
         update();
         name = setName();
         face = Generate(0,20);
@@ -467,27 +438,6 @@ typedef struct playerCharacter
     {
         return name;
     };
-
-    // Make all these functions into one that returns the requested class level
-//    int getClericLevel()
-//    {
-//        return level_cleric;
-//    };
-
-//    int getFighterLevel()
-//    {
-//        return level_fighter;
-//    };
-//
-//    int getMagicUserLevel()
-//    {
-//        return level_magic_user;
-//    };
-//
-//    int getThiefLevel()
-//    {
-//        return level_thief;
-//    };
 
     int getExperience()
     {
@@ -569,14 +519,6 @@ typedef struct playerCharacter
         }
         return ac_current;
     }
-
-//    std::string getGender()
-//    {
-//        if( gender == 0)
-//            return "FEMALE";
-//        if( gender == 1)
-//            return "MALE";
-//    }
 
     // remove no class selected
     std::string getClass()

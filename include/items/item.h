@@ -510,7 +510,15 @@ struct food : items
     {
         std::string icon = "./icons/items/food.png";
         name_1 = "food";
+        unidentified = 0;
+        cursed = 0;
+        weight = 0;
+        value = 0;
     };
+    food(std::string name_1,std::string name_2,std::string name_3)
+    {
+
+    }
 };
 
 struct armour : items
@@ -578,7 +586,7 @@ struct trader
             switch( Generate(0,6) )
             {
             case 0:
-                traderItems.push_back(food());
+                traderItems.push_back(food("foodoro","",""));
                 break;
             case 1:
                 traderItems.push_back(armour());
