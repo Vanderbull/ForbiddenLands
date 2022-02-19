@@ -167,7 +167,7 @@ void battleView()
     RenderText("NPC INITIATIVE[4]" + std::to_string(NPCs.NPC[4]._initiative), White, current.w / 3, 180, 20);
     RenderText("NPC INITIATIVE[5]" + std::to_string(NPCs.NPC[5]._initiative), White, current.w / 3, 210, 20);
 
-    RenderText("ATTACK " + std::to_string(playerCharacter[playerCharacterSelected].damage_vs_small), White, actionButton[0].x, actionButton[0].y,20);
+    RenderText("ATTACK " + std::to_string(playerCharacter[playerCharacterSelected].damage), White, actionButton[0].x, actionButton[0].y,20);
     RenderText("MAGIC", White, actionButton[1].x, actionButton[1].y,20);
     RenderText("FLEE", White, actionButton[2].x, actionButton[2].y,20);
     RenderText("HEALING", White, actionButton[3].x, actionButton[3].y,20);
@@ -185,7 +185,7 @@ void battleView()
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             HOLD = true;
-            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage_vs_small;
+            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
             // damage player
             playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
             character_action[playerCharacterSelected] = 0;
@@ -202,7 +202,7 @@ void battleView()
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             HOLD = true;
-            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage_vs_small;
+            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
             // damage player
             playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
             character_action[playerCharacterSelected] = 0;
@@ -352,8 +352,8 @@ void battleView()
     }
     // end of npc actions check
 
-    if( playerCharacter[playerCharacterSelected].damage_vs_small <= 0 )
-        playerCharacter[playerCharacterSelected].damage_vs_small = 1;
+    if( playerCharacter[playerCharacterSelected].damage <= 0 )
+        playerCharacter[playerCharacterSelected].damage = 1;
 
     npc_targeted = Generate(0,5);
 

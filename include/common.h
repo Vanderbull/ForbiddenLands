@@ -451,8 +451,6 @@ void renderCharacterView()
 
     SDL_Rect TextFrame = {0, 0, 0, 0};
 
-    RenderText(playerCharacter[playerCharacterSelected].getClass(),Blue, 512,70, 48);
-
     std::stringstream genderRaceAge;
     genderRaceAge << playerCharacter[playerCharacterSelected].getRace();
 
@@ -564,9 +562,6 @@ void renderCharacterView()
             }
         }
     }
-
-    RenderText("DAMAGE VS SMALL "+std::to_string(playerCharacter[playerCharacterSelected].damage_vs_small),Green, 512,670, 24);
-    RenderText("DAMAGE VS LARGE "+std::to_string(playerCharacter[playerCharacterSelected].damage_vs_large),Green, 512,720, 24);
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 

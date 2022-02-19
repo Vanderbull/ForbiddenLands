@@ -16,8 +16,7 @@ struct items
     int weight = 0;
     int value = 0;
     int equipped = 0;
-    int damage_vs_small = 0;
-    int damage_vs_large = 0;
+    int damage = 0;
 
     bool ammo = false;
 
@@ -150,14 +149,12 @@ struct items
                     case 1:
                     {
                         name_2 = "Javelin of the Raptor";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
+                        damage = 6;
                     } break;
                     case 2:
                     {
                         name_2 = "Thunder Spear";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
+                        damage = 6;
                     } break;
                     case 3:
                     {
@@ -181,26 +178,22 @@ struct items
                     case 0:
                     {
                         name_1 = "Arrow";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
+                        damage = 6;
                     } break;
                     case 1:
                     {
                         name_1 = "Axe";
-                        damage_vs_small = 6;
-                        damage_vs_large = 4;
+                        damage = 6;
                     } break;
                     case 2:
                     {
                         name_1 = "Bolt";
-                        damage_vs_small = 4;
-                        damage_vs_large = 4;
+                        damage = 6;
                     } break;
                     case 3:
                     {
                         name_1 = "Bow";
-                        damage_vs_small = 6;
-                        damage_vs_large = 6;
+                        damage = 6;
                     } break;
                 };
                 //PROPERTIES
@@ -460,26 +453,22 @@ struct items
             case 0:
             {
                 name_1 = "Bastard Sword";
-                damage_vs_small = 6;
-                damage_vs_large = 6;
+                        damage = 6;
             } break;
             case 1:
             {
                 name_1 = "Broadsword";
-                damage_vs_small = 6;
-                damage_vs_large = 6;
+                        damage = 6;
             } break;
             case 2:
             {
                 name_1 = "Longsword";
-                damage_vs_small = 6;
-                damage_vs_large = 6;
+                        damage = 6;
             } break;
             case 3:
             {
                 name_1 = "Shortsword";
-                damage_vs_small = 6;
-                damage_vs_large = 6;
+                        damage = 6;
             } break;
         };
     };

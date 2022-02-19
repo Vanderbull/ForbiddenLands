@@ -450,14 +450,10 @@ void renderMinimapCharacterLocation()
             SDL_RenderCopy(renderer, West, NULL, &gRect);
         }
 }
+
+
 void renderWorldViewA()
 {
-    if( lootDropped )
-    {
-        save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot = lootDropped;
-        resetLootDropped();
-    }
-
     std::string location = generateImagePath();
 
     if( PlayerCoordinate.x > 15 )
@@ -476,7 +472,7 @@ void renderWorldViewA()
     if(Rotation == "E")
         z=3;
     //currentViewTexture = LoadTexture(location.c_str(),255);
-    std::cout << location << " = " << mapTextureFile[PlayerCoordinate.x][PlayerCoordinate.y][z] << std::endl;
+    //std::cout << location << " = " << mapTextureFile[PlayerCoordinate.x][PlayerCoordinate.y][z] << std::endl;
 
     SDL_RenderCopy(renderer, mapTexture[PlayerCoordinate.x][PlayerCoordinate.y][z], NULL, NULL);
     //SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
@@ -486,7 +482,7 @@ void renderWorldViewA()
 
     if(minimapActive)
     {
-        renderMinimap("./data/maps/phlan/phlan_minimap", mapActive);
+        renderMinimap(mapActive);
         renderMinimapCharacterLocation();
     }
 
@@ -549,10 +545,17 @@ void renderWorldViewA()
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,128);
     SDL_RenderDrawRect(renderer, &faceBox[playerCharacterSelected]);
 
+    if( lootDropped )
+    {
+        save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot = lootDropped;
+        resetLootDropped();
+    }
+
     if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot )
     {
         RenderText("LOOT HERE!!",Green,600,0,48);
     }
+
 
     if( activeView == DUNGEON && viewingCharacter == 0)
     {
@@ -602,7 +605,7 @@ void renderWorldViewB()
 
     if(minimapActive)
     {
-        renderMinimap("./data/maps/phlan/phlan_minimap",mapActive);
+        renderMinimap(mapActive);
         renderMinimapCharacterLocation();
     }
 

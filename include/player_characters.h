@@ -110,7 +110,6 @@ typedef struct playerCharacter
     int current_stats[6]; // 5 = CON
     std::string name = "default";
     int race = 0; // None
-    int characterClass = 0; // None
     int coins_gold = 0;
     int ac_base = 10;
     int experience = 0;
@@ -119,9 +118,8 @@ typedef struct playerCharacter
     int hitpoints_current = 0;
     int hitpoints_max = 0;
     int rowcounter = 0;
+    int damage = 0;
     SDL_Point mousePosition;
-    int damage_vs_small = 0;
-    int damage_vs_large = 0;
     int face = 0;
     int hunger = 0;
     int thirst = 0;
@@ -195,8 +193,7 @@ typedef struct playerCharacter
                           "Amount: " + std::to_string(renderItem.amount) + "\n" +
                           "Bonus: " + std::to_string(renderItem.bonus) + "\n" +
                           "Cursed: " + std::to_string(renderItem.cursed) + "\n" +
-                          "D v L: " + std::to_string(renderItem.damage_vs_large) + "\n" +
-                          "D v S: " + std::to_string(renderItem.damage_vs_small) + "\n" +
+                          "Damage: " + std::to_string(renderItem.damage) + "\n" +
                           "Equipped: " + std::to_string(renderItem.equipped) + "\n" +
                           "Armour class: " + std::to_string(renderItem.armour_class) + "\n" +
                           "Icon: " + renderItem.icon.c_str() + "\n"
@@ -206,7 +203,6 @@ typedef struct playerCharacter
     void renderCharacterViewItems()
     {
         rowcounter = 0;
-        damage_vs_small = 0;
         moveIndex = 0;
 
         if( stopCounter < startCounter+5)
@@ -325,7 +321,7 @@ typedef struct playerCharacter
 
                     RenderText(renderItem.getName(),White,itemBox.x + itemBox.w, itemBox.y, 24);
 
-                    damage_vs_small += renderItem.damage_vs_small;
+                    damage += renderItem.damage;
                 }
                 else
                 {
@@ -485,8 +481,6 @@ typedef struct playerCharacter
         if( current_stats[5] == 19 )
             hitpoints_modifier = 2;
 
-        //hit_dices = level_cleric;
-
         for( int i = 0; i <= hit_dices; i++ )
         {
             calculated_hitpoints += Generate(1,6);
@@ -519,31 +513,6 @@ typedef struct playerCharacter
         }
         return ac_current;
     }
-
-    // remove no class selected
-    std::string getClass()
-    {
-        if( characterClass == 0)
-        return "NO CHARACTER CLASS SELECTED";
-        if( characterClass == 1)
-        return "ASSASSIN";
-        if( characterClass == 2)
-        return "CLERIC";
-        if( characterClass == 3)
-        return "DRUID";
-        if( characterClass == 4)
-        return "FIGHTER";
-        if( characterClass == 5)
-        return "ILLUSIONIST";
-        if( characterClass == 6)
-        return "PALADIN";
-        if( characterClass == 7)
-        return "RANGER";
-        if( characterClass == 8)
-        return "THIEF";
-        if( characterClass == 9)
-        return "MAGIC USER";
-    };
 
     std::string getRace()
     {

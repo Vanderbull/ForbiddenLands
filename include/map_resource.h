@@ -520,7 +520,7 @@ int simulatePlayerRenderDelay = 30;
 int simulatePlayerRenderDelayCounter = 0;
 SDL_Rect SimulatePlayer[10];
 
-void renderMinimap(std::string mapFile, std::string mapName)
+void renderMinimap(std::string mapName)
 {
     if( !std::experimental::filesystem::exists("./data/maps/phlan/phlan.png") )
     {
