@@ -51,8 +51,8 @@ struct utsname uts;
 #include "../version.h"
 
 #include "../include/resource.h"
-#include "../include/world_view.h"
-#include "../include/battle_view.h"
+#include "../include/views/world_view.h"
+#include "../include/views/battle_view.h"
 
 #ifdef WINDOWS
     #include <direct.h>
@@ -492,6 +492,7 @@ int main(int argc, char ** argv)
 
     std::chrono::system_clock::time_point timeNow = std::chrono::system_clock::now();
 
+    loadItemIcons();
     initShop();
     generateSmithShopItems();
     playerCharacter[0].loadCharacterFace();
@@ -746,10 +747,6 @@ int main(int argc, char ** argv)
         else if( activeView == MAIN_MENU )
         {
             MainMenu();
-        }
-        else if(activeView == WILDERNESS)
-        {
-            renderWorldViewB();
         }
         else if(activeView == DUNGEON)
         {

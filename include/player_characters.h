@@ -189,9 +189,8 @@ typedef struct playerCharacter
 
         SDL_SetRenderDrawColor(renderer,128,128,128,255);
         SDL_RenderFillRect(renderer, &infoBox);
-        RenderTextWrapped(renderItem.name_1 + " " + renderItem.name_2 + " " + renderItem.name_3 + "\n" +
+        RenderTextWrapped(renderItem.name + "\n" +
                           "Amount: " + std::to_string(renderItem.amount) + "\n" +
-                          "Bonus: " + std::to_string(renderItem.bonus) + "\n" +
                           "Cursed: " + std::to_string(renderItem.cursed) + "\n" +
                           "Damage: " + std::to_string(renderItem.damage) + "\n" +
                           "Equipped: " + std::to_string(renderItem.equipped) + "\n" +

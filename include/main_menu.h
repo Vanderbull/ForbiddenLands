@@ -7,9 +7,9 @@
 #include <chrono>
 #include <functional>
 #include <ctime>
-#include "renderSaveMenu.h"
-#include "renderLoadMenu.h"
-#include "renderSettings.h"
+#include "../include/renderers/renderSaveMenu.h"
+#include "../include/renderers/renderLoadMenu.h"
+#include "../include/renderers/renderSettings.h"
 
 void MainMenu()
 {

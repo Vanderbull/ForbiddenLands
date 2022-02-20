@@ -337,7 +337,7 @@ void navigationButtons()
     renderQuests();
 };
 
-// Should preload all sthe images here to speedup framerate
+// Should preload all the images here to speedup framerate
 
 void loadMapTextures()
 {
@@ -428,87 +428,31 @@ std::string generateImagePath()
 
 void renderMinimapCharacterLocation()
 {
-        gRect.x = PlayerCoordinate.x*16 + OFFSET;
-        gRect.y = PlayerCoordinate.y*16 + OFFSET;
-        gRect.h = 16;
-        gRect.w = 16;
+    gRect.x = PlayerCoordinate.x*16 + OFFSET;
+    gRect.y = PlayerCoordinate.y*16 + OFFSET;
+    gRect.h = 16;
+    gRect.w = 16;
 
-        if( Rotation == "N")
-        {
-            SDL_RenderCopy(renderer, North, NULL, &gRect);
-        }
-        if( Rotation == "E")
-        {
-            SDL_RenderCopy(renderer, East, NULL, &gRect);
-        }
-        if( Rotation == "S")
-        {
-            SDL_RenderCopy(renderer, South, NULL, &gRect);
-        }
-        if( Rotation == "W")
-        {
-            SDL_RenderCopy(renderer, West, NULL, &gRect);
-        }
+    if( Rotation == "N")
+    {
+        SDL_RenderCopy(renderer, North, NULL, &gRect);
+    }
+    if( Rotation == "E")
+    {
+        SDL_RenderCopy(renderer, East, NULL, &gRect);
+    }
+    if( Rotation == "S")
+    {
+        SDL_RenderCopy(renderer, South, NULL, &gRect);
+    }
+    if( Rotation == "W")
+    {
+        SDL_RenderCopy(renderer, West, NULL, &gRect);
+    }
 }
 
-
-void renderWorldViewA()
+void renderFaces()
 {
-    std::string location = generateImagePath();
-
-    if( PlayerCoordinate.x > 15 )
-    {
-        std::cout << "There was some strange error please check" << std::endl;
-        exit(16);
-    }
-
-    int z = 0;
-    if(Rotation == "N")
-        z= 0;
-    if(Rotation == "S")
-        z= 1;
-    if(Rotation == "W")
-        z = 2;
-    if(Rotation == "E")
-        z=3;
-    //currentViewTexture = LoadTexture(location.c_str(),255);
-    //std::cout << location << " = " << mapTextureFile[PlayerCoordinate.x][PlayerCoordinate.y][z] << std::endl;
-
-    SDL_RenderCopy(renderer, mapTexture[PlayerCoordinate.x][PlayerCoordinate.y][z], NULL, NULL);
-    //SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
-    //SDL_DestroyTexture(currentViewTexture);
-
-    renderCompass();
-
-    if(minimapActive)
-    {
-        renderMinimap(mapActive);
-        renderMinimapCharacterLocation();
-    }
-
-    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter )
-    {
-        std::string zeros = "";
-        if( frame > 110 )
-            frame = 0;
-        if( frame < 10 )
-            zeros = "000";
-        else if( frame < 100 )
-            zeros = "00";
-        else
-            zeros = "0";
-        std::string frameCount = zeros + std::to_string(frame++);
-        //swatTexture = LoadTexture("./images/swat/swat" + frameCount + ".png",255);
-        //SDL_RenderCopy(renderer, swatTexture, NULL, NULL);
-        //SDL_DestroyTexture(swatTexture);
-    }
-
-    if( activeView != BATTLE )
-    {
-        navigationButtons();
-        adventureMenu();
-    }
-
     SDL_Rect faceBox[6];
     faceBox[0] = {500 + 110,current.h - 165,105,165};
     faceBox[1] = {500 + 110*2,current.h - 165,105,165};
@@ -544,19 +488,10 @@ void renderWorldViewA()
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255,128);
     SDL_RenderDrawRect(renderer, &faceBox[playerCharacterSelected]);
+}
 
-    if( lootDropped )
-    {
-        save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot = lootDropped;
-        resetLootDropped();
-    }
-
-    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot )
-    {
-        RenderText("LOOT HERE!!",Green,600,0,48);
-    }
-
-
+void renderDaytime()
+{
     if( activeView == DUNGEON && viewingCharacter == 0)
     {
         SDL_Rect dayTimeBox = {current.w - 1150,25,50,50};
@@ -580,55 +515,65 @@ void renderWorldViewA()
 
         RenderText("Season: " + cweather_engine.get_season(), White, current.w - 1050,100,24);
         RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 1050,124,24);
-        //RenderText("Time of day: " + getTimeOfDay(),White, current.w - 1050, 148,24);
         RenderText("currentTime: " + std::to_string(currentTime),White, current.w - 1050, 170,24);
         RenderText("currentDay: " + std::to_string(currentDay),White, current.w - 1050, 190,24);
     }
-};
+}
 
-void renderWorldViewB()
+void renderWorldViewA()
 {
     std::string location = generateImagePath();
 
-    currentViewTexture = LoadTexture(location.c_str(),255);
-    SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
-    SDL_DestroyTexture(currentViewTexture);
-
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-
-    SDL_Rect minimapBackground = {15,15, 320,320};
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255,192);
-    SDL_RenderFillRect(renderer, &minimapBackground);
-
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0,192);
-    SDL_RenderFillRect(renderer, &minimapBackground);
-
-    if(minimapActive)
+    if( PlayerCoordinate.x > 15 )
     {
-        renderMinimap(mapActive);
-        renderMinimapCharacterLocation();
+        std::cout << "There was some strange error please check" << std::endl;
+        exit(16);
     }
 
-    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter )
+    int z = 0;
+    if(Rotation == "N")
+        z= 0;
+    if(Rotation == "S")
+        z= 1;
+    if(Rotation == "W")
+        z = 2;
+    if(Rotation == "E")
+        z=3;
+    //currentViewTexture = LoadTexture(location.c_str(),255);
+    //std::cout << location << " = " << mapTextureFile[PlayerCoordinate.x][PlayerCoordinate.y][z] << std::endl;
+
+    SDL_RenderCopy(renderer, mapTexture[PlayerCoordinate.x][PlayerCoordinate.y][z], NULL, NULL);
+    //SDL_RenderCopy(renderer, currentViewTexture, NULL, NULL);
+    //SDL_DestroyTexture(currentViewTexture);
+
+    if( activeView != BATTLE )
     {
-        std::string zeros = "";
-        if( frame > 110 )
-            frame = 0;
-        if( frame < 10 )
-            zeros = "000";
-        else if( frame < 100 )
-            zeros = "00";
-        else
-            zeros = "0";
-        std::string frameCount = zeros + std::to_string(frame++);
-        swatTexture = LoadTexture("./images/swat/swat" + frameCount + ".png",255);
-        SDL_RenderCopy(renderer, swatTexture, NULL, NULL);
-        SDL_DestroyTexture(swatTexture);
+        renderCompass();
+
+        if(minimapActive)
+        {
+            renderMinimap(mapActive);
+            renderMinimapCharacterLocation();
+        }
+        navigationButtons();
+        adventureMenu();
     }
 
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+    renderFaces();
 
-    adventureMenu();
+    // add a item array for storqge of dropped loot here
+    if( lootDropped )
+    {
+        save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot = lootDropped;
+        resetLootDropped();
+    }
+
+    if( save_portals[PlayerCoordinate.x][PlayerCoordinate.y].droppedLoot )
+    {
+        RenderText("LOOT HERE!!",Green,600,0,48);
+    }
+
+    renderDaytime();
 };
 
 #endif

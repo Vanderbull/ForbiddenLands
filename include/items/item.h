@@ -3,487 +3,47 @@
 
 struct items
 {
+    // item types
+    enum {ARMOUR,SHIELD,MISCELLANEOUS,POTION,RING,SCROLL,WEAPON};
+
     std::string icon = "./icons/uiAtlas/ui_game_symbol_other.png";
-    std::string name_1 = "";
-    std::string name_2 = "";
-    std::string name_3 = "";
+    std::string name;
+    std::string description = "a very generic type of item";
     int unidentified = 0;
     int type = 0;
-    int bonus = 0;
-    int armour_class = 0;
     int cursed = 0;
     int amount = 0;
     int weight = 0;
-    int value = 0;
+
     int equipped = 0;
     int damage = 0;
 
-    bool ammo = false;
+    bool edible = false;
+    int calories = 0;
 
-    bool ArmourAndShield = false;
-    bool MiscellaneousMagic = false;
-    bool MiscellaneousWeapons = false;
-    bool Potions = false;
-    bool Rings = false;
-    bool RodsStavesAndWands = false;
-    bool Scrolls = false;
-    bool Swords = false;
+    bool equipable = false;
+    int slot = 0;
+    int armour_class = 0;
+
+    bool sellable = false;
+    int value = 0;
+
     items()
     {
         value = Generate(0,256);
         amount = Generate(0,256);
-        // MASTER MAGIC ITEM TABLES
-        switch( Generate(0,7) )
-        {
-        case 0:
-            {
-                ArmourAndShield = true;
-                // FORM
-                switch( Generate(0,8) )
-                {
-                    case 0:
-                    {
-                        name_1 = "Banded";
-                    } break;
-                    case 1:
-                    {
-                        name_1 = "Chain Mail";
-                    } break;
-                    case 2:
-                    {
-                        name_1 = "Leather";
-                    } break;
-                    case 3:
-                    {
-                        name_1 = "Plate Mail";
-                    } break;
-                    case 4:
-                    {
-                        name_1 = "Ring Mail";
-                    } break;
-                    case 5:
-                    {
-                        name_1 = "Splinted";
-                    } break;
-                    case 6:
-                    {
-                        name_1 = "Scale Mail";
-                    } break;
-                    case 7:
-                    {
-                        name_1 = "Studded Leather";
-                    } break;
-                    case 8:
-                    {
-                        name_1 = "Shield";
-                    } break;
-                };
-                //PROPERTIES
-                switch( Generate(0,5) )
-                {
-                    case 0:
-                    {
-                        name_2 = "+1";
-                        bonus = 1;
-                        armour_class = 1;
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "+2";
-                        bonus = 2;
-                        armour_class = 2;
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "+3";
-                        bonus = 3;
-                        armour_class = 3;
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "+4/+5";
-                        bonus = 4;
-                        armour_class = 4;
-                    } break;
-                    case 4:
-                    {
-                        name_2 = "Cursed";
-                        cursed = 1;
-                        armour_class = -1;
-                    } break;
-                    case 5:
-                    {
-                        name_2 = "Special";
-                        armour_class = 5;
-                    } break;
-                };
-            }break;
-        case 1:
-            {
-                MiscellaneousMagic = true;
-               switch( Generate(0,4) )
-                {
-                    case 0:
-                    {
-                        name_1 = "Common";
-                    } break;
-                    case 1:
-                    {
-                        name_1 = "Less Common";
-                    } break;
-                    case 2:
-                    {
-                        name_1 = "Uncommon";
-                    } break;
-                    case 3:
-                    {
-                        name_1 = "Rare";
-                    } break;
-                };
-               switch( Generate(0,5) )
-                {
-                    case 0:
-                    {
-                        name_2 = "Incense of Meditation";
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "Javelin of the Raptor";
-                        damage = 6;
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "Thunder Spear";
-                        damage = 6;
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "Boots of Elvenkind";
-                    } break;
-                    case 4:
-                    {
-                        name_2 = "Candle of Invocation";
-                    } break;
-                    case 5:
-                    {
-                        name_2 = "Dust of Appearance";
-                    } break;
-                };
-            }break;
-        case 2:
-            {
-            MiscellaneousWeapons = true;
-               switch( Generate(0,3) )
-                {
-                    case 0:
-                    {
-                        name_1 = "Arrow";
-                        damage = 6;
-                    } break;
-                    case 1:
-                    {
-                        name_1 = "Axe";
-                        damage = 6;
-                    } break;
-                    case 2:
-                    {
-                        name_1 = "Bolt";
-                        damage = 6;
-                    } break;
-                    case 3:
-                    {
-                        name_1 = "Bow";
-                        damage = 6;
-                    } break;
-                };
-                //PROPERTIES
-                switch( Generate(0,5) )
-                {
-                    case 0:
-                    {
-                        name_2 = "+1";
-                        bonus = 1;
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "+2";
-                        bonus = 2;
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "+3";
-                        bonus = 3;
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "+4/+5";
-                        bonus = 4;
-                    } break;
-                    case 4:
-                    {
-                        name_2 = "Cursed";
-                        cursed = 1;
-                    } break;
-                    case 5:
-                    {
-                        name_2 = "Special";
-                    } break;
-                };
-            }break;
-        case 3:
-            {
-            Potions = true;
-               switch( Generate(0,3) )
-                {
-                    case 0:
-                    {
-                        name_1 = "Potion";
-                    } break;
-                    case 1:
-                    {
-                        name_1 = "Potion";
-                    } break;
-                    case 2:
-                    {
-                        name_1 = "Potion";
-                    } break;
-                    case 3:
-                    {
-                        name_1 = "Potion";
-                    } break;
-                };
-                //PROPERTIES
-                switch( Generate(0,5) )
-                {
-                    case 0:
-                    {
-                        name_2 = "+1";
-                        bonus = 1;
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "+2";
-                        bonus = 2;
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "+3";
-                        bonus = 3;
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "+4/+5";
-                        bonus = 4;
-                    } break;
-                    case 4:
-                    {
-                        name_2 = "Cursed";
-                        cursed = 1;
-                    } break;
-                    case 5:
-                    {
-                        name_2 = "Special";
-                    } break;
-                };
-            }break;
-        case 4:
-            {
-            Rings = true;
-            //FORM
-            name_1 = "Ring";
-
-                //PROPERTIES
-                switch( Generate(0,5) )
-                {
-                    case 0:
-                    {
-                        name_2 = "Charisma";
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "Feather Falling";
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "Fire Resistance";
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "Free Action";
-                    } break;
-                    case 4:
-                    {
-                        name_2 = "Genie Summoning";
-                        cursed = 1;
-                    } break;
-                    case 5:
-                    {
-                        name_2 = "Invisibility";
-                    } break;
-                };
-            }break;
-        case 5:
-            {
-            RodsStavesAndWands = true;
-            name_1 = "";
-
-                //PROPERTIES
-                switch( Generate(0,5) )
-                {
-                    case 0:
-                    {
-                        name_2 = "Rod of Absorption";
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "Rod of Cancellation";
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "Rod of Captivation";
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "Rod of Lordly Might";
-                    } break;
-                    case 4:
-                    {
-                        name_2 = "Rod of Resurrection";
-                        cursed = 1;
-                    } break;
-                    case 5:
-                    {
-                        name_2 = "Rod of Rulership";
-                    } break;
-                };
-            }break;
-        case 6:
-            {
-            Scrolls = true;
-            // TYPE
-               switch( Generate(0,2) )
-                {
-                    case 0:
-                    {
-                        name_1 = "Spell";
-                    } break;
-                    case 1:
-                    {
-                        name_1 = "Protection";
-                    } break;
-                    case 2:
-                    {
-                        name_1 = "Cursed";
-                    } break;
-                };
-                //SPELLS
-                switch( Generate(0,3) )
-                {
-                    case 0:
-                    {
-                        name_2 = "Cleric";
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "Druid";
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "Illusionist";
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "Magic User";
-                    } break;
-                };
-            }break;
-        case 7:
-            {
-                Swords = true;
-
-                first_property();
-
-                //PROPERTIES
-                switch( Generate(0,5) )
-                {
-                    case 0:
-                    {
-                        name_2 = "+1";
-                        bonus = 1;
-                    } break;
-                    case 1:
-                    {
-                        name_2 = "+2";
-                        bonus = 2;
-                    } break;
-                    case 2:
-                    {
-                        name_2 = "+3";
-                        bonus = 3;
-                    } break;
-                    case 3:
-                    {
-                        name_2 = "+4/+5";
-                        bonus = 4;
-                    } break;
-                    case 4:
-                    {
-                        name_2 = "Cursed";
-                        cursed = 1;
-                    } break;
-                    case 5:
-                    {
-                        name_2 = "Special";
-                    } break;
-                };
-            }break;
-        };
-    };
-
-    items( int aValue )
-    {
-        name_1 = "WATER GOT DAMN IT";
-    };
-
-    void first_property()
-    {
-        if( Swords == true )
-        switch( Generate(0,3) )
-        {
-            case 0:
-            {
-                name_1 = "Bastard Sword";
-                        damage = 6;
-            } break;
-            case 1:
-            {
-                name_1 = "Broadsword";
-                        damage = 6;
-            } break;
-            case 2:
-            {
-                name_1 = "Longsword";
-                        damage = 6;
-            } break;
-            case 3:
-            {
-                name_1 = "Shortsword";
-                        damage = 6;
-            } break;
-        };
     };
 
     std::string getName()
     {
-        return name_1 + " " + name_2 + " " + name_3;
+        return name;
     };
 
     friend std::ostream& operator <<(std::ostream& os, items const& a)
     {
-        return os << a.name_1 << " " << a.name_2 << " " << a.name_3 << ' '
+        return os << a.name << ' '
                   << a.unidentified << ' '
                   << a.type << ' '
-                  << a.bonus << ' '
                   << a.armour_class << ' '
                   << a.cursed << ' '
                   << a.amount << ' '
@@ -498,15 +58,15 @@ struct food : items
     food()
     {
         std::string icon = "./icons/items/food.png";
-        name_1 = "food";
+        name = "food";
         unidentified = 0;
         cursed = 0;
         weight = 0;
         value = 0;
     };
-    food(std::string name_1,std::string name_2,std::string name_3)
+    food(std::string iName)
     {
-
+        name = iName;
     }
 };
 
@@ -515,8 +75,13 @@ struct armour : items
     armour()
     {
         std::string icon = "./icons/items/armour.png";
-        name_1 = "armour";
+        name = "armour";
     };
+    armour(std::string iName)
+    {
+        name = iName;
+    }
+
 };
 
 struct weapon : items
@@ -524,8 +89,12 @@ struct weapon : items
     weapon()
     {
         std::string icon = "./icons/items/weapon.png";
-        name_1 = "weapon";
+        name = "weapon";
     };
+    weapon(std::string iName)
+    {
+        name = iName;
+    }
 };
 
 struct scroll : items
@@ -533,8 +102,12 @@ struct scroll : items
     scroll()
     {
         std::string icon = "./icons/items/scroll.png";
-        name_1 = "scroll";
+        name = "scroll";
     };
+    scroll(std::string iName)
+    {
+        name = iName;
+    }
 };
 
 struct book : items
@@ -542,8 +115,12 @@ struct book : items
     book()
     {
         std::string icon = "./icons/items/potion.png";
-        name_1 = "book";
+        name = "book";
     };
+    book(std::string iName)
+    {
+        name = iName;
+    }
 };
 
 struct potion : items
@@ -551,17 +128,45 @@ struct potion : items
     potion()
     {
         std::string icon = "./icons/items/potion.png";
-        name_1 = "potion";
+        name = "potion";
     };
+    potion(std::string iName)
+    {
+        name = iName;
+    }
 };
-items gameItems[100];
+
+std::vector<items> gameItems;
 
 void loadItemIcons()
 {
-    for( int i = 0; i < 100; i++ )
+  string line;
+  int counter = 0;
+  ifstream myfile ("soundbible.org");
+  if (myfile.is_open())
+  {
+    while ( getline (myfile,line) )
     {
-        gameItems[i].icon = "";
-    };
+        if (line.length() == 0 || line[0] == '#')
+        {
+        }
+        else
+        {
+            cout << line << '\n';
+            counter++;
+        }
+    }
+    myfile.close();
+  }
+  else
+    throw runtime_error("File Not Found!");
+
+
+    gameItems.push_back(weapon("Dagger"));
+    gameItems.push_back(weapon("Club"));
+    gameItems.push_back(weapon("Spike club"));
+    gameItems.push_back(weapon("Shortsword"));
+
 };
 
 struct trader
@@ -572,10 +177,10 @@ struct trader
     {
         for( int i = 0; i < 10; i++ )
         {
-            switch( Generate(0,6) )
+            switch( Generate(0,7) )
             {
             case 0:
-                traderItems.push_back(food("foodoro","",""));
+                traderItems.push_back(food("Meat and turnips"));
                 break;
             case 1:
                 traderItems.push_back(armour());
@@ -591,6 +196,9 @@ struct trader
                 break;
             case 5:
                 traderItems.push_back(potion());
+                break;
+            case 6:
+                traderItems.push_back(gameItems.at(0));
                 break;
             }
         }

@@ -22,7 +22,7 @@
 #include "skilltree/skilltree.h"
 
 
-#include "render.h"
+#include "../include/renderers/render.h"
 #include "boat.h"
 
 npcEngine NPCs;

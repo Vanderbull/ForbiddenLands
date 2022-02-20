@@ -75,7 +75,6 @@ struct npcEngine
 
     npcEngine()
     {
-        // why not simply load all the images here?
         enemyImages.clear();
         enemyImages.push_back("./data/monsters/001_goblin_guard-0.png");
         enemyImages.push_back("./data/monsters/002_goblin_leader-0.png");
