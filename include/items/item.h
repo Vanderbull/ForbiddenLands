@@ -177,28 +177,25 @@ struct trader
     {
         for( int i = 0; i < 10; i++ )
         {
-            switch( Generate(0,7) )
+            switch( Generate(0,6) )
             {
             case 0:
                 traderItems.push_back(food("Meat and turnips"));
                 break;
             case 1:
-                traderItems.push_back(armour());
+                traderItems.push_back(armour("armour"));
                 break;
             case 2:
-                traderItems.push_back(weapon());
+                traderItems.push_back(weapon("weapon"));
                 break;
             case 3:
-                traderItems.push_back(scroll());
+                traderItems.push_back(scroll("scroll"));
                 break;
             case 4:
-                traderItems.push_back(book());
+                traderItems.push_back(book("book"));
                 break;
             case 5:
-                traderItems.push_back(potion());
-                break;
-            case 6:
-                traderItems.push_back(gameItems.at(0));
+                traderItems.push_back(potion("potion"));
                 break;
             }
         }

@@ -56,8 +56,10 @@ void renderSmithShop()
         }
     }
 
+    std::cout << "Error?" << std::endl;
     for( int i = 0; i < traders[0].traderItems.size(); i++ )
     {
+        std::cout << traders[0].traderItems.at(i).getName() << std::endl;
         RenderText(traders[0].traderItems.at(i).getName() +  " value: " + std::to_string(traders[0].traderItems.at(i).value),White,0 ,i * 30,24);
     }
 
