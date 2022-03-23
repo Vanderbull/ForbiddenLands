@@ -1,4 +1,7 @@
 # FORBIDDEN LANDS
+## Coding rules
+All locall developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
+merging development commits. Updates of readme will for now be commited direcly to the main branch just for testing.
 
 ## Shops & Traders
 
@@ -477,7 +480,9 @@ On Ubuntu, you can install the dependencies with these two commands:
 
 - sudo apt install graphviz
 - sudo apt install python3-pip
-- pip3 install -r requirements.txt
+- ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master
+    - pip3 install -r requirements.txt
+- ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master
 - pip install graphviz
 
 Manual
