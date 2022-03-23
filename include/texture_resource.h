@@ -13,4 +13,9 @@ SDL_Texture* gTexture;
 SDL_Texture* mapTexture[16][16][4];
 std::string mapTextureFile[16][16][4];
 
+SDL_Texture* MainMenuBackgroundTexture;
+
+TTF_Font* gameTitleFont;
+TTF_Font* gameBreadTextFont;
+
 #endif

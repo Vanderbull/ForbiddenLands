@@ -11,33 +11,24 @@
 #include "../include/renderers/renderLoadMenu.h"
 #include "../include/renderers/renderSettings.h"
 
+bool MainMenuLoadBackground( std::string imageFile )
+{
+    MainMenuBackgroundTexture = NULL;
+    MainMenuBackgroundTexture = LoadTexture(imageFile.c_str(),255);
+    return true;
+};
+
+void initMainMenu()
+{
+
+};
+
 void MainMenu()
 {
-    renderBackground("./images/menus/mainmenu.jpg");
-    renderVersion();
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, MainMenuBackgroundTexture, NULL, NULL);
 
-    RenderText2("FORBIDDEN LANDS",White,current.w / 2,200,160);
-
-    mouseUpdate();
-
-    if(looping == 0)
-    {
-        Mix_Music *music;
-        music=Mix_LoadMUS("soundbible/pool_of_radiance_theme.ogg");
-        if(!music)
-        {
-            printf("soundbible/pool_of_radiance_theme.ogg: %s\n", Mix_GetError());
-        }
-
-        if(Mix_PlayMusic(music, -1)==-1)
-        {
-            printf("Mix_PlayMusic: %s\n", Mix_GetError());
-        }
-    }
-
-    looping = 1;
-
-    SDL_Rect menuBackgroundRectangle = {0,0,current.w,current.h};
+    RenderTitle("FORBIDDEN LANDS",White,current.w / 2,200);
 
     int Repeat = 0;
     int buttonWidth = 600;
@@ -52,7 +43,7 @@ void MainMenu()
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(renderer,&buttonPosition);
 
-        RenderText2(MenuChoice.c_str(), White, buttonPosition.x + (buttonWidth / 2),buttonPosition.y + (buttonHeight / 2),24);
+        RenderBreadText(MenuChoice.c_str(), White, buttonPosition.x + (buttonWidth / 2),buttonPosition.y + (buttonHeight / 2));
 
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -117,7 +108,6 @@ void MainMenu()
         }
         ++Repeat;
     }
-
 
     if( SettingsMenu == 1 )
     {

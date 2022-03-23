@@ -282,7 +282,7 @@ int main(int argc, char ** argv)
 
     //return resu + client_stuff_return_code; // the result from doctest is propagated here as well
 
-    SDL_Delay(10000);
+    //SDL_Delay(10000);
 
 
 
@@ -550,11 +550,17 @@ int main(int argc, char ** argv)
     playerCharacter[5].loadCharacterFace();
 
     loadPCstatusData();
-    loadMapTextures();
+    //loadMapTextures();
+    MainMenuLoadBackground("./images/menus/mainmenu.jpg");
+    initGameTitleFont("./font/droid-sans-mono/DroidSansMono.ttf", 160);
+    initGameBreadTextFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+
     std::cout << "Loading finished" << std::endl;
+
     while (!quit)
     {
         start = high_resolution_clock::now();
+
         for( int i=0; i < 6; i++ )
         {
             playerCharacter[i].update();
@@ -786,6 +792,7 @@ int main(int argc, char ** argv)
         }
 
         m_uPreviousMouseState=m_uCurrentMouseState;
+        mouseUpdate();
 
         if( activeView == BATTLE )
         {
@@ -793,6 +800,7 @@ int main(int argc, char ** argv)
         }
         else if( activeView == MAIN_MENU )
         {
+
             MainMenu();
         }
         else if(activeView == DUNGEON)

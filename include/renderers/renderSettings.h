@@ -12,8 +12,13 @@ int x,y = 0;
 int triggered = 0;
 void renderSettings()
 {
-    renderBackground("./images/menus/mainmenu.jpg");
-    RenderText("SETTINGS",White,140,180,48);
+    //renderBackground("./images/menus/mainmenu.jpg");
+    //RenderText("SETTINGS",White,140,180,48);
+
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, MainMenuBackgroundTexture, NULL, NULL);
+
+    RenderTitle("SETTINGS",White,500,180);
 
     static int display_in_use = 0; /* Only using first display */
 
@@ -22,13 +27,15 @@ void renderSettings()
     Uint32 f;
     SDL_Rect aButton;
 
-    SDL_Log("SDL_GetNumVideoDisplays(): %i", SDL_GetNumVideoDisplays());
+    //SDL_Log("SDL_GetNumVideoDisplays(): %i", SDL_GetNumVideoDisplays());
 
     display_mode_count = SDL_GetNumDisplayModes(display_in_use);
-    if (display_mode_count < 1) {
+
+    if (display_mode_count < 1)
+    {
         SDL_Log("SDL_GetNumDisplayModes failed: %s", SDL_GetError());
     }
-    SDL_Log("SDL_GetNumDisplayModes: %i", display_mode_count);
+    //SDL_Log("SDL_GetNumDisplayModes: %i", display_mode_count);
 
     for (i = 0; i < display_mode_count; ++i)
     {
@@ -40,7 +47,7 @@ void renderSettings()
 
         if( last_display_mode.w != mode.w )
         {
-            aButton = {current.w - 400,210+i*50,500,40};
+            aButton = {current.w - 800,210+i*50,750,40};
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &aButton);
         }
@@ -52,7 +59,6 @@ void renderSettings()
             SDL_PumpEvents();
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                loadedBackground = false;
                 loadedBackground = false;
 
                 std::string Resolution = "";
@@ -87,7 +93,9 @@ void renderSettings()
             ResolutionText += " ( ";
             ResolutionText += std::to_string(SDL_BITSPERPIXEL(f));
             ResolutionText += " ) ";
-            RenderText(ResolutionText.c_str(),Red,300,0,48);
+
+            //RenderBreadText(ResolutionText.c_str(),Red,300,0);
+            //RenderText(ResolutionText.c_str(),Red,300,0,48);
         }
 
         if( last_display_mode.w != mode.w )
@@ -102,7 +110,9 @@ void renderSettings()
             ResolutionText += " ( ";
             ResolutionText += std::to_string(SDL_BITSPERPIXEL(f));
             ResolutionText += " ) ";
-            RenderText(ResolutionText.c_str(),Red,current.w - 400,210+i*50,fontSize);
+
+            RenderBreadText(ResolutionText.c_str(),White,aButton.x + (aButton.w / 2),aButton.y + (aButton.h / 2));
+            //RenderText(ResolutionText.c_str(),Red,current.w - 400,210+i*50,fontSize);
         }
         last_display_mode = mode;
     }
@@ -148,7 +158,9 @@ void renderSettings()
             SettingsMenu = 0;
         }
     }
-    RenderText("Exit",White,current.w - 150,current.h - 50,fontSize);
+
+    RenderBreadText("Exit",White,ExitButton.x + (ExitButton.w / 2),ExitButton.y + (ExitButton.h / 2) );
+    //RenderText("Exit",White,current.w - 150,current.h - 50,fontSize);
 };
 
 #endif // RENDER_SETTINGS_H

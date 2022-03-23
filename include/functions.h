@@ -93,6 +93,50 @@ int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int
     return 0;
 }
 
+void initGameTitleFont(std::string file, int fontSize)
+{
+    gameTitleFont = TTF_OpenFont(file.c_str(), fontSize);
+};
+
+void initGameBreadTextFont(std::string file, int fontSize)
+{
+    gameBreadTextFont = TTF_OpenFont(file.c_str(), fontSize);
+};
+
+int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY)
+{
+    gSurface = TTF_RenderText_Blended(gameTitleFont, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    return 0;
+}
+
+int RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY)
+{
+    gSurface = TTF_RenderText_Blended(gameBreadTextFont, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    return 0;
+}
+
 int RenderText2(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
