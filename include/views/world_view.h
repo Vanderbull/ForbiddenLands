@@ -345,50 +345,54 @@ void loadMapTextures()
     std::string fileType = ".png";
 
     for(int x = 0; x < 16; x++ )
-    for(int y = 0; y < 16; y++ )
-    for(int z = 0; z < 4; z++ )
     {
-    location = "";
-    room = "";
-    position = "";
+        for(int y = 0; y < 16; y++ )
+        {
+            for(int z = 0; z < 4; z++ ) // ESWN directions
+            {
+                location = "";
+                room = "";
+                position = "";
 
-    location += "./images/test_map/";
-    room  = "";
+                location += "./images/test_map/";
+                room  = "";
 
-    if(x < 10)
-    {
-        room += "0";
-    }
+                if(x < 10)
+                {
+                    room += "0";
+                }
 
-    room += std::to_string(x);
+                room += std::to_string(x);
 
-    if(y < 10)
-    {
-        room += "0";
-    }
+                if(y < 10)
+                {
+                    room += "0";
+                }
 
-    room += std::to_string(y);
+                room += std::to_string(y);
 
-    position = room;
-    room += "/";
+                position = room;
+                room += "/";
 
-    room += position;
-    location += position;
+                room += position;
+                location += position;
 
-    //location += Rotation;
-    if(z == 0)
-        location += "N";
-    if(z == 1)
-        location += "S";
-    if(z == 2)
-        location += "W";
-    if(z == 3)
-        location += "E";
+                //location += Rotation;
+                if(z == 0)
+                    location += "N";
+                if(z == 1)
+                    location += "S";
+                if(z == 2)
+                    location += "W";
+                if(z == 3)
+                    location += "E";
 
-    location += fileType;
-    std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
-    mapTextureFile[x][y][z] = location;
-    mapTexture[x][y][z] = LoadTexture(location.c_str(),255);
+                location += fileType;
+                //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
+                mapTextureFile[x][y][z] = location;
+                mapTexture[x][y][z] = LoadTexture(location.c_str(),255);
+            }
+        }
     }
 };
 
