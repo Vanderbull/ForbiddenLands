@@ -1028,7 +1028,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1648048760 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1648051047 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<cassert>
 	<ctime>
 	<iostream>
@@ -1110,14 +1110,14 @@
 	"../include/renderers/render.h"
 	"boat.h"
 
-1648048504 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
+1648051047 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
 	<cstdlib>
 	<random>
 	"texture_resource.h"
 
-1648048159 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
+1648051047 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
-1645439798 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
+1648051639 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
 	<bits/stdc++.h>
 	<chrono>
 	"colors.h"
@@ -1143,16 +1143,17 @@
 1645276151 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/map_resource.h
 	"common.h"
 
-1643224224 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/menu_resource.h
+1648051558 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/menu_resource.h
 	<iostream>
 	<fstream>
 	<thread>
 	<chrono>
 	<functional>
 	<ctime>
+	"renderers/renderCharacterCreation.h"
 	"main_menu.h"
 
-1648048841 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
+1648051047 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1357,7 +1358,7 @@
 	<functional>
 	<ctime>
 
-1648050155 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderers/renderSettings.h
+1648051047 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderers/renderSettings.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1489,4 +1490,12 @@
 	<io.h>
 	<sys/time.h>
 	<unistd.h>
+
+1648051916 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/renderers/renderCharacterCreation.h
+	<iostream>
+	<fstream>
+	<thread>
+	<chrono>
+	<functional>
+	<ctime>
 

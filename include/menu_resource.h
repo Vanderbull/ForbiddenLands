@@ -8,6 +8,7 @@
 #include <functional>
 #include <ctime>
 
+#include "renderers/renderCharacterCreation.h"
 #include "main_menu.h"
 
 bool Initialize(void)
