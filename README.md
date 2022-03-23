@@ -1,4 +1,7 @@
 # FORBIDDEN LANDS
+## Coding rules
+All locall developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
+merging development commits. Updates of readme will for now be commited direcly to the main branch just for testing.
 
 ## Shops & Traders
 
