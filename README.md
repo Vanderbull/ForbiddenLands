@@ -480,7 +480,9 @@ On Ubuntu, you can install the dependencies with these two commands:
 
 - sudo apt install graphviz
 - sudo apt install python3-pip
-- pip3 install -r requirements.txt
+- ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master
+    - pip3 install -r requirements.txt
+- ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master
 - pip install graphviz
 
 Manual
