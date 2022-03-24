@@ -59,6 +59,23 @@ Mix_Chunk *gPunch = NULL;
 
 bool turnActive = true;
 
+void testInit()
+{
+    playerCharacter[0].hitpoints_max = 100;
+    playerCharacter[1].hitpoints_max = 100;
+    playerCharacter[2].hitpoints_max = 100;
+    playerCharacter[3].hitpoints_max = 100;
+    playerCharacter[4].hitpoints_max = 100;
+    playerCharacter[5].hitpoints_max = 100;
+
+    playerCharacter[0].hitpoints_current = 100;
+    playerCharacter[1].hitpoints_current = 100;
+    playerCharacter[2].hitpoints_current = 100;
+    playerCharacter[3].hitpoints_current = 100;
+    playerCharacter[4].hitpoints_current = 100;
+    playerCharacter[5].hitpoints_current = 100;
+};
+
 void battleView()
 {
     if( playerCharacter[0].getHitpoints() <= 0 )
@@ -173,95 +190,113 @@ void battleView()
     RenderText("HEALING", White, actionButton[3].x, actionButton[3].y,20);
     RenderText("SKIP", White, actionButton[4].x, actionButton[4].y,20);
 
+    if( SDL_PointInRect(&mousePosition, &actionButton[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        RenderText("ATTACKING!!!!! ", White, 500, 500,48);
+    }
+    if( SDL_PointInRect(&mousePosition, &actionButton[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        RenderText("SPELLING!!!!! ", White, 500, 500,48);
+    }
+    if( SDL_PointInRect(&mousePosition, &actionButton[2]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        RenderText("FLEEING!!!!! ", White, 500, 500,48);
+        activeView = DUNGEON;
+        initBattleFlag = 0;
+    }
+    if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        RenderText("HEALING!!!!! ", White, 500, 500,48);
+    }
+    if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        RenderText("SKIPINg!!!!! ", White, 500, 500,48);
+    }
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &character[playerCharacterSelected]);
     SDL_RenderDrawRect(renderer, &NPCs.NPC[npc_active].SDL_Rectangle);
 
-    if( !HOLD && character_action[playerCharacterSelected] == 1)
-    if( SDL_PointInRect(&mousePosition, &actionButton[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton[0]);
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            HOLD = true;
-            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
-            // damage player
-            playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
-            character_action[playerCharacterSelected] = 0;
-            fadeSize = 25;
-            SDL_Delay(45);
-            character_action[playerCharacterSelected] = 0;
-        }
-    }
-    if( !HOLD && character_action[playerCharacterSelected] == 1)
-    if( SDL_PointInRect(&mousePosition, &actionButton[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton[1]);
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            HOLD = true;
-            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
-            // damage player
-            playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
-            character_action[playerCharacterSelected] = 0;
-            fadeSize = 25;
-            SDL_Delay(45);
-            character_action[playerCharacterSelected] = 0;
-        }
-    }
-    if( SDL_PointInRect(&mousePosition, &actionButton[2]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton[2]);
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-                activeView = DUNGEON;
-                initBattleFlag = 0;
-        }
-    }
-
-    // Healing potion quaff
-    if( playerCharacter[playerCharacterSelected].getHitpoints() < playerCharacter[playerCharacterSelected].hitpoints_max )
-    {
-        if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-        {
-            SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-            SDL_RenderFillRect(renderer, &actionButton[3]);
-            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-            {
-                if( character_action[playerCharacterSelected] > 0)
-                if( playerCharacter[playerCharacterSelected].healingPotions > 0 )
-                {
-                    playerCharacter[playerCharacterSelected].healingPotions -= 1;
-                    cureLightWounds();
-                    character_action[playerCharacterSelected] = 0;
-                    SDL_Delay(100);
-                }
-            }
-        }
-    }
-    else
-    {
-        if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-        {
-            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-            {
-                RenderText("NO NEED FOR HEALING", White, 50, current.h / 2,120);
-            }
-        }
-    }
-
-    if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-        SDL_RenderFillRect(renderer, &actionButton[4]);
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            character_action[playerCharacterSelected] = 0;
-        }
-    }
+//    if( SDL_PointInRect(&mousePosition, &actionButton[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+//        SDL_RenderFillRect(renderer, &actionButton[0]);
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
+//            // damage player
+//            playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
+//            character_action[playerCharacterSelected] = 0;
+//            fadeSize = 25;
+//            SDL_Delay(45);
+//            character_action[playerCharacterSelected] = 0;
+//        }
+//    }
+//    if( SDL_PointInRect(&mousePosition, &actionButton[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+//        SDL_RenderFillRect(renderer, &actionButton[1]);
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
+//            // damage player
+//            playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
+//            character_action[playerCharacterSelected] = 0;
+//            fadeSize = 25;
+//            SDL_Delay(45);
+//            character_action[playerCharacterSelected] = 0;
+//        }
+//    }
+//    if( SDL_PointInRect(&mousePosition, &actionButton[2]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+//        SDL_RenderFillRect(renderer, &actionButton[2]);
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//                activeView = DUNGEON;
+//                initBattleFlag = 0;
+//        }
+//    }
+//
+//    // Healing potion quaff
+//    if( playerCharacter[playerCharacterSelected].getHitpoints() < playerCharacter[playerCharacterSelected].hitpoints_max )
+//    {
+//        if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//        {
+//            SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+//            SDL_RenderFillRect(renderer, &actionButton[3]);
+//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//            {
+//                if( character_action[playerCharacterSelected] > 0)
+//                if( playerCharacter[playerCharacterSelected].healingPotions > 0 )
+//                {
+//                    playerCharacter[playerCharacterSelected].healingPotions -= 1;
+//                    cureLightWounds();
+//                    character_action[playerCharacterSelected] = 0;
+//                    SDL_Delay(100);
+//                }
+//            }
+//        }
+//    }
+//    else
+//    {
+//        if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//        {
+//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//            {
+//                RenderText("NO NEED FOR HEALING", White, 50, current.h / 2,120);
+//            }
+//        }
+//    }
+//
+//    if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+//        SDL_RenderFillRect(renderer, &actionButton[4]);
+//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//        {
+//            character_action[playerCharacterSelected] = 0;
+//        }
+//    }
 
     Texture = LoadTexture(playerImages.at(0).c_str(),255);
     for( int i = 0; i < sizeof(character) / sizeof(SDL_Rect); i++ )

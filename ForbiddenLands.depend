@@ -1028,7 +1028,7 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1648051047 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1648088976 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<cassert>
 	<ctime>
 	<iostream>
@@ -1063,6 +1063,11 @@
 	<time.h>
 	<stdio.h>
 	<random>
+	<sys/socket.h>
+	<arpa/inet.h>
+	<errno.h>
+	<netinet/in.h>
+	<sys/time.h>
 	<sqlite3.h>
 	"../rapidxml-1.13/rapidxml.hpp"
 	"../include/doctest.h"
@@ -1117,7 +1122,7 @@
 
 1648051047 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
-1648051639 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
+1648056913 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/common.h
 	<bits/stdc++.h>
 	<chrono>
 	"colors.h"
@@ -1153,7 +1158,7 @@
 	"renderers/renderCharacterCreation.h"
 	"main_menu.h"
 
-1648051047 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
+1648056805 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/main_menu.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1336,7 +1341,7 @@
 
 1642937577 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/quests/quest.h
 
-1645440855 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/items/item.h
+1648076697 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/items/item.h
 
 1642954349 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/spell.h
 
@@ -1437,7 +1442,7 @@
 	<regex>
 	"common.h"
 
-1645367257 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/views/battle_view.h
+1648089644 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/views/battle_view.h
 	<iostream>
 	<string>
 	<vector>

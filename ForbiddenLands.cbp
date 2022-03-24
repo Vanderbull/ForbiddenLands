@@ -27,8 +27,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++17" />
 					<Add option="-g" />
+					<Add option="-std=c++17" />
 					<Add option="-std=c++0x" />
 					<Add directory="include" />
 				</Compiler>
@@ -37,7 +37,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 					<Add option="-no-pie -pthread -lstdc++fs -lsqlite3" />
 				</Linker>
 				<ExtraCommands>
-					<Add before="#python3  ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph" />
+					<Add before="python3  ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Release">
@@ -113,6 +113,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/potions/potion_of_strength.h" />
 		<Unit filename="include/quests/quest.h" />
 		<Unit filename="include/renderers/render.h" />
+		<Unit filename="include/renderers/renderCharacterCreation.h" />
 		<Unit filename="include/renderers/renderLoadMenu.h" />
 		<Unit filename="include/renderers/renderSaveMenu.h" />
 		<Unit filename="include/renderers/renderSettings.h" />

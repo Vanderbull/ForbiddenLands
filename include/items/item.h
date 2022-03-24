@@ -165,8 +165,14 @@ void loadItemIcons()
     gameItems.push_back(weapon("Dagger"));
     gameItems.push_back(weapon("Club"));
     gameItems.push_back(weapon("Spike club"));
-    gameItems.push_back(weapon("Shortsword"));
-
+    gameItems.push_back(armour("chainmail armor"));
+    gameItems.push_back(armour("chainmail coif"));
+    gameItems.push_back(armour("chainmail hauberk"));
+    gameItems.push_back(armour("chainmail leggings"));
+    gameItems.push_back(armour("chainmail vest"));
+    gameItems.push_back(weapon("short sword"));
+    gameItems.push_back(weapon("long sword"));
+    gameItems.push_back(weapon("broad sword"));
 };
 
 struct trader

@@ -28,7 +28,7 @@ void MainMenu()
     SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, MainMenuBackgroundTexture, NULL, NULL);
 
-    RenderTitle("FORBIDDEN LANDS",White,current.w / 2,200);
+    RenderTitle(TITLE.c_str(),White,current.w / 2,200);
 
     int Repeat = 0;
     int buttonWidth = 600;
