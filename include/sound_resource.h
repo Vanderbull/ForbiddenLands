@@ -20,6 +20,7 @@ Mix_Chunk *positive = NULL;
 // Our music file
 Mix_Music *music = NULL;
 Mix_Music *main_menu_music = NULL;
+Mix_Chunk *gPunch = NULL;
 
 void PlayAndWait(int channel, Mix_Chunk* chunk, int loops)
 {

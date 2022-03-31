@@ -6,6 +6,34 @@
 using namespace std;
 
 static int done = 0;
+
+struct portal2
+{
+    enum {WEST,EAST,SOUTH,NORTH};
+    std::string compassDirections[4];
+    bool directionPassable[4];
+    std::string rotation;
+    bool encounter;
+    bool droppedLoot;
+    int warp_x;
+    int warp_y;
+    std::string description;
+
+    void setup(bool setDirectionPassable[], std::string setCompassDirections[], int _warp_x = -1, int _warp_y  = -1, std::string _description = "")
+    {
+        for(int i; i < 4; i++)
+        {
+            directionPassable[i] = setDirectionPassable[i];
+            compassDirections[i] = setCompassDirections[i];
+        }
+
+        warp_x = _warp_x;
+        warp_y = _warp_y;
+        description = _description;
+        encounter = Generate(0,1);
+    };
+};
+
 struct portal
 {
     bool droppedLoot = false;

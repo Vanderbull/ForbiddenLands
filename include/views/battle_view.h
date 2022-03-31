@@ -12,6 +12,40 @@
 #include <SDL2/SDL.h>
 #include "common.h"
 
+
+struct CharacterEntity
+{
+    int initiative;
+    int actions;
+    int target;
+
+    void rollInitiative()
+    {
+        initiative = Generate(1,6);
+    }
+};
+
+struct NPCEntity : CharacterEntity
+{
+
+};
+
+struct BattleSystem
+{
+    void init()
+    {
+
+    }
+};
+
+CharacterEntity CharacterEntities[6];
+NPCEntity NPCEntities[6];
+BattleSystem BattleEngine;
+
+list<int> gqlist1, gqlist2;
+list<CharacterEntity> ListCharacters;
+CharacterEntity tempCharacter;
+
 int initBattleFlag = 0;
 int character_initiative[6] = {0,0,0,0,0,0};
 int character_action[6] = {1,1,1,1,1,1};
@@ -20,6 +54,35 @@ int fadeSize = 0;
 int damage = 0;
 int playerSupriseSegments = 0;
 int npcSupriseSegments = 0;
+
+// function for printing the elements in a list
+void showlist(list<int> g)
+{
+    list<int>::iterator it;
+    for (it = g.begin(); it != g.end(); ++it)
+        cout << '\t' << *it;
+    cout << '\n';
+}
+
+void showCharacters(list<CharacterEntity> goobas)
+{
+    list<CharacterEntity>::iterator it;
+//    it = ListCharacters.begin();
+//    while (it != ListCharacters.end())
+//    {
+//        cout << "Name: " << it->initiative << endl;
+//        it++;
+//    }
+    int i = 0;
+    for (it = ListCharacters.begin(); it != ListCharacters.end(); ++it)
+    {
+        SDL_Rect character_fighting;
+        character_fighting = {700+(60*i),400,50,50};
+        SDL_RenderFillRect(renderer, &character_fighting);
+        RenderText("[" + std::to_string(i) +  "]" + std::to_string(it->initiative), White, character_fighting.x, character_fighting.y-200, 20);
+        i++;
+    }
+}
 
 int supriseRollSegments()
 {
@@ -48,14 +111,13 @@ void initBattle()
 
     for(int i = 0; i < 6; i++)
     {
+        CharacterEntities[i].rollInitiative();
         character_action[i] == 1;
     }
 };
 
 int turns = 0;
 bool HOLD = false;
-
-Mix_Chunk *gPunch = NULL;
 
 bool turnActive = true;
 
@@ -74,6 +136,19 @@ void testInit()
     playerCharacter[3].hitpoints_current = 100;
     playerCharacter[4].hitpoints_current = 100;
     playerCharacter[5].hitpoints_current = 100;
+
+    for (int i = 0; i < 10; ++i)
+    {
+        gqlist1.push_back(i * 2);
+        gqlist2.push_front(i * 3);
+        tempCharacter.initiative = Generate(0,6);
+        ListCharacters.push_back(tempCharacter);
+    }
+    cout << "\nList 1 (gqlist1) is : ";
+    showlist(gqlist1);
+
+    cout << "\nList 2 (gqlist2) is : ";
+    showlist(gqlist2);
 };
 
 void battleView()
@@ -153,6 +228,7 @@ void battleView()
     if (event.type == SDL_MOUSEBUTTONUP)
         HOLD = false;
 
+    showCharacters(ListCharacters);
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     RenderFillRect(0,current.h - 200,current.w, 200);
 
@@ -177,6 +253,13 @@ void battleView()
     RenderText("INITIATIVE[4]" + std::to_string(playerCharacter[4].initiative), White, current.w / 2, 180, 20);
     RenderText("INITIATIVE[5]" + std::to_string(playerCharacter[5].initiative), White, current.w / 2, 210, 20);
 
+    RenderText("INITIATIVE[0]" + std::to_string(CharacterEntities[0].initiative), White, current.w - 400, 60, 20);
+    RenderText("INITIATIVE[1]" + std::to_string(CharacterEntities[1].initiative), White, current.w - 400, 90, 20);
+    RenderText("INITIATIVE[2]" + std::to_string(CharacterEntities[2].initiative), White, current.w - 400, 120, 20);
+    RenderText("INITIATIVE[3]" + std::to_string(CharacterEntities[3].initiative), White, current.w - 400, 150, 20);
+    RenderText("INITIATIVE[4]" + std::to_string(CharacterEntities[4].initiative), White, current.w - 400, 180, 20);
+    RenderText("INITIATIVE[5]" + std::to_string(CharacterEntities[5].initiative), White, current.w - 400, 210, 20);
+
     RenderText("NPC INITIATIVE[0]" + std::to_string(NPCs.NPC[0]._initiative), White, current.w / 3, 60, 20);
     RenderText("NPC INITIATIVE[1]" + std::to_string(NPCs.NPC[1]._initiative), White, current.w / 3, 90, 20);
     RenderText("NPC INITIATIVE[2]" + std::to_string(NPCs.NPC[2]._initiative), White, current.w / 3, 120, 20);
@@ -193,10 +276,16 @@ void battleView()
     if( SDL_PointInRect(&mousePosition, &actionButton[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         RenderText("ATTACKING!!!!! ", White, 500, 500,48);
+        npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
+        playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
+        character_action[playerCharacterSelected] = 0;
     }
     if( SDL_PointInRect(&mousePosition, &actionButton[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         RenderText("SPELLING!!!!! ", White, 500, 500,48);
+        npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
+        playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
+        character_action[playerCharacterSelected] = 0;
     }
     if( SDL_PointInRect(&mousePosition, &actionButton[2]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
@@ -204,99 +293,32 @@ void battleView()
         activeView = DUNGEON;
         initBattleFlag = 0;
     }
-    if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+
+    // Healing potion quaff
+    if( playerCharacter[playerCharacterSelected].getHitpoints() < playerCharacter[playerCharacterSelected].hitpoints_max )
     {
-        RenderText("HEALING!!!!! ", White, 500, 500,48);
+        if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        {
+            RenderText("HEALING!!!!! ", White, 500, 500,48);
+            cureLightWounds();
+            playerCharacter[playerCharacterSelected].healingPotions -= 1;
+        }
     }
     if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
-        RenderText("SKIPINg!!!!! ", White, 500, 500,48);
+        SDL_PumpEvents();
+        state = SDL_GetMouseState(NULL, NULL);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            RenderText("SKIPINg!!!!! ", White, 500, 500,48);
+            character_action[playerCharacterSelected] = 0;
+            ListCharacters.push_back(ListCharacters.front());
+            ListCharacters.pop_front();
+        }
     }
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &character[playerCharacterSelected]);
     SDL_RenderDrawRect(renderer, &NPCs.NPC[npc_active].SDL_Rectangle);
-
-//    if( SDL_PointInRect(&mousePosition, &actionButton[0]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-//        SDL_RenderFillRect(renderer, &actionButton[0]);
-//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//        {
-//            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
-//            // damage player
-//            playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
-//            character_action[playerCharacterSelected] = 0;
-//            fadeSize = 25;
-//            SDL_Delay(45);
-//            character_action[playerCharacterSelected] = 0;
-//        }
-//    }
-//    if( SDL_PointInRect(&mousePosition, &actionButton[1]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-//        SDL_RenderFillRect(renderer, &actionButton[1]);
-//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//        {
-//            npc_health[npc_active] -= playerCharacter[playerCharacterSelected].damage;
-//            // damage player
-//            playerCharacter[playerCharacterSelected].hitpoints_current -= NPCs.NPC[npc_active]._damage;
-//            character_action[playerCharacterSelected] = 0;
-//            fadeSize = 25;
-//            SDL_Delay(45);
-//            character_action[playerCharacterSelected] = 0;
-//        }
-//    }
-//    if( SDL_PointInRect(&mousePosition, &actionButton[2]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-//        SDL_RenderFillRect(renderer, &actionButton[2]);
-//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//        {
-//                activeView = DUNGEON;
-//                initBattleFlag = 0;
-//        }
-//    }
-//
-//    // Healing potion quaff
-//    if( playerCharacter[playerCharacterSelected].getHitpoints() < playerCharacter[playerCharacterSelected].hitpoints_max )
-//    {
-//        if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//        {
-//            SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-//            SDL_RenderFillRect(renderer, &actionButton[3]);
-//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//            {
-//                if( character_action[playerCharacterSelected] > 0)
-//                if( playerCharacter[playerCharacterSelected].healingPotions > 0 )
-//                {
-//                    playerCharacter[playerCharacterSelected].healingPotions -= 1;
-//                    cureLightWounds();
-//                    character_action[playerCharacterSelected] = 0;
-//                    SDL_Delay(100);
-//                }
-//            }
-//        }
-//    }
-//    else
-//    {
-//        if( SDL_PointInRect(&mousePosition, &actionButton[3]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//        {
-//            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//            {
-//                RenderText("NO NEED FOR HEALING", White, 50, current.h / 2,120);
-//            }
-//        }
-//    }
-//
-//    if( SDL_PointInRect(&mousePosition, &actionButton[4]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-//        SDL_RenderFillRect(renderer, &actionButton[4]);
-//        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-//        {
-//            character_action[playerCharacterSelected] = 0;
-//        }
-//    }
 
     Texture = LoadTexture(playerImages.at(0).c_str(),255);
     for( int i = 0; i < sizeof(character) / sizeof(SDL_Rect); i++ )
@@ -425,7 +447,7 @@ void battleView()
             character_action[i] = 1;
         if( Generate(1,100) > 1)
         {
-            mainLog.push_back("You found some treasure");
+            //mainLog.push_back("You found some treasure");
             playerCharacter[playerCharacterSelected].carriedItems.push_back(items());
             playerCharacter[playerCharacterSelected].coins_gold += Generate(0,1000);
         }
