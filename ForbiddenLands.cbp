@@ -147,6 +147,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/spells/spell.h" />
 		<Unit filename="include/spells/teleport.h" />
 		<Unit filename="include/texture_resource.h" />
+		<Unit filename="include/vanderbull_engine.h" />
 		<Unit filename="include/views/battle_view.h" />
 		<Unit filename="include/views/world_view.h" />
 		<Unit filename="include/wands/magic_missile_wand.h" />

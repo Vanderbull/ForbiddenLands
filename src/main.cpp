@@ -58,9 +58,15 @@ struct utsname uts;
 #include <SDL2/SDL_net.h>
 #include "../version.h"
 
+#include "../include/gameengine/gameengine.h"
+#include "../include/gameengine/introstate.h"
+#include "../include/gameengine/menustate.h"
+
 #include "../include/resource.h"
 #include "../include/views/world_view.h"
 #include "../include/views/battle_view.h"
+
+
 
 #ifdef WINDOWS
     #include <direct.h>
@@ -353,8 +359,12 @@ string convertToString(char* a)
     return s;
 }
 
+CGameEngine game;
+
 int main(int argc, char ** argv)
 {
+    game.ChangeState( CIntroState::Instance() );
+
     int opt = TRUE;
     int master_socket , addrlen , new_socket , client_socket[30] ,
           max_clients = 30 , activity, i , valread , sd;
@@ -851,6 +861,7 @@ int main(int argc, char ** argv)
             }
         }
 
+        game.Draw(renderer);
 
         start = high_resolution_clock::now();
 
@@ -872,6 +883,7 @@ int main(int argc, char ** argv)
                     {
                         case SDLK_y:
                         {
+                            game.ChangeState( CMenuState::Instance() );
                             if( armsAndarmourShop || trainingHall || tavern )
                             {
                                 shop = 1;

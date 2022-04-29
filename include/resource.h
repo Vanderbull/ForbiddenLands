@@ -5,7 +5,6 @@
 #include <functional>
 #include <ctime>
 
-
 #include "functions.h"
 #include "texture_resource.h"
 #include "items/item.h"
