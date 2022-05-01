@@ -22,7 +22,7 @@
 
 
 #include "../include/renderers/render.h"
-#include "name_generator.h"
+//#include "name_generator.h"
 
 npcEngine NPCs;
 

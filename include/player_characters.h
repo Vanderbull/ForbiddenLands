@@ -8,6 +8,7 @@
 #include <SDL2/SDL.h>
 
 #include "name_generator.h"
+#include "randomizer.h"
 
 std::vector<std::string> readyCharacterInventory[6];
 std::vector<std::string> playerCharacterInventory[6];
@@ -63,7 +64,7 @@ class Player : IActor
         }
 };
 
-     Player myPlayer;
+Player myPlayer;
 
 typedef struct playerCharacter
 {
@@ -131,7 +132,7 @@ typedef struct playerCharacter
         int count = 0;
         for (int aNumber : current_stats)
         {
-            current_stats[count] = Generate(3, 18);//rand() % 15 + 3;
+            current_stats[count] = GenerateNumber(3, 18);//rand() % 15 + 3;
             count++;
         }
     };
@@ -349,13 +350,13 @@ typedef struct playerCharacter
     playerCharacter()
     {
         std::cout << "loading playerCharacter..." << std::endl;
-        race = Generate(0,7);
+        race = GenerateNumber(0,7);
         calculateStats();
         calculateHitPoints();
         initItems();
         update();
         name = setName();
-        face = Generate(0,20);
+        face = GenerateNumber(0,20);
         faceImage = NULL;
     };
 
@@ -444,7 +445,7 @@ typedef struct playerCharacter
 
         for( int i = 0; i <= hit_dices; i++ )
         {
-            calculated_hitpoints += Generate(1,6);
+            calculated_hitpoints += GenerateNumber(1,6);
             calculated_hitpoints += hitpoints_modifier;
         }
 
