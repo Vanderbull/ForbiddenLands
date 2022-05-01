@@ -1,5 +1,5 @@
-#ifndef BOAT_H
-#define BOAT_H
+#ifndef NAME_GENERATOR_H
+#define NAME_GENERATOR_H
 
 #include <iostream>
 #include <string>
@@ -7,6 +7,6 @@
 
 #include <SDL2/SDL.h>
 
-void Boat();
+void NameGen(char* PlayerName);
 
  #endif
