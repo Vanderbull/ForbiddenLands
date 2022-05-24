@@ -1103,7 +1103,7 @@
 
 1643164384 /home/rickard/Documents/Vanderbull/ForbiddenLands/version.h
 
-1651176914 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
+1653353688 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -1125,7 +1125,6 @@
 	"quests/quest.h"
 	"skilltree/skilltree.h"
 	"../include/renderers/render.h"
-	"boat.h"
 
 1651178178 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/functions.h
 	<cstdlib>
@@ -1146,11 +1145,13 @@
 
 1640005962 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/coordinates.h
 
-1645512346 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
+1653353820 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/player_characters.h
 	<iostream>
 	<string>
 	<vector>
 	<SDL2/SDL.h>
+	"name_generator.h"
+	"randomizer.h"
 
 1645367257 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/savegame.h
 	<bits/stdc++.h>
@@ -1593,4 +1594,20 @@
 	"gameengine.h"
 	"playstate.h"
 	"menustate.h"
+
+1651916885 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/name_generator.h
+	<iostream>
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+
+1651916885 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/randomizer.h
+	<iostream>
+	<string>
+	<vector>
+	<random>
+	<SDL2/SDL.h>
+
+1651916885 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/randomizer.cpp
+	"randomizer.h"
 

@@ -90,11 +90,19 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="README.md" />
 		<Unit filename="include/bestiary.h" />
 		<Unit filename="include/bless.h" />
-		<Unit filename="include/boat.h" />
 		<Unit filename="include/colors.h" />
 		<Unit filename="include/common.h" />
 		<Unit filename="include/coordinates.h" />
 		<Unit filename="include/functions.h" />
+		<Unit filename="include/gameengine/gameengine.cpp" />
+		<Unit filename="include/gameengine/gameengine.h" />
+		<Unit filename="include/gameengine/gamestate.h" />
+		<Unit filename="include/gameengine/introstate.cpp" />
+		<Unit filename="include/gameengine/introstate.h" />
+		<Unit filename="include/gameengine/menustate.cpp" />
+		<Unit filename="include/gameengine/menustate.h" />
+		<Unit filename="include/gameengine/playstate.cpp" />
+		<Unit filename="include/gameengine/playstate.h" />
 		<Unit filename="include/healing_character.h" />
 		<Unit filename="include/items/item.h" />
 		<Unit filename="include/main_menu.h" />
@@ -112,6 +120,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/potions/potion_of_speed.h" />
 		<Unit filename="include/potions/potion_of_strength.h" />
 		<Unit filename="include/quests/quest.h" />
+		<Unit filename="include/randomizer.h" />
 		<Unit filename="include/renderers/render.h" />
 		<Unit filename="include/renderers/renderCharacterCreation.h" />
 		<Unit filename="include/renderers/renderLoadMenu.h" />
@@ -152,8 +161,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/views/world_view.h" />
 		<Unit filename="include/wands/magic_missile_wand.h" />
 		<Unit filename="include/weather/weather.h" />
-		<Unit filename="src/boat.cpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/randomizer.cpp" />
 		<Unit filename="version.h" />
 		<Extensions>
 			<AutoVersioning>

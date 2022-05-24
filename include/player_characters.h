@@ -355,7 +355,7 @@ typedef struct playerCharacter
         calculateHitPoints();
         initItems();
         update();
-        name = setName();
+        //name = setName();
         face = GenerateNumber(0,20);
         faceImage = NULL;
     };
@@ -384,13 +384,13 @@ typedef struct playerCharacter
         SDL_RenderCopy(renderer, faceImage, NULL, &FaceFrame);
     };
 
-    std::string setName()
-    {
-        char Player1Name[21];
-        NameGen(Player1Name);
-        name = Player1Name;
-        return name;
-    };
+//    std::string setName()
+//    {
+//        char Player1Name[21];
+//        NameGen(Player1Name);
+//        name = Player1Name;
+//        return name;
+//    };
 
     std::string getName()
     {

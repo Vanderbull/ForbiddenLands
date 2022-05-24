@@ -20,7 +20,6 @@
 #include "quests/quest.h"
 #include "skilltree/skilltree.h"
 
-
 #include "../include/renderers/render.h"
 //#include "name_generator.h"
 
