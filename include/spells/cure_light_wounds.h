@@ -6,7 +6,7 @@ void cureLightWounds()
     std::cout << "Cure light wounds..." << std::endl;
     if( playerCharacter[playerCharacterSelected].hitpoints_current < (playerCharacter[playerCharacterSelected].hitpoints_max - 8) )
     {
-        playerCharacter[playerCharacterSelected].hitpoints_current += Generate(0,8);
+        playerCharacter[playerCharacterSelected].hitpoints_current += GenerateNumber(0,8);
     }
 };
 

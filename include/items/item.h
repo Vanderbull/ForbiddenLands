@@ -1,6 +1,8 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include "randomizer.h"
+
 struct items
 {
     // item types
@@ -30,8 +32,8 @@ struct items
 
     items()
     {
-        value = Generate(0,256);
-        amount = Generate(0,256);
+        value = GenerateNumber(0,256);
+        amount = GenerateNumber(0,256);
     };
 
     std::string getName()
@@ -183,7 +185,7 @@ struct trader
     {
         for( int i = 0; i < 10; i++ )
         {
-            switch( Generate(0,6) )
+            switch( GenerateNumber(0,6) )
             {
             case 0:
                 traderItems.push_back(food("Meat and turnips"));

@@ -100,7 +100,7 @@ typedef struct playerCharacter
 
     void generateInitiative()
     {
-        initiative = Generate(1,6);
+        initiative = GenerateNumber(1,6);
     };
 
     void increaseHunger()

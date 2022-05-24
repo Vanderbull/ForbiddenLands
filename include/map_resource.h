@@ -30,7 +30,7 @@ struct portal2
         warp_x = _warp_x;
         warp_y = _warp_y;
         description = _description;
-        encounter = Generate(0,1);
+        encounter = GenerateNumber(0,1);
     };
 };
 
@@ -66,7 +66,7 @@ struct portal
         warp_x = _warp_x;
         warp_y = _warp_y;
         description = _description;
-        encounter = Generate(0,1);
+        encounter = GenerateNumber(0,1);
         std::cout << " We are setting up things" << std::endl;
     };
 
@@ -83,7 +83,7 @@ struct portal
         warp_x = in_portal.warp_x;
         warp_y = in_portal.warp_y;
         description = in_portal.description;
-        encounter = Generate(0,1);
+        encounter = GenerateNumber(0,1);
     };
 
     bool active_portal(std::string _rotation)

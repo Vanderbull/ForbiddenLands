@@ -12,7 +12,7 @@ int npc_armour_class[6] = {0,0,0,0,0,0};
 int npc_damage[6] = {0,0,0,0,0,0};
 int npc_current_damage = 0;
 int npc_targeted = 0;
-int npcDefending = Generate(1,10);
+int npcDefending = GenerateNumber(1,10);
 
 SDL_Rect npcActionText[6];
 
@@ -27,7 +27,7 @@ void getEnemyImageID()
 {
     for( int i = 0; i < 6; i++ )
     {
-        enemyImageID[i] = Generate(0,29);
+        enemyImageID[i] = GenerateNumber(0,29);
     }
 };
 
@@ -62,12 +62,12 @@ struct npcEngine
             _damage = 0;
             _currentDamage = 0;
             _targeted = 0;
-            _defending = Generate(1,10);
+            _defending = GenerateNumber(1,10);
         }
 
         void generateInitiative()
         {
-            _initiative = Generate(1,6);
+            _initiative = GenerateNumber(1,6);
         };
     };
 

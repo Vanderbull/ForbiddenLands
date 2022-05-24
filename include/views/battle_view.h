@@ -21,7 +21,7 @@ struct CharacterEntity
 
     void rollInitiative()
     {
-        initiative = Generate(1,6);
+        initiative = GenerateNumber(1,6);
     }
 };
 
@@ -86,8 +86,8 @@ void showCharacters(list<CharacterEntity> goobas)
 
 int supriseRollSegments()
 {
-    int playerRoll = Generate(1,6);
-    int npcRoll = Generate(1,6);
+    int playerRoll = GenerateNumber(1,6);
+    int npcRoll = GenerateNumber(1,6);
 
     if( playerRoll == 1 )
         playerSupriseSegments = 1;
@@ -141,7 +141,7 @@ void testInit()
     {
         gqlist1.push_back(i * 2);
         gqlist2.push_front(i * 3);
-        tempCharacter.initiative = Generate(0,6);
+        tempCharacter.initiative = GenerateNumber(0,6);
         ListCharacters.push_back(tempCharacter);
     }
     cout << "\nList 1 (gqlist1) is : ";
@@ -412,7 +412,7 @@ void battleView()
     if( playerCharacter[playerCharacterSelected].damage <= 0 )
         playerCharacter[playerCharacterSelected].damage = 1;
 
-    npc_targeted = Generate(0,5);
+    npc_targeted = GenerateNumber(0,5);
 
     for( int i = 0; i < 6; i++ )
     {
@@ -445,14 +445,14 @@ void battleView()
         playerCharacterSelected = 0;
         for( int i=0; i< 6; i++ )
             character_action[i] = 1;
-        if( Generate(1,100) > 1)
+        if( GenerateNumber(1,100) > 1)
         {
             //mainLog.push_back("You found some treasure");
             playerCharacter[playerCharacterSelected].carriedItems.push_back(items());
-            playerCharacter[playerCharacterSelected].coins_gold += Generate(0,1000);
+            playerCharacter[playerCharacterSelected].coins_gold += GenerateNumber(0,1000);
         }
         for( int i=0; i< 6; i++ )
-        playerCharacter[i].experience += Generate(0,1000);
+        playerCharacter[i].experience += GenerateNumber(0,1000);
         save_portals[PlayerCoordinate.x][PlayerCoordinate.y].encounter = 0;
     }
 

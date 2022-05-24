@@ -81,12 +81,12 @@ void renderCharacterCreation()
     {
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
-            playerCharacter[currentCharacter].current_stats[0] = Generate(3,18);
-            playerCharacter[currentCharacter].current_stats[1] = Generate(3,18);
-            playerCharacter[currentCharacter].current_stats[2] = Generate(3,18);
-            playerCharacter[currentCharacter].current_stats[3] = Generate(3,18);
-            playerCharacter[currentCharacter].current_stats[4] = Generate(3,18);
-            playerCharacter[currentCharacter].current_stats[5] = Generate(3,18);
+            playerCharacter[currentCharacter].current_stats[0] = GenerateNumber(3,18);
+            playerCharacter[currentCharacter].current_stats[1] = GenerateNumber(3,18);
+            playerCharacter[currentCharacter].current_stats[2] = GenerateNumber(3,18);
+            playerCharacter[currentCharacter].current_stats[3] = GenerateNumber(3,18);
+            playerCharacter[currentCharacter].current_stats[4] = GenerateNumber(3,18);
+            playerCharacter[currentCharacter].current_stats[5] = GenerateNumber(3,18);
 
             statPoints[currentCharacter] = 5;
             SDL_Delay(50);
