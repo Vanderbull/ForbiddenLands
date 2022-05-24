@@ -95,6 +95,8 @@ void CIntroState::Update(CGameEngine* game)
 
 void CIntroState::Draw(CGameEngine* game, SDL_Renderer * renderer)
 {
+    SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
+
     SDL_RenderClear(renderer);
     MainMenuBackgroundTexture = NULL;
 
@@ -114,13 +116,12 @@ void CIntroState::Draw(CGameEngine* game, SDL_Renderer * renderer)
     SDL_DestroyTexture(texture);
     //SDL_RenderCopy(renderer, MainMenuBackgroundTexture, NULL, NULL);
 
-    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
+//    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
+//
+//        SDL_Rect character_fighting;
+//        character_fighting = {0,0,500,500};
+//        SDL_RenderFillRect(renderer, &character_fighting);
 
-        SDL_Rect character_fighting;
-        character_fighting = {0,0,500,500};
-        SDL_RenderFillRect(renderer, &character_fighting);
-
-SDL_Color White = {255, 255, 255, 255};
 //	SDL_BlitSurface(bg, NULL, game->screen, NULL);
 //
 //	// no need to blit if it's transparent

@@ -29,6 +29,7 @@ private:
 	static CMenuState m_MenuState;
 
 	SDL_Surface* bg;
+	SDL_Texture* MainMenuBackgroundTexture;
 };
 
 #endif

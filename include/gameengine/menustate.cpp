@@ -64,11 +64,23 @@ void CMenuState::Update(CGameEngine* game)
 
 void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
 {
-   SDL_SetRenderDrawColor( renderer, 0, 255, 0, 255 );
+    SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
 
-        SDL_Rect character_fighting;
-        character_fighting = {0,0,500,500};
-        SDL_RenderFillRect(renderer, &character_fighting);
+    SDL_RenderClear(renderer);
+    MainMenuBackgroundTexture = NULL;
 
-SDL_Color White = {255, 255, 255, 255};
+	SDL_Surface* surface = IMG_Load( "./images/battleBackground.png" );
+	if( !surface )
+	{
+        //SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
+        //std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
+        exit(-1);
+	}
+
+	SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_SetTextureAlphaMod( texture, 255 );
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
 }

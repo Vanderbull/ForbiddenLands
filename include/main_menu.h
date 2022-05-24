@@ -25,8 +25,8 @@ void initMainMenu()
 
 void MainMenu()
 {
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, MainMenuBackgroundTexture, NULL, NULL);
+    //SDL_RenderClear(renderer);
+    //SDL_RenderCopy(renderer, MainMenuBackgroundTexture, NULL, NULL);
 
     RenderTitle(TITLE.c_str(),White,current.w / 2,200);
 
