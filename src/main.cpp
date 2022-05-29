@@ -363,7 +363,9 @@ CGameEngine game;
 
 int main(int argc, char ** argv)
 {
-    game.ChangeState( CIntroState::Instance() );
+    game.Init("Forbidden Lands",1920,1080,32,true);
+
+    game.ChangeState( CMenuState::Instance() );
 
     int opt = TRUE;
     int master_socket , addrlen , new_socket , client_socket[30] ,
@@ -569,7 +571,12 @@ int main(int argc, char ** argv)
     ///////////////////////////////
 
     srand (time(NULL));
-    SDL_SetMainReady();
+
+
+    //std::cout << "SDL_SetMainReady..." << "\n";
+    //SDL_SetMainReady();
+
+    //SDL_Delay(5000);
 
     std::ofstream soundBibleFile;
     soundBibleFile.open ("soundbible.org");
@@ -595,101 +602,101 @@ int main(int argc, char ** argv)
     SDL_LogSetOutputFunction(&LogSDL, NULL);
     SDL_Log("./logs/GameEngineLOG.txt file opened: Success");
 
-    if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
-    {
-        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
-        exit(EXIT_FAILURE);
-    }
-    else
-    {
-        SDL_Log("initialize SDL and all its subsystems: Success");
-    }
+//    if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
+//    {
+//        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+//        exit(EXIT_FAILURE);
+//    }
+//    else
+//    {
+//        SDL_Log("initialize SDL and all its subsystems: Success");
+//    }
 
-    if(!TTF_WasInit() && TTF_Init()==-1)
-    {
-        SDL_Log("TTF_Init: %s", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-    else
-    {
-        SDL_Log("TTF_Init: Success!");
-    }
+//    if(!TTF_WasInit() && TTF_Init()==-1)
+//    {
+//        SDL_Log("TTF_Init: %s", TTF_GetError());
+//        exit(EXIT_FAILURE);
+//    }
+//    else
+//    {
+//        SDL_Log("TTF_Init: Success!");
+//    }
 
     int fw,fh;
 
     // Get current display mode of all displays.
-    for(int i = 0; i < SDL_GetNumVideoDisplays(); ++i)
-    {
-        int should_be_zero = SDL_GetCurrentDisplayMode(i, &monitor[i]);
-
-        current = monitor[0];
-
-        if(should_be_zero != 0)
-        {
-            SDL_Log("Could not get display mode for video display #%d: %s", i, SDL_GetError());
-        }
-        else
-        {
-            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate);
-        }
-    }
-
-    window = SDL_CreateWindow("",
-        SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED,
-        current.w, current.h,
-        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
-
-    if (window == NULL)
-    {
-        SDL_Log("Could not create window: %s", SDL_GetError());
-        return 1;
-    }
-    else
-    {
-        SDL_Log("SDL Window creation: SUCCESS");
-
-        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-        renderer2 = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
-
-        SDL_Log("SDL Renderer creation: SUCCESS");
-
-        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-        SDL_RenderSetScale(renderer,1.0,1.0);
-        IMG_Init(IMG_INIT_PNG);
-
-        if( strcmp(uts.machine, "x86_64") == 0 )
-            gSurface = IMG_Load( "./icons/64-bit-100.png" );
-        else
-            gSurface = IMG_Load( "./icons/64-bit-100-filled.png" );
-
-        if(!gSurface)
-        {
-            SDL_Log("Setting Window Icon: %s\n", IMG_GetError());
-            return -1;
-        }
-        else
-        {
-            SDL_Log("Loading Window Icon initiated...");
-            SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
-        }
-
-        SDL_SetWindowIcon(window, gSurface);
-        SDL_FreeSurface(gSurface);
-
-        SDL_StopTextInput();
-
-        // Replace this with the new SDL2 OpenAudio
-        if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
-        {
-            SDL_Log("Audio broke down: %s", SDL_GetError());
-            return -1;
-        }
-        else
-        {
-            SDL_Log("Audio successfully initiated...");
-        }
-    }
+//    for(int i = 0; i < SDL_GetNumVideoDisplays(); ++i)
+//    {
+//        int should_be_zero = SDL_GetCurrentDisplayMode(i, &monitor[i]);
+//
+//        current = monitor[0];
+//
+//        if(should_be_zero != 0)
+//        {
+//            SDL_Log("Could not get display mode for video display #%d: %s", i, SDL_GetError());
+//        }
+//        else
+//        {
+//            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate);
+//        }
+//    }
+//
+//    window = SDL_CreateWindow("",
+//        SDL_WINDOWPOS_CENTERED,
+//        SDL_WINDOWPOS_CENTERED,
+//        current.w, current.h,
+//        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
+//
+//    if (window == NULL)
+//    {
+//        SDL_Log("Could not create window: %s", SDL_GetError());
+//        return 1;
+//    }
+//    else
+//    {
+//        SDL_Log("SDL Window creation: SUCCESS");
+//
+//        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+//        renderer2 = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
+//
+//        SDL_Log("SDL Renderer creation: SUCCESS");
+//
+//        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+//        SDL_RenderSetScale(renderer,1.0,1.0);
+//        IMG_Init(IMG_INIT_PNG);
+//
+//        if( strcmp(uts.machine, "x86_64") == 0 )
+//            gSurface = IMG_Load( "./icons/64-bit-100.png" );
+//        else
+//            gSurface = IMG_Load( "./icons/64-bit-100-filled.png" );
+//
+//        if(!gSurface)
+//        {
+//            SDL_Log("Setting Window Icon: %s\n", IMG_GetError());
+//            return -1;
+//        }
+//        else
+//        {
+//            SDL_Log("Loading Window Icon initiated...");
+//            SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
+//        }
+//
+//        SDL_SetWindowIcon(window, gSurface);
+//        SDL_FreeSurface(gSurface);
+//
+//        SDL_StopTextInput();
+//
+//        // Replace this with the new SDL2 OpenAudio
+//        if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
+//        {
+//            SDL_Log("Audio broke down: %s", SDL_GetError());
+//            return -1;
+//        }
+//        else
+//        {
+//            SDL_Log("Audio successfully initiated...");
+//        }
+//    }
 
     if (!GetCurrentDir(cCurrentPath, sizeof(cCurrentPath)))
     {
@@ -861,7 +868,7 @@ int main(int argc, char ** argv)
             }
         }
 
-        game.Draw(renderer);
+        game.Draw();
 
         start = high_resolution_clock::now();
 
@@ -1108,7 +1115,23 @@ int main(int argc, char ** argv)
             if(TITLE == "switch")
                 renderTemple();
             else
-            MainMenu();
+                if( SettingsMenu == 1 )
+                {
+                renderSettings();
+                }
+                else if( SaveMenu == 1 )
+                {
+                RenderSaveMenu();
+                }
+                else if( LoadMenu == 1)
+                {
+                RenderLoadMenu();
+                }
+                else if( CreateCharacter == 1)
+                {
+                renderCharacterCreation();
+                }
+            //MainMenu();
         }
         else if(activeView == DUNGEON)
         {
@@ -1157,7 +1180,9 @@ int main(int argc, char ** argv)
         renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
         renderFPS(fps.get());
 
-        SDL_RenderPresent(renderer);
+        //SDL_RenderPresent(renderer);
+
+        SDL_RenderPresent(game.renderer);
 
         stop = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(stop - start);

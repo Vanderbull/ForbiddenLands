@@ -10,6 +10,7 @@
 #include <SDL2/SDL_net.h>
 
 #include <vector>
+#include <sys/utsname.h>
 using namespace std;
 
 class CGameState;
@@ -28,12 +29,25 @@ public:
 
 	void HandleEvents();
 	void Update();
-	void Draw(SDL_Renderer * renderer);
+	void Draw();
 
 	bool Running() { return m_running; }
 	void Quit() { m_running = false; }
 
 	SDL_Surface* screen;
+    SDL_Window * window;
+    SDL_DisplayMode monitor[6];
+    SDL_DisplayMode current;
+    SDL_Surface* gSurface;
+    struct utsname uts;
+    	SDL_Renderer * renderer;
+	SDL_Renderer * renderer2;
+
+	int SettingsMenu = 0;
+    int activeView = 0;
+    int LoadMenu = 0;
+    int SaveMenu = 0;
+    int CreateCharacter = 0;
 
 private:
 	// the stack of states
@@ -41,8 +55,6 @@ private:
 
 	bool m_running;
 	bool m_fullscreen;
-
-	SDL_Renderer * renderer;
 };
 
 #endif

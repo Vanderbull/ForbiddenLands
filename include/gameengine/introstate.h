@@ -2,7 +2,7 @@
 #ifndef INTROSTATE_H
 #define INTROSTATE_H
 
-#include "SDL.h"
+#include <SDL2/SDL.h>
 #include "gamestate.h"
 
 class CIntroState : public CGameState
@@ -16,7 +16,7 @@ public:
 
 	void HandleEvents(CGameEngine* game);
 	void Update(CGameEngine* game);
-	void Draw(CGameEngine* game, SDL_Renderer * renderer);
+	void Draw(CGameEngine* game);
 
 	static CIntroState* Instance() {
 		return &m_IntroState;
@@ -28,9 +28,6 @@ protected:
 private:
 	static CIntroState m_IntroState;
 
-	SDL_Surface* bg;
-	SDL_Surface* fader;
-	int alpha;
 	SDL_Texture* MainMenuBackgroundTexture;
 };
 

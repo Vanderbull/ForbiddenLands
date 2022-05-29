@@ -1,6 +1,6 @@
 
-#ifndef MENUSTATE_H
-#define MENUSTATE_H
+#ifndef BATTLESTATE_H
+#define BATTLESTATE_H
 
 #include <string>
 #include <vector>
@@ -9,7 +9,7 @@ using namespace std;
 #include <SDL2/SDL.h>
 #include "gamestate.h"
 
-class CMenuState : public CGameState
+class CBattleState : public CGameState
 {
 public:
 	void Init();
@@ -22,8 +22,8 @@ public:
 	void Update(CGameEngine* game);
 	void Draw(CGameEngine* game);
 
-	static CMenuState* Instance() {
-		return &m_MenuState;
+	static CBattleState* Instance() {
+		return &m_BattleState;
 	}
 
     bool IsButtonReleased(const Uint32 uButton)
@@ -32,10 +32,10 @@ public:
     }
 
 protected:
-	CMenuState() { }
+	CBattleState() { }
 
 private:
-	static CMenuState m_MenuState;
+	static CBattleState m_BattleState;
 
 	SDL_Surface* gSurface;
 	SDL_Texture* gTexture;
@@ -60,17 +60,16 @@ private:
     Sint32 m_iWheelX;
     Sint32 m_iWheelY;
 
-//    int SettingsMenu = 0;
-//    int activeView = 1;
-//    int LoadMenu = 0;
-//    int SaveMenu = 0;
-//    int CreateCharacter = 0;
-//    int quit = 0;
+    int SettingsMenu = 0;
+    int activeView = 1;
+    int LoadMenu = 0;
+    int SaveMenu = 0;
+    int CreateCharacter = 0;
+    int quit = 0;
 
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
-
 };
 
 #endif

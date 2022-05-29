@@ -45,6 +45,8 @@ void MainMenu()
 
         RenderBreadText(MenuChoice.c_str(), White, buttonPosition.x + (buttonWidth / 2),buttonPosition.y + (buttonHeight / 2));
 
+        state = SDL_GetMouseState(NULL, NULL);
+
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);

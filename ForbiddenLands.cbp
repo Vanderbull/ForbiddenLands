@@ -62,11 +62,13 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		</Build>
 		<Compiler>
 			<Add option="-w" />
+			<Add option="-pg" />
 			<Add option="-std=c++17" />
 			<Add option="-std=c++0x" />
 			<Add directory="../../../../../usr/include/SDL2" />
 		</Compiler>
 		<Linker>
+			<Add option="-pg" />
 			<Add option="-lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net" />
 			<Add directory="../../../../../usr/include/SDL2" />
 		</Linker>
@@ -94,6 +96,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/common.h" />
 		<Unit filename="include/coordinates.h" />
 		<Unit filename="include/functions.h" />
+		<Unit filename="include/gameengine/battlestate.cpp" />
+		<Unit filename="include/gameengine/battlestate.h" />
 		<Unit filename="include/gameengine/gameengine.cpp" />
 		<Unit filename="include/gameengine/gameengine.h" />
 		<Unit filename="include/gameengine/gamestate.h" />

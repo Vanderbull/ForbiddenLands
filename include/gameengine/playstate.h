@@ -2,7 +2,7 @@
 #ifndef PLAYSTATE_H
 #define PLAYSTATE_H
 
-#include "SDL.h"
+#include <SDL2/SDL.h>
 #include "gamestate.h"
 
 class CPlayState : public CGameState
@@ -16,7 +16,7 @@ public:
 
 	void HandleEvents(CGameEngine* game);
 	void Update(CGameEngine* game);
-	void Draw(CGameEngine* game, SDL_Renderer * renderer);
+	void Draw(CGameEngine* game);
 
 	static CPlayState* Instance() {
 		return &m_PlayState;
@@ -27,8 +27,6 @@ protected:
 
 private:
 	static CPlayState m_PlayState;
-
-	SDL_Surface* bg;
 };
 
 #endif

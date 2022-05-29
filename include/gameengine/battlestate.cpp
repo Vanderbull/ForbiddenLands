@@ -4,11 +4,11 @@
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
-#include "menustate.h"
+#include "battlestate.h"
 
-CMenuState CMenuState::m_MenuState;
+CBattleState CBattleState::m_BattleState;
 
-void CMenuState::Init()
+void CBattleState::Init()
 {
    //Initialize SDL_ttf
     if( TTF_Init() == -1 )
@@ -39,25 +39,25 @@ void CMenuState::Init()
     MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
 
-	printf("CMenuState Init\n");
+	printf("CBattleState Init\n");
 }
 
-void CMenuState::Cleanup()
+void CBattleState::Cleanup()
 {
-	printf("CMenuState Cleanup\n");
+	printf("CBattleState Cleanup\n");
 }
 
-void CMenuState::Pause()
+void CBattleState::Pause()
 {
-	printf("CMenuState Pause\n");
+	printf("CBattleState Pause\n");
 }
 
-void CMenuState::Resume()
+void CBattleState::Resume()
 {
-	printf("CMenuState Resume\n");
+	printf("CBattleState Resume\n");
 }
 
-void CMenuState::HandleEvents(CGameEngine* game)
+void CBattleState::HandleEvents(CGameEngine* game)
 {
 	SDL_Event event;
 
@@ -78,7 +78,7 @@ void CMenuState::HandleEvents(CGameEngine* game)
 	}
 }
 
-void CMenuState::Update(CGameEngine* game)
+void CBattleState::Update(CGameEngine* game)
 {
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -94,12 +94,9 @@ void CMenuState::Update(CGameEngine* game)
 }
 
 
-//void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
-void CMenuState::Draw(CGameEngine* game)
-{
-    TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
 
+void CBattleState::Draw(CGameEngine* game)
+{
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
@@ -108,6 +105,8 @@ void CMenuState::Draw(CGameEngine* game)
 	SDL_Surface* surface = IMG_Load( "./images/battleBackground.png" );
 	if( !surface )
 	{
+        //SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
+        //std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
         exit(-1);
 	}
 
@@ -118,9 +117,11 @@ void CMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(m_font, "Forbidden Lands", White);
+    gSurface = TTF_RenderText_Blended(gameTitleFont, "Forbidden Lands", White);
 	if( !gSurface )
 	{
+        //SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
+        //std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
         exit(-1);
 	}
     gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
@@ -128,22 +129,19 @@ void CMenuState::Draw(CGameEngine* game)
     int texH = 0;
     SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
-    //SDL_Rect buttonPosition = { 0, 0,0,0};
+    SDL_Rect buttonPosition = { 0, 0,500,500};
 
-    gRect = { game->current.w / 2 - (texW / 2),200- (texH / 2), texW, texH };
-    SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+    gRect = { buttonPosition.x + (buttonWidth / 2 - (texW / 2)), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
+    SDL_RenderCopy(game->renderer, gTexture, NULL, &buttonPosition);
 
 //    //Destroy resources
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    int Repeat = 0;
-    int buttonWidth = 600;
-    int buttonHeight = 60;
 
     for(auto MenuChoice : MenuChoices)
     {
-        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 500 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
+        SDL_Rect buttonPosition = { (1920 / 2) - (buttonWidth / 2), 500 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
 
         SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
         SDL_RenderFillRect(game->renderer, &buttonPosition);
@@ -156,7 +154,7 @@ void CMenuState::Draw(CGameEngine* game)
         int texH = 0;
         SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
-        gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
+        gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
         //Destroy resources
@@ -169,61 +167,60 @@ void CMenuState::Draw(CGameEngine* game)
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-            SDL_RenderFillRect(game->renderer, &buttonPosition);
 
             SDL_PumpEvents();
-            SDL_GetMouseState(NULL, NULL);
+            //state = SDL_GetMouseState(NULL, NULL);
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
-                if( game->SettingsMenu != 1)
+                if( SettingsMenu != 1)
                 {
                     if(MenuChoice == "PLAY")
                     {
-                        game->activeView = 1;
-                        game->LoadMenu = 0;
-                        game->SaveMenu = 0;
-                        game->CreateCharacter = 0;
+                        activeView = 1;
+                        LoadMenu = 0;
+                        SaveMenu = 0;
+                        CreateCharacter = 0;
                     }
                     if(MenuChoice == "SAVE")
                     {
-                        game->SaveMenu = 1;
-                        game->LoadMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
+                        SaveMenu = 1;
+                        LoadMenu = 0;
+                        SettingsMenu = 0;
+                        CreateCharacter = 0;
                     }
                     if(MenuChoice == "LOAD")
                     {
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 1;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
+                        SaveMenu = 0;
+                        LoadMenu = 1;
+                        SettingsMenu = 0;
+                        CreateCharacter = 0;
                     }
                     if(MenuChoice == "CHARACTER MANAGER")
                     {
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 1;
+                        SaveMenu = 0;
+                        LoadMenu = 0;
+                        SettingsMenu = 0;
+                        CreateCharacter = 1;
                     }
                     if(MenuChoice == "SETTINGS")
                     {
-                        game->SettingsMenu = 1;
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 0;
-                        game->CreateCharacter = 0;
+                        SettingsMenu = 1;
+                        SaveMenu = 0;
+                        LoadMenu = 0;
+                        CreateCharacter = 0;
                     }
                     if(MenuChoice == "EXIT")
                     {
-                        game->LoadMenu = 0;
-                        game->SaveMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
+                        LoadMenu = 0;
+                        SaveMenu = 0;
+                        SettingsMenu = 0;
+                        CreateCharacter = 0;
 
                         // Destroy resources
                         //SDL_DestroyTexture(currentViewTexture);
                         //SDL_DestroyTexture(gTexture);
                         //atexit(SDL_Quit);
-                        //quit = 1;
+                        quit = 1;
                     }
                 }
             }
@@ -231,6 +228,22 @@ void CMenuState::Draw(CGameEngine* game)
         ++Repeat;
     }
 
-    TTF_CloseFont(m_font);
-    m_font = NULL;
+    if( SettingsMenu == 1 )
+    {
+        //renderSettings();
+    }
+    else if( SaveMenu == 1 )
+    {
+        //RenderSaveMenu();
+    }
+    else if( LoadMenu == 1)
+    {
+        //RenderLoadMenu();
+    }
+    else if( CreateCharacter == 1)
+    {
+        //renderCharacterCreation();
+    }
+
+
 }

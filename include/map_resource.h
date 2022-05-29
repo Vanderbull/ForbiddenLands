@@ -553,62 +553,62 @@ void renderMinimap(std::string mapName)
     if( !std::experimental::filesystem::exists("./data/maps/phlan/phlan.png") )
     {
         std::cout << "renderDescription 1" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/slums/slums.png") )
     {
         std::cout << "renderDescription 2" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/khutos_well/khutos_well.png") )
     {
         std::cout << "renderDescription 3" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/podal_plaza/podal_plaza.png") )
     {
         std::cout << "renderDescription 4" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/cardona_textile_house/cardona_textile_house.png") )
     {
         std::cout << "renderDescription 5" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/kovel_mansion/kovel_mansion.png") )
     {
         std::cout << "renderDescription 6" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/mendors_library/mendors_library.png") )
     {
         std::cout << "renderDescription 7" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/sokol_keep/sokol_keep.png") )
     {
         std::cout << "renderDescription 8" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/stojanov_gate/stojanov_gate.png") )
     {
         std::cout << "renderDescription 9" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/vahlingen_graveyard/vahlingen_graveyard.png") )
     {
         std::cout << "renderDescription 10" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/valjevo_castle/valjevo_castle.png") )
     {
         std::cout << "renderDescription 11" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/maps/wealthy_area/wealthy_area.png") )
     {
         std::cout << "renderDescription 12" << std::endl;
-        exit(99);
+        //exit(99);
     }
 
     if( mapName == "phlan")
@@ -689,62 +689,62 @@ std::string renderDescription(int x, int y)
     if( !std::experimental::filesystem::exists("./data/render_descriptions") )
     {
         std::cout << "renderDescription 1" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_slums") )
     {
         std::cout << "renderDescription 2" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_khutos_well") )
     {
         std::cout << "renderDescription 3" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_podal_plaza") )
     {
         std::cout << "renderDescription 4" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_cardona_textile_house") )
     {
         std::cout << "renderDescription 5" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_kovel_mansion") )
     {
         std::cout << "renderDescription 6" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_mendors_library") )
     {
         std::cout << "renderDescription 7" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_sokol_keep") )
     {
         std::cout << "renderDescription 8" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_stojanov_gate") )
     {
         std::cout << "renderDescription 9" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_vahlingen_graveyard") )
     {
         std::cout << "renderDescription 10" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_valjevo_castle") )
     {
         std::cout << "renderDescription 11" << std::endl;
-        exit(99);
+        //exit(99);
     }
     if( !std::experimental::filesystem::exists("./data/render_descriptions_wealthy_area") )
     {
         std::cout << "renderDescription 12" << std::endl;
-        exit(99);
+        //exit(99);
     }
 
     if( mapActive == "phlan")

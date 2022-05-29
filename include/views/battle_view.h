@@ -153,13 +153,13 @@ void testInit()
 
 void battleView()
 {
-    if( playerCharacter[0].getHitpoints() <= 0 )
-    if( playerCharacter[1].getHitpoints() <= 0 )
-    if( playerCharacter[2].getHitpoints() <= 0 )
-    if( playerCharacter[3].getHitpoints() <= 0 )
-    if( playerCharacter[4].getHitpoints() <= 0 )
-    if( playerCharacter[5].getHitpoints() <= 0 )
-        exit(99);
+//    if( playerCharacter[0].getHitpoints() <= 0 )
+//    if( playerCharacter[1].getHitpoints() <= 0 )
+//    if( playerCharacter[2].getHitpoints() <= 0 )
+//    if( playerCharacter[3].getHitpoints() <= 0 )
+//    if( playerCharacter[4].getHitpoints() <= 0 )
+//    if( playerCharacter[5].getHitpoints() <= 0 )
+//        exit(99);
 
     SDL_Texture* Texture;
     SDL_Rect character[6];
@@ -470,7 +470,7 @@ void battleView()
         Texture = LoadTexture("./data/gameover/gameover.png",255);
         SDL_RenderCopyEx(renderer, Texture, NULL, NULL,0,0,SDL_FLIP_NONE);
         SDL_DestroyTexture(Texture);
-        exit(99);
+        //exit(99);
     }
 
     RenderText(playerCharacter[playerCharacterSelected].name, Blue, 100, current.h - 150,20);

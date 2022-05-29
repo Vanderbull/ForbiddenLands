@@ -7,7 +7,6 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
 
-#include "SDL.h"
 #include "gameengine.h"
 #include "gamestate.h"
 #include "introstate.h"
@@ -17,34 +16,11 @@ CIntroState CIntroState::m_IntroState;
 
 void CIntroState::Init()
 {
-//	SDL_Surface* temp = SDL_LoadBMP("intro.bmp");
-//
-//	bg = SDL_DisplayFormat(temp);
-//
-//	SDL_FreeSurface(temp);
-//
-//	// create the fader surface like the background with alpha
-//	fader = SDL_CreateRGBSurface( SDL_SRCALPHA, bg->w, bg->h,
-//								  bg->format->BitsPerPixel,
-//								  bg->format->Rmask, bg->format->Gmask,
-//								  bg->format->Bmask, bg->format->Amask );
-//
-//	// fill the fader surface with black
-//	SDL_FillRect (fader, NULL, SDL_MapRGB (bg->format, 0, 0, 0)) ;
-//
-//	// start off opaque
-//	alpha = 255;
-//
-//	SDL_SetAlpha(fader, SDL_SRCALPHA, alpha);
-
 	printf("CIntroState Init\n");
 }
 
 void CIntroState::Cleanup()
 {
-	SDL_FreeSurface(bg);
-	SDL_FreeSurface(fader);
-
 	printf("CIntroState Cleanup\n");
 }
 
@@ -85,48 +61,25 @@ void CIntroState::HandleEvents(CGameEngine* game)
 
 void CIntroState::Update(CGameEngine* game)
 {
-	alpha--;
-
-	if (alpha < 0)
-		alpha = 0;
-
-//	SDL_SetAlpha(fader, SDL_SRCALPHA, alpha);
 }
 
-void CIntroState::Draw(CGameEngine* game, SDL_Renderer * renderer)
+void CIntroState::Draw(CGameEngine* game)
 {
-    SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
+    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
 
-    SDL_RenderClear(renderer);
+    SDL_RenderClear(game->renderer);
     MainMenuBackgroundTexture = NULL;
 
 	SDL_Surface* surface = IMG_Load( "./images/menus/mainmenu.jpg" );
 	if( !surface )
 	{
-        //SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
-        //std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
         exit(-1);
 	}
 
-	SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod( texture, 255 );
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
-    //SDL_RenderCopy(renderer, MainMenuBackgroundTexture, NULL, NULL);
-
-//    SDL_SetRenderDrawColor( renderer, 255, 0, 0, 255 );
-//
-//        SDL_Rect character_fighting;
-//        character_fighting = {0,0,500,500};
-//        SDL_RenderFillRect(renderer, &character_fighting);
-
-//	SDL_BlitSurface(bg, NULL, game->screen, NULL);
-//
-//	// no need to blit if it's transparent
-//	if ( alpha != 0 )
-//		SDL_BlitSurface(fader, NULL, game->screen, NULL);
-//
-//	SDL_UpdateRect(game->screen, 0, 0, 0, 0);
 }

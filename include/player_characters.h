@@ -369,7 +369,7 @@ typedef struct playerCharacter
             if( faceImage == NULL )
             {
                 std::cout << "failed to load ./icons/faces/" << std::to_string(face) << ".png" << std::endl;
-                exit(99);
+                //exit(99);
             }
             else
             {

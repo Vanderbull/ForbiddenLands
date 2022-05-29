@@ -1,29 +1,22 @@
 
 #include <stdio.h>
 
-#include "SDL.h"
+#include <SDL2/SDL.h>
 #include "gamestate.h"
 #include "gameengine.h"
 #include "playstate.h"
 #include "menustate.h"
+#include "battlestate.h"
 
 CPlayState CPlayState::m_PlayState;
 
 void CPlayState::Init()
 {
-//	SDL_Surface* temp = SDL_LoadBMP("play.bmp");
-//
-//	bg = SDL_DisplayFormat(temp);
-//
-//	SDL_FreeSurface(temp);
-
 	printf("CPlayState Init\n");
 }
 
 void CPlayState::Cleanup()
 {
-//	SDL_FreeSurface(bg);
-
 	printf("CPlayState Cleanup\n");
 }
 
@@ -66,9 +59,7 @@ void CPlayState::Update(CGameEngine* game)
 
 }
 
-void CPlayState::Draw(CGameEngine* game, SDL_Renderer * renderer)
+void CPlayState::Draw(CGameEngine* game)
 {
-//	SDL_BlitSurface(bg, NULL, game->screen, NULL);
-//	SDL_UpdateRect(game->screen, 0, 0, 0, 0);
 }
 
