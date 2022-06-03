@@ -2,7 +2,6 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-//#include "SDL.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
@@ -12,6 +11,8 @@
 #include <vector>
 #include <sys/utsname.h>
 using namespace std;
+
+extern int testing;
 
 class CGameState;
 

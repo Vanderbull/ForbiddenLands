@@ -4,6 +4,9 @@
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
+#include "portals.h"
+
+int testing = 0;
 
 void CGameEngine::Init(const char* title, int width, int height,
 						 int bpp, bool fullscreen)

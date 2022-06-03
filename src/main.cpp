@@ -868,7 +868,9 @@ int main(int argc, char ** argv)
             }
         }
 
+        game.Update();
         game.Draw();
+        game.HandleEvents();
 
         start = high_resolution_clock::now();
 
@@ -1131,7 +1133,7 @@ int main(int argc, char ** argv)
                 {
                 renderCharacterCreation();
                 }
-            //MainMenu();
+            MainMenu();
         }
         else if(activeView == DUNGEON)
         {

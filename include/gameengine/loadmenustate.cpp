@@ -5,12 +5,10 @@
 #include "gameengine.h"
 #include "gamestate.h"
 #include "loadmenustate.h"
-#include "savemenustate.h"
-#include "menustate.h"
 
-CMenuState CMenuState::m_MenuState;
+CLoadMenuState CLoadMenuState::m_LoadMenuState;
 
-void CMenuState::Init()
+void CLoadMenuState::Init()
 {
    //Initialize SDL_ttf
     if( TTF_Init() == -1 )
@@ -29,39 +27,37 @@ void CMenuState::Init()
 
 	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
 
-//	bg = SDL_DisplayFormat(temp);
-
 	SDL_FreeSurface(temp);
 
     MenuChoices.clear();
-    MenuChoices.push_back("PLAY");
+    MenuChoices.push_back("WOMBAT");
     MenuChoices.push_back("SAVE");
     MenuChoices.push_back("LOAD");
     MenuChoices.push_back("CHARACTER MANAGER");
     MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
 
-	printf("CMenuState Init\n");
+	printf("CLoadMenuState Init\n");
 }
 
-void CMenuState::Cleanup()
+void CLoadMenuState::Cleanup()
 {
-	printf("CMenuState Cleanup\n");
+	printf("CLoadMenuState Cleanup\n");
 }
 
-void CMenuState::Pause()
+void CLoadMenuState::Pause()
 {
-	printf("CMenuState Pause\n");
+	printf("CLoadMenuState Pause\n");
 }
 
-void CMenuState::Resume()
+void CLoadMenuState::Resume()
 {
-	printf("CMenuState Resume\n");
+	printf("CLoadMenuState Resume\n");
 }
 
-void CMenuState::HandleEvents(CGameEngine* game)
+void CLoadMenuState::HandleEvents(CGameEngine* game)
 {
-    printf("CMenuState HandleEvents\n");
+    printf("CLoadMenuState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -82,9 +78,9 @@ void CMenuState::HandleEvents(CGameEngine* game)
 	}
 }
 
-void CMenuState::Update(CGameEngine* game)
+void CLoadMenuState::Update(CGameEngine* game)
 {
-    printf("CMenuState Update\n");
+    printf("CLoadMenuState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -101,7 +97,7 @@ void CMenuState::Update(CGameEngine* game)
 
 
 //void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
-void CMenuState::Draw(CGameEngine* game)
+void CLoadMenuState::Draw(CGameEngine* game)
 {
     TTF_Font* m_font = NULL;
     m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
@@ -177,12 +173,6 @@ void CMenuState::Draw(CGameEngine* game)
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(game->renderer, &buttonPosition);
 
-            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-            {
-                if( MenuChoice == "LOAD")
-                    game->ChangeState( CLoadMenuState::Instance() );
-            }
-
             SDL_PumpEvents();
             SDL_GetMouseState(NULL, NULL);
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
@@ -230,12 +220,6 @@ void CMenuState::Draw(CGameEngine* game)
                         game->SaveMenu = 0;
                         game->SettingsMenu = 0;
                         game->CreateCharacter = 0;
-
-                        // Destroy resources
-                        //SDL_DestroyTexture(currentViewTexture);
-                        //SDL_DestroyTexture(gTexture);
-                        //atexit(SDL_Quit);
-                        //quit = 1;
                     }
                 }
             }

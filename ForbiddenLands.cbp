@@ -91,7 +91,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		</ExtraCommands>
 		<Unit filename="README.md" />
 		<Unit filename="include/bestiary.h" />
-		<Unit filename="include/bless.h" />
 		<Unit filename="include/colors.h" />
 		<Unit filename="include/common.h" />
 		<Unit filename="include/coordinates.h" />
@@ -103,10 +102,14 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/gamestate.h" />
 		<Unit filename="include/gameengine/introstate.cpp" />
 		<Unit filename="include/gameengine/introstate.h" />
+		<Unit filename="include/gameengine/loadmenustate.cpp" />
+		<Unit filename="include/gameengine/loadmenustate.h" />
 		<Unit filename="include/gameengine/menustate.cpp" />
 		<Unit filename="include/gameengine/menustate.h" />
 		<Unit filename="include/gameengine/playstate.cpp" />
 		<Unit filename="include/gameengine/playstate.h" />
+		<Unit filename="include/gameengine/savemenustate.cpp" />
+		<Unit filename="include/gameengine/savemenustate.h" />
 		<Unit filename="include/healing_character.h" />
 		<Unit filename="include/items/item.h" />
 		<Unit filename="include/main_menu.h" />
@@ -114,6 +117,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/menu_resource.h" />
 		<Unit filename="include/npc.h" />
 		<Unit filename="include/player_characters.h" />
+		<Unit filename="include/portals.h" />
 		<Unit filename="include/potions/efreet_bottle.h" />
 		<Unit filename="include/potions/flask_of_oil.h" />
 		<Unit filename="include/potions/potion_of_extra_healing.h" />
@@ -166,6 +170,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/wands/magic_missile_wand.h" />
 		<Unit filename="include/weather/weather.h" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/portals.cpp" />
 		<Unit filename="src/randomizer.cpp" />
 		<Unit filename="version.h" />
 		<Extensions>
