@@ -8,7 +8,7 @@ using namespace std::chrono;
 #include "colors.h"
 #include "coordinates.h"
 #include "player_characters.h"
-#include "savegame.h"
+//#include "savegame.h"
 
 void renderShopCoins();
 

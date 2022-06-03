@@ -50,40 +50,32 @@ void initGame()
 
     if( GL_SwapInterval == 0)
     {
-        std::cout << "SDL_GL_SetSwapInterval adaptive vsync SUCCESS..." << std::endl;
+        SDL_Log("SDL_GL_SetSwapInterval adaptive vsync SUCCESS...\n");
     }
     else if( GL_SwapInterval == -1 )
     {
-        std::cout << "SDL_GL_SetSwapInterval adaptive vsync FAILED..." << std::endl;
+        SDL_Log("SDL_GL_SetSwapInterval adaptive vsync FAILED...");
 
-        std::cout << " Trying with immediate vsync..." << std::endl;
         GL_SwapInterval = SDL_GL_SetSwapInterval(0);
          if( GL_SwapInterval == 0)
         {
-            std::cout << "SDL_GL_SetSwapInterval immediate vsync SUCCESS..." << std::endl;
+            SDL_Log("SDL_GL_SetSwapInterval immediate vsync SUCCESS...");
         }
         else if( GL_SwapInterval == -1 )
         {
-            std::cout << "SDL_GL_SetSwapInterval immediate vsync FAILED..." << std::endl;
+            SDL_Log("SDL_GL_SetSwapInterval immediate vsync FAILED...");
         }
     }
 
     std::cout << "Mix_VolumeMusic = " << Mix_VolumeMusic(0) << std::endl;
 
-    std::cout << "Verified savegames..." << std::endl;
-
-    MenuChoices.clear();
-    MenuChoices.push_back("PLAY");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
-    MenuChoices.push_back("EXIT");
-
-    if( mainLog.empty() )
-    {
-        std::cout << "Empty mainLog" << std::endl;
-    }
+//    MenuChoices.clear();
+//    MenuChoices.push_back("PLAY");
+//    MenuChoices.push_back("SAVE");
+//    MenuChoices.push_back("LOAD");
+//    MenuChoices.push_back("CHARACTER MANAGER");
+//    MenuChoices.push_back("SETTINGS");
+//    MenuChoices.push_back("EXIT");
 
     North = LoadTexture("./images/compass/north.png",255);
     West = LoadTexture("./images/compass/west.png",255);
@@ -132,28 +124,28 @@ int Button(SDL_Point mousePosition, SDL_Rect Area, SDL_Renderer* Renderer )
     return -1;
 };
 
-class Command
-{
-    public:
-    virtual ~Command() {}
-    virtual void execute() = 0;
-};
-
-class JumpCommand : public Command
-{
-    public:
-    virtual void execute() { Jump(); };
-    private:
-    void Jump(){};
-};
-
-class inputhandler
-{
-    public:
-    void handleinput();
-    private:
-    Command* buttonX_;
-};
+//class Command
+//{
+//    public:
+//    virtual ~Command() {}
+//    virtual void execute() = 0;
+//};
+//
+//class JumpCommand : public Command
+//{
+//    public:
+//    virtual void execute() { Jump(); };
+//    private:
+//    void Jump(){};
+//};
+//
+//class inputhandler
+//{
+//    public:
+//    void handleinput();
+//    private:
+//    Command* buttonX_;
+//};
 
 struct rpg_data_engine
 {

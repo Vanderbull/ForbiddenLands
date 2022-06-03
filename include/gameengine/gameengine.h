@@ -12,6 +12,8 @@
 #include <sys/utsname.h>
 using namespace std;
 
+#include "../version.h"
+
 extern int testing;
 
 class CGameState;

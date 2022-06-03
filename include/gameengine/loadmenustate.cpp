@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
+#include "menustate.h"
 #include "loadmenustate.h"
 
 CLoadMenuState CLoadMenuState::m_LoadMenuState;

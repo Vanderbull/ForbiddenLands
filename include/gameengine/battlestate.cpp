@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
+#include "playstate.h"
 #include "battlestate.h"
 
 CBattleState CBattleState::m_BattleState;
@@ -14,30 +15,20 @@ void CBattleState::Init()
     if( TTF_Init() == -1 )
     {
         printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
+        exit(EXIT_FAILURE);
     }
 
     gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
 
-    if(!gameTitleFont) {
-    printf("TTF_OpenFont: %s\n", TTF_GetError());
-    exit(-1);
-   // handle error
-}
+    if(!gameTitleFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
 
 	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
 
-//	bg = SDL_DisplayFormat(temp);
-
 	SDL_FreeSurface(temp);
-
-    MenuChoices.clear();
-    MenuChoices.push_back("PLAY");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
-    MenuChoices.push_back("EXIT");
 
 	printf("CBattleState Init\n");
 }
@@ -93,8 +84,6 @@ void CBattleState::Update(CGameEngine* game)
     m_iWheelY=0;
 }
 
-
-
 void CBattleState::Draw(CGameEngine* game)
 {
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
@@ -105,9 +94,8 @@ void CBattleState::Draw(CGameEngine* game)
 	SDL_Surface* surface = IMG_Load( "./images/battleBackground.png" );
 	if( !surface )
 	{
-        //SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
-        //std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
-        exit(-1);
+        SDL_Log("Loading surface ./images/BattleBackground.png failed\n");
+        exit(EXIT_FAILURE);
 	}
 
 	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
@@ -120,9 +108,8 @@ void CBattleState::Draw(CGameEngine* game)
     gSurface = TTF_RenderText_Blended(gameTitleFont, "Forbidden Lands", White);
 	if( !gSurface )
 	{
-        //SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
-        //std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
-        exit(-1);
+        SDL_Log("RenderText_Blended for gameTitleFont failed");
+        exit(EXIT_FAILURE);
 	}
     gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
     int texW = 0;
@@ -215,11 +202,6 @@ void CBattleState::Draw(CGameEngine* game)
                         SaveMenu = 0;
                         SettingsMenu = 0;
                         CreateCharacter = 0;
-
-                        // Destroy resources
-                        //SDL_DestroyTexture(currentViewTexture);
-                        //SDL_DestroyTexture(gTexture);
-                        //atexit(SDL_Quit);
                         quit = 1;
                     }
                 }
@@ -227,23 +209,4 @@ void CBattleState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
-
-    if( SettingsMenu == 1 )
-    {
-        //renderSettings();
-    }
-    else if( SaveMenu == 1 )
-    {
-        //RenderSaveMenu();
-    }
-    else if( LoadMenu == 1)
-    {
-        //RenderLoadMenu();
-    }
-    else if( CreateCharacter == 1)
-    {
-        //renderCharacterCreation();
-    }
-
-
 }

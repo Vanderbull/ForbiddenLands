@@ -9,8 +9,8 @@
 
 #include "gameengine.h"
 #include "gamestate.h"
+#include "menustate.h"
 #include "introstate.h"
-#include "playstate.h"
 
 CIntroState CIntroState::m_IntroState;
 
@@ -47,7 +47,6 @@ void CIntroState::HandleEvents(CGameEngine* game)
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_SPACE:
-						game->ChangeState( CPlayState::Instance() );
 						break;
 
 					case SDLK_ESCAPE:

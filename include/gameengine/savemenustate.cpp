@@ -4,7 +4,9 @@
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
+#include "menustate.h"
 #include "savemenustate.h"
+#include "savegame.h"
 
 CSaveMenuState CSaveMenuState::m_SaveMenuState;
 
@@ -14,19 +16,18 @@ void CSaveMenuState::Init()
     if( TTF_Init() == -1 )
     {
         printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
+        exit(EXIT_FAILURE);
     }
 
     gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
 
-    if(!gameTitleFont) {
-    printf("TTF_OpenFont: %s\n", TTF_GetError());
-    exit(-1);
-   // handle error
-}
+    if(!gameTitleFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
 
 	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
-
 	SDL_FreeSurface(temp);
 
     MenuChoices.clear();
@@ -37,7 +38,7 @@ void CSaveMenuState::Init()
     MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
 
-	printf("CLoadMenuState Init\n");
+	printf("CSaveMenuState Init\n");
 }
 
 void CSaveMenuState::Cleanup()

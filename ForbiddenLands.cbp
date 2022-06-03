@@ -97,6 +97,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/functions.h" />
 		<Unit filename="include/gameengine/battlestate.cpp" />
 		<Unit filename="include/gameengine/battlestate.h" />
+		<Unit filename="include/gameengine/createcharacterstate.cpp" />
+		<Unit filename="include/gameengine/createcharacterstate.h" />
 		<Unit filename="include/gameengine/gameengine.cpp" />
 		<Unit filename="include/gameengine/gameengine.h" />
 		<Unit filename="include/gameengine/gamestate.h" />

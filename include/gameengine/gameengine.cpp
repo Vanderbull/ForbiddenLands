@@ -80,11 +80,11 @@ void CGameEngine::Init(const char* title, int width, int height,
         // load support for the JPG and PNG image formats
         int flags=IMG_INIT_JPG|IMG_INIT_PNG;
         int initted=IMG_Init(flags);
-        if((initted&flags) != flags) {
-            printf("IMG_Init: Failed to init required jpg and png support!\n");
+
+        if((initted&flags) != flags)
+        {
             printf("IMG_Init: %s\n", IMG_GetError());
             exit(EXIT_FAILURE);
-            // handle error
         }
 
         if( strcmp(uts.machine, "x86_64") == 0 )
@@ -100,7 +100,7 @@ void CGameEngine::Init(const char* title, int width, int height,
         else
         {
             SDL_Log("Loading Window Icon initiated...");
-            //SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
+            SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
         }
 
         SDL_SetWindowIcon(window, gSurface);
@@ -119,18 +119,6 @@ void CGameEngine::Init(const char* title, int width, int height,
             SDL_Log("Audio successfully initiated...");
         }
     }
-	// initialize SDL
-	//SDL_Init(SDL_INIT_VIDEO);
-
-	// set the title bar text
-//	SDL_WM_SetCaption(title, title);
-
-//	if ( fullscreen ) {
-//		flags = SDL_FULLSCREEN;
-//	}
-
-	// create the screen surface
-//	screen = SDL_SetVideoMode(width, height, bpp, flags);
 
 	m_fullscreen = fullscreen;
 	m_running = true;
@@ -139,7 +127,8 @@ void CGameEngine::Init(const char* title, int width, int height,
 void CGameEngine::Cleanup()
 {
 	// cleanup the all states
-	while ( !states.empty() ) {
+	while ( !states.empty() )
+    {
 		states.back()->Cleanup();
 		states.pop_back();
 	}

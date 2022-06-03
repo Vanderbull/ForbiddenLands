@@ -56,7 +56,7 @@ struct utsname uts;
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
-#include "../version.h"
+//#include "../version.h"
 
 #include "../include/gameengine/gameengine.h"
 #include "../include/gameengine/introstate.h"
@@ -65,8 +65,6 @@ struct utsname uts;
 #include "../include/resource.h"
 #include "../include/views/world_view.h"
 #include "../include/views/battle_view.h"
-
-
 
 #ifdef WINDOWS
     #include <direct.h>

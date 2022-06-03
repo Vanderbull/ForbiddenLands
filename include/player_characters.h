@@ -132,7 +132,7 @@ typedef struct playerCharacter
         int count = 0;
         for (int aNumber : current_stats)
         {
-            current_stats[count] = GenerateNumber(3, 18);//rand() % 15 + 3;
+            current_stats[count] = GenerateNumber(3, 18);
             count++;
         }
     };
