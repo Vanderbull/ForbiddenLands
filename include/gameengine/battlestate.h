@@ -1,4 +1,3 @@
-
 #ifndef BATTLESTATE_H
 #define BATTLESTATE_H
 
@@ -73,4 +72,3 @@ private:
 };
 
 #endif
-

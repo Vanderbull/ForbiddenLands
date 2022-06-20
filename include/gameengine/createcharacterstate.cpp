@@ -1,6 +1,4 @@
-
 #include <stdio.h>
-
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
@@ -11,7 +9,6 @@ CCreateCharacterState CCreateCharacterState::m_CreateCharacterState;
 
 void CCreateCharacterState::Init()
 {
-   //Initialize SDL_ttf
     if( TTF_Init() == -1 )
     {
         printf("TTF_OpenFont: %s\n", TTF_GetError());
@@ -20,11 +17,11 @@ void CCreateCharacterState::Init()
 
     gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
 
-    if(!gameTitleFont) {
-    printf("TTF_OpenFont: %s\n", TTF_GetError());
-    exit(-1);
-   // handle error
-}
+    if(!gameTitleFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(-1);
+    }
 
 	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
 
@@ -38,27 +35,27 @@ void CCreateCharacterState::Init()
     MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
 
-	printf("CLoadMenuState Init\n");
+	printf("CCreateCharacterState Init\n");
 }
 
 void CCreateCharacterState::Cleanup()
 {
-	printf("CLoadMenuState Cleanup\n");
+	printf("CCreateCharacterState Cleanup\n");
 }
 
 void CCreateCharacterState::Pause()
 {
-	printf("CLoadMenuState Pause\n");
+	printf("CCreateCharacterState Pause\n");
 }
 
 void CCreateCharacterState::Resume()
 {
-	printf("CLoadMenuState Resume\n");
+	printf("CCreateCharacterState Resume\n");
 }
 
 void CCreateCharacterState::HandleEvents(CGameEngine* game)
 {
-    printf("CLoadMenuState HandleEvents\n");
+    printf("CCreateCharacterState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -81,7 +78,7 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
 
 void CCreateCharacterState::Update(CGameEngine* game)
 {
-    printf("CLoadMenuState Update\n");
+    printf("CCreateCharacterState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -96,8 +93,6 @@ void CCreateCharacterState::Update(CGameEngine* game)
     m_iWheelY=0;
 }
 
-
-//void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
 void CCreateCharacterState::Draw(CGameEngine* game)
 {
     TTF_Font* m_font = NULL;
@@ -130,8 +125,6 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     int texW = 0;
     int texH = 0;
     SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
-
-    //SDL_Rect buttonPosition = { 0, 0,0,0};
 
     gRect = { game->current.w / 2 - (texW / 2),200- (texH / 2), texW, texH };
     SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);

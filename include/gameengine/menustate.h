@@ -1,4 +1,3 @@
-
 #ifndef MENUSTATE_H
 #define MENUSTATE_H
 
@@ -74,4 +73,3 @@ private:
 };
 
 #endif
-

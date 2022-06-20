@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <iostream>
 #include <SDL2/SDL.h>
@@ -133,12 +132,6 @@ void CGameEngine::Cleanup()
 		states.pop_back();
 	}
 
-	// switch back to windowed mode so other
-	// programs won't get accidentally resized
-//	if ( m_fullscreen ) {
-//		screen = SDL_SetVideoMode(640, 480, 0, 0);
-//	}
-
 	printf("CGameEngine Cleanup\n");
 
 	// shutdown SDL
@@ -183,7 +176,6 @@ void CGameEngine::PopState()
 		states.back()->Resume();
 	}
 }
-
 
 void CGameEngine::HandleEvents()
 {

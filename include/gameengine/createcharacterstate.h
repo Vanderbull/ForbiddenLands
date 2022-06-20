@@ -1,4 +1,3 @@
-
 #ifndef CREATECHARACTERSTATE_H
 #define CREATECHARACTERSTATE_H
 
@@ -74,4 +73,3 @@ private:
 };
 
 #endif
-

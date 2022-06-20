@@ -1,4 +1,3 @@
-
 #ifndef LOADMENUSTATE_H
 #define LOADMENUSTATE_H
 
@@ -74,4 +73,3 @@ private:
 };
 
 #endif
-

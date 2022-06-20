@@ -1,6 +1,4 @@
-
 #include <stdio.h>
-
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
@@ -12,7 +10,6 @@ CSaveMenuState CSaveMenuState::m_SaveMenuState;
 
 void CSaveMenuState::Init()
 {
-   //Initialize SDL_ttf
     if( TTF_Init() == -1 )
     {
         printf("TTF_OpenFont: %s\n", TTF_GetError());

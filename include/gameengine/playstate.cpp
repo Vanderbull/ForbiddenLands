@@ -1,6 +1,4 @@
-
 #include <stdio.h>
-
 #include <SDL2/SDL.h>
 #include "gamestate.h"
 #include "gameengine.h"
@@ -56,10 +54,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
 
 void CPlayState::Update(CGameEngine* game)
 {
-
 }
 
 void CPlayState::Draw(CGameEngine* game)
 {
 }
-

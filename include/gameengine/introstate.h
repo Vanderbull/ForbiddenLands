@@ -1,4 +1,3 @@
-
 #ifndef INTROSTATE_H
 #define INTROSTATE_H
 
@@ -32,4 +31,3 @@ private:
 };
 
 #endif
-

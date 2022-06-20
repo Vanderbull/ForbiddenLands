@@ -1,6 +1,4 @@
-
 #include <stdio.h>
-
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
@@ -14,7 +12,6 @@ CMenuState CMenuState::m_MenuState;
 
 void CMenuState::Init()
 {
-   //Initialize SDL_ttf
     if( TTF_Init() == -1 )
     {
         printf("TTF_OpenFont: %s\n", TTF_GetError());
@@ -23,15 +20,13 @@ void CMenuState::Init()
 
     gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
 
-    if(!gameTitleFont) {
-    printf("TTF_OpenFont: %s\n", TTF_GetError());
-    exit(-1);
-   // handle error
-}
+    if(!gameTitleFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(-1);
+    }
 
 	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
-
-//	bg = SDL_DisplayFormat(temp);
 
 	SDL_FreeSurface(temp);
 
@@ -78,8 +73,7 @@ void CMenuState::HandleEvents(CGameEngine* game)
 					case SDLK_ESCAPE:
 						game->PopState();
 						break;
-				}
-				break;
+				} break;
 		}
 	}
 }
@@ -101,8 +95,6 @@ void CMenuState::Update(CGameEngine* game)
     m_iWheelY=0;
 }
 
-
-//void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
 void CMenuState::Draw(CGameEngine* game)
 {
     TTF_Font* m_font = NULL;

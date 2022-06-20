@@ -1,6 +1,4 @@
-
 #include <stdio.h>
-
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
@@ -11,7 +9,6 @@ CLoadMenuState CLoadMenuState::m_LoadMenuState;
 
 void CLoadMenuState::Init()
 {
-   //Initialize SDL_ttf
     if( TTF_Init() == -1 )
     {
         printf("TTF_OpenFont: %s\n", TTF_GetError());
@@ -20,11 +17,11 @@ void CLoadMenuState::Init()
 
     gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
 
-    if(!gameTitleFont) {
-    printf("TTF_OpenFont: %s\n", TTF_GetError());
-    exit(-1);
-   // handle error
-}
+    if(!gameTitleFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(-1);
+    }
 
 	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
 
