@@ -28,7 +28,7 @@ void CLoadMenuState::Init()
 	SDL_FreeSurface(temp);
 
     MenuChoices.clear();
-    MenuChoices.push_back("WOMBAT");
+    MenuChoices.push_back("LOAD STATE");
     MenuChoices.push_back("SAVE");
     MenuChoices.push_back("LOAD");
     MenuChoices.push_back("CHARACTER MANAGER");
@@ -97,6 +97,7 @@ void CLoadMenuState::Update(CGameEngine* game)
 //void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
 void CLoadMenuState::Draw(CGameEngine* game)
 {
+    printf("CLoadMenuState Draw\n");
     TTF_Font* m_font = NULL;
     m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
 
@@ -128,14 +129,15 @@ void CLoadMenuState::Draw(CGameEngine* game)
     int texH = 0;
     SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
-    //SDL_Rect buttonPosition = { 0, 0,0,0};
-
     gRect = { game->current.w / 2 - (texW / 2),200- (texH / 2), texW, texH };
     SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
 //    //Destroy resources
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
+
+    TTF_CloseFont(m_font);
+    m_font = NULL;
 
     int Repeat = 0;
     int buttonWidth = 600;
@@ -170,6 +172,12 @@ void CLoadMenuState::Draw(CGameEngine* game)
         {
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(game->renderer, &buttonPosition);
+
+            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+            {
+                if( MenuChoice == "EXIT")
+                    game->ChangeState( CMenuState::Instance() );
+            }
 
             SDL_PumpEvents();
             SDL_GetMouseState(NULL, NULL);
@@ -218,6 +226,12 @@ void CLoadMenuState::Draw(CGameEngine* game)
                         game->SaveMenu = 0;
                         game->SettingsMenu = 0;
                         game->CreateCharacter = 0;
+
+                        // Destroy resources
+                        //SDL_DestroyTexture(currentViewTexture);
+                        //SDL_DestroyTexture(gTexture);
+                        //atexit(SDL_Quit);
+                        //quit = 1;
                     }
                 }
             }

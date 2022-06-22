@@ -689,39 +689,39 @@ void renderPCstatus()
     }
 };
 
-void savingGameData( std::string saveFile )
-{
-    std::ofstream SaveGame;
-    SaveGame.open(saveFile.c_str());
-
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame << playerCharacter[i].getName() << std::endl;
-    }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame << playerCharacter[i].getArmourClass() << std::endl;
-    }
+//void savingGameData( std::string saveFile )
+//{
+//    std::ofstream SaveGame;
+//    SaveGame.open(saveFile.c_str());
+//
 //    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
 //    {
-//        SaveGame << playerCharacter[i].getClericLevel() << std::endl;
+//        SaveGame << playerCharacter[i].getName() << std::endl;
 //    }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame << playerCharacter[i].getEncumbrance() << std::endl;
-    }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame << playerCharacter[i].getExperience() << std::endl;
-    }
 //    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
 //    {
-//        SaveGame << playerCharacter[i].getFighterLevel() << std::endl;
+//        SaveGame << playerCharacter[i].getArmourClass() << std::endl;
 //    }
-    SaveGame << PlayerCoordinate.x << std::endl;
-    SaveGame << PlayerCoordinate.y << std::endl;
-    SaveGame.close();
-}
+////    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+////    {
+////        SaveGame << playerCharacter[i].getClericLevel() << std::endl;
+////    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame << playerCharacter[i].getEncumbrance() << std::endl;
+//    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame << playerCharacter[i].getExperience() << std::endl;
+//    }
+////    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+////    {
+////        SaveGame << playerCharacter[i].getFighterLevel() << std::endl;
+////    }
+//    SaveGame << PlayerCoordinate.x << std::endl;
+//    SaveGame << PlayerCoordinate.y << std::endl;
+//    SaveGame.close();
+//}
 
 void loadingGameData( std::string saveFile )
 {

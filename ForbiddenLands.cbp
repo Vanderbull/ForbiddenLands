@@ -144,7 +144,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/renderers/render_temple.h" />
 		<Unit filename="include/renderers/render_trainer.h" />
 		<Unit filename="include/resource.h" />
-		<Unit filename="include/savegame.h" />
 		<Unit filename="include/scrolls/scroll_of_fire.h" />
 		<Unit filename="include/skilltree/skilltree.h" />
 		<Unit filename="include/sound_resource.h" />

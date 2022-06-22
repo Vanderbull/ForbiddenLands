@@ -4,7 +4,6 @@
 #include "gamestate.h"
 #include "menustate.h"
 #include "savemenustate.h"
-#include "savegame.h"
 
 CSaveMenuState CSaveMenuState::m_SaveMenuState;
 
@@ -24,15 +23,16 @@ void CSaveMenuState::Init()
         exit(EXIT_FAILURE);
     }
 
-	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
-	SDL_FreeSurface(temp);
-
     MenuChoices.clear();
-    MenuChoices.push_back("WOMBAT");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
+    MenuChoices.push_back("A");
+    MenuChoices.push_back("B");
+    MenuChoices.push_back("C");
+    MenuChoices.push_back("D");
+    MenuChoices.push_back("E");
+    MenuChoices.push_back("F");
+    MenuChoices.push_back("G");
+    MenuChoices.push_back("H");
+    MenuChoices.push_back("I");
     MenuChoices.push_back("EXIT");
 
 	printf("CSaveMenuState Init\n");
@@ -118,7 +118,7 @@ void CSaveMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(m_font, "Forbidden Lands", White);
+    gSurface = TTF_RenderText_Blended(m_font, "Save", White);
 	if( !gSurface )
 	{
         exit(-1);
@@ -143,7 +143,7 @@ void CSaveMenuState::Draw(CGameEngine* game)
 
     for(auto MenuChoice : MenuChoices)
     {
-        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 500 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
+        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 300 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
 
         SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
         SDL_RenderFillRect(game->renderer, &buttonPosition);
@@ -170,6 +170,15 @@ void CSaveMenuState::Draw(CGameEngine* game)
         {
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(game->renderer, &buttonPosition);
+
+            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+            {
+                if( MenuChoice == "A")
+                    savingGameData("./data/savegames/savgama.dat");
+
+                if( MenuChoice == "EXIT")
+                    game->ChangeState( CMenuState::Instance() );
+            }
 
             SDL_PumpEvents();
             SDL_GetMouseState(NULL, NULL);

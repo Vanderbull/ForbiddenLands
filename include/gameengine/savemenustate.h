@@ -1,4 +1,3 @@
-
 #ifndef SAVEMENUSTATE_H
 #define SAVEMENUSTATE_H
 
@@ -31,6 +30,33 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
+    void savingGameData( std::string saveFile )
+    {
+        // Current date/time based on current system
+        time_t now = time(0);
+
+        // Convert now to tm struct for local timezone
+        tm* localtm = localtime(&now);
+        cout << "The local date and time is: " << asctime(localtm) << endl;
+
+        // Convert now to tm struct for UTC
+        tm* gmtm = gmtime(&now);
+        if (gmtm != NULL) {
+        cout << "The UTC date and time is: " << asctime(gmtm) << endl;
+        }
+        else {
+        cerr << "Failed to get the UTC date and time" << endl;
+        //return EXIT_FAILURE;
+        }
+
+        std::ofstream SaveGame;
+        SaveGame.open(saveFile.c_str());
+
+        SaveGame << asctime(gmtm) << "\n";
+
+        SaveGame.close();
+    }
+
 protected:
 	CSaveMenuState() { }
 
@@ -60,17 +86,9 @@ private:
     Sint32 m_iWheelX;
     Sint32 m_iWheelY;
 
-//    int SettingsMenu = 0;
-//    int activeView = 1;
-//    int LoadMenu = 0;
-//    int SaveMenu = 0;
-//    int CreateCharacter = 0;
-//    int quit = 0;
-
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
-
 };
 
 #endif

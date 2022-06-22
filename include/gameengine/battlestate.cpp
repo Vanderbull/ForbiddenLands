@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"

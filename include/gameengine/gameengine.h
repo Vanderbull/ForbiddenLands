@@ -7,6 +7,9 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
 
+#include <iostream>
+#include <string>
+#include <fstream>
 #include <vector>
 #include <sys/utsname.h>
 using namespace std;
@@ -50,6 +53,8 @@ public:
     int LoadMenu = 0;
     int SaveMenu = 0;
     int CreateCharacter = 0;
+
+
 
 private:
 	// the stack of states

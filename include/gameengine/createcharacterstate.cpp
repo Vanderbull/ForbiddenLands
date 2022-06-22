@@ -28,7 +28,7 @@ void CCreateCharacterState::Init()
 	SDL_FreeSurface(temp);
 
     MenuChoices.clear();
-    MenuChoices.push_back("WOMBAT");
+    MenuChoices.push_back("CREATE CHARACTER STATE");
     MenuChoices.push_back("SAVE");
     MenuChoices.push_back("LOAD");
     MenuChoices.push_back("CHARACTER MANAGER");
@@ -166,6 +166,12 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         {
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(game->renderer, &buttonPosition);
+
+            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+            {
+                if( MenuChoice == "EXIT")
+                    game->ChangeState( CMenuState::Instance() );
+            }
 
             SDL_PumpEvents();
             SDL_GetMouseState(NULL, NULL);
