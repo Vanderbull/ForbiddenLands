@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <dirent.h>
 using namespace std;
 
 #include <SDL2/SDL.h>
@@ -49,18 +50,39 @@ public:
         //return EXIT_FAILURE;
         }
 
-        FILE *SaveGame;
-        // open file for writing
-        SaveGame = fopen ("./data/savegames/savgama.dat", "w");
-        if (SaveGame == NULL)
+        if( saveFile == "./data/savegames/new.dat")
         {
-            fprintf(stderr, "\nError opened file\n");
-            exit (1);
+            saveFile = saveFile + "-" + asctime(gmtm);
+            FILE *SaveGame;
+            // open file for writing
+            SaveGame = fopen (saveFile.c_str(), "w");
+            if (SaveGame == NULL)
+            {
+                fprintf(stderr, "\nError opened file\n");
+                exit (1);
+            }
+
+            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
+
+            fclose(SaveGame);
+            Init();
         }
+        else
+        {
+            FILE *SaveGame;
+            // open file for writing
+            SaveGame = fopen (saveFile.c_str(), "w");
+            if (SaveGame == NULL)
+            {
+                fprintf(stderr, "\nError opened file\n");
+                exit (1);
+            }
 
-        fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
+            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
 
-        fclose(SaveGame);
+            fclose(SaveGame);
+            Init();
+        }
     }
 
 protected:

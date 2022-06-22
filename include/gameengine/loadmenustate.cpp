@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <dirent.h>
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
@@ -28,11 +29,22 @@ void CLoadMenuState::Init()
 	SDL_FreeSurface(temp);
 
     MenuChoices.clear();
-    MenuChoices.push_back("A");
-    MenuChoices.push_back("B");
-    MenuChoices.push_back("C");
-    MenuChoices.push_back("D");
-    MenuChoices.push_back("E");
+
+    DIR *dpdf;
+    struct dirent *epdf;
+    std::vector<std::string> filenames;
+    dpdf = opendir("./data/savegames");
+    if (dpdf != NULL) {
+       while (epdf = readdir(dpdf))
+       {
+             if (epdf->d_name[0] != '.' && epdf->d_name[strlen(epdf->d_name)-1] != '~' )
+            {
+                MenuChoices.push_back(std::string(epdf->d_name));
+            }
+
+       }
+    }
+
     MenuChoices.push_back("EXIT");
 
 	printf("CLoadMenuState Init\n");
@@ -175,11 +187,10 @@ void CLoadMenuState::Draw(CGameEngine* game)
 
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
-                if( MenuChoice == "A")
-                    loadingGameData("./data/savegames/savgama.dat");
-
                 if( MenuChoice == "EXIT")
                     game->ChangeState( CMenuState::Instance() );
+                else
+                    loadingGameData(MenuChoice.c_str());
             }
 
             SDL_PumpEvents();

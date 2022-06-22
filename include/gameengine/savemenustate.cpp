@@ -24,15 +24,21 @@ void CSaveMenuState::Init()
     }
 
     MenuChoices.clear();
-    MenuChoices.push_back("A");
-    MenuChoices.push_back("B");
-    MenuChoices.push_back("C");
-    MenuChoices.push_back("D");
-    MenuChoices.push_back("E");
-    MenuChoices.push_back("F");
-    MenuChoices.push_back("G");
-    MenuChoices.push_back("H");
-    MenuChoices.push_back("I");
+    DIR *dpdf;
+    struct dirent *epdf;
+    std::vector<std::string> filenames;
+    dpdf = opendir("./data/savegames");
+    if (dpdf != NULL) {
+       while (epdf = readdir(dpdf))
+       {
+             if (epdf->d_name[0] != '.' && epdf->d_name[strlen(epdf->d_name)-1] != '~' )
+            {
+                MenuChoices.push_back(std::string(epdf->d_name));
+            }
+
+       }
+    }
+    MenuChoices.push_back("NEW SAVE");
     MenuChoices.push_back("EXIT");
 
 	printf("CSaveMenuState Init\n");
@@ -173,11 +179,12 @@ void CSaveMenuState::Draw(CGameEngine* game)
 
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
-                if( MenuChoice == "A")
-                    savingGameData("./data/savegames/savgama.dat");
-
                 if( MenuChoice == "EXIT")
                     game->ChangeState( CMenuState::Instance() );
+                else if( MenuChoice == "NEW SAVE")
+                    savingGameData("./data/savegames/new.dat");
+                else
+                    savingGameData(MenuChoice.c_str());
             }
 
             SDL_PumpEvents();
