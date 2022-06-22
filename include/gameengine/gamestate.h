@@ -1,6 +1,7 @@
 #ifndef GAMESTATE_H
 #define GAMESTATE_H
 
+#include "actor.h"
 #include "gameengine.h"
 
 class CGameState
@@ -22,6 +23,8 @@ public:
 
 protected:
 	CGameState() { }
+
+	ACTOR SActor;
 };
 
 #endif

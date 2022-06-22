@@ -30,6 +30,28 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
+    void loadingGameData( std::string saveFile )
+    {
+        FILE *infile;
+
+        // Open person.dat for reading
+        infile = fopen (saveFile.c_str(), "r");
+        if (infile == NULL)
+        {
+            fprintf(stderr, "\nError opening file\n");
+            exit (1);
+        }
+
+        // read file contents till end of file
+        while(fread(&SActor, sizeof(struct ACTOR), 1, infile))
+        {
+            std::cout << SActor.action_stamina << "\n";
+        }
+
+        // close file
+        fclose (infile);
+    }
+
 protected:
 	CLoadMenuState() { }
 
@@ -58,13 +80,6 @@ private:
     ///information about the state of thw wheel
     Sint32 m_iWheelX;
     Sint32 m_iWheelY;
-
-//    int SettingsMenu = 0;
-//    int activeView = 1;
-//    int LoadMenu = 0;
-//    int SaveMenu = 0;
-//    int CreateCharacter = 0;
-//    int quit = 0;
 
     int Repeat = 0;
     int buttonWidth = 600;

@@ -49,12 +49,18 @@ public:
         //return EXIT_FAILURE;
         }
 
-        std::ofstream SaveGame;
-        SaveGame.open(saveFile.c_str());
+        FILE *SaveGame;
+        // open file for writing
+        SaveGame = fopen ("./data/savegames/savgama.dat", "w");
+        if (SaveGame == NULL)
+        {
+            fprintf(stderr, "\nError opened file\n");
+            exit (1);
+        }
 
-        SaveGame << asctime(gmtm) << "\n";
+        fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
 
-        SaveGame.close();
+        fclose(SaveGame);
     }
 
 protected:

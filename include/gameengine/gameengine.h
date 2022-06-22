@@ -15,6 +15,7 @@
 using namespace std;
 
 #include "../version.h"
+//#include "actor.h"
 
 extern int testing;
 

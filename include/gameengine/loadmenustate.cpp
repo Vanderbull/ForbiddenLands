@@ -28,11 +28,11 @@ void CLoadMenuState::Init()
 	SDL_FreeSurface(temp);
 
     MenuChoices.clear();
-    MenuChoices.push_back("LOAD STATE");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
+    MenuChoices.push_back("A");
+    MenuChoices.push_back("B");
+    MenuChoices.push_back("C");
+    MenuChoices.push_back("D");
+    MenuChoices.push_back("E");
     MenuChoices.push_back("EXIT");
 
 	printf("CLoadMenuState Init\n");
@@ -175,6 +175,9 @@ void CLoadMenuState::Draw(CGameEngine* game)
 
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
+                if( MenuChoice == "A")
+                    loadingGameData("./data/savegames/savgama.dat");
+
                 if( MenuChoice == "EXIT")
                     game->ChangeState( CMenuState::Instance() );
             }

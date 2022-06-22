@@ -723,40 +723,40 @@ void renderPCstatus()
 //    SaveGame.close();
 //}
 
-void loadingGameData( std::string saveFile )
-{
-    std::ifstream SaveGame;
-    SaveGame.open(saveFile.c_str());
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame >> playerCharacter[i].name;
-    }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame >> playerCharacter[i].ac_current;
-    }
+//void loadingGameData( std::string saveFile )
+//{
+//    std::ifstream SaveGame;
+//    SaveGame.open(saveFile.c_str());
 //    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
 //    {
-//        SaveGame >> playerCharacter[i].level_cleric;
+//        SaveGame >> playerCharacter[i].name;
 //    }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame >> playerCharacter[i].encumbrance;
-    }
-    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
-    {
-        SaveGame >> playerCharacter[i].experience;
-    }
 //    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
 //    {
-//        SaveGame >> playerCharacter[i].level_fighter;
+//        SaveGame >> playerCharacter[i].ac_current;
 //    }
-
-    SaveGame >> PlayerCoordinate.x;
-    SaveGame >> PlayerCoordinate.y;
-
-    SaveGame.close();
-}
+////    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+////    {
+////        SaveGame >> playerCharacter[i].level_cleric;
+////    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame >> playerCharacter[i].encumbrance;
+//    }
+//    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+//    {
+//        SaveGame >> playerCharacter[i].experience;
+//    }
+////    for( int i = 0; i < sizeof(playerCharacter)/sizeof(playerCharacter[0]); i++ )
+////    {
+////        SaveGame >> playerCharacter[i].level_fighter;
+////    }
+//
+//    SaveGame >> PlayerCoordinate.x;
+//    SaveGame >> PlayerCoordinate.y;
+//
+//    SaveGame.close();
+//}
 
 int encumbranceIncoins(int coins)
 {

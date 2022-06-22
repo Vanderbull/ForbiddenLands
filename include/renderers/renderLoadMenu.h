@@ -96,7 +96,7 @@ void RenderLoadMenu()
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameA);
-            loadingGameData("./data/savegames/savgama.dat");
+            //loadingGameData("./data/savegames/savgama.dat");
             MenuCounter = 50;
             MenuCounterSwitch = 1;
         }
@@ -111,7 +111,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameB);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgamb.dat");
+            //loadingGameData("./data/savegames/savgamb.dat");
             MenuCounter = 50;
             MenuCounterSwitch = 1;
         }
@@ -126,7 +126,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameC);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgamc.dat");
+            //loadingGameData("./data/savegames/savgamc.dat");
             MenuCounter = 50;
             MenuCounterSwitch = 1;
         }
@@ -141,7 +141,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameD);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgamd.dat");
+            //loadingGameData("./data/savegames/savgamd.dat");
             MenuCounter = 50;
             MenuCounterSwitch = 1;
         }
@@ -156,7 +156,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameE);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgame.dat");
+            //loadingGameData("./data/savegames/savgame.dat");
             MenuCounter = 50;
             MenuCounterSwitch = 1;
         }
@@ -171,7 +171,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameF);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgamf.dat");
+            //loadingGameData("./data/savegames/savgamf.dat");
             RenderText("Loading game...", Red, 700,100,42);
             activeView = DUNGEON;
             LoadMenu = 0;
@@ -188,7 +188,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameG);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgamg.dat");
+            //loadingGameData("./data/savegames/savgamg.dat");
             RenderText("Loading game...", Red, 700,100,42);
             activeView = DUNGEON;
             LoadMenu = 0;
@@ -205,7 +205,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameH);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgamh.dat");
+            //loadingGameData("./data/savegames/savgamh.dat");
             RenderText("Loading game...", Red, 700,100,42);
             activeView = DUNGEON;
             LoadMenu = 0;
@@ -222,7 +222,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameI);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgami.dat");
+            //loadingGameData("./data/savegames/savgami.dat");
             RenderText("Loading game...", Red, 700,100,42);
             activeView = DUNGEON;
             LoadMenu = 0;
@@ -239,7 +239,7 @@ void RenderLoadMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameJ);
             std::ofstream SaveGame;
-            loadingGameData("./data/savegames/savgamj.dat");
+            //loadingGameData("./data/savegames/savgamj.dat");
             RenderText("Loading game...", Red, 700,100,42);
             activeView = DUNGEON;
             LoadMenu = 0;
