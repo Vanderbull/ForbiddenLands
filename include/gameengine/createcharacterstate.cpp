@@ -95,6 +95,9 @@ void CCreateCharacterState::Update(CGameEngine* game)
 
 void CCreateCharacterState::Draw(CGameEngine* game)
 {
+    SDL_Point mousePosition;
+    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+
     std::string raceDescriptions;
 
     int localCounter = 0;
@@ -155,6 +158,114 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         gRect = { 100,370+(counter*50), texW, texH };
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
+        StatPoints_String = "[+]";
+        gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
+        if( !gSurface )
+        {
+            exit(-1);
+        }
+        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+        gRect = { 300,370+(counter*50), texW, texH };
+        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+
+       if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        {
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                StatPoints_String = "Pressing the matter" + std::to_string(counter);
+                gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
+                if( !gSurface )
+                {
+                    exit(-1);
+                }
+                gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+                SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+                gRect = { 0,0, texW, texH };
+                SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+            }
+        }
+
+        StatPoints_String = "[-]";
+        gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
+        if( !gSurface )
+        {
+            exit(-1);
+        }
+        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+        gRect = { 340,370+(counter*50), texW, texH };
+        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+
+
+       if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        {
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                StatPoints_String = "Pressing the matter" + std::to_string(counter);
+                gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
+                if( !gSurface )
+                {
+                    exit(-1);
+                }
+                gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+                SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+                gRect = { 0,0, texW, texH };
+                SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+            }
+        }
+
+        counter++;
+    }
+
+    counter = 0;
+
+    for (std::string textElement : raceTextElements)
+    {
+        SDL_Rect rect;
+        rect.x = game->current.w - 1300;
+        rect.y = 220+(counter*40);
+        rect.w = 300;
+        rect.h = 30;
+        raceElements.push_back(rect);
+        counter++;
+    }
+
+    SDL_Rect nextCharacter = {game->current.w - 500,0,600,30};
+    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 255);
+    SDL_RenderFillRect(game->renderer, &nextCharacter);
+    //RenderText("NEXT CHARACTER",Black,game->current.w - 500,0,FontSize);
+
+    counter = 0;
+    for (std::string textElement : raceTextElements)
+    {
+        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 255);
+        SDL_RenderFillRect(game->renderer, &raceElements[counter]);
+
+        StatPoints_String = textElement.c_str();
+        gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
+        if( !gSurface )
+        {
+            exit(-1);
+        }
+        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+        gRect = { raceElements[counter].x,raceElements[counter].y, texW, texH };
+        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+        //RenderText(textElement.c_str(),Black,raceElements[counter].x,raceElements[counter].y,FontSize);
+        if( SDL_PointInRect(&mousePosition, &raceElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        {
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+                SDL_RenderFillRect(game->renderer, &raceElements[counter]);
+            }
+        }
         counter++;
     }
 
