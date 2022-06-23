@@ -4,6 +4,11 @@
 #include <string>
 using namespace std;
 
+#include <SDL2/SDL.h>
+#include "gameengine.h"
+#include "gamestate.h"
+#include "randomizer.h"
+
 struct ACTOR
 {
     int current_stats[6]; // 5 = CON
@@ -27,6 +32,51 @@ struct ACTOR
     int initiative = 0;
     int daily_stamina = 100;
     int action_stamina = 100;
+
+    void sleeping(int hours)
+    {
+        daily_stamina += hours;
+        action_stamina += hours*10;
+    };
+
+    void generateInitiative()
+    {
+        initiative = GenerateNumber(1,6);
+    };
+
+    void increaseHunger()
+    {
+        if( hunger < 100 )
+        hunger++;
+    };
+
+    void decreaseHunger()
+    {
+        if( hunger > 0 )
+        hunger--;
+    };
+
+    void increaseThirst()
+    {
+        if( thirst < 100 )
+        thirst++;
+    };
+
+    void decreaseThirst()
+    {
+        if( thirst > 0 )
+        thirst--;
+    };
+
+    void calculateStats()
+    {
+        int count = 0;
+        for (int aNumber : current_stats)
+        {
+            current_stats[count] = GenerateNumber(3, 18);
+            count++;
+        }
+    };
 };
 
 #endif
