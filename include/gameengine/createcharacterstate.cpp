@@ -134,7 +134,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
     for (std::string textElement : textElements)
     {
-        StatPoints_String = std::to_string(0);
+        StatPoints_String = std::to_string(SActor.current_stats[counter]);
         gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
         if( !gSurface )
         {
@@ -269,6 +269,24 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         counter++;
     }
 
+    SDL_Rect rerollButton = {700, 600, 100, 50};
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(game->renderer, &rerollButton);
+    game->RenderText("Re roll",game->Black, 700,600, 24);
+
+
+    if( SDL_PointInRect(&mousePosition, &rerollButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            SActor.current_stats[0] = GenerateNumber(3,18);
+            SActor.current_stats[1] = GenerateNumber(3,18);
+            SActor.current_stats[2] = GenerateNumber(3,18);
+            SActor.current_stats[3] = GenerateNumber(3,18);
+            SActor.current_stats[4] = GenerateNumber(3,18);
+            SActor.current_stats[5] = GenerateNumber(3,18);
+        }
+    }
 //
 //    for (std::string textElement : textElements)
 //    {

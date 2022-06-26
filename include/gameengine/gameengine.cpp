@@ -194,3 +194,26 @@ void CGameEngine::Draw()
 	// let the state draw the screen
 	states.back()->Draw(this);
 }
+
+int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
+{
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+
+    gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX, iY, texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    TTF_CloseFont(m_font);
+    m_font = NULL;
+    fontSize = 0;
+    return 0;
+}
