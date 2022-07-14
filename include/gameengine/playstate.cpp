@@ -34,6 +34,9 @@ void CPlayState::Init()
     MenuChoices.push_back("CHARACTER MANAGER");
     MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
+
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+
 	printf("CPlayState Init\n");
 }
 
@@ -54,22 +57,47 @@ void CPlayState::Resume()
 
 void CPlayState::HandleEvents(CGameEngine* game)
 {
+    printf("CPlayState HandleEvents\n");
+
 	SDL_Event event;
 
-	if (SDL_PollEvent(&event)) {
-		switch (event.type) {
+	while (SDL_PollEvent(&event)!= 0)
+    {
+		switch (event.type)
+		{
 			case SDL_QUIT:
 				game->Quit();
 				break;
-
 			case SDL_KEYDOWN:
-				switch (event.key.keysym.sym) {
+				switch (event.key.keysym.sym)
+				{
 					case SDLK_ESCAPE:
 						game->Quit();
 						break;
 					case SDLK_m:
 						game->PushState( CMenuState::Instance() );
 						break;
+                    case SDLK_d:
+                        rotateClockWise();
+                        break;
+                    case SDLK_a:
+                        rotateCounterClockWise();
+                        break;
+                    case SDLK_w:
+                        {
+                            if( Rotation == "N")
+                                game->PlayerCoordinate.x--;
+                            if( Rotation == "S")
+                                game->PlayerCoordinate.x++;
+                            if( Rotation == "W")
+                                game->PlayerCoordinate.y--;
+                            if( Rotation == "E")
+                                game->PlayerCoordinate.y++;
+                        }
+                        break;
+                    case SDLK_s:
+                        game->PlayerCoordinate.y--;
+                        break;
 				}
 				break;
 		}
@@ -78,7 +106,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
 
 void CPlayState::Update(CGameEngine* game)
 {
-    printf("CLoadMenuState Update\n");
+    printf("CPlayState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -91,33 +119,40 @@ void CPlayState::Update(CGameEngine* game)
     ///--- Set the wheel back to 0
     m_iWheelX=0;
     m_iWheelY=0;
+
+    getCompassDirection();
+
+    if(Rotation == "N")
+        game->PlayerCoordinate.z = NORTH;
+    if(Rotation == "S")
+        game->PlayerCoordinate.z = SOUTH;
+    if(Rotation == "W")
+        game->PlayerCoordinate.z = WEST;
+    if(Rotation == "E")
+        game->PlayerCoordinate.z = EAST;
 }
 
 void CPlayState::Draw(CGameEngine* game)
 {
     printf("CPlayState Draw\n");
-    TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+    //TTF_Font* m_font = NULL;
+    //m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-    MainMenuBackgroundTexture = NULL;
+    SDL_Rect test = {1500,0,500,500};
+    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][WEST], NULL, &test);
+    test = {500,0,500,500};
+    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][EAST], NULL, &test);
+    test = {1000,0,500,500};
+    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][SOUTH], NULL, &test);
+    test = {1000,500,500,500};
+    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][NORTH], NULL, &test);
+    test = {1000,1000,500,500};
+    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, &test);
 
-	SDL_Surface* surface = IMG_Load( "./images/battleBackground.png" );
-	if( !surface )
-	{
-        exit(-1);
-	}
-
-	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_SetTextureAlphaMod( texture, 255 );
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_FreeSurface(surface);
-    SDL_DestroyTexture(texture);
-
-    gSurface = TTF_RenderText_Blended(m_font, "Forbidden Lands", White);
+    gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->PlayerCoordinate.x).c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -134,52 +169,57 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    TTF_CloseFont(m_font);
-    m_font = NULL;
+    gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->PlayerCoordinate.y).c_str(), Black);
+	if( !gSurface )
+	{
+        exit(-1);
+	}
+    gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
-    int Repeat = 0;
-    int buttonWidth = 600;
-    int buttonHeight = 60;
+    gRect = { game->current.w / 2 - (texW / 2) + 200,200- (texH / 2), texW, texH };
+    SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
-    for(auto MenuChoice : MenuChoices)
-    {
-        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 500 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
 
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderDrawRect(game->renderer,&buttonPosition);
+    gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->PlayerCoordinate.z).c_str(), Black);
+	if( !gSurface )
+	{
+        exit(-1);
+	}
+    gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
-        gSurface = TTF_RenderText_Blended(gameTitleFont, MenuChoice.c_str(), White);
-        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
-        int texW = 0;
-        int texH = 0;
-        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+    gRect = { game->current.w / 2 - (texW / 2) + 400,200- (texH / 2), texW, texH };
+    SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
-        gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
-        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
 
-        //Destroy resources
-        SDL_FreeSurface(gSurface);
-        SDL_DestroyTexture(gTexture);
+    gSurface = TTF_RenderText_Blended(m_font, Rotation.c_str(), Black);
+	if( !gSurface )
+	{
+        exit(-1);
+	}
+    gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
-        SDL_Point mousePosition;
-        SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+    gRect = { game->current.w / 2 - (texW / 2) + 600,200- (texH / 2), texW, texH };
+    SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
-        if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-        {
-            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-            SDL_RenderFillRect(game->renderer, &buttonPosition);
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
 
-            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-            {
-                if( MenuChoice == "EXIT")
-                    game->PopState();
-            }
-        }
-        ++Repeat;
-    }
-
-    TTF_CloseFont(m_font);
-    m_font = NULL;
+//    TTF_CloseFont(m_font);
+//    m_font = NULL;
 }

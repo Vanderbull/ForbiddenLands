@@ -121,6 +121,7 @@ void CGameEngine::Init(const char* title, int width, int height,
 
 	m_fullscreen = fullscreen;
 	m_running = true;
+	loadMapTextures();
 }
 
 void CGameEngine::Cleanup()
@@ -217,3 +218,189 @@ int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX
     fontSize = 0;
     return 0;
 }
+
+int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY)
+{
+    gSurface = TTF_RenderText_Blended(gameTitleFont, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    return 0;
+}
+
+int CGameEngine::RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY)
+{
+    gSurface = TTF_RenderText_Blended(gameBreadTextFont, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    return 0;
+}
+
+int CGameEngine::RenderText2(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
+{
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+
+    gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    TTF_CloseFont(m_font);
+    m_font = NULL;
+    fontSize = 0;
+    return 0;
+}
+
+int CGameEngine::RenderText3(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
+{
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+
+    gSurface = TTF_RenderText_Blended_Wrapped(m_font, renderText.c_str(), colorValue,1000);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    TTF_CloseFont(m_font);
+    m_font = NULL;
+    fontSize = 0;
+    return 0;
+}
+
+int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize, int wrapped)
+{
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+
+    gSurface = TTF_RenderText_Blended_Wrapped(m_font, renderText.c_str(), colorValue,wrapped);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    TTF_CloseFont(m_font);
+    m_font = NULL;
+    fontSize = 0;
+    return 0;
+}
+
+SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
+{
+	SDL_Surface* surface = IMG_Load( str.c_str() );
+	if( !surface )
+	{
+        SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
+        std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
+        exit(-1);
+	}
+
+	SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_SetTextureAlphaMod( texture, alpha );
+    SDL_FreeSurface(surface);
+	return texture;
+};
+
+void CGameEngine::loadMapTextures()
+{
+    std::string location, room, position;
+    std::string fileType = ".png";
+
+    for(int x = 0; x < 16; x++ )
+    {
+        for(int y = 0; y < 16; y++ )
+        {
+            for(int z = 0; z < 4; z++ ) // ESWN directions
+            {
+                location = "";
+                room = "";
+                position = "";
+
+                location += "./images/test_map/";
+                room  = "";
+
+                if(x < 10)
+                {
+                    room += "0";
+                }
+
+                room += std::to_string(x);
+
+                if(y < 10)
+                {
+                    room += "0";
+                }
+
+                room += std::to_string(y);
+
+                position = room;
+                room += "/";
+
+                room += position;
+                location += position;
+
+                //location += Rotation;
+                if(z == 0)
+                    location += "N";
+                if(z == 1)
+                    location += "S";
+                if(z == 2)
+                    location += "W";
+                if(z == 3)
+                    location += "E";
+
+                location += fileType;
+                //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
+                //mapTextureFile[x][y][z] = location;
+                mapTexture[x][y][z] = LoadTexture(location.c_str(),255);
+                SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
+                SDL_RenderClear(renderer);
+
+                SDL_Rect aButton = {0,0,500,500};
+                SDL_SetRenderDrawColor(renderer, 255, 0, 255, 128);
+                SDL_RenderFillRect(renderer, &aButton);
+                RenderText(location.c_str(),Black,500,180,48);
+                SDL_RenderPresent(renderer);
+            }
+        }
+    }
+
+};

@@ -30,11 +30,38 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
+    void getCompassDirection()
+    {
+        std::cout << compassDirection.at(compassNeedle) << std::endl;
+        Rotation = compassDirection.at(compassNeedle);
+    };
+
+    void rotateCounterClockWise()
+    {
+        if( compassNeedle == 0 )
+            compassNeedle = compassDirection.size()-1;
+        else
+            compassNeedle--;
+    };
+
+    void rotateClockWise()
+    {
+        if( compassNeedle == compassDirection.size()-1 )
+            compassNeedle = 0;
+        else
+            compassNeedle++;
+    };
+
 protected:
 	CPlayState() { }
 
 private:
 	static CPlayState m_PlayState;
+
+	SDL_Surface* playerCoordinateSurface;
+	SDL_Texture* playerCoordinateTexture;
+    TTF_Font* m_font = NULL;
+
 	SDL_Surface* gSurface;
 	SDL_Texture* gTexture;
 	SDL_Rect gRect;
@@ -42,6 +69,7 @@ private:
 	int iY;
 	SDL_Texture* MainMenuBackgroundTexture;
 	SDL_Color White = {255, 255, 255, 255};
+	SDL_Color Black = {0, 0, 0, 255};
 	TTF_Font* gameTitleFont = NULL;
     std::vector<std::string> MenuChoices;
 
@@ -68,6 +96,13 @@ private:
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
+
+    std::string compassDirection = "NESW";
+    int compassNeedle = 0;
+    std::string Rotation = "W";
+    int z = 0;
+    enum {EAST,WEST,NORTH,SOUTH};
+
 };
 
 #endif

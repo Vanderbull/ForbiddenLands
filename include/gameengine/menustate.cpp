@@ -58,14 +58,21 @@ void CMenuState::HandleEvents(CGameEngine* game)
 
 	SDL_Event event;
 
-	if (SDL_PollEvent(&event)) {
-		switch (event.type) {
+	if (SDL_PollEvent(&event))
+	{
+		switch (event.type)
+		{
+            case SDL_MOUSEMOTION:
+            {
+                SDL_GetMouseState( &mousePosition.x, &mousePosition.y );
+            } break;
 			case SDL_QUIT:
 				game->Quit();
 				break;
 
 			case SDL_KEYDOWN:
-				switch (event.key.keysym.sym) {
+				switch (event.key.keysym.sym)
+				{
 					case SDLK_ESCAPE:
 						game->PopState();
 						break;
@@ -161,7 +168,7 @@ void CMenuState::Draw(CGameEngine* game)
         SDL_FreeSurface(gSurface);
         SDL_DestroyTexture(gTexture);
 
-        SDL_Point mousePosition;
+
         SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )

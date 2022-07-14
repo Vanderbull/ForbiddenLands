@@ -41,6 +41,14 @@ public:
 	void Quit() { m_running = false; }
 
 	int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
+	int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY);
+	int RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY);
+	int RenderText2(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
+	int RenderText3(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
+	int RenderTextWrapped(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize, int wrapped);
+	SDL_Texture* LoadTexture( const std::string &str, int alpha );
+
+	void loadMapTextures();
 
 	SDL_Rect gRect;
 	SDL_Surface* screen;
@@ -78,6 +86,34 @@ public:
 
     SDL_Color White = {255, 255, 255, 255};
     SDL_Color Black = {0, 0, 0, 255};
+
+    SDL_Texture* North;
+    SDL_Texture* East;
+    SDL_Texture* South;
+    SDL_Texture* West;
+    SDL_Texture* swatTexture;
+    SDL_Texture* menuBackgroundTexture;
+    SDL_Texture* currentViewTexture;
+    SDL_Texture* encampTexture;
+    //SDL_Texture* gTexture;
+
+    // Make these a blob
+    SDL_Texture* mapTexture[16][16][4];
+    std::string mapTextureFile[16][16][4];
+
+    SDL_Texture* MainMenuBackgroundTexture;
+
+    //Make these a blob
+    TTF_Font* gameTitleFont;
+    TTF_Font* gameBreadTextFont;
+
+    struct CoordinatePair
+    {
+        int x;
+        int y;
+        int z;
+    };
+    CoordinatePair PlayerCoordinate = {15,1,0};
 
 private:
 	// the stack of states

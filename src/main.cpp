@@ -866,9 +866,9 @@ int main(int argc, char ** argv)
 //            }
 //        }
 
+        game.HandleEvents();
         game.Update();
         game.Draw();
-        game.HandleEvents();
 
         start = high_resolution_clock::now();
 
@@ -881,10 +881,10 @@ int main(int argc, char ** argv)
         {
             switch (event.type)
             {
-                case SDL_MOUSEMOTION:
-                {
-                    SDL_GetMouseState( &mousePosition.x, &mousePosition.y );
-                } break;
+//                case SDL_MOUSEMOTION:
+//                {
+//                    SDL_GetMouseState( &mousePosition.x, &mousePosition.y );
+//                } break;
                 case SDL_KEYUP:
                     switch (event.key.keysym.sym)
                     {
@@ -946,160 +946,160 @@ int main(int argc, char ** argv)
                             m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
                         } break;
                     } break;
-                case SDL_KEYDOWN:
-                    switch (event.key.keysym.sym)
-                    {
-                        case SDLK_F12:
-                        {
-                            std::cout<<"Fps: "<<fps.get()<<'\n';
-                            teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
-                            playerCharacter[playerCharacterSelected].carriedItems.push_back(createWater());
-                            playerCharacter[playerCharacterSelected].increaseHunger();
-                            playerCharacter[playerCharacterSelected].increaseThirst();
-                        } break;
-                        case SDLK_PLUS:
-                        {
-                            MusicVolume = Mix_VolumeMusic(Mix_VolumeMusic(-1)+1 );
-                        } break;
-                        case SDLK_MINUS:
-                        {
-                            MusicVolume = Mix_VolumeMusic(Mix_VolumeMusic(-1)+1);
-                        } break;
-                        case SDLK_LEFT:
-                        case SDLK_q:
-                        {
-                            if( activeView == DUNGEON )
-                            {
-                                rotateCounterClockWise();
-                                getCompassDirection();
-
-                                LastPlayerCoordinate.x = PlayerCoordinate.x;
-                                LastPlayerCoordinate.y = PlayerCoordinate.y;
-                            }
-                        } break;
-                        case SDLK_RIGHT:
-                        case SDLK_e:
-                        {
-                            if( activeView == DUNGEON )
-                            {
-                                rotateClockWise();
-                                getCompassDirection();
-
-                                LastPlayerCoordinate.x = PlayerCoordinate.x;
-                                LastPlayerCoordinate.y = PlayerCoordinate.y;
-                            }
-                        } break;
-                        case SDLK_UP:
-                        case SDLK_w:
-                            inGameTime++;
-                            currentTimeElapse(true);
-                            if( activeView == DUNGEON )
-                            {
-                                // We are in dungeonMode
-                                switch( worldMap )
-                                {
-                                case 0: // PHLAN
-                                    {
-                                        if( phlan_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 1: // SLUMS
-                                    {
-                                        if( slum_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 2: // KHUTOS WELL
-                                    {
-                                        if( khutos_well_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 3: // PODAL_PLAZA
-                                    {
-                                        if( podal_plaza_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 4: // cardona_textile_house_portal
-                                    {
-                                        if( cardona_textile_house_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 5: // kovel_mansion
-                                    {
-                                        if( kovel_mansion_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 6: // mendors_library
-                                    {
-                                        if( mendors_library_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 7: // sokol_keep
-                                    {
-                                        if( sokol_keep_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 8: // stojanov_gate
-                                    {
-                                        if( stojanov_gate_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 9: // vahlingen_graveyard
-                                    {
-                                        if( vahlingen_graveyard_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 10: // valjevo_castle
-                                    {
-                                        if( valjevo_castle_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                case 11: // wealthy_area
-                                    {
-                                        if( wealthy_area_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
-                                        {
-                                            updatePlayerLocation(Rotation);
-                                            updateHungerAndThirst();
-                                        }
-                                    } break;
-                                }
-                                LastPlayerCoordinate.y = PlayerCoordinate.y;
-                                LastPlayerCoordinate.x = PlayerCoordinate.x;
-                            }
-                            break;
-                    } break;
+//                case SDL_KEYDOWN:
+//                    switch (event.key.keysym.sym)
+//                    {
+//                        case SDLK_F12:
+//                        {
+//                            std::cout<<"Fps: "<<fps.get()<<'\n';
+//                            teleport(4,4,PlayerCoordinate.x,PlayerCoordinate.y);
+//                            playerCharacter[playerCharacterSelected].carriedItems.push_back(createWater());
+//                            playerCharacter[playerCharacterSelected].increaseHunger();
+//                            playerCharacter[playerCharacterSelected].increaseThirst();
+//                        } break;
+//                        case SDLK_PLUS:
+//                        {
+//                            MusicVolume = Mix_VolumeMusic(Mix_VolumeMusic(-1)+1 );
+//                        } break;
+//                        case SDLK_MINUS:
+//                        {
+//                            MusicVolume = Mix_VolumeMusic(Mix_VolumeMusic(-1)+1);
+//                        } break;
+//                        case SDLK_LEFT:
+//                        case SDLK_q:
+//                        {
+//                            if( activeView == DUNGEON )
+//                            {
+//                                rotateCounterClockWise();
+//                                getCompassDirection();
+//
+//                                LastPlayerCoordinate.x = PlayerCoordinate.x;
+//                                LastPlayerCoordinate.y = PlayerCoordinate.y;
+//                            }
+//                        } break;
+//                        case SDLK_RIGHT:
+//                        case SDLK_e:
+//                        {
+//                            if( activeView == DUNGEON )
+//                            {
+//                                rotateClockWise();
+//                                getCompassDirection();
+//
+//                                LastPlayerCoordinate.x = PlayerCoordinate.x;
+//                                LastPlayerCoordinate.y = PlayerCoordinate.y;
+//                            }
+//                        } break;
+//                        case SDLK_UP:
+//                        case SDLK_w:
+//                            inGameTime++;
+//                            currentTimeElapse(true);
+//                            if( activeView == DUNGEON )
+//                            {
+//                                // We are in dungeonMode
+//                                switch( worldMap )
+//                                {
+//                                case 0: // PHLAN
+//                                    {
+//                                        if( phlan_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 1: // SLUMS
+//                                    {
+//                                        if( slum_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 2: // KHUTOS WELL
+//                                    {
+//                                        if( khutos_well_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 3: // PODAL_PLAZA
+//                                    {
+//                                        if( podal_plaza_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 4: // cardona_textile_house_portal
+//                                    {
+//                                        if( cardona_textile_house_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 5: // kovel_mansion
+//                                    {
+//                                        if( kovel_mansion_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 6: // mendors_library
+//                                    {
+//                                        if( mendors_library_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 7: // sokol_keep
+//                                    {
+//                                        if( sokol_keep_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 8: // stojanov_gate
+//                                    {
+//                                        if( stojanov_gate_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 9: // vahlingen_graveyard
+//                                    {
+//                                        if( vahlingen_graveyard_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 10: // valjevo_castle
+//                                    {
+//                                        if( valjevo_castle_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                case 11: // wealthy_area
+//                                    {
+//                                        if( wealthy_area_portal(PlayerCoordinate.x, PlayerCoordinate.y, Rotation) )
+//                                        {
+//                                            updatePlayerLocation(Rotation);
+//                                            updateHungerAndThirst();
+//                                        }
+//                                    } break;
+//                                }
+//                                LastPlayerCoordinate.y = PlayerCoordinate.y;
+//                                LastPlayerCoordinate.x = PlayerCoordinate.x;
+//                            }
+//                            break;
+//                    } break;
             }
         }
 
@@ -1175,10 +1175,10 @@ int main(int argc, char ** argv)
         } // end dungeonView
 
         IMG_Quit();
-        fps.update();
+        //fps.update();
 
-        renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
-        renderFPS(fps.get());
+        //renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
+        //renderFPS(fps.get());
 
         //SDL_RenderPresent(renderer);
 
@@ -1188,7 +1188,7 @@ int main(int argc, char ** argv)
         auto duration = duration_cast<microseconds>(stop - start);
 
         //std::cout << "MAIN microseconds: " << duration.count() << endl;
-        SDL_Delay(10);
+       SDL_Delay(50);
     }
 
     SDL_DestroyTexture(currentViewTexture);
