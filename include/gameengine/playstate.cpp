@@ -16,26 +16,26 @@ void CPlayState::Init()
         exit(EXIT_FAILURE);
     }
 
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameTitleFont)
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+    if(!m_font)
     {
         printf("TTF_OpenFont: %s\n", TTF_GetError());
         exit(EXIT_FAILURE);
     }
 
-	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
-	SDL_FreeSurface(temp);
+    breadFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    if(!breadFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
 
-    MenuChoices.clear();
-    MenuChoices.push_back("PLAY STATE");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
-    MenuChoices.push_back("EXIT");
-
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    if(!gameTitleFont)
+    {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
 
 	printf("CPlayState Init\n");
 }
@@ -86,13 +86,17 @@ void CPlayState::HandleEvents(CGameEngine* game)
                     case SDLK_w:
                         {
                             if( Rotation == "N")
-                                game->PlayerCoordinate.x--;
+                                if( game->PlayerCoordinate.y > 0 )
+                                    game->PlayerCoordinate.y--;
                             if( Rotation == "S")
-                                game->PlayerCoordinate.x++;
+                                if( game->PlayerCoordinate.y < 15 )
+                                    game->PlayerCoordinate.y++;
                             if( Rotation == "W")
-                                game->PlayerCoordinate.y--;
+                                if( game->PlayerCoordinate.x > 0 )
+                                    game->PlayerCoordinate.x--;
                             if( Rotation == "E")
-                                game->PlayerCoordinate.y++;
+                                if( game->PlayerCoordinate.x < 15 )
+                                    game->PlayerCoordinate.x++;
                         }
                         break;
                     case SDLK_s:
@@ -135,8 +139,6 @@ void CPlayState::Update(CGameEngine* game)
 void CPlayState::Draw(CGameEngine* game)
 {
     printf("CPlayState Draw\n");
-    //TTF_Font* m_font = NULL;
-    //m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
@@ -220,6 +222,31 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-//    TTF_CloseFont(m_font);
-//    m_font = NULL;
+    gSurface = TTF_RenderText_Blended(breadFont, game->mapTextureFile[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z].c_str(), Black);
+	if( !gSurface )
+	{
+        exit(-1);
+	}
+    gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { 0,0, texW, texH };
+    SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+
+    renderDaytime(game);
+    renderCompass(game);
+    renderMinimap(game);
+
+    North = game->LoadTexture("./images/compass/north.png",255);
+    West = game->LoadTexture("./images/compass/west.png",255);
+    South = game->LoadTexture("./images/compass/south.png",255);
+    East = game->LoadTexture("./images/compass/east.png",255);
+
+    renderMinimapCharacterLocation(game);
 }

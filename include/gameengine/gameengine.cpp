@@ -379,17 +379,17 @@ void CGameEngine::loadMapTextures()
 
                 //location += Rotation;
                 if(z == 0)
-                    location += "N";
-                if(z == 1)
-                    location += "S";
-                if(z == 2)
-                    location += "W";
-                if(z == 3)
                     location += "E";
+                if(z == 1)
+                    location += "W";
+                if(z == 2)
+                    location += "N";
+                if(z == 3)
+                    location += "S";
 
                 location += fileType;
                 //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
-                //mapTextureFile[x][y][z] = location;
+                mapTextureFile[x][y][z] = location;
                 mapTexture[x][y][z] = LoadTexture(location.c_str(),255);
                 SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
                 SDL_RenderClear(renderer);
