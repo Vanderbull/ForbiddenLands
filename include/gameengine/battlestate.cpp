@@ -86,4 +86,71 @@ void CBattleState::Update(CGameEngine* game)
 
 void CBattleState::Draw(CGameEngine* game)
 {
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+
+    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
+    SDL_RenderClear(game->renderer);
+
+    MainMenuBackgroundTexture = NULL;
+
+	SDL_Surface* surface = IMG_Load( "./images/wireframe new inventory.png" );
+	if( !surface )
+	{
+        exit(-1);
+	}
+
+	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_SetTextureAlphaMod( texture, 255 );
+    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
+
+    SDL_Point mousePosition;
+    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+    SDL_Rect buttonPosition = { 226, 407,119,119};
+    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    SDL_RenderFillRect(game->renderer, &buttonPosition);
+    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &buttonPosition);
+    }
+        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    buttonPosition.x = buttonPosition.x + 167;
+    SDL_RenderFillRect(game->renderer, &buttonPosition);
+    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &buttonPosition);
+    }
+        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    buttonPosition.x = buttonPosition.x + 167;
+    SDL_RenderFillRect(game->renderer, &buttonPosition);
+    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &buttonPosition);
+    }
+        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    buttonPosition.x = buttonPosition.x + 167;
+    SDL_RenderFillRect(game->renderer, &buttonPosition);
+    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &buttonPosition);
+    }
+        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    buttonPosition.x = buttonPosition.x + 167;
+    SDL_RenderFillRect(game->renderer, &buttonPosition);
+
+
+
+
+    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &buttonPosition);
+    }
 }

@@ -72,10 +72,10 @@ void CPlayState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
-						game->Quit();
+						game->ChangeState( CMenuState::Instance() );
 						break;
 					case SDLK_m:
-						game->PushState( CMenuState::Instance() );
+						game->PushState( CBattleState::Instance() );
 						break;
                     case SDLK_d:
                         rotateClockWise();
@@ -143,17 +143,29 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-    SDL_Rect test = {1500,0,500,500};
-    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][WEST], NULL, &test);
-    test = {500,0,500,500};
-    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][EAST], NULL, &test);
-    test = {1000,0,500,500};
-    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][SOUTH], NULL, &test);
+    SDL_Rect test = {0,500,500,500};
+    //SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][WEST], NULL, &test);
     test = {1000,500,500,500};
-    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][NORTH], NULL, &test);
-    test = {1000,1000,500,500};
-    SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, &test);
+    //SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][EAST], NULL, &test);
 
+    test = {500,1000,500,500};
+    SDL_RendererFlip flip = (SDL_RendererFlip)(SDL_FLIP_NONE);//(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL);
+    //SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][SOUTH], NULL, &test, 0, NULL, flip);
+
+    //SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][SOUTH], NULL, &test);
+    test = {500,0,500,500};
+    //flip = (SDL_RendererFlip)(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL);
+    //SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][NORTH], NULL, &test, 0, NULL, flip);
+    //SDL_RenderCopy(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][NORTH], NULL, &test);
+
+
+    test = {500,500,500,500};
+    SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, NULL, 0, NULL, flip);
+//    static int rotate = 0;
+//    if( rotate >359)
+//        rotate = 0;
+//    SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, NULL,rotate,NULL,flip);
+//    rotate++;
     gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->PlayerCoordinate.x).c_str(), Black);
 	if( !gSurface )
 	{
