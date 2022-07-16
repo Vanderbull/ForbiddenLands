@@ -343,6 +343,7 @@ void CGameEngine::loadMapTextures()
 {
     std::string location, room, position;
     std::string fileType = ".png";
+    int progress_value = 0;
 
     for(int x = 0; x < 16; x++ )
     {
@@ -394,9 +395,33 @@ void CGameEngine::loadMapTextures()
                 SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
                 SDL_RenderClear(renderer);
 
-                SDL_Rect aButton = {0,0,500,500};
-                SDL_SetRenderDrawColor(renderer, 255, 0, 255, 128);
-                SDL_RenderFillRect(renderer, &aButton);
+                SDL_Surface* surface = IMG_Load( "./images/longship1.jpg" );
+                if( !surface )
+                {
+                    exit(-1);
+                }
+
+                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+                SDL_SetTextureAlphaMod( texture, 255 );
+                SDL_RenderCopy(renderer, texture, NULL, NULL);
+                SDL_FreeSurface(surface);
+                SDL_DestroyTexture(texture);
+
+                RenderText("Forbidden Lands",White,current.w/6,200, 200);
+
+                SDL_Rect progressbar_border = {current.w / 6,current.h - 200,1024,25};
+                SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+                SDL_RenderFillRect(renderer, &progressbar_border);
+
+                SDL_Rect progressbar = {current.w / 6,current.h - 200,progress_value,25};
+                progress_value++;
+                SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+                SDL_RenderFillRect(renderer, &progressbar);
+
+//                SDL_Rect aButton = {0,0,500,500};
+//                SDL_SetRenderDrawColor(renderer, 255, 0, 255, 128);
+//                SDL_RenderFillRect(renderer, &aButton);
                 RenderText(location.c_str(),Black,500,180,48);
                 SDL_RenderPresent(renderer);
             }

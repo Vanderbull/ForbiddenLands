@@ -1,3 +1,6 @@
+#include <chrono>
+#include <thread>
+
 #include <cassert>
 #include <ctime>
 #include <iostream>
@@ -45,6 +48,7 @@
 
 using namespace std;
 using namespace rapidxml;
+using namespace std::chrono;
 
 xml_document<> doc;
 xml_node<> * root_node = NULL;
@@ -75,6 +79,41 @@ struct utsname uts;
  #endif
 
 namespace fs = std::experimental::filesystem;
+
+
+static bool s_Finished = false;
+
+void DoWork()
+{
+
+Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048);
+int flags = MIX_INIT_OGG | MIX_INIT_MOD;
+int initted = Mix_Init(flags);
+if ((initted & flags) != flags)
+{
+    printf("Mix_Init: Failed to init required ogg and mod support!\n");
+    printf("Mix_Init: %s\n", Mix_GetError());
+    // handle error
+}
+Mix_Music* song = NULL;
+song = Mix_LoadMUS("./soundbible/Pool of Radiance Soundtrack - Poison [TubeRipper.com].ogg");
+if (!song)
+{
+SDL_Log("Load music file failed! %s", Mix_GetError());
+exit(EXIT_FAILURE);
+}
+Mix_PlayMusic( song, -1 );
+//    while( !s_Finished )
+//    {
+//        std::cout << counter << "\n";
+//        std::this_thread::sleep_for(1s);
+//        counter++;
+//        if( counter > 50)
+//        {
+//            s_Finished = true;
+//        }
+//    }
+};
 
 uintmax_t ComputeFileSize(const fs::path& pathToCheck)
 {
@@ -756,6 +795,9 @@ int main(int argc, char ** argv)
        /* Wait up to five seconds. */
     tv.tv_sec = 5;
     tv.tv_usec = 0;
+
+    std::thread worker(DoWork);
+
 
     while (!quit)
     {

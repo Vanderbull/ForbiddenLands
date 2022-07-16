@@ -67,7 +67,7 @@ void initGame()
         }
     }
 
-    std::cout << "Mix_VolumeMusic = " << Mix_VolumeMusic(0) << std::endl;
+    std::cout << "Mix_VolumeMusic = " << Mix_VolumeMusic(50) << std::endl;
 
 //    MenuChoices.clear();
 //    MenuChoices.push_back("PLAY");
