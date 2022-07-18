@@ -43,6 +43,7 @@ private:
 	int iY;
 	SDL_Texture* MainMenuBackgroundTexture;
 	SDL_Color White = {255, 255, 255, 255};
+	SDL_Color Black = {0, 0, 0, 255};
 	TTF_Font* gameTitleFont = NULL;
     std::vector<std::string> MenuChoices;
 

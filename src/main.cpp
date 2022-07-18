@@ -400,6 +400,8 @@ CGameEngine game;
 
 int main(int argc, char ** argv)
 {
+    std::thread worker(DoWork);
+
     game.Init("Forbidden Lands",1920,1080,32,true);
 
     game.ChangeState( CMenuState::Instance() );
@@ -795,8 +797,6 @@ int main(int argc, char ** argv)
        /* Wait up to five seconds. */
     tv.tv_sec = 5;
     tv.tv_usec = 0;
-
-    std::thread worker(DoWork);
 
 
     while (!quit)

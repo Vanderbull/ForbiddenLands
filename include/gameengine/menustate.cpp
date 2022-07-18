@@ -109,7 +109,7 @@ void CMenuState::Draw(CGameEngine* game)
 
     MainMenuBackgroundTexture = NULL;
 
-	SDL_Surface* surface = IMG_Load( "./images/battleBackground.png" );
+	SDL_Surface* surface = IMG_Load( "./images/menu_backdrop.jpg" );
 	if( !surface )
 	{
         exit(-1);

@@ -261,4 +261,21 @@ void CPlayState::Draw(CGameEngine* game)
     East = game->LoadTexture("./images/compass/east.png",255);
 
     renderMinimapCharacterLocation(game);
+
+    static int goblinmovey = 0;
+    SDL_Texture* goblin = game->LoadTexture("./images/goblin.png",255);
+        texW = 0;
+    texH = 0;
+    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+
+    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2+ goblinmovey, texW, texH };
+    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+    if(goblinmovey < game->current.h - texH)
+        goblinmovey++;
+
+    SDL_Rect left_weapon = {0,game->current.h - 120, 120,120};
+    SDL_Rect right_weapon = {game->current.w - 120,game->current.h - 120, 120,120};
+    SDL_SetRenderDrawColor(game->renderer, 0, 255, 0,255);
+    SDL_RenderFillRect(game->renderer, &left_weapon);
+    SDL_RenderFillRect(game->renderer, &right_weapon);
 }

@@ -324,27 +324,31 @@ int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue,
 
 SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 {
-	SDL_Surface* surface = IMG_Load( str.c_str() );
-	if( !surface )
-	{
-        SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
-        std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
-        exit(-1);
-	}
+//	SDL_Surface* surface = IMG_Load( str.c_str() );
+//	if( !surface )
+//	{
+//        SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
+//        std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
+//        exit(-1);
+//	}
 
-	SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+	SDL_Texture* texture = IMG_LoadTexture(renderer, str.c_str() );
+	//SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod( texture, alpha );
-    SDL_FreeSurface(surface);
+    //SDL_FreeSurface(surface);
 	return texture;
 };
 
 void CGameEngine::loadMapTextures()
 {
+    return;
+
     std::string location, room, position;
     std::string fileType = ".png";
     int progress_value = 0;
 
+    SDL_Texture* texture = IMG_LoadTexture(renderer,"./images/longship1.png");
     for(int x = 0; x < 16; x++ )
     {
         for(int y = 0; y < 16; y++ )
@@ -390,31 +394,39 @@ void CGameEngine::loadMapTextures()
 
                 location += fileType;
                 //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
+                //location = "./images/test_map/0000E-small.png";
                 mapTextureFile[x][y][z] = location;
-                mapTexture[x][y][z] = LoadTexture(location.c_str(),255);
+                mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());//LoadTexture(location.c_str(),255);
                 SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
                 SDL_RenderClear(renderer);
+//
+//                SDL_Surface* surface = IMG_Load( "./images/longship1.png" );
+//                if( !surface )
+//                {
+//                    exit(-1);
+//                }
 
-                SDL_Surface* surface = IMG_Load( "./images/longship1.jpg" );
-                if( !surface )
-                {
-                    exit(-1);
-                }
-
-                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+                //SDL_CreateTextureFromSurface( renderer, surface );
                 SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
                 SDL_SetTextureAlphaMod( texture, 255 );
                 SDL_RenderCopy(renderer, texture, NULL, NULL);
-                SDL_FreeSurface(surface);
-                SDL_DestroyTexture(texture);
+                //SDL_FreeSurface(surface);
 
-                RenderText("Forbidden Lands",White,current.w/6,200, 200);
 
-                SDL_Rect progressbar_border = {current.w / 6,current.h - 200,1024,25};
-                SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+                RenderText("Forbidden Lands",White,current.w / 6,200, 200);
+
+                // Middle of the screen:
+                //xcenter = w / 2; ycenter = h/2;
+                //Left upper point:
+
+                //x = xcenter - (winrect.width()/2);
+                //y = ycenter - (winrect.height()/2);
+
+                SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
+                //SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
                 SDL_RenderFillRect(renderer, &progressbar_border);
 
-                SDL_Rect progressbar = {current.w / 6,current.h - 200,progress_value,25};
+                SDL_Rect progressbar = {current.w / 2 - 1024/2,current.h - 200,progress_value,25};
                 progress_value++;
                 SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
                 SDL_RenderFillRect(renderer, &progressbar);
@@ -427,5 +439,5 @@ void CGameEngine::loadMapTextures()
             }
         }
     }
-
+                SDL_DestroyTexture(texture);
 };

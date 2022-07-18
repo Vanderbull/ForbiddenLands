@@ -103,9 +103,14 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     int localCounter = 0;
     SDL_Rect TextFrame = {0, 0, 0, 0};
     SDL_Rect TextFrame2 = {0, 0, 0, 0};
-    std::vector<std::string> textElements = { "STR ", "INT ", "WIS ", "DEX ", "CON ", "CHA "};
+    std::vector<std::string> textElements = { "POW ", "INT ", "PERS ", "TOU ", "TECH ", "QUI ", "PERC "};
+
+    std::vector<std::string> abilityModElements = { "POW MOD", "INT MOD", "PERS MOD", "TOU MOD", "TECH MOD", "QUI MOD", "PERC MOD"};
+
     std::vector<SDL_Rect> raceElements;
-    std::vector<std::string> raceTextElements = { "DWARF", "ELF", "GNOME", "HALFELF", "HALFLING", "HALFORC", "HUMAN"};
+    std::vector<SDL_Rect> professionElements;
+    std::vector<std::string> raceTextElements = { "DWARF", "HUMAN"};
+    std::vector<std::string> professionTextElements = { "KNIGHT", "CLERIC","WIZARD"};
 
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
@@ -116,7 +121,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     TTF_Font* m_font = NULL;
     m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
 
-    std::string StatPoints_String = std::to_string(0) + " Stat Points Left";
+    std::string StatPoints_String = std::to_string(game->StartAbilityPoints) + " Points Left";
     gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
 	if( !gSurface )
 	{
@@ -132,10 +137,113 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
     int counter = 0;
 
+    for (std::string textElement : abilityModElements)
+    {
+        gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->AbilityMod[counter]).c_str(), White);
+        if( !gSurface )
+        {
+            exit(-1);
+        }
+        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+        gRect = { 200,370+(counter*50), texW, texH };
+        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+
+        counter++;
+    }
+
+    counter = 0;
+
+    for (std::string textElement : professionTextElements)
+    {
+        SDL_Rect rect;
+        rect.x = 400;
+        rect.y = 370+(counter*50);
+        rect.w = 300;
+        rect.h = 30;
+        professionElements.push_back(rect);
+        counter++;
+    };
+
+    counter = 0;
+    for (std::string textElement : professionTextElements)
+    {
+
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &professionElements[counter]);
+
+        gSurface = TTF_RenderText_Blended(m_font, textElement.c_str(), Black);
+        if( !gSurface )
+        {
+            exit(-1);
+        }
+        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+        gRect = { 400,370+(counter*50), texW, texH };
+        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+
+
+        if( SDL_PointInRect(&mousePosition, &professionElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        {
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+                SDL_RenderFillRect(game->renderer, &professionElements[counter]);
+            }
+        }
+        counter++;
+    }
+
+    counter = 0;
+    for (std::string textElement : game->Skill)
+    {
+        SDL_Rect rect;
+        rect.x = 1200;
+        rect.y = 370+(counter*50);
+        rect.w = 300;
+        rect.h = 30;
+        game->SkillRect.push_back(rect);
+        counter++;
+    };
+
+    counter = 0;
+
+    for (std::string textElement : game->Skill)
+    {
+
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
+
+        gSurface = TTF_RenderText_Blended(m_font, textElement.c_str(), Black);
+        if( !gSurface )
+        {
+            exit(-1);
+        }
+        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+        gRect = { 1200,370+(counter*50), texW, texH };
+        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+
+
+        if( SDL_PointInRect(&mousePosition, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        {
+            if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+            {
+                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+                SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
+            }
+        }
+        counter++;
+    }
+
+    counter = 0;
+
     for (std::string textElement : textElements)
     {
-        StatPoints_String = std::to_string(SActor.current_stats[counter]);
-        gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
+        gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->Ability[counter]).c_str(), White);
         if( !gSurface )
         {
             exit(-1);
@@ -185,6 +293,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
                 gRect = { 0,0, texW, texH };
                 SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+                game->StartAbilityPoints--;
             }
         }
 
@@ -216,6 +325,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
                 gRect = { 0,0, texW, texH };
                 SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+                game->StartAbilityPoints++;
             }
         }
 
@@ -227,27 +337,22 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     for (std::string textElement : raceTextElements)
     {
         SDL_Rect rect;
-        rect.x = game->current.w - 1300;
-        rect.y = 220+(counter*40);
+        rect.x = 800;
+        rect.y = 370+(counter*50);
         rect.w = 300;
         rect.h = 30;
         raceElements.push_back(rect);
         counter++;
     }
 
-    SDL_Rect nextCharacter = {game->current.w - 500,0,600,30};
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 255);
-    SDL_RenderFillRect(game->renderer, &nextCharacter);
-    //RenderText("NEXT CHARACTER",Black,game->current.w - 500,0,FontSize);
-
     counter = 0;
     for (std::string textElement : raceTextElements)
     {
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 255);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(game->renderer, &raceElements[counter]);
 
         StatPoints_String = textElement.c_str();
-        gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), White);
+        gSurface = TTF_RenderText_Blended(m_font, StatPoints_String.c_str(), Black);
         if( !gSurface )
         {
             exit(-1);
@@ -262,31 +367,13 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
                 SDL_RenderFillRect(game->renderer, &raceElements[counter]);
             }
         }
         counter++;
     }
 
-    SDL_Rect rerollButton = {700, 600, 100, 50};
-    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(game->renderer, &rerollButton);
-    game->RenderText("Re roll",game->Black, 700,600, 24);
-
-
-    if( SDL_PointInRect(&mousePosition, &rerollButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-        {
-            SActor.current_stats[0] = GenerateNumber(3,18);
-            SActor.current_stats[1] = GenerateNumber(3,18);
-            SActor.current_stats[2] = GenerateNumber(3,18);
-            SActor.current_stats[3] = GenerateNumber(3,18);
-            SActor.current_stats[4] = GenerateNumber(3,18);
-            SActor.current_stats[5] = GenerateNumber(3,18);
-        }
-    }
 //
 //    for (std::string textElement : textElements)
 //    {
