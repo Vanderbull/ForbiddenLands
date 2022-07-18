@@ -798,6 +798,9 @@ int main(int argc, char ** argv)
     tv.tv_sec = 5;
     tv.tv_usec = 0;
 
+    SDL_Surface *surface = IMG_Load("./icons/cursor_1.png");
+    SDL_Cursor *cursor = SDL_CreateColorCursor(surface,90,42);
+    SDL_SetCursor(cursor);
 
     while (!quit)
     {
