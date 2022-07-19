@@ -41,6 +41,7 @@
 #include <netinet/in.h>
 #include <sys/time.h> //FD_SET, FD_ISSET, FD_ZERO macros
 
+
 #include <sqlite3.h>
 #include "../rapidxml-1.13/rapidxml.hpp"
 #define DOCTEST_CONFIG_IMPLEMENT
@@ -80,39 +81,30 @@ struct utsname uts;
 
 namespace fs = std::experimental::filesystem;
 
-
 static bool s_Finished = false;
 
 void DoWork()
 {
-
-Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048);
-int flags = MIX_INIT_OGG | MIX_INIT_MOD;
-int initted = Mix_Init(flags);
-if ((initted & flags) != flags)
-{
-    printf("Mix_Init: Failed to init required ogg and mod support!\n");
-    printf("Mix_Init: %s\n", Mix_GetError());
-    // handle error
-}
-Mix_Music* song = NULL;
-song = Mix_LoadMUS("./soundbible/Pool of Radiance Soundtrack - Poison [TubeRipper.com].ogg");
-if (!song)
-{
-SDL_Log("Load music file failed! %s", Mix_GetError());
-exit(EXIT_FAILURE);
-}
-Mix_PlayMusic( song, -1 );
-//    while( !s_Finished )
-//    {
-//        std::cout << counter << "\n";
-//        std::this_thread::sleep_for(1s);
-//        counter++;
-//        if( counter > 50)
-//        {
-//            s_Finished = true;
-//        }
-//    }
+    SDL_Log("DoWork() thread running");
+    Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048);
+    int flags = MIX_INIT_OGG | MIX_INIT_MOD;
+    int initted = Mix_Init(flags);
+    if ((initted & flags) != flags)
+    {
+        printf("Mix_Init: Failed to init required ogg and mod support!\n");
+        printf("Mix_Init: %s\n", Mix_GetError());
+        // handle error
+    }
+    Mix_Music* song = NULL;
+    song = Mix_LoadMUS("./soundbible/Pool of Radiance Soundtrack - Poison [TubeRipper.com].ogg");
+    if (!song)
+    {
+        SDL_Log("Load music file failed! %s", Mix_GetError());
+        exit(EXIT_FAILURE);
+    }
+    Mix_VolumeMusic(25);
+    SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
+    Mix_PlayMusic( song, -1 );
 };
 
 uintmax_t ComputeFileSize(const fs::path& pathToCheck)
@@ -400,6 +392,25 @@ CGameEngine game;
 
 int main(int argc, char ** argv)
 {
+    int staticAbility = 24;
+    int abilityModifier = 0;
+    int level = 1;
+    int ToughnessMod = 5;
+    int IntelligenceMod = 5;
+
+    std::cout << "Calculating Knight HP: " << 40 + (5 * ToughnessMod) + (6 * level) << " @ level = " << level <<  std::endl;
+    int amount_hp = GenerateNumber(1, (ToughnessMod / 2) );
+    int amount_sp = GenerateNumber(1, (IntelligenceMod / 2) );
+    for( int i= 5; i < 42; i++)
+    {
+        staticAbility = i;
+        abilityModifier = floor((staticAbility - 20) / 2);
+
+        std::cout << staticAbility << "=" << " abilityModifier" << abilityModifier << std::endl;
+    }
+
+    //exit(0);
+
     std::thread worker(DoWork);
 
     game.Init("Forbidden Lands",1920,1080,32,true);
@@ -799,7 +810,7 @@ int main(int argc, char ** argv)
     tv.tv_usec = 0;
 
     SDL_Surface *surface = IMG_Load("./icons/cursor_1.png");
-    SDL_Cursor *cursor = SDL_CreateColorCursor(surface,90,42);
+    SDL_Cursor *cursor = SDL_CreateColorCursor(surface,72,20);
     SDL_SetCursor(cursor);
 
     while (!quit)

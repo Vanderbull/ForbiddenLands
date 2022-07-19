@@ -1,16 +1,27 @@
 #include <stdio.h>
 #include <iostream>
 #include <SDL2/SDL.h>
+
+
 #include "gameengine.h"
 #include "gamestate.h"
 #include "portals.h"
 
 int testing = 0;
 
-void CGameEngine::Init(const char* title, int width, int height,
-						 int bpp, bool fullscreen)
+Item::Item(void)
 {
-    std::cout << "Game engine initializing..." << "\n";
+
+};
+Item::Item(std::string,char,int)
+{
+
+};
+
+void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
+{
+    g_myglobal = 10;
+    SDL_Log("CGameEngine::Init()");
 
 	int flags = 0;
 
@@ -121,6 +132,11 @@ void CGameEngine::Init(const char* title, int width, int height,
 
 	m_fullscreen = fullscreen;
 	m_running = true;
+
+	SDL_Log("Loading items...");
+	AddItem();
+
+	SDL_Log("Loading textures...");
 	loadMapTextures();
 }
 
@@ -133,7 +149,7 @@ void CGameEngine::Cleanup()
 		states.pop_back();
 	}
 
-	printf("CGameEngine Cleanup\n");
+    SDL_Log("CGameEngine Cleanup\n");
 
 	// shutdown SDL
 	SDL_Quit();
@@ -141,6 +157,7 @@ void CGameEngine::Cleanup()
 
 void CGameEngine::ChangeState(CGameState* state)
 {
+    SDL_Log("CGameEngine ChangeState\n");
 	// cleanup the current state
 	if ( !states.empty() ) {
 		states.back()->Cleanup();
@@ -154,6 +171,7 @@ void CGameEngine::ChangeState(CGameState* state)
 
 void CGameEngine::PushState(CGameState* state)
 {
+    SDL_Log("CGameEngine PushState\n");
 	// pause current state
 	if ( !states.empty() ) {
 		states.back()->Pause();
@@ -166,6 +184,7 @@ void CGameEngine::PushState(CGameState* state)
 
 void CGameEngine::PopState()
 {
+    SDL_Log("CGameEngine PopState\n");
 	// cleanup the current state
 	if ( !states.empty() ) {
 		states.back()->Cleanup();
@@ -180,18 +199,21 @@ void CGameEngine::PopState()
 
 void CGameEngine::HandleEvents()
 {
+    SDL_Log("CGameEngine HandleEvents\n");
 	// let the state handle events
 	states.back()->HandleEvents(this);
 }
 
 void CGameEngine::Update()
 {
+    SDL_Log("CGameEngine Update\n");
 	// let the state update the game
 	states.back()->Update(this);
 }
 
 void CGameEngine::Draw()
 {
+    SDL_Log("CGameEngine Draw\n");
 	// let the state draw the screen
 	states.back()->Draw(this);
 }
@@ -221,6 +243,9 @@ int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX
 
 int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY)
 {
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 48);
+
     gSurface = TTF_RenderText_Blended(gameTitleFont, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
     int texW = 0;
@@ -233,11 +258,17 @@ int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int i
 //    //Destroy resources
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
+    TTF_CloseFont(m_font);
+    m_font = NULL;
+
     return 0;
 }
 
 int CGameEngine::RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY)
 {
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+
     gSurface = TTF_RenderText_Blended(gameBreadTextFont, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
     int texW = 0;
@@ -250,6 +281,9 @@ int CGameEngine::RenderBreadText(std::string renderText, SDL_Color colorValue, i
 //    //Destroy resources
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
+    TTF_CloseFont(m_font);
+    m_font = NULL;
+
     return 0;
 }
 
@@ -342,11 +376,21 @@ SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 
 void CGameEngine::loadMapTextures()
 {
-    return;
-
     std::string location, room, position;
     std::string fileType = ".png";
     int progress_value = 0;
+
+    int counting = 0;
+    for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
+    {
+        SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+        SDL_RenderClear(renderer);
+        RenderText(std::to_string(counting).c_str(),White,current.w / 6,100, 200);
+        RenderText(*i,White,current.w / 6,200, 200);
+        SDL_RenderPresent(renderer);
+        SDL_Delay(10);
+        counting++;
+    }
 
     SDL_Texture* texture = IMG_LoadTexture(renderer,"./images/longship1.png");
     for(int x = 0; x < 16; x++ )
@@ -439,5 +483,37 @@ void CGameEngine::loadMapTextures()
             }
         }
     }
-                SDL_DestroyTexture(texture);
+    SDL_DestroyTexture(texture);
+};
+
+void CGameEngine::AddItem()
+{
+    SDL_Log("CGameEngine AddItem\n");
+
+    for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
+    {
+        Item tempObject;
+        tempObject.Name = *i;
+
+
+        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
+        SDL_Log("   Setting Efficiency: '%i'\n",tempObject.Efficiency = 0);
+        SDL_Log("   Setting MinDamage: '%i'\n",tempObject.MinDamage = 0);
+        SDL_Log("   Setting MaxDamage: '%i'\n",tempObject.MaxDamage = 0);
+        SDL_Log("   Setting DmgType: '%i'\n",tempObject.DmgType = 0);
+        SDL_Log("   Setting NumHands: '%i'\n",tempObject.NumHands = 0);
+        SDL_Log("   Setting Bodypart: '%i'\n",tempObject.Bodypart = 0);
+        SDL_Log("   Setting UsedBy: '%i'\n",tempObject.UsedBy = 0);
+        SDL_Log("   Setting Skill: '%i'\n",tempObject.Skill = 0);
+        SDL_Log("   Setting BaseWorth: '%i'\n",tempObject.BaseWorth = 0);
+        SDL_Log("   Setting Price: '%i'\n",tempObject.Price = 0);
+        SDL_Log("   Setting Protection: '%i'\n",tempObject.Protection = 0);
+        SDL_Log("   Setting Enchantments: '%i'\n",tempObject.Enchantments = 0);
+        SDL_Log("   Setting Effect: '%i'\n",tempObject.Effect = 0);
+        SDL_Log("   Setting EffectCharges: '%i'\n",tempObject.EffectCharges = 0);
+        SDL_Log("   Setting MinEffect: '%i'\n",tempObject.MinEffect = 0);
+        SDL_Log("   Setting MaxEffect: '%i'\n",tempObject.MaxEffect = 0);
+        SDL_Log("   Setting Features: '%i'\n",tempObject.Features = 0);
+        v_Item.push_back(tempObject);
+    }
 };

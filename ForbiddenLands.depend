@@ -9,7 +9,7 @@
 	"playstate.h"
 	"battlestate.h"
 
-1658113760 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h
+1658222820 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_mixer.h>
 	<SDL2/SDL_image.h>
@@ -20,6 +20,7 @@
 	<fstream>
 	<vector>
 	<sys/utsname.h>
+	"globals.h"
 	"../version.h"
 
 1643164384 /home/rickard/Documents/Vanderbull/ForbiddenLands/version.h
@@ -47,7 +48,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1658113553 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.cpp
+1658196938 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -67,7 +68,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1658057244 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
+1658221936 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
 	<stdio.h>
 	<iostream>
 	<SDL2/SDL.h>
@@ -139,7 +140,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1658022524 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
+1658176369 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gamestate.h"
@@ -147,6 +148,7 @@
 	"playstate.h"
 	"menustate.h"
 	"battlestate.h"
+	"characterstate.h"
 
 1656983309 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.cpp
 	<stdio.h>
@@ -156,7 +158,7 @@
 	"menustate.h"
 	"savemenustate.h"
 
-1657989424 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1658219493 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<chrono>
 	<thread>
 	<cassert>
@@ -264,7 +266,7 @@
 	<sys/time.h>
 	<unistd.h>
 
-1657949466 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
+1658176545 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -538,4 +540,23 @@
 
 1653814110 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/randomizer.cpp
 	"randomizer.h"
+
+1658193413 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/characterstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"characterstate.h"
+
+1658193574 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/characterstate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1658187535 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/globals.h
+
+1658187579 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/globals.cpp
+	"globals.h"
 

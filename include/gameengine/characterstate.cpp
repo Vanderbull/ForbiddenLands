@@ -3,59 +3,49 @@
 #include "gameengine.h"
 #include "gamestate.h"
 #include "menustate.h"
-#include "createcharacterstate.h"
+#include "characterstate.h"
 
-CCreateCharacterState CCreateCharacterState::m_CreateCharacterState;
+CCharacterState CCharacterState::m_CharacterState;
 
-void CCreateCharacterState::Init()
+void CCharacterState::Init()
 {
     if( TTF_Init() == -1 )
     {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
+        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+        exit(EXIT_FAILURE);
     }
-
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameTitleFont)
+    else
     {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
+        gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+
+        if(!gameTitleFont)
+        {
+            std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+            exit(EXIT_FAILURE);
+        }
     }
 
-	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
-
-	SDL_FreeSurface(temp);
-
-    MenuChoices.clear();
-    MenuChoices.push_back("CREATE CHARACTER STATE");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
-    MenuChoices.push_back("EXIT");
-
-	printf("CCreateCharacterState Init\n");
+	std::cout << "CCharacterState Init\n";
 }
 
-void CCreateCharacterState::Cleanup()
+void CCharacterState::Cleanup()
 {
-	printf("CCreateCharacterState Cleanup\n");
+	printf("CCharacterState Cleanup\n");
 }
 
-void CCreateCharacterState::Pause()
+void CCharacterState::Pause()
 {
-	printf("CCreateCharacterState Pause\n");
+	printf("CCharacterState Pause\n");
 }
 
-void CCreateCharacterState::Resume()
+void CCharacterState::Resume()
 {
-	printf("CCreateCharacterState Resume\n");
+	printf("CCharacterState Resume\n");
 }
 
-void CCreateCharacterState::HandleEvents(CGameEngine* game)
+void CCharacterState::HandleEvents(CGameEngine* game)
 {
-    printf("CCreateCharacterState HandleEvents\n");
+    printf("CCharacterState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -76,28 +66,33 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
 	}
 }
 
-void CCreateCharacterState::Update(CGameEngine* game)
+void CCharacterState::Update(CGameEngine* game)
 {
-    printf("CCreateCharacterState Update\n");
+    printf("CCharacterState Update\n");
 
     ///--- Store the current information to the previous
-    m_iPreviousCoordX=m_iCurrentCoordX;
-    m_iPreviousCoordY=m_iCurrentCoordY;
+    m_iPreviousCoord.x = m_iCurrentCoord.x;
+    m_iPreviousCoord.y = m_iCurrentCoord.y;
+
+    //m_iPreviousCoordX=m_iCurrentCoordX;
+    //m_iPreviousCoordY=m_iCurrentCoordY;
     m_uPreviousMouseState=m_uCurrentMouseState;
 
     ///--- Update the current state of the mouse
-    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
+    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoord.x, &m_iCurrentCoord.y);
+
+    //m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
 
     ///--- Set the wheel back to 0
-    m_iWheelX=0;
-    m_iWheelY=0;
+    m_iWheelCoord.x = 0;
+    m_iWheelCoord.y = 0;
+
+    //m_iWheelX=0;
+    //m_iWheelY=0;
 }
 
-void CCreateCharacterState::Draw(CGameEngine* game)
+void CCharacterState::Draw(CGameEngine* game)
 {
-    SDL_Point mousePosition;
-    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-
     std::string raceDescriptions;
 
     int localCounter = 0;
@@ -185,7 +180,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
 
-        if( SDL_PointInRect(&mousePosition, &professionElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( SDL_PointInRect(&m_iCurrentCoord, &professionElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
@@ -232,26 +227,12 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
 
-        if( SDL_PointInRect(&mousePosition, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( SDL_PointInRect(&m_iCurrentCoord, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
-            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-            gRect = { 1600,370, 600, 800 };
-            SDL_RenderFillRect(game->renderer, &gRect);
-            //SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-            //SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-            game->RenderText2(textElement.c_str(),White,1620,390,24);
-            game->RenderText2("Profession: MGG",White,1620,410,24);
-            game->RenderText2("Technique: 20",White,1620,430,24);
-            game->RenderText2("Group: WE",White,1620,450,24);
-            game->RenderText2("Advance: A",White,1620,470,24);
-            game->RenderText2("UtilizedBy: Dagger, Short sword",White,1620,490,24);
-            game->RenderText2("Description: Small blades;physical",White,1620,510,24);
-
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
                 SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
                 SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
-
                 choosen = counter;
                 SDL_Delay(50);
             }
@@ -260,7 +241,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         counter++;
     }
     if( !game->Skill.empty())
-        if( SDL_PointInRect(&mousePosition, &game->SkillRect[choosen]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( SDL_PointInRect(&m_iCurrentCoord, &game->SkillRect[choosen]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
@@ -307,7 +288,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
 
-        if( SDL_PointInRect(&mousePosition, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( SDL_PointInRect(&m_iCurrentCoord, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
@@ -322,7 +303,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
 
     if( !game->LearnedSkill.empty() )
-        if( SDL_PointInRect(&mousePosition, &game->SkillRect[choosen]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( SDL_PointInRect(&m_iCurrentCoord, &game->SkillRect[choosen]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
@@ -371,7 +352,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         gRect = { 300,370+(counter*50), texW, texH };
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
-       if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+       if( SDL_PointInRect(&m_iCurrentCoord, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
@@ -403,7 +384,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
 
-       if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+       if( SDL_PointInRect(&m_iCurrentCoord, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
@@ -456,7 +437,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         gRect = { raceElements[counter].x,raceElements[counter].y, texW, texH };
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
         //RenderText(textElement.c_str(),Black,raceElements[counter].x,raceElements[counter].y,FontSize);
-        if( SDL_PointInRect(&mousePosition, &raceElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        if( SDL_PointInRect(&m_iCurrentCoord, &raceElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {

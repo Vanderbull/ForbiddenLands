@@ -67,15 +67,7 @@ void initGame()
         }
     }
 
-    std::cout << "Mix_VolumeMusic = " << Mix_VolumeMusic(50) << std::endl;
-
-//    MenuChoices.clear();
-//    MenuChoices.push_back("PLAY");
-//    MenuChoices.push_back("SAVE");
-//    MenuChoices.push_back("LOAD");
-//    MenuChoices.push_back("CHARACTER MANAGER");
-//    MenuChoices.push_back("SETTINGS");
-//    MenuChoices.push_back("EXIT");
+    std::cout << "Mix_VolumeMusic = " << Mix_VolumeMusic(25) << std::endl;
 
     North = LoadTexture("./images/compass/north.png",255);
     West = LoadTexture("./images/compass/west.png",255);

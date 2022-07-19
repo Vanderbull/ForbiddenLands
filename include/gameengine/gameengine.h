@@ -14,10 +14,53 @@
 #include <sys/utsname.h>
 using namespace std;
 
+#include "globals.h"
 #include "../version.h"
 //#include "actor.h"
 
 extern int testing;
+
+class Skill {
+public:
+
+    std::string Name;
+    int MaximumExpertise;
+    int InitialRequirementsAttribute;
+    int InitialRequirementsValue;
+    int Group;
+    int Advance;
+    std::vector<std::string> UtilizedBy;
+    std::string Description;
+
+    Skill(void);
+    Skill(std::string,char,int);
+};
+
+class Item {
+public:
+
+    std::string Name;
+    int Efficiency;
+    int MinDamage;
+    int MaxDamage;
+    int DmgType;
+    int NumHands;
+    int Bodypart;
+    int UsedBy;
+    int Skill;
+    int BaseWorth;
+    int Price;
+    int Protection;
+    int Enchantments;
+    int Effect;
+    int EffectCharges;
+    int MinEffect;
+    int MaxEffect;
+    int Features;
+
+    Item(void);
+    Item(std::string,char,int);
+};
 
 class CGameState;
 
@@ -219,7 +262,10 @@ public:
     int MentalMagicSkill = 0;
     int SoulMagicSkill = 0;
 
-    std::vector<std::string> Skill = { "Fitness", "Dwarvish","Lore","Persuation","Taming","Quickand","Stealth","Awareness","ShortBlade","LongBlade","Bow","Bludgeon","ShortAxe","LongAxe","PoleBlade","Pole","Shield","Leather armour","Chained armour","Scaled armour","Plated armour"};
+    std::vector<std::string> Skill = { "Fitness", "Dwarvish","Lore","Persuation","Taming","Quickand","Stealth","Awareness","ShortBlade",
+                                    "LongBlade","Bow","Bludgeon","ShortAxe","LongAxe","PoleBlade","Pole","Shield","Leather armour",
+                                    "Chained armour","Scaled armour","Plated armour","Fire magic","Air Magic","Water magic","Earth magic","Energy magic","Mental magic","Soul magic"};
+    std::vector<std::string> LearnedSkill;
 
     std::vector<SDL_Rect> SkillRect;
 
@@ -235,6 +281,125 @@ public:
     }
 
     int AllowedSkills = 3;
+
+    std::vector<std::string> WeaponItems = {"Bardiche", "Bardiche +1", "Bardiche +2", "Bardiche +3", "Battle Axe", "Battle Axe +1", "Battle Axe +2", "Battle Axe +3", "Bow", "Bow +1", "Bow +2", "Bow +3","Broad Axe",
+                                            "Broad Axe +1","Broad Axe +2","Broad Axe +3","Club","Club +1","Club +2","Club +3", "Crossbow", "Cross bow +1","Cross bow +2","Cross bow +3","Dagger","Dagger +1","Dagger +2","Dagger +3",
+                                            ""};
+    std::vector<std::string> ArmorItems = {"Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3", "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor +3", "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3", "Robe", "Robe +1", "Robe +2", "Robe +3", "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3", ""};
+    std::vector<std::string> ShieldItems = {"Buckler","Shield","Kite shield"};
+    std::vector<std::string> GauntletItems = {"Gauntlets"};
+    std::vector<std::string> HelmetItems = {"Helmet","Mage hat"};
+    std::vector<std::string> AmuletItems = {"Bone amulet","Celtic amulet","Stone amulet","Crystal amulet","Idol amulet","Pentagram amulet"};
+    std::vector<std::string> CloakItems = {"Cloak","Cloak +1"};
+    std::vector<std::string> BootsItems = {"Boots","Boots +1"};
+    std::vector<std::string> StaffItems = {"Staff","Staff +1"};
+    std::vector<std::string> WandItems = {"Initiate wand","Apprentice wand"};
+    std::vector<std::string> RingItems = {"Bronze ring","Iron ring"};
+    std::vector<std::string> BookScrollItems = {"Initiate book","Apprentice book"};
+    std::vector<std::string> PotionItems = {"Potion of Healing", "Potion of  Healing +1", "Potion of  Healing +2", "Potion of  Healing +3", "Potion of cure poison",
+                                    "Potion of cure flaming", "Potion of cure paralysis", "Potion of cure fear", "Potion of cure insanity", "Potion of cure exhaustion", "Potion of cure curse", "Potion of poison"};
+    std::vector<std::string> MiscItems = {"Torch"};
+
+    std::vector<std::string> v_ItemNames = {"Bardiche", "Bardiche +1", "Bardiche +2", "Bardiche +3", // Weapon
+                                            "Battle Axe", "Battle Axe +2", "Battle Axe +3",
+                                            "Bow", "Bow +1", "Bow +2", "Bow +3",
+                                            "Broad Axe", "Broad Axe +1","Broad Axe +2","Broad Axe +3",
+                                            "Club","Club +1","Club +2","Club +3",
+                                            "Crossbow", "Cross bow +1","Cross bow +2","Cross bow +3",
+                                            "Dagger","Dagger +1","Dagger +2","Dagger +3",
+                                            "Falchion","Falchion +1","Falchion +2","Falchion +3",
+                                            "Flail","Flail +1","Flail +2","Flail +3",
+                                            "Greatsword","Greatsword +1","Greatsword +2","Greatsword +3",
+                                            "Halberd","Halberd +1","Halberd +2","Halberd +3",
+                                            "Hammer","Hammer +1","Hammer +2","Hammer +3",
+                                            "HandAxe","HandAxe +1","HandAxe +2","HandAxe +3",
+                                            "Long sword","Long sword +1","Long sword +2","Long sword +3",
+                                            "Mace","Mace +1","Mace +2","Mace +3",
+                                            "Morning star","Morning star +1","Morning star +2","Morning star +3",
+                                            "Quarterstaff","Quarterstaff +1","Quarterstaff +2","Quarterstaff +3",
+                                            "Scimitar","Scimitar +1","Scimitar +2","Scimitar +3",
+                                            "Scythe","Scythe +1","Scythe +2","Scythe +3",
+                                            "Short sword","Short sword +1","Short sword +2","Short sword +3",
+                                            "Spear","Spear +1","Spear +2","Spear +3",
+                                            "War axe","War axe +1","War axe +2","War axe +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Armor
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Shield
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Gauntlets
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Helmet
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // AMulet
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Cloak
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Boots
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Staff
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Wand
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Ring
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Book Scroll
+                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Potion of Healing", "Potion of Healing +1", "Potion of Healing +2", "Potion of Healing +3",                    // Potion
+                                            "Potion of Cure Poison", "Potion of Cure Flaming", "Potion of Cure Paralysis", "Potion of Cure Fear",
+                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
+                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
+                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
+                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Torch",                                                                     // Misc
+                                            };
+    std::vector<Item> v_Item;
+	void AddItem();
+
 
 private:
 	// the stack of states

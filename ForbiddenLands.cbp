@@ -97,6 +97,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/actor.h" />
 		<Unit filename="include/gameengine/battlestate.cpp" />
 		<Unit filename="include/gameengine/battlestate.h" />
+		<Unit filename="include/gameengine/characterstate.cpp" />
+		<Unit filename="include/gameengine/characterstate.h" />
 		<Unit filename="include/gameengine/createcharacterstate.cpp" />
 		<Unit filename="include/gameengine/createcharacterstate.h" />
 		<Unit filename="include/gameengine/gameengine.cpp" />
@@ -112,6 +114,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/playstate.h" />
 		<Unit filename="include/gameengine/savemenustate.cpp" />
 		<Unit filename="include/gameengine/savemenustate.h" />
+		<Unit filename="include/globals.h" />
 		<Unit filename="include/healing_character.h" />
 		<Unit filename="include/items/item.h" />
 		<Unit filename="include/main_menu.h" />
@@ -169,6 +172,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/views/world_view.h" />
 		<Unit filename="include/wands/magic_missile_wand.h" />
 		<Unit filename="include/weather/weather.h" />
+		<Unit filename="src/globals.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/portals.cpp" />
 		<Unit filename="src/randomizer.cpp" />
