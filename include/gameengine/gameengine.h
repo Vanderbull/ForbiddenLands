@@ -383,18 +383,14 @@ public:
                                             "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
                                             "Robe", "Robe +1", "Robe +2", "Robe +3",
                                             "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Book Scroll
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Book of Technique", "Book of Quickness", "Book of Perception", "Book of Fitness",                    // Book Scroll
+                                            "Book of Lore", "Book of Persuasion", "Book of Taming", "Book of Quickhand",
+                                            "Book of Stealth", "Book of Awareness", "Book of Fire Element", "Book of Air Element",
+                                            "Book of Water Element", "Book of Earth Element", "Book of Energy Element", "Book of Mental Element",
+                                            "Book of Soul Element",
                                             "Potion of Healing", "Potion of Healing +1", "Potion of Healing +2", "Potion of Healing +3",                    // Potion
                                             "Potion of Cure Poison", "Potion of Cure Flaming", "Potion of Cure Paralysis", "Potion of Cure Fear",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
+                                            "Potion of cure Insanity", "Potion of cure Exhaustion", "Potion of cure Curse", "Potion of Poison",
                                             "Torch",                                                                     // Misc
                                             };
     std::vector<Item> v_Item;
