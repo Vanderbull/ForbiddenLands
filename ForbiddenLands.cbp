@@ -69,7 +69,9 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Linker>
 			<Add option="-pg" />
 			<Add option="-lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net" />
+			<Add option="-lGL -lGLU -lglut" />
 			<Add directory="../../../../../usr/include/SDL2" />
+			<Add directory="/usr/include" />
 		</Linker>
 		<ExtraCommands>
 			<Add before="#mkdir -p $(TARGET_OUTPUT_DIR)/data" />
@@ -135,9 +137,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/quests/quest.h" />
 		<Unit filename="include/randomizer.h" />
 		<Unit filename="include/renderers/render.h" />
-		<Unit filename="include/renderers/renderCharacterCreation.h" />
-		<Unit filename="include/renderers/renderLoadMenu.h" />
-		<Unit filename="include/renderers/renderSaveMenu.h" />
 		<Unit filename="include/renderers/renderSettings.h" />
 		<Unit filename="include/renderers/render_generalshop.h" />
 		<Unit filename="include/renderers/render_jewelleryshop.h" />

@@ -56,11 +56,14 @@ xml_node<> * root_node = NULL;
 
 struct utsname uts;
 
+// SDL  and OpenGL Includes
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
+#include <SDL_opengl.h>
+#include <GL/gl.h>
 //#include "../version.h"
 
 #include "../include/gameengine/gameengine.h"
@@ -102,9 +105,9 @@ void DoWork()
         SDL_Log("Load music file failed! %s", Mix_GetError());
         exit(EXIT_FAILURE);
     }
-    Mix_VolumeMusic(25);
+    Mix_VolumeMusic(1);
     SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
-    Mix_PlayMusic( song, -1 );
+    //Mix_PlayMusic( song, -1 );
 };
 
 uintmax_t ComputeFileSize(const fs::path& pathToCheck)
@@ -413,7 +416,7 @@ int main(int argc, char ** argv)
 
     std::thread worker(DoWork);
 
-    game.Init("Forbidden Lands",1920,1080,32,true);
+    game.Init("A Viking Saga",1920,1080,32,true);
 
     game.ChangeState( CMenuState::Instance() );
 

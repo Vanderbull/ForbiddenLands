@@ -71,6 +71,9 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         current.w, current.h,
         SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
 
+
+    SDL_GLContext Context = SDL_GL_CreateContext(window);
+
     if (window == NULL)
     {
         SDL_Log("Could not create window: %s", SDL_GetError());
@@ -138,6 +141,22 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
 	SDL_Log("Loading textures...");
 	loadMapTextures();
+
+
+        gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+
+        if(!gameTitleFont)
+        {
+            std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+            exit(EXIT_FAILURE);
+        }
+        gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+
+        if(!gameBreadTextFont)
+        {
+            std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+            exit(EXIT_FAILURE);
+        }
 }
 
 void CGameEngine::Cleanup()
@@ -255,7 +274,7 @@ int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int i
     gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
     SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
 
-//    //Destroy resources
+    //Destroy resources
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
     TTF_CloseFont(m_font);
@@ -358,24 +377,16 @@ int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue,
 
 SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 {
-//	SDL_Surface* surface = IMG_Load( str.c_str() );
-//	if( !surface )
-//	{
-//        SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
-//        std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
-//        exit(-1);
-//	}
-
 	SDL_Texture* texture = IMG_LoadTexture(renderer, str.c_str() );
-	//SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod( texture, alpha );
-    //SDL_FreeSurface(surface);
 	return texture;
 };
 
 void CGameEngine::loadMapTextures()
 {
+    return;
+
     std::string location, room, position;
     std::string fileType = ".png";
     int progress_value = 0;
@@ -392,7 +403,7 @@ void CGameEngine::loadMapTextures()
         counting++;
     }
 
-    SDL_Texture* texture = IMG_LoadTexture(renderer,"./images/longship1.png");
+    //SDL_Texture* texture = IMG_LoadTexture(renderer,"./images/longship1.png");
     for(int x = 0; x < 16; x++ )
     {
         for(int y = 0; y < 16; y++ )
@@ -451,13 +462,13 @@ void CGameEngine::loadMapTextures()
 //                }
 
                 //SDL_CreateTextureFromSurface( renderer, surface );
-                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-                SDL_SetTextureAlphaMod( texture, 255 );
-                SDL_RenderCopy(renderer, texture, NULL, NULL);
+                SDL_SetTextureBlendMode(mapTexture[x][y][z], SDL_BLENDMODE_BLEND);
+                SDL_SetTextureAlphaMod( mapTexture[x][y][z], 255 );
+                SDL_RenderCopy(renderer, mapTexture[x][y][z], NULL, NULL);
                 //SDL_FreeSurface(surface);
 
 
-                RenderText("Forbidden Lands",White,current.w / 6,200, 200);
+                //RenderText("Forbidden Lands",White,current.w / 6,200, 200);
 
                 // Middle of the screen:
                 //xcenter = w / 2; ycenter = h/2;
@@ -483,7 +494,7 @@ void CGameEngine::loadMapTextures()
             }
         }
     }
-    SDL_DestroyTexture(texture);
+    //SDL_DestroyTexture(texture);
 };
 
 void CGameEngine::AddItem()

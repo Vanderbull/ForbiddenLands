@@ -109,7 +109,7 @@ void CMenuState::Draw(CGameEngine* game)
 
     MainMenuBackgroundTexture = NULL;
 
-	SDL_Surface* surface = IMG_Load( "./images/menu_backdrop.jpg" );
+	SDL_Surface* surface = IMG_Load( "./images/menu_backdrop.png" );
 	if( !surface )
 	{
         exit(-1);
@@ -122,7 +122,7 @@ void CMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(m_font, "Forbidden Lands", White);
+    gSurface = TTF_RenderText_Blended(m_font, "A Viking Saga", White);
 	if( !gSurface )
 	{
         exit(-1);

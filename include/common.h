@@ -1040,7 +1040,7 @@ int levelLimitations[9][7] = {   {9,1,3,1,1,1,3}, // Assassin
                                  {0,1,3,1,3,1,3}      // Thief
                             };
 
-std::string TITLE = "FORBIDDEN LANDS";
+std::string TITLE = "A VIKING SAGA";
 int getThiefLevel( int experience )
 {
     if( experience < 1251 )

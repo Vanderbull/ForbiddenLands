@@ -282,6 +282,8 @@ public:
 
     int AllowedSkills = 3;
 
+    // effect = the value indicated by the enchantment i.e. Power +2
+
     std::vector<std::string> WeaponItems = {"Bardiche", "Bardiche +1", "Bardiche +2", "Bardiche +3", "Battle Axe", "Battle Axe +1", "Battle Axe +2", "Battle Axe +3", "Bow", "Bow +1", "Bow +2", "Bow +3","Broad Axe",
                                             "Broad Axe +1","Broad Axe +2","Broad Axe +3","Club","Club +1","Club +2","Club +3", "Crossbow", "Cross bow +1","Cross bow +2","Cross bow +3","Dagger","Dagger +1","Dagger +2","Dagger +3",
                                             ""};
@@ -395,6 +397,27 @@ public:
                                             };
     std::vector<Item> v_Item;
 	void AddItem();
+
+	int ChoosenProfession;
+	int ChoosenRace;
+
+	// Look at enums with flags later
+	enum BodyParts {HEAD,NECK,SHOULDER,CHEST,ARM,HAND,FINGER,FEET};
+
+	class BaseMonster
+	{
+	    std::string Name;
+	    int Type;
+	    int LV;
+	    int HP;
+	    int Pro;
+	    int Tou;
+	    int Qui;
+	    int Actions;
+	    int Resistance;
+	    int Vunerability;
+	};
+	std::vector<std::string> v_BaseMonsters = {"Cube, Ooze","Doppelganger","Goblin","Goblin, Warrior", "Goblin Chief", "Snail","Snail Fire","Snake Constrictor"};
 
 
 private:
