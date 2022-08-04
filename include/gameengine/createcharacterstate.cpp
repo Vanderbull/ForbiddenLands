@@ -131,7 +131,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     {
         SDL_Rect rect;
         rect.x = 400;
-        rect.y = 370+(counter*50);
+        rect.y = 270+(counter*50);
         rect.w = 300;
         rect.h = 30;
         professionElements.push_back(rect);
@@ -151,12 +151,11 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
     for (std::string textElement : professionTextElements)
     {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-        SDL_RenderFillRect(game->renderer, &professionElements[counter]);
         SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+        game->RenderText2(textElement.c_str(),White,professionElements[counter].x,professionElements[counter].y,24);
 
-        gRect = { 400,370+(counter*50), texW, texH };
-        game->RenderText2(textElement.c_str(),White,gRect.x,gRect.y,24);
+        professionElements[counter].x -= professionElements[counter].w / 2;
+        professionElements[counter].y -= professionElements[counter].h / 2;
 
         if( SDL_PointInRect(&mousePosition, &professionElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -171,16 +170,26 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
 
     counter = 0;
+    int slide =0;
     game->SkillRect.clear();
     for (std::string textElement : game->Skill)
     {
         SDL_Rect rect;
-        rect.x = 1200;
-        rect.y = 370+(counter*50);
-        rect.w = 300;
         rect.h = 30;
+        if(counter > 10)
+        {
+            counter = 0;
+            slide++;
+        }
+        //else
+            rect.x = 1000 +( 200*slide);
+        rect.y = 170+(counter*50);
+
+        rect.w = 300;
+
         game->SkillRect.push_back(rect);
         counter++;
+
     };
 
     counter = 0;
@@ -190,13 +199,10 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     if( !game->Skill.empty())
     for (std::string textElement : game->Skill)
     {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-        SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
+        game->RenderText2(textElement.c_str(),White,game->SkillRect[counter].x,game->SkillRect[counter].y,24);
 
-        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
-
-        gRect = { 1200,370+(counter*50), texW, texH };
-        game->RenderText2(textElement.c_str(),White,gRect.x,gRect.y,24);
+        game->SkillRect[counter].x -= game->SkillRect[counter].w / 2;
+        game->SkillRect[counter].y -= game->SkillRect[counter].h / 2;
 
         if( SDL_PointInRect(&mousePosition, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -258,13 +264,10 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     choosen = -1;
     for (std::string textElement : game->LearnedSkill)
     {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-        SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
+        game->RenderText2(textElement.c_str(),White,game->SkillRect[counter].x,game->SkillRect[counter].y,24);
 
-        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
-
-        gRect = { 1600,370+(counter*50), texW, texH };
-        game->RenderText2(textElement.c_str(),White,gRect.x,gRect.y,24);
+        game->SkillRect[counter].x -= game->SkillRect[counter].w / 2;
+        game->SkillRect[counter].y -= game->SkillRect[counter].h / 2;
 
         if( SDL_PointInRect(&mousePosition, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -367,7 +370,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     {
         SDL_Rect rect;
         rect.x = 800;
-        rect.y = 370+(counter*50);
+        rect.y = 270+(counter*50);
         rect.w = 300;
         rect.h = 30;
         raceElements.push_back(rect);
@@ -378,10 +381,10 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     for (std::string textElement : raceTextElements)
     {
         StatPoints_String = textElement.c_str();
-        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+        game->RenderText2(StatPoints_String.c_str(),White,raceElements[counter].x,raceElements[counter].y,24);
 
-        gRect = { raceElements[counter].x,raceElements[counter].y, texW, texH };
-        game->RenderText2(StatPoints_String.c_str(),White,gRect.x,gRect.y,24);
+        raceElements[counter].x -= raceElements[counter].w / 2;
+        raceElements[counter].y -= raceElements[counter].h / 2;
 
         if( SDL_PointInRect(&mousePosition, &raceElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
