@@ -385,10 +385,8 @@ SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 
 void CGameEngine::loadMapTextures()
 {
-    return;
-
     std::string location, room, position;
-    std::string fileType = ".png";
+    std::string fileType = "-fs8.png";
     int progress_value = 0;
 
     int counting = 0;

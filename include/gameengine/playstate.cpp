@@ -101,7 +101,20 @@ void CPlayState::HandleEvents(CGameEngine* game)
                         }
                         break;
                     case SDLK_s:
-                        game->PlayerCoordinate.y--;
+                        {
+                            if( Rotation == "N")
+                                if( game->PlayerCoordinate.y > 0 )
+                                    game->PlayerCoordinate.y++;
+                            if( Rotation == "S")
+                                if( game->PlayerCoordinate.y < 15 )
+                                    game->PlayerCoordinate.y--;
+                            if( Rotation == "W")
+                                if( game->PlayerCoordinate.x > 0 )
+                                    game->PlayerCoordinate.x++;
+                            if( Rotation == "E")
+                                if( game->PlayerCoordinate.x < 15 )
+                                    game->PlayerCoordinate.x--;
+                        }
                         break;
 				}
 				break;
