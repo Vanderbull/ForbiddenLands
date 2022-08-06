@@ -93,6 +93,8 @@ public:
 
 	void loadMapTextures();
 
+	SDL_Event event;
+
 	SDL_Rect gRect;
 	SDL_Surface* screen;
     SDL_Surface* gSurface;

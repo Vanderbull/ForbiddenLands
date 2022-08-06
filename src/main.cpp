@@ -63,7 +63,7 @@ struct utsname uts;
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
 #include <SDL_opengl.h>
-#include <GL/gl.h>
+#include <GL/glut.h>
 //#include "../version.h"
 
 #include "../include/gameengine/gameengine.h"
@@ -395,6 +395,11 @@ CGameEngine game;
 
 int main(int argc, char ** argv)
 {
+    glutInit(&argc, argv);
+    glutInitWindowPosition(1920/2,1080/2);
+    glutInitWindowSize(1920,1080);
+    glutCreateWindow("");
+
     int staticAbility = 24;
     int abilityModifier = 0;
     int level = 1;
@@ -940,10 +945,6 @@ int main(int argc, char ** argv)
         {
             switch (event.type)
             {
-//                case SDL_MOUSEMOTION:
-//                {
-//                    SDL_GetMouseState( &mousePosition.x, &mousePosition.y );
-//                } break;
                 case SDL_KEYUP:
                     switch (event.key.keysym.sym)
                     {
@@ -996,15 +997,15 @@ int main(int argc, char ** argv)
                             }
                         } break;
                     } break;
-                case SDL_MOUSEBUTTONDOWN:
-                    switch (event.button.button)
-                    {
-                        case SDL_BUTTON_RIGHT:
-                        default:
-                        {
-                            m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
-                        } break;
-                    } break;
+//                case SDL_MOUSEBUTTONDOWN:
+//                    switch (event.button.button)
+//                    {
+//                        case SDL_BUTTON_RIGHT:
+//                        default:
+//                        {
+//                            m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
+//                        } break;
+//                    } break;
 //                case SDL_KEYDOWN:
 //                    switch (event.key.keysym.sym)
 //                    {
