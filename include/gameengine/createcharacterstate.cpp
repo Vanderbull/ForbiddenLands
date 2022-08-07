@@ -148,7 +148,67 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
-    game->RenderText2(std::to_string(game->Skill.size()).c_str(),White,1900,24,24);
+	SDL_Surface* surface = IMG_Load( "./images/ui/karaktärsboktom.png" );
+	if( !surface )
+	{
+        exit(-1);
+	}
+
+	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_SetTextureAlphaMod( texture, 255 );
+    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
+
+	surface = IMG_Load( "./images/ui/female.png" );
+	if( !surface )
+	{
+        exit(-1);
+	}
+
+	texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+
+	int w, h;
+    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+     SDL_Rect SrcR;
+
+
+  SrcR.x = 0;
+  SrcR.y = 0;
+  SrcR.w = w*2;
+  SrcR.h = h*2;
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_SetTextureAlphaMod( texture, 255 );
+    SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
+
+
+	surface = IMG_Load( "./images/ui/male.png" );
+	if( !surface )
+	{
+        exit(-1);
+	}
+
+	texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+
+	int w2, h2;
+    SDL_QueryTexture(texture, NULL, NULL, &w2, &h2);
+     SDL_Rect SrcR2;
+
+
+  SrcR2.x = 200;
+  SrcR2.y = 0;
+  SrcR2.w = w2*2;
+  SrcR2.h = h2*2;
+    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+    SDL_SetTextureAlphaMod( texture, 255 );
+    SDL_RenderCopy(game->renderer, texture, NULL, &SrcR2);
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
+
+    game->RenderText2(std::to_string(game->Skill.size()).c_str(),White,game->current.w - 40,24,24);
     game->RenderText2(std::to_string(scroll_range_min).c_str(),White,24,24,24);
     game->RenderText2(std::to_string(scroll_range_max).c_str(),White,24,1040,24);
 
