@@ -135,6 +135,9 @@ void CShopState::Update(CGameEngine* game)
 
 void CShopState::Draw(CGameEngine* game)
 {
+    static int player_coins = 30;
+    static int shop_coins = 10;
+
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
@@ -206,10 +209,12 @@ void CShopState::Draw(CGameEngine* game)
 //
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                if( game->v_ItemNames.at(counter) != "NONE" )
+                if( game->v_ItemNames.at(counter) != "NONE" && shop_coins > 0 )
                 {
                     game->v_ItemNamesShop.push_back(game->v_ItemNames.at(counter).c_str());
                     game->v_ItemNames.at(counter) = "NONE";
+                    shop_coins--;
+                    player_coins++;
                 }
                 //SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
                 //SDL_RenderFillRect(game->renderer, &icon);
@@ -250,7 +255,7 @@ void CShopState::Draw(CGameEngine* game)
 //
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                if(game->v_ItemNamesShop.at(counter) != "NONE")
+                if(game->v_ItemNamesShop.at(counter) != "NONE" && player_coins > 0)
                 {
                     int search_index = 0;
                     for (std::string textElement : game->v_ItemNames)
@@ -259,6 +264,8 @@ void CShopState::Draw(CGameEngine* game)
                         {
                             game->v_ItemNames.at(search_index) = game->v_ItemNamesShop.at(counter);
                             game->v_ItemNamesShop.at(counter) = "NONE";
+                            shop_coins++;
+                            player_coins--;
                         }
                         search_index++;
                     }
@@ -274,6 +281,9 @@ void CShopState::Draw(CGameEngine* game)
 
         counter++;
     };
+
+    game->RenderText(std::to_string(player_coins).c_str(), White, game->current.w - 200, 0,24);
+    game->RenderText(std::to_string(shop_coins).c_str(), White, game->current.w - 200, 200,24);
 
     SDL_DestroyTexture(iconImage);
 }
