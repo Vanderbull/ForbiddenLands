@@ -12,15 +12,18 @@
 #include <fstream>
 #include <vector>
 #include <sys/utsname.h>
+#include <array>
+#include <map>
 using namespace std;
 
 #include "globals.h"
+#include "randomizer.h"
 #include "../version.h"
 //#include "actor.h"
 
 extern int testing;
 
-class Skill {
+class SkillObject {
 public:
 
     std::string Name;
@@ -28,12 +31,11 @@ public:
     int InitialRequirementsAttribute;
     int InitialRequirementsValue;
     int Group;
-    int Advance;
     std::vector<std::string> UtilizedBy;
     std::string Description;
 
-    Skill(void);
-    Skill(std::string,char,int);
+    SkillObject(void);
+    SkillObject(std::string,char,int);
 };
 
 class Item {
@@ -60,6 +62,58 @@ public:
 
     Item(void);
     Item(std::string,char,int);
+};
+
+struct SGenericItem
+{
+    // item types
+    enum {ARMOUR,SHIELD,MISCELLANEOUS,POTION,RING,SCROLL,WEAPON};
+
+    std::string icon = "./icons/uiAtlas/ui_game_symbol_other.png";
+    std::string name;
+    std::string description = "a very generic type of item";
+    int unidentified = 0;
+    int type = 0;
+    int cursed = 0;
+    int amount = 0;
+    int weight = 0;
+
+    int equipped = 0;
+    int damage = 0;
+
+    bool edible = false;
+    int calories = 0;
+
+    bool equipable = false;
+    int slot = 0;
+    int armour_class = 0;
+
+    bool sellable = false;
+    int value = 0;
+
+    SGenericItem()
+    {
+        value = GenerateNumber(0,256);
+        amount = GenerateNumber(0,256);
+    };
+
+    std::string getName()
+    {
+        return name;
+    };
+
+    friend std::ostream& operator <<(std::ostream& os, SGenericItem const& a)
+    {
+        return os << a.name << ' '
+                  << a.unidentified << ' '
+                  << a.type << ' '
+                  << a.armour_class << ' '
+                  << a.cursed << ' '
+                  << a.amount << ' '
+                  << a.weight << ' '
+                  << a.value << ' '
+                  << a.equipped << ' ';
+    }
 };
 
 class CGameState;
@@ -92,6 +146,7 @@ public:
 	SDL_Texture* LoadTexture( const std::string &str, int alpha );
 
 	void loadMapTextures();
+	void initShop();
 
 	SDL_Event event;
 
@@ -234,39 +289,9 @@ public:
 
     std::vector<std::string> SkillGroups = { "Weapon", "Armour","Magic","Misc"};
 
-    // Skills
-    int FitnessSkill = 0;
-    int DwarvishSkill = 0;
-    int LoreSkill = 0;
-    int PersuationSKill = 0;
-    int TamingSkill = 0;
-    int QuickandSkill = 0;
-    int StealthSkill = 0;
-    int AwarenessSkill = 0;
-    int ShortBladeSkill = 0;
-    int LongBladeSkill = 0;
-    int BowSkill = 0;
-    int BludgeonSkill = 0;
-    int ShortAxeSkill = 0;
-    int LongAxeSkill = 0;
-    int PoleBladeSkill = 0;
-    int PoleSkill = 0;
-    int ShieldSkill = 0;
-    int LeatherArmourSkill = 0;
-    int ChainedArmourSkill = 0;
-    int ScaledArmourSkill = 0;
-    int PlatedArmourSkill = 0;
-    int FireMagicSkill = 0;
-    int AirMagicSkill = 0;
-    int WaterMagicSkill = 0;
-    int EarthMagicSkill = 0;
-    int EnergyMagicSkill = 0;
-    int MentalMagicSkill = 0;
-    int SoulMagicSkill = 0;
-
-    std::vector<std::string> Skill = { "Fitness", "Dwarvish","Lore","Persuation","Taming","Quickand","Stealth","Awareness","ShortBlade",
-                                    "LongBlade","Bow","Bludgeon","ShortAxe","LongAxe","PoleBlade","Pole","Shield","Leather armour",
-                                    "Chained armour","Scaled armour","Plated armour","Fire magic","Air Magic","Water magic","Earth magic","Energy magic","Mental magic","Soul magic"};
+   std::vector<std::string> Skill = { "Fitness", "Lore","Persuasion","Taming","Quickhand","Stealth","Awareness","Short blade",
+                                    "Long blade","Bow","Bludgeon","Short axe","Long axe","Poleblade","Pole","Shield","Leather armour",
+                                    "Chained armour","Scaled armour","Plated armour","Rune magic"};
     std::vector<std::string> LearnedSkill;
 
     std::vector<SDL_Rect> SkillRect;
@@ -285,25 +310,6 @@ public:
     int AllowedSkills = 3;
 
     // effect = the value indicated by the enchantment i.e. Power +2
-
-    std::vector<std::string> WeaponItems = {"Bardiche", "Bardiche +1", "Bardiche +2", "Bardiche +3", "Battle Axe", "Battle Axe +1", "Battle Axe +2", "Battle Axe +3", "Bow", "Bow +1", "Bow +2", "Bow +3","Broad Axe",
-                                            "Broad Axe +1","Broad Axe +2","Broad Axe +3","Club","Club +1","Club +2","Club +3", "Crossbow", "Cross bow +1","Cross bow +2","Cross bow +3","Dagger","Dagger +1","Dagger +2","Dagger +3",
-                                            ""};
-    std::vector<std::string> ArmorItems = {"Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3", "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor +3", "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3", "Robe", "Robe +1", "Robe +2", "Robe +3", "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3", ""};
-    std::vector<std::string> ShieldItems = {"Buckler","Shield","Kite shield"};
-    std::vector<std::string> GauntletItems = {"Gauntlets"};
-    std::vector<std::string> HelmetItems = {"Helmet","Mage hat"};
-    std::vector<std::string> AmuletItems = {"Bone amulet","Celtic amulet","Stone amulet","Crystal amulet","Idol amulet","Pentagram amulet"};
-    std::vector<std::string> CloakItems = {"Cloak","Cloak +1"};
-    std::vector<std::string> BootsItems = {"Boots","Boots +1"};
-    std::vector<std::string> StaffItems = {"Staff","Staff +1"};
-    std::vector<std::string> WandItems = {"Initiate wand","Apprentice wand"};
-    std::vector<std::string> RingItems = {"Bronze ring","Iron ring"};
-    std::vector<std::string> BookScrollItems = {"Initiate book","Apprentice book"};
-    std::vector<std::string> PotionItems = {"Potion of Healing", "Potion of  Healing +1", "Potion of  Healing +2", "Potion of  Healing +3", "Potion of cure poison",
-                                    "Potion of cure flaming", "Potion of cure paralysis", "Potion of cure fear", "Potion of cure insanity", "Potion of cure exhaustion", "Potion of cure curse", "Potion of poison"};
-    std::vector<std::string> MiscItems = {"Torch"};
 
     std::vector<std::string> v_ItemNames = {"Bardiche", "Bardiche +1", "Bardiche +2", "Bardiche +3", // Weapon
                                             "Battle Axe", "Battle Axe +2", "Battle Axe +3",
@@ -333,72 +339,59 @@ public:
                                             "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
                                             "Robe", "Robe +1", "Robe +2", "Robe +3",
                                             "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Shield
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Gauntlets
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Helmet
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // AMulet
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Cloak
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Boots
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Staff
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Wand
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Ring
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Book of Technique", "Book of Quickness", "Book of Perception", "Book of Fitness",                    // Book Scroll
-                                            "Book of Lore", "Book of Persuasion", "Book of Taming", "Book of Quickhand",
-                                            "Book of Stealth", "Book of Awareness", "Book of Fire Element", "Book of Air Element",
-                                            "Book of Water Element", "Book of Earth Element", "Book of Energy Element", "Book of Mental Element",
+                                            "Buckler", "Buckler +1", "Buckler +2", "Buckler +3",                    // Shield
+                                            "Shield", "Shield +1", "Shield +2", "Shield +3",
+                                            "Kite shield", "Kite shield +1", "Kite shield +2", "Kite shield +3",
+                                            "Gauntlets", "Gauntlets +1", "Gauntlets +2", "Gauntlets +3",                    // Gauntlets
+                                            "Helmet", "Helmet +1", "Helmet +2", "Helmet +3",                    // Helmet
+                                            "Mage hat", "Mage hat +1", "Mage hat +2", "Mage hat  +3",
+                                            "Bone amulet", "Celtic amulet", "Stone amulet", "Crystal amulet",                    // AMulet
+                                            "Idol amulet", "Pentagram amulet",
+                                            "Cloak", "Cloak +1", "Cloak +2", "Cloak +3",                    // Cloak
+                                            "Boots", "Boots +1", "Boots +2", "Boots +3",                    // Boots
+                                            "Staff", "Staff +1", "Staff +2", "Staff +3",                    // Staff
+                                            "Staff +4", "Staff +5",
+                                            "Initiate wand", "Apprentice wand", "Adept wand", "Master wand",                    // Wand
+                                            "Grandmaster wand",
+                                            "Bronze ring", "Iron ring", "Silver ring", "Golden ring",                    // Ring
+                                            "Jewel ring", "Pearl ring", "Emerald ring", "Opal ring",
+                                            "Initiate book", "Apprentice book", "Adept book", "Master book", "Grandmaster book",
+                                            "Book of Power",
+                                            "Book of Personality",
+                                            "Book of Intelligence",
+                                            "Book of Toughness",
+                                            "Book of Technique",
+                                            "Book of Quickness",
+                                            "Book of Perception",
+                                            "Book of Fitness",                    // Book Scroll
+                                            "Book of Lore",
+                                            "Book of Persuasion",
+                                            "Book of Taming",
+                                            "Book of Quickhand",
+                                            "Book of Stealth", "Book of Awareness",
+                                            "Book of Fire Element",
+                                            "Book of Air Element",
+                                            "Book of Water Element",
+                                            "Book of Earth Element",
+                                            "Book of Energy Element",
+                                            "Book of Mental Element",
                                             "Book of Soul Element",
                                             "Potion of Healing", "Potion of Healing +1", "Potion of Healing +2", "Potion of Healing +3",                    // Potion
                                             "Potion of Cure Poison", "Potion of Cure Flaming", "Potion of Cure Paralysis", "Potion of Cure Fear",
                                             "Potion of cure Insanity", "Potion of cure Exhaustion", "Potion of cure Curse", "Potion of Poison",
                                             "Torch",                                                                     // Misc
                                             };
+
+    std::vector<std::string> v_ItemNamesShop;
+
+    std::vector<std::string> v_SkillNames = {"Short blade","Long blade","Bow","Bludgeon","Short axe","Long axe","Poleblade","Pole","Shield",
+                                            "Leather armor","Chained armor","Scaled armor", "Plated armor","Fitness","Lore","Persuasion",
+                                            "Taming","Quickhand","Stealth","Awareness"};
+
     std::vector<Item> v_Item;
+    std::vector<SkillObject> v_Skill;
 	void AddItem();
+	void AddSkill();
 
 	int ChoosenProfession;
 	int ChoosenRace;
@@ -420,6 +413,15 @@ public:
 	    int Vunerability;
 	};
 	std::vector<std::string> v_BaseMonsters = {"Cube, Ooze","Doppelganger","Goblin","Goblin, Warrior", "Goblin Chief", "Snail","Snail Fire","Snake Constrictor"};
+    std::vector<std::string> generalStoreItems;
+    std::vector<std::string> jewelleryStoreItems;
+    std::vector<std::string> silverStoreItems;
+    std::vector<std::string> armsAndArmours;
+
+    std::array<int, 300> armsAndArmoursValue;
+    std::vector<SGenericItem> generalShopItems;
+
+    map<string, SDL_Texture*> myTextures;
 
 
 private:

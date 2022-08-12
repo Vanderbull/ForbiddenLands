@@ -41,7 +41,6 @@
 #include <netinet/in.h>
 #include <sys/time.h> //FD_SET, FD_ISSET, FD_ZERO macros
 
-
 #include <sqlite3.h>
 #include "../rapidxml-1.13/rapidxml.hpp"
 #define DOCTEST_CONFIG_IMPLEMENT

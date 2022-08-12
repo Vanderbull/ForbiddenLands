@@ -6,6 +6,7 @@
 #include "menustate.h"
 #include "battlestate.h"
 #include "characterstate.h"
+#include "shopstate.h"
 
 CPlayState CPlayState::m_PlayState;
 
@@ -76,7 +77,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
 						game->ChangeState( CMenuState::Instance() );
 						break;
 					case SDLK_m:
-						game->PushState( CCharacterState::Instance() );
+                        game->ChangeState( CShopState::Instance() );
+						//game->PushState( CCharacterState::Instance() );
 						break;
                     case SDLK_d:
                         rotateClockWise();

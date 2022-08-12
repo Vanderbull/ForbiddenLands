@@ -8,7 +8,7 @@ using namespace std;
 #include <SDL2/SDL.h>
 #include "gamestate.h"
 
-class CCreateCharacterState : public CGameState
+class CShopState : public CGameState
 {
 public:
 	void Init();
@@ -21,8 +21,8 @@ public:
 	void Update(CGameEngine* game);
 	void Draw(CGameEngine* game);
 
-	static CCreateCharacterState* Instance() {
-		return &m_CreateCharacterState;
+	static CShopState* Instance() {
+		return &m_ShopState;
 	}
 
     bool IsButtonReleased(const Uint32 uButton)
@@ -31,10 +31,10 @@ public:
     }
 
 protected:
-	CCreateCharacterState() { }
+	CShopState() { }
 
 private:
-	static CCreateCharacterState m_CreateCharacterState;
+	static CShopState m_ShopState;
 
 	SDL_Surface* gSurface;
 	SDL_Texture* gTexture;
@@ -66,7 +66,7 @@ private:
 
     std::vector<std::string> abilityElements = { "POW ", "INT ", "PERS ", "TOU ", "TECH ", "QUI ", "PERC "};
     std::vector<std::string> abilityModElements = { "POW MOD", "INT MOD", "PERS MOD", "TOU MOD", "TECH MOD", "QUI MOD", "PERC MOD"};
-    std::vector<std::string> professionTextElements = { "Viking", "Marauder","Wizard"};
+    std::vector<std::string> professionTextElements = { "VIKING", "MARAUDER","WIZARD"};
 
 int    scrolling;               // flag (scrolling or not)
 int    scroll_sensitivity = 40; // how fast we want to scroll

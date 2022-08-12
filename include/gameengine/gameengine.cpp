@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <iostream>
+#include <ctime>
+#include <ratio>
+#include <chrono>
 #include <SDL2/SDL.h>
 
 
@@ -14,6 +17,15 @@ Item::Item(void)
 
 };
 Item::Item(std::string,char,int)
+{
+
+};
+
+SkillObject::SkillObject(void)
+{
+
+};
+SkillObject::SkillObject(std::string,char,int)
 {
 
 };
@@ -135,28 +147,30 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
 	m_fullscreen = fullscreen;
 	m_running = true;
-
 	SDL_Log("Loading items...");
 	AddItem();
-
+	SDL_Log("Loading skills...");
+	AddSkill();
 	SDL_Log("Loading textures...");
 	loadMapTextures();
+	SDL_Log("Loading shop...");
+    initShop();
 
 
-        gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
-        if(!gameTitleFont)
-        {
-            std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
-            exit(EXIT_FAILURE);
-        }
-        gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    if(!gameTitleFont)
+    {
+        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
-        if(!gameBreadTextFont)
-        {
-            std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
-            exit(EXIT_FAILURE);
-        }
+    if(!gameBreadTextFont)
+    {
+        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void CGameEngine::Cleanup()
@@ -385,23 +399,54 @@ SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 
 void CGameEngine::loadMapTextures()
 {
+    std::chrono::time_point<std::chrono::steady_clock> starter;
+    std::chrono::time_point<std::chrono::steady_clock> ender;
+
+    starter = std::chrono::steady_clock::now();
+
     std::string location, room, position;
     std::string fileType = "-fs8.png";
     int progress_value = 0;
 
-    int counting = 0;
     for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
     {
-        SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
-        RenderText(std::to_string(counting).c_str(),White,current.w / 6,100, 200);
-        RenderText(*i,White,current.w / 6,200, 200);
+
+        SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+        if( !surface )
+        {
+            exit(-1);
+        }
+
+        SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+        SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+        SDL_SetTextureAlphaMod( texture, 255 );
+        SDL_RenderCopy(renderer, texture, NULL, NULL);
+        SDL_FreeSurface(surface);
+        SDL_DestroyTexture(texture);
+
+        SDL_Rect progressbar_border = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,v_ItemNames.size(),25};
+        SDL_RenderFillRect(renderer, &progressbar_border);
+
+        SDL_Rect progressbar = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,progress_value,25};
+        progress_value++;
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+        SDL_RenderFillRect(renderer, &progressbar);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+        SDL_RenderDrawRect(renderer, &progressbar);
+
+        //RenderText(std::to_string(progress_value).c_str(),White,current.w / 6,current.h - 200, 24);
+
+        RenderText("Loading ItemNames...",White,current.w / 2 - 100,current.h - 245, 24);
+        RenderText(*i,White,current.w / 2 - 100,current.h - 205, 24);
+
         SDL_RenderPresent(renderer);
-        SDL_Delay(10);
-        counting++;
+        //SDL_Delay(10);
     }
 
-    //SDL_Texture* texture = IMG_LoadTexture(renderer,"./images/longship1.png");
+    progress_value = 0;
     for(int x = 0; x < 16; x++ )
     {
         for(int y = 0; y < 16; y++ )
@@ -447,52 +492,54 @@ void CGameEngine::loadMapTextures()
 
                 location += fileType;
                 //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
-                //location = "./images/test_map/0000E-small.png";
+                //location = "./images/profile_photo3.png";
                 mapTextureFile[x][y][z] = location;
-                mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());//LoadTexture(location.c_str(),255);
+
+                mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());
+
+                //exit(1);
+                //myTextures[std::to_string(progress_value).c_str()] = IMG_LoadTexture(renderer,location.c_str());
                 SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
                 SDL_RenderClear(renderer);
-//
-//                SDL_Surface* surface = IMG_Load( "./images/longship1.png" );
+
+//                SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
 //                if( !surface )
 //                {
 //                    exit(-1);
 //                }
+//
+//                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+//                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//                SDL_SetTextureAlphaMod( texture, 255 );
+//                SDL_RenderCopy(renderer, texture, NULL, NULL);
+//                SDL_FreeSurface(surface);
+//                SDL_DestroyTexture(texture);
 
-                //SDL_CreateTextureFromSurface( renderer, surface );
-                SDL_SetTextureBlendMode(mapTexture[x][y][z], SDL_BLENDMODE_BLEND);
-                SDL_SetTextureAlphaMod( mapTexture[x][y][z], 255 );
-                SDL_RenderCopy(renderer, mapTexture[x][y][z], NULL, NULL);
-                //SDL_FreeSurface(surface);
-
-
-                //RenderText("Forbidden Lands",White,current.w / 6,200, 200);
-
-                // Middle of the screen:
-                //xcenter = w / 2; ycenter = h/2;
-                //Left upper point:
-
-                //x = xcenter - (winrect.width()/2);
-                //y = ycenter - (winrect.height()/2);
+//                SDL_SetTextureBlendMode(mapTexture[x][y][z], SDL_BLENDMODE_BLEND);
+//                SDL_SetTextureAlphaMod( mapTexture[x][y][z], 255 );
+//                SDL_RenderCopy(renderer, mapTexture[x][y][z], NULL, NULL);
 
                 SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
-                //SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+                SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
                 SDL_RenderFillRect(renderer, &progressbar_border);
 
                 SDL_Rect progressbar = {current.w / 2 - 1024/2,current.h - 200,progress_value,25};
                 progress_value++;
                 SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
                 SDL_RenderFillRect(renderer, &progressbar);
+                SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+                SDL_RenderDrawRect(renderer, &progressbar);
 
-//                SDL_Rect aButton = {0,0,500,500};
-//                SDL_SetRenderDrawColor(renderer, 255, 0, 255, 128);
-//                SDL_RenderFillRect(renderer, &aButton);
-                RenderText(location.c_str(),Black,500,180,48);
+                RenderText("Loading Level...",White,current.w / 2 - 100,current.h - 245, 24);
+                RenderText(location.c_str(),White,current.w / 3,current.h - 205,24);
                 SDL_RenderPresent(renderer);
             }
         }
     }
-    //SDL_DestroyTexture(texture);
+    ender = std::chrono::steady_clock::now();
+    std::cout << "Millisecond loading time: " << double(std::chrono::duration_cast<std::chrono::nanoseconds>(ender - starter).count()) / 1000000 << std::endl;
+    // 20357 milliseconds
+    //exit(99);
 };
 
 void CGameEngine::AddItem()
@@ -525,4 +572,173 @@ void CGameEngine::AddItem()
         SDL_Log("   Setting Features: '%i'\n",tempObject.Features = 0);
         v_Item.push_back(tempObject);
     }
+};
+
+void CGameEngine::AddSkill()
+{
+    SDL_Log("CGameEngine AddSkill\n");
+
+    for (auto i = v_SkillNames.begin(); i != v_SkillNames.end(); i++)
+    {
+        SkillObject tempObject;
+        tempObject.Name = *i;
+
+
+        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
+        SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);
+        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsAttribute = 0);
+        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
+        SDL_Log("Adding '%s'\n",tempObject.Group = 0);
+        SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
+
+//        int MaximumExpertise;
+//        int InitialRequirementsAttribute;
+//        int InitialRequirementsValue;
+//        int Group;
+//        std::vector<std::string> UtilizedBy;
+//        std::string Description;
+
+        v_Skill.push_back(tempObject);
+    }
+};
+
+void CGameEngine::initShop()
+{
+    generalShopItems.push_back(SGenericItem());
+    generalShopItems.push_back(SGenericItem());
+    generalShopItems.push_back(SGenericItem());
+    generalShopItems.push_back(SGenericItem());
+    generalShopItems.push_back(SGenericItem());
+    generalShopItems.push_back(SGenericItem());
+
+    string line;
+    ifstream general_shop_data_file ("./data/general_shop_data");
+    int i = 0;
+    if (general_shop_data_file.is_open())
+    {
+        while ( getline (general_shop_data_file,line) )
+        {
+            if( line == "#TYPE")
+            {
+                getline (general_shop_data_file,line);
+                SDL_Log("Adding type: '%s'\n",line.c_str());
+            }
+            if( line == "#WEIGHT")
+            {
+                getline (general_shop_data_file,line);
+                SDL_Log("Adding weight: '%s'\n",line.c_str());
+            }
+            if( line == "#COST")
+            {
+                getline (general_shop_data_file,line);
+                SDL_Log("Adding cost: '%s'\n",line.c_str());
+            }
+            if( line == "#ITEM")
+            {
+                getline (general_shop_data_file,line);
+                SDL_Log("Adding item: '%s'\n",line.c_str());
+                generalStoreItems.push_back(line.c_str());
+            }
+            i++;
+        }
+        general_shop_data_file.close();
+    }
+    else std::cout << "Unable to open file";
+
+    ifstream jewellery_shop_data_file ("./data/jewellery_shop_data");
+    i = 0;
+    if (jewellery_shop_data_file.is_open())
+    {
+        //std::cout << "./data/jewellery_shop_data starting to load" << std::endl;
+        while ( getline (jewellery_shop_data_file,line) )
+        {
+            //std::cout << "parsing line number: " << line << " " << i << std::endl;
+            if( line == "#TYPE")
+            {
+                getline (jewellery_shop_data_file,line);
+            }
+            if( line == "#WEIGHT")
+            {
+                getline (jewellery_shop_data_file,line);
+            }
+            if( line == "#COST")
+            {
+                getline (jewellery_shop_data_file,line);
+            }
+            if( line == "#ITEM")
+            {
+                getline (jewellery_shop_data_file,line);
+                //std::cout << "parsing line number: " << line << " " << i << std::endl;
+                jewelleryStoreItems.push_back(line);
+            }
+            i++;
+        }
+        jewellery_shop_data_file.close();
+        //std::cout << "./data/jewellery_shop_data loaded" << std::endl;
+    }
+    else cout << "Unable to open file";
+
+    ifstream silver_shop_data_file ("./data/silver_shop_data");
+    i = 0;
+    if (silver_shop_data_file.is_open())
+    {
+        //std::cout << "./data/silver_shop_data starting to load" << std::endl;
+        while ( getline (silver_shop_data_file,line) )
+        {
+            if( line == "#TYPE")
+            {
+                getline (silver_shop_data_file,line);
+            }
+            if( line == "#WEIGHT")
+            {
+                getline (silver_shop_data_file,line);
+            }
+            if( line == "#COST")
+            {
+                getline (silver_shop_data_file,line);
+            }
+            if( line == "#ITEM")
+            {
+                getline (silver_shop_data_file,line);
+                silverStoreItems.push_back(line);
+            }
+
+            i++;
+        }
+        silver_shop_data_file.close();
+        //std::cout << "./data/silver_shop_data loaded" << std::endl;
+    }
+    else cout << "Unable to open file";
+
+    ifstream arms_and_armours_data_file ("./data/arms_and_armours_data");
+    i = 0;
+    if (arms_and_armours_data_file.is_open())
+    {
+        //std::cout << "./data/arms_and_armours_data starting to load" << std::endl;
+        while ( getline (arms_and_armours_data_file,line) )
+        {
+            if( line == "#TYPE")
+            {
+                getline (arms_and_armours_data_file,line);
+            }
+            if( line == "#WEIGHT")
+            {
+                getline (arms_and_armours_data_file,line);
+            }
+            if( line == "#COST")
+            {
+                getline (arms_and_armours_data_file,line);
+                armsAndArmoursValue.at(i) = rand()%100;
+            }
+            if( line == "#ITEM")
+            {
+                getline (arms_and_armours_data_file,line);
+                armsAndArmours.push_back(line);
+            }
+            i++;
+        }
+        arms_and_armours_data_file.close();
+        //std::cout << "./data/arms_and_armours_data loaded" << std::endl;
+    }
+    else cout << "Unable to open file";
 };
