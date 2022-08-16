@@ -62,7 +62,7 @@ struct utsname uts;
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
 #include <SDL_opengl.h>
-#include <GL/glut.h>
+//#include <GL/glut.h>
 //#include "../version.h"
 
 #include "../include/gameengine/gameengine.h"
@@ -394,10 +394,10 @@ CGameEngine game;
 
 int main(int argc, char ** argv)
 {
-    glutInit(&argc, argv);
-    glutInitWindowPosition(1920/2,1080/2);
-    glutInitWindowSize(1920,1080);
-    glutCreateWindow("");
+//    glutInit(&argc, argv);
+//    glutInitWindowPosition(1920/2,1080/2);
+//    glutInitWindowSize(1920,1080);
+//    glutCreateWindow("");
 
     int staticAbility = 24;
     int abilityModifier = 0;
