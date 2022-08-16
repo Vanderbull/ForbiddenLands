@@ -78,7 +78,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Add after="#Syncing images files" />
 			<Add after="rsync -rtvu --delete images images $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing sound files" />
-			<Add after="rsync -rtvu --delete soundbible soundbible $(TARGET_OUTPUT_DIR)/" />
+			<Add after="#rsync -rtvu --delete soundbible soundbible $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing data files" />
 			<Add after="rsync -rtvu --delete data data $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing font files" />
