@@ -98,15 +98,15 @@ void DoWork()
         // handle error
     }
     Mix_Music* song = NULL;
-    song = Mix_LoadMUS("./soundbible/Pool of Radiance Soundtrack - Poison [TubeRipper.com].ogg");
+    song = Mix_LoadMUS("./data/soundbible/tavern/1_Black Moon Tavern by Ean Grimm.mp3");
     if (!song)
     {
         SDL_Log("Load music file failed! %s", Mix_GetError());
         exit(EXIT_FAILURE);
     }
-    Mix_VolumeMusic(1);
+    Mix_VolumeMusic(32);
     SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
-    //Mix_PlayMusic( song, -1 );
+    Mix_PlayMusic( song, -1 );
 };
 
 uintmax_t ComputeFileSize(const fs::path& pathToCheck)
@@ -636,7 +636,7 @@ int main(int argc, char ** argv)
     //SDL_Delay(5000);
 
     std::ofstream soundBibleFile;
-    soundBibleFile.open ("soundbible.org");
+    soundBibleFile.open ("./data/soundbible.org");
 
     std::vector<std::string> soundbibleFiles;
     std::vector<std::string> fontFiles;
@@ -644,7 +644,7 @@ int main(int argc, char ** argv)
     std::vector<std::string> dataFiles;
     std::vector<std::string> logsFiles;
 
-    read_directory("./soundbible", soundbibleFiles);
+    read_directory("./data/soundbible", soundbibleFiles);
     read_directory("./font", fontFiles);
     read_directory("./images", imagesFiles);
     read_directory("./data", dataFiles);
