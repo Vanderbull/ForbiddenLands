@@ -10,6 +10,7 @@
 #include "gamestate.h"
 #include "portals.h"
 
+
 int testing = 0;
 
 Item::Item(void)
@@ -742,3 +743,23 @@ void CGameEngine::initShop()
     }
     else cout << "Unable to open file";
 };
+
+void CGameEngine::renderDaytime()
+{
+        SDL_Rect dayTimeBox = {current.w - 1150,25,50,50};
+
+        SDL_Texture* dayTimeTexture = NULL;
+
+        if( currentTimeElapse() == night )
+            dayTimeTexture = LoadTexture("./icons/night.png",255);
+        else
+            dayTimeTexture = LoadTexture("./icons/day.png",255);
+
+        SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
+        SDL_DestroyTexture(dayTimeTexture);
+
+        RenderText("Season: " + cweather_engine.get_season(), White, current.w - 1050,100,24);
+        RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 1050,124,24);
+        RenderText("currentTime: " + std::to_string(currentTime),White, current.w - 1050, 170,24);
+        RenderText("currentDay: " + std::to_string(currentDay),White, current.w - 1050, 190,24);
+}

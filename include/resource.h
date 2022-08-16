@@ -10,7 +10,7 @@
 #include "items/item.h"
 #include "spells/spell.h"
 #include "common.h"
-#include "weather/weather.h"
+//#include "weather/weather.h"
 #include "npc.h"
 #include "bestiary.h"
 #include "map_resource.h"

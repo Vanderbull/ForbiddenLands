@@ -16,9 +16,12 @@
 #include <map>
 using namespace std;
 
+
 #include "globals.h"
 #include "randomizer.h"
+#include "weather/weather.h"
 #include "../version.h"
+
 //#include "actor.h"
 
 extern int testing;
@@ -147,6 +150,41 @@ public:
 
 	void loadMapTextures();
 	void initShop();
+
+
+enum timeOfDay
+{
+    day,
+    night
+};
+
+int currentDay = 0;
+int currentTime = 0;
+int currentTimeOfDay = day;
+
+int currentTimeElapse(bool tick = false )
+{
+    if( tick )
+    {
+        currentTime++;
+        if( currentTime > 24 )
+        {
+            currentTime = 0;
+            currentDay++;
+        }
+        if( currentTime > 6 && currentTime < 18 )
+        {
+            currentTimeOfDay = day;
+        }
+        else
+        {
+            currentTimeOfDay = night;
+        }
+    }
+    return currentTimeOfDay;
+};
+
+	void renderDaytime();
 
 	SDL_Event event;
 
@@ -422,6 +460,7 @@ public:
     std::vector<SGenericItem> generalShopItems;
 
     map<string, SDL_Texture*> myTextures;
+    weather_engine cweather_engine;
 
 
 private:

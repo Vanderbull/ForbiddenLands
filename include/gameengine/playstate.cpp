@@ -294,4 +294,5 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 255, 0,255);
     SDL_RenderFillRect(game->renderer, &left_weapon);
     SDL_RenderFillRect(game->renderer, &right_weapon);
+    game->renderDaytime();
 }

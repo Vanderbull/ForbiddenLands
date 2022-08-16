@@ -709,48 +709,48 @@ std::string renderDescription(int x, int y)
                     {
                         if( phlanTourCoordinateN[2] == "TRAINING_HALL")
                         {
-                            if( currentTimeElapse() == day )
-                            {
-                                trainingHall = 1;
-                                skip_return = 1;
-                                RenderText("There is a traininghall here, do you want to enter?",Red,100,0,48);
-                            }
+//                            if( currentTimeElapse() == day )
+//                            {
+//                                trainingHall = 1;
+//                                skip_return = 1;
+//                                RenderText("There is a traininghall here, do you want to enter?",Red,100,0,48);
+//                            }
                         }
                         if( phlanTourCoordinateN[2] == "ARMS_ARMOUR")
                         {
-                            if( currentTimeElapse() == day )
-                            {
-                                armsAndarmourShop = 1;
-                                skip_return = 1;
-                                RenderText("There is a Armory here, do you want to enter?",Red,100,0,48);
-                            }
+//                            if( currentTimeElapse() == day )
+//                            {
+//                                armsAndarmourShop = 1;
+//                                skip_return = 1;
+//                                RenderText("There is a Armory here, do you want to enter?",Red,100,0,48);
+//                            }
                         }
                         if( phlanTourCoordinateN[2] == "TAVERN_TALES")
                         {
-                            if( currentTimeElapse() == day )
-                            {
-                                tavern = 1;
-                                skip_return = 1;
-                                RenderText("There is a tavern here, do you want to enter?",Red,100,0,48);
-                            }
+//                            if( currentTimeElapse() == day )
+//                            {
+//                                tavern = 1;
+//                                skip_return = 1;
+//                                RenderText("There is a tavern here, do you want to enter?",Red,100,0,48);
+//                            }
                         }
                         if( phlanTourCoordinateN[2] == "GENERAL_SHOP")
                         {
-                            if( currentTimeElapse() == day )
-                            {
-                                generalShop = 1;
-                                skip_return = 1;
-                                RenderText("There is a general shop here, do you want to enter?",Red,100,0,48);
-                            }
+//                            if( currentTimeElapse() == day )
+//                            {
+//                                generalShop = 1;
+//                                skip_return = 1;
+//                                RenderText("There is a general shop here, do you want to enter?",Red,100,0,48);
+//                            }
                         }
                         if( phlanTourCoordinateN[2] == "JEWELERY_SHOP")
                         {
-                            if( currentTimeElapse() == day )
-                            {
-                                jewelleryShop = 1;
-                                skip_return = 1;
-                                RenderText("There is a jewellery shop here, do you want to enter?",Red,100,0,48);
-                            }
+//                            if( currentTimeElapse() == day )
+//                            {
+//                                jewelleryShop = 1;
+//                                skip_return = 1;
+//                                RenderText("There is a jewellery shop here, do you want to enter?",Red,100,0,48);
+//                            }
                         }
                         if( phlanTourCoordinateN[2] == "PROCLAMATIONS")
                         {
@@ -760,21 +760,21 @@ std::string renderDescription(int x, int y)
                         }
                         if( phlanTourCoordinateN[2] == "PRIESTHOOD")
                         {
-                            if( currentTimeElapse() == day )
-                            {
-                                templeShop = 1;
-                                skip_return = 1;
-                                RenderText("There is a priesthood here, do you want to enter?",Red,100,0,48);
-                            }
+//                            if( currentTimeElapse() == day )
+//                            {
+//                                templeShop = 1;
+//                                skip_return = 1;
+//                                RenderText("There is a priesthood here, do you want to enter?",Red,100,0,48);
+//                            }
                         }
                         if( phlanTourCoordinateN[2] == "SILVER_SHOP")
                         {
-                            if( currentTimeElapse() == day )
-                            {
-                                silverShop = 1;
-                                skip_return = 1;
-                                RenderText("There is a silver shop here, do you want to enter?",Red,100,0,48);
-                            }
+//                            if( currentTimeElapse() == day )
+//                            {
+//                                silverShop = 1;
+//                                skip_return = 1;
+//                                RenderText("There is a silver shop here, do you want to enter?",Red,100,0,48);
+//                            }
                         }
                         if( phlanTourCoordinateN[2] == "ROLF")
                         {

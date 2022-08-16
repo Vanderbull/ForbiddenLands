@@ -62,8 +62,4 @@ struct weather_engine
         }
     };
 };
-
-weather_engine cweather_engine;
-
-
  #endif

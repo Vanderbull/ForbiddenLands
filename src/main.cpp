@@ -1196,10 +1196,10 @@ int main(int argc, char ** argv)
         {
             renderWorldViewA();
 
-            if( currentTimeElapse() == night )
-            {
-                shop = 0;
-            }
+//            if( currentTimeElapse() == night )
+//            {
+//                shop = 0;
+//            }
             if(shop)
             {
                 if(templeShop)
