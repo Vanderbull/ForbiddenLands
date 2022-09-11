@@ -15,7 +15,15 @@ void CSaveMenuState::Init()
         exit(EXIT_FAILURE);
     }
 
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+
+    if(!gameBreadTextFont)
+    {
+        printf("TTF_OpenFont savemenuState: %s\n", TTF_GetError());
+        exit(EXIT_FAILURE);
+    }
+
+    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
 
     if(!gameTitleFont)
     {
@@ -103,9 +111,6 @@ void CSaveMenuState::Update(CGameEngine* game)
 //void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
 void CSaveMenuState::Draw(CGameEngine* game)
 {
-    TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
-
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
@@ -124,7 +129,7 @@ void CSaveMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(m_font, "Save", White);
+    gSurface = TTF_RenderText_Blended(gameTitleFont, "Save", White);
 	if( !gSurface )
 	{
         exit(-1);
@@ -240,7 +245,4 @@ void CSaveMenuState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
-
-    TTF_CloseFont(m_font);
-    m_font = NULL;
 }

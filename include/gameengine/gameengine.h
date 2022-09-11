@@ -16,13 +16,11 @@
 #include <map>
 using namespace std;
 
-
 #include "globals.h"
+#include "portals.h"
 #include "randomizer.h"
 #include "weather/weather.h"
 #include "../version.h"
-
-//#include "actor.h"
 
 extern int testing;
 
@@ -462,7 +460,64 @@ int currentTimeElapse(bool tick = false )
     map<string, SDL_Texture*> myTextures;
     weather_engine cweather_engine;
 
+    portal mapPortal[16][16];
+    portal savePortal[16][16];
 
+    void initPortal(std::string _dataFilePath)
+    {
+        int x,y = 0;
+        bool west,east,south,north = false;
+        std::string west_map,east_map,south_map,north_map = _dataFilePath;
+        int warp_x,warp_y;
+        std::string description;
+
+        bool directions[4] = {false,false,false,false};
+        std::string directions_map[4] = {_dataFilePath.c_str(),_dataFilePath.c_str(),_dataFilePath.c_str(),_dataFilePath.c_str()};
+        SDL_Point warp;
+
+        std::ifstream dataFile (_dataFilePath);
+
+        if(!dataFile)
+        {
+            cerr << "Error: init_portals(): file could not be opened" << _dataFilePath << endl;
+            exit(EXIT_FAILURE);
+        }
+
+        do
+        {
+            dataFile >> x >> y >> west >> east >> south >> north >> west_map >> east_map >> south_map >> north_map >> warp_x >> warp_y >> description;
+            mapPortal[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+        }
+        while(!dataFile.eof());
+
+        dataFile.close();
+    };
+
+    void loadPortal()
+    {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading portals\n");
+
+        initPortal("./data/maps/phlan/phlan_portals");
+        for( int y = 0; y < 16; y++)
+            for( int x = 0; x < 16; x++)
+                savePortal[x][y].setupStruct(mapPortal[x][y]);
+    };
+
+    bool getActivePortal(int x, int y, std::string rotation)
+    {
+        if( mapPortal[x][y].getMap(rotation) != "")
+        {
+            //mapActive = mapPortal[x][y].getMap(rotation);
+            loadPortal();
+        }
+
+        if( mapPortal[x][y].getMap(rotation) != "phlan" )
+        {
+            if( mapPortal[x][y].getX() != -1 )
+                PlayerCoordinate.x = mapPortal[x][y].getX();
+        }
+        return mapPortal[x][y].active_portal(rotation);
+    };
 private:
 	// the stack of states
 	vector<CGameState*> states;
@@ -470,5 +525,7 @@ private:
 	bool m_running;
 	bool m_fullscreen;
 };
+
+
 
 #endif

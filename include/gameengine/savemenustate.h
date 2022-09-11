@@ -98,6 +98,7 @@ private:
 	int iY;
 	SDL_Texture* MainMenuBackgroundTexture;
 	SDL_Color White = {255, 255, 255, 255};
+	TTF_Font* gameBreadTextFont = NULL;
 	TTF_Font* gameTitleFont = NULL;
     std::vector<std::string> MenuChoices;
 

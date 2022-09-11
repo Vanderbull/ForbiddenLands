@@ -106,7 +106,7 @@ void DoWork()
     }
     Mix_VolumeMusic(32);
     SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
-    Mix_PlayMusic( song, -1 );
+    //Mix_PlayMusic( song, -1 );
 };
 
 uintmax_t ComputeFileSize(const fs::path& pathToCheck)

@@ -128,16 +128,18 @@ public:
         }
     };
 
-void renderMinimap(CGameEngine* game)
-{
-    SDL_Texture* gTexture = game->LoadTexture("./data/maps/phlan/phlan.png",255);
+    void renderMinimap(CGameEngine* game)
+    {
+        SDL_Texture* gTexture = game->LoadTexture("./data/maps/phlan/phlan.png",255);
 
-    SDL_Rect imageSize = {0, 0,256,256};
-    SDL_Rect renderLocation = {50, 50,256,256};
-    SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 128);
-    SDL_RenderCopy(game->renderer, gTexture, &imageSize, &renderLocation);
-    SDL_DestroyTexture(gTexture);
-}
+        SDL_Rect imageSize = {0, 0,256,256};
+        SDL_Rect renderLocation = {50, 50,256,256};
+        SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 128);
+        SDL_RenderCopy(game->renderer, gTexture, &imageSize, &renderLocation);
+        SDL_DestroyTexture(gTexture);
+    }
+
+    SDL_Point mousePosition;
 
 protected:
 	CPlayState() { }
@@ -147,8 +149,8 @@ private:
 
 	SDL_Surface* playerCoordinateSurface;
 	SDL_Texture* playerCoordinateTexture;
-    TTF_Font* m_font = NULL;
-    TTF_Font* breadFont = NULL;
+    TTF_Font* gameTitleFont = NULL;
+    TTF_Font* gameBreadFont = NULL;
 
 	SDL_Surface* gSurface;
 	SDL_Texture* gTexture;
@@ -158,7 +160,6 @@ private:
 	SDL_Texture* MainMenuBackgroundTexture;
 	SDL_Color White = {255, 255, 255, 255};
 	SDL_Color Black = {0, 0, 0, 255};
-	TTF_Font* gameTitleFont = NULL;
     std::vector<std::string> MenuChoices;
 
     /// Information about the state of the mouse
@@ -173,13 +174,6 @@ private:
     ///information about the state of thw wheel
     Sint32 m_iWheelX;
     Sint32 m_iWheelY;
-
-//    int SettingsMenu = 0;
-//    int activeView = 1;
-//    int LoadMenu = 0;
-//    int SaveMenu = 0;
-//    int CreateCharacter = 0;
-//    int quit = 0;
 
     int Repeat = 0;
     int buttonWidth = 600;
@@ -197,7 +191,6 @@ private:
     SDL_Texture* West;
 
     int OFFSET = 50;
-
 };
 
 #endif

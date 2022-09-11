@@ -114,12 +114,7 @@ void CShopState::Update(CGameEngine* game)
       if(scroll_Y > 1040) scroll_Y = 1040;
     }
     scrolling = 0;
-//    if (scroll_range_min > game->Skill.size() - 10 )
-//    {
-//        scroll_range_min = game->Skill.size() - 10;
-//        scroll_range_max = game->Skill.size();
-//    }
-//    else
+
     if (scroll_range_min < 0 )
     {
         scroll_range_min = 0;

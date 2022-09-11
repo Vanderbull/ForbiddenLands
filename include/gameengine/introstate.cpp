@@ -64,18 +64,10 @@ void CIntroState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
 
     SDL_RenderClear(game->renderer);
-    MainMenuBackgroundTexture = NULL;
 
-	SDL_Surface* surface = IMG_Load( "./images/menus/mainmenu.jpg" );
-	if( !surface )
-	{
-        exit(-1);
-	}
-
-	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+	SDL_Texture* texture = game->LoadTexture("./images/menus/mainmenu.jpg",255);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod( texture, 255 );
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 }

@@ -45,6 +45,7 @@ private:
 	SDL_Color White = {255, 255, 255, 255};
 	SDL_Color Black = {0, 0, 0, 255};
 	TTF_Font* gameTitleFont = NULL;
+	TTF_Font* gameBreadTextFont = NULL;
 
     /// Information about the state of the mouse
     SDL_Point m_iCurrentCoord;

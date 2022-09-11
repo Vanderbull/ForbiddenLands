@@ -186,41 +186,6 @@ const std::string svg =
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-
-//	surface = IMG_Load( "./images/ui/male.png" );
-//	if( !surface )
-//	{
-//        exit(-1);
-//	}
-//
-//	texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-//
-//	int w2, h2;
-//    SDL_QueryTexture(texture, NULL, NULL, &w2, &h2);
-//     SDL_Rect SrcR2;
-//
-//
-//    SrcR2.x = 200;
-//    SrcR2.y = 0;
-//    SrcR2.w = w2*2;
-//    SrcR2.h = h2*2;
-//    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-//    SDL_SetTextureAlphaMod( texture, 255 );
-//    SDL_RenderCopy(game->renderer, texture, NULL, &SrcR2);
-//    SDL_FreeSurface(surface);
-//    SDL_DestroyTexture(texture);
-
-//    game->RenderText2(std::to_string(game->Skill.size()).c_str(),White,game->current.w - 40,24,24);
-//    game->RenderText2(std::to_string(scroll_range_min).c_str(),White,24,24,24);
-//    game->RenderText2(std::to_string(scroll_range_max).c_str(),White,24,1040,24);
-//
-//    // Scrolling rectangle
-//    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 255);
-////    SDL_Rect rect = {100, 0 + scroll_Y, 300, 40};
-////    SDL_RenderFillRect(game->renderer, &rect);
-//    SDL_Rect rect2 = {100, 0 + (scroll_range_min*40), 300, 40};
-//    SDL_RenderFillRect(game->renderer, &rect2);
-
     // Abilities ///////////////////////////////////
 
     std::string StatPoints_String = std::to_string(game->StartAbilityPoints) + " Points Left";
@@ -228,14 +193,6 @@ const std::string svg =
     game->RenderText2(StatPoints_String,White,600,970,24);
 
     int counter = 0;
-
-//    for (std::string textElement : abilityModElements)
-//    {
-//        gRect = { 200,225+(counter*50), 0, 0 };
-//        game->RenderText2(std::to_string(game->AbilityMod[counter]).c_str(),White,gRect.x,gRect.y,24);
-//
-//        counter++;
-//    }
 
     counter = 0;
 

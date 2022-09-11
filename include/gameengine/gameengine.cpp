@@ -8,7 +8,7 @@
 
 #include "gameengine.h"
 #include "gamestate.h"
-#include "portals.h"
+//#include "portals.h"
 
 
 int testing = 0;

@@ -18,17 +18,10 @@ void CPlayState::Init()
         exit(EXIT_FAILURE);
     }
 
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
-    if(!m_font)
+    gameBreadFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    if(!gameBreadFont)
     {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    breadFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-    if(!breadFont)
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        printf("TTF_OpenFont playstate: %s\n", TTF_GetError());
         exit(EXIT_FAILURE);
     }
 
@@ -126,19 +119,19 @@ void CPlayState::HandleEvents(CGameEngine* game)
 
 void CPlayState::Update(CGameEngine* game)
 {
-    printf("CPlayState Update\n");
-
-    ///--- Store the current information to the previous
-    m_iPreviousCoordX=m_iCurrentCoordX;
-    m_iPreviousCoordY=m_iCurrentCoordY;
-    m_uPreviousMouseState=m_uCurrentMouseState;
-
-    ///--- Update the current state of the mouse
-    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
-
-    ///--- Set the wheel back to 0
-    m_iWheelX=0;
-    m_iWheelY=0;
+//    printf("CPlayState Update\n");
+//
+//    ///--- Store the current information to the previous
+//    m_iPreviousCoordX=m_iCurrentCoordX;
+//    m_iPreviousCoordY=m_iCurrentCoordY;
+//    m_uPreviousMouseState=m_uCurrentMouseState;
+//
+//    ///--- Update the current state of the mouse
+//    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
+//
+//    ///--- Set the wheel back to 0
+//    m_iWheelX=0;
+//    m_iWheelY=0;
 
     getCompassDirection();
 
@@ -182,7 +175,7 @@ void CPlayState::Draw(CGameEngine* game)
 //        rotate = 0;
 //    SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, NULL,rotate,NULL,flip);
 //    rotate++;
-    gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->PlayerCoordinate.x).c_str(), Black);
+    gSurface = TTF_RenderText_Blended(gameBreadFont, std::to_string(game->PlayerCoordinate.x).c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -199,7 +192,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->PlayerCoordinate.y).c_str(), Black);
+    gSurface = TTF_RenderText_Blended(gameBreadFont, std::to_string(game->PlayerCoordinate.y).c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -216,7 +209,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(m_font, std::to_string(game->PlayerCoordinate.z).c_str(), Black);
+    gSurface = TTF_RenderText_Blended(gameBreadFont, std::to_string(game->PlayerCoordinate.z).c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -233,7 +226,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(m_font, Rotation.c_str(), Black);
+    gSurface = TTF_RenderText_Blended(gameBreadFont, Rotation.c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -250,7 +243,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(breadFont, game->mapTextureFile[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z].c_str(), Black);
+    gSurface = TTF_RenderText_Blended(gameBreadFont, game->mapTextureFile[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z].c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -295,4 +288,25 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_RenderFillRect(game->renderer, &left_weapon);
     SDL_RenderFillRect(game->renderer, &right_weapon);
     game->renderDaytime();
+
+    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+
+    if( SDL_PointInRect(&mousePosition, &left_weapon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &left_weapon);
+
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+        }
+    }
+    if( SDL_PointInRect(&mousePosition, &right_weapon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &right_weapon);
+
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+        }
+    }
 }
