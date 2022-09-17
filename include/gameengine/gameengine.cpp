@@ -503,22 +503,18 @@ void CGameEngine::loadMapTextures()
                 SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
                 SDL_RenderClear(renderer);
 
-//                SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
-//                if( !surface )
-//                {
-//                    exit(-1);
-//                }
-//
-//                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
-//                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-//                SDL_SetTextureAlphaMod( texture, 255 );
-//                SDL_RenderCopy(renderer, texture, NULL, NULL);
-//                SDL_FreeSurface(surface);
-//                SDL_DestroyTexture(texture);
+                SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+                if( !surface )
+                {
+                    exit(-1);
+                }
 
-//                SDL_SetTextureBlendMode(mapTexture[x][y][z], SDL_BLENDMODE_BLEND);
-//                SDL_SetTextureAlphaMod( mapTexture[x][y][z], 255 );
-//                SDL_RenderCopy(renderer, mapTexture[x][y][z], NULL, NULL);
+                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+                SDL_SetTextureAlphaMod( texture, 255 );
+                SDL_RenderCopy(renderer, texture, NULL, NULL);
+                SDL_FreeSurface(surface);
+                SDL_DestroyTexture(texture);
 
                 SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
                 SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );

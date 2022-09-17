@@ -149,12 +149,12 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         exit(-1);
 	}
 
-const std::string svg =
+    const std::string svg =
     "<svg height='200' width='200'><circle cx='100' cy='100' r='80' stroke='white' stroke-width='4' fill='black'/></svg>";
 
-  SDL_RWops *rw = SDL_RWFromFile("./images/ui/skilltree.svg","r"); //SDL_RWFromConstMem(svg.c_str(), svg.size());
-  surface = IMG_Load_RW(rw, 1);
-  SDL_Texture *texture = SDL_CreateTextureFromSurface(game->renderer, surface);
+    SDL_RWops *rw = SDL_RWFromFile("./images/ui/skilltree.svg","r"); //SDL_RWFromConstMem(svg.c_str(), svg.size());
+    surface = IMG_Load_RW(rw, 1);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(game->renderer, surface);
 
 	texture = SDL_CreateTextureFromSurface( game->renderer, surface );
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
@@ -174,7 +174,6 @@ const std::string svg =
 	int w, h;
     SDL_QueryTexture(texture, NULL, NULL, &w, &h);
     SDL_Rect SrcR;
-
 
     SrcR.x = game->current.w / 3;
     SrcR.y = game->current.h / 3;
