@@ -18,6 +18,11 @@ The scenes from Vikings set in Uppsala are shocking, but they're not entirely fi
 
 Uppsala was the location of a general assembly and a major marketplace, held annually from pre-historic times to the Middle Ages in the early spring. Written sources claim that these gatherings were used to decide warfare plans. A Norse religious celebration called Dísablót was also held, which could have involved sacrifice.
 
+### Täby / Vallentuna
+### Sigtuna
+### Västerås
+
+
 ## Shops & Traders
 
 - Tiers 1,2,3
