@@ -392,9 +392,7 @@ fog, steam, mist, etc.) in the same quantities as create water .
 ### Sanctuary
 <img src="https://user-images.githubusercontent.com/1743820/147883166-fa90ac0d-bb71-4fc0-a552-2f89a2c6e7ae.png" width="150" height="150">
 
-sudo apt install g++
-sudo apt-get install -y libsqlite3-dev
-sudo apt install libsdl2*
+sudo apt install -y libsqlite3-dev libsdl2* codeblocks
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
 
