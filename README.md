@@ -367,6 +367,10 @@ optional arguments:
   -v, --view            View the graph
   -c, --cluster         Create a cluster for each subfolder
 
+## GIT COMMIT CONDUCT
+https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
+
+
 Formatting your README
 READMEs generally follow one format in order to immediately orient developers to the most important aspects of your project.
 
