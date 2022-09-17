@@ -107,61 +107,16 @@ pixlr.com a online image editor
 
 ## Currency
 
+### 2022-09-17
+The currency in the game was changed from gold to silver and where the weight and size of a particular metal is used as a method of evaluating value, as opposed to the value being determined by the specific type of coin where the weight is about 1,6g.
 ### 2022-01-21
 The currency in the game was changed from having the old classic gold,silver,copper to one single currency gold. This was changed
 to make it a bit more simple as having more types more or less just complicates things and dont add any real ingame value.
 
 ## Races
 
-### DWARF
-Dwarfs are a short and burly race, living in mountain fastnesses
-underground. They are loyal friends and fi erce adversaries,
-known for their steadfastness in all things.
-The dwarfs are inherently resistant to many spells and spell-like
-effects. Dwarfi sh characters gain bonuses against the use of
-most magic, including all spells, wands, rods, and staves. The
-amount of the bonus depends upon the dwarf’s constitution:
-every 3.5 points of constitution (rounding down fractions)
-grants a bonus of +1 against such magic. Moreover, the hardy
-dwarfi sh nature imparts a 22-01-21similar bonus on any saving throws
-against poison.
-Dwarfs are not a numerous folk, but they are adventurous,
-loving the lustre of gold, the glitter of gems, and the quality
-of well-wrought metals. Dwarfs can live to an age of 350 years
-or more.
-
-#### Summary of dwarﬁsh Racial abilities:
-- +1 constitution, -1 charisma (with respect to all but
-dwarfs)
-- +1 to hit against goblins, half-orcs, hobgoblins, and orcs
-- +1 bonus per 3.5 points of Con to saves against magic and
-poison
-- -4 penalty to any attacks made against the dwarf by giants,
-ogres, ogre mages, titans and trolls.
-
-- languages: Dwarfish, gnomish, goblin, kobold, and orcish,
-and the common tongue and the appropriate alignment
-tongue. Regardless of intelligence, a dwarf may only ever learn
-two languages in addition to those listed.
-
-- Infravision * : 60 ft
-Within ten ft, a dwarf can detect certain facts concerning
-engineering, stonework, etc. Although no signifi cant time is
-required, the character must deliberately observe his or her
-surroundings (i.e., the player must state that the dwarf is using
-this particular talent in order to gain information).
-- Detect the existence of slopes or grades: 75%
-- Detect the existence of new construction: 75%
-- Detect sliding or shifting rooms or walls: 66%
-- Detect traps involving stonework: 50%
-- Determine depth underground: 50%
-
-### ELF
-### GNOME
-### HALF-ELF
-### HALFLING
-### HALF-ORC
-### HUMAN
+### 2022-09-17
+They races from early design was removed to simplify the development and due to the reason that there are no races in the viking story.
 
 <img src="https://user-images.githubusercontent.com/1743820/147883692-05e8ff52-c1a6-4221-8e2e-a738796848eb.png" width="150" height="150">
 
