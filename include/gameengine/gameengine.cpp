@@ -599,6 +599,52 @@ void CGameEngine::AddSkill()
     }
 };
 
+void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)
+{
+    std::string line;
+    std::ifstream shop_data_file (in_file.c_str());
+    SGenericItem tempItem;
+
+    std::cout << in_file << std::endl;
+
+    if (shop_data_file.is_open())
+    {
+        while ( getline (shop_data_file,line) )
+        {
+            if( line == "#TYPE")
+            {
+                getline (shop_data_file,line);
+                tempItem.type = line.c_str();
+                SDL_Log("Adding type: '%s'\n",line.c_str());
+            }
+            if( line == "#WEIGHT")
+            {
+                getline (shop_data_file,line);
+                std::cout << line << std::endl;
+                int integer_data = std::stoi(line);
+                std::cout << integer_data << std::endl;
+                tempItem.weight = integer_data;
+                SDL_Log("Adding weight: '%s'\n",line.c_str());
+            }
+            if( line == "#COST")
+            {
+                getline (shop_data_file,line);
+                tempItem.value = std::stoi(line);
+                SDL_Log("Adding cost: '%s'\n",line.c_str());
+            }
+            if( line == "#ITEM")
+            {
+                getline (shop_data_file,line);
+                tempItem.name = line.c_str();
+                SDL_Log("Adding item: '%s'\n",line.c_str());
+                out_data.push_back(tempItem);
+            }
+        }
+        shop_data_file.close();
+    }
+    else std::cout << "Unable to open file";
+};
+
 void CGameEngine::initShop()
 {
     generalShopItems.push_back(SGenericItem());
@@ -608,136 +654,11 @@ void CGameEngine::initShop()
     generalShopItems.push_back(SGenericItem());
     generalShopItems.push_back(SGenericItem());
 
+    LoadShopData("./data/general_shop_data",generalShopItems);
+    LoadShopData("./data/jewellery_shop_data",jewelleryShopItems);
+    LoadShopData("./data/silver_shop_data",silverShopItems);
+    LoadShopData("./data/arms_and_armours_data",armsAndArmoursShopItems);
     string line;
-    ifstream general_shop_data_file ("./data/general_shop_data");
-    int i = 0;
-    if (general_shop_data_file.is_open())
-    {
-        while ( getline (general_shop_data_file,line) )
-        {
-            if( line == "#TYPE")
-            {
-                getline (general_shop_data_file,line);
-                SDL_Log("Adding type: '%s'\n",line.c_str());
-            }
-            if( line == "#WEIGHT")
-            {
-                getline (general_shop_data_file,line);
-                SDL_Log("Adding weight: '%s'\n",line.c_str());
-            }
-            if( line == "#COST")
-            {
-                getline (general_shop_data_file,line);
-                SDL_Log("Adding cost: '%s'\n",line.c_str());
-            }
-            if( line == "#ITEM")
-            {
-                getline (general_shop_data_file,line);
-                SDL_Log("Adding item: '%s'\n",line.c_str());
-                generalStoreItems.push_back(line.c_str());
-            }
-            i++;
-        }
-        general_shop_data_file.close();
-    }
-    else std::cout << "Unable to open file";
-
-    ifstream jewellery_shop_data_file ("./data/jewellery_shop_data");
-    i = 0;
-    if (jewellery_shop_data_file.is_open())
-    {
-        //std::cout << "./data/jewellery_shop_data starting to load" << std::endl;
-        while ( getline (jewellery_shop_data_file,line) )
-        {
-            //std::cout << "parsing line number: " << line << " " << i << std::endl;
-            if( line == "#TYPE")
-            {
-                getline (jewellery_shop_data_file,line);
-            }
-            if( line == "#WEIGHT")
-            {
-                getline (jewellery_shop_data_file,line);
-            }
-            if( line == "#COST")
-            {
-                getline (jewellery_shop_data_file,line);
-            }
-            if( line == "#ITEM")
-            {
-                getline (jewellery_shop_data_file,line);
-                //std::cout << "parsing line number: " << line << " " << i << std::endl;
-                jewelleryStoreItems.push_back(line);
-            }
-            i++;
-        }
-        jewellery_shop_data_file.close();
-        //std::cout << "./data/jewellery_shop_data loaded" << std::endl;
-    }
-    else cout << "Unable to open file";
-
-    ifstream silver_shop_data_file ("./data/silver_shop_data");
-    i = 0;
-    if (silver_shop_data_file.is_open())
-    {
-        //std::cout << "./data/silver_shop_data starting to load" << std::endl;
-        while ( getline (silver_shop_data_file,line) )
-        {
-            if( line == "#TYPE")
-            {
-                getline (silver_shop_data_file,line);
-            }
-            if( line == "#WEIGHT")
-            {
-                getline (silver_shop_data_file,line);
-            }
-            if( line == "#COST")
-            {
-                getline (silver_shop_data_file,line);
-            }
-            if( line == "#ITEM")
-            {
-                getline (silver_shop_data_file,line);
-                silverStoreItems.push_back(line);
-            }
-
-            i++;
-        }
-        silver_shop_data_file.close();
-        //std::cout << "./data/silver_shop_data loaded" << std::endl;
-    }
-    else cout << "Unable to open file";
-
-    ifstream arms_and_armours_data_file ("./data/arms_and_armours_data");
-    i = 0;
-    if (arms_and_armours_data_file.is_open())
-    {
-        //std::cout << "./data/arms_and_armours_data starting to load" << std::endl;
-        while ( getline (arms_and_armours_data_file,line) )
-        {
-            if( line == "#TYPE")
-            {
-                getline (arms_and_armours_data_file,line);
-            }
-            if( line == "#WEIGHT")
-            {
-                getline (arms_and_armours_data_file,line);
-            }
-            if( line == "#COST")
-            {
-                getline (arms_and_armours_data_file,line);
-                armsAndArmoursValue.at(i) = rand()%100;
-            }
-            if( line == "#ITEM")
-            {
-                getline (arms_and_armours_data_file,line);
-                armsAndArmours.push_back(line);
-            }
-            i++;
-        }
-        arms_and_armours_data_file.close();
-        //std::cout << "./data/arms_and_armours_data loaded" << std::endl;
-    }
-    else cout << "Unable to open file";
 };
 
 void CGameEngine::renderDaytime()

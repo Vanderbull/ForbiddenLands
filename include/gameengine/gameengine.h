@@ -74,7 +74,7 @@ struct SGenericItem
     std::string name;
     std::string description = "a very generic type of item";
     int unidentified = 0;
-    int type = 0;
+    std::string type = "";
     int cursed = 0;
     int amount = 0;
     int weight = 0;
@@ -98,23 +98,23 @@ struct SGenericItem
         amount = GenerateNumber(0,256);
     };
 
-    std::string getName()
-    {
-        return name;
-    };
-
-    friend std::ostream& operator <<(std::ostream& os, SGenericItem const& a)
-    {
-        return os << a.name << ' '
-                  << a.unidentified << ' '
-                  << a.type << ' '
-                  << a.armour_class << ' '
-                  << a.cursed << ' '
-                  << a.amount << ' '
-                  << a.weight << ' '
-                  << a.value << ' '
-                  << a.equipped << ' ';
-    }
+//    std::string getName()
+//    {
+//        return name;
+//    };
+//
+//    friend std::ostream& operator <<(std::ostream& os, SGenericItem const& a)
+//    {
+//        return os << a.name << ' '
+//                  << a.unidentified << ' '
+//                  << a.type << ' '
+//                  << a.armour_class << ' '
+//                  << a.cursed << ' '
+//                  << a.amount << ' '
+//                  << a.weight << ' '
+//                  << a.value << ' '
+//                  << a.equipped << ' ';
+//    }
 };
 
 class CGameState;
@@ -456,6 +456,9 @@ int currentTimeElapse(bool tick = false )
 
     std::array<int, 300> armsAndArmoursValue;
     std::vector<SGenericItem> generalShopItems;
+    std::vector<SGenericItem> jewelleryShopItems;
+    std::vector<SGenericItem> silverShopItems;
+    std::vector<SGenericItem> armsAndArmoursShopItems;
 
     map<string, SDL_Texture*> myTextures;
     weather_engine cweather_engine;

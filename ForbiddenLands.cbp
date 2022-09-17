@@ -55,7 +55,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 				<Linker>
 					<Add option="-s" />
 					<Add option="-lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer" />
-					<Add option="-no-pie -pthread -lstdc++fs -lGL -lGLU -lglut" />
+					<Add option="-no-pie -pthread -lstdc++fs" />
 				</Linker>
 			</Target>
 		</Build>
