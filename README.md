@@ -1,15 +1,14 @@
 # FORBIDDEN LANDS
 ## Coding rules
 All locall developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
-merging development commits. Updates of readme will for now be commited direcly to the main branch just for testing.
+merging development commits.
 
 ## Shops & Traders
 
-- Shop or trader types ( Food, Smithy, Herbalist, General )
 - Tiers 1,2,3
 - Shops can have random items from lower tiers
 - Random generated at first but keeps its inventory persistant.
-- Each shop have a primary tier and a secondary tier.
+- Each shop have a primary tier and a secondary tier. ( maybe )
 
 
 ## Character generation idea
@@ -173,116 +172,6 @@ this particular talent in order to gain information).
 ## Mana
 
 Mana is the source with which the spellcaster use when casting spells and is drained in accordance to how powerfull the spell is.
-
-### Cleric spells by level
-
-#### Level one
-Bless
-Command
-Create Water
-Cure Light Wounds
-Detect Evil
-Detect Magic
-Light
-Protection From Evil
-Purify Food and Drink
-Remove Fear
-Resist Cold
-Sanctuary
-
-#### Level two
-Augury
-Chant
-Detect Charm
-Find Traps
-Hold Person
-Know Alignment
-Resist Fire
-Silence 15’ Radius
-Slow Poison
-Snake Charm
-Speak With Animals
-Spiritual Weapon
-
-#### Level three
-Animate Dead
-Continual Light
-Create Food and Water
-Cure Blindness
-Cure Disease
-Dispel Magic
-Feign Death
-Glyph of Warding
-Locate Object
-Prayer
-Remove Curse
-Speak with Dead
-
-#### Level four
-Cure Serious Wounds
-Detect Lie
-Divination
-Exorcise
-Lower Water
-Neutralise Poison
-Protection From Evil 10 ft Radius
-Speak With Plants
-Sticks to Snakes
-Tongues
-
-#### Level five
-Atonement
-Commune
-Cure Critical Wounds
-Dispel Evil
-Flame Strike
-Insect Plague
-Plane Shift
-Quest
-Raise Dead
-True Seeing
-
-#### Level Six
-Aerial Servant
-Animate Object
-Blade Barrier
-Conjure Animals
-Find the Path
-Heal
-Part Water
-Speak With Monsters
-Stone Tell
-Word of Recall
-
-#### Level Seven
-Astral Spell
-Control Weather
-Earthquake
-Gate
-Holy Word
-Regenerate
-Restoration
-Resurrection
-Symbol
-Wind Walk
-
-### dRUId SpellS BY leVel
-| Level one | Level two | Level three |
-|     :---:      |     :---:      |     :---:      |
-| Bless     | Augury     | Animate dead     |
-| Command       | Chant       | Continual light       |
-
-### maGIc USeR SpellS BY leVel
-| Level one | Level two | Level three |
-|     :---:      |     :---:      |     :---:      |
-| Bless     | Augury     | Animate dead     |
-| Command       | Chant       | Continual light       |
-
-### IllUSIOnISt SpellS BY leVel
-| Level one | Level two | Level three |
-|     :---:      |     :---:      |     :---:      |
-| Bless     | Augury     | Animate dead     |
-| Command       | Chant       | Continual light       |
 
 <img src="https://user-images.githubusercontent.com/1743820/147883065-d65eac70-4d8e-4dd9-9f4d-efde43d89d72.png" width="150" height="150">
 
