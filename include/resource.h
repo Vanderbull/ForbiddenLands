@@ -5,15 +5,13 @@
 #include <functional>
 #include <ctime>
 
-
 #include "functions.h"
 #include "texture_resource.h"
 #include "items/item.h"
 #include "spells/spell.h"
 #include "common.h"
-#include "weather/weather.h"
+//#include "weather/weather.h"
 #include "npc.h"
-#include "bestiary.h"
 #include "map_resource.h"
 #include "menu_resource.h"
 #include "sound_resource.h"
@@ -21,9 +19,8 @@
 #include "quests/quest.h"
 #include "skilltree/skilltree.h"
 
-
 #include "../include/renderers/render.h"
-#include "boat.h"
+//#include "name_generator.h"
 
 npcEngine NPCs;
 
@@ -52,40 +49,24 @@ void initGame()
 
     if( GL_SwapInterval == 0)
     {
-        std::cout << "SDL_GL_SetSwapInterval adaptive vsync SUCCESS..." << std::endl;
+        SDL_Log("SDL_GL_SetSwapInterval adaptive vsync SUCCESS...\n");
     }
     else if( GL_SwapInterval == -1 )
     {
-        std::cout << "SDL_GL_SetSwapInterval adaptive vsync FAILED..." << std::endl;
+        SDL_Log("SDL_GL_SetSwapInterval adaptive vsync FAILED...");
 
-        std::cout << " Trying with immediate vsync..." << std::endl;
         GL_SwapInterval = SDL_GL_SetSwapInterval(0);
          if( GL_SwapInterval == 0)
         {
-            std::cout << "SDL_GL_SetSwapInterval immediate vsync SUCCESS..." << std::endl;
+            SDL_Log("SDL_GL_SetSwapInterval immediate vsync SUCCESS...");
         }
         else if( GL_SwapInterval == -1 )
         {
-            std::cout << "SDL_GL_SetSwapInterval immediate vsync FAILED..." << std::endl;
+            SDL_Log("SDL_GL_SetSwapInterval immediate vsync FAILED...");
         }
     }
 
-    std::cout << "Mix_VolumeMusic = " << Mix_VolumeMusic(0) << std::endl;
-
-    std::cout << "Verified savegames..." << std::endl;
-
-    MenuChoices.clear();
-    MenuChoices.push_back("PLAY");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
-    MenuChoices.push_back("EXIT");
-
-    if( mainLog.empty() )
-    {
-        std::cout << "Empty mainLog" << std::endl;
-    }
+    std::cout << "Mix_VolumeMusic = " << Mix_VolumeMusic(25) << std::endl;
 
     North = LoadTexture("./images/compass/north.png",255);
     West = LoadTexture("./images/compass/west.png",255);
@@ -134,28 +115,28 @@ int Button(SDL_Point mousePosition, SDL_Rect Area, SDL_Renderer* Renderer )
     return -1;
 };
 
-class Command
-{
-    public:
-    virtual ~Command() {}
-    virtual void execute() = 0;
-};
-
-class JumpCommand : public Command
-{
-    public:
-    virtual void execute() { Jump(); };
-    private:
-    void Jump(){};
-};
-
-class inputhandler
-{
-    public:
-    void handleinput();
-    private:
-    Command* buttonX_;
-};
+//class Command
+//{
+//    public:
+//    virtual ~Command() {}
+//    virtual void execute() = 0;
+//};
+//
+//class JumpCommand : public Command
+//{
+//    public:
+//    virtual void execute() { Jump(); };
+//    private:
+//    void Jump(){};
+//};
+//
+//class inputhandler
+//{
+//    public:
+//    void handleinput();
+//    private:
+//    Command* buttonX_;
+//};
 
 struct rpg_data_engine
 {

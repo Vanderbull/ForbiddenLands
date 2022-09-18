@@ -79,7 +79,7 @@ void RenderSaveMenu()
         {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameA);
-            savingGameData("./data/savegames/savgama.dat");
+            //savingGameData("./data/savegames/savgama.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -95,7 +95,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameB);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgamb.dat");
+            //savingGameData("./data/savegames/savgamb.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -111,7 +111,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameC);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgamc.dat");
+            //savingGameData("./data/savegames/savgamc.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -127,7 +127,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameD);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgamd.dat");
+            //savingGameData("./data/savegames/savgamd.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -143,7 +143,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameE);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgame.dat");
+            //savingGameData("./data/savegames/savgame.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -159,7 +159,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameF);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgamf.dat");
+            //savingGameData("./data/savegames/savgamf.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -175,7 +175,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameG);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgamg.dat");
+            //savingGameData("./data/savegames/savgamg.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -191,7 +191,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameH);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgamh.dat");
+            //savingGameData("./data/savegames/savgamh.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -207,7 +207,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameI);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgami.dat");
+            //savingGameData("./data/savegames/savgami.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;
@@ -223,7 +223,7 @@ void RenderSaveMenu()
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(renderer, &SaveGameJ);
             std::ofstream SaveGame;
-            savingGameData("./data/savegames/savgamj.dat");
+            //savingGameData("./data/savegames/savgamj.dat");
             RenderText("Saving game...", Red, 700,100,42);
             LoadMenu = 0;
             SaveMenu = 0;

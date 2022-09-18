@@ -46,15 +46,15 @@ struct spells
         functiontype2 func2 = &dosomethingwithchar;
         int result = func2('a');
 
-        value = Generate(0,256);
-        amount = Generate(0,256);
+        value = GenerateNumber(0,256);
+        amount = GenerateNumber(0,256);
         // MASTER MAGIC ITEM TABLES
-        switch( Generate(0,7) )
+        switch( GenerateNumber(0,7) )
         {
         case 0:
             {
                 // FORM
-                switch( Generate(0,8) )
+                switch( GenerateNumber(0,8) )
                 {
                     case 0:
                     {
@@ -94,7 +94,7 @@ struct spells
                     } break;
                 };
                 //PROPERTIES
-                switch( Generate(0,5) )
+                switch( GenerateNumber(0,5) )
                 {
                     case 0:
                     {
@@ -129,7 +129,7 @@ struct spells
             }break;
         case 1:
             {
-               switch( Generate(0,4) )
+               switch( GenerateNumber(0,4) )
                 {
                     case 0:
                     {
@@ -148,7 +148,7 @@ struct spells
                         name_1 = "Rare";
                     } break;
                 };
-               switch( Generate(0,5) )
+               switch( GenerateNumber(0,5) )
                 {
                     case 0:
                     {
@@ -182,7 +182,7 @@ struct spells
             }break;
         case 2:
             {
-               switch( Generate(0,3) )
+               switch( GenerateNumber(0,3) )
                 {
                     case 0:
                     {
@@ -210,7 +210,7 @@ struct spells
                     } break;
                 };
                 //PROPERTIES
-                switch( Generate(0,5) )
+                switch( GenerateNumber(0,5) )
                 {
                     case 0:
                     {
@@ -245,7 +245,7 @@ struct spells
             }break;
         case 3:
             {
-               switch( Generate(0,3) )
+               switch( GenerateNumber(0,3) )
                 {
                     case 0:
                     {
@@ -265,7 +265,7 @@ struct spells
                     } break;
                 };
                 //PROPERTIES
-                switch( Generate(0,5) )
+                switch( GenerateNumber(0,5) )
                 {
                     case 0:
                     {
@@ -304,7 +304,7 @@ struct spells
             name_1 = "Ring";
 
                 //PROPERTIES
-                switch( Generate(0,5) )
+                switch( GenerateNumber(0,5) )
                 {
                     case 0:
                     {
@@ -338,7 +338,7 @@ struct spells
             name_1 = "";
 
                 //PROPERTIES
-                switch( Generate(0,5) )
+                switch( GenerateNumber(0,5) )
                 {
                     case 0:
                     {
@@ -370,7 +370,7 @@ struct spells
         case 6:
             {
             // TYPE
-               switch( Generate(0,2) )
+               switch( GenerateNumber(0,2) )
                 {
                     case 0:
                     {
@@ -386,7 +386,7 @@ struct spells
                     } break;
                 };
                 //SPELLS
-                switch( Generate(0,3) )
+                switch( GenerateNumber(0,3) )
                 {
                     case 0:
                     {
@@ -409,7 +409,7 @@ struct spells
         case 7:
             {
                 // FORM
-               switch( Generate(0,3) )
+               switch( GenerateNumber(0,3) )
                 {
                     case 0:
                     {
@@ -437,7 +437,7 @@ struct spells
                     } break;
                 };
                 //PROPERTIES
-                switch( Generate(0,5) )
+                switch( GenerateNumber(0,5) )
                 {
                     case 0:
                     {

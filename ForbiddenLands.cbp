@@ -27,9 +27,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++17" />
 					<Add option="-g" />
-					<Add option="-std=c++0x" />
+					<Add option="-std=gnu++17" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
@@ -37,7 +36,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 					<Add option="-no-pie -pthread -lstdc++fs -lsqlite3" />
 				</Linker>
 				<ExtraCommands>
-					<Add before="#python3  ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph" />
+					<Add before="python3  ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Release">
@@ -56,19 +55,22 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 				<Linker>
 					<Add option="-s" />
 					<Add option="-lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer" />
-					<Add option="-no-pie -pthread -lstdc++fs -lGL -lGLU -lglut" />
+					<Add option="-no-pie -pthread -lstdc++fs" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-w" />
-			<Add option="-std=c++17" />
-			<Add option="-std=c++0x" />
+			<Add option="-std=c17" />
+			<Add option="-pg" />
+			<Add option="-std=gnu++17" />
 			<Add directory="../../../../../usr/include/SDL2" />
 		</Compiler>
 		<Linker>
+			<Add option="-pg" />
 			<Add option="-lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net" />
 			<Add directory="../../../../../usr/include/SDL2" />
+			<Add directory="/usr/include" />
 		</Linker>
 		<ExtraCommands>
 			<Add before="#mkdir -p $(TARGET_OUTPUT_DIR)/data" />
@@ -76,7 +78,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Add after="#Syncing images files" />
 			<Add after="rsync -rtvu --delete images images $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing sound files" />
-			<Add after="rsync -rtvu --delete soundbible soundbible $(TARGET_OUTPUT_DIR)/" />
+			<Add after="#rsync -rtvu --delete soundbible soundbible $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing data files" />
 			<Add after="rsync -rtvu --delete data data $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing font files" />
@@ -88,13 +90,35 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="README.md" />
-		<Unit filename="include/bestiary.h" />
-		<Unit filename="include/bless.h" />
-		<Unit filename="include/boat.h" />
 		<Unit filename="include/colors.h" />
 		<Unit filename="include/common.h" />
 		<Unit filename="include/coordinates.h" />
 		<Unit filename="include/functions.h" />
+		<Unit filename="include/gameengine/actor.h" />
+		<Unit filename="include/gameengine/battlestate.cpp" />
+		<Unit filename="include/gameengine/battlestate.h" />
+		<Unit filename="include/gameengine/characterstate.cpp" />
+		<Unit filename="include/gameengine/characterstate.h" />
+		<Unit filename="include/gameengine/createcharacterstate.cpp" />
+		<Unit filename="include/gameengine/createcharacterstate.h" />
+		<Unit filename="include/gameengine/encampmentstate.cpp" />
+		<Unit filename="include/gameengine/encampmentstate.h" />
+		<Unit filename="include/gameengine/gameengine.cpp" />
+		<Unit filename="include/gameengine/gameengine.h" />
+		<Unit filename="include/gameengine/gamestate.h" />
+		<Unit filename="include/gameengine/introstate.cpp" />
+		<Unit filename="include/gameengine/introstate.h" />
+		<Unit filename="include/gameengine/loadmenustate.cpp" />
+		<Unit filename="include/gameengine/loadmenustate.h" />
+		<Unit filename="include/gameengine/menustate.cpp" />
+		<Unit filename="include/gameengine/menustate.h" />
+		<Unit filename="include/gameengine/playstate.cpp" />
+		<Unit filename="include/gameengine/playstate.h" />
+		<Unit filename="include/gameengine/savemenustate.cpp" />
+		<Unit filename="include/gameengine/savemenustate.h" />
+		<Unit filename="include/gameengine/shopstate.cpp" />
+		<Unit filename="include/gameengine/shopstate.h" />
+		<Unit filename="include/globals.h" />
 		<Unit filename="include/healing_character.h" />
 		<Unit filename="include/items/item.h" />
 		<Unit filename="include/main_menu.h" />
@@ -102,6 +126,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/menu_resource.h" />
 		<Unit filename="include/npc.h" />
 		<Unit filename="include/player_characters.h" />
+		<Unit filename="include/portals.h" />
 		<Unit filename="include/potions/efreet_bottle.h" />
 		<Unit filename="include/potions/flask_of_oil.h" />
 		<Unit filename="include/potions/potion_of_extra_healing.h" />
@@ -112,9 +137,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/potions/potion_of_speed.h" />
 		<Unit filename="include/potions/potion_of_strength.h" />
 		<Unit filename="include/quests/quest.h" />
+		<Unit filename="include/randomizer.h" />
 		<Unit filename="include/renderers/render.h" />
-		<Unit filename="include/renderers/renderLoadMenu.h" />
-		<Unit filename="include/renderers/renderSaveMenu.h" />
 		<Unit filename="include/renderers/renderSettings.h" />
 		<Unit filename="include/renderers/render_generalshop.h" />
 		<Unit filename="include/renderers/render_jewelleryshop.h" />
@@ -124,7 +148,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/renderers/render_temple.h" />
 		<Unit filename="include/renderers/render_trainer.h" />
 		<Unit filename="include/resource.h" />
-		<Unit filename="include/savegame.h" />
 		<Unit filename="include/scrolls/scroll_of_fire.h" />
 		<Unit filename="include/skilltree/skilltree.h" />
 		<Unit filename="include/sound_resource.h" />
@@ -150,8 +173,10 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/views/world_view.h" />
 		<Unit filename="include/wands/magic_missile_wand.h" />
 		<Unit filename="include/weather/weather.h" />
-		<Unit filename="src/boat.cpp" />
+		<Unit filename="src/globals.cpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/portals.cpp" />
+		<Unit filename="src/randomizer.cpp" />
 		<Unit filename="version.h" />
 		<Extensions>
 			<AutoVersioning>

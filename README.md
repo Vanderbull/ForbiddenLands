@@ -1,15 +1,34 @@
 # FORBIDDEN LANDS
 ## Coding rules
 All locall developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
-merging development commits. Updates of readme will for now be commited direcly to the main branch just for testing.
+merging development commits.
+
+## Cities
+https://www.fotevikensmuseum.se/d/en/museet/husen
+
+### Uppåkra
+
+Excavations show Uppåkra to have been among the richest and largest towns active during the Viking Age. Its founding was likely several centuries earlier, possibly as far back as the year 100 BC.
+
+Archaeological surveys in 1934 discovered a Bronze to Iron Age settlement. More recently, 30,000 objects of gold, silver and bronze were discovered, telling many stories of the area. The advanced craftsmanship indicates that significant trade took place with ancient Europe and the Middle East.
+
+### Uppsala
+
+The scenes from Vikings set in Uppsala are shocking, but they're not entirely fiction. The settlement, now Gamla Uppsala (Old Uppsala) just north of Stockholm, served as a centre of society for hundreds of years, before and during the Viking Age.
+
+Uppsala was the location of a general assembly and a major marketplace, held annually from pre-historic times to the Middle Ages in the early spring. Written sources claim that these gatherings were used to decide warfare plans. A Norse religious celebration called Dísablót was also held, which could have involved sacrifice.
+
+### Täby / Vallentuna
+### Sigtuna
+### Västerås
+
 
 ## Shops & Traders
 
-- Shop or trader types ( Food, Smithy, Herbalist, General )
 - Tiers 1,2,3
 - Shops can have random items from lower tiers
 - Random generated at first but keeps its inventory persistant.
-- Each shop have a primary tier and a secondary tier.
+- Each shop have a primary tier and a secondary tier. ( maybe )
 
 
 ## Character generation idea
@@ -108,61 +127,16 @@ pixlr.com a online image editor
 
 ## Currency
 
+### 2022-09-17
+The currency in the game was changed from gold to silver and where the weight and size of a particular metal is used as a method of evaluating value, as opposed to the value being determined by the specific type of coin where the weight is about 1,6g.
 ### 2022-01-21
 The currency in the game was changed from having the old classic gold,silver,copper to one single currency gold. This was changed
 to make it a bit more simple as having more types more or less just complicates things and dont add any real ingame value.
 
 ## Races
 
-### DWARF
-Dwarfs are a short and burly race, living in mountain fastnesses
-underground. They are loyal friends and fi erce adversaries,
-known for their steadfastness in all things.
-The dwarfs are inherently resistant to many spells and spell-like
-effects. Dwarfi sh characters gain bonuses against the use of
-most magic, including all spells, wands, rods, and staves. The
-amount of the bonus depends upon the dwarf’s constitution:
-every 3.5 points of constitution (rounding down fractions)
-grants a bonus of +1 against such magic. Moreover, the hardy
-dwarfi sh nature imparts a 22-01-21similar bonus on any saving throws
-against poison.
-Dwarfs are not a numerous folk, but they are adventurous,
-loving the lustre of gold, the glitter of gems, and the quality
-of well-wrought metals. Dwarfs can live to an age of 350 years
-or more.
-
-#### Summary of dwarﬁsh Racial abilities:
-- +1 constitution, -1 charisma (with respect to all but
-dwarfs)
-- +1 to hit against goblins, half-orcs, hobgoblins, and orcs
-- +1 bonus per 3.5 points of Con to saves against magic and
-poison
-- -4 penalty to any attacks made against the dwarf by giants,
-ogres, ogre mages, titans and trolls.
-
-- languages: Dwarfish, gnomish, goblin, kobold, and orcish,
-and the common tongue and the appropriate alignment
-tongue. Regardless of intelligence, a dwarf may only ever learn
-two languages in addition to those listed.
-
-- Infravision * : 60 ft
-Within ten ft, a dwarf can detect certain facts concerning
-engineering, stonework, etc. Although no signifi cant time is
-required, the character must deliberately observe his or her
-surroundings (i.e., the player must state that the dwarf is using
-this particular talent in order to gain information).
-- Detect the existence of slopes or grades: 75%
-- Detect the existence of new construction: 75%
-- Detect sliding or shifting rooms or walls: 66%
-- Detect traps involving stonework: 50%
-- Determine depth underground: 50%
-
-### ELF
-### GNOME
-### HALF-ELF
-### HALFLING
-### HALF-ORC
-### HUMAN
+### 2022-09-17
+They races from early design was removed to simplify the development and due to the reason that there are no races in the viking story.
 
 <img src="https://user-images.githubusercontent.com/1743820/147883692-05e8ff52-c1a6-4221-8e2e-a738796848eb.png" width="150" height="150">
 
@@ -173,116 +147,6 @@ this particular talent in order to gain information).
 ## Mana
 
 Mana is the source with which the spellcaster use when casting spells and is drained in accordance to how powerfull the spell is.
-
-### Cleric spells by level
-
-#### Level one
-Bless
-Command
-Create Water
-Cure Light Wounds
-Detect Evil
-Detect Magic
-Light
-Protection From Evil
-Purify Food and Drink
-Remove Fear
-Resist Cold
-Sanctuary
-
-#### Level two
-Augury
-Chant
-Detect Charm
-Find Traps
-Hold Person
-Know Alignment
-Resist Fire
-Silence 15’ Radius
-Slow Poison
-Snake Charm
-Speak With Animals
-Spiritual Weapon
-
-#### Level three
-Animate Dead
-Continual Light
-Create Food and Water
-Cure Blindness
-Cure Disease
-Dispel Magic
-Feign Death
-Glyph of Warding
-Locate Object
-Prayer
-Remove Curse
-Speak with Dead
-
-#### Level four
-Cure Serious Wounds
-Detect Lie
-Divination
-Exorcise
-Lower Water
-Neutralise Poison
-Protection From Evil 10 ft Radius
-Speak With Plants
-Sticks to Snakes
-Tongues
-
-#### Level five
-Atonement
-Commune
-Cure Critical Wounds
-Dispel Evil
-Flame Strike
-Insect Plague
-Plane Shift
-Quest
-Raise Dead
-True Seeing
-
-#### Level Six
-Aerial Servant
-Animate Object
-Blade Barrier
-Conjure Animals
-Find the Path
-Heal
-Part Water
-Speak With Monsters
-Stone Tell
-Word of Recall
-
-#### Level Seven
-Astral Spell
-Control Weather
-Earthquake
-Gate
-Holy Word
-Regenerate
-Restoration
-Resurrection
-Symbol
-Wind Walk
-
-### dRUId SpellS BY leVel
-| Level one | Level two | Level three |
-|     :---:      |     :---:      |     :---:      |
-| Bless     | Augury     | Animate dead     |
-| Command       | Chant       | Continual light       |
-
-### maGIc USeR SpellS BY leVel
-| Level one | Level two | Level three |
-|     :---:      |     :---:      |     :---:      |
-| Bless     | Augury     | Animate dead     |
-| Command       | Chant       | Continual light       |
-
-### IllUSIOnISt SpellS BY leVel
-| Level one | Level two | Level three |
-|     :---:      |     :---:      |     :---:      |
-| Bless     | Augury     | Animate dead     |
-| Command       | Chant       | Continual light       |
 
 <img src="https://user-images.githubusercontent.com/1743820/147883065-d65eac70-4d8e-4dd9-9f4d-efde43d89d72.png" width="150" height="150">
 
@@ -402,18 +266,20 @@ sudo apt install -y libsqlite3-dev libsdl2* codeblocks
 
 Here is a simple footnote[^1].
 
-A footnote can also have multiple lines[^2].  
+A footnote can also have multiple lines[^2].
 
 You can also use words, to fit your writing style more closely[^note].
 
 [^1]: My reference.
-[^2]: Every new line should be prefixed with 2 spaces.  
+[^2]: Every new line should be prefixed with 2 spaces.
   This allows you to have a footnote with multiple lines.
 [^note]:
-    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.  
+    Named footnotes will still render with numbers instead of the text but allow easier identification and linking.
     This footnote also has been made with a different syntax using 4 spaces for new lines.
-    
+
 ## Setting up the developer enviroment
+
+sudo apt install git git-lfs
 
 sudo apt install codeblocks
 
@@ -498,6 +364,10 @@ optional arguments:
                         Format of the output
   -v, --view            View the graph
   -c, --cluster         Create a cluster for each subfolder
+
+## GIT COMMIT CONDUCT
+https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
+
 
 Formatting your README
 READMEs generally follow one format in order to immediately orient developers to the most important aspects of your project.

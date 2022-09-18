@@ -17,26 +17,26 @@ FILE * pFile;
 SDL_Rect rect;
 const Uint8 *keystate;
 
-int Generate(const int from, const int to)
-{
-    // Create a random device and use it to generate a random seed
-    std::random_device myRandomDevice;
-    unsigned seed = myRandomDevice();
-
-    // Initialize a default_random_engine with the seed
-    std::default_random_engine myRandomEngine(seed);
-
-    // Initialize a uniform_int_distribution to produce values between -10 and 10
-    std::uniform_int_distribution<int> myUnifIntDist(from, to);
-
-    // Create and print 5 randomly generated values
-    for (int i = 0; i < 5; i++)
-    {
-        int number = myUnifIntDist(myRandomEngine);
-        std::cout << number << std::endl;
-    }
-    return myUnifIntDist(myRandomEngine);
-};
+//int Generate(const int from, const int to)
+//{
+//    // Create a random device and use it to generate a random seed
+//    std::random_device myRandomDevice;
+//    unsigned seed = myRandomDevice();
+//
+//    // Initialize a default_random_engine with the seed
+//    std::default_random_engine myRandomEngine(seed);
+//
+//    // Initialize a uniform_int_distribution to produce values between -10 and 10
+//    std::uniform_int_distribution<int> myUnifIntDist(from, to);
+//
+//    // Create and print 5 randomly generated values
+//    for (int i = 0; i < 5; i++)
+//    {
+//        int number = myUnifIntDist(myRandomEngine);
+//        std::cout << number << std::endl;
+//    }
+//    return myUnifIntDist(myRandomEngine);
+//};
 
 SDL_Rect FrameText(std::string renderText, int x, int y, int fontSize)
 {
@@ -90,6 +90,50 @@ int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int
     TTF_CloseFont(m_font);
     m_font = NULL;
     fontSize = 0;
+    return 0;
+}
+
+void initGameTitleFont(std::string file, int fontSize)
+{
+    gameTitleFont = TTF_OpenFont(file.c_str(), fontSize);
+};
+
+void initGameBreadTextFont(std::string file, int fontSize)
+{
+    gameBreadTextFont = TTF_OpenFont(file.c_str(), fontSize);
+};
+
+int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY)
+{
+    gSurface = TTF_RenderText_Blended(gameTitleFont, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    return 0;
+}
+
+int RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY)
+{
+    gSurface = TTF_RenderText_Blended(gameBreadTextFont, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX - (texW / 2), iY - (texH / 2), texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
     return 0;
 }
 

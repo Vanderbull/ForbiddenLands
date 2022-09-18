@@ -46,24 +46,20 @@ struct weather_engine
 
         if( season == WINTER )
         {
-            temperature = Generate(-32, 0);
+            temperature = GenerateNumber(-32, 0);
         }
         if( season == SPRING )
         {
-            temperature = Generate(0, 10);
+            temperature = GenerateNumber(0, 10);
         }
         if( season == SUMMER )
         {
-            temperature = Generate(10, 36);
+            temperature = GenerateNumber(10, 36);
         }
         if( season == FALL )
         {
-            temperature = Generate(0, 10);
+            temperature = GenerateNumber(0, 10);
         }
     };
 };
-
-weather_engine cweather_engine;
-
-
  #endif

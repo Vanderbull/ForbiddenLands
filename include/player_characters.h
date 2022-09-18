@@ -7,48 +7,11 @@
 
 #include <SDL2/SDL.h>
 
+#include "name_generator.h"
+#include "randomizer.h"
+
 std::vector<std::string> readyCharacterInventory[6];
 std::vector<std::string> playerCharacterInventory[6];
-
-char NamePrefix[7][5] = {
-    "", //who said we need to add a prefix?
-    "bel", //lets say that means "the good"
-    "nar", //"The not so good as Bel"
-    "xan", //"The evil"
-    "bell", //"the good"
-    "natr", //"the neutral/natral"
-    "ev", //Man am I original
-};
-
-char NameSuffix[16][5] = {
-    "", "us", "ix", "ox", "ith",
-    "ath", "um", "ator", "or", "axia",
-    "imus", "ais", "itur", "orex", "o",
-    "y"
-};
-
-const char NameStems[20][10] = {
-    "adur", "aes", "anim", "apoll", "imac",
-    "educ", "equis", "extr", "guius", "hann",
-    "equi", "amora", "hum", "iace", "ille",
-    "inept", "iuv", "obe", "ocul", "orbis"
-};
-
-//The return type is void because we use a pointer to the array holding
-// the characters of the name.
-void NameGen(char* PlayerName)
-{
-    PlayerName[0]=0; //initialize the string to "" (zero length string).
-    //add the prefix...
-    strcat(PlayerName, NamePrefix[(rand() % 7)]);
-    //add the stem...
-    strcat(PlayerName, NameStems[(rand() % 20)]);
-    //add the suffix...
-    strcat(PlayerName, NameSuffix[(rand() % 16)]);
-    //Make the first letter capital...
-    PlayerName[0]=toupper(PlayerName[0]);
-    return;
-};
 
 bool lootDropped = false;
 bool droppedLoot()
@@ -101,7 +64,7 @@ class Player : IActor
         }
 };
 
-     Player myPlayer;
+Player myPlayer;
 
 typedef struct playerCharacter
 {
@@ -137,7 +100,7 @@ typedef struct playerCharacter
 
     void generateInitiative()
     {
-        initiative = Generate(1,6);
+        initiative = GenerateNumber(1,6);
     };
 
     void increaseHunger()
@@ -169,7 +132,7 @@ typedef struct playerCharacter
         int count = 0;
         for (int aNumber : current_stats)
         {
-            current_stats[count] = Generate(3, 18);//rand() % 15 + 3;
+            current_stats[count] = GenerateNumber(3, 18);
             count++;
         }
     };
@@ -387,13 +350,13 @@ typedef struct playerCharacter
     playerCharacter()
     {
         std::cout << "loading playerCharacter..." << std::endl;
-        race = Generate(0,7);
+        race = GenerateNumber(0,7);
         calculateStats();
         calculateHitPoints();
         initItems();
         update();
-        name = setName();
-        face = Generate(0,20);
+        //name = setName();
+        face = GenerateNumber(0,20);
         faceImage = NULL;
     };
 
@@ -406,7 +369,7 @@ typedef struct playerCharacter
             if( faceImage == NULL )
             {
                 std::cout << "failed to load ./icons/faces/" << std::to_string(face) << ".png" << std::endl;
-                exit(99);
+                //exit(99);
             }
             else
             {
@@ -421,13 +384,13 @@ typedef struct playerCharacter
         SDL_RenderCopy(renderer, faceImage, NULL, &FaceFrame);
     };
 
-    std::string setName()
-    {
-        char Player1Name[21];
-        NameGen(Player1Name);
-        name = Player1Name;
-        return name;
-    };
+//    std::string setName()
+//    {
+//        char Player1Name[21];
+//        NameGen(Player1Name);
+//        name = Player1Name;
+//        return name;
+//    };
 
     std::string getName()
     {
@@ -482,7 +445,7 @@ typedef struct playerCharacter
 
         for( int i = 0; i <= hit_dices; i++ )
         {
-            calculated_hitpoints += Generate(1,6);
+            calculated_hitpoints += GenerateNumber(1,6);
             calculated_hitpoints += hitpoints_modifier;
         }
 
