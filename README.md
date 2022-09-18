@@ -352,6 +352,15 @@ optional arguments:
   -v, --view            View the graph
   -c, --cluster         Create a cluster for each subfolder
 
+## GIT SETUP ( LINUX )
+    Make Git store the username and password and it will never ask for them.
+
+git config --global credential.helper store
+
+    Save the username and password for a session (cache it);
+
+git config --global credential.helper cache
+
 ## GIT COMMIT CONDUCT
 https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
 
