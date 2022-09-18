@@ -28,8 +28,6 @@ void CLoadMenuState::Init()
 
 	SDL_FreeSurface(temp);
 
-    MenuChoices.clear();
-
     DIR *dpdf;
     struct dirent *epdf;
     std::vector<std::string> filenames;
@@ -45,6 +43,7 @@ void CLoadMenuState::Init()
        }
     }
 
+    MenuChoices.clear();
     MenuChoices.push_back("EXIT");
 
 	printf("CLoadMenuState Init\n");
@@ -195,60 +194,7 @@ void CLoadMenuState::Draw(CGameEngine* game)
 
             SDL_PumpEvents();
             SDL_GetMouseState(NULL, NULL);
-            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-            {
-                if( game->SettingsMenu != 1)
-                {
-                    if(MenuChoice == "PLAY")
-                    {
-                        game->activeView = 1;
-                        game->LoadMenu = 0;
-                        game->SaveMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "SAVE")
-                    {
-                        game->SaveMenu = 1;
-                        game->LoadMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "LOAD")
-                    {
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 1;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "CHARACTER MANAGER")
-                    {
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 1;
-                    }
-                    if(MenuChoice == "SETTINGS")
-                    {
-                        game->SettingsMenu = 1;
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "EXIT")
-                    {
-                        game->LoadMenu = 0;
-                        game->SaveMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
 
-                        // Destroy resources
-                        //SDL_DestroyTexture(currentViewTexture);
-                        //SDL_DestroyTexture(gTexture);
-                        //atexit(SDL_Quit);
-                        //quit = 1;
-                    }
-                }
-            }
         }
         ++Repeat;
     }

@@ -10,6 +10,8 @@ CCreateCharacterState CCreateCharacterState::m_CreateCharacterState;
 void CCreateCharacterState::Init()
 {
 	printf("CCreateCharacterState Init\n");
+    MenuChoices.clear();
+    MenuChoices.push_back("EXIT");
 }
 
 void CCreateCharacterState::Cleanup()
@@ -433,4 +435,51 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                     SDL_Delay(50);
                 }
             }
+
+    int Repeat = 0;
+    int buttonWidth = 600;
+    int buttonHeight = 60;
+
+    for(auto MenuChoice : MenuChoices)
+    {
+        SDL_Rect buttonPosition = { (game->current.w - buttonWidth) - 20, (game->current.h - buttonHeight) - 20,buttonWidth,buttonHeight};
+
+        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+        SDL_RenderFillRect(game->renderer, &buttonPosition);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderDrawRect(game->renderer,&buttonPosition);
+
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), White);
+        gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+        int texW = 0;
+        int texH = 0;
+        SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+        gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
+        SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+
+        //Destroy resources
+        SDL_FreeSurface(gSurface);
+        SDL_DestroyTexture(gTexture);
+
+        SDL_Point mousePosition;
+        SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+
+        if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+        {
+            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+            SDL_RenderFillRect(game->renderer, &buttonPosition);
+
+            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+            {
+                if( MenuChoice == "EXIT")
+                    game->ChangeState( CMenuState::Instance() );
+            }
+
+            SDL_PumpEvents();
+            SDL_GetMouseState(NULL, NULL);
+
+        }
+        ++Repeat;
+    }
 }
