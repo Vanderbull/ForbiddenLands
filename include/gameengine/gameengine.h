@@ -98,23 +98,23 @@ struct SGenericItem
         amount = GenerateNumber(0,256);
     };
 
-//    std::string getName()
-//    {
-//        return name;
-//    };
-//
-//    friend std::ostream& operator <<(std::ostream& os, SGenericItem const& a)
-//    {
-//        return os << a.name << ' '
-//                  << a.unidentified << ' '
-//                  << a.type << ' '
-//                  << a.armour_class << ' '
-//                  << a.cursed << ' '
-//                  << a.amount << ' '
-//                  << a.weight << ' '
-//                  << a.value << ' '
-//                  << a.equipped << ' ';
-//    }
+    std::string getName()
+    {
+        return name;
+    };
+
+    friend std::ostream& operator <<(std::ostream& os, SGenericItem const& a)
+    {
+        return os << a.name << ' '
+                  << a.unidentified << ' '
+                  << a.type << ' '
+                  << a.armour_class << ' '
+                  << a.cursed << ' '
+                  << a.amount << ' '
+                  << a.weight << ' '
+                  << a.value << ' '
+                  << a.equipped << ' ';
+    }
 };
 
 class CGameState;

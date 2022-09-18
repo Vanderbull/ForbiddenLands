@@ -12,7 +12,6 @@
 #include "common.h"
 //#include "weather/weather.h"
 #include "npc.h"
-#include "bestiary.h"
 #include "map_resource.h"
 #include "menu_resource.h"
 #include "sound_resource.h"

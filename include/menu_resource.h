@@ -131,29 +131,4 @@ void adventureMenu()
     }
 }
 
-int procentageLoaded = 0;
-
-void LoadingScreen()
-{
-    //Initialize();
-    SDL_DisplayMode DM;
-    SDL_GetCurrentDisplayMode(0, &DM);
-    auto Width = DM.w;
-    auto Height = DM.h;
-
-    SDL_RenderClear(renderer);
-    //SDL_RenderCopy(renderer, menuBackgroundTexture, NULL, NULL);
-
-    //std::string procentageLoadedString = "loading, please wait... ";
-
-    std::string procentageLoadedString = "loading, please wait... " + std::to_string(procentageLoaded) +  "%";
-    RenderText(procentageLoadedString,Black,DM.w - 400,DM.h - 30,fontSize);
-
-    loadingScreen = loadBestiary();
-
-    procentageLoaded++;
-
-    //loadingScreen = 0;
-};
-
 #endif // MENU_RESOURCE_H

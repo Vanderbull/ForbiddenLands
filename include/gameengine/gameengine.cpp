@@ -647,18 +647,10 @@ void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)
 
 void CGameEngine::initShop()
 {
-    generalShopItems.push_back(SGenericItem());
-    generalShopItems.push_back(SGenericItem());
-    generalShopItems.push_back(SGenericItem());
-    generalShopItems.push_back(SGenericItem());
-    generalShopItems.push_back(SGenericItem());
-    generalShopItems.push_back(SGenericItem());
-
     LoadShopData("./data/general_shop_data",generalShopItems);
     LoadShopData("./data/jewellery_shop_data",jewelleryShopItems);
     LoadShopData("./data/silver_shop_data",silverShopItems);
     LoadShopData("./data/arms_and_armours_data",armsAndArmoursShopItems);
-    string line;
 };
 
 void CGameEngine::renderDaytime()

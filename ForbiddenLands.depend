@@ -9,7 +9,7 @@
 	"playstate.h"
 	"battlestate.h"
 
-1663406048 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h
+1663420725 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_mixer.h>
 	<SDL2/SDL_image.h>
@@ -53,7 +53,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1663397872 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.cpp
+1663437324 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -73,7 +73,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1663407358 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
+1663420754 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
 	<stdio.h>
 	<iostream>
 	<ctime>
@@ -147,7 +147,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1663378471 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
+1663422325 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gamestate.h"
@@ -157,8 +157,9 @@
 	"battlestate.h"
 	"characterstate.h"
 	"shopstate.h"
+	"encampmentstate.h"
 
-1663378471 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.cpp
+1663423597 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -275,7 +276,7 @@
 	<sys/time.h>
 	<unistd.h>
 
-1661290553 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
+1663421093 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/resource.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -288,7 +289,6 @@
 	"spells/spell.h"
 	"common.h"
 	"npc.h"
-	"bestiary.h"
 	"map_resource.h"
 	"menu_resource.h"
 	"sound_resource.h"
@@ -347,7 +347,7 @@
 	"common.h"
 	"portals.h"
 
-1661290553 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/menu_resource.h
+1663421189 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/menu_resource.h
 	<iostream>
 	<fstream>
 	<thread>
@@ -596,6 +596,23 @@
 	"shopstate.h"
 
 1661290553 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/shopstate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1663422242 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"createcharacterstate.h"
+	"loadmenustate.h"
+	"savemenustate.h"
+	"encampmentstate.h"
+
+1663422241 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h
 	<string>
 	<vector>
 	<SDL2/SDL.h>

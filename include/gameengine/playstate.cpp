@@ -7,6 +7,7 @@
 #include "battlestate.h"
 #include "characterstate.h"
 #include "shopstate.h"
+#include "encampmentstate.h"
 
 CPlayState CPlayState::m_PlayState;
 
@@ -119,20 +120,6 @@ void CPlayState::HandleEvents(CGameEngine* game)
 
 void CPlayState::Update(CGameEngine* game)
 {
-//    printf("CPlayState Update\n");
-//
-//    ///--- Store the current information to the previous
-//    m_iPreviousCoordX=m_iCurrentCoordX;
-//    m_iPreviousCoordY=m_iCurrentCoordY;
-//    m_uPreviousMouseState=m_uCurrentMouseState;
-//
-//    ///--- Update the current state of the mouse
-//    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
-//
-//    ///--- Set the wheel back to 0
-//    m_iWheelX=0;
-//    m_iWheelY=0;
-
     getCompassDirection();
 
     if(Rotation == "N")

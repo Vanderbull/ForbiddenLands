@@ -90,7 +90,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="README.md" />
-		<Unit filename="include/bestiary.h" />
 		<Unit filename="include/colors.h" />
 		<Unit filename="include/common.h" />
 		<Unit filename="include/coordinates.h" />
@@ -102,6 +101,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/characterstate.h" />
 		<Unit filename="include/gameengine/createcharacterstate.cpp" />
 		<Unit filename="include/gameengine/createcharacterstate.h" />
+		<Unit filename="include/gameengine/encampmentstate.cpp" />
+		<Unit filename="include/gameengine/encampmentstate.h" />
 		<Unit filename="include/gameengine/gameengine.cpp" />
 		<Unit filename="include/gameengine/gameengine.h" />
 		<Unit filename="include/gameengine/gamestate.h" />
