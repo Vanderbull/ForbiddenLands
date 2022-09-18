@@ -161,7 +161,7 @@ void CSaveMenuState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(game->renderer,&buttonPosition);
 
-        gSurface = TTF_RenderText_Blended(gameTitleFont, MenuChoice.c_str(), White);
+        gSurface = TTF_RenderText_Blended(gameBreadTextFont, MenuChoice.c_str(), White);
         gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
         int texW = 0;
         int texH = 0;
@@ -194,54 +194,6 @@ void CSaveMenuState::Draw(CGameEngine* game)
 
             SDL_PumpEvents();
             SDL_GetMouseState(NULL, NULL);
-            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-            {
-                if( game->SettingsMenu != 1)
-                {
-                    if(MenuChoice == "PLAY")
-                    {
-                        game->activeView = 1;
-                        game->LoadMenu = 0;
-                        game->SaveMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "SAVE")
-                    {
-                        game->SaveMenu = 1;
-                        game->LoadMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "LOAD")
-                    {
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 1;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "CHARACTER MANAGER")
-                    {
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 1;
-                    }
-                    if(MenuChoice == "SETTINGS")
-                    {
-                        game->SettingsMenu = 1;
-                        game->SaveMenu = 0;
-                        game->LoadMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                    if(MenuChoice == "EXIT")
-                    {
-                        game->LoadMenu = 0;
-                        game->SaveMenu = 0;
-                        game->SettingsMenu = 0;
-                        game->CreateCharacter = 0;
-                    }
-                }
-            }
         }
         ++Repeat;
     }
