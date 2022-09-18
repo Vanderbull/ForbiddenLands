@@ -54,22 +54,22 @@ void CSaveMenuState::Init()
 
 void CSaveMenuState::Cleanup()
 {
-	printf("CLoadMenuState Cleanup\n");
+	printf("CSaveMenuState Cleanup\n");
 }
 
 void CSaveMenuState::Pause()
 {
-	printf("CLoadMenuState Pause\n");
+	printf("CSaveMenuState Pause\n");
 }
 
 void CSaveMenuState::Resume()
 {
-	printf("CLoadMenuState Resume\n");
+	printf("CSaveMenuState Resume\n");
 }
 
 void CSaveMenuState::HandleEvents(CGameEngine* game)
 {
-    printf("CLoadMenuState HandleEvents\n");
+    printf("CSaveMenuState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -92,7 +92,7 @@ void CSaveMenuState::HandleEvents(CGameEngine* game)
 
 void CSaveMenuState::Update(CGameEngine* game)
 {
-    printf("CLoadMenuState Update\n");
+    printf("CSaveMenuState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -114,19 +114,8 @@ void CSaveMenuState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-    MainMenuBackgroundTexture = NULL;
-
-	SDL_Surface* surface = IMG_Load( "./images/battleBackground.png" );
-	if( !surface )
-	{
-        exit(-1);
-	}
-
-	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_SetTextureAlphaMod( texture, 255 );
+	SDL_Texture* texture = game->LoadTexture("./images/battleBackground.png",255);
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
     gSurface = TTF_RenderText_Blended(gameTitleFont, "Save", White);
@@ -138,8 +127,6 @@ void CSaveMenuState::Draw(CGameEngine* game)
     int texW = 0;
     int texH = 0;
     SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
-
-    //SDL_Rect buttonPosition = { 0, 0,0,0};
 
     gRect = { game->current.w / 2 - (texW / 2),200- (texH / 2), texW, texH };
     SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
