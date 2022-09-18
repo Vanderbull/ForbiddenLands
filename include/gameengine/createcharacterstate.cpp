@@ -142,36 +142,16 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
-//	SDL_Surface* surface = IMG_Load( "./images/ui/karaktärsboktom.png" );
-//	if( !surface )
-//	{
-//        exit(-1);
-//	}
-//
 //    SDL_RWops *rw = SDL_RWFromFile("./images/ui/skilltree.svg","r"); //SDL_RWFromConstMem(svg.c_str(), svg.size());
 //    surface = IMG_Load_RW(rw, 1);
 //    SDL_Texture *texture = SDL_CreateTextureFromSurface(game->renderer, surface);
 //
-//	texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+//	  texture = SDL_CreateTextureFromSurface( game->renderer, surface );
 //    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 //    SDL_SetTextureAlphaMod( texture, 255 );
 //    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
 //    SDL_FreeSurface(surface);
 //    SDL_DestroyTexture(texture);
-
-//	surface = IMG_Load( "./images/ui/female.png" );
-//	if( !surface )
-//	{
-//        exit(-1);
-//	}
-
-	//texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-
-
-    //SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    //SDL_SetTextureAlphaMod( texture, 255 );
-
-    //SDL_FreeSurface(surface);
 
     SDL_Texture *texture = game->LoadTexture("./images/ui/gearslots.png",255);
 	int w, h;
@@ -184,17 +164,6 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SrcR.h = h*2;
     SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
     SDL_DestroyTexture(texture);
-//
-//    texture = game->LoadTexture("./images/ui/gearslots.png",255);
-//    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
-//
-//    SrcR.x = game->current.w / 4;
-//    SrcR.y = game->current.h / 43;
-//    SrcR.w = w*2;
-//    SrcR.h = h*2;
-//    SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
-//    SDL_DestroyTexture(texture);
-
 
     // Abilities ///////////////////////////////////
 

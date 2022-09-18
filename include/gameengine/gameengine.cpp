@@ -13,6 +13,21 @@
 
 int testing = 0;
 
+typedef struct tm Time;
+
+// Time helper function
+//    struct tm start = {.tm_year=2022-1900, .tm_mday=1};
+//    mktime(&start);
+//    printf("%s", asctime(&start));
+Time makeDate( int sec, int min, int hour, int day, int month, int year )
+{
+Time ttm = {0};
+ttm.tm_mday= day;
+ttm.tm_mon= month-1;
+ttm.tm_year= year-1900;
+return ttm;
+};
+
 Item::Item(void)
 {
 
@@ -414,8 +429,17 @@ void CGameEngine::loadMapTextures()
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
-        SDL_Texture* texture = LoadTexture("./images/ui/rest_no_rune.png",255);
+        SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+        if( !surface )
+        {
+            exit(-1);
+        }
+
+        SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+        SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+        SDL_SetTextureAlphaMod( texture, 255 );
         SDL_RenderCopy(renderer, texture, NULL, NULL);
+        SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
 
         SDL_Rect progressbar_border = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,v_ItemNames.size(),25};
@@ -428,10 +452,13 @@ void CGameEngine::loadMapTextures()
         SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
         SDL_RenderDrawRect(renderer, &progressbar);
 
+        //RenderText(std::to_string(progress_value).c_str(),White,current.w / 6,current.h - 200, 24);
+
         RenderText("Loading ItemNames...",White,current.w / 2 - 100,current.h - 245, 24);
         RenderText(*i,White,current.w / 2 - 100,current.h - 205, 24);
 
         SDL_RenderPresent(renderer);
+        //SDL_Delay(10);
     }
 
     progress_value = 0;
@@ -468,6 +495,7 @@ void CGameEngine::loadMapTextures()
                 room += position;
                 location += position;
 
+                //location += Rotation;
                 if(z == 0)
                     location += "E";
                 if(z == 1)
@@ -478,15 +506,28 @@ void CGameEngine::loadMapTextures()
                     location += "S";
 
                 location += fileType;
+                //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
+                //location = "./images/profile_photo3.png";
                 mapTextureFile[x][y][z] = location;
 
                 mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());
 
+                //exit(1);
+                //myTextures[std::to_string(progress_value).c_str()] = IMG_LoadTexture(renderer,location.c_str());
                 SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
                 SDL_RenderClear(renderer);
 
-                SDL_Texture* texture = LoadTexture("./images/ui/rest_no_rune.png",255);
+                SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+                if( !surface )
+                {
+                    exit(-1);
+                }
+
+                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+                SDL_SetTextureAlphaMod( texture, 255 );
                 SDL_RenderCopy(renderer, texture, NULL, NULL);
+                SDL_FreeSurface(surface);
                 SDL_DestroyTexture(texture);
 
                 SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
@@ -521,6 +562,7 @@ void CGameEngine::AddItem()
         Item tempObject;
         tempObject.Name = *i;
 
+
         SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
         SDL_Log("   Setting Efficiency: '%i'\n",tempObject.Efficiency = 0);
         SDL_Log("   Setting MinDamage: '%i'\n",tempObject.MinDamage = 0);
@@ -551,6 +593,7 @@ void CGameEngine::AddSkill()
     {
         SkillObject tempObject;
         tempObject.Name = *i;
+
 
         SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
         SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);

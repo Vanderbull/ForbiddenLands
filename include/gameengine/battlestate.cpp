@@ -107,7 +107,8 @@ void CBattleState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &buttonPosition);
     }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+
+    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     buttonPosition.x = buttonPosition.x + 167;
     SDL_RenderFillRect(game->renderer, &buttonPosition);
     if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
