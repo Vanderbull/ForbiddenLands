@@ -118,6 +118,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/savemenustate.h" />
 		<Unit filename="include/gameengine/shopstate.cpp" />
 		<Unit filename="include/gameengine/shopstate.h" />
+		<Unit filename="include/gameengine/worldmapstate.cpp" />
+		<Unit filename="include/gameengine/worldmapstate.h" />
 		<Unit filename="include/globals.h" />
 		<Unit filename="include/healing_character.h" />
 		<Unit filename="include/items/item.h" />
