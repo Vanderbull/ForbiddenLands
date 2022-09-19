@@ -422,7 +422,7 @@ int main(int argc, char ** argv)
 
     game.Init("A Viking Saga",1920,1080,32,true);
 
-    game.ChangeState( CMenuState::Instance() );
+    game.ChangeState( CIntroState::Instance() );
 
     int opt = TRUE;
     int master_socket , addrlen , new_socket , client_socket[30] ,
@@ -933,12 +933,14 @@ int main(int argc, char ** argv)
         game.Update();
         game.Draw();
 
-        start = high_resolution_clock::now();
+        //SDL_RenderPresent(game.renderer);
 
-        for( int i=0; i < 6; i++ )
-        {
-            playerCharacter[i].update();
-        }
+        start = high_resolution_clock::now();
+//
+//        for( int i=0; i < 6; i++ )
+//        {
+//            playerCharacter[i].update();
+//        }
 
         while (SDL_PollEvent(&event) != 0)
         {
@@ -1165,75 +1167,71 @@ int main(int argc, char ** argv)
         m_uPreviousMouseState=m_uCurrentMouseState;
         mouseUpdate();
 
-        if( activeView == BATTLE )
-        {
-            battleView();
-        }
-        else if( activeView == MAIN_MENU )
-        {
-            if(TITLE == "switch")
-                renderTemple();
-            else
-                if( SettingsMenu == 1 )
-                {
-                renderSettings();
-                }
-                else if( SaveMenu == 1 )
-                {
-                RenderSaveMenu();
-                }
-                else if( LoadMenu == 1)
-                {
-                RenderLoadMenu();
-                }
-                else if( CreateCharacter == 1)
-                {
-                renderCharacterCreation();
-                }
-            MainMenu();
-        }
-        else if(activeView == DUNGEON)
-        {
-            renderWorldViewA();
-
-//            if( currentTimeElapse() == night )
+//        if( activeView == BATTLE )
+//        {
+//            battleView();
+//        }
+//        else if( activeView == MAIN_MENU )
+//        {
+//            if(TITLE == "switch")
+//                renderTemple();
+//            else
+//                if( SettingsMenu == 1 )
+//                {
+//                renderSettings();
+//                }
+//                else if( SaveMenu == 1 )
+//                {
+//                RenderSaveMenu();
+//                }
+//                else if( LoadMenu == 1)
+//                {
+//                RenderLoadMenu();
+//                }
+//                else if( CreateCharacter == 1)
+//                {
+//                renderCharacterCreation();
+//                }
+//            MainMenu();
+//        }
+//        else if(activeView == DUNGEON)
+//        {
+//            renderWorldViewA();
+//
+//            if(shop)
 //            {
-//                shop = 0;
+//                if(templeShop)
+//                {
+//                    renderTemple();
+//                }
+//                else if(trainingHall)
+//                {
+//                    renderTrainer();
+//                }
+//                else if(armsAndarmourShop)
+//                {
+//                    renderSmithShop();
+//                }
+//                else if(jewelleryShop)
+//                {
+//                    renderJewelleryShop();
+//                }
+//                else if(generalShop)
+//                {
+//                    renderGeneralShop();
+//                }
+//                else if(silverShop)
+//                {
+//                    renderSilverShop();
+//                }
+//                else if(tavern)
+//                {
+//                    renderTavern();
+//                }
 //            }
-            if(shop)
-            {
-                if(templeShop)
-                {
-                    renderTemple();
-                }
-                else if(trainingHall)
-                {
-                    renderTrainer();
-                }
-                else if(armsAndarmourShop)
-                {
-                    renderSmithShop();
-                }
-                else if(jewelleryShop)
-                {
-                    renderJewelleryShop();
-                }
-                else if(generalShop)
-                {
-                    renderGeneralShop();
-                }
-                else if(silverShop)
-                {
-                    renderSilverShop();
-                }
-                else if(tavern)
-                {
-                    renderTavern();
-                }
-            }
-        } // end dungeonView
+//        } // end dungeonView
 
-        IMG_Quit();
+        //IMG_Quit();
         //fps.update();
 
         //renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
@@ -1247,7 +1245,7 @@ int main(int argc, char ** argv)
         auto duration = duration_cast<microseconds>(stop - start);
 
         //std::cout << "MAIN microseconds: " << duration.count() << endl;
-       SDL_Delay(50);
+       //SDL_Delay(50);
     }
 
     SDL_DestroyTexture(currentViewTexture);

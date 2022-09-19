@@ -167,8 +167,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 	AddItem();
 	SDL_Log("Loading skills...");
 	AddSkill();
-	SDL_Log("Loading textures...");
-	loadMapTextures();
+
+	read_directory("./images",imagesFiles);
+
+
+	//SDL_Log("Loading textures...");
+	//loadMapTextures();
 	SDL_Log("Loading shop...");
     initShop();
 
@@ -424,129 +428,129 @@ void CGameEngine::loadMapTextures()
     std::string fileType = "-fs8.png";
     int progress_value = 0;
 
-    for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
-    {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderClear(renderer);
-
-        SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
-        if( !surface )
-        {
-            exit(-1);
-        }
-
-        SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
-        SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-        SDL_SetTextureAlphaMod( texture, 255 );
-        SDL_RenderCopy(renderer, texture, NULL, NULL);
-        SDL_FreeSurface(surface);
-        SDL_DestroyTexture(texture);
-
-        SDL_Rect progressbar_border = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,v_ItemNames.size(),25};
-        SDL_RenderFillRect(renderer, &progressbar_border);
-
-        SDL_Rect progressbar = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,progress_value,25};
-        progress_value++;
-        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
-        SDL_RenderFillRect(renderer, &progressbar);
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-        SDL_RenderDrawRect(renderer, &progressbar);
-
-        //RenderText(std::to_string(progress_value).c_str(),White,current.w / 6,current.h - 200, 24);
-
-        RenderText("Loading ItemNames...",White,current.w / 2 - 100,current.h - 245, 24);
-        RenderText(*i,White,current.w / 2 - 100,current.h - 205, 24);
-
-        SDL_RenderPresent(renderer);
-        //SDL_Delay(10);
-    }
-
-    progress_value = 0;
-    for(int x = 0; x < 16; x++ )
-    {
-        for(int y = 0; y < 16; y++ )
-        {
-            for(int z = 0; z < 4; z++ ) // ESWN directions
-            {
-                location = "";
-                room = "";
-                position = "";
-
-                location += "./images/test_map/";
-                room  = "";
-
-                if(x < 10)
-                {
-                    room += "0";
-                }
-
-                room += std::to_string(x);
-
-                if(y < 10)
-                {
-                    room += "0";
-                }
-
-                room += std::to_string(y);
-
-                position = room;
-                room += "/";
-
-                room += position;
-                location += position;
-
-                //location += Rotation;
-                if(z == 0)
-                    location += "E";
-                if(z == 1)
-                    location += "W";
-                if(z == 2)
-                    location += "N";
-                if(z == 3)
-                    location += "S";
-
-                location += fileType;
-                //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
-                //location = "./images/profile_photo3.png";
-                mapTextureFile[x][y][z] = location;
-
-                mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());
-
-                //exit(1);
-                //myTextures[std::to_string(progress_value).c_str()] = IMG_LoadTexture(renderer,location.c_str());
-                SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
-                SDL_RenderClear(renderer);
-
-                SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
-                if( !surface )
-                {
-                    exit(-1);
-                }
-
-                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
-                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-                SDL_SetTextureAlphaMod( texture, 255 );
-                SDL_RenderCopy(renderer, texture, NULL, NULL);
-                SDL_FreeSurface(surface);
-                SDL_DestroyTexture(texture);
-
-                SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
-                SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
-                SDL_RenderFillRect(renderer, &progressbar_border);
-
-                SDL_Rect progressbar = {current.w / 2 - 1024/2,current.h - 200,progress_value,25};
-                progress_value++;
-                SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
-                SDL_RenderFillRect(renderer, &progressbar);
-                SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-                SDL_RenderDrawRect(renderer, &progressbar);
-
-                RenderText("Loading Level...",White,current.w / 2 - 100,current.h - 245, 24);
-                RenderText(location.c_str(),White,current.w / 3,current.h - 205,24);
-                SDL_RenderPresent(renderer);
-            }
-        }
-    }
+//    for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
+//    {
+//        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+//        SDL_RenderClear(renderer);
+//
+//        SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+//        if( !surface )
+//        {
+//            exit(-1);
+//        }
+//
+//        SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+//        SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//        SDL_SetTextureAlphaMod( texture, 255 );
+//        SDL_RenderCopy(renderer, texture, NULL, NULL);
+//        SDL_FreeSurface(surface);
+//        SDL_DestroyTexture(texture);
+//
+//        SDL_Rect progressbar_border = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,v_ItemNames.size(),25};
+//        SDL_RenderFillRect(renderer, &progressbar_border);
+//
+//        SDL_Rect progressbar = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,progress_value,25};
+//        progress_value++;
+//        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+//        SDL_RenderFillRect(renderer, &progressbar);
+//        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+//        SDL_RenderDrawRect(renderer, &progressbar);
+//
+//        //RenderText(std::to_string(progress_value).c_str(),White,current.w / 6,current.h - 200, 24);
+//
+//        RenderText("Loading ItemNames...",White,current.w / 2 - 100,current.h - 245, 24);
+//        RenderText(*i,White,current.w / 2 - 100,current.h - 205, 24);
+//
+//        SDL_RenderPresent(renderer);
+//        //SDL_Delay(10);
+//    }
+//
+//    progress_value = 0;
+//    for(int x = 0; x < 16; x++ )
+//    {
+//        for(int y = 0; y < 16; y++ )
+//        {
+//            for(int z = 0; z < 4; z++ ) // ESWN directions
+//            {
+//                location = "";
+//                room = "";
+//                position = "";
+//
+//                location += "./images/test_map/";
+//                room  = "";
+//
+//                if(x < 10)
+//                {
+//                    room += "0";
+//                }
+//
+//                room += std::to_string(x);
+//
+//                if(y < 10)
+//                {
+//                    room += "0";
+//                }
+//
+//                room += std::to_string(y);
+//
+//                position = room;
+//                room += "/";
+//
+//                room += position;
+//                location += position;
+//
+//                //location += Rotation;
+//                if(z == 0)
+//                    location += "E";
+//                if(z == 1)
+//                    location += "W";
+//                if(z == 2)
+//                    location += "N";
+//                if(z == 3)
+//                    location += "S";
+//
+//                location += fileType;
+//                //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
+//                //location = "./images/profile_photo3.png";
+//                mapTextureFile[x][y][z] = location;
+//
+//                mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());
+//
+//                //exit(1);
+//                //myTextures[std::to_string(progress_value).c_str()] = IMG_LoadTexture(renderer,location.c_str());
+//                SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
+//                SDL_RenderClear(renderer);
+//
+//                SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+//                if( !surface )
+//                {
+//                    exit(-1);
+//                }
+//
+//                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+//                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//                SDL_SetTextureAlphaMod( texture, 255 );
+//                SDL_RenderCopy(renderer, texture, NULL, NULL);
+//                SDL_FreeSurface(surface);
+//                SDL_DestroyTexture(texture);
+//
+//                SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
+//                SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+//                SDL_RenderFillRect(renderer, &progressbar_border);
+//
+//                SDL_Rect progressbar = {current.w / 2 - 1024/2,current.h - 200,progress_value,25};
+//                progress_value++;
+//                SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+//                SDL_RenderFillRect(renderer, &progressbar);
+//                SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+//                SDL_RenderDrawRect(renderer, &progressbar);
+//
+//                RenderText("Loading Level...",White,current.w / 2 - 100,current.h - 245, 24);
+//                RenderText(location.c_str(),White,current.w / 3,current.h - 205,24);
+//                SDL_RenderPresent(renderer);
+//            }
+//        }
+//    }
     ender = std::chrono::steady_clock::now();
     std::cout << "Millisecond loading time: " << double(std::chrono::duration_cast<std::chrono::nanoseconds>(ender - starter).count()) / 1000000 << std::endl;
     // 20357 milliseconds

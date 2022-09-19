@@ -4,7 +4,7 @@
 #include "gameengine.h"
 #include "playstate.h"
 #include "menustate.h"
-#include "battlestate.h"
+//#include "battlestate.h"
 #include "characterstate.h"
 #include "shopstate.h"
 #include "encampmentstate.h"

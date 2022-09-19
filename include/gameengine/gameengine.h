@@ -14,6 +14,7 @@
 #include <sys/utsname.h>
 #include <array>
 #include <map>
+#include <dirent.h>
 using namespace std;
 
 #include "globals.h"
@@ -521,6 +522,18 @@ int currentTimeElapse(bool tick = false )
         }
         return mapPortal[x][y].active_portal(rotation);
     };
+
+    void read_directory(const std::string& name, std::vector<string>& v)
+    {
+        DIR* dirp = opendir(name.c_str());
+        struct dirent * dp;
+        while ((dp = readdir(dirp)) != NULL) {
+            v.push_back(dp->d_name);
+        }
+        closedir(dirp);
+    }
+
+    std::vector<std::string> imagesFiles;
 private:
 	// the stack of states
 	vector<CGameState*> states;
