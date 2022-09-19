@@ -108,6 +108,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/gamestate.h" />
 		<Unit filename="include/gameengine/introstate.cpp" />
 		<Unit filename="include/gameengine/introstate.h" />
+		<Unit filename="include/gameengine/inventorystate.cpp" />
+		<Unit filename="include/gameengine/inventorystate.h" />
 		<Unit filename="include/gameengine/loadmenustate.cpp" />
 		<Unit filename="include/gameengine/loadmenustate.h" />
 		<Unit filename="include/gameengine/menustate.cpp" />
