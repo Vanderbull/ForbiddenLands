@@ -27,13 +27,7 @@ void CEncampmentState::Init()
     }
 
     MenuChoices.clear();
-    MenuChoices.push_back("PLAY");
-    MenuChoices.push_back("SAVE");
-    MenuChoices.push_back("LOAD");
-    MenuChoices.push_back("CHARACTER MANAGER");
-    MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
-
 	printf("CEncampmentState Init\n");
 }
 
@@ -178,16 +172,8 @@ void CEncampmentState::Draw(CGameEngine* game)
 
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
-                if( MenuChoice == "LOAD")
-                    game->ChangeState( CLoadMenuState::Instance() );
-                if( MenuChoice == "SAVE")
-                    game->ChangeState( CSaveMenuState::Instance() );
-                if( MenuChoice == "PLAY")
-                    game->ChangeState( CPlayState::Instance() );
-                if( MenuChoice == "CHARACTER MANAGER")
-                    game->ChangeState( CCreateCharacterState::Instance() );
                 if( MenuChoice == "EXIT")
-                    game->PopState();
+                    game->ChangeState( CPlayState::Instance() );
             }
         }
         ++Repeat;

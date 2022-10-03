@@ -13,21 +13,6 @@
 
 int testing = 0;
 
-typedef struct tm Time;
-
-// Time helper function
-//    struct tm start = {.tm_year=2022-1900, .tm_mday=1};
-//    mktime(&start);
-//    printf("%s", asctime(&start));
-Time makeDate( int sec, int min, int hour, int day, int month, int year )
-{
-Time ttm = {0};
-ttm.tm_mday= day;
-ttm.tm_mon= month-1;
-ttm.tm_year= year-1900;
-return ttm;
-};
-
 Item::Item(void)
 {
 
@@ -49,7 +34,6 @@ SkillObject::SkillObject(std::string,char,int)
 void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
 {
     g_myglobal = 10;
-    SDL_Log("CGameEngine::Init()");
 
 	int flags = 0;
 

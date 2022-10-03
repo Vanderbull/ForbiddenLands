@@ -71,9 +71,11 @@ void CPlayState::HandleEvents(CGameEngine* game)
 					case SDLK_ESCAPE:
 						game->ChangeState( CMenuState::Instance() );
 						break;
+                    case SDLK_r:
+                        game->ChangeState( CEncampmentState::Instance() );
+                        break;
 					case SDLK_m:
                         game->ChangeState( CShopState::Instance() );
-						//game->PushState( CCharacterState::Instance() );
 						break;
                     case SDLK_d:
                         rotateClockWise();
@@ -85,16 +87,28 @@ void CPlayState::HandleEvents(CGameEngine* game)
                         {
                             if( Rotation == "N")
                                 if( game->PlayerCoordinate.y > 0 )
+                                {
                                     game->PlayerCoordinate.y--;
+                                    DateAndTime.tm_min++;
+                                }
                             if( Rotation == "S")
                                 if( game->PlayerCoordinate.y < 15 )
+                                {
                                     game->PlayerCoordinate.y++;
+                                    DateAndTime.tm_min++;
+                                }
                             if( Rotation == "W")
                                 if( game->PlayerCoordinate.x > 0 )
+                                {
                                     game->PlayerCoordinate.x--;
+                                    DateAndTime.tm_min++;
+                                }
                             if( Rotation == "E")
                                 if( game->PlayerCoordinate.x < 15 )
+                                {
                                     game->PlayerCoordinate.x++;
+                                    DateAndTime.tm_min++;
+                                }
                         }
                         break;
                     case SDLK_s:

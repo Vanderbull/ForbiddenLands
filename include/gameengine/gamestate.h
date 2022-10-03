@@ -2,6 +2,7 @@
 #define GAMESTATE_H
 
 #include "actor.h"
+#include "ingametime.h"
 #include "gameengine.h"
 
 class CGameState
@@ -25,6 +26,7 @@ protected:
 	CGameState() { }
 
 	ACTOR SActor;
+    InGameTime DateAndTime;
 };
 
 #endif

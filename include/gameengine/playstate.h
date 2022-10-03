@@ -55,23 +55,6 @@ public:
     void renderDaytime(CGameEngine* game)
     {
         SDL_Rect dayTimeBox = {game->current.w - 1150,25,50,50};
-
-//            SDL_Texture* dayTimeTexture = NULL;
-//
-//            dayTimeTexture = LoadTexture("./icons/ball-48.png",255);
-//            else
-//                dayTimeTexture = LoadTexture("./icons/48.png",255);
-//
-//            SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
-//            SDL_DestroyTexture(dayTimeTexture);
-//
-//            if( currentTimeElapse() == night )
-//            {
-//                dayTimeTexture = LoadTexture("./icons/night.png",128);
-//                SDL_RenderCopy(renderer, dayTimeTexture, NULL, NULL);
-//                SDL_DestroyTexture(dayTimeTexture);
-//            }
-
         game->RenderText("Season: 0", White, game->current.w - 1050,100,24);
         game->RenderText("Temperature: 0", White, game->current.w - 1050,124,24);
         game->RenderText("currentTime: 0",White, game->current.w - 1050, 170,24);
