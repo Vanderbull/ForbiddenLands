@@ -153,7 +153,7 @@ void CIntroState::Draw(CGameEngine* game)
     SDL_RenderClear(game->renderer);
 
     if( texture == NULL )
-        texture = game->LoadTexture("./images/menus/mainmenu.jpg",255);
+        texture = game->LoadTexture("./images/menu_backdrop.png",255);
     //SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     //SDL_SetTextureAlphaMod( texture, 255 );
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);

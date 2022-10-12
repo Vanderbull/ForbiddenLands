@@ -936,68 +936,71 @@ int main(int argc, char ** argv)
         //SDL_RenderPresent(game.renderer);
 
         start = high_resolution_clock::now();
-//
-//        for( int i=0; i < 6; i++ )
-//        {
-//            playerCharacter[i].update();
-//        }
 
-        while (SDL_PollEvent(&event) != 0)
-        {
-            switch (event.type)
-            {
-                case SDL_KEYUP:
-                    switch (event.key.keysym.sym)
-                    {
-                        case SDLK_y:
-                        {
-                            game.ChangeState( CMenuState::Instance() );
-                            if( armsAndarmourShop || trainingHall || tavern )
-                            {
-                                shop = 1;
-                            }
-                            if( generalShop || jewelleryShop || silverShop )
-                            {
-                                shop = 1;
-                            }
-                            if( templeShop )
-                            {
-                                shop = 1;
-                                cureCriticalWounds();
-                                cureSeriousWounds();
-                                cureLightWounds();
-                            };
-                        } break;
-                        case SDLK_ESCAPE:
-                        {
-                            if(activeView == MAIN_MENU)
-                            {
-                                if( SettingsMenu )                                {
-                                    SettingsMenu = 0;
-                                }
-                                else if( SaveMenu )
-                                {
-                                    SaveMenu = 0;
-                                }
-                                else if( LoadMenu )
-                                {
-                                    LoadMenu = 0;
-                                }
-                                else if( CreateCharacter )
-                                {
-                                    CreateCharacter = 0;
-                                }
-                                else
-                                {
-                                    quit = 1;
-                                }
-                            }
-                            else if(activeView == DUNGEON)
-                            {
-                                activeView = MAIN_MENU;
-                            }
-                        } break;
-                    } break;
+        SDL_RenderPresent(game.renderer);
+
+        stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+
+        //m_uPreviousMouseState=m_uCurrentMouseState;
+        //mouseUpdate();
+//
+//        while (SDL_PollEvent(&event) != 0)
+//        {
+//            switch (event.type)
+//            {
+//                case SDL_KEYUP:
+//                    switch (event.key.keysym.sym)
+//                    {
+//                        case SDLK_y:
+//                        {
+//                            game.ChangeState( CMenuState::Instance() );
+//                            if( armsAndarmourShop || trainingHall || tavern )
+//                            {
+//                                shop = 1;
+//                            }
+//                            if( generalShop || jewelleryShop || silverShop )
+//                            {
+//                                shop = 1;
+//                            }
+//                            if( templeShop )
+//                            {
+//                                shop = 1;
+//                                cureCriticalWounds();
+//                                cureSeriousWounds();
+//                                cureLightWounds();
+//                            };
+//                        } break;
+//                        case SDLK_ESCAPE:
+//                        {
+//                            if(activeView == MAIN_MENU)
+//                            {
+//                                if( SettingsMenu )//                                {
+//                                    SettingsMenu = 0;
+//                                }
+//                                else if( SaveMenu )
+//                                {
+//                                    SaveMenu = 0;
+//                                }
+//                                else if( LoadMenu )
+//                                {
+//                                    LoadMenu = 0;
+//                                }
+//                                else if( CreateCharacter )
+//                                {
+//                                    CreateCharacter = 0;
+//                                }
+//                                else
+//                                {
+//                                    quit = 1;
+//                                }
+//                            }
+//                            else if(activeView == DUNGEON)
+//                            {
+//                                activeView = MAIN_MENU;
+//                            }
+//                        } break;
+//                    } break;
 //                case SDL_MOUSEBUTTONDOWN:
 //                    switch (event.button.button)
 //                    {
@@ -1161,11 +1164,10 @@ int main(int argc, char ** argv)
 //                            }
 //                            break;
 //                    } break;
-            }
-        }
+//            }
+//        }
 
-        m_uPreviousMouseState=m_uCurrentMouseState;
-        mouseUpdate();
+
 
 //        if( activeView == BATTLE )
 //        {
@@ -1238,11 +1240,6 @@ int main(int argc, char ** argv)
         //renderFPS(fps.get());
 
         //SDL_RenderPresent(renderer);
-
-        SDL_RenderPresent(game.renderer);
-
-        stop = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(stop - start);
 
         //std::cout << "MAIN microseconds: " << duration.count() << endl;
        //SDL_Delay(50);

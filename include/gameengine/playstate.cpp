@@ -86,49 +86,62 @@ void CPlayState::HandleEvents(CGameEngine* game)
                     case SDLK_w:
                         {
                             if( Rotation == "N")
+                            {
                                 if( game->PlayerCoordinate.y > 0 )
                                 {
                                     game->PlayerCoordinate.y--;
                                     DateAndTime.tm_min++;
                                 }
-                            if( Rotation == "S")
+                            }
+                            else if( Rotation == "S")
+                            {
                                 if( game->PlayerCoordinate.y < 15 )
                                 {
                                     game->PlayerCoordinate.y++;
                                     DateAndTime.tm_min++;
                                 }
-                            if( Rotation == "W")
+                            }
+                            else if( Rotation == "W")
+                            {
                                 if( game->PlayerCoordinate.x > 0 )
                                 {
                                     game->PlayerCoordinate.x--;
                                     DateAndTime.tm_min++;
                                 }
-                            if( Rotation == "E")
+                            }
+                            else if( Rotation == "E")
+                            {
                                 if( game->PlayerCoordinate.x < 15 )
                                 {
                                     game->PlayerCoordinate.x++;
                                     DateAndTime.tm_min++;
                                 }
-                        }
-                        break;
+                            }
+                        } break;
                     case SDLK_s:
                         {
                             if( Rotation == "N")
+                            {
                                 if( game->PlayerCoordinate.y > 0 )
                                     game->PlayerCoordinate.y++;
+                            } break;
                             if( Rotation == "S")
+                            {
                                 if( game->PlayerCoordinate.y < 15 )
                                     game->PlayerCoordinate.y--;
+                            } break;
                             if( Rotation == "W")
+                            {
                                 if( game->PlayerCoordinate.x > 0 )
                                     game->PlayerCoordinate.x++;
+                            } break;
                             if( Rotation == "E")
+                            {
                                 if( game->PlayerCoordinate.x < 15 )
                                     game->PlayerCoordinate.x--;
-                        }
-                        break;
-				}
-				break;
+                            } break;
+                        } break;
+				} break;
 		}
 	}
 }

@@ -6,6 +6,7 @@
 #include "createcharacterstate.h"
 #include "loadmenustate.h"
 #include "savemenustate.h"
+#include "settingsmenustate.h"
 #include "menustate.h"
 
 CMenuState CMenuState::m_MenuState;
@@ -186,6 +187,8 @@ void CMenuState::Draw(CGameEngine* game)
                     game->ChangeState( CPlayState::Instance() );
                 if( MenuChoice == "CHARACTER MANAGER")
                     game->ChangeState( CCreateCharacterState::Instance() );
+                if( MenuChoice == "SETTINGS")
+                    game->ChangeState( CSettingsMenuState::Instance() );
                 if( MenuChoice == "EXIT")
                     game->PopState();
             }

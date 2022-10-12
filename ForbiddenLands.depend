@@ -31,8 +31,9 @@
 
 1660554168 /home/rickard/Documents/Vanderbull/ForbiddenLands/version.h
 
-1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h
+1664836120 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h
 	"actor.h"
+	"ingametime.h"
 	"gameengine.h"
 
 1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/actor.h
@@ -42,7 +43,7 @@
 	"gamestate.h"
 	"randomizer.h"
 
-1662181291 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h
+1664837077 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h
 	<string>
 	<vector>
 	<SDL2/SDL.h>
@@ -74,7 +75,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1664385303 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
+1664836207 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
 	<stdio.h>
 	<iostream>
 	<ctime>
@@ -99,7 +100,7 @@
 	<random>
 	<SDL2/SDL.h>
 
-1664385303 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/introstate.cpp
+1665598407 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/introstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	<SDL2/SDL_mixer.h>
@@ -131,7 +132,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1660623583 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/menustate.cpp
+1665597736 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/menustate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -140,6 +141,7 @@
 	"createcharacterstate.h"
 	"loadmenustate.h"
 	"savemenustate.h"
+	"settingsmenustate.h"
 	"menustate.h"
 
 1664385297 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h
@@ -149,7 +151,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1664386691 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
+1665600420 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gamestate.h"
@@ -170,7 +172,7 @@
 	"menustate.h"
 	"savemenustate.h"
 
-1664385303 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1665599601 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<chrono>
 	<thread>
 	<cassert>
@@ -652,4 +654,25 @@
 	<vector>
 	<SDL2/SDL.h>
 	"gamestate.h"
+
+1664836183 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/ingametime.h
+	<string>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+
+1665597468 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/settingsmenustate.h
+	<string>
+	<vector>
+	<dirent.h>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1665598355 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/settingsmenustate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"settingsmenustate.h"
 
