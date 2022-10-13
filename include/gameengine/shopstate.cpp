@@ -9,27 +9,27 @@ CShopState CShopState::m_ShopState;
 
 void CShopState::Init()
 {
-	printf("CShopState Init\n");
+	SDL_Log("CShopState Init\n");
 }
 
 void CShopState::Cleanup()
 {
-	printf("CShopState Cleanup\n");
+	SDL_Log("CShopState Cleanup\n");
 }
 
 void CShopState::Pause()
 {
-	printf("CShopState Pause\n");
+	SDL_Log("CShopState Pause\n");
 }
 
 void CShopState::Resume()
 {
-	printf("CShopState Resume\n");
+	SDL_Log("CShopState Resume\n");
 }
 
 void CShopState::HandleEvents(CGameEngine* game)
 {
-    printf("CShopState HandleEvents\n");
+    SDL_Log("CShopState HandleEvents\n");
 
 	//SDL_Event event;
 
@@ -90,7 +90,7 @@ void CShopState::HandleEvents(CGameEngine* game)
 
 void CShopState::Update(CGameEngine* game)
 {
-    printf("CShopState Update\n");
+    SDL_Log("CShopState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -130,6 +130,7 @@ void CShopState::Update(CGameEngine* game)
 
 void CShopState::Draw(CGameEngine* game)
 {
+    SDL_Log("CShopState Draw");
     static int player_coins = 30;
     static int shop_coins = 10;
 

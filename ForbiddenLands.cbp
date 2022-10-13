@@ -28,7 +28,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-std=gnu++17" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
@@ -61,9 +60,10 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		</Build>
 		<Compiler>
 			<Add option="-w" />
-			<Add option="-std=c17" />
 			<Add option="-pg" />
 			<Add option="-std=gnu++17" />
+			<Add option="-std=c++20" />
+			<Add option="-std=gnu++20" />
 			<Add directory="../../../../../usr/include/SDL2" />
 		</Compiler>
 		<Linker>

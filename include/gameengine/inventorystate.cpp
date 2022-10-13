@@ -14,39 +14,27 @@ CInventoryState CInventoryState::m_InventoryState;
 
 void CInventoryState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << "\n";
-        exit(EXIT_FAILURE);
-    }
-
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameTitleFont)
-    {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << "\n";
-        exit(EXIT_FAILURE);
-    }
-	std::cout << "CBattleState Init\n";
+	SDL_Log("CBattleState Init\n");
 }
 
 void CInventoryState::Cleanup()
 {
-	std::cout << "CBattleState Pause\n";
+	SDL_Log("CBattleState Pause\n");
 }
 
 void CInventoryState::Pause()
 {
-	std::cout << "CBattleState Pause\n";
+	SDL_Log("CBattleState Pause\n");
 }
 
 void CInventoryState::Resume()
 {
-	std::cout << "CBattleState Resume\n";
+	SDL_Log("CBattleState Resume\n");
 }
 
 void CInventoryState::HandleEvents(CGameEngine* game)
 {
+    SDL_Log("CInventoryState HandleEvents");
 	SDL_Event event;
 
 	if (SDL_PollEvent(&event))
@@ -70,6 +58,7 @@ void CInventoryState::HandleEvents(CGameEngine* game)
 
 void CInventoryState::Update(CGameEngine* game)
 {
+    SDL_Log("CInventoryState Update");
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
     m_iPreviousCoordY=m_iCurrentCoordY;
@@ -85,6 +74,7 @@ void CInventoryState::Update(CGameEngine* game)
 
 void CInventoryState::Draw(CGameEngine* game)
 {
+    SDL_Log("CInventoryState Draw");
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 

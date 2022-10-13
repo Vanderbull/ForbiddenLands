@@ -14,49 +14,28 @@ CPlayState CPlayState::m_PlayState;
 
 void CPlayState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    gameBreadFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-    if(!gameBreadFont)
-    {
-        printf("TTF_OpenFont playstate: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-    if(!gameTitleFont)
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-
     loadPortals();
-    SDL_Delay(5000);
-	printf("CPlayState Init\n");
+	SDL_Log("CPlayState Init\n");
 }
 
 void CPlayState::Cleanup()
 {
-	printf("CPlayState Cleanup\n");
+	SDL_Log("CPlayState Cleanup\n");
 }
 
 void CPlayState::Pause()
 {
-	printf("CPlayState Pause\n");
+	SDL_Log("CPlayState Pause\n");
 }
 
 void CPlayState::Resume()
 {
-	printf("CPlayState Resume\n");
+	SDL_Log("CPlayState Resume\n");
 }
 
 void CPlayState::HandleEvents(CGameEngine* game)
 {
-    printf("CPlayState HandleEvents\n");
+    SDL_Log("CPlayState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -150,6 +129,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
 
 void CPlayState::Update(CGameEngine* game)
 {
+    SDL_Log("CPlayState Update\n");
     getCompassDirection();
 
     if(Rotation == "N")
@@ -164,7 +144,7 @@ void CPlayState::Update(CGameEngine* game)
 
 void CPlayState::Draw(CGameEngine* game)
 {
-    printf("CPlayState Draw\n");
+    SDL_Log("CPlayState Draw\n");
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
@@ -192,7 +172,7 @@ void CPlayState::Draw(CGameEngine* game)
 //        rotate = 0;
 //    SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, NULL,rotate,NULL,flip);
 //    rotate++;
-    gSurface = TTF_RenderText_Blended(gameBreadFont, std::to_string(game->PlayerCoordinate.x).c_str(), Black);
+    gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, std::to_string(game->PlayerCoordinate.x).c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -209,7 +189,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(gameBreadFont, std::to_string(game->PlayerCoordinate.y).c_str(), Black);
+    gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, std::to_string(game->PlayerCoordinate.y).c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -226,7 +206,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(gameBreadFont, std::to_string(game->PlayerCoordinate.z).c_str(), Black);
+    gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, std::to_string(game->PlayerCoordinate.z).c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -243,7 +223,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(gameBreadFont, Rotation.c_str(), Black);
+    gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, Rotation.c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);
@@ -260,7 +240,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    gSurface = TTF_RenderText_Blended(gameBreadFont, game->mapTextureFile[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z].c_str(), Black);
+    gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, game->mapTextureFile[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z].c_str(), Black);
 	if( !gSurface )
 	{
         exit(-1);

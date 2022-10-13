@@ -12,43 +12,30 @@ CEncampmentState CEncampmentState::m_EncampmentState;
 
 void CEncampmentState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
-    }
-
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameTitleFont)
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
-    }
+	SDL_Log("CEncampmentState Init\n");
 
     MenuChoices.clear();
     MenuChoices.push_back("EXIT");
-	printf("CEncampmentState Init\n");
 }
 
 void CEncampmentState::Cleanup()
 {
-	printf("CEncampmentState Cleanup\n");
+	SDL_Log("CEncampmentState Cleanup\n");
 }
 
 void CEncampmentState::Pause()
 {
-	printf("CEncampmentState Pause\n");
+	SDL_Log("CEncampmentState Pause\n");
 }
 
 void CEncampmentState::Resume()
 {
-	printf("CEncampmentState Resume\n");
+	SDL_Log("CEncampmentState Resume\n");
 }
 
 void CEncampmentState::HandleEvents(CGameEngine* game)
 {
-    printf("CEncampmentState HandleEvents\n");
+    SDL_Log("CEncampmentState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -77,7 +64,7 @@ void CEncampmentState::HandleEvents(CGameEngine* game)
 
 void CEncampmentState::Update(CGameEngine* game)
 {
-    printf("CEncampmentState Update\n");
+    SDL_Log("CEncampmentState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -94,9 +81,7 @@ void CEncampmentState::Update(CGameEngine* game)
 
 void CEncampmentState::Draw(CGameEngine* game)
 {
-    printf("CEncampmenttate Draw\n");
-    TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+    SDL_Log("CEncampmenttate Draw\n");
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
@@ -116,7 +101,7 @@ void CEncampmentState::Draw(CGameEngine* game)
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(m_font, "A Viking Saga", White);
+    gSurface = TTF_RenderText_Blended(game->gameTitleFont, "A Viking Saga", White);
 	if( !gSurface )
 	{
         exit(-1);
@@ -133,9 +118,6 @@ void CEncampmentState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    TTF_CloseFont(m_font);
-    m_font = NULL;
-
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
@@ -149,7 +131,7 @@ void CEncampmentState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(game->renderer,&buttonPosition);
 
-        gSurface = TTF_RenderText_Blended(gameTitleFont, MenuChoice.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameTitleFont, MenuChoice.c_str(), White);
         gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
         int texW = 0;
         int texH = 0;
@@ -178,8 +160,5 @@ void CEncampmentState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
-
-    TTF_CloseFont(m_font);
-    m_font = NULL;
 }
 

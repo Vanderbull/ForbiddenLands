@@ -128,7 +128,7 @@ void CMenuState::Draw(CGameEngine* game)
 
     for(auto MenuChoice : MenuChoices)
     {
-        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 500 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
+        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 300 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
 
         SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
         SDL_RenderFillRect(game->renderer, &buttonPosition);

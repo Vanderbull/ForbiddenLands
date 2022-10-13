@@ -13,26 +13,27 @@ CWorldMapState CWorldMapState::m_WorldMapState;
 
 void CWorldMapState::Init()
 {
-	printf("CWorldMapState Init\n");
+	SDL_Log("CWorldMapState Init\n");
 }
 
 void CWorldMapState::Cleanup()
 {
-	printf("CWorldMapState Cleanup\n");
+	SDL_Log("CWorldMapState Cleanup\n");
 }
 
 void CWorldMapState::Pause()
 {
-	printf("CWorldMapState Pause\n");
+	SDL_Log("CWorldMapState Pause\n");
 }
 
 void CWorldMapState::Resume()
 {
-	printf("CWorldMapState Resume\n");
+	SDL_Log("CWorldMapState Resume\n");
 }
 
 void CWorldMapState::HandleEvents(CGameEngine* game)
 {
+    SDL_Log("CWorldMapState");
 	SDL_Event event;
 
 	if (SDL_PollEvent(&event)) {
@@ -57,10 +58,12 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 
 void CWorldMapState::Update(CGameEngine* game)
 {
+    SDL_Log("CWorldMapState Update");
 }
 
 void CWorldMapState::Draw(CGameEngine* game)
 {
+    SDL_Log("CWorldMapState Draw");
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
 
     SDL_RenderClear(game->renderer);

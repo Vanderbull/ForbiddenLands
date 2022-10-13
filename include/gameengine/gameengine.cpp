@@ -538,7 +538,6 @@ void CGameEngine::loadMapTextures()
     ender = std::chrono::steady_clock::now();
     SDL_Log("Millisecond loading time: %d %s %d", double(std::chrono::duration_cast<std::chrono::nanoseconds>(ender - starter).count()) / 1000000, __FILE__, __LINE__ );
     // 20357 milliseconds
-    //exit(99);
 };
 
 void CGameEngine::AddItem()
@@ -550,25 +549,24 @@ void CGameEngine::AddItem()
         Item tempObject;
         tempObject.Name = *i;
 
-
-        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
-        SDL_Log("   Setting Efficiency: '%i'\n",tempObject.Efficiency = 0);
-        SDL_Log("   Setting MinDamage: '%i'\n",tempObject.MinDamage = 0);
-        SDL_Log("   Setting MaxDamage: '%i'\n",tempObject.MaxDamage = 0);
-        SDL_Log("   Setting DmgType: '%i'\n",tempObject.DmgType = 0);
-        SDL_Log("   Setting NumHands: '%i'\n",tempObject.NumHands = 0);
-        SDL_Log("   Setting Bodypart: '%i'\n",tempObject.Bodypart = 0);
-        SDL_Log("   Setting UsedBy: '%i'\n",tempObject.UsedBy = 0);
-        SDL_Log("   Setting Skill: '%i'\n",tempObject.Skill = 0);
-        SDL_Log("   Setting BaseWorth: '%i'\n",tempObject.BaseWorth = 0);
-        SDL_Log("   Setting Price: '%i'\n",tempObject.Price = 0);
-        SDL_Log("   Setting Protection: '%i'\n",tempObject.Protection = 0);
-        SDL_Log("   Setting Enchantments: '%i'\n",tempObject.Enchantments = 0);
-        SDL_Log("   Setting Effect: '%i'\n",tempObject.Effect = 0);
-        SDL_Log("   Setting EffectCharges: '%i'\n",tempObject.EffectCharges = 0);
-        SDL_Log("   Setting MinEffect: '%i'\n",tempObject.MinEffect = 0);
-        SDL_Log("   Setting MaxEffect: '%i'\n",tempObject.MaxEffect = 0);
-        SDL_Log("   Setting Features: '%i'\n",tempObject.Features = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
+//        SDL_Log("   Setting Efficiency: '%i'\n",tempObject.Efficiency = 0);
+//        SDL_Log("   Setting MinDamage: '%i'\n",tempObject.MinDamage = 0);
+//        SDL_Log("   Setting MaxDamage: '%i'\n",tempObject.MaxDamage = 0);
+//        SDL_Log("   Setting DmgType: '%i'\n",tempObject.DmgType = 0);
+//        SDL_Log("   Setting NumHands: '%i'\n",tempObject.NumHands = 0);
+//        SDL_Log("   Setting Bodypart: '%i'\n",tempObject.Bodypart = 0);
+//        SDL_Log("   Setting UsedBy: '%i'\n",tempObject.UsedBy = 0);
+//        SDL_Log("   Setting Skill: '%i'\n",tempObject.Skill = 0);
+//        SDL_Log("   Setting BaseWorth: '%i'\n",tempObject.BaseWorth = 0);
+//        SDL_Log("   Setting Price: '%i'\n",tempObject.Price = 0);
+//        SDL_Log("   Setting Protection: '%i'\n",tempObject.Protection = 0);
+//        SDL_Log("   Setting Enchantments: '%i'\n",tempObject.Enchantments = 0);
+//        SDL_Log("   Setting Effect: '%i'\n",tempObject.Effect = 0);
+//        SDL_Log("   Setting EffectCharges: '%i'\n",tempObject.EffectCharges = 0);
+//        SDL_Log("   Setting MinEffect: '%i'\n",tempObject.MinEffect = 0);
+//        SDL_Log("   Setting MaxEffect: '%i'\n",tempObject.MaxEffect = 0);
+//        SDL_Log("   Setting Features: '%i'\n",tempObject.Features = 0);
         v_Item.push_back(tempObject);
     }
 };
@@ -582,13 +580,12 @@ void CGameEngine::AddSkill()
         SkillObject tempObject;
         tempObject.Name = *i;
 
-
-        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
-        SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);
-        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsAttribute = 0);
-        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
-        SDL_Log("Adding '%s'\n",tempObject.Group = 0);
-        SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
+//        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
+//        SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsAttribute = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.Group = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
 
         v_Skill.push_back(tempObject);
     }

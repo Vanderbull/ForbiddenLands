@@ -9,49 +9,27 @@ CCharacterState CCharacterState::m_CharacterState;
 
 void CCharacterState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    else
-    {
-        gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
-        gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
-
-        if(!gameBreadTextFont)
-        {
-            std::cout << "TTF_OpenFont CharacterState: " << TTF_GetError() << std::endl;
-            exit(EXIT_FAILURE);
-        }
-        if(!gameTitleFont)
-        {
-            std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
-            exit(EXIT_FAILURE);
-        }
-    }
-
-	std::cout << "CCharacterState Init\n";
+    SDL_Log("CCharacterState Init\n");
 }
 
 void CCharacterState::Cleanup()
 {
-	printf("CCharacterState Cleanup\n");
+	SDL_Log("CCharacterState Cleanup\n");
 }
 
 void CCharacterState::Pause()
 {
-	printf("CCharacterState Pause\n");
+	SDL_Log("CCharacterState Pause\n");
 }
 
 void CCharacterState::Resume()
 {
-	printf("CCharacterState Resume\n");
+	SDL_Log("CCharacterState Resume\n");
 }
 
 void CCharacterState::HandleEvents(CGameEngine* game)
 {
-    printf("CCharacterState HandleEvents\n");
+    SDL_Log("CCharacterState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -74,7 +52,7 @@ void CCharacterState::HandleEvents(CGameEngine* game)
 
 void CCharacterState::Update(CGameEngine* game)
 {
-    printf("CCharacterState Update\n");
+    SDL_Log("CCharacterState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoord.x = m_iCurrentCoord.x;
@@ -99,6 +77,7 @@ void CCharacterState::Update(CGameEngine* game)
 
 void CCharacterState::Draw(CGameEngine* game)
 {
+    SDL_Log("CCharacterState Draw");
     std::string raceDescriptions;
 
     int localCounter = 0;
@@ -120,7 +99,7 @@ void CCharacterState::Draw(CGameEngine* game)
     SDL_RenderCopy(game->renderer, SActor.faceImage, NULL, &FaceFrame);
 
     std::string StatPoints_String = std::to_string(game->StartAbilityPoints) + " Points Left";
-    gSurface = TTF_RenderText_Blended(gameBreadTextFont, StatPoints_String.c_str(), White);
+    gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, StatPoints_String.c_str(), White);
 	if( !gSurface )
 	{
         exit(-1);
@@ -137,7 +116,7 @@ void CCharacterState::Draw(CGameEngine* game)
 
     for (std::string textElement : abilityModElements)
     {
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, std::to_string(game->AbilityMod[counter]).c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, std::to_string(game->AbilityMod[counter]).c_str(), White);
         if( !gSurface )
         {
             exit(-1);
@@ -171,7 +150,7 @@ void CCharacterState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(game->renderer, &professionElements[counter]);
 
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, textElement.c_str(), Black);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, textElement.c_str(), Black);
         if( !gSurface )
         {
             exit(-1);
@@ -218,7 +197,7 @@ void CCharacterState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
 
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, textElement.c_str(), Black);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, textElement.c_str(), Black);
         if( !gSurface )
         {
             exit(-1);
@@ -279,7 +258,7 @@ void CCharacterState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
 
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, textElement.c_str(), Black);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, textElement.c_str(), Black);
         if( !gSurface )
         {
             exit(-1);
@@ -320,7 +299,7 @@ void CCharacterState::Draw(CGameEngine* game)
 
     for (std::string textElement : textElements)
     {
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, std::to_string(game->Ability[counter]).c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, std::to_string(game->Ability[counter]).c_str(), White);
         if( !gSurface )
         {
             exit(-1);
@@ -332,7 +311,7 @@ void CCharacterState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
         StatPoints_String = textElements[counter];
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, StatPoints_String.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, StatPoints_String.c_str(), White);
         if( !gSurface )
         {
             exit(-1);
@@ -344,7 +323,7 @@ void CCharacterState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
         StatPoints_String = "[+]";
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, StatPoints_String.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, StatPoints_String.c_str(), White);
         if( !gSurface )
         {
             exit(-1);
@@ -360,7 +339,7 @@ void CCharacterState::Draw(CGameEngine* game)
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
                 StatPoints_String = "Pressing the matter" + std::to_string(counter);
-                gSurface = TTF_RenderText_Blended(gameBreadTextFont, StatPoints_String.c_str(), White);
+                gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, StatPoints_String.c_str(), White);
                 if( !gSurface )
                 {
                     exit(-1);
@@ -375,7 +354,7 @@ void CCharacterState::Draw(CGameEngine* game)
         }
 
         StatPoints_String = "[-]";
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, StatPoints_String.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, StatPoints_String.c_str(), White);
         if( !gSurface )
         {
             exit(-1);
@@ -391,7 +370,7 @@ void CCharacterState::Draw(CGameEngine* game)
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
                 StatPoints_String = "Pressing the matter" + std::to_string(counter);
-                gSurface = TTF_RenderText_Blended(gameBreadTextFont, StatPoints_String.c_str(), White);
+                gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, StatPoints_String.c_str(), White);
                 if( !gSurface )
                 {
                     exit(-1);
@@ -437,7 +416,7 @@ void CCharacterState::Draw(CGameEngine* game)
 
         gRect = { raceElements[counter].x,raceElements[counter].y, texW, texH };
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
-        //RenderText(textElement.c_str(),Black,raceElements[counter].x,raceElements[counter].y,FontSize);
+
         if( SDL_PointInRect(&m_iCurrentCoord, &raceElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))

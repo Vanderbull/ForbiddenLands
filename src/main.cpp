@@ -394,10 +394,9 @@ CGameEngine game;
 
 int main(int argc, char ** argv)
 {
-//    glutInit(&argc, argv);
-//    glutInitWindowPosition(1920/2,1080/2);
-//    glutInitWindowSize(1920,1080);
-//    glutCreateWindow("");
+    pFile = fopen ("./logs/GameEngineLOG.log","w");
+    SDL_LogSetOutputFunction(&LogSDL, NULL);
+    SDL_Log("./logs/GameEngineLOG.txt file opened: Success");
 
     int staticAbility = 24;
     int abilityModifier = 0;
@@ -405,7 +404,8 @@ int main(int argc, char ** argv)
     int ToughnessMod = 5;
     int IntelligenceMod = 5;
 
-    std::cout << "Calculating Knight HP: " << 40 + (5 * ToughnessMod) + (6 * level) << " @ level = " << level <<  std::endl;
+    SDL_Log("Calculating Knight HP: %d @ level = %d", 40 + (5 * ToughnessMod) + (6 * level),level);
+
     int amount_hp = GenerateNumber(1, (ToughnessMod / 2) );
     int amount_sp = GenerateNumber(1, (IntelligenceMod / 2) );
     for( int i= 5; i < 42; i++)
@@ -413,10 +413,8 @@ int main(int argc, char ** argv)
         staticAbility = i;
         abilityModifier = floor((staticAbility - 20) / 2);
 
-        std::cout << staticAbility << "=" << " abilityModifier" << abilityModifier << std::endl;
+        SDL_Log("%d = abilityModifier: %d",staticAbility,abilityModifier);
     }
-
-    //exit(0);
 
     std::thread worker(DoWork);
 
@@ -655,9 +653,6 @@ int main(int argc, char ** argv)
 
     soundBibleFile.close();
 
-    pFile = fopen ("./logs/GameEngineLOG.log","w");
-    SDL_LogSetOutputFunction(&LogSDL, NULL);
-    SDL_Log("./logs/GameEngineLOG.txt file opened: Success");
 
 //    if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
 //    {

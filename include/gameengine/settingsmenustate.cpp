@@ -9,52 +9,30 @@ CSettingsMenuState CSettingsMenuState::m_SettingsMenuState;
 
 void CSettingsMenuState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameBreadTextFont)
-    {
-        printf("TTF_OpenFont savemenuState: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
-
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
-
-    if(!gameTitleFont)
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(EXIT_FAILURE);
-    }
+	SDL_Log("CSettingsMenuState Init\n");
 
     MenuChoices.clear();
     MenuChoices.push_back("EXIT");
-
-	printf("CSettingsMenuState Init\n");
 }
 
 void CSettingsMenuState::Cleanup()
 {
-	printf("CSettingsMenuState Cleanup\n");
+	SDL_Log("CSettingsMenuState Cleanup\n");
 }
 
 void CSettingsMenuState::Pause()
 {
-	printf("CSettingsMenuState Pause\n");
+	SDL_Log("CSettingsMenuState Pause\n");
 }
 
 void CSettingsMenuState::Resume()
 {
-	printf("CSettingsMenuState Resume\n");
+	SDL_Log("CSettingsMenuState Resume\n");
 }
 
 void CSettingsMenuState::HandleEvents(CGameEngine* game)
 {
-    printf("CSettingsMenuState HandleEvents\n");
+    SDL_Log("CSettingsMenuState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -77,7 +55,7 @@ void CSettingsMenuState::HandleEvents(CGameEngine* game)
 
 void CSettingsMenuState::Update(CGameEngine* game)
 {
-    printf("CSettingsMenuState Update\n");
+    SDL_Log("CSettingsMenuState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -94,6 +72,7 @@ void CSettingsMenuState::Update(CGameEngine* game)
 
 void CSettingsMenuState::Draw(CGameEngine* game)
 {
+    SDL_Log("CSettingsMenuState Draw");
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
@@ -114,7 +93,7 @@ void CSettingsMenuState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(game->renderer,&buttonPosition);
 
-        gSurface = TTF_RenderText_Blended(gameBreadTextFont, MenuChoice.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), White);
         gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
         int texW = 0;
         int texH = 0;
