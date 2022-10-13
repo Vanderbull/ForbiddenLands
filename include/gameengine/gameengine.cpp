@@ -41,22 +41,22 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
     {
-        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+        SDL_Log("Unable to initialize SDL: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
     else
     {
-        SDL_Log("initialize SDL and all its subsystems: Success");
+        SDL_Log("initialize SDL and all its subsystems: Success %s, %d", __FILE__, __LINE__);
     }
 
     if(!TTF_WasInit() && TTF_Init()==-1)
     {
-        SDL_Log("TTF_Init: %s", TTF_GetError());
+        SDL_Log("TTF_Init: %s %s %d", TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
     else
     {
-        SDL_Log("TTF_Init: Success!");
+        SDL_Log("TTF_Init: Success! %s %d", __FILE__, __LINE__);
     }
 
     // Get current display mode of all displays.
@@ -68,12 +68,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
         if(should_be_zero != 0)
         {
-            SDL_Log("Could not get display mode for video display #%d: %s", i, SDL_GetError());
+            SDL_Log("Could not get display mode for video display #%d: %s 5s %d", i, SDL_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
         else
         {
-            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate);
+            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz. %s %d", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate, __FILE__, __LINE__);
         }
     }
 
@@ -88,16 +88,16 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     if (window == NULL)
     {
-        SDL_Log("Could not create window: %s", SDL_GetError());
+        SDL_Log("Could not create window: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
     else
     {
-        SDL_Log("SDL Window creation: SUCCESS");
+        SDL_Log("SDL Window creation: SUCCESS %s %d", __FILE__, __LINE__);
 
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-        SDL_Log("SDL Renderer creation: SUCCESS");
+        SDL_Log("SDL Renderer creation: SUCCESS %s %d", __FILE__, __LINE__);
 
         SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
         SDL_RenderSetScale(renderer,1.0,1.0);
@@ -108,7 +108,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
         if((initted&flags) != flags)
         {
-            printf("IMG_Init: %s\n", IMG_GetError());
+            SDL_Log("IMG_Init: %s %s %d", IMG_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
 
@@ -119,13 +119,13 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
         if(!gSurface)
         {
-            SDL_Log("Setting Window Icon: %s\n", IMG_GetError());
+            SDL_Log("Setting Window Icon: %s %s %d", IMG_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
         else
         {
-            SDL_Log("Loading Window Icon initiated...");
-            SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
+            SDL_Log("Loading Window Icon initiated... %s %d", __FILE__, __LINE__);
+            SDL_Log("Version: %s %s %d",AutoVersion::FULLVERSION_STRING, __FILE__, __LINE__);
         }
 
         SDL_SetWindowIcon(window, gSurface);
@@ -136,20 +136,20 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         // Replace this with the new SDL2 OpenAudio
         if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
         {
-            SDL_Log("Audio broke down: %s", SDL_GetError());
+            SDL_Log("Audio broke down: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
         else
         {
-            SDL_Log("Audio successfully initiated...");
+            SDL_Log("Audio successfully initiated... %s %d", __FILE__, __LINE__);
         }
     }
 
 	m_fullscreen = fullscreen;
 	m_running = true;
-	SDL_Log("Loading items...");
+	SDL_Log("Loading items... %s %d", __FILE__, __LINE__);
 	AddItem();
-	SDL_Log("Loading skills...");
+	SDL_Log("Loading skills... %w %d", __FILE__, __LINE__);
 	AddSkill();
 
 	read_directory("./images",imagesFiles);
@@ -157,7 +157,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
 	//SDL_Log("Loading textures...");
 	//loadMapTextures();
-	SDL_Log("Loading shop...");
+	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
     initShop();
 
 
@@ -165,14 +165,14 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     if(!gameTitleFont)
     {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+        SDL_Log("TTF_OpenFont: %s %s %d",TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
     gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
     if(!gameBreadTextFont)
     {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+        SDL_Log("TTF_OpenFont: %s %s %d",TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
 }
@@ -186,7 +186,7 @@ void CGameEngine::Cleanup()
 		states.pop_back();
 	}
 
-    SDL_Log("CGameEngine Cleanup\n");
+    SDL_Log("CGameEngine Cleanup %s %d", __FILE__, __LINE__);
 
 	// shutdown SDL
 	SDL_Quit();
@@ -194,7 +194,7 @@ void CGameEngine::Cleanup()
 
 void CGameEngine::ChangeState(CGameState* state)
 {
-    SDL_Log("CGameEngine ChangeState\n");
+    SDL_Log("CGameEngine ChangeState %s %d", __FILE__, __LINE__);
 	// cleanup the current state
 	if ( !states.empty() ) {
 		states.back()->Cleanup();
@@ -208,7 +208,7 @@ void CGameEngine::ChangeState(CGameState* state)
 
 void CGameEngine::PushState(CGameState* state)
 {
-    SDL_Log("CGameEngine PushState\n");
+    SDL_Log("CGameEngine PushState %s %d", __FILE__, __LINE__);
 	// pause current state
 	if ( !states.empty() ) {
 		states.back()->Pause();
@@ -221,7 +221,7 @@ void CGameEngine::PushState(CGameState* state)
 
 void CGameEngine::PopState()
 {
-    SDL_Log("CGameEngine PopState\n");
+    SDL_Log("CGameEngine PopState %s %d", __FILE__, __LINE__);
 	// cleanup the current state
 	if ( !states.empty() ) {
 		states.back()->Cleanup();
@@ -236,21 +236,21 @@ void CGameEngine::PopState()
 
 void CGameEngine::HandleEvents()
 {
-    SDL_Log("CGameEngine HandleEvents\n");
+    SDL_Log("CGameEngine HandleEvents %s %d", __FILE__, __LINE__);
 	// let the state handle events
 	states.back()->HandleEvents(this);
 }
 
 void CGameEngine::Update()
 {
-    SDL_Log("CGameEngine Update\n");
+    SDL_Log("CGameEngine Update %s %d", __FILE__, __LINE__);
 	// let the state update the game
 	states.back()->Update(this);
 }
 
 void CGameEngine::Draw()
 {
-    SDL_Log("CGameEngine Draw\n");
+    SDL_Log("CGameEngine Draw %s %d", __FILE__, __LINE__);
 	// let the state draw the screen
 	states.back()->Draw(this);
 }
@@ -536,14 +536,14 @@ void CGameEngine::loadMapTextures()
 //        }
 //    }
     ender = std::chrono::steady_clock::now();
-    std::cout << "Millisecond loading time: " << double(std::chrono::duration_cast<std::chrono::nanoseconds>(ender - starter).count()) / 1000000 << std::endl;
+    SDL_Log("Millisecond loading time: %d %s %d", double(std::chrono::duration_cast<std::chrono::nanoseconds>(ender - starter).count()) / 1000000, __FILE__, __LINE__ );
     // 20357 milliseconds
     //exit(99);
 };
 
 void CGameEngine::AddItem()
 {
-    SDL_Log("CGameEngine AddItem\n");
+    SDL_Log("CGameEngine AddItem %s %d", __FILE__, __LINE__);
 
     for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
     {
@@ -575,7 +575,7 @@ void CGameEngine::AddItem()
 
 void CGameEngine::AddSkill()
 {
-    SDL_Log("CGameEngine AddSkill\n");
+    SDL_Log("CGameEngine AddSkill %s %d", __FILE__, __LINE__);
 
     for (auto i = v_SkillNames.begin(); i != v_SkillNames.end(); i++)
     {
@@ -589,13 +589,6 @@ void CGameEngine::AddSkill()
         SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
         SDL_Log("Adding '%s'\n",tempObject.Group = 0);
         SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
-
-//        int MaximumExpertise;
-//        int InitialRequirementsAttribute;
-//        int InitialRequirementsValue;
-//        int Group;
-//        std::vector<std::string> UtilizedBy;
-//        std::string Description;
 
         v_Skill.push_back(tempObject);
     }
@@ -617,7 +610,7 @@ void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)
             {
                 getline (shop_data_file,line);
                 tempItem.type = line.c_str();
-                SDL_Log("Adding type: '%s'\n",line.c_str());
+                SDL_Log("Adding type: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
             }
             if( line == "#WEIGHT")
             {
@@ -626,25 +619,25 @@ void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)
                 int integer_data = std::stoi(line);
                 std::cout << integer_data << std::endl;
                 tempItem.weight = integer_data;
-                SDL_Log("Adding weight: '%s'\n",line.c_str());
+                SDL_Log("Adding weight: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
             }
             if( line == "#COST")
             {
                 getline (shop_data_file,line);
                 tempItem.value = std::stoi(line);
-                SDL_Log("Adding cost: '%s'\n",line.c_str());
+                SDL_Log("Adding cost: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
             }
             if( line == "#ITEM")
             {
                 getline (shop_data_file,line);
                 tempItem.name = line.c_str();
-                SDL_Log("Adding item: '%s'\n",line.c_str());
+                SDL_Log("Adding item: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
                 out_data.push_back(tempItem);
             }
         }
         shop_data_file.close();
     }
-    else std::cout << "Unable to open file";
+    else SDL_Log("Unable to open file %s %d", __FILE__, __LINE__);
 };
 
 void CGameEngine::initShop()

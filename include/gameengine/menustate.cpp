@@ -13,20 +13,6 @@ CMenuState CMenuState::m_MenuState;
 
 void CMenuState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
-    }
-
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameTitleFont)
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
-    }
-
     MenuChoices.clear();
     MenuChoices.push_back("PLAY");
     MenuChoices.push_back("SAVE");
@@ -35,27 +21,27 @@ void CMenuState::Init()
     MenuChoices.push_back("SETTINGS");
     MenuChoices.push_back("EXIT");
 
-	printf("CMenuState Init\n");
+	SDL_Log("CMenuState Init\n");
 }
 
 void CMenuState::Cleanup()
 {
-	printf("CMenuState Cleanup\n");
+	SDL_Log("CMenuState Cleanup\n");
 }
 
 void CMenuState::Pause()
 {
-	printf("CMenuState Pause\n");
+	SDL_Log("CMenuState Pause\n");
 }
 
 void CMenuState::Resume()
 {
-	printf("CMenuState Resume\n");
+	SDL_Log("CMenuState Resume\n");
 }
 
 void CMenuState::HandleEvents(CGameEngine* game)
 {
-    printf("CMenuState HandleEvents\n");
+    SDL_Log("CMenuState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -84,7 +70,7 @@ void CMenuState::HandleEvents(CGameEngine* game)
 
 void CMenuState::Update(CGameEngine* game)
 {
-    printf("CMenuState Update\n");
+    SDL_Log("CMenuState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -101,14 +87,10 @@ void CMenuState::Update(CGameEngine* game)
 
 void CMenuState::Draw(CGameEngine* game)
 {
-    printf("CMenuState Draw\n");
-    TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+    SDL_Log("CMenuState Draw\n");
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
-
-    MainMenuBackgroundTexture = NULL;
 
 	SDL_Surface* surface = IMG_Load( "./images/menu_backdrop.png" );
 	if( !surface )
@@ -123,7 +105,7 @@ void CMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(m_font, "A Viking Saga", White);
+    gSurface = TTF_RenderText_Blended(game->gameTitleFont, "A Viking Saga", White);
 	if( !gSurface )
 	{
         exit(-1);
@@ -140,9 +122,6 @@ void CMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    TTF_CloseFont(m_font);
-    m_font = NULL;
-
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
@@ -156,7 +135,7 @@ void CMenuState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(game->renderer,&buttonPosition);
 
-        gSurface = TTF_RenderText_Blended(gameTitleFont, MenuChoice.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameTitleFont, MenuChoice.c_str(), White);
         gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
         int texW = 0;
         int texH = 0;
@@ -195,7 +174,4 @@ void CMenuState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
-
-    TTF_CloseFont(m_font);
-    m_font = NULL;
 }
