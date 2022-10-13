@@ -146,6 +146,11 @@ void CSaveMenuState::Draw(CGameEngine* game)
                 if( MenuChoice != "EXIT" || MenuChoice != "NEW SAVE")
                 {
                     vector<string>::iterator p = MenuChoices.erase(q);
+                    int status = remove("/home/rickard/Documents/Vanderbull/ForbiddenLands/data/savegames/test.txt");
+                    if( status == 0 )
+                        SDL_Log("Deleted file");
+                    else
+                        SDL_Log("Failed to delete file");
                 }
             }
         }
