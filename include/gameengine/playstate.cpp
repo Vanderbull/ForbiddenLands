@@ -34,6 +34,8 @@ void CPlayState::Init()
         exit(EXIT_FAILURE);
     }
 
+    loadPortals();
+    SDL_Delay(5000);
 	printf("CPlayState Init\n");
 }
 

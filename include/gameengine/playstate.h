@@ -173,7 +173,7 @@ private:
     SDL_Texture* South;
     SDL_Texture* West;
 
-    int OFFSET = 50;
+    //int OFFSET = 50;
 };
 
 #endif

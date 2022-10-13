@@ -15,7 +15,7 @@ CIntroState CIntroState::m_IntroState;
 
 void CIntroState::Init()
 {
-	printf("CIntroState Init\n");
+    SDL_Log("CIntroState Init\n");
 	//read_directory("./images",imagesFiles);
 
     std::string location, room, position;
@@ -81,57 +81,54 @@ x=y=z=0;
 
 void CIntroState::Cleanup()
 {
-	printf("CIntroState Cleanup\n");
-	    SDL_DestroyTexture(texture);
+	SDL_Log("CIntroState Cleanup\n");
+    SDL_DestroyTexture(texture);
 }
 
 void CIntroState::Pause()
 {
-	printf("CIntroState Pause\n");
+	SDL_Log("CIntroState Pause\n");
 }
 
 void CIntroState::Resume()
 {
-	printf("CIntroState Resume\n");
+	SDL_Log("CIntroState Resume\n");
 }
 
 void CIntroState::HandleEvents(CGameEngine* game)
 {
-//	SDL_Event event;
-//
-//	if (SDL_PollEvent(&event)) {
-//		switch (event.type) {
-//			case SDL_QUIT:
-//				game->Quit();
-//				break;
-//
-//			case SDL_KEYDOWN:
-//				switch (event.key.keysym.sym) {
-//					case SDLK_SPACE:
-//						break;
-//
-//					case SDLK_ESCAPE:
-//						game->Quit();
-//						break;
-//				}
-//				break;
-//		}
-//	}
+    SDL_Log("CIntroState HandleEvents\n");
+
+	SDL_Event event;
+
+	if (SDL_PollEvent(&event)) {
+		switch (event.type) {
+			case SDL_QUIT:
+				game->Quit();
+				break;
+
+			case SDL_KEYDOWN:
+				switch (event.key.keysym.sym) {
+					case SDLK_SPACE:
+						break;
+
+					case SDLK_ESCAPE:
+						game->Quit();
+						break;
+				}
+				break;
+		}
+	}
 }
 
 void CIntroState::Update(CGameEngine* game)
 {
-	//printf("CIntroState Update\n");
+    SDL_Log("CIntroState Update\n");
 }
 
 void CIntroState::Draw(CGameEngine* game)
 {
-//    std::cout << x++;
-//    if(x == 1024)
-//    game->ChangeState( CMenuState::Instance() );
-//    return;
-
-	//printf("CIntroState Draw\n");
+	SDL_Log("CIntroState Draw\n");
     static int progress_value = 0;
 
     //std::chrono::time_point<std::chrono::steady_clock> starter;
@@ -175,8 +172,6 @@ void CIntroState::Draw(CGameEngine* game)
     game->RenderText("Loading Level...",White,game->current.w / 2 - 100,game->current.h - 245, 24);
     game->RenderText(load_location.c_str(),White,game->current.w / 3,game->current.h - 205,24);
     //SDL_RenderPresent(game->renderer);
-
-
 
     if( z < 3 )
     {
