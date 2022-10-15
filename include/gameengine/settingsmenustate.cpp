@@ -76,7 +76,7 @@ void CSettingsMenuState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-	SDL_Texture* texture = game->LoadTexture("./images/menu_backdrop.png",255);
+	SDL_Texture* texture = game->LoadTexture("./images/menus/menu_backdrop.png",255);
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);
     SDL_DestroyTexture(texture);
 

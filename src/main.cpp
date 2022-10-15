@@ -798,7 +798,7 @@ int main(int argc, char ** argv)
 
     loadPCstatusData();
     //loadMapTextures();
-    MainMenuLoadBackground("./images/menus/mainmenu.jpg");
+    MainMenuLoadBackground("./images/menus/menu_backdrop.png");
     initGameTitleFont("./font/droid-sans-mono/DroidSansMono.ttf", 160);
     initGameBreadTextFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
 

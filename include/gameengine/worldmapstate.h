@@ -26,8 +26,7 @@ protected:
 
 private:
 	static CWorldMapState m_WorldMapState;
-
-	SDL_Texture* MainMenuBackgroundTexture;
+	int map[20][25];
 };
 
 #endif

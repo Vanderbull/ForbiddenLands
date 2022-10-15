@@ -52,6 +52,9 @@ void CPlayState::HandleEvents(CGameEngine* game)
 					case SDLK_ESCAPE:
 						game->ChangeState( CMenuState::Instance() );
 						break;
+                    case SDLK_TAB:
+                        game->ChangeState( CCharacterState::Instance() );
+                        break;
                     case SDLK_r:
                         game->ChangeState( CEncampmentState::Instance() );
                         break;
@@ -261,10 +264,10 @@ void CPlayState::Draw(CGameEngine* game)
     renderCompass(game);
     renderMinimap(game);
 
-    North = game->LoadTexture("./images/compass/north.png",255);
-    West = game->LoadTexture("./images/compass/west.png",255);
-    South = game->LoadTexture("./images/compass/south.png",255);
-    East = game->LoadTexture("./images/compass/east.png",255);
+    game->North = game->LoadTexture("./images/compass/north.png",255);
+    game->West = game->LoadTexture("./images/compass/west.png",255);
+    game->South = game->LoadTexture("./images/compass/south.png",255);
+    game->East = game->LoadTexture("./images/compass/east.png",255);
 
     renderMinimapCharacterLocation(game);
 

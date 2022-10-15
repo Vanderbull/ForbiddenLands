@@ -92,7 +92,7 @@ void CMenuState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-	SDL_Surface* surface = IMG_Load( "./images/menu_backdrop.png" );
+	SDL_Surface* surface = IMG_Load( "./images/menus/menu_backdrop.png" );
 	if( !surface )
 	{
         exit(-1);

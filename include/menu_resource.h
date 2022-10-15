@@ -83,7 +83,7 @@ void adventureMenu()
     else if( encamped )
     {
         if( toggleIndex() == 0 )
-            encampTexture = LoadTexture("./images/encamp/encamp.png",255);
+            encampTexture = LoadTexture("./images/encamp/encamp0.png",255);
         else
             encampTexture = LoadTexture("./images/encamp/encamp2.png",255);
 

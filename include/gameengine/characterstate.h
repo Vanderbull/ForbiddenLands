@@ -44,8 +44,6 @@ private:
 	SDL_Texture* MainMenuBackgroundTexture;
 	SDL_Color White = {255, 255, 255, 255};
 	SDL_Color Black = {0, 0, 0, 255};
-	TTF_Font* gameTitleFont = NULL;
-	TTF_Font* gameBreadTextFont = NULL;
 
     /// Information about the state of the mouse
     SDL_Point m_iCurrentCoord;
@@ -67,6 +65,28 @@ private:
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
+
+    std::vector<std::string> MenuChoices;
+
+ 	map<string, int> AbilityScore = {
+		{"POWER", 0},
+    	{"INTELLIGENCE", 0},
+    	{"PERSONALITY", 0},
+    	{"THOUGHNESS", 0},
+    	{"TECHNOLOGY", 0},
+    	{"QUICKNESS", 0},
+    	{"PERCEPTION", 0}
+  	};
+
+  	map<string, int> AbilityMod = {
+		{"POWER", 0},
+    	{"INTELLIGENCE", 0},
+    	{"PERSONALITY", 0},
+    	{"THOUGHNESS", 0},
+    	{"TECHNOLOGY", 0},
+    	{"QUICKNESS", 0},
+    	{"PERCEPTION", 0}
+  	};
 
 };
 

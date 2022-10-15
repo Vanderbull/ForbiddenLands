@@ -88,7 +88,7 @@ void CEncampmentState::Draw(CGameEngine* game)
 
     MainMenuBackgroundTexture = NULL;
 
-	SDL_Surface* surface = IMG_Load( "./images/menu_backdrop.png" );
+	SDL_Surface* surface = IMG_Load( "./images/menus/menu_backdrop.png" );
 	if( !surface )
 	{
         exit(-1);

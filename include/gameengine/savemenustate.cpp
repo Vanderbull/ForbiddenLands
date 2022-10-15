@@ -92,7 +92,7 @@ void CSaveMenuState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-	SDL_Texture* texture = game->LoadTexture("./images/menu_backdrop.png",255);
+	SDL_Texture* texture = game->LoadTexture("./images/menus/menu_backdrop.png",255);
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);
     SDL_DestroyTexture(texture);
 
@@ -119,8 +119,6 @@ void CSaveMenuState::Draw(CGameEngine* game)
 
     vector<string>::iterator q = MenuChoices.begin();
 
-
-
     for(auto MenuChoice : MenuChoices)
     {
         SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 300 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
@@ -134,10 +132,10 @@ void CSaveMenuState::Draw(CGameEngine* game)
         SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
         SDL_Rect buttonPositionDelete = { (game->current.w / 2) - (buttonWidth / 2 ) + buttonWidth, 300 + (Repeat*(buttonPosition.h+15)),buttonWidth/3,buttonHeight};
 
-                SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-                SDL_RenderFillRect(game->renderer, &buttonPositionDelete);
-                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-                SDL_RenderDrawRect(game->renderer,&buttonPositionDelete);
+        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+        SDL_RenderFillRect(game->renderer, &buttonPositionDelete);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderDrawRect(game->renderer,&buttonPositionDelete);
 
         if( SDL_PointInRect(&mousePosition, &buttonPositionDelete) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {

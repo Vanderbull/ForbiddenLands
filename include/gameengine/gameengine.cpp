@@ -33,6 +33,18 @@ SkillObject::SkillObject(std::string,char,int)
 
 void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
 {
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/north.png", LoadTexture("./images/compass/north.png",255) ));
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/south.png", LoadTexture("./images/compass/south.png",255) ));
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/west.png", LoadTexture("./images/compass/west.png",255) ));
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/east.png", LoadTexture("./images/compass/east.png",255) ));
+
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp0.png", LoadTexture("./images/encamp/encamp0.png",255) ));
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp1.png", LoadTexture("./images/encamp/encamp1.png",255) ));
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp2.png", LoadTexture("./images/encamp/encamp2.png",255) ));
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp3.png", LoadTexture("./images/encamp/encamp3.png",255) ));
+
+    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/menus/menu_backdrop.png", LoadTexture("./images/menus/menu_backdrop.png",255) ));
+
     g_myglobal = 10;
 
 	int flags = 0;
@@ -154,12 +166,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
 	read_directory("./images",imagesFiles);
 
-
-	//SDL_Log("Loading textures...");
-	//loadMapTextures();
 	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
     initShop();
-
 
     gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
