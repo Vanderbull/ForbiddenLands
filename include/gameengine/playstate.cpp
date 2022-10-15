@@ -8,6 +8,7 @@
 #include "characterstate.h"
 #include "shopstate.h"
 #include "encampmentstate.h"
+#include "worldmapstate.h"
 #include "inventorystate.h"
 
 CPlayState CPlayState::m_PlayState;
@@ -58,9 +59,12 @@ void CPlayState::HandleEvents(CGameEngine* game)
                     case SDLK_r:
                         game->ChangeState( CEncampmentState::Instance() );
                         break;
-					case SDLK_m:
+					case SDLK_1:
                         game->ChangeState( CShopState::Instance() );
 						break;
+                    case SDLK_m:
+                        game->ChangeState( CWorldMapState::Instance() );
+                        break;
                     case SDLK_d:
                         rotateClockWise();
                         break;

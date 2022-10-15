@@ -88,24 +88,24 @@ static bool s_Finished = false;
 void DoWork()
 {
     SDL_Log("DoWork() thread running");
-    Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048);
-    int flags = MIX_INIT_OGG | MIX_INIT_MOD;
-    int initted = Mix_Init(flags);
-    if ((initted & flags) != flags)
-    {
-        printf("Mix_Init: Failed to init required ogg and mod support!\n");
-        printf("Mix_Init: %s\n", Mix_GetError());
-        // handle error
-    }
-    Mix_Music* song = NULL;
-    song = Mix_LoadMUS("./data/soundbible/tavern/1_Black Moon Tavern by Ean Grimm.mp3");
-    if (!song)
-    {
-        SDL_Log("Load music file failed! %s", Mix_GetError());
-        exit(EXIT_FAILURE);
-    }
-    Mix_VolumeMusic(32);
-    SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
+//    Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048);
+//    int flags = MIX_INIT_OGG | MIX_INIT_MOD;
+//    int initted = Mix_Init(flags);
+//    if ((initted & flags) != flags)
+//    {
+//        printf("Mix_Init: Failed to init required ogg and mod support!\n");
+//        printf("Mix_Init: %s\n", Mix_GetError());
+//        // handle error
+//    }
+//    Mix_Music* song = NULL;
+//    song = Mix_LoadMUS("assets/data/sound/tavern/1_Black Moon Tavern by Ean Grimm.mp3");
+//    if (!song)
+//    {
+//        SDL_Log("Load music file failed! %s", Mix_GetError());
+//        exit(EXIT_FAILURE);
+//    }
+//    Mix_VolumeMusic(32);
+//    SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
     //Mix_PlayMusic( song, -1 );
 };
 
@@ -627,128 +627,17 @@ int main(int argc, char ** argv)
 
     srand (time(NULL));
 
-
-    //std::cout << "SDL_SetMainReady..." << "\n";
-    //SDL_SetMainReady();
-
-    //SDL_Delay(5000);
-
-    std::ofstream soundBibleFile;
-    soundBibleFile.open ("./data/soundbible.org");
-
-    std::vector<std::string> soundbibleFiles;
     std::vector<std::string> fontFiles;
     std::vector<std::string> imagesFiles;
     std::vector<std::string> dataFiles;
     std::vector<std::string> logsFiles;
 
-    read_directory("./data/soundbible", soundbibleFiles);
     read_directory("./font", fontFiles);
     read_directory("./images", imagesFiles);
     read_directory("./data", dataFiles);
     read_directory("./logs", logsFiles);
 
-    std::copy(soundbibleFiles.begin(), soundbibleFiles.end(),
-         std::ostream_iterator<std::string>(soundBibleFile, "\n"));
-
-    soundBibleFile.close();
-
-
-//    if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
-//    {
-//        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
-//        exit(EXIT_FAILURE);
-//    }
-//    else
-//    {
-//        SDL_Log("initialize SDL and all its subsystems: Success");
-//    }
-
-//    if(!TTF_WasInit() && TTF_Init()==-1)
-//    {
-//        SDL_Log("TTF_Init: %s", TTF_GetError());
-//        exit(EXIT_FAILURE);
-//    }
-//    else
-//    {
-//        SDL_Log("TTF_Init: Success!");
-//    }
-
     int fw,fh;
-
-    // Get current display mode of all displays.
-//    for(int i = 0; i < SDL_GetNumVideoDisplays(); ++i)
-//    {
-//        int should_be_zero = SDL_GetCurrentDisplayMode(i, &monitor[i]);
-//
-//        current = monitor[0];
-//
-//        if(should_be_zero != 0)
-//        {
-//            SDL_Log("Could not get display mode for video display #%d: %s", i, SDL_GetError());
-//        }
-//        else
-//        {
-//            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate);
-//        }
-//    }
-//
-//    window = SDL_CreateWindow("",
-//        SDL_WINDOWPOS_CENTERED,
-//        SDL_WINDOWPOS_CENTERED,
-//        current.w, current.h,
-//        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
-//
-//    if (window == NULL)
-//    {
-//        SDL_Log("Could not create window: %s", SDL_GetError());
-//        return 1;
-//    }
-//    else
-//    {
-//        SDL_Log("SDL Window creation: SUCCESS");
-//
-//        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-//        renderer2 = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
-//
-//        SDL_Log("SDL Renderer creation: SUCCESS");
-//
-//        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-//        SDL_RenderSetScale(renderer,1.0,1.0);
-//        IMG_Init(IMG_INIT_PNG);
-//
-//        if( strcmp(uts.machine, "x86_64") == 0 )
-//            gSurface = IMG_Load( "./icons/64-bit-100.png" );
-//        else
-//            gSurface = IMG_Load( "./icons/64-bit-100-filled.png" );
-//
-//        if(!gSurface)
-//        {
-//            SDL_Log("Setting Window Icon: %s\n", IMG_GetError());
-//            return -1;
-//        }
-//        else
-//        {
-//            SDL_Log("Loading Window Icon initiated...");
-//            SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
-//        }
-//
-//        SDL_SetWindowIcon(window, gSurface);
-//        SDL_FreeSurface(gSurface);
-//
-//        SDL_StopTextInput();
-//
-//        // Replace this with the new SDL2 OpenAudio
-//        if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
-//        {
-//            SDL_Log("Audio broke down: %s", SDL_GetError());
-//            return -1;
-//        }
-//        else
-//        {
-//            SDL_Log("Audio successfully initiated...");
-//        }
-//    }
 
     if (!GetCurrentDir(cCurrentPath, sizeof(cCurrentPath)))
     {

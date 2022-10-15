@@ -136,7 +136,16 @@ public:
     //static Texture& GetTexture(string const& filename);
 };
 
+class SoundHolder
+{
+public:
+    map<string, Mix_Chunk*> m_Sounds;
+
+    SoundHolder(){};
+};
+
 class TextureHolder;
+class SoundHolder;
 
 class CGameState;
 
@@ -205,6 +214,7 @@ public:
 	void renderDaytime();
 
 	TextureHolder TextureManager;
+	SoundHolder SoundManager;
 
 	SDL_Texture* BackgroundTexture;
 
@@ -245,7 +255,6 @@ public:
     SDL_Texture* East;
     SDL_Texture* South;
     SDL_Texture* West;
-    SDL_Texture* swatTexture;
     SDL_Texture* menuBackgroundTexture;
     SDL_Texture* currentViewTexture;
     SDL_Texture* encampTexture;

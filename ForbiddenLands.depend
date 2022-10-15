@@ -9,7 +9,7 @@
 	"playstate.h"
 	"battlestate.h"
 
-1665792235 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h
+1665844654 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_mixer.h>
 	<SDL2/SDL_image.h>
@@ -84,7 +84,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1665741377 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/characterstate.cpp
+1665793278 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/characterstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -113,13 +113,13 @@
 	"menustate.h"
 	"createcharacterstate.h"
 
-1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h
+1665856734 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h
 	<string>
 	<vector>
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1665687883 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp
+1665793197 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -149,7 +149,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1665792964 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
+1665843413 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.cpp
 	<stdio.h>
 	<iostream>
 	<ctime>
@@ -159,7 +159,7 @@
 	"gameengine.h"
 	"gamestate.h"
 
-1665686939 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/introstate.cpp
+1665850978 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/introstate.cpp
 	<stdio.h>
 	<sys/types.h>
 	<sys/sysinfo.h>
@@ -194,7 +194,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1665688715 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.cpp
+1665793197 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.cpp
 	<stdio.h>
 	<dirent.h>
 	<SDL2/SDL.h>
@@ -203,7 +203,7 @@
 	"menustate.h"
 	"loadmenustate.h"
 
-1665688787 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/menustate.cpp
+1665793197 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/menustate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -222,29 +222,19 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1665706710 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.cpp
+1665851050 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
-	"gameengine.h"
 	"gamestate.h"
-	"menustate.h"
-	"savemenustate.h"
-
-1665687853 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/settingsmenustate.cpp
-	<stdio.h>
-	<SDL2/SDL.h>
 	"gameengine.h"
-	"gamestate.h"
+	"playstate.h"
 	"menustate.h"
-	"settingsmenustate.h"
-
-1665686825 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/shopstate.cpp
-	<stdio.h>
-	<SDL2/SDL.h>
-	"gameengine.h"
-	"gamestate.h"
-	"menustate.h"
+	"battlestate.h"
+	"characterstate.h"
 	"shopstate.h"
+	"encampmentstate.h"
+	"worldmapstate.h"
+	"inventorystate.h"
 
 1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/shopstate.h
 	<string>
@@ -252,26 +242,39 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1665686825 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/worldmapstate.cpp
+1665856902 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/worldmapstate.h
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1665793197 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
-	<SDL2/SDL_mixer.h>
-	<SDL2/SDL_image.h>
-	<SDL2/SDL_ttf.h>
-	<SDL2/SDL_net.h>
 	"gameengine.h"
 	"gamestate.h"
 	"menustate.h"
-	"worldmapstate.h"
+	"savemenustate.h"
 
-1665707754 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/worldmapstate.h
+1665793197 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/settingsmenustate.cpp
+	<stdio.h>
 	<SDL2/SDL.h>
+	"gameengine.h"
 	"gamestate.h"
+	"menustate.h"
+	"settingsmenustate.h"
+
+1665851202 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/shopstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"playstate.h"
+	"shopstate.h"
 
 1660623584 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/globals.cpp
 	"globals.h"
 
-1665792924 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1665836552 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<chrono>
 	<thread>
 	<cassert>
@@ -425,9 +428,9 @@
 	<random>
 	"texture_resource.h"
 
-1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
+1665844660 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/texture_resource.h
 
-1661092986 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/items/item.h
+1665832802 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/items/item.h
 	"randomizer.h"
 
 1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells/spell.h
@@ -516,7 +519,7 @@
 	<functional>
 	<ctime>
 
-1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/sound_resource.h
+1665833040 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/sound_resource.h
 
 1660554167 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/spells.h
 	"../include/spells/bless.h"
@@ -648,7 +651,7 @@
 	<regex>
 	"common.h"
 
-1660623583 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/views/battle_view.h
+1665833376 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/views/battle_view.h
 	<iostream>
 	<string>
 	<vector>
@@ -664,17 +667,4 @@
 
 1660623584 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/randomizer.cpp
 	"randomizer.h"
-
-1665792488 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
-	<stdio.h>
-	<SDL2/SDL.h>
-	"gamestate.h"
-	"gameengine.h"
-	"playstate.h"
-	"menustate.h"
-	"battlestate.h"
-	"characterstate.h"
-	"shopstate.h"
-	"encampmentstate.h"
-	"inventorystate.h"
 

@@ -207,7 +207,7 @@ void battleView()
         initBattle();
         initBattleFlag = 1;
         turns = 0;
-        gPunch = Mix_LoadWAV( "data/sfx/Punch.wav" );
+        gPunch = Mix_LoadWAV( "assets/data/sounds/Punch.wav" );
         npc_active = 0;
         turnActive = false;
         playerCharacter[0].generateInitiative();

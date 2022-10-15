@@ -3,6 +3,7 @@
 #include "gameengine.h"
 #include "gamestate.h"
 #include "menustate.h"
+#include "playstate.h"
 #include "shopstate.h"
 
 CShopState CShopState::m_ShopState;
@@ -54,7 +55,7 @@ void CShopState::HandleEvents(CGameEngine* game)
 			case SDL_KEYDOWN:
 				switch (game->event.key.keysym.sym) {
 					case SDLK_ESCAPE:
-						game->PopState();
+						game->ChangeState( CPlayState::Instance() );
 						break;
                     case SDLK_UP:
                         {

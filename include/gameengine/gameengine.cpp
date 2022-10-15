@@ -45,6 +45,17 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/menus/menu_backdrop.png", LoadTexture("./images/menus/menu_backdrop.png",255) ));
 
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Punch.wav", Mix_LoadWAV("./assets/data/sounds/Punch.wav") ));
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Pain.wav", Mix_LoadWAV("./assets/data/sounds/Pain.wav") ));
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Hit.wav", Mix_LoadWAV("./assets/data/sounds/Hit.wav") ));
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/153_Secret_Garden.ogg", Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg") ));
+
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3") ));
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3") ));
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3") ));
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3") ));
+    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3") ));
+
     g_myglobal = 10;
 
 	int flags = 0;
@@ -54,7 +65,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
     {
         SDL_Log("Unable to initialize SDL: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
-        exit(EXIT_FAILURE);
+        throw runtime_error("Unable to initialize SDL: " + string(SDL_GetError()));
     }
     else
     {
