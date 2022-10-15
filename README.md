@@ -1,4 +1,9 @@
 # FORBIDDEN LANDS
+
+## Using GNOME Keyring as Git Credential Helper
+https://blog.scottlowe.org/2016/11/21/gnome-keyring-git-credential-helper/
+https://stackoverflow.com/questions/13385690/how-to-use-git-with-gnome-keyring-integration
+
 ## Coding rules
 All locall developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
 merging development commits.
