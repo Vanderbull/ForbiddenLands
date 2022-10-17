@@ -72,24 +72,6 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);
     SDL_DestroyTexture(texture);
 
-    // Sweden
-    SDL_Rect Kustenstad{0,0,128,128};
-    SDL_Rect Vallentuna{256,0,128,128};
-    SDL_Rect Mora{512,0,128,128};
-    //Danmark
-    SDL_Rect Marlmo{0,256,128,128};
-    SDL_Rect Saeby{256,256,128,128};
-    SDL_Rect Odense{512,256,128,128};
-    SDL_Rect Zealfort{768,256,128,128};
-    //Norway
-    SDL_Rect Trollheim{0,512,128,128};
-    SDL_Rect Trondeland{256,512,128,128};
-    SDL_Rect Aerendal{512,512,128,128};
-    //Finland
-    SDL_Rect Kiiri{0,768,128,128};
-    SDL_Rect Kamilarvi{256,768,128,128};
-    SDL_Rect Muoni{512,768,128,128};
-
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
 
     // Sweden
@@ -113,14 +95,20 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
-    if( SDL_PointInRect(&mousePosition, &Kustenstad) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-        SDL_RenderFillRect(game->renderer, &Kustenstad);
+    InRect(mousePosition,Kustenstad, game,"Kustenstad");
+    InRect(mousePosition,Vallentuna, game,"Vallentuna");
+    InRect(mousePosition,Mora, game,"Mora");
+    InRect(mousePosition,Marlmo, game,"Marlmo");
+    InRect(mousePosition,Saeby, game,"Saeby");
+    InRect(mousePosition,Odense, game,"Odense");
+    InRect(mousePosition,Zealfort, game,"Zealfort");
+    InRect(mousePosition,Trollheim, game,"Trollheim");
+    InRect(mousePosition,Trondeland, game,"Trondeland");
+    InRect(mousePosition,Aerendal, game,"Aerendal");
+    InRect(mousePosition,Kiiri, game,"Kiiri");
+    InRect(mousePosition,Kamilarvi, game,"Kamilarvi");
+    InRect(mousePosition,Muoni, game,"Muoni");
 
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-            game->RenderText("KUSTENSTAD", White, Kustenstad.x, Kustenstad.y,48);
-        }
-    }
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 255);
+    SDL_RenderFillRect(game->renderer, &game->CurrentLocation);
 }

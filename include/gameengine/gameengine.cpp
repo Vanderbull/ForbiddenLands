@@ -33,28 +33,28 @@ SkillObject::SkillObject(std::string,char,int)
 
 void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
 {
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/north.png", LoadTexture("./images/compass/north.png",255) ));
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/south.png", LoadTexture("./images/compass/south.png",255) ));
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/west.png", LoadTexture("./images/compass/west.png",255) ));
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/east.png", LoadTexture("./images/compass/east.png",255) ));
-
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp0.png", LoadTexture("./images/encamp/encamp0.png",255) ));
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp1.png", LoadTexture("./images/encamp/encamp1.png",255) ));
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp2.png", LoadTexture("./images/encamp/encamp2.png",255) ));
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp3.png", LoadTexture("./images/encamp/encamp3.png",255) ));
-
-    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/menus/menu_backdrop.png", LoadTexture("./images/menus/menu_backdrop.png",255) ));
-
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Punch.wav", Mix_LoadWAV("./assets/data/sounds/Punch.wav") ));
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Pain.wav", Mix_LoadWAV("./assets/data/sounds/Pain.wav") ));
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Hit.wav", Mix_LoadWAV("./assets/data/sounds/Hit.wav") ));
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/153_Secret_Garden.ogg", Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg") ));
-
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3") ));
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3") ));
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3") ));
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3") ));
-    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3") ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/north.png", LoadTexture("./images/compass/north.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/south.png", LoadTexture("./images/compass/south.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/west.png", LoadTexture("./images/compass/west.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/east.png", LoadTexture("./images/compass/east.png",255) ));
+//
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp0.png", LoadTexture("./images/encamp/encamp0.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp1.png", LoadTexture("./images/encamp/encamp1.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp2.png", LoadTexture("./images/encamp/encamp2.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp3.png", LoadTexture("./images/encamp/encamp3.png",255) ));
+//
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/menus/menu_backdrop.png", LoadTexture("./images/menus/menu_backdrop.png",255) ));
+//
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Punch.wav", Mix_LoadWAV("./assets/data/sounds/Punch.wav") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Pain.wav", Mix_LoadWAV("./assets/data/sounds/Pain.wav") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Hit.wav", Mix_LoadWAV("./assets/data/sounds/Hit.wav") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/153_Secret_Garden.ogg", Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg") ));
+//
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3") ));
 
     g_myglobal = 10;
 
@@ -65,7 +65,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
     {
         SDL_Log("Unable to initialize SDL: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
-        throw runtime_error("Unable to initialize SDL: " + string(SDL_GetError()));
+        //throw runtime_error("Unable to initialize SDL: " + string(SDL_GetError()));
     }
     else
     {
@@ -75,7 +75,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     if(!TTF_WasInit() && TTF_Init()==-1)
     {
         SDL_Log("TTF_Init: %s %s %d", TTF_GetError(), __FILE__, __LINE__);
-        exit(EXIT_FAILURE);
+        //exit(EXIT_FAILURE);
     }
     else
     {
@@ -168,8 +168,6 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
-	m_fullscreen = fullscreen;
-	m_running = true;
 	SDL_Log("Loading items... %s %d", __FILE__, __LINE__);
 	AddItem();
 	SDL_Log("Loading skills... %w %d", __FILE__, __LINE__);
@@ -194,6 +192,9 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         SDL_Log("TTF_OpenFont: %s %s %d",TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
+
+	m_fullscreen = fullscreen;
+	m_running = true;
 }
 
 void CGameEngine::Cleanup()

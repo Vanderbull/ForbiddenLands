@@ -27,6 +27,9 @@ void CMenuState::Init()
 void CMenuState::Cleanup()
 {
 	SDL_Log("CMenuState Cleanup\n");
+//    //Destroy resources
+//    SDL_FreeSurface(gSurface);
+//    SDL_DestroyTexture(gTexture);
 }
 
 void CMenuState::Pause()
@@ -61,7 +64,7 @@ void CMenuState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
-						game->PopState();
+						game->Quit();
 						break;
 				} break;
 		}
@@ -169,7 +172,7 @@ void CMenuState::Draw(CGameEngine* game)
                 if( MenuChoice == "SETTINGS")
                     game->ChangeState( CSettingsMenuState::Instance() );
                 if( MenuChoice == "EXIT")
-                    game->PopState();
+                    game->Quit();
             }
         }
         ++Repeat;

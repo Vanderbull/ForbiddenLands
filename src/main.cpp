@@ -398,89 +398,91 @@ int main(int argc, char ** argv)
     SDL_LogSetOutputFunction(&LogSDL, NULL);
     SDL_Log("./logs/GameEngineLOG.txt file opened: Success");
 
-    int staticAbility = 24;
-    int abilityModifier = 0;
-    int level = 1;
-    int ToughnessMod = 5;
-    int IntelligenceMod = 5;
-
-    SDL_Log("Calculating Knight HP: %d @ level = %d", 40 + (5 * ToughnessMod) + (6 * level),level);
-
-    int amount_hp = GenerateNumber(1, (ToughnessMod / 2) );
-    int amount_sp = GenerateNumber(1, (IntelligenceMod / 2) );
-    for( int i= 5; i < 42; i++)
-    {
-        staticAbility = i;
-        abilityModifier = floor((staticAbility - 20) / 2);
-
-        SDL_Log("%d = abilityModifier: %d",staticAbility,abilityModifier);
-    }
-
-    std::thread worker(DoWork);
+//    int staticAbility = 24;
+//    int abilityModifier = 0;
+//    int level = 1;
+//    int ToughnessMod = 5;
+//    int IntelligenceMod = 5;
+//
+//    SDL_Log("Calculating Knight HP: %d @ level = %d", 40 + (5 * ToughnessMod) + (6 * level),level);
+//
+//    int amount_hp = GenerateNumber(1, (ToughnessMod / 2) );
+//    int amount_sp = GenerateNumber(1, (IntelligenceMod / 2) );
+//    for( int i= 5; i < 42; i++)
+//    {
+//        staticAbility = i;
+//        abilityModifier = floor((staticAbility - 20) / 2);
+//
+//        SDL_Log("%d = abilityModifier: %d",staticAbility,abilityModifier);
+//    }
+//
+//    std::thread worker(DoWork);
 
     game.Init("A Viking Saga",1920,1080,32,true);
 
-    game.ChangeState( CIntroState::Instance() );
+    //game.ChangeState( CIntroState::Instance() );
 
-    int opt = TRUE;
-    int master_socket , addrlen , new_socket , client_socket[30] ,
-          max_clients = 30 , activity, i , valread , sd;
-    int max_sd;
-    struct sockaddr_in address;
+    game.ChangeState( CMenuState::Instance() );
 
-    char buffer[1025];  //data buffer of 1K
-
-    //set of socket descriptors
-    fd_set readfds;
-
-    //a message
-    char *message = "ECHO Daemon v1.0 \r\n";
-
-    //initialise all client_socket[] to 0 so not checked
-    for (i = 0; i < max_clients; i++)
-    {
-        client_socket[i] = 0;
-    }
-
-    //create a master socket
-    if( (master_socket = socket(AF_INET , SOCK_STREAM , 0)) == 0)
-    {
-        perror("socket failed");
-        exit(EXIT_FAILURE);
-    }
-
-    //set master socket to allow multiple connections ,
-    //this is just a good habit, it will work without this
-    if( setsockopt(master_socket, SOL_SOCKET, SO_REUSEADDR, (char *)&opt,
-          sizeof(opt)) < 0 )
-    {
-        perror("setsockopt");
-        exit(EXIT_FAILURE);
-    }
-
-    //type of socket created
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons( PORT );
-
-    //bind the socket to localhost port 8888
-    if (bind(master_socket, (struct sockaddr *)&address, sizeof(address))<0)
-    {
-        perror("bind failed");
-        exit(EXIT_FAILURE);
-    }
-    printf("Listener on port %d \n", PORT);
-
-    //try to specify maximum of 3 pending connections for the master socket
-    if (listen(master_socket, 3) < 0)
-    {
-        perror("listen");
-        exit(EXIT_FAILURE);
-    }
-
-    //accept the incoming connection
-    addrlen = sizeof(address);
-    puts("Waiting for connections ...");
+//    int opt = TRUE;
+//    int master_socket , addrlen , new_socket , client_socket[30] ,
+//          max_clients = 30 , activity, i , valread , sd;
+//    int max_sd;
+//    struct sockaddr_in address;
+//
+//    char buffer[1025];  //data buffer of 1K
+//
+//    //set of socket descriptors
+//    fd_set readfds;
+//
+//    //a message
+//    char *message = "ECHO Daemon v1.0 \r\n";
+//
+//    //initialise all client_socket[] to 0 so not checked
+//    for (i = 0; i < max_clients; i++)
+//    {
+//        client_socket[i] = 0;
+//    }
+//
+//    //create a master socket
+//    if( (master_socket = socket(AF_INET , SOCK_STREAM , 0)) == 0)
+//    {
+//        perror("socket failed");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    //set master socket to allow multiple connections ,
+//    //this is just a good habit, it will work without this
+//    if( setsockopt(master_socket, SOL_SOCKET, SO_REUSEADDR, (char *)&opt,
+//          sizeof(opt)) < 0 )
+//    {
+//        perror("setsockopt");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    //type of socket created
+//    address.sin_family = AF_INET;
+//    address.sin_addr.s_addr = INADDR_ANY;
+//    address.sin_port = htons( PORT );
+//
+//    //bind the socket to localhost port 8888
+//    if (bind(master_socket, (struct sockaddr *)&address, sizeof(address))<0)
+//    {
+//        perror("bind failed");
+//        exit(EXIT_FAILURE);
+//    }
+//    printf("Listener on port %d \n", PORT);
+//
+//    //try to specify maximum of 3 pending connections for the master socket
+//    if (listen(master_socket, 3) < 0)
+//    {
+//        perror("listen");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    //accept the incoming connection
+//    addrlen = sizeof(address);
+//    puts("Waiting for connections ...");
 
 //    for(int i = 0; i < argc; i++)
 //    {
@@ -627,84 +629,86 @@ int main(int argc, char ** argv)
 
     srand (time(NULL));
 
-    std::vector<std::string> fontFiles;
-    std::vector<std::string> imagesFiles;
-    std::vector<std::string> dataFiles;
-    std::vector<std::string> logsFiles;
+//    std::vector<std::string> fontFiles;
+//    std::vector<std::string> imagesFiles;
+//    std::vector<std::string> dataFiles;
+//    std::vector<std::string> logsFiles;
+//
+//    read_directory("./font", fontFiles);
+//    read_directory("./images", imagesFiles);
+//    read_directory("./data", dataFiles);
+//    read_directory("./logs", logsFiles);
+//
+//    int fw,fh;
+//
+//    if (!GetCurrentDir(cCurrentPath, sizeof(cCurrentPath)))
+//    {
+//        SDL_Log("GetCurrentDirectory failed: %s", errno);
+//        return errno;
+//    }
+//    else
+//    {
+//        cCurrentPath[sizeof(cCurrentPath) - 1] = '\0';
+//        SDL_Log("The current working directory is %s", cCurrentPath);
+//    }
 
-    read_directory("./font", fontFiles);
-    read_directory("./images", imagesFiles);
-    read_directory("./data", dataFiles);
-    read_directory("./logs", logsFiles);
+//    countFiles("./data");
+//
+//    initFileSystem();
+//
+//    initGame();
+//
+//    initQuests();
+//
+//    init_portals("./data/maps/phlan/phlan_portals");
+//    init_portals("./data/maps/slums/slums_portals");
+//    init_portals("./data/maps/khutos_well/khutos_well_portals");
+//    init_portals("./data/maps/podal_plaza/podal_plaza_portals");
+//    init_portals("./data/maps/cardona_textile_house/cardona_textile_house_portals");
+//    init_portals("./data/maps/kovel_mansion/kovel_mansion_portals");
+//    init_portals("./data/maps/mendors_library/mendors_library_portals");
+//    init_portals("./data/maps/sokol_keep/sokol_keep_portals");
+//    init_portals("./data/maps/stojanov_gate/stojanov_gate_portals");
+//    init_portals("./data/maps/vahlingen_graveyard/vahlingen_graveyard_portals");
+//    init_portals("./data/maps/valjevo_castle/valjevo_castle_portals");
+//    init_portals("./data/maps/wealthy_area/wealthy_area_portals");
+//
+//    loadPortals();
+//
+//    std::chrono::system_clock::time_point timeNow = std::chrono::system_clock::now();
 
-    int fw,fh;
-
-    if (!GetCurrentDir(cCurrentPath, sizeof(cCurrentPath)))
-    {
-        SDL_Log("GetCurrentDirectory failed: %s", errno);
-        return errno;
-    }
-    else
-    {
-        cCurrentPath[sizeof(cCurrentPath) - 1] = '\0';
-        SDL_Log("The current working directory is %s", cCurrentPath);
-    }
-
-    countFiles("./data");
-
-    initFileSystem();
-
-    initGame();
-
-    initQuests();
-
-    init_portals("./data/maps/phlan/phlan_portals");
-    init_portals("./data/maps/slums/slums_portals");
-    init_portals("./data/maps/khutos_well/khutos_well_portals");
-    init_portals("./data/maps/podal_plaza/podal_plaza_portals");
-    init_portals("./data/maps/cardona_textile_house/cardona_textile_house_portals");
-    init_portals("./data/maps/kovel_mansion/kovel_mansion_portals");
-    init_portals("./data/maps/mendors_library/mendors_library_portals");
-    init_portals("./data/maps/sokol_keep/sokol_keep_portals");
-    init_portals("./data/maps/stojanov_gate/stojanov_gate_portals");
-    init_portals("./data/maps/vahlingen_graveyard/vahlingen_graveyard_portals");
-    init_portals("./data/maps/valjevo_castle/valjevo_castle_portals");
-    init_portals("./data/maps/wealthy_area/wealthy_area_portals");
-
-    loadPortals();
-
-    std::chrono::system_clock::time_point timeNow = std::chrono::system_clock::now();
-
-    loadItemIcons();
-    initShop();
-    generateSmithShopItems();
-    playerCharacter[0].loadCharacterFace();
-    playerCharacter[1].loadCharacterFace();
-    playerCharacter[2].loadCharacterFace();
-    playerCharacter[3].loadCharacterFace();
-    playerCharacter[4].loadCharacterFace();
-    playerCharacter[5].loadCharacterFace();
-
-    loadPCstatusData();
+//    loadItemIcons();
+//    initShop();
+//    generateSmithShopItems();
+//    playerCharacter[0].loadCharacterFace();
+//    playerCharacter[1].loadCharacterFace();
+//    playerCharacter[2].loadCharacterFace();
+//    playerCharacter[3].loadCharacterFace();
+//    playerCharacter[4].loadCharacterFace();
+//    playerCharacter[5].loadCharacterFace();
+//
+//    loadPCstatusData();
     //loadMapTextures();
-    MainMenuLoadBackground("./images/menus/menu_backdrop.png");
-    initGameTitleFont("./font/droid-sans-mono/DroidSansMono.ttf", 160);
-    initGameBreadTextFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    //MainMenuLoadBackground("./images/menus/menu_backdrop.png");
+    //initGameTitleFont("./font/droid-sans-mono/DroidSansMono.ttf", 160);
+    //initGameBreadTextFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    //exit(0);
+    //testInit();
 
-    testInit();
+    //std::cout << "Loading finished" << std::endl;
 
-    std::cout << "Loading finished" << std::endl;
-
-    struct timeval tv;
+    //struct timeval tv;
        /* Wait up to five seconds. */
-    tv.tv_sec = 5;
-    tv.tv_usec = 0;
+    //tv.tv_sec = 5;
+    //tv.tv_usec = 0;
 
-    SDL_Surface *surface = IMG_Load("./icons/cursor_1.png");
-    SDL_Cursor *cursor = SDL_CreateColorCursor(surface,72,20);
-    SDL_SetCursor(cursor);
+    //SDL_Surface *surface = IMG_Load("./icons/cursor_1.png");
+    //SDL_Cursor *cursor = SDL_CreateColorCursor(surface,72,20);
+    //SDL_SetCursor(cursor);
 
-    while (!quit)
+
+    //while (!quit)
+    while( game.Running() )
     {
 //        //clear the socket set
 //        FD_ZERO(&readfds);
@@ -819,12 +823,12 @@ int main(int argc, char ** argv)
 
         //SDL_RenderPresent(game.renderer);
 
-        start = high_resolution_clock::now();
+        //start = high_resolution_clock::now();
 
         SDL_RenderPresent(game.renderer);
 
-        stop = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(stop - start);
+        //stop = high_resolution_clock::now();
+        //auto duration = duration_cast<microseconds>(stop - start);
 
         //m_uPreviousMouseState=m_uCurrentMouseState;
         //mouseUpdate();
@@ -1129,9 +1133,9 @@ int main(int argc, char ** argv)
        //SDL_Delay(50);
     }
 
-    SDL_DestroyTexture(currentViewTexture);
-    SDL_DestroyTexture(backgroundTexture);
-    unloadPCstatusData();
+    //SDL_DestroyTexture(currentViewTexture);
+    //SDL_DestroyTexture(backgroundTexture);
+    //unloadPCstatusData();
 
     return 0;
 }

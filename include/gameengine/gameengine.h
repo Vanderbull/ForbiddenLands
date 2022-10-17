@@ -560,6 +560,8 @@ public:
     }
 
     std::vector<std::string> imagesFiles;
+
+    SDL_Rect CurrentLocation{0,0,128,128};
 private:
 	// the stack of states
 	vector<CGameState*> states;

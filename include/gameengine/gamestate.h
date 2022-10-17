@@ -148,6 +148,10 @@ protected:
 
     portal2 phlan_portal_2[16][16];
 
+    portal kustenstad[16][16];
+    portal vallentuna[16][16];
+    portal mora[16][16];
+
     portal phlan_portals[16][16];
     portal slums_portals[16][16];
     portal khutos_well_portals[16][16];
@@ -180,7 +184,7 @@ protected:
 
         if(!dataFile)
         {
-            cerr << "Error: init_portals(): file could not be opened" << _dataFilePath << endl;
+            SDL_Log("Error: init_portals(): file could not be opened %s",_dataFilePath);
             exit(EXIT_FAILURE);
         }
 
@@ -210,7 +214,7 @@ protected:
 
         if(!dataFile)
         {
-            cerr << "Error: init_portals(): file could not be opened" << _dataFilePath << endl;
+            SDL_Log("Error: init_portals(): file could not be opened %s",_dataFilePath);
             exit(EXIT_FAILURE);
         }
 
@@ -218,59 +222,23 @@ protected:
         {
             dataFile >> x >> y >> west >> east >> south >> north >> west_map >> east_map >> south_map >> north_map >> warp_x >> warp_y >> description;
 
-            if( _dataFilePath == "./data/maps/phlan/phlan_portals" )
+            if( _dataFilePath == "./assets/data/maps/kustenstad/kustenstad_portals" )
             {
-                phlan_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+                kustenstad[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
                 phlan_portal_2[x][y].setup(directions,directions_map,warp,description.c_str());
             }
-            else if( _dataFilePath == "./data/maps/slums/slums_portals" )
+            else if( _dataFilePath == "./assets/data/maps/vallentuna/vallentuna_portals" )
             {
-                slums_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+                vallentuna[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
             }
-            else if( _dataFilePath == "./data/maps/khutos_well/khutos_well_portals" )
+            else if( _dataFilePath == "./assets/data/maps/mora/mora_portals" )
             {
-                khutos_well_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/podal_plaza/podal_plaza_portals" )
-            {
-                podal_plaza_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/cardona_textile_house/cardona_textile_house_portals" )
-            {
-                cardona_textile_house_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/kovel_mansion/kovel_mansion_portals" )
-            {
-                kovel_mansion_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/mendors_library/mendors_library_portals" )
-            {
-                mendors_library_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/sokol_keep/sokol_keep_portals" )
-            {
-                sokol_keep_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/stojanov_gate/stojanov_gate_portals" )
-            {
-                stojanov_gate_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/vahlingen_graveyard/vahlingen_graveyard_portals" )
-            {
-                vahlingen_graveyard_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/valjevo_castle/valjevo_castle_portals" )
-            {
-                valjevo_castle_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
-            }
-            else if( _dataFilePath == "./data/maps/wealthy_area/wealthy_area_portals" )
-            {
-                wealthy_area_portals[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
+                mora[x][y].setup(west,east,south,north,west_map.c_str(),east_map.c_str(),north_map.c_str(),south_map.c_str(),warp_x,warp_y, description.c_str());
             }
             else
             {
-                std::cout << "Error loading map data: " << _dataFilePath << std::endl;
-                exit(19);
+                SDL_Log("Error loading map data: %s", _dataFilePath);
+                exit(EXIT_FAILURE);
             }
         }
         while(!dataFile.eof());
@@ -278,39 +246,32 @@ protected:
         dataFile.close();
     };
 
-    std::string mapActive = "nidaros";
+    std::string mapActive = "Kustenstad";
 
     void loadPortals()
     {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading portals\n");
 
-        if( mapActive == "nidaros")
+        if( mapActive == "Kustenstad")
         {
-            init_portals("./data/maps/phlan/phlan_portals");
+            init_portals("./assets/data/maps/kustenstad/kustenstad_portals");
             for( int y = 0; y < 16; y++)
                 for( int x = 0; x < 16; x++)
-                    save_portals[x][y].setupStruct(phlan_portals[x][y]);
+                    save_portals[x][y].setupStruct(kustenstad[x][y]);
         }
-        if( mapActive == "uppsala")
+        if( mapActive == "Vallentuna")
         {
-            init_portals("./data/maps/slums/slums_portals");
+            init_portals("./assets/data/maps/vallentuna/vallentuna_portals");
             for( int y = 0; y < 16; y++)
                 for( int x = 0; x < 16; x++)
-                     save_portals[x][y].setupStruct(slums_portals[x][y]);
+                     save_portals[x][y].setupStruct(vallentuna[x][y]);
         }
-        if( mapActive == "haithabu")
+        if( mapActive == "Mora")
         {
-            init_portals("./data/maps/khutos_well/khutos_well_portals");
+            init_portals("./assets/data/maps/mora/mora_portals");
             for( int y = 0; y < 16; y++)
                 for( int x = 0; x < 16; x++)
-                    save_portals[x][y].setupStruct(khutos_well_portals[x][y]);
-        }
-        if( mapActive == "birka")
-        {
-            init_portals("./data/maps/podal_plaza/podal_plaza_portals");
-            for( int y = 0; y < 16; y++)
-                for( int x = 0; x < 16; x++)
-                    save_portals[x][y].setupStruct(podal_plaza_portals[x][y]);
+                    save_portals[x][y].setupStruct(mora[x][y]);
         }
     };
     int OFFSET = 50;
