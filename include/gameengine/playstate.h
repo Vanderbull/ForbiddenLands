@@ -55,11 +55,11 @@ public:
 
     void renderDaytime(CGameEngine* game)
     {
-        SDL_Rect dayTimeBox = {game->current.w - 1150,25,50,50};
-        game->RenderText("Season: 0", White, game->current.w - 1050,100,24);
-        game->RenderText("Temperature: 0", White, game->current.w - 1050,124,24);
-        game->RenderText("currentTime: 0",White, game->current.w - 1050, 170,24);
-        game->RenderText("currentDay: 0",White, game->current.w - 1050, 190,24);
+        SDL_Rect dayTimeBox = {game->current.w - 1150,25,500,500};
+        game->RenderText("Season: ", White, game->current.w - 1050,100,24);
+        game->RenderText("Temperature: ", White, game->current.w - 1050,124,24);
+        game->RenderText("currentTime: ",White, game->current.w - 1050, 170,24);
+        game->RenderText("currentDay: ",White, game->current.w - 1050, 190,24);
     }
 
     void renderCompass(CGameEngine* game)

@@ -26,22 +26,6 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
-    SDL_Rect InRect(SDL_Point inPoint, SDL_Rect inRect, CGameEngine* game, std::string inText)
-    {
-        if( SDL_PointInRect(&inPoint, &inRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-        {
-            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
-            SDL_RenderFillRect(game->renderer, &inRect);
-            game->RenderText(inText.c_str(), game->Black, inRect.x, inRect.y,48);
-
-            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-            {
-                game->CurrentLocation = inRect;
-                return inRect;
-            }
-        }
-    }
-
 protected:
 	CWorldMapState() { }
 

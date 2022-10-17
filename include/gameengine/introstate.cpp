@@ -163,7 +163,7 @@ void CIntroState::Draw(CGameEngine* game)
 
     std::string load_location = "";
     load_location = imagesFiles.front();
-    game->mapTextureFile[x][y][z] = load_location;
+    //game->mapTextureFile[x][y][z] = load_location;
     game->mapTexture[x][y][z] = IMG_LoadTexture(game->renderer,load_location.c_str());
     imagesFiles.erase(imagesFiles.begin());
 

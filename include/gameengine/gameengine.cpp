@@ -193,6 +193,13 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         exit(EXIT_FAILURE);
     }
 
+    North = LoadTexture("./assets/data/textures/compass/north.png",255);
+    if( North == NULL)
+        exit(99);
+    West = LoadTexture("./images/compass/west.png",255);
+    South = LoadTexture("./images/compass/south.png",255);
+    East = LoadTexture("./images/compass/east.png",255);
+
 	m_fullscreen = fullscreen;
 	m_running = true;
 }
@@ -416,6 +423,9 @@ int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue,
 SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 {
 	SDL_Texture* texture = IMG_LoadTexture(renderer, str.c_str() );
+	std:cout << str.c_str();
+	if( texture == NULL)
+        exit(88);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod( texture, alpha );
 	return texture;

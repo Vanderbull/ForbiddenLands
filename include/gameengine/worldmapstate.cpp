@@ -57,27 +57,28 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 void CWorldMapState::Update(CGameEngine* game)
 {
     SDL_Log("CWorldMapState Update");
+    ///--- Store the current information to the previous
+    m_iPreviousCoordX=m_iCurrentCoordX;
+    m_iPreviousCoordY=m_iCurrentCoordY;
+    m_uPreviousMouseState=m_uCurrentMouseState;
+
+    ///--- Update the current state of the mouse
+    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
+
+    ///--- Set the wheel back to 0
+    m_iWheelX=0;
+    m_iWheelY=0;
 }
 
 void CWorldMapState::Draw(CGameEngine* game)
 {
     SDL_Log("CWorldMapState Draw");
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
+    SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 255 );
 
     SDL_RenderClear(game->renderer);
 
-	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/jordenheim.jpg",255);
-    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_SetTextureAlphaMod( texture, 255 );
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_DestroyTexture(texture);
+    SDL_SetRenderDrawColor(game->renderer, 0, 255, 255, 128);
 
-    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-
-    // Sweden
-    SDL_RenderFillRect(game->renderer, &Kustenstad);
-    SDL_RenderFillRect(game->renderer, &Vallentuna);
-    SDL_RenderFillRect(game->renderer, &Mora);
     //Danmark
     SDL_RenderFillRect(game->renderer, &Marlmo);
     SDL_RenderFillRect(game->renderer, &Saeby);
@@ -95,20 +96,57 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
-    InRect(mousePosition,Kustenstad, game,"Kustenstad");
-    InRect(mousePosition,Vallentuna, game,"Vallentuna");
-    InRect(mousePosition,Mora, game,"Mora");
-    InRect(mousePosition,Marlmo, game,"Marlmo");
-    InRect(mousePosition,Saeby, game,"Saeby");
-    InRect(mousePosition,Odense, game,"Odense");
-    InRect(mousePosition,Zealfort, game,"Zealfort");
-    InRect(mousePosition,Trollheim, game,"Trollheim");
-    InRect(mousePosition,Trondeland, game,"Trondeland");
-    InRect(mousePosition,Aerendal, game,"Aerendal");
-    InRect(mousePosition,Kiiri, game,"Kiiri");
-    InRect(mousePosition,Kamilarvi, game,"Kamilarvi");
-    InRect(mousePosition,Muoni, game,"Muoni");
+    if( SDL_PointInRect(&mousePosition, &Kustenstad) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
 
-    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 255);
-    SDL_RenderFillRect(game->renderer, &game->CurrentLocation);
+        // Sweden
+        SDL_RenderFillRect(game->renderer, &Kustenstad);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+        }
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+
+        // Sweden
+        SDL_RenderFillRect(game->renderer, &Kustenstad);
+    }
+
+    if( SDL_PointInRect(&mousePosition, &Vallentuna) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
+
+        // Sweden
+        SDL_RenderFillRect(game->renderer, &Vallentuna);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+        }
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+
+        // Sweden
+        SDL_RenderFillRect(game->renderer, &Vallentuna);
+    }
+
+    if( SDL_PointInRect(&mousePosition, &Mora) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
+
+        // Sweden
+        SDL_RenderFillRect(game->renderer, &Mora);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+        }
+    }
+    else
+    {
+        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+
+        // Sweden
+        SDL_RenderFillRect(game->renderer, &Mora);
+    }
 }

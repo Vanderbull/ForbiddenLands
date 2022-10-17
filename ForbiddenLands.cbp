@@ -27,10 +27,13 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-pg" />
+					<Add option="-Og" />
 					<Add option="-g" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
+					<Add option="-pg" />
 					<Add option="-lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer" />
 					<Add option="-no-pie -pthread -lstdc++fs -lsqlite3" />
 				</Linker>
@@ -60,14 +63,12 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		</Build>
 		<Compiler>
 			<Add option="-w" />
-			<Add option="-pg" />
 			<Add option="-std=gnu++17" />
 			<Add option="-std=c++20" />
 			<Add option="-std=gnu++20" />
 			<Add directory="../../../../../usr/include/SDL2" />
 		</Compiler>
 		<Linker>
-			<Add option="-pg" />
 			<Add option="-lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net" />
 			<Add directory="../../../../../usr/include/SDL2" />
 			<Add directory="/usr/include" />

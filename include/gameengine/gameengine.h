@@ -262,7 +262,7 @@ public:
 
     // Make these a blob
     SDL_Texture* mapTexture[16][16][4];
-    std::string mapTextureFile[16][16][4];
+    //std::string mapTextureFile[16][16][4];
 
     SDL_Texture* MainMenuBackgroundTexture;
 
