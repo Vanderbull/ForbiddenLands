@@ -129,10 +129,17 @@ void CShopState::Update(CGameEngine* game)
     }
 }
 
+// Return true if the string is 3 characters or less.
+bool is_short_str(string str)
+{
+   if(str.size() <= 3) return true;
+   return false;
+}
+
 void CShopState::Draw(CGameEngine* game)
 {
     SDL_Log("CShopState Draw");
-    static int player_coins = 30;
+    SActor.coins_gold = 30;
     static int shop_coins = 10;
 
     SDL_Point mousePosition;
@@ -148,30 +155,32 @@ void CShopState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
-    SDL_Texture* backgroundTexture = game->LoadTexture("./images/shops/shop3.jpg",255);
-    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, NULL);
-    SDL_DestroyTexture(backgroundTexture);
+//    SDL_Texture* backgroundTexture = game->LoadTexture("./images/shops/shop3.jpg",255);
+//    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, NULL);
+//    SDL_DestroyTexture(backgroundTexture);
+//
+//    SDL_Texture* backgroundTexture = game->LoadTexture("./images/ui/inventory.png",255);
+//    int texW = 0;
+//    int texH = 0;
+//    SDL_QueryTexture(backgroundTexture, NULL, NULL, &texW, &texH);
+//    SDL_Rect InventoryPosition = {0, 0, texW, texH};
+//
+//    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, &InventoryPosition);
+//
+//    SDL_DestroyTexture(backgroundTexture);
+//
+//    backgroundTexture = game->LoadTexture("./images/ui/inventory.png",255);
+//    SDL_QueryTexture(backgroundTexture, NULL, NULL, &texW, &texH);
+//    InventoryPosition = {0, texH + 64, texW, texH};
+//
+//    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, &InventoryPosition);
+//
+//    SDL_DestroyTexture(backgroundTexture);
 
-    backgroundTexture = game->LoadTexture("./images/ui/inventory.png",255);
-    int texW = 0;
-    int texH = 0;
-    SDL_QueryTexture(backgroundTexture, NULL, NULL, &texW, &texH);
-    SDL_Rect InventoryPosition = {0, 0, texW, texH};
-
-    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, &InventoryPosition);
-
-    SDL_DestroyTexture(backgroundTexture);
-
-    backgroundTexture = game->LoadTexture("./images/ui/inventory.png",255);
-    SDL_QueryTexture(backgroundTexture, NULL, NULL, &texW, &texH);
-    InventoryPosition = {0, texH + 64, texW, texH};
-
-    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, &InventoryPosition);
-
-    SDL_DestroyTexture(backgroundTexture);
-
-    game->RenderText("GENERAL SHOP", White, game->current.w - 400, 20,48);
-    game->RenderText(std::to_string(game->v_ItemNames.size()).c_str(), White, game->current.w - 400, 60,48);
+    //game->RenderText("GENERAL SHOP", White, game->current.w - 400, 20,48);
+    //game->RenderText(std::to_string(game->v_ItemNames.size()).c_str(), White, game->current.w - 400, 60,48);
+    game->RenderText(std::to_string(shop_coins).c_str(), White, game->current.w - 40, 20,24);
+    game->RenderText(std::to_string(SActor.coins_gold).c_str(), White, game->current.w - 40, 40,24);
 
     // Skills ////////////////////////////
     int counter = 0;
@@ -182,12 +191,32 @@ void CShopState::Draw(CGameEngine* game)
     int x_counter = 0;
     int y_counter = 0;
 
-    SDL_Texture* iconImage = game->LoadTexture("./images/shield.png",255);
-    //game->v_ItemNamesShop.clear();
+    SDL_Texture* iconImage = game->LoadTexture("./assets/data/textures/shield.png",255);
+    SDL_Texture* iconImage2 = game->LoadTexture("./assets/data/textures/shield.jpg",255);
+
+//    vector<string>::iterator itr;
+//    cout << "Searching for \"NONE\"\n";
+//    itr = find(game->v_ItemNames.begin(), game->v_ItemNames.end(), "NONE");
+//    if(itr != game->v_ItemNames.end()) {
+//      cout << "Found \"NONE\", Replacing with \"NONE\"\n";
+//      *itr = "NONE";
+//      game->v_ItemNames.erase(itr);
+//    }
+//
+//   cout << endl;
+//   // Find all strings that are less than 4 characters long.
+//   cout << "Searching for all strings that have 3 or fewer characters.\n";
+//   itr = game->v_ItemNames.begin();
+//   do {
+//      itr = find_if(itr, game->v_ItemNames.end(), is_short_str);
+//      if(itr != game->v_ItemNames.end()) {
+//         cout << "Found " << *itr << endl;
+//         ++itr;
+//      }
+//   } while(itr != game->v_ItemNames.end());
+
     for (std::string textElement : game->v_ItemNames)
     {
-
-        //game->v_ItemNamesShop.push_back("NONE");
         SDL_Rect icon;
 
         icon.x = 64 * x_counter;
@@ -203,21 +232,18 @@ void CShopState::Draw(CGameEngine* game)
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
             SDL_RenderFillRect(game->renderer, &icon);
             game->RenderText2(textElement.c_str(),White,icon.x,icon.y,24);
-//
+
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                if( game->v_ItemNames.at(counter) != "NONE" && shop_coins > 0 )
+                if( game->v_ItemNames.at(counter) != "NONE" && SActor.coins_gold > 0 )
                 {
                     game->v_ItemNamesShop.push_back(game->v_ItemNames.at(counter).c_str());
                     game->v_ItemNames.at(counter) = "NONE";
-                    shop_coins--;
-                    player_coins++;
+                    shop_coins++;
+                    SActor.coins_gold--;
                 }
-                //SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-                //SDL_RenderFillRect(game->renderer, &icon);
             }
         }
-
 
         x_counter++;
         if( x_counter >= 20)
@@ -252,7 +278,7 @@ void CShopState::Draw(CGameEngine* game)
 //
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                if(game->v_ItemNamesShop.at(counter) != "NONE" && player_coins > 0)
+                if(game->v_ItemNamesShop.at(counter) != "NONE" && shop_coins > 0)
                 {
                     int search_index = 0;
                     for (std::string textElement : game->v_ItemNames)
@@ -261,8 +287,8 @@ void CShopState::Draw(CGameEngine* game)
                         {
                             game->v_ItemNames.at(search_index) = game->v_ItemNamesShop.at(counter);
                             game->v_ItemNamesShop.at(counter) = "NONE";
-                            shop_coins++;
-                            player_coins--;
+                            shop_coins--;
+                            SActor.coins_gold++;
                         }
                         search_index++;
                     }
@@ -279,8 +305,26 @@ void CShopState::Draw(CGameEngine* game)
         counter++;
     };
 
-    game->RenderText(std::to_string(player_coins).c_str(), White, game->current.w - 200, 0,24);
-    game->RenderText(std::to_string(shop_coins).c_str(), White, game->current.w - 200, 200,24);
+    vector<string>::iterator itr;
+    cout << "Searching for \"NONE\"\n";
+    if( !game->v_ItemNames.empty() )
+    itr = find(game->v_ItemNames.begin(), game->v_ItemNames.end(), "NONE");
+    if(itr != game->v_ItemNames.end()) {
+      cout << "Found \"NONE\", Replacing with \"NONE\"\n";
+      //*itr = "NONE";
+      game->v_ItemNames.erase(itr);
+      game->v_ItemNames.push_back("NONE");
+    }
+
+    cout << "Searching for \"NONE\"\n";
+    if( !game->v_ItemNamesShop.empty() )
+    itr = find(game->v_ItemNamesShop.begin(), game->v_ItemNamesShop.end(), "NONE");
+    if(itr != game->v_ItemNames.end()) {
+      cout << "Found \"NONE\", Replacing with \"NONE\"\n";
+      //*itr = "NONE";
+      game->v_ItemNamesShop.erase(itr);
+      game->v_ItemNamesShop.push_back("NONE");
+    }
 
     SDL_DestroyTexture(iconImage);
 }
