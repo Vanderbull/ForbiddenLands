@@ -21,6 +21,8 @@ merging development commits.
 
     message (closes GH-28)
 
+    Close #111
+
     Seems to not be working using gitfiend at least
 
 
