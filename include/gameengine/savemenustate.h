@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <dirent.h>
+#include <sstream>
+#include <iomanip>
 using namespace std;
 
 #include <SDL2/SDL.h>
@@ -38,33 +40,38 @@ public:
 
         // Convert now to tm struct for local timezone
         tm* localtm = localtime(&now);
-        cout << "The local date and time is: " << asctime(localtm) << endl;
+        SDL_Log("The local date and time is: %s",asctime(localtm) );
 
         // Convert now to tm struct for UTC
         tm* gmtm = gmtime(&now);
-        if (gmtm != NULL) {
-        cout << "The UTC date and time is: " << asctime(gmtm) << endl;
+        if (gmtm != NULL)
+        {
+            SDL_Log("The UTC date and time is: %s", asctime(gmtm) );
         }
-        else {
-        cerr << "Failed to get the UTC date and time" << endl;
-        //return EXIT_FAILURE;
+        else
+        {
+            SDL_Log("Failed to get the UTC date and time",saveFile);
         }
 
-        if( saveFile == "./data/savegames/new.dat")
+        if( saveFile == "./assets/data/savegames/new.dat")
         {
-            saveFile = saveFile + "-" + asctime(gmtm);
+            std::stringstream sstream;
+            sstream << std::put_time(gmtm, "%c");
+            saveFile += sstream.str();
             FILE *SaveGame;
             // open file for writing
             SaveGame = fopen (saveFile.c_str(), "w");
             if (SaveGame == NULL)
             {
-                fprintf(stderr, "\nError opened file\n");
+                SDL_Log("CIntroState error opening file %s\n",saveFile);
                 exit (1);
             }
-
-            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
-
-            fclose(SaveGame);
+            else
+            {
+                SDL_Log("CIntroState opening file %s\n",saveFile);
+                fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
+                fclose(SaveGame);
+            }
             Init();
         }
         else
@@ -74,8 +81,7 @@ public:
             SaveGame = fopen (saveFile.c_str(), "w");
             if (SaveGame == NULL)
             {
-                fprintf(stderr, "\nError opened file\n");
-                exit (1);
+                SDL_Log("Error opening file: %s", stderr );
             }
 
             fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
@@ -97,9 +103,6 @@ private:
 	int iX;
 	int iY;
 	SDL_Texture* MainMenuBackgroundTexture;
-	SDL_Color White = {255, 255, 255, 255};
-	TTF_Font* gameBreadTextFont = NULL;
-	TTF_Font* gameTitleFont = NULL;
     std::vector<std::string> MenuChoices;
 
     /// Information about the state of the mouse

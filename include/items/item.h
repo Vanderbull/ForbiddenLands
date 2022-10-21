@@ -142,27 +142,8 @@ std::vector<items> gameItems;
 
 void loadItemIcons()
 {
-  string line;
-  int counter = 0;
-  ifstream myfile ("soundbible.org");
-  if (myfile.is_open())
-  {
-    while ( getline (myfile,line) )
-    {
-        if (line.length() == 0 || line[0] == '#')
-        {
-        }
-        else
-        {
-            cout << line << '\n';
-            counter++;
-        }
-    }
-    myfile.close();
-  }
-  else
-    throw runtime_error("File Not Found!");
-
+    string line;
+    int counter = 0;
 
     gameItems.push_back(weapon("Dagger"));
     gameItems.push_back(weapon("Club"));

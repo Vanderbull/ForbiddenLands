@@ -9,29 +9,29 @@ CCreateCharacterState CCreateCharacterState::m_CreateCharacterState;
 
 void CCreateCharacterState::Init()
 {
-	printf("CCreateCharacterState Init\n");
+	SDL_Log("CCreateCharacterState Init\n");
     MenuChoices.clear();
     MenuChoices.push_back("EXIT");
 }
 
 void CCreateCharacterState::Cleanup()
 {
-	printf("CCreateCharacterState Cleanup\n");
+	SDL_Log("CCreateCharacterState Cleanup\n");
 }
 
 void CCreateCharacterState::Pause()
 {
-	printf("CCreateCharacterState Pause\n");
+	SDL_Log("CCreateCharacterState Pause\n");
 }
 
 void CCreateCharacterState::Resume()
 {
-	printf("CCreateCharacterState Resume\n");
+	SDL_Log("CCreateCharacterState Resume\n");
 }
 
 void CCreateCharacterState::HandleEvents(CGameEngine* game)
 {
-    printf("CCreateCharacterState HandleEvents\n");
+    SDL_Log("CCreateCharacterState HandleEvents\n");
 
 	if (SDL_PollEvent(&game->event))
     {
@@ -89,7 +89,7 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
 
 void CCreateCharacterState::Update(CGameEngine* game)
 {
-    printf("CCreateCharacterState Update\n");
+    SDL_Log("CCreateCharacterState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -129,6 +129,7 @@ void CCreateCharacterState::Update(CGameEngine* game)
 
 void CCreateCharacterState::Draw(CGameEngine* game)
 {
+    SDL_Log("CCreateCharacterState Draw");
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
@@ -142,37 +143,6 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
-//	SDL_Surface* surface = IMG_Load( "./images/ui/karaktärsboktom.png" );
-//	if( !surface )
-//	{
-//        exit(-1);
-//	}
-//
-//    SDL_RWops *rw = SDL_RWFromFile("./images/ui/skilltree.svg","r"); //SDL_RWFromConstMem(svg.c_str(), svg.size());
-//    surface = IMG_Load_RW(rw, 1);
-//    SDL_Texture *texture = SDL_CreateTextureFromSurface(game->renderer, surface);
-//
-//	texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-//    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-//    SDL_SetTextureAlphaMod( texture, 255 );
-//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-//    SDL_FreeSurface(surface);
-//    SDL_DestroyTexture(texture);
-
-//	surface = IMG_Load( "./images/ui/female.png" );
-//	if( !surface )
-//	{
-//        exit(-1);
-//	}
-
-	//texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-
-
-    //SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    //SDL_SetTextureAlphaMod( texture, 255 );
-
-    //SDL_FreeSurface(surface);
-
     SDL_Texture *texture = game->LoadTexture("./images/ui/gearslots.png",255);
 	int w, h;
     SDL_QueryTexture(texture, NULL, NULL, &w, &h);
@@ -184,17 +154,6 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SrcR.h = h*2;
     SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
     SDL_DestroyTexture(texture);
-//
-//    texture = game->LoadTexture("./images/ui/gearslots.png",255);
-//    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
-//
-//    SrcR.x = game->current.w / 4;
-//    SrcR.y = game->current.h / 43;
-//    SrcR.w = w*2;
-//    SrcR.h = h*2;
-//    SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
-//    SDL_DestroyTexture(texture);
-
 
     // Abilities ///////////////////////////////////
 

@@ -64,21 +64,15 @@ private:
     int buttonWidth = 600;
     int buttonHeight = 60;
 
-    std::vector<std::string> abilityElements = { "POW ", "INT ", "PERS ", "TOU ", "TECH ", "QUI ", "PERC "};
-    std::vector<std::string> abilityModElements = { "POW MOD", "INT MOD", "PERS MOD", "TOU MOD", "TECH MOD", "QUI MOD", "PERC MOD"};
-    std::vector<std::string> professionTextElements = { "VIKING", "MARAUDER","WIZARD"};
+    int    scrolling;               // flag (scrolling or not)
+    int    scroll_sensitivity = 40; // how fast we want to scroll
+    double scroll_Y = 0;            // current scrolling amount (on Y-Axis)
+    double scroll_acceleration;     // scrolling speed
+    double scroll_friction = 0.001; // how fast we decelerate
+    double scroll_prev_pos;         // previous event's position
 
-int    scrolling;               // flag (scrolling or not)
-int    scroll_sensitivity = 40; // how fast we want to scroll
-double scroll_Y = 0;            // current scrolling amount (on Y-Axis)
-double scroll_acceleration;     // scrolling speed
-double scroll_friction = 0.001; // how fast we decelerate
-double scroll_prev_pos;         // previous event's position
-
-int scroll_range_min = 0;
-int scroll_range_max = scroll_range_min + 10;
-
-
+    int scroll_range_min = 0;
+    int scroll_range_max = scroll_range_min + 10;
 };
 
 #endif

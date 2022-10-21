@@ -14,6 +14,7 @@
 #include <sys/utsname.h>
 #include <array>
 #include <map>
+#include <dirent.h>
 using namespace std;
 
 #include "globals.h"
@@ -117,6 +118,35 @@ struct SGenericItem
     }
 };
 
+class TextureHolder
+{
+private:
+    // A pointer of the same type as the class itself
+    // the one and only instance
+    //static TextureHolder* m_s_Instance;
+public:
+    // A map container from the STL,
+    // that holds related pairs of String and Texture
+    map<string, SDL_Texture*> m_Textures;
+
+    // Texture textureBackground = TextureHolder::GetTexture(
+    // "graphics/background_sheet.png");
+
+    TextureHolder(){};
+    //static Texture& GetTexture(string const& filename);
+};
+
+class SoundHolder
+{
+public:
+    map<string, Mix_Chunk*> m_Sounds;
+
+    SoundHolder(){};
+};
+
+class TextureHolder;
+class SoundHolder;
+
 class CGameState;
 
 class CGameEngine
@@ -149,40 +179,44 @@ public:
 	void loadMapTextures();
 	void initShop();
 
-
-enum timeOfDay
-{
-    day,
-    night
-};
-
-int currentDay = 0;
-int currentTime = 0;
-int currentTimeOfDay = day;
-
-int currentTimeElapse(bool tick = false )
-{
-    if( tick )
+    enum timeOfDay
     {
-        currentTime++;
-        if( currentTime > 24 )
+        day,
+        night
+    };
+
+    int currentDay = 0;
+    int currentTime = 0;
+    int currentTimeOfDay = day;
+
+    int currentTimeElapse(bool tick = false )
+    {
+        if( tick )
         {
-            currentTime = 0;
-            currentDay++;
+            currentTime++;
+            if( currentTime > 24 )
+            {
+                currentTime = 0;
+                currentDay++;
+            }
+            if( currentTime > 6 && currentTime < 18 )
+            {
+                currentTimeOfDay = day;
+            }
+            else
+            {
+                currentTimeOfDay = night;
+            }
         }
-        if( currentTime > 6 && currentTime < 18 )
-        {
-            currentTimeOfDay = day;
-        }
-        else
-        {
-            currentTimeOfDay = night;
-        }
-    }
-    return currentTimeOfDay;
-};
+        return currentTimeOfDay;
+    };
 
 	void renderDaytime();
+
+	TextureHolder TextureManager;
+	SoundHolder SoundManager;
+
+	SDL_Texture* BackgroundTexture;
 
 	SDL_Event event;
 
@@ -199,12 +233,6 @@ int currentTimeElapse(bool tick = false )
     struct utsname uts;
     SDL_Renderer * renderer;
 	SDL_Renderer * renderer2;
-
-	int SettingsMenu = 0;
-    int activeView = 0;
-    int LoadMenu = 0;
-    int SaveMenu = 0;
-    int CreateCharacter = 0;
 
     SDL_Color Yellow = {255, 255, 255, 255};
     SDL_Color YellowGreen = {255, 255, 255, 255};
@@ -227,7 +255,6 @@ int currentTimeElapse(bool tick = false )
     SDL_Texture* East;
     SDL_Texture* South;
     SDL_Texture* West;
-    SDL_Texture* swatTexture;
     SDL_Texture* menuBackgroundTexture;
     SDL_Texture* currentViewTexture;
     SDL_Texture* encampTexture;
@@ -235,7 +262,7 @@ int currentTimeElapse(bool tick = false )
 
     // Make these a blob
     SDL_Texture* mapTexture[16][16][4];
-    std::string mapTextureFile[16][16][4];
+    //std::string mapTextureFile[16][16][4];
 
     SDL_Texture* MainMenuBackgroundTexture;
 
@@ -521,6 +548,20 @@ int currentTimeElapse(bool tick = false )
         }
         return mapPortal[x][y].active_portal(rotation);
     };
+
+    void read_directory(const std::string& name, std::vector<string>& v)
+    {
+        DIR* dirp = opendir(name.c_str());
+        struct dirent * dp;
+        while ((dp = readdir(dirp)) != NULL) {
+            v.push_back(dp->d_name);
+        }
+        closedir(dirp);
+    }
+
+    std::vector<std::string> imagesFiles;
+
+    SDL_Rect CurrentLocation{0,0,128,128};
 private:
 	// the stack of states
 	vector<CGameState*> states;

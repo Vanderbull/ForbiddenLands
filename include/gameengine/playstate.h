@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <filesystem>
 using namespace std;
 
 #include <SDL2/SDL.h>
@@ -54,28 +55,11 @@ public:
 
     void renderDaytime(CGameEngine* game)
     {
-        SDL_Rect dayTimeBox = {game->current.w - 1150,25,50,50};
-
-//            SDL_Texture* dayTimeTexture = NULL;
-//
-//            dayTimeTexture = LoadTexture("./icons/ball-48.png",255);
-//            else
-//                dayTimeTexture = LoadTexture("./icons/48.png",255);
-//
-//            SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
-//            SDL_DestroyTexture(dayTimeTexture);
-//
-//            if( currentTimeElapse() == night )
-//            {
-//                dayTimeTexture = LoadTexture("./icons/night.png",128);
-//                SDL_RenderCopy(renderer, dayTimeTexture, NULL, NULL);
-//                SDL_DestroyTexture(dayTimeTexture);
-//            }
-
-        game->RenderText("Season: 0", White, game->current.w - 1050,100,24);
-        game->RenderText("Temperature: 0", White, game->current.w - 1050,124,24);
-        game->RenderText("currentTime: 0",White, game->current.w - 1050, 170,24);
-        game->RenderText("currentDay: 0",White, game->current.w - 1050, 190,24);
+        SDL_Rect dayTimeBox = {game->current.w - 1150,25,500,500};
+        game->RenderText("Season: ", White, game->current.w - 1050,100,24);
+        game->RenderText("Temperature: ", White, game->current.w - 1050,124,24);
+        game->RenderText("currentTime: ",White, game->current.w - 1050, 170,24);
+        game->RenderText("currentDay: ",White, game->current.w - 1050, 190,24);
     }
 
     void renderCompass(CGameEngine* game)
@@ -112,24 +96,29 @@ public:
 
         if( Rotation == "N")
         {
-            SDL_RenderCopy(game->renderer, North, NULL, &gRect);
+            SDL_RenderCopy(game->renderer, game->North, NULL, &gRect);
         }
         if( Rotation == "E")
         {
-            SDL_RenderCopy(game->renderer, East, NULL, &gRect);
+            SDL_RenderCopy(game->renderer, game->East, NULL, &gRect);
         }
         if( Rotation == "S")
         {
-            SDL_RenderCopy(game->renderer, South, NULL, &gRect);
+            SDL_RenderCopy(game->renderer, game->South, NULL, &gRect);
         }
         if( Rotation == "W")
         {
-            SDL_RenderCopy(game->renderer, West, NULL, &gRect);
+            SDL_RenderCopy(game->renderer, game->West, NULL, &gRect);
         }
     };
 
     void renderMinimap(CGameEngine* game)
     {
+        if( !std::filesystem::exists("./data/maps/phlan/phlan.png") )
+        {
+            SDL_Log("verifying ./data/maps/phlan/phlan.png exists failed");
+            exit(99);
+        }
         SDL_Texture* gTexture = game->LoadTexture("./data/maps/phlan/phlan.png",255);
 
         SDL_Rect imageSize = {0, 0,256,256};
@@ -147,19 +136,17 @@ protected:
 private:
 	static CPlayState m_PlayState;
 
-	SDL_Surface* playerCoordinateSurface;
-	SDL_Texture* playerCoordinateTexture;
-    TTF_Font* gameTitleFont = NULL;
-    TTF_Font* gameBreadFont = NULL;
-
 	SDL_Surface* gSurface;
+
 	SDL_Texture* gTexture;
+
 	SDL_Rect gRect;
-	int iX;
-	int iY;
-	SDL_Texture* MainMenuBackgroundTexture;
+
+	int iX,iY;
+
 	SDL_Color White = {255, 255, 255, 255};
 	SDL_Color Black = {0, 0, 0, 255};
+
     std::vector<std::string> MenuChoices;
 
     /// Information about the state of the mouse
@@ -182,15 +169,9 @@ private:
     std::string compassDirection = "NESW";
     int compassNeedle = 0;
     std::string Rotation = "W";
+
     int z = 0;
     enum {EAST,WEST,NORTH,SOUTH};
-
-    SDL_Texture* North;
-    SDL_Texture* East;
-    SDL_Texture* South;
-    SDL_Texture* West;
-
-    int OFFSET = 50;
 };
 
 #endif

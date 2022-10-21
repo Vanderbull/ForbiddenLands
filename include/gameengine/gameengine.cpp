@@ -33,8 +33,30 @@ SkillObject::SkillObject(std::string,char,int)
 
 void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
 {
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/north.png", LoadTexture("./images/compass/north.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/south.png", LoadTexture("./images/compass/south.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/west.png", LoadTexture("./images/compass/west.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/east.png", LoadTexture("./images/compass/east.png",255) ));
+//
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp0.png", LoadTexture("./images/encamp/encamp0.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp1.png", LoadTexture("./images/encamp/encamp1.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp2.png", LoadTexture("./images/encamp/encamp2.png",255) ));
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/encamp/encamp3.png", LoadTexture("./images/encamp/encamp3.png",255) ));
+//
+//    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/menus/menu_backdrop.png", LoadTexture("./images/menus/menu_backdrop.png",255) ));
+//
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Punch.wav", Mix_LoadWAV("./assets/data/sounds/Punch.wav") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Pain.wav", Mix_LoadWAV("./assets/data/sounds/Pain.wav") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/Hit.wav", Mix_LoadWAV("./assets/data/sounds/Hit.wav") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/153_Secret_Garden.ogg", Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg") ));
+//
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/1_Black Moon Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/2_The Ranger's Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/3_Old King Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3") ));
+//    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3") ));
+
     g_myglobal = 10;
-    SDL_Log("CGameEngine::Init()");
 
 	int flags = 0;
 
@@ -42,22 +64,22 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
     {
-        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
-        exit(EXIT_FAILURE);
+        SDL_Log("Unable to initialize SDL: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
+        //throw runtime_error("Unable to initialize SDL: " + string(SDL_GetError()));
     }
     else
     {
-        SDL_Log("initialize SDL and all its subsystems: Success");
+        SDL_Log("initialize SDL and all its subsystems: Success %s, %d", __FILE__, __LINE__);
     }
 
     if(!TTF_WasInit() && TTF_Init()==-1)
     {
-        SDL_Log("TTF_Init: %s", TTF_GetError());
-        exit(EXIT_FAILURE);
+        SDL_Log("TTF_Init: %s %s %d", TTF_GetError(), __FILE__, __LINE__);
+        //exit(EXIT_FAILURE);
     }
     else
     {
-        SDL_Log("TTF_Init: Success!");
+        SDL_Log("TTF_Init: Success! %s %d", __FILE__, __LINE__);
     }
 
     // Get current display mode of all displays.
@@ -69,12 +91,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
         if(should_be_zero != 0)
         {
-            SDL_Log("Could not get display mode for video display #%d: %s", i, SDL_GetError());
+            SDL_Log("Could not get display mode for video display #%d: %s 5s %d", i, SDL_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
         else
         {
-            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate);
+            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz. %s %d", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate, __FILE__, __LINE__);
         }
     }
 
@@ -89,16 +111,16 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     if (window == NULL)
     {
-        SDL_Log("Could not create window: %s", SDL_GetError());
+        SDL_Log("Could not create window: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
     else
     {
-        SDL_Log("SDL Window creation: SUCCESS");
+        SDL_Log("SDL Window creation: SUCCESS %s %d", __FILE__, __LINE__);
 
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-        SDL_Log("SDL Renderer creation: SUCCESS");
+        SDL_Log("SDL Renderer creation: SUCCESS %s %d", __FILE__, __LINE__);
 
         SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
         SDL_RenderSetScale(renderer,1.0,1.0);
@@ -109,7 +131,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
         if((initted&flags) != flags)
         {
-            printf("IMG_Init: %s\n", IMG_GetError());
+            SDL_Log("IMG_Init: %s %s %d", IMG_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
 
@@ -120,13 +142,13 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
         if(!gSurface)
         {
-            SDL_Log("Setting Window Icon: %s\n", IMG_GetError());
+            SDL_Log("Setting Window Icon: %s %s %d", IMG_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
         else
         {
-            SDL_Log("Loading Window Icon initiated...");
-            SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
+            SDL_Log("Loading Window Icon initiated... %s %d", __FILE__, __LINE__);
+            SDL_Log("Version: %s %s %d",AutoVersion::FULLVERSION_STRING, __FILE__, __LINE__);
         }
 
         SDL_SetWindowIcon(window, gSurface);
@@ -137,41 +159,49 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         // Replace this with the new SDL2 OpenAudio
         if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
         {
-            SDL_Log("Audio broke down: %s", SDL_GetError());
+            SDL_Log("Audio broke down: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
             exit(EXIT_FAILURE);
         }
         else
         {
-            SDL_Log("Audio successfully initiated...");
+            SDL_Log("Audio successfully initiated... %s %d", __FILE__, __LINE__);
         }
     }
 
-	m_fullscreen = fullscreen;
-	m_running = true;
-	SDL_Log("Loading items...");
+	SDL_Log("Loading items... %s %d", __FILE__, __LINE__);
 	AddItem();
-	SDL_Log("Loading skills...");
+	SDL_Log("Loading skills... %w %d", __FILE__, __LINE__);
 	AddSkill();
-	SDL_Log("Loading textures...");
-	loadMapTextures();
-	SDL_Log("Loading shop...");
-    initShop();
 
+	read_directory("./images",imagesFiles);
+
+	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
+    initShop();
 
     gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
     if(!gameTitleFont)
     {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+        SDL_Log("TTF_OpenFont: %s %s %d",TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
     gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
     if(!gameBreadTextFont)
     {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << std::endl;
+        SDL_Log("TTF_OpenFont: %s %s %d",TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
+
+    North = LoadTexture("./assets/data/textures/compass/north.png",255);
+    if( North == NULL)
+        exit(99);
+    West = LoadTexture("./images/compass/west.png",255);
+    South = LoadTexture("./images/compass/south.png",255);
+    East = LoadTexture("./images/compass/east.png",255);
+
+	m_fullscreen = fullscreen;
+	m_running = true;
 }
 
 void CGameEngine::Cleanup()
@@ -183,7 +213,7 @@ void CGameEngine::Cleanup()
 		states.pop_back();
 	}
 
-    SDL_Log("CGameEngine Cleanup\n");
+    SDL_Log("CGameEngine Cleanup %s %d", __FILE__, __LINE__);
 
 	// shutdown SDL
 	SDL_Quit();
@@ -191,7 +221,7 @@ void CGameEngine::Cleanup()
 
 void CGameEngine::ChangeState(CGameState* state)
 {
-    SDL_Log("CGameEngine ChangeState\n");
+    SDL_Log("CGameEngine ChangeState %s %d", __FILE__, __LINE__);
 	// cleanup the current state
 	if ( !states.empty() ) {
 		states.back()->Cleanup();
@@ -205,7 +235,7 @@ void CGameEngine::ChangeState(CGameState* state)
 
 void CGameEngine::PushState(CGameState* state)
 {
-    SDL_Log("CGameEngine PushState\n");
+    SDL_Log("CGameEngine PushState %s %d", __FILE__, __LINE__);
 	// pause current state
 	if ( !states.empty() ) {
 		states.back()->Pause();
@@ -218,7 +248,7 @@ void CGameEngine::PushState(CGameState* state)
 
 void CGameEngine::PopState()
 {
-    SDL_Log("CGameEngine PopState\n");
+    SDL_Log("CGameEngine PopState %s %d", __FILE__, __LINE__);
 	// cleanup the current state
 	if ( !states.empty() ) {
 		states.back()->Cleanup();
@@ -233,21 +263,21 @@ void CGameEngine::PopState()
 
 void CGameEngine::HandleEvents()
 {
-    SDL_Log("CGameEngine HandleEvents\n");
+    SDL_Log("CGameEngine HandleEvents %s %d", __FILE__, __LINE__);
 	// let the state handle events
 	states.back()->HandleEvents(this);
 }
 
 void CGameEngine::Update()
 {
-    SDL_Log("CGameEngine Update\n");
+    SDL_Log("CGameEngine Update %s %d", __FILE__, __LINE__);
 	// let the state update the game
 	states.back()->Update(this);
 }
 
 void CGameEngine::Draw()
 {
-    SDL_Log("CGameEngine Draw\n");
+    SDL_Log("CGameEngine Draw %s %d", __FILE__, __LINE__);
 	// let the state draw the screen
 	states.back()->Draw(this);
 }
@@ -393,6 +423,9 @@ int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue,
 SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 {
 	SDL_Texture* texture = IMG_LoadTexture(renderer, str.c_str() );
+	//std:cout << str.c_str();
+	if( texture == NULL)
+        exit(88);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
     SDL_SetTextureAlphaMod( texture, alpha );
 	return texture;
@@ -409,162 +442,180 @@ void CGameEngine::loadMapTextures()
     std::string fileType = "-fs8.png";
     int progress_value = 0;
 
-    for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
-    {
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderClear(renderer);
-
-        SDL_Texture* texture = LoadTexture("./images/ui/rest_no_rune.png",255);
-        SDL_RenderCopy(renderer, texture, NULL, NULL);
-        SDL_DestroyTexture(texture);
-
-        SDL_Rect progressbar_border = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,v_ItemNames.size(),25};
-        SDL_RenderFillRect(renderer, &progressbar_border);
-
-        SDL_Rect progressbar = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,progress_value,25};
-        progress_value++;
-        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
-        SDL_RenderFillRect(renderer, &progressbar);
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-        SDL_RenderDrawRect(renderer, &progressbar);
-
-        RenderText("Loading ItemNames...",White,current.w / 2 - 100,current.h - 245, 24);
-        RenderText(*i,White,current.w / 2 - 100,current.h - 205, 24);
-
-        SDL_RenderPresent(renderer);
-    }
-
-    progress_value = 0;
-    for(int x = 0; x < 16; x++ )
-    {
-        for(int y = 0; y < 16; y++ )
-        {
-            for(int z = 0; z < 4; z++ ) // ESWN directions
-            {
-                location = "";
-                room = "";
-                position = "";
-
-                location += "./images/test_map/";
-                room  = "";
-
-                if(x < 10)
-                {
-                    room += "0";
-                }
-
-                room += std::to_string(x);
-
-                if(y < 10)
-                {
-                    room += "0";
-                }
-
-                room += std::to_string(y);
-
-                position = room;
-                room += "/";
-
-                room += position;
-                location += position;
-
-                if(z == 0)
-                    location += "E";
-                if(z == 1)
-                    location += "W";
-                if(z == 2)
-                    location += "N";
-                if(z == 3)
-                    location += "S";
-
-                location += fileType;
-                mapTextureFile[x][y][z] = location;
-
-                mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());
-
-                SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
-                SDL_RenderClear(renderer);
-
-                SDL_Texture* texture = LoadTexture("./images/ui/rest_no_rune.png",255);
-                SDL_RenderCopy(renderer, texture, NULL, NULL);
-                SDL_DestroyTexture(texture);
-
-                SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
-                SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
-                SDL_RenderFillRect(renderer, &progressbar_border);
-
-                SDL_Rect progressbar = {current.w / 2 - 1024/2,current.h - 200,progress_value,25};
-                progress_value++;
-                SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
-                SDL_RenderFillRect(renderer, &progressbar);
-                SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
-                SDL_RenderDrawRect(renderer, &progressbar);
-
-                RenderText("Loading Level...",White,current.w / 2 - 100,current.h - 245, 24);
-                RenderText(location.c_str(),White,current.w / 3,current.h - 205,24);
-                SDL_RenderPresent(renderer);
-            }
-        }
-    }
+//    for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
+//    {
+//        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+//        SDL_RenderClear(renderer);
+//
+//        SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+//        if( !surface )
+//        {
+//            exit(-1);
+//        }
+//
+//        SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+//        SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//        SDL_SetTextureAlphaMod( texture, 255 );
+//        SDL_RenderCopy(renderer, texture, NULL, NULL);
+//        SDL_FreeSurface(surface);
+//        SDL_DestroyTexture(texture);
+//
+//        SDL_Rect progressbar_border = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,v_ItemNames.size(),25};
+//        SDL_RenderFillRect(renderer, &progressbar_border);
+//
+//        SDL_Rect progressbar = {current.w / 2 - v_ItemNames.size()/2,current.h - 200,progress_value,25};
+//        progress_value++;
+//        SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+//        SDL_RenderFillRect(renderer, &progressbar);
+//        SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+//        SDL_RenderDrawRect(renderer, &progressbar);
+//
+//        //RenderText(std::to_string(progress_value).c_str(),White,current.w / 6,current.h - 200, 24);
+//
+//        RenderText("Loading ItemNames...",White,current.w / 2 - 100,current.h - 245, 24);
+//        RenderText(*i,White,current.w / 2 - 100,current.h - 205, 24);
+//
+//        SDL_RenderPresent(renderer);
+//        //SDL_Delay(10);
+//    }
+//
+//    progress_value = 0;
+//    for(int x = 0; x < 16; x++ )
+//    {
+//        for(int y = 0; y < 16; y++ )
+//        {
+//            for(int z = 0; z < 4; z++ ) // ESWN directions
+//            {
+//                location = "";
+//                room = "";
+//                position = "";
+//
+//                location += "./images/test_map/";
+//                room  = "";
+//
+//                if(x < 10)
+//                {
+//                    room += "0";
+//                }
+//
+//                room += std::to_string(x);
+//
+//                if(y < 10)
+//                {
+//                    room += "0";
+//                }
+//
+//                room += std::to_string(y);
+//
+//                position = room;
+//                room += "/";
+//
+//                room += position;
+//                location += position;
+//
+//                //location += Rotation;
+//                if(z == 0)
+//                    location += "E";
+//                if(z == 1)
+//                    location += "W";
+//                if(z == 2)
+//                    location += "N";
+//                if(z == 3)
+//                    location += "S";
+//
+//                location += fileType;
+//                //std::cout << "mapTexture[x][y][z] = " << location << " : " << "(" << x << ")"<< "(" << y << ")"<< "(" << z << ")" << std::endl;
+//                //location = "./images/profile_photo3.png";
+//                mapTextureFile[x][y][z] = location;
+//
+//                mapTexture[x][y][z] = IMG_LoadTexture(renderer,location.c_str());
+//
+//                //exit(1);
+//                //myTextures[std::to_string(progress_value).c_str()] = IMG_LoadTexture(renderer,location.c_str());
+//                SDL_SetRenderDrawColor( renderer, 255, 255, 255, 255 );
+//                SDL_RenderClear(renderer);
+//
+//                SDL_Surface* surface = IMG_Load( "./images/ui/rest_no_rune.png" );
+//                if( !surface )
+//                {
+//                    exit(-1);
+//                }
+//
+//                SDL_Texture* texture = SDL_CreateTextureFromSurface( renderer, surface );
+//                SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//                SDL_SetTextureAlphaMod( texture, 255 );
+//                SDL_RenderCopy(renderer, texture, NULL, NULL);
+//                SDL_FreeSurface(surface);
+//                SDL_DestroyTexture(texture);
+//
+//                SDL_Rect progressbar_border = {current.w / 2 - 1024/2,current.h - 200,1024,25};
+//                SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+//                SDL_RenderFillRect(renderer, &progressbar_border);
+//
+//                SDL_Rect progressbar = {current.w / 2 - 1024/2,current.h - 200,progress_value,25};
+//                progress_value++;
+//                SDL_SetRenderDrawColor(renderer, 0, 255, 0,255);
+//                SDL_RenderFillRect(renderer, &progressbar);
+//                SDL_SetRenderDrawColor(renderer, 255, 255, 255,255);
+//                SDL_RenderDrawRect(renderer, &progressbar);
+//
+//                RenderText("Loading Level...",White,current.w / 2 - 100,current.h - 245, 24);
+//                RenderText(location.c_str(),White,current.w / 3,current.h - 205,24);
+//                SDL_RenderPresent(renderer);
+//            }
+//        }
+//    }
     ender = std::chrono::steady_clock::now();
-    std::cout << "Millisecond loading time: " << double(std::chrono::duration_cast<std::chrono::nanoseconds>(ender - starter).count()) / 1000000 << std::endl;
+    SDL_Log("Millisecond loading time: %d %s %d", double(std::chrono::duration_cast<std::chrono::nanoseconds>(ender - starter).count()) / 1000000, __FILE__, __LINE__ );
     // 20357 milliseconds
-    //exit(99);
 };
 
 void CGameEngine::AddItem()
 {
-    SDL_Log("CGameEngine AddItem\n");
+    SDL_Log("CGameEngine AddItem %s %d", __FILE__, __LINE__);
 
     for (auto i = v_ItemNames.begin(); i != v_ItemNames.end(); i++)
     {
         Item tempObject;
         tempObject.Name = *i;
 
-        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
-        SDL_Log("   Setting Efficiency: '%i'\n",tempObject.Efficiency = 0);
-        SDL_Log("   Setting MinDamage: '%i'\n",tempObject.MinDamage = 0);
-        SDL_Log("   Setting MaxDamage: '%i'\n",tempObject.MaxDamage = 0);
-        SDL_Log("   Setting DmgType: '%i'\n",tempObject.DmgType = 0);
-        SDL_Log("   Setting NumHands: '%i'\n",tempObject.NumHands = 0);
-        SDL_Log("   Setting Bodypart: '%i'\n",tempObject.Bodypart = 0);
-        SDL_Log("   Setting UsedBy: '%i'\n",tempObject.UsedBy = 0);
-        SDL_Log("   Setting Skill: '%i'\n",tempObject.Skill = 0);
-        SDL_Log("   Setting BaseWorth: '%i'\n",tempObject.BaseWorth = 0);
-        SDL_Log("   Setting Price: '%i'\n",tempObject.Price = 0);
-        SDL_Log("   Setting Protection: '%i'\n",tempObject.Protection = 0);
-        SDL_Log("   Setting Enchantments: '%i'\n",tempObject.Enchantments = 0);
-        SDL_Log("   Setting Effect: '%i'\n",tempObject.Effect = 0);
-        SDL_Log("   Setting EffectCharges: '%i'\n",tempObject.EffectCharges = 0);
-        SDL_Log("   Setting MinEffect: '%i'\n",tempObject.MinEffect = 0);
-        SDL_Log("   Setting MaxEffect: '%i'\n",tempObject.MaxEffect = 0);
-        SDL_Log("   Setting Features: '%i'\n",tempObject.Features = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
+//        SDL_Log("   Setting Efficiency: '%i'\n",tempObject.Efficiency = 0);
+//        SDL_Log("   Setting MinDamage: '%i'\n",tempObject.MinDamage = 0);
+//        SDL_Log("   Setting MaxDamage: '%i'\n",tempObject.MaxDamage = 0);
+//        SDL_Log("   Setting DmgType: '%i'\n",tempObject.DmgType = 0);
+//        SDL_Log("   Setting NumHands: '%i'\n",tempObject.NumHands = 0);
+//        SDL_Log("   Setting Bodypart: '%i'\n",tempObject.Bodypart = 0);
+//        SDL_Log("   Setting UsedBy: '%i'\n",tempObject.UsedBy = 0);
+//        SDL_Log("   Setting Skill: '%i'\n",tempObject.Skill = 0);
+//        SDL_Log("   Setting BaseWorth: '%i'\n",tempObject.BaseWorth = 0);
+//        SDL_Log("   Setting Price: '%i'\n",tempObject.Price = 0);
+//        SDL_Log("   Setting Protection: '%i'\n",tempObject.Protection = 0);
+//        SDL_Log("   Setting Enchantments: '%i'\n",tempObject.Enchantments = 0);
+//        SDL_Log("   Setting Effect: '%i'\n",tempObject.Effect = 0);
+//        SDL_Log("   Setting EffectCharges: '%i'\n",tempObject.EffectCharges = 0);
+//        SDL_Log("   Setting MinEffect: '%i'\n",tempObject.MinEffect = 0);
+//        SDL_Log("   Setting MaxEffect: '%i'\n",tempObject.MaxEffect = 0);
+//        SDL_Log("   Setting Features: '%i'\n",tempObject.Features = 0);
         v_Item.push_back(tempObject);
     }
 };
 
 void CGameEngine::AddSkill()
 {
-    SDL_Log("CGameEngine AddSkill\n");
+    SDL_Log("CGameEngine AddSkill %s %d", __FILE__, __LINE__);
 
     for (auto i = v_SkillNames.begin(); i != v_SkillNames.end(); i++)
     {
         SkillObject tempObject;
         tempObject.Name = *i;
 
-        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
-        SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);
-        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsAttribute = 0);
-        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
-        SDL_Log("Adding '%s'\n",tempObject.Group = 0);
-        SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
-
-//        int MaximumExpertise;
-//        int InitialRequirementsAttribute;
-//        int InitialRequirementsValue;
-//        int Group;
-//        std::vector<std::string> UtilizedBy;
-//        std::string Description;
+//        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
+//        SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsAttribute = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.Group = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
 
         v_Skill.push_back(tempObject);
     }
@@ -586,7 +637,7 @@ void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)
             {
                 getline (shop_data_file,line);
                 tempItem.type = line.c_str();
-                SDL_Log("Adding type: '%s'\n",line.c_str());
+                SDL_Log("Adding type: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
             }
             if( line == "#WEIGHT")
             {
@@ -595,25 +646,25 @@ void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)
                 int integer_data = std::stoi(line);
                 std::cout << integer_data << std::endl;
                 tempItem.weight = integer_data;
-                SDL_Log("Adding weight: '%s'\n",line.c_str());
+                SDL_Log("Adding weight: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
             }
             if( line == "#COST")
             {
                 getline (shop_data_file,line);
                 tempItem.value = std::stoi(line);
-                SDL_Log("Adding cost: '%s'\n",line.c_str());
+                SDL_Log("Adding cost: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
             }
             if( line == "#ITEM")
             {
                 getline (shop_data_file,line);
                 tempItem.name = line.c_str();
-                SDL_Log("Adding item: '%s'\n",line.c_str());
+                SDL_Log("Adding item: '%s' %s %d",line.c_str(), __FILE__, __LINE__);
                 out_data.push_back(tempItem);
             }
         }
         shop_data_file.close();
     }
-    else std::cout << "Unable to open file";
+    else SDL_Log("Unable to open file %s %d", __FILE__, __LINE__);
 };
 
 void CGameEngine::initShop()

@@ -10,28 +10,14 @@ CLoadMenuState CLoadMenuState::m_LoadMenuState;
 
 void CLoadMenuState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
-    }
+	SDL_Log("CLoadMenuState Init\n");
 
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameTitleFont)
-    {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        exit(-1);
-    }
-
-	SDL_Surface* temp = SDL_LoadBMP("menu.bmp");
-
-	SDL_FreeSurface(temp);
+    MenuChoices.clear();
 
     DIR *dpdf;
     struct dirent *epdf;
     std::vector<std::string> filenames;
-    dpdf = opendir("./data/savegames");
+    dpdf = opendir("./assets/data/savegames");
     if (dpdf != NULL) {
        while (epdf = readdir(dpdf))
        {
@@ -43,30 +29,27 @@ void CLoadMenuState::Init()
        }
     }
 
-    MenuChoices.clear();
     MenuChoices.push_back("EXIT");
-
-	printf("CLoadMenuState Init\n");
 }
 
 void CLoadMenuState::Cleanup()
 {
-	printf("CLoadMenuState Cleanup\n");
+	SDL_Log("CLoadMenuState Cleanup\n");
 }
 
 void CLoadMenuState::Pause()
 {
-	printf("CLoadMenuState Pause\n");
+	SDL_Log("CLoadMenuState Pause\n");
 }
 
 void CLoadMenuState::Resume()
 {
-	printf("CLoadMenuState Resume\n");
+	SDL_Log("CLoadMenuState Resume\n");
 }
 
 void CLoadMenuState::HandleEvents(CGameEngine* game)
 {
-    printf("CLoadMenuState HandleEvents\n");
+    SDL_Log("CLoadMenuState HandleEvents\n");
 
 	SDL_Event event;
 
@@ -89,7 +72,7 @@ void CLoadMenuState::HandleEvents(CGameEngine* game)
 
 void CLoadMenuState::Update(CGameEngine* game)
 {
-    printf("CLoadMenuState Update\n");
+    SDL_Log("CLoadMenuState Update\n");
 
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
@@ -108,16 +91,14 @@ void CLoadMenuState::Update(CGameEngine* game)
 //void CMenuState::Draw(CGameEngine* game, SDL_Renderer * renderer)
 void CLoadMenuState::Draw(CGameEngine* game)
 {
-    printf("CLoadMenuState Draw\n");
-    TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 200);
+    SDL_Log("CLoadMenuState Draw\n");
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
     MainMenuBackgroundTexture = NULL;
 
-	SDL_Surface* surface = IMG_Load( "./images/battleBackground.png" );
+	SDL_Surface* surface = IMG_Load( "./assets/data/textures/menus/menu_backdrop.png" );
 	if( !surface )
 	{
         exit(-1);
@@ -130,7 +111,7 @@ void CLoadMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(m_font, "A Viking Saga", White);
+    gSurface = TTF_RenderText_Blended(game->gameTitleFont, "A Viking Saga", White);
 	if( !gSurface )
 	{
         exit(-1);
@@ -147,28 +128,26 @@ void CLoadMenuState::Draw(CGameEngine* game)
     SDL_FreeSurface(gSurface);
     SDL_DestroyTexture(gTexture);
 
-    TTF_CloseFont(m_font);
-    m_font = NULL;
-
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
 
     for(auto MenuChoice : MenuChoices)
     {
-        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 500 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
+        SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 300 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
 
         SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
         SDL_RenderFillRect(game->renderer, &buttonPosition);
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(game->renderer,&buttonPosition);
 
-        gSurface = TTF_RenderText_Blended(gameTitleFont, MenuChoice.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), White);
         gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
         int texW = 0;
         int texH = 0;
         SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
+        //gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
         gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
         SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
 
@@ -198,7 +177,4 @@ void CLoadMenuState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
-
-    TTF_CloseFont(m_font);
-    m_font = NULL;
 }

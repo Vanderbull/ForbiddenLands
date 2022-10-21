@@ -11,9 +11,9 @@ using namespace std;
 
 struct ACTOR
 {
-    int current_stats[6]; // 5 = CON
-    std::string name = "default";
-    int race = 0; // None
+    std::string name = "Actor name";
+
+    int current_stats[6];
     int coins_gold = 0;
     int ac_base = 10;
     int experience = 0;

@@ -14,39 +14,27 @@ CBattleState CBattleState::m_BattleState;
 
 void CBattleState::Init()
 {
-    if( TTF_Init() == -1 )
-    {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << "\n";
-        exit(EXIT_FAILURE);
-    }
-
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
-
-    if(!gameTitleFont)
-    {
-        std::cout << "TTF_OpenFont: " << TTF_GetError() << "\n";
-        exit(EXIT_FAILURE);
-    }
-	std::cout << "CBattleState Init\n";
+    SDL_Log("CBattleState Init\n");
 }
 
 void CBattleState::Cleanup()
 {
-	std::cout << "CBattleState Pause\n";
+	SDL_Log("CBattleState Pause\n");
 }
 
 void CBattleState::Pause()
 {
-	std::cout << "CBattleState Pause\n";
+	SDL_Log("CBattleState Pause\n");
 }
 
 void CBattleState::Resume()
 {
-	std::cout << "CBattleState Resume\n";
+	SDL_Log("CBattleState Resume\n");
 }
 
 void CBattleState::HandleEvents(CGameEngine* game)
 {
+    SDL_Log("CBattleState HandleEvents\n");
 	SDL_Event event;
 
 	if (SDL_PollEvent(&event))
@@ -70,6 +58,7 @@ void CBattleState::HandleEvents(CGameEngine* game)
 
 void CBattleState::Update(CGameEngine* game)
 {
+    SDL_Log("CBattleState Update\n");
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
     m_iPreviousCoordY=m_iCurrentCoordY;
@@ -85,6 +74,7 @@ void CBattleState::Update(CGameEngine* game)
 
 void CBattleState::Draw(CGameEngine* game)
 {
+    SDL_Log("CBattleState Draw");
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
@@ -107,7 +97,8 @@ void CBattleState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &buttonPosition);
     }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+
+    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     buttonPosition.x = buttonPosition.x + 167;
     SDL_RenderFillRect(game->renderer, &buttonPosition);
     if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )

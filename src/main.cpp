@@ -85,29 +85,29 @@ namespace fs = std::experimental::filesystem;
 
 static bool s_Finished = false;
 
-void DoWork()
-{
-    SDL_Log("DoWork() thread running");
-    Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048);
-    int flags = MIX_INIT_OGG | MIX_INIT_MOD;
-    int initted = Mix_Init(flags);
-    if ((initted & flags) != flags)
-    {
-        printf("Mix_Init: Failed to init required ogg and mod support!\n");
-        printf("Mix_Init: %s\n", Mix_GetError());
-        // handle error
-    }
-    Mix_Music* song = NULL;
-    song = Mix_LoadMUS("./data/soundbible/tavern/1_Black Moon Tavern by Ean Grimm.mp3");
-    if (!song)
-    {
-        SDL_Log("Load music file failed! %s", Mix_GetError());
-        exit(EXIT_FAILURE);
-    }
-    Mix_VolumeMusic(32);
-    SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
-    //Mix_PlayMusic( song, -1 );
-};
+//void DoWork()
+//{
+//    SDL_Log("DoWork() thread running");
+//    Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048);
+//    int flags = MIX_INIT_OGG | MIX_INIT_MOD;
+//    int initted = Mix_Init(flags);
+//    if ((initted & flags) != flags)
+//    {
+//        printf("Mix_Init: Failed to init required ogg and mod support!\n");
+//        printf("Mix_Init: %s\n", Mix_GetError());
+//        // handle error
+//    }
+//    Mix_Music* song = NULL;
+//    song = Mix_LoadMUS("assets/data/sound/tavern/1_Black Moon Tavern by Ean Grimm.mp3");
+//    if (!song)
+//    {
+//        SDL_Log("Load music file failed! %s", Mix_GetError());
+//        exit(EXIT_FAILURE);
+//    }
+//    Mix_VolumeMusic(32);
+//    SDL_Log("Mix_VolumeMusic = %d",Mix_VolumeMusic(-1));
+//    Mix_PlayMusic( song, -1 );
+//};
 
 uintmax_t ComputeFileSize(const fs::path& pathToCheck)
 {
@@ -256,233 +256,233 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
    return 0;
 }
 
-void updatePlayerLocation(std::string Rotation)
-{
-    if( Rotation  == "N" )
-        PlayerCoordinate.y--;
-    else
-    if( Rotation  == "S" )
-        PlayerCoordinate.y++;
-    else
-    if( Rotation  == "E" )
-        PlayerCoordinate.x++;
-    else
-    if( Rotation  == "W" )
-        PlayerCoordinate.x--;
-}
+//void updatePlayerLocation(std::string Rotation)
+//{
+//    if( Rotation  == "N" )
+//        PlayerCoordinate.y--;
+//    else
+//    if( Rotation  == "S" )
+//        PlayerCoordinate.y++;
+//    else
+//    if( Rotation  == "E" )
+//        PlayerCoordinate.x++;
+//    else
+//    if( Rotation  == "W" )
+//        PlayerCoordinate.x--;
+//}
 
-void updateHungerAndThirst()
-{
-    playerCharacter[playerCharacterSelected].increaseHunger();
-    playerCharacter[playerCharacterSelected].increaseThirst();
+//void updateHungerAndThirst()
+//{
+//    playerCharacter[playerCharacterSelected].increaseHunger();
+//    playerCharacter[playerCharacterSelected].increaseThirst();
+//
+//    if( playerCharacter[playerCharacterSelected].hunger == 100 )
+//        playerCharacter[playerCharacterSelected].hitpoints_current--;
+//    if( playerCharacter[playerCharacterSelected].thirst == 100 )
+//        playerCharacter[playerCharacterSelected].hitpoints_current--;
+//}
 
-    if( playerCharacter[playerCharacterSelected].hunger == 100 )
-        playerCharacter[playerCharacterSelected].hitpoints_current--;
-    if( playerCharacter[playerCharacterSelected].thirst == 100 )
-        playerCharacter[playerCharacterSelected].hitpoints_current--;
-}
+//TEST_CASE("updateHungerAndThirst") {
+//    if( playerCharacter[playerCharacterSelected].hunger == 100 )
+//    CHECK(playerCharacter[playerCharacterSelected].hitpoints_current == 99);
+//}
+//
+//TEST_CASE("[math] basic stuff") {
+//    CHECK(6 > 5);
+//    CHECK(6 > 7);
+//}
+//TEST_CASE("[math] basic stuff") {
+//    CHECK(6 > 5);
+//    CHECK(6 > 7);
+//}
 
-TEST_CASE("updateHungerAndThirst") {
-    if( playerCharacter[playerCharacterSelected].hunger == 100 )
-    CHECK(playerCharacter[playerCharacterSelected].hitpoints_current == 99);
-}
+//void client()
+//{
+//    int sock = 0, valread;
+//    struct sockaddr_in serv_addr;
+//    char *hello = "Hello from client";
+//    char buffer[1024] = {0};
+//    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+//    {
+//        printf("\n Socket creation error \n");
+//        //return -1;
+//    }
+//
+//    serv_addr.sin_family = AF_INET;
+//    serv_addr.sin_port = htons(8080);
+//
+//    // Convert IPv4 and IPv6 addresses from text to binary form
+//    if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)
+//    {
+//        printf("\nInvalid address/ Address not supported \n");
+//        //return -1;
+//    }
+//
+//    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+//    {
+//        printf("\nConnection Failed \n");
+//        //return -1;
+//    }
+//    send(sock , hello , strlen(hello) , 0 );
+//    printf("Hello message sent\n");
+//    valread = read( sock , buffer, 1024);
+//    printf("%s\n",buffer );
+//};
+//int server()
+//{
+//    int server_fd, new_socket, valread;
+//    struct sockaddr_in address;
+//    int opt = 1;
+//    int addrlen = sizeof(address);
+//    char buffer[1024] = {0};
+//    char *hello = "Hello from server";
+//
+//    // Creating socket file descriptor
+//    if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
+//    {
+//        perror("socket failed");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    // Forcefully attaching socket to the port 8080
+//    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
+//                                                  &opt, sizeof(opt)))
+//    {
+//        perror("setsockopt");
+//        exit(EXIT_FAILURE);
+//    }
+//    address.sin_family = AF_INET;
+//    address.sin_addr.s_addr = INADDR_ANY;
+//    address.sin_port = htons( 8080 );
+//
+//    // Forcefully attaching socket to the port 8080
+//    if (bind(server_fd, (struct sockaddr *)&address,
+//                                 sizeof(address))<0)
+//    {
+//        perror("bind failed");
+//        exit(EXIT_FAILURE);
+//    }
+//    if (listen(server_fd, 3) < 0)
+//    {
+//        perror("listen");
+//        exit(EXIT_FAILURE);
+//    }
+//    if ((new_socket = accept(server_fd, (struct sockaddr *)&address,
+//                       (socklen_t*)&addrlen))<0)
+//    {
+//        perror("accept");
+//        exit(EXIT_FAILURE);
+//    }
+//    valread = read( new_socket , buffer, 1024);
+//    printf("%s\n",buffer );
+//    send(new_socket , hello , strlen(hello) , 0 );
+//    printf("Hello message sent\n");
+//    return 0;
+//}
+//
+//#define TRUE   1
+//#define FALSE  0
+//#define PORT 8888
 
-TEST_CASE("[math] basic stuff") {
-    CHECK(6 > 5);
-    CHECK(6 > 7);
-}
-TEST_CASE("[math] basic stuff") {
-    CHECK(6 > 5);
-    CHECK(6 > 7);
-}
-
-void client()
-{
-    int sock = 0, valread;
-    struct sockaddr_in serv_addr;
-    char *hello = "Hello from client";
-    char buffer[1024] = {0};
-    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-    {
-        printf("\n Socket creation error \n");
-        //return -1;
-    }
-
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(8080);
-
-    // Convert IPv4 and IPv6 addresses from text to binary form
-    if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0)
-    {
-        printf("\nInvalid address/ Address not supported \n");
-        //return -1;
-    }
-
-    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
-    {
-        printf("\nConnection Failed \n");
-        //return -1;
-    }
-    send(sock , hello , strlen(hello) , 0 );
-    printf("Hello message sent\n");
-    valread = read( sock , buffer, 1024);
-    printf("%s\n",buffer );
-};
-int server()
-{
-    int server_fd, new_socket, valread;
-    struct sockaddr_in address;
-    int opt = 1;
-    int addrlen = sizeof(address);
-    char buffer[1024] = {0};
-    char *hello = "Hello from server";
-
-    // Creating socket file descriptor
-    if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0)
-    {
-        perror("socket failed");
-        exit(EXIT_FAILURE);
-    }
-
-    // Forcefully attaching socket to the port 8080
-    if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT,
-                                                  &opt, sizeof(opt)))
-    {
-        perror("setsockopt");
-        exit(EXIT_FAILURE);
-    }
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons( 8080 );
-
-    // Forcefully attaching socket to the port 8080
-    if (bind(server_fd, (struct sockaddr *)&address,
-                                 sizeof(address))<0)
-    {
-        perror("bind failed");
-        exit(EXIT_FAILURE);
-    }
-    if (listen(server_fd, 3) < 0)
-    {
-        perror("listen");
-        exit(EXIT_FAILURE);
-    }
-    if ((new_socket = accept(server_fd, (struct sockaddr *)&address,
-                       (socklen_t*)&addrlen))<0)
-    {
-        perror("accept");
-        exit(EXIT_FAILURE);
-    }
-    valread = read( new_socket , buffer, 1024);
-    printf("%s\n",buffer );
-    send(new_socket , hello , strlen(hello) , 0 );
-    printf("Hello message sent\n");
-    return 0;
-}
-
-#define TRUE   1
-#define FALSE  0
-#define PORT 8888
-
-string convertToString(char* a)
-{
-    string s = a;
-    return s;
-}
+//string convertToString(char* a)
+//{
+//    string s = a;
+//    return s;
+//}
 
 CGameEngine game;
 
 int main(int argc, char ** argv)
 {
-//    glutInit(&argc, argv);
-//    glutInitWindowPosition(1920/2,1080/2);
-//    glutInitWindowSize(1920,1080);
-//    glutCreateWindow("");
+    pFile = fopen ("./logs/GameEngineLOG.log","w");
+    SDL_LogSetOutputFunction(&LogSDL, NULL);
+    SDL_Log("./logs/GameEngineLOG.txt file opened: Success");
 
-    int staticAbility = 24;
-    int abilityModifier = 0;
-    int level = 1;
-    int ToughnessMod = 5;
-    int IntelligenceMod = 5;
-
-    std::cout << "Calculating Knight HP: " << 40 + (5 * ToughnessMod) + (6 * level) << " @ level = " << level <<  std::endl;
-    int amount_hp = GenerateNumber(1, (ToughnessMod / 2) );
-    int amount_sp = GenerateNumber(1, (IntelligenceMod / 2) );
-    for( int i= 5; i < 42; i++)
-    {
-        staticAbility = i;
-        abilityModifier = floor((staticAbility - 20) / 2);
-
-        std::cout << staticAbility << "=" << " abilityModifier" << abilityModifier << std::endl;
-    }
-
-    //exit(0);
-
-    std::thread worker(DoWork);
+//    int staticAbility = 24;
+//    int abilityModifier = 0;
+//    int level = 1;
+//    int ToughnessMod = 5;
+//    int IntelligenceMod = 5;
+//
+//    SDL_Log("Calculating Knight HP: %d @ level = %d", 40 + (5 * ToughnessMod) + (6 * level),level);
+//
+//    int amount_hp = GenerateNumber(1, (ToughnessMod / 2) );
+//    int amount_sp = GenerateNumber(1, (IntelligenceMod / 2) );
+//    for( int i= 5; i < 42; i++)
+//    {
+//        staticAbility = i;
+//        abilityModifier = floor((staticAbility - 20) / 2);
+//
+//        SDL_Log("%d = abilityModifier: %d",staticAbility,abilityModifier);
+//    }
+//
+//    std::thread worker(DoWork);
 
     game.Init("A Viking Saga",1920,1080,32,true);
 
-    game.ChangeState( CMenuState::Instance() );
+    game.ChangeState( CIntroState::Instance() );
 
-    int opt = TRUE;
-    int master_socket , addrlen , new_socket , client_socket[30] ,
-          max_clients = 30 , activity, i , valread , sd;
-    int max_sd;
-    struct sockaddr_in address;
+    //game.ChangeState( CMenuState::Instance() );
 
-    char buffer[1025];  //data buffer of 1K
-
-    //set of socket descriptors
-    fd_set readfds;
-
-    //a message
-    char *message = "ECHO Daemon v1.0 \r\n";
-
-    //initialise all client_socket[] to 0 so not checked
-    for (i = 0; i < max_clients; i++)
-    {
-        client_socket[i] = 0;
-    }
-
-    //create a master socket
-    if( (master_socket = socket(AF_INET , SOCK_STREAM , 0)) == 0)
-    {
-        perror("socket failed");
-        exit(EXIT_FAILURE);
-    }
-
-    //set master socket to allow multiple connections ,
-    //this is just a good habit, it will work without this
-    if( setsockopt(master_socket, SOL_SOCKET, SO_REUSEADDR, (char *)&opt,
-          sizeof(opt)) < 0 )
-    {
-        perror("setsockopt");
-        exit(EXIT_FAILURE);
-    }
-
-    //type of socket created
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons( PORT );
-
-    //bind the socket to localhost port 8888
-    if (bind(master_socket, (struct sockaddr *)&address, sizeof(address))<0)
-    {
-        perror("bind failed");
-        exit(EXIT_FAILURE);
-    }
-    printf("Listener on port %d \n", PORT);
-
-    //try to specify maximum of 3 pending connections for the master socket
-    if (listen(master_socket, 3) < 0)
-    {
-        perror("listen");
-        exit(EXIT_FAILURE);
-    }
-
-    //accept the incoming connection
-    addrlen = sizeof(address);
-    puts("Waiting for connections ...");
+//    int opt = TRUE;
+//    int master_socket , addrlen , new_socket , client_socket[30] ,
+//          max_clients = 30 , activity, i , valread , sd;
+//    int max_sd;
+//    struct sockaddr_in address;
+//
+//    char buffer[1025];  //data buffer of 1K
+//
+//    //set of socket descriptors
+//    fd_set readfds;
+//
+//    //a message
+//    char *message = "ECHO Daemon v1.0 \r\n";
+//
+//    //initialise all client_socket[] to 0 so not checked
+//    for (i = 0; i < max_clients; i++)
+//    {
+//        client_socket[i] = 0;
+//    }
+//
+//    //create a master socket
+//    if( (master_socket = socket(AF_INET , SOCK_STREAM , 0)) == 0)
+//    {
+//        perror("socket failed");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    //set master socket to allow multiple connections ,
+//    //this is just a good habit, it will work without this
+//    if( setsockopt(master_socket, SOL_SOCKET, SO_REUSEADDR, (char *)&opt,
+//          sizeof(opt)) < 0 )
+//    {
+//        perror("setsockopt");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    //type of socket created
+//    address.sin_family = AF_INET;
+//    address.sin_addr.s_addr = INADDR_ANY;
+//    address.sin_port = htons( PORT );
+//
+//    //bind the socket to localhost port 8888
+//    if (bind(master_socket, (struct sockaddr *)&address, sizeof(address))<0)
+//    {
+//        perror("bind failed");
+//        exit(EXIT_FAILURE);
+//    }
+//    printf("Listener on port %d \n", PORT);
+//
+//    //try to specify maximum of 3 pending connections for the master socket
+//    if (listen(master_socket, 3) < 0)
+//    {
+//        perror("listen");
+//        exit(EXIT_FAILURE);
+//    }
+//
+//    //accept the incoming connection
+//    addrlen = sizeof(address);
+//    puts("Waiting for connections ...");
 
 //    for(int i = 0; i < argc; i++)
 //    {
@@ -629,198 +629,86 @@ int main(int argc, char ** argv)
 
     srand (time(NULL));
 
-
-    //std::cout << "SDL_SetMainReady..." << "\n";
-    //SDL_SetMainReady();
-
-    //SDL_Delay(5000);
-
-    std::ofstream soundBibleFile;
-    soundBibleFile.open ("./data/soundbible.org");
-
-    std::vector<std::string> soundbibleFiles;
-    std::vector<std::string> fontFiles;
-    std::vector<std::string> imagesFiles;
-    std::vector<std::string> dataFiles;
-    std::vector<std::string> logsFiles;
-
-    read_directory("./data/soundbible", soundbibleFiles);
-    read_directory("./font", fontFiles);
-    read_directory("./images", imagesFiles);
-    read_directory("./data", dataFiles);
-    read_directory("./logs", logsFiles);
-
-    std::copy(soundbibleFiles.begin(), soundbibleFiles.end(),
-         std::ostream_iterator<std::string>(soundBibleFile, "\n"));
-
-    soundBibleFile.close();
-
-    pFile = fopen ("./logs/GameEngineLOG.log","w");
-    SDL_LogSetOutputFunction(&LogSDL, NULL);
-    SDL_Log("./logs/GameEngineLOG.txt file opened: Success");
-
-//    if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
+//    std::vector<std::string> fontFiles;
+//    std::vector<std::string> imagesFiles;
+//    std::vector<std::string> dataFiles;
+//    std::vector<std::string> logsFiles;
+//
+//    read_directory("./font", fontFiles);
+//    read_directory("./images", imagesFiles);
+//    read_directory("./data", dataFiles);
+//    read_directory("./logs", logsFiles);
+//
+//    int fw,fh;
+//
+//    if (!GetCurrentDir(cCurrentPath, sizeof(cCurrentPath)))
 //    {
-//        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
-//        exit(EXIT_FAILURE);
+//        SDL_Log("GetCurrentDirectory failed: %s", errno);
+//        return errno;
 //    }
 //    else
 //    {
-//        SDL_Log("initialize SDL and all its subsystems: Success");
+//        cCurrentPath[sizeof(cCurrentPath) - 1] = '\0';
+//        SDL_Log("The current working directory is %s", cCurrentPath);
 //    }
 
-//    if(!TTF_WasInit() && TTF_Init()==-1)
-//    {
-//        SDL_Log("TTF_Init: %s", TTF_GetError());
-//        exit(EXIT_FAILURE);
-//    }
-//    else
-//    {
-//        SDL_Log("TTF_Init: Success!");
-//    }
-
-    int fw,fh;
-
-    // Get current display mode of all displays.
-//    for(int i = 0; i < SDL_GetNumVideoDisplays(); ++i)
-//    {
-//        int should_be_zero = SDL_GetCurrentDisplayMode(i, &monitor[i]);
+//    countFiles("./data");
 //
-//        current = monitor[0];
+//    initFileSystem();
 //
-//        if(should_be_zero != 0)
-//        {
-//            SDL_Log("Could not get display mode for video display #%d: %s", i, SDL_GetError());
-//        }
-//        else
-//        {
-//            SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate);
-//        }
-//    }
+//    initGame();
 //
-//    window = SDL_CreateWindow("",
-//        SDL_WINDOWPOS_CENTERED,
-//        SDL_WINDOWPOS_CENTERED,
-//        current.w, current.h,
-//        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
+//    initQuests();
 //
-//    if (window == NULL)
-//    {
-//        SDL_Log("Could not create window: %s", SDL_GetError());
-//        return 1;
-//    }
-//    else
-//    {
-//        SDL_Log("SDL Window creation: SUCCESS");
+//    init_portals("./data/maps/phlan/phlan_portals");
+//    init_portals("./data/maps/slums/slums_portals");
+//    init_portals("./data/maps/khutos_well/khutos_well_portals");
+//    init_portals("./data/maps/podal_plaza/podal_plaza_portals");
+//    init_portals("./data/maps/cardona_textile_house/cardona_textile_house_portals");
+//    init_portals("./data/maps/kovel_mansion/kovel_mansion_portals");
+//    init_portals("./data/maps/mendors_library/mendors_library_portals");
+//    init_portals("./data/maps/sokol_keep/sokol_keep_portals");
+//    init_portals("./data/maps/stojanov_gate/stojanov_gate_portals");
+//    init_portals("./data/maps/vahlingen_graveyard/vahlingen_graveyard_portals");
+//    init_portals("./data/maps/valjevo_castle/valjevo_castle_portals");
+//    init_portals("./data/maps/wealthy_area/wealthy_area_portals");
 //
-//        renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-//        renderer2 = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE);
+//    loadPortals();
 //
-//        SDL_Log("SDL Renderer creation: SUCCESS");
-//
-//        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-//        SDL_RenderSetScale(renderer,1.0,1.0);
-//        IMG_Init(IMG_INIT_PNG);
-//
-//        if( strcmp(uts.machine, "x86_64") == 0 )
-//            gSurface = IMG_Load( "./icons/64-bit-100.png" );
-//        else
-//            gSurface = IMG_Load( "./icons/64-bit-100-filled.png" );
-//
-//        if(!gSurface)
-//        {
-//            SDL_Log("Setting Window Icon: %s\n", IMG_GetError());
-//            return -1;
-//        }
-//        else
-//        {
-//            SDL_Log("Loading Window Icon initiated...");
-//            SDL_Log("Version: %s",AutoVersion::FULLVERSION_STRING);
-//        }
-//
-//        SDL_SetWindowIcon(window, gSurface);
-//        SDL_FreeSurface(gSurface);
-//
-//        SDL_StopTextInput();
-//
-//        // Replace this with the new SDL2 OpenAudio
-//        if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
-//        {
-//            SDL_Log("Audio broke down: %s", SDL_GetError());
-//            return -1;
-//        }
-//        else
-//        {
-//            SDL_Log("Audio successfully initiated...");
-//        }
-//    }
+//    std::chrono::system_clock::time_point timeNow = std::chrono::system_clock::now();
 
-    if (!GetCurrentDir(cCurrentPath, sizeof(cCurrentPath)))
-    {
-        SDL_Log("GetCurrentDirectory failed: %s", errno);
-        return errno;
-    }
-    else
-    {
-        cCurrentPath[sizeof(cCurrentPath) - 1] = '\0';
-        SDL_Log("The current working directory is %s", cCurrentPath);
-    }
-
-    countFiles("./data");
-
-    initFileSystem();
-
-    initGame();
-
-    initQuests();
-
-    init_portals("./data/maps/phlan/phlan_portals");
-    init_portals("./data/maps/slums/slums_portals");
-    init_portals("./data/maps/khutos_well/khutos_well_portals");
-    init_portals("./data/maps/podal_plaza/podal_plaza_portals");
-    init_portals("./data/maps/cardona_textile_house/cardona_textile_house_portals");
-    init_portals("./data/maps/kovel_mansion/kovel_mansion_portals");
-    init_portals("./data/maps/mendors_library/mendors_library_portals");
-    init_portals("./data/maps/sokol_keep/sokol_keep_portals");
-    init_portals("./data/maps/stojanov_gate/stojanov_gate_portals");
-    init_portals("./data/maps/vahlingen_graveyard/vahlingen_graveyard_portals");
-    init_portals("./data/maps/valjevo_castle/valjevo_castle_portals");
-    init_portals("./data/maps/wealthy_area/wealthy_area_portals");
-
-    loadPortals();
-
-    std::chrono::system_clock::time_point timeNow = std::chrono::system_clock::now();
-
-    loadItemIcons();
-    initShop();
-    generateSmithShopItems();
-    playerCharacter[0].loadCharacterFace();
-    playerCharacter[1].loadCharacterFace();
-    playerCharacter[2].loadCharacterFace();
-    playerCharacter[3].loadCharacterFace();
-    playerCharacter[4].loadCharacterFace();
-    playerCharacter[5].loadCharacterFace();
-
-    loadPCstatusData();
+//    loadItemIcons();
+//    initShop();
+//    generateSmithShopItems();
+//    playerCharacter[0].loadCharacterFace();
+//    playerCharacter[1].loadCharacterFace();
+//    playerCharacter[2].loadCharacterFace();
+//    playerCharacter[3].loadCharacterFace();
+//    playerCharacter[4].loadCharacterFace();
+//    playerCharacter[5].loadCharacterFace();
+//
+//    loadPCstatusData();
     //loadMapTextures();
-    MainMenuLoadBackground("./images/menus/mainmenu.jpg");
-    initGameTitleFont("./font/droid-sans-mono/DroidSansMono.ttf", 160);
-    initGameBreadTextFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    //MainMenuLoadBackground("./images/menus/menu_backdrop.png");
+    //initGameTitleFont("./font/droid-sans-mono/DroidSansMono.ttf", 160);
+    //initGameBreadTextFont("./font/droid-sans-mono/DroidSansMono.ttf", 24);
+    //exit(0);
+    //testInit();
 
-    testInit();
+    //std::cout << "Loading finished" << std::endl;
 
-    std::cout << "Loading finished" << std::endl;
-
-    struct timeval tv;
+    //struct timeval tv;
        /* Wait up to five seconds. */
-    tv.tv_sec = 5;
-    tv.tv_usec = 0;
+    //tv.tv_sec = 5;
+    //tv.tv_usec = 0;
 
-    SDL_Surface *surface = IMG_Load("./icons/cursor_1.png");
-    SDL_Cursor *cursor = SDL_CreateColorCursor(surface,72,20);
-    SDL_SetCursor(cursor);
+    //SDL_Surface *surface = IMG_Load("./icons/cursor_1.png");
+    //SDL_Cursor *cursor = SDL_CreateColorCursor(surface,72,20);
+    //SDL_SetCursor(cursor);
 
-    while (!quit)
+
+    //while (!quit)
+    while( game.Running() )
     {
 //        //clear the socket set
 //        FD_ZERO(&readfds);
@@ -933,69 +821,74 @@ int main(int argc, char ** argv)
         game.Update();
         game.Draw();
 
-        start = high_resolution_clock::now();
+        //SDL_RenderPresent(game.renderer);
 
-        for( int i=0; i < 6; i++ )
-        {
-            playerCharacter[i].update();
-        }
+        //start = high_resolution_clock::now();
 
-        while (SDL_PollEvent(&event) != 0)
-        {
-            switch (event.type)
-            {
-                case SDL_KEYUP:
-                    switch (event.key.keysym.sym)
-                    {
-                        case SDLK_y:
-                        {
-                            game.ChangeState( CMenuState::Instance() );
-                            if( armsAndarmourShop || trainingHall || tavern )
-                            {
-                                shop = 1;
-                            }
-                            if( generalShop || jewelleryShop || silverShop )
-                            {
-                                shop = 1;
-                            }
-                            if( templeShop )
-                            {
-                                shop = 1;
-                                cureCriticalWounds();
-                                cureSeriousWounds();
-                                cureLightWounds();
-                            };
-                        } break;
-                        case SDLK_ESCAPE:
-                        {
-                            if(activeView == MAIN_MENU)
-                            {
-                                if( SettingsMenu )                                {
-                                    SettingsMenu = 0;
-                                }
-                                else if( SaveMenu )
-                                {
-                                    SaveMenu = 0;
-                                }
-                                else if( LoadMenu )
-                                {
-                                    LoadMenu = 0;
-                                }
-                                else if( CreateCharacter )
-                                {
-                                    CreateCharacter = 0;
-                                }
-                                else
-                                {
-                                    quit = 1;
-                                }
-                            }
-                            else if(activeView == DUNGEON)
-                            {
-                                activeView = MAIN_MENU;
-                            }
-                        } break;
-                    } break;
+        SDL_RenderPresent(game.renderer);
+
+        //stop = high_resolution_clock::now();
+        //auto duration = duration_cast<microseconds>(stop - start);
+
+        //m_uPreviousMouseState=m_uCurrentMouseState;
+        //mouseUpdate();
+//
+//        while (SDL_PollEvent(&event) != 0)
+//        {
+//            switch (event.type)
+//            {
+//                case SDL_KEYUP:
+//                    switch (event.key.keysym.sym)
+//                    {
+//                        case SDLK_y:
+//                        {
+//                            game.ChangeState( CMenuState::Instance() );
+//                            if( armsAndarmourShop || trainingHall || tavern )
+//                            {
+//                                shop = 1;
+//                            }
+//                            if( generalShop || jewelleryShop || silverShop )
+//                            {
+//                                shop = 1;
+//                            }
+//                            if( templeShop )
+//                            {
+//                                shop = 1;
+//                                cureCriticalWounds();
+//                                cureSeriousWounds();
+//                                cureLightWounds();
+//                            };
+//                        } break;
+//                        case SDLK_ESCAPE:
+//                        {
+//                            if(activeView == MAIN_MENU)
+//                            {
+//                                if( SettingsMenu )//                                {
+//                                    SettingsMenu = 0;
+//                                }
+//                                else if( SaveMenu )
+//                                {
+//                                    SaveMenu = 0;
+//                                }
+//                                else if( LoadMenu )
+//                                {
+//                                    LoadMenu = 0;
+//                                }
+//                                else if( CreateCharacter )
+//                                {
+//                                    CreateCharacter = 0;
+//                                }
+//                                else
+//                                {
+//                                    quit = 1;
+//                                }
+//                            }
+//                            else if(activeView == DUNGEON)
+//                            {
+//                                activeView = MAIN_MENU;
+//                            }
+//                        } break;
+//                    } break;
 //                case SDL_MOUSEBUTTONDOWN:
 //                    switch (event.button.button)
 //                    {
@@ -1159,81 +1052,76 @@ int main(int argc, char ** argv)
 //                            }
 //                            break;
 //                    } break;
-            }
-        }
-
-        m_uPreviousMouseState=m_uCurrentMouseState;
-        mouseUpdate();
-
-        if( activeView == BATTLE )
-        {
-            battleView();
-        }
-        else if( activeView == MAIN_MENU )
-        {
-            if(TITLE == "switch")
-                renderTemple();
-            else
-                if( SettingsMenu == 1 )
-                {
-                renderSettings();
-                }
-                else if( SaveMenu == 1 )
-                {
-                RenderSaveMenu();
-                }
-                else if( LoadMenu == 1)
-                {
-                RenderLoadMenu();
-                }
-                else if( CreateCharacter == 1)
-                {
-                renderCharacterCreation();
-                }
-            MainMenu();
-        }
-        else if(activeView == DUNGEON)
-        {
-            renderWorldViewA();
-
-//            if( currentTimeElapse() == night )
-//            {
-//                shop = 0;
 //            }
-            if(shop)
-            {
-                if(templeShop)
-                {
-                    renderTemple();
-                }
-                else if(trainingHall)
-                {
-                    renderTrainer();
-                }
-                else if(armsAndarmourShop)
-                {
-                    renderSmithShop();
-                }
-                else if(jewelleryShop)
-                {
-                    renderJewelleryShop();
-                }
-                else if(generalShop)
-                {
-                    renderGeneralShop();
-                }
-                else if(silverShop)
-                {
-                    renderSilverShop();
-                }
-                else if(tavern)
-                {
-                    renderTavern();
-                }
-            }
-        } // end dungeonView
+//        }
 
-        IMG_Quit();
+
+
+//        if( activeView == BATTLE )
+//        {
+//            battleView();
+//        }
+//        else if( activeView == MAIN_MENU )
+//        {
+//            if(TITLE == "switch")
+//                renderTemple();
+//            else
+//                if( SettingsMenu == 1 )
+//                {
+//                renderSettings();
+//                }
+//                else if( SaveMenu == 1 )
+//                {
+//                RenderSaveMenu();
+//                }
+//                else if( LoadMenu == 1)
+//                {
+//                RenderLoadMenu();
+//                }
+//                else if( CreateCharacter == 1)
+//                {
+//                renderCharacterCreation();
+//                }
+//            MainMenu();
+//        }
+//        else if(activeView == DUNGEON)
+//        {
+//            renderWorldViewA();
+//
+//            if(shop)
+//            {
+//                if(templeShop)
+//                {
+//                    renderTemple();
+//                }
+//                else if(trainingHall)
+//                {
+//                    renderTrainer();
+//                }
+//                else if(armsAndarmourShop)
+//                {
+//                    renderSmithShop();
+//                }
+//                else if(jewelleryShop)
+//                {
+//                    renderJewelleryShop();
+//                }
+//                else if(generalShop)
+//                {
+//                    renderGeneralShop();
+//                }
+//                else if(silverShop)
+//                {
+//                    renderSilverShop();
+//                }
+//                else if(tavern)
+//                {
+//                    renderTavern();
+//                }
+//            }
+//        } // end dungeonView
+
+        //IMG_Quit();
         //fps.update();
 
         //renderDescription(PlayerCoordinate.x, PlayerCoordinate.y);
@@ -1241,18 +1129,13 @@ int main(int argc, char ** argv)
 
         //SDL_RenderPresent(renderer);
 
-        SDL_RenderPresent(game.renderer);
-
-        stop = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(stop - start);
-
         //std::cout << "MAIN microseconds: " << duration.count() << endl;
-       SDL_Delay(50);
+       //SDL_Delay(50);
     }
 
-    SDL_DestroyTexture(currentViewTexture);
-    SDL_DestroyTexture(backgroundTexture);
-    unloadPCstatusData();
+    //SDL_DestroyTexture(currentViewTexture);
+    //SDL_DestroyTexture(backgroundTexture);
+    //unloadPCstatusData();
 
     return 0;
 }

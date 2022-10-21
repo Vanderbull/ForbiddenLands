@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "0dff556cfbb76175",
+    "type": "split",
+    "children": [
+      {
+        "id": "edc0607c98f1d2d4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a17f10a24262597f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Table of content.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7a1ab834a696f4e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chapter 14. Character creation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "eef4ad546a0f2b55",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chapter 14. Character creation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ae4d23fe41882fe2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Races.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "42fa4f7725b3e0ef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spells.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "62d4d2548819516e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spells.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "20708219aba43f7a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cities.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a819e528cf551fa9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chapter 14. Character creation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 7
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5d27c4b9557b0d7e",
+    "type": "split",
+    "children": [
+      {
+        "id": "31ef8de68a879c0c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca99217cbdc5cf9b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byCreatedTime"
+              }
+            }
+          },
+          {
+            "id": "fdd4ab6b658d0813",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8334ea7a3a4f3c99",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c30a98c9ff6ee348",
+    "type": "split",
+    "children": [
+      {
+        "id": "f5716bb9826cd760",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d7a3ca40700fb779",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Chapter 14. Character creation.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "71f208f556f7ff2e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Chapter 14. Character creation.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "92f84e8598f12e20",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5d4b1eaf51fffd86",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Chapter 14. Character creation.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "a819e528cf551fa9",
+  "lastOpenFiles": [
+    "Shops & traders.md",
+    "Cities.md",
+    "Spells.md",
+    "Currency.md",
+    "Races.md",
+    "Keep a changelog.md",
+    "Chapter 14. Character creation.md",
+    "Chapter 2.1 Time.md",
+    "Rulebook_v1.md",
+    "Table of content.md"
+  ]
+}
