@@ -5,36 +5,8 @@ https://blog.scottlowe.org/2016/11/21/gnome-keyring-git-credential-helper/
 https://stackoverflow.com/questions/13385690/how-to-use-git-with-gnome-keyring-integration
 
 ## Coding rules
-All locall developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
+All local developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
 merging development commits.
-
-## Cities
-https://www.fotevikensmuseum.se/d/en/museet/husen
-
-### Uppåkra
-
-Excavations show Uppåkra to have been among the richest and largest towns active during the Viking Age. Its founding was likely several centuries earlier, possibly as far back as the year 100 BC.
-
-Archaeological surveys in 1934 discovered a Bronze to Iron Age settlement. More recently, 30,000 objects of gold, silver and bronze were discovered, telling many stories of the area. The advanced craftsmanship indicates that significant trade took place with ancient Europe and the Middle East.
-
-### Uppsala
-
-The scenes from Vikings set in Uppsala are shocking, but they're not entirely fiction. The settlement, now Gamla Uppsala (Old Uppsala) just north of Stockholm, served as a centre of society for hundreds of years, before and during the Viking Age.
-
-Uppsala was the location of a general assembly and a major marketplace, held annually from pre-historic times to the Middle Ages in the early spring. Written sources claim that these gatherings were used to decide warfare plans. A Norse religious celebration called Dísablót was also held, which could have involved sacrifice.
-
-### Täby / Vallentuna
-### Sigtuna
-### Västerås
-
-
-## Shops & Traders
-
-- Tiers 1,2,3
-- Shops can have random items from lower tiers
-- Random generated at first but keeps its inventory persistant.
-- Each shop have a primary tier and a secondary tier. ( maybe )
-
 
 ## Character generation idea
 - Define generations of relatives for the character
@@ -129,31 +101,6 @@ In my opinion, the Elder Scrolls approach is more viable in a single-player game
 ## New image editing tool
 ### 2022-01-21
 pixlr.com a online image editor
-
-## Currency
-
-### 2022-09-17
-The currency in the game was changed from gold to silver and where the weight and size of a particular metal is used as a method of evaluating value, as opposed to the value being determined by the specific type of coin where the weight is about 1,6g.
-### 2022-01-21
-The currency in the game was changed from having the old classic gold,silver,copper to one single currency gold. This was changed
-to make it a bit more simple as having more types more or less just complicates things and dont add any real ingame value.
-
-## Races
-
-### 2022-09-17
-They races from early design was removed to simplify the development and due to the reason that there are no races in the viking story.
-
-<img src="https://user-images.githubusercontent.com/1743820/147883692-05e8ff52-c1a6-4221-8e2e-a738796848eb.png" width="150" height="150">
-
-## Spells
-
-<img src="https://user-images.githubusercontent.com/1743820/147883826-9ac12230-5733-4860-b60a-8371d15ab066.png" width="150" height="150">
-
-## Mana
-
-Mana is the source with which the spellcaster use when casting spells and is drained in accordance to how powerfull the spell is.
-
-<img src="https://user-images.githubusercontent.com/1743820/147883065-d65eac70-4d8e-4dd9-9f4d-efde43d89d72.png" width="150" height="150">
 
 ### Teleport
 ```c++

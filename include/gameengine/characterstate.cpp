@@ -127,7 +127,6 @@ void CCharacterState::Draw(CGameEngine* game)
   	game->RenderBreadText(std::to_string(SActor.hitpoints_current).c_str(),game->White,game->current.w - 100, 425 );
   	game->RenderBreadText(std::to_string(SActor.hitpoints_max).c_str(),game->White,game->current.w - 100, 450 );
   	game->RenderBreadText(std::to_string(SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );
-  	game->RenderBreadText(std::to_string(SActor.race).c_str(),game->White,game->current.w - 100, 500 );
   	game->RenderBreadText(std::to_string(SActor.initiative).c_str(),game->White,game->current.w - 100, 525 );
   	game->RenderBreadText(std::to_string(SActor.rowcounter).c_str(),game->White,game->current.w - 100, 550 );
   	game->RenderBreadText(std::to_string(SActor.thirst).c_str(),game->White,game->current.w - 100, 575 );

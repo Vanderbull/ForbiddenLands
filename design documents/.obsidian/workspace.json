@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Design document.md",
+                "file": "Table of content.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,14 +25,86 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Keep a changelog.md",
+                "file": "Chapter 14. Character creation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "eef4ad546a0f2b55",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chapter 14. Character creation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ae4d23fe41882fe2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Races.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "42fa4f7725b3e0ef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spells.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "62d4d2548819516e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spells.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "20708219aba43f7a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cities.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a819e528cf551fa9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Chapter 14. Character creation.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -51,7 +123,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "byCreatedTime"
               }
             }
           },
@@ -98,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Keep a changelog.md",
+                "file": "Chapter 14. Character creation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +187,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Keep a changelog.md",
+                "file": "Chapter 14. Character creation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,22 +210,31 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Keep a changelog.md"
+                "file": "Chapter 14. Character creation.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "7a1ab834a696f4e7",
+  "active": "a819e528cf551fa9",
   "lastOpenFiles": [
-    "Design document.md"
+    "Shops & traders.md",
+    "Cities.md",
+    "Spells.md",
+    "Currency.md",
+    "Races.md",
+    "Keep a changelog.md",
+    "Chapter 14. Character creation.md",
+    "Chapter 2.1 Time.md",
+    "Rulebook_v1.md",
+    "Table of content.md"
   ]
 }

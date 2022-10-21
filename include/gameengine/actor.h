@@ -14,7 +14,6 @@ struct ACTOR
     std::string name = "Actor name";
 
     int current_stats[6];
-    int race = 0; // None
     int coins_gold = 0;
     int ac_base = 10;
     int experience = 0;
