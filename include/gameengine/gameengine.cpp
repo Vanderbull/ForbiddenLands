@@ -423,7 +423,7 @@ int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue,
 SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 {
 	SDL_Texture* texture = IMG_LoadTexture(renderer, str.c_str() );
-	std:cout << str.c_str();
+	//std:cout << str.c_str();
 	if( texture == NULL)
         exit(88);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);

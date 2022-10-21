@@ -16,7 +16,7 @@ void CSaveMenuState::Init()
     DIR *dpdf;
     struct dirent *epdf;
     std::vector<std::string> filenames;
-    dpdf = opendir("./data/savegames");
+    dpdf = opendir("./assets/data/savegames");
     if (dpdf != NULL) {
        while (epdf = readdir(dpdf))
        {
@@ -92,11 +92,11 @@ void CSaveMenuState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-	SDL_Texture* texture = game->LoadTexture("./images/menus/menu_backdrop.png",255);
+	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);
     SDL_DestroyTexture(texture);
 
-    gSurface = TTF_RenderText_Blended(game->gameTitleFont, "Save", White);
+    gSurface = TTF_RenderText_Blended(game->gameTitleFont, "Save", game->White);
 	if( !gSurface )
 	{
         exit(-1);
@@ -143,8 +143,9 @@ void CSaveMenuState::Draw(CGameEngine* game)
             {
                 if( MenuChoice != "EXIT" || MenuChoice != "NEW SAVE")
                 {
+                    std::string file_removal = "./assets/data/savegames/" + *q;
                     vector<string>::iterator p = MenuChoices.erase(q);
-                    int status = remove("/home/rickard/Documents/Vanderbull/ForbiddenLands/data/savegames/test.txt");
+                    int status = remove(file_removal.c_str());
                     if( status == 0 )
                         SDL_Log("Deleted file");
                     else
@@ -154,7 +155,7 @@ void CSaveMenuState::Draw(CGameEngine* game)
         }
         q++;
 
-        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), White);
+        gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), game->White);
         gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
         int texW = 0;
         int texH = 0;
@@ -187,7 +188,7 @@ void CSaveMenuState::Draw(CGameEngine* game)
                 if( MenuChoice == "EXIT")
                     game->ChangeState( CMenuState::Instance() );
                 else if( MenuChoice == "NEW SAVE")
-                    savingGameData("./data/savegames/new.dat");
+                    savingGameData("./assets/data/savegames/new.dat");
                 else
                     savingGameData(MenuChoice.c_str());
             }
