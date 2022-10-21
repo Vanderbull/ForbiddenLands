@@ -23,6 +23,11 @@ merging development commits.
 
     Close #111
 
+    git commit -m "example of coding - close #1 close #2"
+    git push origin develop
+
+
+
     Seems to not be working using gitfiend at least
 
 
