@@ -21,6 +21,8 @@ merging development commits.
 
     message (closes GH-28)
 
+    Seems to not be working using gitfiend at least
+
 
 ## Character generation idea
 - Define generations of relatives for the character
