@@ -17,7 +17,7 @@ void CLoadMenuState::Init()
     DIR *dpdf;
     struct dirent *epdf;
     std::vector<std::string> filenames;
-    dpdf = opendir("./data/savegames");
+    dpdf = opendir("./assets/data/savegames");
     if (dpdf != NULL) {
        while (epdf = readdir(dpdf))
        {
@@ -98,7 +98,7 @@ void CLoadMenuState::Draw(CGameEngine* game)
 
     MainMenuBackgroundTexture = NULL;
 
-	SDL_Surface* surface = IMG_Load( "./images/menus/menu_backdrop.png" );
+	SDL_Surface* surface = IMG_Load( "./assets/data/textures/menus/menu_backdrop.png" );
 	if( !surface )
 	{
         exit(-1);

@@ -1,3 +1,5 @@
+https://keepachangelog.com/en/1.0.0/
+
 16 December 2021
    released version 1.0.3 of Forbidden Lands
 
@@ -26,4 +28,3 @@
         -Cleaned: Removed alot of image content and added AutoVersion and OS info
         -Added: VersionInfo to menu screen
         -Fixed: Map loading and switching
-

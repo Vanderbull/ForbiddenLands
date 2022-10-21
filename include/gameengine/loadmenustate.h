@@ -32,22 +32,31 @@ public:
 
     void loadingGameData( std::string saveFile )
     {
+        std::string saveFilePath = "./assets/data/savegames/";
+        std::string loadThisFile = saveFilePath + saveFile;
         FILE *infile;
 
         // Open person.dat for reading
-        infile = fopen (saveFile.c_str(), "r");
+        infile = fopen (loadThisFile.c_str(), "r");
         if (infile == NULL)
         {
+            std::cout << loadThisFile << std::endl;
+
             fprintf(stderr, "\nError opening file\n");
             exit (1);
         }
 
         // read file contents till end of file
-        while(fread(&SActor, sizeof(struct ACTOR), 1, infile))
-        {
-            std::cout << SActor.action_stamina << "\n";
-        }
+        size_t ret_code = fread(&SActor, sizeof(struct ACTOR), 1, infile);
 
+        std::cout << SActor.action_stamina << std::endl;
+
+        puts("Array read successfully, contents: ");
+           if (feof(infile))
+          printf("Error reading loadThisFile unexpected end of file\n");
+       else if (ferror(infile)) {
+           perror("Error reading loadThisFile");
+       }
         // close file
         fclose (infile);
     }
