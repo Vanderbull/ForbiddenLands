@@ -19,6 +19,8 @@ merging development commits.
     resolves #xxx
     resolved #xxx
 
+    message (closes GH-28)
+
 
 ## Character generation idea
 - Define generations of relatives for the character
