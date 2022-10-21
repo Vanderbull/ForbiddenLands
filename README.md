@@ -8,6 +8,18 @@ https://stackoverflow.com/questions/13385690/how-to-use-git-with-gnome-keyring-i
 All local developed code should be pushed and commited into the "development" branch and not the main, the main branch is only for
 merging development commits.
 
+### syntax to Git commit issues
+    fix #xxx
+    fixes #xxx
+    fixed #xxx
+    close #xxx
+    closes #xxx
+    closed #xxx
+    resolve #xxx
+    resolves #xxx
+    resolved #xxx
+
+
 ## Character generation idea
 - Define generations of relatives for the character
 
