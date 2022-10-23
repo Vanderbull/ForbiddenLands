@@ -61,7 +61,7 @@ struct utsname uts;
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
-#include <SDL_opengl.h>
+//#include <SDL_opengl.h>
 //#include <GL/glut.h>
 //#include "../version.h"
 
@@ -69,9 +69,9 @@ struct utsname uts;
 #include "../include/gameengine/introstate.h"
 #include "../include/gameengine/menustate.h"
 
-#include "../include/resource.h"
-#include "../include/views/world_view.h"
-#include "../include/views/battle_view.h"
+//#include "../include/resource.h"
+//#include "../include/views/world_view.h"
+//#include "../include/views/battle_view.h"
 
 #ifdef WINDOWS
     #include <direct.h>
@@ -241,7 +241,7 @@ void read_directory(const std::string& name, stringvec& v)
     closedir(dirp);
 }
 
-Fps fps;
+//Fps fps;
 
 int Generate(const int from, const int to);
 
@@ -249,7 +249,7 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
    int i;
    for(i = 0; i<argc; i++)
    {
-       mainLog.push_back(argv[i]);
+       //mainLog.push_back(argv[i]);
       printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
    }
    printf("\n");
@@ -391,6 +391,17 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
 //}
 
 CGameEngine game;
+FILE * pFile;
+
+void LogSDL(void *userdata, int category, SDL_LogPriority priority, const char *message)
+{
+    char *ctime_no_newline;
+    time_t tm = time(NULL);
+
+    ctime_no_newline = strtok(ctime(&tm), "\n");
+
+    fprintf(pFile,"[Log] %s %s\n", ctime_no_newline, message);
+};
 
 int main(int argc, char ** argv)
 {
