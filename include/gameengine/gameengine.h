@@ -160,15 +160,12 @@ public:
 	void Init(const char* title, int width=640, int height=480,
 		      int bpp=0, bool fullscreen=false);
 	void Cleanup();
-
 	void ChangeState(CGameState* state);
 	void PushState(CGameState* state);
 	void PopState();
-
 	void HandleEvents();
 	void Update();
 	void Draw();
-
 	bool Running() { return m_running; }
 	void Quit() { m_running = false; }
 
@@ -226,7 +223,7 @@ public:
 	SDL_Event event;
 
 	SDL_Rect gRect;
-	SDL_Surface* screen;
+	//SDL_Surface* screen;
     SDL_Surface* gSurface;
 
 	SDL_Texture* gTexture;
@@ -237,7 +234,7 @@ public:
 
     struct utsname uts;
     SDL_Renderer * renderer;
-	SDL_Renderer * renderer2;
+	//SDL_Renderer * renderer2;
 
     SDL_Color Yellow = {255, 255, 255, 255};
     SDL_Color YellowGreen = {255, 255, 255, 255};
@@ -251,8 +248,6 @@ public:
     SDL_Color RedOrange = {255, 255, 255, 255};
     SDL_Color Orange = {255, 255, 255, 255};
     SDL_Color YellowOrange = {255, 255, 255, 255};
-    // Color Wheel end
-
     SDL_Color White = {255, 255, 255, 255};
     SDL_Color Black = {0, 0, 0, 255};
 
@@ -260,16 +255,16 @@ public:
     SDL_Texture* East;
     SDL_Texture* South;
     SDL_Texture* West;
-    SDL_Texture* menuBackgroundTexture;
-    SDL_Texture* currentViewTexture;
-    SDL_Texture* encampTexture;
+    //SDL_Texture* menuBackgroundTexture;
+    //SDL_Texture* currentViewTexture;
+    //SDL_Texture* encampTexture;
     //SDL_Texture* gTexture;
 
     // Make these a blob
     SDL_Texture* mapTexture[16][16][4];
     //std::string mapTextureFile[16][16][4];
 
-    SDL_Texture* MainMenuBackgroundTexture;
+    //SDL_Texture* MainMenuBackgroundTexture;
 
     //Make these a blob
     TTF_Font* gameTitleFont;
@@ -284,65 +279,65 @@ public:
     CoordinatePair PlayerCoordinate = {15,1,0};
 
     // Abilities
-    int Power = 15;
-    int Intelligence = 15;
-    int Personality = 15;
-    int Toughness = 15;
-    int Technique = 15;
-    int Quickness = 15;
-    int Perception = 15;
+//    int Power = 15;
+//    int Intelligence = 15;
+//    int Personality = 15;
+//    int Toughness = 15;
+//    int Technique = 15;
+//    int Quickness = 15;
+//    int Perception = 15;
 
     int Ability[7] = {15,15,13,15,15,15,15};
 
     int StartAbilityPoints = 20;
 
-    enum {POW, INT, PERS, TOU, TECH, QUI, PERC};
+//    enum {POW, INT, PERS, TOU, TECH, QUI, PERC};
 
-    int PowerMod = floor( Power - 20 / 2 );
-    int IntelligenceMod = floor( Intelligence - 20 / 2 );
-    int PersonalityMod = floor( Personality - 20 / 2 );
-    int ToughnessMod = floor( Toughness - 20 / 2 );
-    int TechniqueMod = floor( Technique - 20 / 2 );
-    int QuicknessMod = floor( Quickness - 20 / 2 );
-    int PerceptionMod = floor( Perception - 20 / 2 );
+//    int PowerMod = floor( Power - 20 / 2 );
+//    int IntelligenceMod = floor( Intelligence - 20 / 2 );
+//    int PersonalityMod = floor( Personality - 20 / 2 );
+//    int ToughnessMod = floor( Toughness - 20 / 2 );
+//    int TechniqueMod = floor( Technique - 20 / 2 );
+//    int QuicknessMod = floor( Quickness - 20 / 2 );
+//    int PerceptionMod = floor( Perception - 20 / 2 );
 
-    int AbilityMod[7] = {PowerMod,IntelligenceMod,PersonalityMod,ToughnessMod,TechniqueMod,QuicknessMod,PerceptionMod};
+//    int AbilityMod[7] = {PowerMod,IntelligenceMod,PersonalityMod,ToughnessMod,TechniqueMod,QuicknessMod,PerceptionMod};
+//
+//    int PowerBonus = 0;
+//    int IntelligenceBonus = 4;
+//    int PersonalityBonus = 0;
+//    int ToughnessBonus = 4;
+//    int TechniqueBonus = 0;
+//    int QuicknessBonus = 0;
+//    int PerceptionBonus = 0;
 
-    int PowerBonus = 0;
-    int IntelligenceBonus = 4;
-    int PersonalityBonus = 0;
-    int ToughnessBonus = 4;
-    int TechniqueBonus = 0;
-    int QuicknessBonus = 0;
-    int PerceptionBonus = 0;
+//    int KnightBaseHP = 40 + (5 * ToughnessMod);
+//    int ClericBaseHP = 28 + (3 * ToughnessMod);
+//    int WizardBaseHP = 28 + (3 * ToughnessMod);
 
-    int KnightBaseHP = 40 + (5 * ToughnessMod);
-    int ClericBaseHP = 28 + (3 * ToughnessMod);
-    int WizardBaseHP = 28 + (3 * ToughnessMod);
+//    int KnightHPLevel = 6;
+//    int ClericHPLevel = 3;
+//    int WizardHPLevel = 3;
 
-    int KnightHPLevel = 6;
-    int ClericHPLevel = 3;
-    int WizardHPLevel = 3;
+//    int TotalSpells = IntelligenceMod;
+//
+//    int InitiateSpellAllocation = 10 + IntelligenceMod;
+//    int ApprenticeSpellAllocation = floor(7*0.7);
+//    int AdeptSpellAllocation = floor(4*0.7);
+//    int MasterSpellAllocation = floor(2*0.7);
+//    int GrandMasterSpellAllocation = floor(1*0.7);
 
-    int TotalSpells = IntelligenceMod;
-
-    int InitiateSpellAllocation = 10 + IntelligenceMod;
-    int ApprenticeSpellAllocation = floor(7*0.7);
-    int AdeptSpellAllocation = floor(4*0.7);
-    int MasterSpellAllocation = floor(2*0.7);
-    int GrandMasterSpellAllocation = floor(1*0.7);
-
-    int KnightStrongAbilityPower = 7;
-    int KnightStrongAbilityThoughness = 7;
-    int KnightWeakAbilityIntelligence = 7;
-
-    int ClericStrongAbilityIntelligence = 7;
-    int ClericStrongAbilityPersonality = 7;
-    int ClericWeakAbilityPower = 7;
-
-    int WizardStrongAbilityIntelligence = 7;
-    int WizardStrongAbilityPerception = 7;
-    int WizardWeakAbilityPower = 7;
+//    int KnightStrongAbilityPower = 7;
+//    int KnightStrongAbilityThoughness = 7;
+//    int KnightWeakAbilityIntelligence = 7;
+//
+//    int ClericStrongAbilityIntelligence = 7;
+//    int ClericStrongAbilityPersonality = 7;
+//    int ClericWeakAbilityPower = 7;
+//
+//    int WizardStrongAbilityIntelligence = 7;
+//    int WizardStrongAbilityPerception = 7;
+//    int WizardWeakAbilityPower = 7;
 
     uint32_t experience_required_for_level(double level)
     {
@@ -481,10 +476,10 @@ public:
 	    int Vunerability;
 	};
 	std::vector<std::string> v_BaseMonsters = {"Cube, Ooze","Doppelganger","Goblin","Goblin, Warrior", "Goblin Chief", "Snail","Snail Fire","Snake Constrictor"};
-    std::vector<std::string> generalStoreItems;
-    std::vector<std::string> jewelleryStoreItems;
-    std::vector<std::string> silverStoreItems;
-    std::vector<std::string> armsAndArmours;
+//    std::vector<std::string> generalStoreItems;
+//    std::vector<std::string> jewelleryStoreItems;
+//    std::vector<std::string> silverStoreItems;
+//    std::vector<std::string> armsAndArmours;
 
     std::array<int, 300> armsAndArmoursValue;
     std::vector<SGenericItem> generalShopItems;
@@ -492,7 +487,7 @@ public:
     std::vector<SGenericItem> silverShopItems;
     std::vector<SGenericItem> armsAndArmoursShopItems;
 
-    map<string, SDL_Texture*> myTextures;
+    //map<string, SDL_Texture*> myTextures;
     weather_engine cweather_engine;
 
     portal mapPortal[16][16];
@@ -567,6 +562,11 @@ public:
     std::vector<std::string> imagesFiles;
 
     SDL_Rect CurrentLocation{0,0,128,128};
+
+    bool newGame = true;
+
+    weather_engine WeatherEngine;
+
 private:
 	// the stack of states
 	vector<CGameState*> states;

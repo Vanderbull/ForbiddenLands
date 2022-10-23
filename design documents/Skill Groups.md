@@ -1,0 +1,4 @@
+Weapon
+Armour
+Magic
+Misc

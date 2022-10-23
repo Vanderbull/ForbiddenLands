@@ -9,7 +9,7 @@ using namespace std;
 
 SDL_Rect gRect;
 SDL_Surface* gSurface;
-SDL_Surface *screen;
+//SDL_Surface *screen;
 //SDL_Texture* gTexture;
 SDL_Renderer * renderer;
 SDL_Renderer * renderer2;

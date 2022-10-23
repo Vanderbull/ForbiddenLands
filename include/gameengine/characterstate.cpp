@@ -89,8 +89,9 @@ void CCharacterState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
+
     if( game->BackgroundTexture == NULL )
-        game->BackgroundTexture = game->LoadTexture("./images/menus/menu_backdrop.png",255);
+        game->BackgroundTexture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
 
     SDL_RenderCopy(game->renderer, game->BackgroundTexture, NULL, NULL);
 

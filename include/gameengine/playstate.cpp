@@ -140,6 +140,12 @@ void CPlayState::HandleEvents(CGameEngine* game)
 void CPlayState::Update(CGameEngine* game)
 {
     SDL_Log("CPlayState Update\n");
+    if( game->newGame )
+    {
+        game->SActor.calculateStats();
+        game->newGame = false;
+    }
+
     getCompassDirection();
 
     if(Rotation == "N")

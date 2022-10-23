@@ -124,6 +124,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/settingsmenustate.h" />
 		<Unit filename="include/gameengine/shopstate.cpp" />
 		<Unit filename="include/gameengine/shopstate.h" />
+		<Unit filename="include/gameengine/weather/weather.h" />
 		<Unit filename="include/gameengine/worldmapstate.cpp" />
 		<Unit filename="include/gameengine/worldmapstate.h" />
 		<Unit filename="include/globals.h" />
@@ -180,7 +181,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/views/battle_view.h" />
 		<Unit filename="include/views/world_view.h" />
 		<Unit filename="include/wands/magic_missile_wand.h" />
-		<Unit filename="include/weather/weather.h" />
 		<Unit filename="src/globals.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/portals.cpp" />

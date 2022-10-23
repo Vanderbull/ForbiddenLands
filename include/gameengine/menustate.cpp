@@ -14,7 +14,7 @@ CMenuState CMenuState::m_MenuState;
 void CMenuState::Init()
 {
     MenuChoices.clear();
-    MenuChoices.push_back("PLAY");
+    MenuChoices.push_back("NEW COLONY");
     MenuChoices.push_back("SAVE");
     MenuChoices.push_back("LOAD");
     MenuChoices.push_back("CHARACTER MANAGER");
@@ -165,7 +165,7 @@ void CMenuState::Draw(CGameEngine* game)
                     game->ChangeState( CLoadMenuState::Instance() );
                 if( MenuChoice == "SAVE")
                     game->ChangeState( CSaveMenuState::Instance() );
-                if( MenuChoice == "PLAY")
+                if( MenuChoice == "NEW COLONY")
                     game->ChangeState( CPlayState::Instance() );
                 if( MenuChoice == "CHARACTER MANAGER")
                     game->ChangeState( CCreateCharacterState::Instance() );

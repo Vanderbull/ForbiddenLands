@@ -32,6 +32,7 @@ public:
 
     void loadingGameData( std::string saveFile, CGameEngine* game )
     {
+        game->newGame = false;
         std::string saveFilePath = "./assets/data/savegames/";
         std::string loadThisFile = saveFilePath + saveFile;
         FILE *infile;

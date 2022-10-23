@@ -30,9 +30,69 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "46ecf4952add36ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2022-10-23.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "81a487f4c8fe7f73",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Skill Groups.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cfd86433643796ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Skills.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cdf43e42a3bddf86",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2022-10-23.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6ef2bede72453f78",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2022-10-23.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -153,17 +213,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "ad9caaee9ebd6745",
+  "active": "6ef2bede72453f78",
   "lastOpenFiles": [
-    "Main menu.md",
+    "Time of day.md",
     "2022-10-23.md",
-    "Attachments/dependency-graph.pdf",
+    "Items.md",
+    "Random images.md",
+    "Skills.md",
+    "Skill Groups.md",
+    "Weather.md",
     "2022-10-22.md",
-    "Dataview.md",
-    "Shops & traders.md",
-    "Table of content.md",
-    "Forbidden Lands/playstate.h.md",
-    "Forbidden Lands/inventorystate.h.md",
-    "Forbidden Lands/battlestate.h.md"
+    "Main menu.md",
+    "Attachments/dependency-graph.pdf"
   ]
 }
