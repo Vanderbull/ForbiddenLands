@@ -108,27 +108,22 @@ void CCharacterState::Draw(CGameEngine* game)
     	counter++;
   	}
 
-  	game->RenderBreadText(std::to_string(SActor.action_stamina).c_str(),game->White,game->current.w - 100, 25 );
-  	game->RenderBreadText(std::to_string(SActor.ac_base).c_str(),game->White,game->current.w - 100, 50 );
-  	game->RenderBreadText(std::to_string(SActor.ac_current).c_str(),game->White,game->current.w - 100, 75 );
-  	game->RenderBreadText(std::to_string(SActor.coins_gold).c_str(),game->White,game->current.w - 100, 100 );
-  	game->RenderBreadText(std::to_string(SActor.current_stats[0]).c_str(),game->White,game->current.w - 100, 125 );
-  	game->RenderBreadText(std::to_string(SActor.current_stats[1]).c_str(),game->White,game->current.w - 100, 150 );
-  	game->RenderBreadText(std::to_string(SActor.current_stats[2]).c_str(),game->White,game->current.w - 100, 175 );
-  	game->RenderBreadText(std::to_string(SActor.current_stats[3]).c_str(),game->White,game->current.w - 100, 200 );
-  	game->RenderBreadText(std::to_string(SActor.current_stats[4]).c_str(),game->White,game->current.w - 100, 225 );
-  	game->RenderBreadText(std::to_string(SActor.current_stats[5]).c_str(),game->White,game->current.w - 100, 250 );
-  	game->RenderBreadText(std::to_string(SActor.daily_stamina).c_str(),game->White,game->current.w - 100, 275 );
-  	game->RenderBreadText(std::to_string(SActor.damage).c_str(),game->White,game->current.w - 100, 300 );
-  	game->RenderBreadText(std::to_string(SActor.encumbrance).c_str(),game->White,game->current.w - 100, 325 );
-  	game->RenderBreadText(std::to_string(SActor.experience).c_str(),game->White,game->current.w - 100, 350 );
-  	game->RenderBreadText(std::to_string(SActor.face).c_str(),game->White,game->current.w - 100, 375 );
-  	game->RenderBreadText(std::to_string(SActor.healingPotions).c_str(),game->White,game->current.w - 100, 400 );
-  	game->RenderBreadText(std::to_string(SActor.hitpoints_current).c_str(),game->White,game->current.w - 100, 425 );
-  	game->RenderBreadText(std::to_string(SActor.hitpoints_max).c_str(),game->White,game->current.w - 100, 450 );
-  	game->RenderBreadText(std::to_string(SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );
-  	game->RenderBreadText(std::to_string(SActor.initiative).c_str(),game->White,game->current.w - 100, 525 );
-  	game->RenderBreadText(std::to_string(SActor.rowcounter).c_str(),game->White,game->current.w - 100, 550 );
-  	game->RenderBreadText(std::to_string(SActor.thirst).c_str(),game->White,game->current.w - 100, 575 );
-    game->RenderBreadText(SActor.name.c_str(),game->White,game->current.w - 100, 600 );
+  	game->RenderBreadText(std::to_string(game->SActor.uid).c_str(),game->White,game->current.w - 100, 0 );
+  	game->RenderBreadText(std::to_string(game->SActor.armour_class).c_str(),game->White,game->current.w - 100, 50 );
+  	game->RenderBreadText(std::to_string(game->SActor.coins_gold).c_str(),game->White,game->current.w - 100, 100 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[0]).c_str(),game->White,game->current.w - 100, 125 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[1]).c_str(),game->White,game->current.w - 100, 150 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[2]).c_str(),game->White,game->current.w - 100, 175 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[3]).c_str(),game->White,game->current.w - 100, 200 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[4]).c_str(),game->White,game->current.w - 100, 225 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[5]).c_str(),game->White,game->current.w - 100, 250 );
+  	game->RenderBreadText(std::to_string(game->SActor.damage).c_str(),game->White,game->current.w - 100, 300 );
+  	game->RenderBreadText(std::to_string(game->SActor.encumbrance).c_str(),game->White,game->current.w - 100, 325 );
+  	game->RenderBreadText(std::to_string(game->SActor.experience).c_str(),game->White,game->current.w - 100, 350 );
+  	game->RenderBreadText(std::to_string(game->SActor.healingPotions).c_str(),game->White,game->current.w - 100, 400 );
+  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_current).c_str(),game->White,game->current.w - 100, 425 );
+  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_max).c_str(),game->White,game->current.w - 100, 450 );
+  	game->RenderBreadText(std::to_string(game->SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );
+  	game->RenderBreadText(std::to_string(game->SActor.thirst).c_str(),game->White,game->current.w - 100, 575 );
+    game->RenderBreadText(game->SActor.name.c_str(),game->White,game->current.w - 100, 600 );
 }

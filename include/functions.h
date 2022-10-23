@@ -17,26 +17,26 @@ FILE * pFile;
 SDL_Rect rect;
 const Uint8 *keystate;
 
-//int Generate(const int from, const int to)
-//{
-//    // Create a random device and use it to generate a random seed
-//    std::random_device myRandomDevice;
-//    unsigned seed = myRandomDevice();
-//
-//    // Initialize a default_random_engine with the seed
-//    std::default_random_engine myRandomEngine(seed);
-//
-//    // Initialize a uniform_int_distribution to produce values between -10 and 10
-//    std::uniform_int_distribution<int> myUnifIntDist(from, to);
-//
-//    // Create and print 5 randomly generated values
-//    for (int i = 0; i < 5; i++)
-//    {
-//        int number = myUnifIntDist(myRandomEngine);
-//        std::cout << number << std::endl;
-//    }
-//    return myUnifIntDist(myRandomEngine);
-//};
+int Generate(const int from, const int to)
+{
+    // Create a random device and use it to generate a random seed
+    std::random_device myRandomDevice;
+    unsigned seed = myRandomDevice();
+
+    // Initialize a default_random_engine with the seed
+    std::default_random_engine myRandomEngine(seed);
+
+    // Initialize a uniform_int_distribution to produce values between -10 and 10
+    std::uniform_int_distribution<int> myUnifIntDist(from, to);
+
+    // Create and print 5 randomly generated values
+    for (int i = 0; i < 5; i++)
+    {
+        int number = myUnifIntDist(myRandomEngine);
+        std::cout << number << std::endl;
+    }
+    return myUnifIntDist(myRandomEngine);
+};
 
 SDL_Rect FrameText(std::string renderText, int x, int y, int fontSize)
 {
@@ -213,7 +213,6 @@ SDL_Texture* LoadTexture( const std::string &str, int alpha )
 	if( !surface )
 	{
         SDL_Log("LoadTexture failed to load image named: %s",str.c_str());
-        std::cout << "LoadTexture failed to load image named: " << str.c_str() << std::endl;
         exit(-1);
 	}
 
@@ -224,26 +223,26 @@ SDL_Texture* LoadTexture( const std::string &str, int alpha )
 	return texture;
 };
 
-void Highlight(SDL_Point location, SDL_Rect triggerArea, SDL_Renderer* renderer)
-{
-  if( SDL_PointInRect(&location, &triggerArea) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-  {
-      SDL_PumpEvents();
-      if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
-      {
-          SDL_RenderDrawRect(renderer, &triggerArea);
-      }
-  }
-}
+//void Highlight(SDL_Point location, SDL_Rect triggerArea, SDL_Renderer* renderer)
+//{
+//  if( SDL_PointInRect(&location, &triggerArea) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//  {
+//      SDL_PumpEvents();
+//      if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+//      {
+//          SDL_RenderDrawRect(renderer, &triggerArea);
+//      }
+//  }
+//}
 
 // copy in binary mode
-bool copyFile(const char *SRC, const char* DEST)
-{
-    std::ifstream src(SRC, std::ios::binary);
-    std::ofstream dest(DEST, std::ios::binary);
-    dest << src.rdbuf();
-    return src && dest;
-}
+//bool copyFile(const char *SRC, const char* DEST)
+//{
+//    std::ifstream src(SRC, std::ios::binary);
+//    std::ofstream dest(DEST, std::ios::binary);
+//    dest << src.rdbuf();
+//    return src && dest;
+//}
 
 void LogSDL(void *userdata, int category, SDL_LogPriority priority, const char *message)
 {
@@ -255,20 +254,20 @@ void LogSDL(void *userdata, int category, SDL_LogPriority priority, const char *
     fprintf(pFile,"[Log] %s %s\n", ctime_no_newline, message);
 };
 
-std::string random_string( size_t length )
-{
-    auto randchar = []() -> char
-    {
-        const char charset[] =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
-        const size_t max_index = (sizeof(charset) - 1);
-        return charset[ rand() % max_index ];
-    };
-    std::string str(length,0);
-    std::generate_n( str.begin(), length, randchar );
-    return str;
-};
+//std::string random_string( size_t length )
+//{
+//    auto randchar = []() -> char
+//    {
+//        const char charset[] =
+//        "0123456789"
+//        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+//        "abcdefghijklmnopqrstuvwxyz";
+//        const size_t max_index = (sizeof(charset) - 1);
+//        return charset[ rand() % max_index ];
+//    };
+//    std::string str(length,0);
+//    std::generate_n( str.begin(), length, randchar );
+//    return str;
+//};
 
 #endif // FUNCTIONS_H

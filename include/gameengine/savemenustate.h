@@ -33,7 +33,7 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
-    void savingGameData( std::string saveFile )
+    void savingGameData( std::string saveFile,CGameEngine* game )
     {
         // Current date/time based on current system
         time_t now = time(0);
@@ -69,7 +69,7 @@ public:
             else
             {
                 SDL_Log("CIntroState opening file %s\n",saveFile);
-                fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
+                fwrite (&game->SActor, sizeof(struct ACTOR), 1, SaveGame);
                 fclose(SaveGame);
             }
             Init();
@@ -84,8 +84,8 @@ public:
                 SDL_Log("Error opening file: %s", stderr );
             }
 
-            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
-
+            fwrite (&game->SActor, sizeof(struct ACTOR), 1, SaveGame);
+            std::cout << game->currentDay;
             fclose(SaveGame);
             Init();
         }

@@ -139,7 +139,7 @@ bool is_short_str(string str)
 void CShopState::Draw(CGameEngine* game)
 {
     SDL_Log("CShopState Draw");
-    SActor.coins_gold = 30;
+    game->SActor.coins_gold = 30;
     static int shop_coins = 10;
 
     SDL_Point mousePosition;
@@ -180,7 +180,7 @@ void CShopState::Draw(CGameEngine* game)
     //game->RenderText("GENERAL SHOP", White, game->current.w - 400, 20,48);
     //game->RenderText(std::to_string(game->v_ItemNames.size()).c_str(), White, game->current.w - 400, 60,48);
     game->RenderText(std::to_string(shop_coins).c_str(), White, game->current.w - 40, 20,24);
-    game->RenderText(std::to_string(SActor.coins_gold).c_str(), White, game->current.w - 40, 40,24);
+    game->RenderText(std::to_string(game->SActor.coins_gold).c_str(), White, game->current.w - 40, 40,24);
 
     // Skills ////////////////////////////
     int counter = 0;
@@ -235,12 +235,12 @@ void CShopState::Draw(CGameEngine* game)
 
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
-                if( game->v_ItemNames.at(counter) != "NONE" && SActor.coins_gold > 0 )
+                if( game->v_ItemNames.at(counter) != "NONE" && game->SActor.coins_gold > 0 )
                 {
                     game->v_ItemNamesShop.push_back(game->v_ItemNames.at(counter).c_str());
                     game->v_ItemNames.at(counter) = "NONE";
                     shop_coins++;
-                    SActor.coins_gold--;
+                    game->SActor.coins_gold--;
                 }
             }
         }
@@ -288,7 +288,7 @@ void CShopState::Draw(CGameEngine* game)
                             game->v_ItemNames.at(search_index) = game->v_ItemNamesShop.at(counter);
                             game->v_ItemNamesShop.at(counter) = "NONE";
                             shop_coins--;
-                            SActor.coins_gold++;
+                            game->SActor.coins_gold++;
                         }
                         search_index++;
                     }

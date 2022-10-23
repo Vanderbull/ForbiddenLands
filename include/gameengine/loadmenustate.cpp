@@ -168,7 +168,7 @@ void CLoadMenuState::Draw(CGameEngine* game)
                 if( MenuChoice == "EXIT")
                     game->ChangeState( CMenuState::Instance() );
                 else
-                    loadingGameData(MenuChoice.c_str());
+                    loadingGameData(MenuChoice.c_str(),game);
             }
 
             SDL_PumpEvents();

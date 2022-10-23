@@ -62,7 +62,7 @@ public:
                 exit (1);
             }
 
-            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
+//            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
 
             fclose(SaveGame);
             Init();
@@ -77,8 +77,8 @@ public:
                 fprintf(stderr, "\nError opened file\n");
                 exit (1);
             }
-
-            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
+//
+//            fwrite (&SActor, sizeof(struct ACTOR), 1, SaveGame);
 
             fclose(SaveGame);
             Init();

@@ -30,7 +30,7 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
-    void loadingGameData( std::string saveFile )
+    void loadingGameData( std::string saveFile, CGameEngine* game )
     {
         std::string saveFilePath = "./assets/data/savegames/";
         std::string loadThisFile = saveFilePath + saveFile;
@@ -47,9 +47,15 @@ public:
         }
 
         // read file contents till end of file
-        size_t ret_code = fread(&SActor, sizeof(struct ACTOR), 1, infile);
+        size_t ret_code = fread(&game->SActor, sizeof(struct ACTOR), 1, infile);
 
-        std::cout << SActor.action_stamina << std::endl;
+        std::cout << game->SActor.uid << std::endl << std::endl;
+        std::cout << game->SActor.current_stats[0] << std::endl;
+        std::cout << game->SActor.current_stats[1] << std::endl;
+        std::cout << game->SActor.current_stats[2] << std::endl;
+        std::cout << game->SActor.current_stats[3] << std::endl;
+        std::cout << game->SActor.current_stats[4] << std::endl;
+        std::cout << game->SActor.current_stats[5] << std::endl;
 
         puts("Array read successfully, contents: ");
            if (feof(infile))

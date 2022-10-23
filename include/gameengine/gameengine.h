@@ -18,6 +18,8 @@
 using namespace std;
 
 #include "globals.h"
+#include "actor.h"
+//#include "ingametime.h"
 #include "portals.h"
 #include "randomizer.h"
 #include "weather/weather.h"
@@ -153,6 +155,8 @@ class CGameEngine
 {
 public:
 
+    ACTOR SActor;
+
 	void Init(const char* title, int width=640, int height=480,
 		      int bpp=0, bool fullscreen=false);
 	void Cleanup();
@@ -168,6 +172,7 @@ public:
 	bool Running() { return m_running; }
 	void Quit() { m_running = false; }
 
+	int Generate(const int from, const int to);
 	int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
 	int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY);
 	int RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY);
@@ -565,6 +570,8 @@ public:
 private:
 	// the stack of states
 	vector<CGameState*> states;
+
+	//Actor SActor;
 
 	bool m_running;
 	bool m_fullscreen;

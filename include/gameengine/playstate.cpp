@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include "gamestate.h"
 #include "gameengine.h"
+#include "gamestate.h"
 #include "playstate.h"
 #include "menustate.h"
 #include "battlestate.h"
@@ -65,6 +65,9 @@ void CPlayState::HandleEvents(CGameEngine* game)
                     case SDLK_m:
                         game->ChangeState( CWorldMapState::Instance() );
                         break;
+                    case SDLK_b:
+                        game->ChangeState( CBattleState::Instance() );
+                        break;
                     case SDLK_d:
                         rotateClockWise();
                         break;
@@ -78,7 +81,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 if( game->PlayerCoordinate.y > 0 )
                                 {
                                     game->PlayerCoordinate.y--;
-                                    DateAndTime.tm_min++;
+                                    //DateAndTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "S")
@@ -86,7 +89,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 if( game->PlayerCoordinate.y < 15 )
                                 {
                                     game->PlayerCoordinate.y++;
-                                    DateAndTime.tm_min++;
+                                    //DateAndTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "W")
@@ -94,7 +97,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 if( game->PlayerCoordinate.x > 0 )
                                 {
                                     game->PlayerCoordinate.x--;
-                                    DateAndTime.tm_min++;
+                                    //DateAndTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "E")
@@ -102,7 +105,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 if( game->PlayerCoordinate.x < 15 )
                                 {
                                     game->PlayerCoordinate.x++;
-                                    DateAndTime.tm_min++;
+                                    //DateAndTime.tm_min++;
                                 }
                             }
                         } break;

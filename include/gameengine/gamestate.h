@@ -1,8 +1,6 @@
 #ifndef GAMESTATE_H
 #define GAMESTATE_H
 
-#include "actor.h"
-#include "ingametime.h"
 #include "gameengine.h"
 
 class CGameState
@@ -24,9 +22,6 @@ public:
 
 protected:
 	CGameState() { }
-
-	ACTOR SActor;
-    InGameTime DateAndTime;
 
     struct portal2
     {

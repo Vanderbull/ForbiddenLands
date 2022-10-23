@@ -33,7 +33,6 @@ public:
 
     void getCompassDirection()
     {
-        std::cout << compassDirection.at(compassNeedle) << std::endl;
         Rotation = compassDirection.at(compassNeedle);
     };
 

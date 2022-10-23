@@ -188,9 +188,9 @@ void CSaveMenuState::Draw(CGameEngine* game)
                 if( MenuChoice == "EXIT")
                     game->ChangeState( CMenuState::Instance() );
                 else if( MenuChoice == "NEW SAVE")
-                    savingGameData("./assets/data/savegames/new.dat");
+                    savingGameData("./assets/data/savegames/new.dat",game);
                 else
-                    savingGameData(MenuChoice.c_str());
+                    savingGameData(MenuChoice.c_str(),game);
             }
 
             SDL_PumpEvents();
