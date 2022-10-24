@@ -73,14 +73,27 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Shops & traders.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f4977c4863806cda",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "2022-10-24.md",
                 "mode": "source",
+                "backlinks": true,
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -201,17 +214,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "cdf43e42a3bddf86",
+  "active": "f4977c4863806cda",
   "lastOpenFiles": [
+    "Battles.md",
+    "Shops & traders.md",
+    "2022-10-24.md",
     "2022-10-23.md",
     "[.md",
-    "2022-10-24.md",
     "2022-10-22.md",
     "Dataview.md",
     "Time of day.md",
     "Items.md",
-    "Random images.md",
-    "Skills.md",
-    "Skill Groups.md"
+    "Random images.md"
   ]
 }

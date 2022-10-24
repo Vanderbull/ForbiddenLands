@@ -374,75 +374,34 @@ public:
 
     // effect = the value indicated by the enchantment i.e. Power +2
 
-    std::vector<std::string> v_ItemNames = {"Bardiche", "Bardiche +1", "Bardiche +2", "Bardiche +3", // Weapon
-                                            "Battle Axe", "Battle Axe +2", "Battle Axe +3",
-                                            "Bow", "Bow +1", "Bow +2", "Bow +3",
-                                            "Broad Axe", "Broad Axe +1","Broad Axe +2","Broad Axe +3",
-                                            "Club","Club +1","Club +2","Club +3",
-                                            "Crossbow", "Cross bow +1","Cross bow +2","Cross bow +3",
-                                            "Dagger","Dagger +1","Dagger +2","Dagger +3",
-                                            "Falchion","Falchion +1","Falchion +2","Falchion +3",
-                                            "Flail","Flail +1","Flail +2","Flail +3",
-                                            "Greatsword","Greatsword +1","Greatsword +2","Greatsword +3",
-                                            "Halberd","Halberd +1","Halberd +2","Halberd +3",
-                                            "Hammer","Hammer +1","Hammer +2","Hammer +3",
-                                            "HandAxe","HandAxe +1","HandAxe +2","HandAxe +3",
-                                            "Long sword","Long sword +1","Long sword +2","Long sword +3",
-                                            "Mace","Mace +1","Mace +2","Mace +3",
-                                            "Morning star","Morning star +1","Morning star +2","Morning star +3",
-                                            "Quarterstaff","Quarterstaff +1","Quarterstaff +2","Quarterstaff +3",
-                                            "Scimitar","Scimitar +1","Scimitar +2","Scimitar +3",
-                                            "Scythe","Scythe +1","Scythe +2","Scythe +3",
-                                            "Short sword","Short sword +1","Short sword +2","Short sword +3",
-                                            "Spear","Spear +1","Spear +2","Spear +3",
-                                            "War axe","War axe +1","War axe +2","War axe +3",
-                                            "Chainmail", "Chainmail +1", "Chainmail +2", "Chainmail +3",                    // Armor
-                                            "Leather armor", "Leather armor +1", "Leather armor +2", "Leather armor  +3",
-                                            "Plate mail", "Plate mail +1", "Plate mail +2", "Plate mail +3",
-                                            "Ring mail", "Ring mail +1", "Ring mail +2", "Ring mail +3",
-                                            "Robe", "Robe +1", "Robe +2", "Robe +3",
-                                            "Scale mail", "Scale mail +1", "Scale mail +2", "Scale mail +3",
-                                            "Buckler", "Buckler +1", "Buckler +2", "Buckler +3",                    // Shield
-                                            "Shield", "Shield +1", "Shield +2", "Shield +3",
-                                            "Kite shield", "Kite shield +1", "Kite shield +2", "Kite shield +3",
-                                            "Gauntlets", "Gauntlets +1", "Gauntlets +2", "Gauntlets +3",                    // Gauntlets
-                                            "Helmet", "Helmet +1", "Helmet +2", "Helmet +3",                    // Helmet
-                                            "Mage hat", "Mage hat +1", "Mage hat +2", "Mage hat  +3",
-                                            "Bone amulet", "Celtic amulet", "Stone amulet", "Crystal amulet",                    // AMulet
-                                            "Idol amulet", "Pentagram amulet",
-                                            "Cloak", "Cloak +1", "Cloak +2", "Cloak +3",                    // Cloak
-                                            "Boots", "Boots +1", "Boots +2", "Boots +3",                    // Boots
-                                            "Staff", "Staff +1", "Staff +2", "Staff +3",                    // Staff
-                                            "Staff +4", "Staff +5",
-                                            "Initiate wand", "Apprentice wand", "Adept wand", "Master wand",                    // Wand
-                                            "Grandmaster wand",
-                                            "Bronze ring", "Iron ring", "Silver ring", "Golden ring",                    // Ring
-                                            "Jewel ring", "Pearl ring", "Emerald ring", "Opal ring",
-                                            "Initiate book", "Apprentice book", "Adept book", "Master book", "Grandmaster book",
-                                            "Book of Power",
-                                            "Book of Personality",
-                                            "Book of Intelligence",
-                                            "Book of Toughness",
-                                            "Book of Technique",
-                                            "Book of Quickness",
-                                            "Book of Perception",
-                                            "Book of Fitness",                    // Book Scroll
-                                            "Book of Lore",
-                                            "Book of Persuasion",
-                                            "Book of Taming",
-                                            "Book of Quickhand",
-                                            "Book of Stealth", "Book of Awareness",
-                                            "Book of Fire Element",
-                                            "Book of Air Element",
-                                            "Book of Water Element",
-                                            "Book of Earth Element",
-                                            "Book of Energy Element",
-                                            "Book of Mental Element",
-                                            "Book of Soul Element",
-                                            "Potion of Healing", "Potion of Healing +1", "Potion of Healing +2", "Potion of Healing +3",                    // Potion
-                                            "Potion of Cure Poison", "Potion of Cure Flaming", "Potion of Cure Paralysis", "Potion of Cure Fear",
-                                            "Potion of cure Insanity", "Potion of cure Exhaustion", "Potion of cure Curse", "Potion of Poison",
-                                            "Torch",                                                                     // Misc
+    std::vector<std::string> v_ItemNames = {"Bardiche","Battle Axe","Bow",
+                                            "Broad Axe","Club","Crossbow",
+                                            "Dagger","Falchion","Flail",
+                                            "Greatsword","Halberd","Hammer",
+                                            "HandAxe","Long sword","Mace",
+                                            "Morning star","Quarterstaff","Scimitar",
+                                            "Scythe","Short sword","Spear",
+                                            "War axe","Chainmail","Leather armor",
+                                            "Plate mail","Ring mail","Robe",
+                                            "Scale mail","Buckler","Shield",
+                                            "Kite shield","Gauntlets","Helmet",
+                                            "Mage hat","Bone amulet","Celtic amulet",
+                                            "Stone amulet","Crystal amulet","Idol amulet",
+                                            "Pentagram amulet","Cloak","Boots",
+                                            "Staff","Bronze ring","Iron ring",
+                                            "Silver ring","Golden ring","Jewel ring",
+                                            "Pearl ring", "Emerald ring", "Opal ring",
+                                            "Rune of Power","Rune of Personality","Rune of Intelligence",
+                                            "Rune of Toughness","Rune of Technique","Rune of Quickness",
+                                            "Rune of Perception","Rune of Fitness","Rune of Lore",
+                                            "Rune of Persuasion","Rune of Taming","Rune of Quickhand",
+                                            "Rune of Stealth","Rune of Awareness","Rune of Fire Element",
+                                            "Rune of Air Element","Rune of Water Element","Rune of Earth Element",
+                                            "Rune of Energy Element","Rune of Mental Element","Rune of Soul Element",
+                                            "Potion of Healing","Potion of Cure Poison","Potion of Cure Flaming",
+                                            "Potion of Cure Paralysis","Potion of Cure Fear","Potion of cure Insanity",
+                                            "Potion of cure Exhaustion", "Potion of cure Curse", "Potion of Poison",
+                                            "Torch",
                                             };
 
     std::vector<std::string> v_ItemNamesShop;
