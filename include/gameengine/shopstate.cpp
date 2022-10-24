@@ -308,8 +308,10 @@ void CShopState::Draw(CGameEngine* game)
     vector<string>::iterator itr;
     cout << "Searching for \"NONE\"\n";
     if( !game->v_ItemNames.empty() )
-    itr = find(game->v_ItemNames.begin(), game->v_ItemNames.end(), "NONE");
-    if(itr != game->v_ItemNames.end()) {
+        itr = find(game->v_ItemNames.begin(), game->v_ItemNames.end(), "NONE");
+
+    if(itr != game->v_ItemNames.end())
+    {
       cout << "Found \"NONE\", Replacing with \"NONE\"\n";
       //*itr = "NONE";
       game->v_ItemNames.erase(itr);
@@ -318,8 +320,10 @@ void CShopState::Draw(CGameEngine* game)
 
     cout << "Searching for \"NONE\"\n";
     if( !game->v_ItemNamesShop.empty() )
-    itr = find(game->v_ItemNamesShop.begin(), game->v_ItemNamesShop.end(), "NONE");
-    if(itr != game->v_ItemNames.end()) {
+        itr = find(game->v_ItemNamesShop.begin(), game->v_ItemNamesShop.end(), "NONE");
+
+    if(itr != game->v_ItemNames.end())
+    {
       cout << "Found \"NONE\", Replacing with \"NONE\"\n";
       //*itr = "NONE";
       game->v_ItemNamesShop.erase(itr);

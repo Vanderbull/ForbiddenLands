@@ -219,4 +219,6 @@ void CPlayState::Draw(CGameEngine* game)
         {
         }
     }
+
+    game->RenderText("HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, game->current.w - 200,50,24);
 }
