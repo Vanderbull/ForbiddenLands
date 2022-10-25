@@ -5,6 +5,7 @@ using namespace std;
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
+#include "menustate.h"
 #include "playstate.h"
 #include "battlestate.h"
 
@@ -49,7 +50,7 @@ void CBattleState::HandleEvents(CGameEngine* game)
                 switch (event.key.keysym.sym)
                 {
                     case SDLK_ESCAPE:
-                        game->PopState();
+                        game->ChangeState(CMenuState::Instance());
                         break;
                 } break;
 		}
@@ -74,386 +75,44 @@ void CBattleState::Update(CGameEngine* game)
 
 void CBattleState::Draw(CGameEngine* game)
 {
+    static int NPC_hitpoints = 10;
+    static int PC_Hitpoints = 10;
+    static bool trigger = false;
+
     SDL_Log("CBattleState Draw");
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
+    SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 255 );
     SDL_RenderClear(game->renderer);
 
-    SDL_Texture* texture = game->LoadTexture("./assets/data/textures/backgrounds/battle.webp",255);
-
-    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_SetTextureAlphaMod( texture, 255 );
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_DestroyTexture(texture);
-
-    SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
-    // ROW 1 START
-    SDL_Rect buttonPosition = { 226, 407,119,119};
+    SDL_Rect buttonPosition = { 0, (0.33*game->current.h) / 2,256,0.66*game->current.h};
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-    // ROW 1 SEND
-    buttonPosition.x = 226;
-    buttonPosition.y = buttonPosition.y+244;
-    buttonPosition.w = 119;
-    buttonPosition.h = 119;
-
-     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
 
     if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
         SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-    buttonPosition.x = 226;
-    buttonPosition.y = buttonPosition.y+244;
-    buttonPosition.w = 119;
-    buttonPosition.h = 119;
 
-     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-    buttonPosition.x = 226;
-    buttonPosition.y = buttonPosition.y+244;
-    buttonPosition.w = 119;
-    buttonPosition.h = 119;
-
-     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-        SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = buttonPosition.x + 167;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            NPC_hitpoints--;
+        }
     }
 
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 89;
-    buttonPosition.y = 322;
-    buttonPosition.w = 64;
-    buttonPosition.h = 64;
+    buttonPosition.x = game->current.w - 256;
     SDL_RenderFillRect(game->renderer, &buttonPosition);
 
     if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
         SDL_RenderFillRect(game->renderer, &buttonPosition);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            game->SActor.hitpoints_current--;
+        }
     }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 89;
-    buttonPosition.y = 423;
-    buttonPosition.w = 64;
-    buttonPosition.h = 64;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 89;
-    buttonPosition.y = 525;
-    buttonPosition.w = 64;
-    buttonPosition.h = 64;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    // WEAPONS
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 1282;
-    buttonPosition.y = 349;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 1282+160;
-    buttonPosition.y = 349;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 1282;
-    buttonPosition.y = 536;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 1282+160;
-    buttonPosition.y = 536;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-     //ARMOUR
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 2241;
-    buttonPosition.y = 356;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 2161;
-    buttonPosition.y = 543;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 2321;
-    buttonPosition.y = 543;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 2161;
-    buttonPosition.y = 729;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 2321;
-    buttonPosition.y = 729;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    // OTHER
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-
-    buttonPosition.x = 2157;
-    buttonPosition.y = 981;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = 2327;
-    buttonPosition.y = 981;
-    buttonPosition.w = 120;
-    buttonPosition.h = 120;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-    }
+    game->RenderText("NPC HP: " + std::to_string(NPC_hitpoints) + " / " + std::to_string(NPC_hitpoints), White, game->current.w - 200,50,24);
+    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, game->current.w - 200,100,24);
 }

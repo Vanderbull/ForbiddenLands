@@ -30,6 +30,8 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
+    SDL_Point mousePosition;
+
 protected:
 	CBattleState() { }
 
