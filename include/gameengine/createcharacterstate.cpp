@@ -12,11 +12,14 @@ void CCreateCharacterState::Init()
 	SDL_Log("CCreateCharacterState Init\n");
     MenuChoices.clear();
     MenuChoices.push_back("EXIT");
+	// Start sending SDL_TextInput events
+	SDL_StartTextInput();
 }
 
 void CCreateCharacterState::Cleanup()
 {
 	SDL_Log("CCreateCharacterState Cleanup\n");
+	SDL_StopTextInput();
 }
 
 void CCreateCharacterState::Pause()
@@ -37,6 +40,9 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
     {
 		switch (game->event.type)
 		{
+			case SDL_TEXTINPUT:
+				game->SActor.name += game->event.text.text;
+				break;
             case SDL_MOUSEBUTTONDOWN:
                 switch (game->event.button.button)
                 {
@@ -51,7 +57,15 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
 				break;
 
 			case SDL_KEYDOWN:
-				switch (game->event.key.keysym.sym) {
+				switch (game->event.key.keysym.sym)
+				{
+                    case SDLK_BACKSPACE:
+                    {
+                        if(game->SActor.name.size() > 0)
+                        {
+                            game->SActor.name.pop_back();
+                        }
+                    } break;
 					case SDLK_ESCAPE:
 						game->PopState();
 						break;
@@ -142,6 +156,8 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
+
+    game->RenderText(game->SActor.name.c_str(),White,0,0,24);
 
     SDL_Texture *texture = game->LoadTexture("./images/ui/gearslots.png",255);
 	int w, h;

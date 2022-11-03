@@ -36,6 +36,8 @@ protected:
 private:
 	static CCreateCharacterState m_CreateCharacterState;
 
+	string input;
+
 	SDL_Surface* gSurface;
 	SDL_Texture* gTexture;
 	SDL_Rect gRect;

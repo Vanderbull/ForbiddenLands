@@ -89,11 +89,16 @@ void CCharacterState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
-
     if( game->BackgroundTexture == NULL )
         game->BackgroundTexture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
 
     SDL_RenderCopy(game->renderer, game->BackgroundTexture, NULL, NULL);
+
+    gRect = { 0,0, 400, 100 };
+    SDL_SetRenderDrawColor(game->renderer, 0, 0, 0,255);
+    SDL_RenderFillRect(game->renderer,&gRect);
+    game->RenderText(game->SActor.name.c_str(),White,0,0,24);
+
 
   	for (auto& iter: AbilityScore)
     {
