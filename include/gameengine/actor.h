@@ -12,7 +12,7 @@ using namespace std;
 struct ACTOR
 {
     uint32_t uid;
-    std::string name = "Actor name";
+    std::string name = "Enter name...";
 
     int current_stats[6];
     int coins_gold = 0;

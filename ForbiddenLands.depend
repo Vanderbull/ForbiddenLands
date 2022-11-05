@@ -58,7 +58,7 @@
 1667225818 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h
 	"gameengine.h"
 
-1667225818 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/actor.h
+1667551835 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/actor.h
 	<string>
 	<SDL2/SDL.h>
 	"randomizer.h"
@@ -82,7 +82,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1667225818 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/characterstate.cpp
+1667512527 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/characterstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -103,15 +103,17 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1667508772 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.cpp
+1667626172 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
 	"gamestate.h"
 	"menustate.h"
+	"loadingstate.h"
+	"playstate.h"
 	"createcharacterstate.h"
 
-1667508143 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h
+1667569202 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h
 	<string>
 	<vector>
 	<SDL2/SDL.h>
@@ -149,7 +151,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1667225818 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/introstate.cpp
+1667626380 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/introstate.cpp
 	<stdio.h>
 	<sys/types.h>
 	<sys/sysinfo.h>
@@ -681,4 +683,23 @@
 	<iostream>
 	<string>
 	<vector>
+
+1667625933 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadingstate.h
+	<chrono>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1667626075 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadingstate.cpp
+	<stdio.h>
+	<sys/types.h>
+	<sys/sysinfo.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"loadingstate.h"
 

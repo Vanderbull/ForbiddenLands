@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
+#include "loadingstate.h"
 #include "playstate.h"
 #include "createcharacterstate.h"
 #include "loadmenustate.h"
@@ -27,9 +28,6 @@ void CMenuState::Init()
 void CMenuState::Cleanup()
 {
 	SDL_Log("CMenuState Cleanup\n");
-//    //Destroy resources
-//    SDL_FreeSurface(gSurface);
-//    SDL_DestroyTexture(gTexture);
 }
 
 void CMenuState::Pause()
@@ -161,12 +159,13 @@ void CMenuState::Draw(CGameEngine* game)
 
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
+                if( MenuChoice == "NEW COLONY")
+                    game->ChangeState( CLoadingState::Instance() );
+                    //game->ChangeState( CPlayState::Instance() );
                 if( MenuChoice == "LOAD")
                     game->ChangeState( CLoadMenuState::Instance() );
                 if( MenuChoice == "SAVE")
                     game->ChangeState( CSaveMenuState::Instance() );
-                if( MenuChoice == "NEW COLONY")
-                    game->ChangeState( CPlayState::Instance() );
                 if( MenuChoice == "CHARACTER MANAGER")
                     game->ChangeState( CCreateCharacterState::Instance() );
                 if( MenuChoice == "SETTINGS")
