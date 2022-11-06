@@ -194,7 +194,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 	SDL_Log("Loading skills... %w %d", __FILE__, __LINE__);
 	AddSkill();
 
-	read_directory("./images",imagesFiles);
+	//read_directory("./images",imagesFiles);
+	read_directory("./assets/data/textures",imagesFiles);
 
 	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
     initShop();

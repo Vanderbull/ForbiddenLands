@@ -519,6 +519,12 @@ public:
     void read_directory(const std::string& name, std::vector<string>& v)
     {
         DIR* dirp = opendir(name.c_str());
+        if(dirp == NULL)
+        {
+            std::cout << "Error in read_directory function, missing folder" << std::endl;
+            exit(errno);
+        }
+
         struct dirent * dp;
         while ((dp = readdir(dirp)) != NULL) {
             v.push_back(dp->d_name);

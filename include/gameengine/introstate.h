@@ -24,15 +24,15 @@ public:
 		return &m_IntroState;
 	}
 
-    void read_directory(const std::string& name, std::vector<string>& v)
-    {
-        DIR* dirp = opendir(name.c_str());
-        struct dirent * dp;
-        while ((dp = readdir(dirp)) != NULL) {
-            v.push_back(dp->d_name);
-        }
-        closedir(dirp);
-    }
+//    void read_directory(const std::string& name, std::vector<string>& v)
+//    {
+//        DIR* dirp = opendir(name.c_str());
+//        struct dirent * dp;
+//        while ((dp = readdir(dirp)) != NULL) {
+//            v.push_back(dp->d_name);
+//        }
+//        closedir(dirp);
+//    }
 
 protected:
 	CIntroState() { }
