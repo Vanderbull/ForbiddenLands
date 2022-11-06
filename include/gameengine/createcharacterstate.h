@@ -69,7 +69,7 @@ private:
 
     std::vector<std::string> abilityElements = { "POW ", "INT ", "PERS ", "TOU ", "TECH ", "QUI ", "PERC "};
     std::vector<std::string> abilityModElements = { "POW MOD", "INT MOD", "PERS MOD", "TOU MOD", "TECH MOD", "QUI MOD", "PERC MOD"};
-    std::vector<std::string> professionTextElements = { "Viking", "Marauder","Shieldmaiden"};
+
 
     int    scrolling;               // flag (scrolling or not)
     int    scroll_sensitivity = 40; // how fast we want to scroll

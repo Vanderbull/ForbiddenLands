@@ -68,25 +68,28 @@ private:
 
     std::vector<std::string> MenuChoices;
 
- 	map<string, int> AbilityScore = {
-		{"POWER", 0},
-    	{"INTELLIGENCE", 0},
-    	{"PERSONALITY", 0},
-    	{"THOUGHNESS", 0},
-    	{"TECHNOLOGY", 0},
-    	{"QUICKNESS", 0},
-    	{"PERCEPTION", 0}
-  	};
+// 	map<string, int> AbilityScore = {
+//		{"POWER", 0},
+//    	{"INTELLIGENCE", 0},
+//    	{"PERSONALITY", 0},
+//    	{"THOUGHNESS", 0},
+//    	{"TECHNOLOGY", 0},
+//    	{"QUICKNESS", 0},
+//    	{"PERCEPTION", 0}
+//  	};
+//
+//  	map<string, int> AbilityMod = {
+//		{"POWER", 0},
+//    	{"INTELLIGENCE", 0},
+//    	{"PERSONALITY", 0},
+//    	{"THOUGHNESS", 0},
+//    	{"TECHNOLOGY", 0},
+//    	{"QUICKNESS", 0},
+//    	{"PERCEPTION", 0}
+//  	};
 
-  	map<string, int> AbilityMod = {
-		{"POWER", 0},
-    	{"INTELLIGENCE", 0},
-    	{"PERSONALITY", 0},
-    	{"THOUGHNESS", 0},
-    	{"TECHNOLOGY", 0},
-    	{"QUICKNESS", 0},
-    	{"PERCEPTION", 0}
-  	};
+  	SDL_Rect ExitButton{1846,10,64,64};
+  	SDL_Rect ExitButton2{2467,13,80,80};
 
 };
 

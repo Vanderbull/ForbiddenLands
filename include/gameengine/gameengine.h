@@ -181,6 +181,14 @@ public:
 	void loadMapTextures();
 	void initShop();
 
+	int ReferenceResolutionWidth = 2560;
+	int ReferenceResolutionHeight = 1440;
+
+	float ScaleResolution(int ResolutionWidth )
+	{
+        return ResolutionWidth / ReferenceResolutionWidth;
+	};
+
     enum timeOfDay
     {
         day,

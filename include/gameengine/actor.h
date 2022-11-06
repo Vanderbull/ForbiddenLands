@@ -14,7 +14,10 @@ struct ACTOR
     uint32_t uid;
     std::string name = "Enter name...";
 
-    int current_stats[6];
+    std::vector<std::string> professionTextElements = { "VIKING", "MARAUDER","SHIELDMAIDEN"};
+    std::vector<SDL_Rect> professionElements;
+
+    int current_stats[7];
     int coins_gold = 0;
     int experience = 0;
     int encumbrance = 0;
@@ -29,6 +32,21 @@ struct ACTOR
 
     ACTOR()
     {
+        // Profession /////////////////////////////
+        int counter = 0;
+
+        professionElements.clear();
+
+        for (std::string textElement : professionTextElements)
+        {
+            SDL_Rect rect;
+            rect.x = 1200 - 150; // game->SActor.professionElements[counter].w / 2
+            rect.y = 225+(counter*50) - 15; // game->SActor.professionElements[counter].h / 2
+            rect.w = 300;
+            rect.h = 30;
+            professionElements.push_back(rect);
+            counter++;
+        };
         calculateStats();
     };
 
