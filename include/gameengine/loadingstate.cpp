@@ -37,7 +37,7 @@ void CLoadingState::Init()
                 room = "";
                 position = "";
 
-                location += "./images/test_map/";
+                location += "./assets/data/textures/test_map/";
                 room  = "";
 
                 if(x < 10)
@@ -145,7 +145,7 @@ void CLoadingState::Draw(CGameEngine* game)
     SDL_RenderClear(game->renderer);
 
     if( texture == NULL )
-        texture = game->LoadTexture("./images/menus/menu_backdrop.png",255);
+        texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
 
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);
 

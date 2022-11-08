@@ -1,0 +1,3 @@
+CloseSocket global:[clients,socket_set,sockets] call:[SDLNet_GetError,SDLNet_TCP_Close,SDLNet_TCP_DelSocket,exit,fprintf,memset,sizeof] noreturn:[exit]
+AcceptSocket global:[clients,server_socket,socket_set,sockets] call:[CloseSocket,SDLNet_GetError,SDLNet_TCP_Accept,SDLNet_TCP_AddSocket,exit,fprintf] noreturn:[CloseSocket,exit]
+main global:[clients,ip,next_ind,server_socket,socket_set,sockets] call:[AcceptSocket,CloseSocket,RecvData,SDLNet_AllocSocketSet,SDLNet_CheckSockets,SDLNet_FreeSocketSet,SDLNet_GetError,SDLNet_Init,SDLNet_ResolveHost,SDLNet_SocketReady,SDLNet_TCP_AddSocket,SDLNet_TCP_Close,SDLNet_TCP_DelSocket,SDLNet_TCP_Open,SDL_GetError,SDL_Init,SDL_Quit,SendData,exit,fprintf,free,memcpy,printf,sizeof] noreturn:[CloseSocket,SendData,exit,printf]

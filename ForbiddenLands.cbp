@@ -88,13 +88,15 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Add after="# Syncing sound files" />
 			<Add after="#rsync -rtvu --delete soundbible soundbible $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing data files" />
-			<Add after="rsync -rtvu --delete data data $(TARGET_OUTPUT_DIR)/" />
+			<Add after="#rsync -rtvu --delete data data $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing font files" />
-			<Add after="rsync -rtvu --delete font font $(TARGET_OUTPUT_DIR)/" />
+			<Add after="#rsync -rtvu --delete font font $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing logs files" />
 			<Add after="rsync -rtvu --delete logs logs $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing icons files" />
-			<Add after="rsync -rtvu --delete icons icons $(TARGET_OUTPUT_DIR)/" />
+			<Add after="#rsync -rtvu --delete icons icons $(TARGET_OUTPUT_DIR)/" />
+			<Add after="# Syncing data files" />
+			<Add after="#rsync -rtvu --delete assets assets $(TARGET_OUTPUT_DIR)/" />
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="README.md" />

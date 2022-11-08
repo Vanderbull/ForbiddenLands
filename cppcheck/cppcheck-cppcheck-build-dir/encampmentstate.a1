@@ -1,0 +1,857 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2476272802">
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[2147483647][2147483647], which is out of bounds." verbose="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[2147483647][2147483647], which is out of bounds." cwe="788" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="538" column="22" info="Array index out of bounds"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="536" column="37" info="Safe checks: Assuming argument has value 2147483647"/>
+        </error>
+        <error id="negativeIndex" severity="error" msg="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[-2147483648][-2147483648], which is out of bounds." verbose="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[-2147483648][-2147483648], which is out of bounds." cwe="786" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="538" column="22" info="Negative array index"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="536" column="37" info="Safe checks: Assuming argument has value -2147483648"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[2147483647][2147483647], which is out of bounds." verbose="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[2147483647][2147483647], which is out of bounds." cwe="788" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="544" column="22" info="Array index out of bounds"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="536" column="37" info="Safe checks: Assuming argument has value 2147483647"/>
+        </error>
+        <error id="negativeIndex" severity="error" msg="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[-2147483648][-2147483648], which is out of bounds." verbose="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[-2147483648][-2147483648], which is out of bounds." cwe="786" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="544" column="22" info="Negative array index"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="536" column="37" info="Safe checks: Assuming argument has value -2147483648"/>
+        </error>
+        <error id="arrayIndexOutOfBounds" severity="error" msg="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[2147483647][2147483647], which is out of bounds." verbose="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[2147483647][2147483647], which is out of bounds." cwe="788" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="549" column="25" info="Array index out of bounds"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="536" column="37" info="Safe checks: Assuming argument has value 2147483647"/>
+        </error>
+        <error id="negativeIndex" severity="error" msg="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[-2147483648][-2147483648], which is out of bounds." verbose="Array &apos;mapPortal[16][16]&apos; accessed at index mapPortal[-2147483648][-2147483648], which is out of bounds." cwe="786" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="549" column="25" info="Negative array index"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="536" column="37" info="Safe checks: Assuming argument has value -2147483648"/>
+        </error>
+        <error id="missingReturn" severity="error" msg="Found a exit path from function with non-void return type that has missing return statement" verbose="Found a exit path from function with non-void return type that has missing return statement" cwe="758" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="114" column="0"/>
+        </error>
+        <error id="asctimeCalled" severity="style" msg="Obsolete function &apos;asctime&apos; called. It is recommended to use &apos;strftime&apos; instead." verbose="Obsolete function &apos;asctime&apos; called. It is recommended to use &apos;strftime&apos; instead." cwe="477" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="43" column="50"/>
+        </error>
+        <error id="asctimeCalled" severity="style" msg="Obsolete function &apos;asctime&apos; called. It is recommended to use &apos;strftime&apos; instead." verbose="Obsolete function &apos;asctime&apos; called. It is recommended to use &apos;strftime&apos; instead." cwe="477" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="49" column="53"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;ACTOR::faceImage&apos; is not initialized in the constructor." verbose="Member variable &apos;ACTOR::faceImage&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/actor.h" line="30" column="5"/>
+            <symbol>ACTOR::faceImage</symbol>
+        </error>
+        <error id="noConstructor" severity="style" msg="The class &apos;CGameEngine&apos; does not declare a constructor although it has private member variables which likely require initialization." verbose="The class &apos;CGameEngine&apos; does not declare a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="154" column="1"/>
+            <symbol>CGameEngine</symbol>
+        </error>
+        <error id="noConstructor" severity="style" msg="The class &apos;BaseMonster&apos; does not declare a constructor although it has private member variables which likely require initialization." verbose="The class &apos;BaseMonster&apos; does not declare a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="465" column="2"/>
+            <symbol>BaseMonster</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::test_portal&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::test_portal&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::test_portal</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::mapPortal&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::mapPortal&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::mapPortal</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::savePortal&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::savePortal&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::savePortal</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::phlan_portal_2&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::phlan_portal_2&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::phlan_portal_2</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::kustenstad&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::kustenstad&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::kustenstad</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::vallentuna&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::vallentuna&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::vallentuna</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::mora&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::mora&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::mora</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::phlan_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::phlan_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::phlan_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::slums_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::slums_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::slums_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::khutos_well_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::khutos_well_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::khutos_well_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::podal_plaza_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::podal_plaza_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::podal_plaza_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::cardona_textile_house_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::cardona_textile_house_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::cardona_textile_house_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::kovel_mansion_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::kovel_mansion_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::kovel_mansion_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::mendors_library_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::mendors_library_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::mendors_library_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::sokol_keep_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::sokol_keep_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::sokol_keep_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::stojanov_gate_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::stojanov_gate_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::stojanov_gate_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::vahlingen_graveyard_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::vahlingen_graveyard_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::vahlingen_graveyard_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::valjevo_castle_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::valjevo_castle_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::valjevo_castle_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::wealthy_area_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::wealthy_area_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::wealthy_area_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CGameState::save_portals&apos; is not initialized in the constructor." verbose="Member variable &apos;CGameState::save_portals&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="24" column="2"/>
+            <symbol>CGameState::save_portals</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::gSurface&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::gSurface&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::gSurface</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::gTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::gTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::gTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::iX&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::iX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::iX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::iY&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::iY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::iY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::m_iCurrentCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::m_iCurrentCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::m_iCurrentCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::m_iCurrentCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::m_iCurrentCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::m_iCurrentCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::m_iPreviousCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::m_iPreviousCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::m_iPreviousCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CPlayState::m_iPreviousCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CPlayState::m_iPreviousCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="133" column="2"/>
+            <symbol>CPlayState::m_iPreviousCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::gSurface&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::gSurface&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::gSurface</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::gTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::gTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::gTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::iX&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::iX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::iX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::iY&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::iY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::iY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::MainMenuBackgroundTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::m_iCurrentCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::m_iCurrentCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::m_iCurrentCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::m_iCurrentCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::m_iCurrentCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::m_iCurrentCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::m_iPreviousCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::m_iPreviousCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::m_iPreviousCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::m_iPreviousCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::m_iPreviousCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::m_iPreviousCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::scrolling&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::scrolling&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::scrolling</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::scroll_acceleration&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::scroll_acceleration&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::scroll_acceleration</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CCreateCharacterState::scroll_prev_pos&apos; is not initialized in the constructor." verbose="Member variable &apos;CCreateCharacterState::scroll_prev_pos&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="34" column="2"/>
+            <symbol>CCreateCharacterState::scroll_prev_pos</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::gSurface&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::gSurface&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::gSurface</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::gTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::gTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::gTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::iX&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::iX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::iX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::iY&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::iY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::iY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::MainMenuBackgroundTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::m_iCurrentCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::m_iCurrentCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::m_iCurrentCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::m_iCurrentCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::m_iCurrentCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::m_iCurrentCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::m_iPreviousCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::m_iPreviousCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::m_iPreviousCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CLoadMenuState::m_iPreviousCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CLoadMenuState::m_iPreviousCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="72" column="2"/>
+            <symbol>CLoadMenuState::m_iPreviousCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::gSurface&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::gSurface&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::gSurface</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::gTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::gTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::gTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::iX&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::iX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::iX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::iY&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::iY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::iY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::MainMenuBackgroundTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::m_iCurrentCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::m_iCurrentCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::m_iCurrentCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::m_iCurrentCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::m_iCurrentCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::m_iCurrentCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::m_iPreviousCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::m_iPreviousCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::m_iPreviousCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CSaveMenuState::m_iPreviousCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CSaveMenuState::m_iPreviousCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="95" column="2"/>
+            <symbol>CSaveMenuState::m_iPreviousCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::gSurface&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::gSurface&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::gSurface</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::gTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::gTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::gTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::iX&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::iX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::iX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::iY&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::iY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::iY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::MainMenuBackgroundTexture&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::MainMenuBackgroundTexture</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::m_iCurrentCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::m_iCurrentCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::m_iCurrentCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::m_iCurrentCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::m_iCurrentCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::m_iCurrentCoordY</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::m_iPreviousCoordX&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::m_iPreviousCoordX&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::m_iPreviousCoordX</symbol>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &apos;CEncampmentState::m_iPreviousCoordY&apos; is not initialized in the constructor." verbose="Member variable &apos;CEncampmentState::m_iPreviousCoordY&apos; is not initialized in the constructor." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="36" column="2"/>
+            <symbol>CEncampmentState::m_iPreviousCoordY</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="15" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="9" column="15" info="Virtual function in base class"/>
+            <symbol>Init</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="16" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="10" column="15" info="Virtual function in base class"/>
+            <symbol>Cleanup</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="18" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="12" column="15" info="Virtual function in base class"/>
+            <symbol>Pause</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="19" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="13" column="15" info="Virtual function in base class"/>
+            <symbol>Resume</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="21" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="15" column="15" info="Virtual function in base class"/>
+            <symbol>HandleEvents</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="22" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="16" column="15" info="Virtual function in base class"/>
+            <symbol>Update</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="23" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="17" column="15" info="Virtual function in base class"/>
+            <symbol>Draw</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="14" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="9" column="15" info="Virtual function in base class"/>
+            <symbol>Init</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="15" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="10" column="15" info="Virtual function in base class"/>
+            <symbol>Cleanup</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="17" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="12" column="15" info="Virtual function in base class"/>
+            <symbol>Pause</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="18" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="13" column="15" info="Virtual function in base class"/>
+            <symbol>Resume</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="20" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="15" column="15" info="Virtual function in base class"/>
+            <symbol>HandleEvents</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="21" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="16" column="15" info="Virtual function in base class"/>
+            <symbol>Update</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/createcharacterstate.h" line="22" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="17" column="15" info="Virtual function in base class"/>
+            <symbol>Draw</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="14" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="9" column="15" info="Virtual function in base class"/>
+            <symbol>Init</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="15" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="10" column="15" info="Virtual function in base class"/>
+            <symbol>Cleanup</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="17" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="12" column="15" info="Virtual function in base class"/>
+            <symbol>Pause</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="18" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="13" column="15" info="Virtual function in base class"/>
+            <symbol>Resume</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="20" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="15" column="15" info="Virtual function in base class"/>
+            <symbol>HandleEvents</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="21" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="16" column="15" info="Virtual function in base class"/>
+            <symbol>Update</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="22" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="17" column="15" info="Virtual function in base class"/>
+            <symbol>Draw</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="17" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="9" column="15" info="Virtual function in base class"/>
+            <symbol>Init</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="18" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="10" column="15" info="Virtual function in base class"/>
+            <symbol>Cleanup</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="20" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="12" column="15" info="Virtual function in base class"/>
+            <symbol>Pause</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="21" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="13" column="15" info="Virtual function in base class"/>
+            <symbol>Resume</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="23" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="15" column="15" info="Virtual function in base class"/>
+            <symbol>HandleEvents</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="24" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="16" column="15" info="Virtual function in base class"/>
+            <symbol>Update</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/savemenustate.h" line="25" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="17" column="15" info="Virtual function in base class"/>
+            <symbol>Draw</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Init&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="14" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="9" column="15" info="Virtual function in base class"/>
+            <symbol>Init</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Cleanup&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="15" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="10" column="15" info="Virtual function in base class"/>
+            <symbol>Cleanup</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Pause&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="17" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="12" column="15" info="Virtual function in base class"/>
+            <symbol>Pause</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Resume&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="18" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="13" column="15" info="Virtual function in base class"/>
+            <symbol>Resume</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;HandleEvents&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="20" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="15" column="15" info="Virtual function in base class"/>
+            <symbol>HandleEvents</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Update&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="21" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="16" column="15" info="Virtual function in base class"/>
+            <symbol>Update</symbol>
+        </error>
+        <error id="missingOverride" severity="style" msg="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." verbose="The function &apos;Draw&apos; overrides a function in a base class but is not marked with a &apos;override&apos; specifier." file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="22" column="7" info="Function in derived class"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="17" column="15" info="Virtual function in base class"/>
+            <symbol>Draw</symbol>
+        </error>
+        <error id="nullPointer" severity="warning" msg="Possible null pointer dereference: setDirectionPassable" verbose="Possible null pointer dereference: setDirectionPassable" cwe="476" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="43" column="40" info="Null pointer dereference"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="39" column="25" info="Safe checks: Assuming argument has value 0"/>
+            <symbol>setDirectionPassable</symbol>
+        </error>
+        <error id="shadowVariable" severity="style" msg="Local variable &apos;gTexture&apos; shadows outer variable" verbose="Local variable &apos;gTexture&apos; shadows outer variable" cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="121" column="22" info="Shadow variable"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="140" column="15" info="Shadowed declaration"/>
+            <symbol>gTexture</symbol>
+        </error>
+        <error id="shadowVariable" severity="style" msg="Local variable &apos;texW&apos; shadows outer variable" verbose="Local variable &apos;texW&apos; shadows outer variable" cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp" line="136" column="13" info="Shadow variable"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp" line="110" column="9" info="Shadowed declaration"/>
+            <symbol>texW</symbol>
+        </error>
+        <error id="shadowVariable" severity="style" msg="Local variable &apos;texH&apos; shadows outer variable" verbose="Local variable &apos;texH&apos; shadows outer variable" cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp" line="137" column="13" info="Shadow variable"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp" line="111" column="9" info="Shadowed declaration"/>
+            <symbol>texH</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_description&apos; should be passed by const reference." verbose="Parameter &apos;_description&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="39" column="116"/>
+            <symbol>_description</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_west_map&apos; should be passed by const reference." verbose="Parameter &apos;_west_map&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="72" column="82"/>
+            <symbol>_west_map</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_east_map&apos; should be passed by const reference." verbose="Parameter &apos;_east_map&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="72" column="105"/>
+            <symbol>_east_map</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_south_map&apos; should be passed by const reference." verbose="Parameter &apos;_south_map&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="72" column="128"/>
+            <symbol>_south_map</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_north_map&apos; should be passed by const reference." verbose="Parameter &apos;_north_map&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="72" column="152"/>
+            <symbol>_north_map</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_description&apos; should be passed by const reference." verbose="Parameter &apos;_description&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="72" column="213"/>
+            <symbol>_description</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_rotation&apos; should be passed by const reference." verbose="Parameter &apos;_rotation&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="105" column="40"/>
+            <symbol>_rotation</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;_rotation&apos; should be passed by const reference." verbose="Parameter &apos;_rotation&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="117" column="40"/>
+            <symbol>_rotation</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;saveFile&apos; should be passed by const reference." verbose="Parameter &apos;saveFile&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="33" column="39"/>
+            <symbol>saveFile</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;setDirectionPassable&apos; can be declared with const" verbose="Parameter &apos;setDirectionPassable&apos; can be declared with const" cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="39" column="25" info="Parameter &apos;setDirectionPassable&apos; can be declared with const"/>
+            <symbol>setDirectionPassable</symbol>
+        </error>
+        <error id="constParameter" severity="style" msg="Parameter &apos;setCompassDirections&apos; can be declared with const" verbose="Parameter &apos;setCompassDirections&apos; can be declared with const" cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="39" column="61" info="Parameter &apos;setCompassDirections&apos; can be declared with const"/>
+            <symbol>setCompassDirections</symbol>
+        </error>
+        <error id="containerOutOfBounds" severity="error" msg="Out of bounds access in expression &apos;setCompassDirections[i]&apos; because &apos;setCompassDirections&apos; is empty and &apos;i&apos; may be non-zero." verbose="Out of bounds access in expression &apos;setCompassDirections[i]&apos; because &apos;setCompassDirections&apos; is empty and &apos;i&apos; may be non-zero." cwe="398" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="44" column="60" info="Access out of bounds"/>
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="39" column="61" info="Assuming setCompassDirections is empty"/>
+            <symbol>setCompassDirections</symbol>
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 5 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="189" column="29"/>
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 5 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="222" column="34"/>
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 4 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="223" column="38"/>
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 5 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="227" column="34"/>
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 5 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="231" column="28"/>
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="85" column="15"/>
+        </error>
+        <error id="stlcstrParam" severity="performance" msg="Passing the result of c_str() to a function that takes std::string as argument no. 1 is slow and redundant." verbose="The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string." cwe="704" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="86" column="15"/>
+        </error>
+        <error id="uninitvar" severity="error" msg="Uninitialized variable: i" verbose="Uninitialized variable: i" cwe="457" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="41" column="24"/>
+            <symbol>i</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;directions&apos; is assigned a value that is never used." verbose="Variable &apos;directions&apos; is assigned a value that is never used." cwe="563" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="504" column="28"/>
+            <symbol>directions</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;directions_map&apos; is assigned a value that is never used." verbose="Variable &apos;directions_map&apos; is assigned a value that is never used." cwe="563" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="505" column="39"/>
+            <symbol>directions_map</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;directions&apos; is assigned a value that is never used." verbose="Variable &apos;directions&apos; is assigned a value that is never used." cwe="563" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="174" column="28"/>
+            <symbol>directions</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;directions_map&apos; is assigned a value that is never used." verbose="Variable &apos;directions_map&apos; is assigned a value that is never used." cwe="563" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="175" column="39"/>
+            <symbol>directions_map</symbol>
+        </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;ret_code&apos; is assigned a value that is never used." verbose="Variable &apos;ret_code&apos; is assigned a value that is never used." cwe="563" file0="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp">
+            <location file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="51" column="25"/>
+            <symbol>ret_code</symbol>
+        </error>
+  <FileInfo check="Class">
+<class name="ACTOR" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/actor.h" line="12" col="1" hash="11582666291414870538"/>
+<class name="weather_engine" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/weather/weather.h" line="10" col="1" hash="12616896024731992984"/>
+<class name="SGenericItem" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="71" col="1" hash="14665149803960918095"/>
+<class name="TextureHolder" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="123" col="1" hash="16194238252655585226"/>
+<class name="SoundHolder" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="141" col="1" hash="16368568448264619729"/>
+<class name="CGameEngine::CoordinatePair" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="273" col="5" hash="3522680702769538995"/>
+<class name="CGameEngine::BaseMonster" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="465" col="2" hash="10763565020893494255"/>
+<class name="CGameState::portal2" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="26" col="5" hash="4793149430031890014"/>
+<class name="CGameState::portal" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="53" col="5" hash="6184965527800050783"/>
+<class name="CEncampmentState" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h" line="11" col="1" hash="9742845519800745474"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h:19:7" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="20" col="3" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:55:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="57" col="32" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:64:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="66" col="28" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:89:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="91" col="19" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:114:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="121" col="33" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h:33:10" my-argnr="2" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/loadmenustate.h" line="35" col="9" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.h:22:7" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/encampmentstate.cpp" line="86" col="29" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h:109:26" my-argnr="1" my-argname="os" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="111" col="16" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h:109:26" my-argnr="2" my-argname="a" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="111" col="22" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h:552:10" my-argnr="1" my-argname="name" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h" line="554" col="29" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h:19:7" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h" line="20" col="3" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:55:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="57" col="32" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:64:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="66" col="28" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:89:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="91" col="19" value="0"/>
+    <unsafe-usage my-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h:114:10" my-argnr="1" my-argname="game" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h" line="121" col="33" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="Init" lineNumber="13"/>
+    <functiondecl functionName="Cleanup" lineNumber="21"/>
+    <functiondecl functionName="Pause" lineNumber="26"/>
+    <functiondecl functionName="Resume" lineNumber="31"/>
+    <functiondecl functionName="HandleEvents" lineNumber="36"/>
+    <functiondecl functionName="Update" lineNumber="65"/>
+    <functiondecl functionName="Draw" lineNumber="82"/>
+    <functioncall functionName="ACTOR"/>
+    <functioncall functionName="ARM"/>
+    <functioncall functionName="ARMOUR"/>
+    <functioncall functionName="Black"/>
+    <functioncall functionName="CGameState"/>
+    <functioncall functionName="CHEST"/>
+    <functioncall functionName="ChangeState"/>
+    <functioncall functionName="EAST"/>
+    <functioncall functionName="EXIT_FAILURE"/>
+    <functioncall functionName="East"/>
+    <functioncall functionName="FALL"/>
+    <functioncall functionName="FEET"/>
+    <functioncall functionName="FINGER"/>
+    <functioncall functionName="GenerateNumber"/>
+    <functioncall functionName="HAND"/>
+    <functioncall functionName="HEAD"/>
+    <functioncall functionName="IMG_Load"/>
+    <functioncall functionName="Init"/>
+    <functioncall functionName="Instance"/>
+    <functioncall functionName="IsButtonReleased"/>
+    <functioncall functionName="Item"/>
+    <functioncall functionName="LoadTexture"/>
+    <functioncall functionName="MISCELLANEOUS"/>
+    <functioncall functionName="MenuChoices"/>
+    <functioncall functionName="NECK"/>
+    <functioncall functionName="NORTH"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="North"/>
+    <functioncall functionName="OFFSET"/>
+    <functioncall functionName="POTION"/>
+    <functioncall functionName="PopState"/>
+    <functioncall functionName="Quit"/>
+    <functioncall functionName="RING"/>
+    <functioncall functionName="RenderText"/>
+    <functioncall functionName="RenderText2"/>
+    <functioncall functionName="SActor"/>
+    <functioncall functionName="SCROLL"/>
+    <functioncall functionName="SDL_BLENDMODE_BLEND"/>
+    <functioncall functionName="SDL_BUTTON"/>
+    <functioncall functionName="SDL_BUTTON_LEFT"/>
+    <functioncall functionName="SDL_CreateTextureFromSurface"/>
+    <functioncall functionName="SDL_DestroyTexture"/>
+    <functioncall functionName="SDL_FreeSurface"/>
+    <functioncall functionName="SDL_GetMouseState"/>
+    <functioncall functionName="SDL_LOG_CATEGORY_APPLICATION"/>
+    <functioncall functionName="SDL_LOG_PRIORITY_INFO"/>
+    <functioncall functionName="SDL_Log"/>
+    <functioncall functionName="SDL_LogMessage"/>
+    <functioncall functionName="SDL_PointInRect"/>
+    <functioncall functionName="SDL_PollEvent"/>
+    <functioncall functionName="SDL_QueryTexture"/>
+    <functioncall functionName="SDL_Rect"/>
+    <functioncall functionName="SDL_RenderClear"/>
+    <functioncall functionName="SDL_RenderCopy"/>
+    <functioncall functionName="SDL_RenderDrawRect"/>
+    <functioncall functionName="SDL_RenderFillRect"/>
+    <functioncall functionName="SDL_SetRenderDrawColor"/>
+    <functioncall functionName="SDL_SetTextureAlphaMod"/>
+    <functioncall functionName="SDL_SetTextureBlendMode"/>
+    <functioncall functionName="SGenericItem"/>
+    <functioncall functionName="SHIELD"/>
+    <functioncall functionName="SHOULDER"/>
+    <functioncall functionName="SOUTH"/>
+    <functioncall functionName="SPRING"/>
+    <functioncall functionName="SUMMER"/>
+    <functioncall functionName="SaveGame"/>
+    <functioncall functionName="SkillObject"/>
+    <functioncall functionName="SoundHolder"/>
+    <functioncall functionName="South"/>
+    <functioncall functionName="TTF_RenderText_Blended"/>
+    <functioncall functionName="TextureHolder"/>
+    <functioncall functionName="WEAPON"/>
+    <functioncall functionName="WEST"/>
+    <functioncall functionName="WINTER"/>
+    <functioncall functionName="West"/>
+    <functioncall functionName="White"/>
+    <functioncall functionName="_dataFilePath"/>
+    <functioncall functionName="_description"/>
+    <functioncall functionName="_east"/>
+    <functioncall functionName="_east_map"/>
+    <functioncall functionName="_north"/>
+    <functioncall functionName="_north_map"/>
+    <functioncall functionName="_south"/>
+    <functioncall functionName="_south_map"/>
+    <functioncall functionName="_warp_x"/>
+    <functioncall functionName="_warp_y"/>
+    <functioncall functionName="_west"/>
+    <functioncall functionName="_west_map"/>
+    <functioncall functionName="active_portal"/>
+    <functioncall functionName="asctime"/>
+    <functioncall functionName="at"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="buttonHeight"/>
+    <functioncall functionName="buttonPosition"/>
+    <functioncall functionName="buttonWidth"/>
+    <functioncall functionName="c_str"/>
+    <functioncall functionName="calculateStats"/>
+    <functioncall functionName="char"/>
+    <functioncall functionName="clear"/>
+    <functioncall functionName="climate"/>
+    <functioncall functionName="close"/>
+    <functioncall functionName="closedir"/>
+    <functioncall functionName="compassNeedle"/>
+    <functioncall functionName="count"/>
+    <functioncall functionName="currentDay"/>
+    <functioncall functionName="currentTime"/>
+    <functioncall functionName="current_stats"/>
+    <functioncall functionName="d_name"/>
+    <functioncall functionName="dataFile"/>
+    <functioncall functionName="day"/>
+    <functioncall functionName="description"/>
+    <functioncall functionName="directions"/>
+    <functioncall functionName="directions_map"/>
+    <functioncall functionName="dirp"/>
+    <functioncall functionName="east"/>
+    <functioncall functionName="east_map"/>
+    <functioncall functionName="eof"/>
+    <functioncall functionName="event"/>
+    <functioncall functionName="exists"/>
+    <functioncall functionName="exit"/>
+    <functioncall functionName="exp"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="fclose"/>
+    <functioncall functionName="feof"/>
+    <functioncall functionName="ferror"/>
+    <functioncall functionName="floor"/>
+    <functioncall functionName="fopen"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="fprintf"/>
+    <functioncall functionName="fread"/>
+    <functioncall functionName="fwrite"/>
+    <functioncall functionName="gRect"/>
+    <functioncall functionName="gSurface"/>
+    <functioncall functionName="gTexture"/>
+    <functioncall functionName="gameTitleFont"/>
+    <functioncall functionName="getMap"/>
+    <functioncall functionName="getX"/>
+    <functioncall functionName="gmtime"/>
+    <functioncall functionName="gmtm"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="imageSize"/>
+    <functioncall functionName="in_season"/>
+    <functioncall functionName="in_warp"/>
+    <functioncall functionName="infile"/>
+    <functioncall functionName="initPortal"/>
+    <functioncall functionName="init_portals"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="loadPortal"/>
+    <functioncall functionName="localtime"/>
+    <functioncall functionName="localtm"/>
+    <functioncall functionName="m_iCurrentCoordX"/>
+    <functioncall functionName="m_iCurrentCoordY"/>
+    <functioncall functionName="m_uCurrentMouseState"/>
+    <functioncall functionName="m_uPreviousMouseState"/>
+    <functioncall functionName="mousePosition"/>
+    <functioncall functionName="needle"/>
+    <functioncall functionName="needleLeft"/>
+    <functioncall functionName="needleRight"/>
+    <functioncall functionName="night"/>
+    <functioncall functionName="north"/>
+    <functioncall functionName="north_map"/>
+    <functioncall functionName="now"/>
+    <functioncall functionName="opendir"/>
+    <functioncall functionName="perror"/>
+    <functioncall functionName="pow"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="push_back"/>
+    <functioncall functionName="put_time"/>
+    <functioncall functionName="puts"/>
+    <functioncall functionName="readdir"/>
+    <functioncall functionName="renderLocation"/>
+    <functioncall functionName="renderer"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="rotation"/>
+    <functioncall functionName="round"/>
+    <functioncall functionName="saveFile"/>
+    <functioncall functionName="season"/>
+    <functioncall functionName="setup"/>
+    <functioncall functionName="setupStruct"/>
+    <functioncall functionName="size"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="south"/>
+    <functioncall functionName="south_map"/>
+    <functioncall functionName="square"/>
+    <functioncall functionName="state"/>
+    <functioncall functionName="stderr"/>
+    <functioncall functionName="str"/>
+    <functioncall functionName="string"/>
+    <functioncall functionName="surface"/>
+    <functioncall functionName="switch"/>
+    <functioncall functionName="sym"/>
+    <functioncall functionName="texH"/>
+    <functioncall functionName="texW"/>
+    <functioncall functionName="texture"/>
+    <functioncall functionName="tick"/>
+    <functioncall functionName="time"/>
+    <functioncall functionName="to_string"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="type"/>
+    <functioncall functionName="uButton"/>
+    <functioncall functionName="uint32_t"/>
+    <functioncall functionName="void"/>
+    <functioncall functionName="warp"/>
+    <functioncall functionName="warp_x"/>
+    <functioncall functionName="warp_y"/>
+    <functioncall functionName="weather_engine"/>
+    <functioncall functionName="west"/>
+    <functioncall functionName="west_map"/>
+    <functioncall functionName="while"/>
+    <functioncall functionName="x"/>
+    <functioncall functionName="y"/>
+  </FileInfo>
+</analyzerinfo>

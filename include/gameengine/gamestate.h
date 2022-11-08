@@ -195,6 +195,7 @@ protected:
 
     void init_portals(std::string _dataFilePath)
     {
+        std::cout << _dataFilePath << std::endl;
         int x,y = 0;
         bool west,east,south,north = false;
         std::string west_map,east_map,south_map,north_map = _dataFilePath;

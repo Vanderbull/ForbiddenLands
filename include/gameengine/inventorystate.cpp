@@ -78,12 +78,12 @@ void CInventoryState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-    SDL_Texture* texture = game->LoadTexture("./images/wireframe new inventory.png",255);
-
-    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_SetTextureAlphaMod( texture, 255 );
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_DestroyTexture(texture);
+//    SDL_Texture* texture = game->LoadTexture("./images/wireframe new inventory.png",255);
+//
+//    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//    SDL_SetTextureAlphaMod( texture, 255 );
+//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+//    SDL_DestroyTexture(texture);
 
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);

@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dialog view.md",
+                "file": "2022-11-09.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -178,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Dialog view.md",
+                "file": "2022-11-09.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Dialog view.md",
+                "file": "2022-11-09.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -218,7 +218,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Dialog view.md"
+                "file": "2022-11-09.md"
               }
             }
           }
@@ -232,6 +232,7 @@
   },
   "active": "cc7d18dd87472964",
   "lastOpenFiles": [
+    "Dialog view.md",
     "Forbidden Lands/playstate.h.md",
     "Forbidden Lands/encampmentstate.h.md",
     "Forbidden Lands/worldmapstate.h.md",
@@ -240,7 +241,6 @@
     "Forbidden Lands/battlestate.h.md",
     "Actor.md",
     "2022-11-08.md",
-    "[.md",
-    "Skill Groups.md"
+    "[.md"
   ]
 }

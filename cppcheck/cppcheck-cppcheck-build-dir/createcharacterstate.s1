@@ -1,0 +1,45 @@
+ACTOR call:[calculateStats] noreturn:[calculateStats]
+calculateStats call:[GenerateNumber]
+weather_engine call:[climate] noreturn:[climate]
+get_temperature
+get_season
+climate call:[GenerateNumber] noreturn:[GenerateNumber]
+SGenericItem call:[GenerateNumber] noreturn:[GenerateNumber]
+getName
+operator<<
+TextureHolder
+SoundHolder
+Running
+Quit
+currentTimeElapse
+experience_required_for_level call:[floor,pow,return,round] noreturn:[floor]
+experience_required_for_skill_level call:[floor,pow,return,round] noreturn:[floor]
+initPortal call:[c_str,close,dataFile,eof,exit,setup,while] noreturn:[close,exit,setup]
+loadPortal call:[SDL_LogMessage,initPortal,setupStruct] noreturn:[setupStruct]
+getActivePortal call:[active_portal,getMap,getX,loadPortal] noreturn:[active_portal,getX,loadPortal]
+read_directory call:[c_str,closedir,opendir,push_back,readdir] noreturn:[closedir,push_back]
+ChangeState call:[ChangeState] noreturn:[ChangeState]
+CGameState
+setup call:[GenerateNumber] noreturn:[GenerateNumber]
+setup call:[GenerateNumber]
+setupStruct call:[GenerateNumber] noreturn:[GenerateNumber]
+active_portal
+getMap
+getX
+getDescription
+initPortal call:[SDL_Log,c_str,close,dataFile,eof,exit,setup,while] noreturn:[close,exit,setup]
+init_portals call:[SDL_Log,c_str,close,dataFile,eof,exit,setup,while] noreturn:[close,exit,setup]
+loadPortals call:[SDL_LogMessage,init_portals,setupStruct] noreturn:[setupStruct]
+Instance
+IsButtonReleased call:[SDL_BUTTON,return]
+CMenuState
+Instance
+IsButtonReleased call:[SDL_BUTTON,return]
+CCreateCharacterState
+Init call:[SDL_Log,clear,push_back] noreturn:[push_back]
+Cleanup call:[SDL_Log] noreturn:[SDL_Log]
+Pause call:[SDL_Log] noreturn:[SDL_Log]
+Resume call:[SDL_Log] noreturn:[SDL_Log]
+HandleEvents call:[PopState,Quit,SDL_GetMouseState,SDL_Log,SDL_PollEvent] noreturn:[SDL_GetMouseState]
+Update call:[SDL_GetMouseState,SDL_Log,abs,size] noreturn:[size]
+Draw call:[ChangeState,Instance,IsButtonReleased,LoadTexture,RenderText2,SDL_BUTTON,SDL_CreateTextureFromSurface,SDL_Delay,SDL_DestroyTexture,SDL_FreeSurface,SDL_GetMouseState,SDL_Log,SDL_PointInRect,SDL_PumpEvents,SDL_QueryTexture,SDL_RenderClear,SDL_RenderCopy,SDL_RenderDrawRect,SDL_RenderFillRect,SDL_SetRenderDrawColor,TTF_RenderText_Blended,TTF_SizeText,at,begin,c_str,clear,empty,erase,push_back,size,to_string] noreturn:[ChangeState,SDL_Delay,SDL_GetMouseState]

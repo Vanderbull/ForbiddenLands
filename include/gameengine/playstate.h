@@ -113,12 +113,12 @@ public:
 
     void renderMinimap(CGameEngine* game)
     {
-        if( !std::filesystem::exists("./data/maps/phlan/phlan.png") )
-        {
-            SDL_Log("verifying ./data/maps/phlan/phlan.png exists failed");
-            exit(99);
-        }
-        SDL_Texture* gTexture = game->LoadTexture("./data/maps/phlan/phlan.png",255);
+//        if( !std::filesystem::exists("./assets/data/textures/maps/phlan/phlan.png") )
+//        {
+//            SDL_Log("verifying ./data/maps/phlan/phlan.png exists failed");
+//            exit(999);
+//        }
+        SDL_Texture* gTexture = game->LoadTexture("./assets/data/textures/maps/phlan/phlan.png",255);
 
         SDL_Rect imageSize = {0, 0,256,256};
         SDL_Rect renderLocation = {50, 50,256,256};

@@ -525,7 +525,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     else
     {
-        SDL_Texture *texture = game->LoadTexture("./images/ui/gearslots.png",255);
+        SDL_Texture *texture = game->LoadTexture("./assets/data/textures/ui/gearslots.png",255);
         int w, h;
         SDL_QueryTexture(texture, NULL, NULL, &w, &h);
         SDL_Rect SrcR;

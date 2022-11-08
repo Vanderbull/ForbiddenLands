@@ -1,0 +1,58 @@
+ACTOR call:[calculateStats] noreturn:[calculateStats]
+calculateStats call:[GenerateNumber]
+weather_engine call:[climate] noreturn:[climate]
+get_temperature
+get_season
+climate call:[GenerateNumber] noreturn:[GenerateNumber]
+SGenericItem call:[GenerateNumber] noreturn:[GenerateNumber]
+getName
+operator<<
+TextureHolder
+SoundHolder
+Running
+Quit
+currentTimeElapse
+experience_required_for_level call:[floor,pow,return,round] noreturn:[floor]
+experience_required_for_skill_level call:[floor,pow,return,round] noreturn:[floor]
+initPortal call:[c_str,close,dataFile,eof,exit,setup,while] noreturn:[close,exit,setup]
+loadPortal call:[SDL_LogMessage,initPortal,setupStruct] noreturn:[setupStruct]
+getActivePortal call:[active_portal,getMap,getX,loadPortal] noreturn:[active_portal,getX,loadPortal]
+read_directory call:[c_str,closedir,opendir,push_back,readdir] noreturn:[closedir,push_back]
+ChangeState call:[ChangeState] noreturn:[ChangeState]
+CGameState
+setup call:[GenerateNumber] noreturn:[GenerateNumber]
+setup call:[GenerateNumber]
+setupStruct call:[GenerateNumber] noreturn:[GenerateNumber]
+active_portal
+getMap
+getX
+getDescription
+initPortal call:[SDL_Log,c_str,close,dataFile,eof,exit,setup,while] noreturn:[close,exit,setup]
+init_portals call:[SDL_Log,c_str,close,dataFile,eof,exit,setup,while] noreturn:[close,exit,setup]
+loadPortals call:[SDL_LogMessage,init_portals,setupStruct] noreturn:[setupStruct]
+Item
+Item
+SkillObject
+SkillObject
+Generate call:[myRandomDevice,myRandomEngine,myUnifIntDist] noreturn:[myUnifIntDist]
+Init call:[AddItem,AddSkill,IMG_GetError,IMG_Init,IMG_Load,LoadTexture,Mix_OpenAudio,SDL_CreateRenderer,SDL_CreateWindow,SDL_FreeSurface,SDL_GL_CreateContext,SDL_GetCurrentDisplayMode,SDL_GetError,SDL_GetNumVideoDisplays,SDL_Init,SDL_Log,SDL_RenderSetScale,SDL_SetMainReady,SDL_SetRenderDrawBlendMode,SDL_SetWindowIcon,SDL_StopTextInput,TTF_GetError,TTF_Init,TTF_OpenFont,TTF_WasInit,exit,initShop,read_directory,strcmp] noreturn:[IMG_Load,SDL_Log,exit]
+Cleanup call:[Cleanup,SDL_Log,SDL_Quit,back,empty,pop_back] noreturn:[SDL_Quit,pop_back]
+ChangeState call:[Cleanup,Init,SDL_Log,back,empty,pop_back,push_back] noreturn:[Init,pop_back]
+PushState call:[Init,Pause,SDL_Log,back,empty,push_back] noreturn:[Init,Pause]
+PopState call:[Cleanup,Resume,SDL_Log,back,empty,pop_back] noreturn:[Resume,pop_back]
+HandleEvents call:[HandleEvents,SDL_Log,back] noreturn:[HandleEvents]
+Update call:[SDL_Log,Update,back] noreturn:[Update]
+Draw call:[Draw,SDL_Log,back] noreturn:[Draw]
+RenderText call:[SDL_CreateTextureFromSurface,SDL_DestroyTexture,SDL_FreeSurface,SDL_QueryTexture,SDL_RenderCopy,TTF_CloseFont,TTF_OpenFont,TTF_RenderText_Blended,c_str]
+RenderTitle call:[SDL_CreateTextureFromSurface,SDL_DestroyTexture,SDL_FreeSurface,SDL_QueryTexture,SDL_RenderCopy,TTF_CloseFont,TTF_OpenFont,TTF_RenderText_Blended,c_str]
+RenderBreadText call:[SDL_CreateTextureFromSurface,SDL_DestroyTexture,SDL_FreeSurface,SDL_QueryTexture,SDL_RenderCopy,TTF_CloseFont,TTF_OpenFont,TTF_RenderText_Blended,c_str]
+RenderText2 call:[SDL_CreateTextureFromSurface,SDL_DestroyTexture,SDL_FreeSurface,SDL_QueryTexture,SDL_RenderCopy,TTF_CloseFont,TTF_OpenFont,TTF_RenderText_Blended,c_str]
+RenderText3 call:[SDL_CreateTextureFromSurface,SDL_DestroyTexture,SDL_FreeSurface,SDL_QueryTexture,SDL_RenderCopy,TTF_CloseFont,TTF_OpenFont,TTF_RenderText_Blended_Wrapped,c_str]
+RenderTextWrapped call:[SDL_CreateTextureFromSurface,SDL_DestroyTexture,SDL_FreeSurface,SDL_QueryTexture,SDL_RenderCopy,TTF_CloseFont,TTF_OpenFont,TTF_RenderText_Blended_Wrapped,c_str]
+LoadTexture call:[IMG_LoadTexture,SDL_SetTextureAlphaMod,SDL_SetTextureBlendMode,c_str,exit] noreturn:[exit]
+loadMapTextures call:[SDL_Log,count,double,now] noreturn:[SDL_Log]
+AddItem call:[SDL_Log,begin,end,push_back] noreturn:[push_back]
+AddSkill call:[SDL_Log,begin,end,push_back] noreturn:[push_back]
+LoadShopData call:[SDL_Log,c_str,close,getline,is_open,push_back,shop_data_file,stoi] noreturn:[SDL_Log,close,push_back]
+initShop call:[LoadShopData] noreturn:[LoadShopData]
+renderDaytime call:[LoadTexture,RenderText,SDL_DestroyTexture,SDL_RenderCopy,currentTimeElapse,get_season,get_temperature,to_string] noreturn:[LoadTexture,RenderText]

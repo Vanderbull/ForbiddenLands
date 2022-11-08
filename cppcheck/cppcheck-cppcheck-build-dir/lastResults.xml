@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.7"/>
+    <errors>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::test_portal&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::test_portal&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::mapPortal&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::mapPortal&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::savePortal&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::savePortal&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::phlan_portal_2&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::phlan_portal_2&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::kustenstad&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::kustenstad&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::vallentuna&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::vallentuna&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::mora&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::mora&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::phlan_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::phlan_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::slums_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::slums_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::khutos_well_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::khutos_well_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::podal_plaza_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::podal_plaza_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::cardona_textile_house_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::cardona_textile_house_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::kovel_mansion_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::kovel_mansion_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::mendors_library_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::mendors_library_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::sokol_keep_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::sokol_keep_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::stojanov_gate_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::stojanov_gate_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::vahlingen_graveyard_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::vahlingen_graveyard_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::valjevo_castle_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::valjevo_castle_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::wealthy_area_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::wealthy_area_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CGameState::save_portals&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CGameState::save_portals&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="24"/>
+        </error>
+        <error id="nullPointer" severity="warning" msg="Possible null pointer dereference: setDirectionPassable" verbose="Possible null pointer dereference: setDirectionPassable" cwe="476" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gamestate.h" line="43" info="Null pointer dereference"/>
+            <location file="../include/gameengine/gamestate.h" line="39" info="Safe checks: Assuming argument has value 0"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;ACTOR::faceImage&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;ACTOR::faceImage&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/actor.h" line="30"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CPlayState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CPlayState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/playstate.h" line="133"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CBattleState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CBattleState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/battlestate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/battlestate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/menustate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCharacterState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCharacterState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/characterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/characterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::scrolling&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::scrolling&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::scroll_acceleration&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::scroll_acceleration&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CCreateCharacterState::scroll_prev_pos&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CCreateCharacterState::scroll_prev_pos&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/createcharacterstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/createcharacterstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSaveMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSaveMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/savemenustate.h" line="95"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CLoadMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CLoadMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/loadmenustate.h" line="72"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CEncampmentState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CEncampmentState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/encampmentstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/encampmentstate.h" line="36"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;SkillObject::MaximumExpertise&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;SkillObject::MaximumExpertise&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="29"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;SkillObject::InitialRequirementsAttribute&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;SkillObject::InitialRequirementsAttribute&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="29"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;SkillObject::InitialRequirementsValue&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;SkillObject::InitialRequirementsValue&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="29"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;SkillObject::Group&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;SkillObject::Group&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="29"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Efficiency&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Efficiency&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::MinDamage&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::MinDamage&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::MaxDamage&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::MaxDamage&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::DmgType&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::DmgType&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::NumHands&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::NumHands&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Bodypart&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Bodypart&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::UsedBy&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::UsedBy&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Skill&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Skill&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::BaseWorth&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::BaseWorth&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Price&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Price&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Protection&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Protection&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Enchantments&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Enchantments&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Effect&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Effect&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::EffectCharges&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::EffectCharges&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::MinEffect&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::MinEffect&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::MaxEffect&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::MaxEffect&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;Item::Features&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;Item::Features&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/gameengine.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/gameengine.cpp" line="20"/>
+        </error>
+        <error id="arrayIndexOutOfBoundsCond" severity="warning" msg="Either the condition &amp;#039;x==16&amp;#039; is redundant or the array &amp;#039;game-&amp;gt;mapTexture[16][16][4]&amp;#039; is accessed at index game-&amp;gt;mapTexture[16][*][*], which is out of bounds." verbose="Either the condition &amp;#039;x==16&amp;#039; is redundant or the array &amp;#039;game-&amp;gt;mapTexture[16][16][4]&amp;#039; is accessed at index game-&amp;gt;mapTexture[16][*][*], which is out of bounds." cwe="788" file0="../include/gameengine/introstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/introstate.cpp" line="167" info="Array index out of bounds"/>
+            <location file="../include/gameengine/introstate.cpp" line="193" info="Assuming condition is false"/>
+            <location file="../include/gameengine/introstate.cpp" line="212" info="Assuming that condition &amp;#039;x==16&amp;#039; is not redundant"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CIntroState::x&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CIntroState::x&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/introstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/introstate.h" line="38"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CIntroState::y&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CIntroState::y&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/introstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/introstate.h" line="38"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CIntroState::z&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CIntroState::z&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/introstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/introstate.h" line="38"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CIntroState::texture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CIntroState::texture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/introstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/introstate.h" line="38"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CInventoryState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CInventoryState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/inventorystate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/inventorystate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CSettingsMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CSettingsMenuState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/menustate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/settingsmenustate.h" line="89"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::gSurface&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::gSurface&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::gTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::gTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::iX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::iX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::iY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::iY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::MainMenuBackgroundTexture&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::scrolling&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::scrolling&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::scroll_acceleration&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::scroll_acceleration&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CShopState::scroll_prev_pos&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CShopState::scroll_prev_pos&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/shopstate.h" line="34"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CWorldMapState::map&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CWorldMapState::map&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/worldmapstate.h" line="30"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CWorldMapState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CWorldMapState::m_iCurrentCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/worldmapstate.h" line="30"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CWorldMapState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CWorldMapState::m_iCurrentCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/worldmapstate.h" line="30"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CWorldMapState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CWorldMapState::m_iPreviousCoordX&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/worldmapstate.h" line="30"/>
+        </error>
+        <error id="uninitMemberVar" severity="warning" msg="Member variable &amp;#039;CWorldMapState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." verbose="Member variable &amp;#039;CWorldMapState::m_iPreviousCoordY&amp;#039; is not initialized in the constructor." cwe="398" file0="../include/gameengine/playstate.cpp" sinceDate="10/24/22">
+            <location file="../include/gameengine/worldmapstate.h" line="30"/>
+        </error>
+    </errors>
+</results>

@@ -1,0 +1,207 @@
+parse_error
+what
+where
+measure
+compare
+consume
+isOnStack call:[return]
+c_str call:[c_str] noreturn:[c_str]
+c_str call:[isOnStack]
+convert
+fill
+fill
+fill
+filloss call:[fill] noreturn:[fill]
+filloss call:[decltype,fill] noreturn:[fill]
+convert call:[filloss,tlssPop,tlssPush] noreturn:[tlssPop]
+rawMemoryToString call:[rawMemoryToString,sizeof] noreturn:[rawMemoryToString]
+type_to_string
+convert call:[rawMemoryToString] noreturn:[rawMemoryToString]
+convert call:[rawMemoryToString] noreturn:[rawMemoryToString]
+toString call:[convert] noreturn:[convert]
+toString call:[toString] noreturn:[toString]
+stringifyBinaryExpr call:[toString] noreturn:[toString]
+operator& call:[static_assert]
+operator^ call:[static_assert]
+operator| call:[static_assert]
+operator&& call:[static_assert]
+operator|| call:[static_assert]
+operator== call:[static_assert]
+operator!= call:[static_assert]
+operator< call:[static_assert]
+operator> call:[static_assert]
+operator<= call:[static_assert]
+operator>= call:[static_assert]
+operator= call:[static_assert]
+operator+= call:[static_assert]
+operator-= call:[static_assert]
+operator*= call:[static_assert]
+operator/= call:[static_assert]
+operator%= call:[static_assert]
+operator<<= call:[static_assert]
+operator>>= call:[static_assert]
+operator&= call:[static_assert]
+operator^= call:[static_assert]
+operator|= call:[static_assert]
+eq
+ne
+lt
+gt
+le
+ge
+Expression_lhs
+operatorResult call:[Result,getContextOptions,toString] noreturn:[Result]
+operatorL
+operator== call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator== call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator!= call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator!= call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator> call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator> call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator< call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator< call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator>= call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator>= call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator<= call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator<= call:[Result,getContextOptions,stringifyBinaryExpr] noreturn:[Result]
+operator& call:[static_assert]
+operator^ call:[static_assert]
+operator| call:[static_assert]
+operator&& call:[static_assert]
+operator|| call:[static_assert]
+operator= call:[static_assert]
+operator+= call:[static_assert]
+operator-= call:[static_assert]
+operator*= call:[static_assert]
+operator/= call:[static_assert]
+operator%= call:[static_assert]
+operator<<= call:[static_assert]
+operator>>= call:[static_assert]
+operator&= call:[static_assert]
+operator^= call:[static_assert]
+operator|= call:[static_assert]
+operator<< call:[static_assert]
+operator>> call:[static_assert]
+operator<<
+operator<<
+operator* call:[fill]
+operator* call:[fill]
+instantiationHelper
+operator()
+operator() call:[eq] noreturn:[eq]
+operator() call:[ne] noreturn:[ne]
+operator() call:[gt] noreturn:[gt]
+operator() call:[lt] noreturn:[lt]
+operator() call:[ge] noreturn:[ge]
+operator() call:[le] noreturn:[le]
+binary_assert call:[getContextOptions,stringifyBinaryExpr] noreturn:[stringifyBinaryExpr]
+unary_assert call:[getContextOptions,toString] noreturn:[toString]
+binary_assert call:[checkIfShouldThrow,failed_out_of_a_testing_context,getContextOptions,isDebuggerActive,log,raise,rb,stringifyBinaryExpr,throwException,while] noreturn:[raise,stringifyBinaryExpr,throwException]
+unary_assert call:[checkIfShouldThrow,failed_out_of_a_testing_context,getContextOptions,isDebuggerActive,log,raise,rb,throwException,toString,while] noreturn:[raise,throwException,toString]
+ExceptionTranslator
+translate
+convert call:[toString] noreturn:[toString]
+convert call:[String] noreturn:[String]
+convert
+toStream call:[convert] noreturn:[convert]
+ContextScope
+ContextScope
+stringify call:[lambda_] noreturn:[lambda_]
+ContextScope call:[destroy] noreturn:[destroy]
+operator, call:[toStream]
+operator<< call:[operator,] noreturn:[operator,]
+operator* call:[operator,] noreturn:[operator,]
+MakeContextScope
+test_suite
+fill
+fill
+description
+fill
+fill
+skip
+fill
+fill
+no_breaks
+fill
+fill
+no_output
+fill
+fill
+timeout
+fill
+fill
+may_fail
+fill
+fill
+should_fail
+fill
+fill
+expected_failures
+fill
+fill
+registerExceptionTranslator call:[exceptionTranslator,registerExceptionTranslatorImpl]
+reporterCreator call:[Reporter] noreturn:[Reporter]
+type_to_string < bool >
+type_to_string < float >
+type_to_string < double >
+type_to_string < long double >
+type_to_string < char >
+type_to_string < signed char >
+type_to_string < unsigned char >
+type_to_string < wchar_t >
+type_to_string < short >
+type_to_string < unsigned short >
+type_to_string < int >
+type_to_string < unsigned int >
+type_to_string < long >
+type_to_string < unsigned long >
+type_to_string < long long >
+type_to_string < unsigned long long >
+throw_exception call:[terminate,what] noreturn:[terminate]
+stricmp call:[tolower]
+fpToString call:[c_str,find_last_not_of,setprecision,size,str,substr] noreturn:[c_str,substr]
+which
+rawMemoryToString call:[setfill,setw,tlssPop,tlssPush,which] noreturn:[tlssPop]
+push call:[push_back,tellp]
+pop call:[String,back,empty,logic_error,pop_back,pubseekpos,rdbuf,tellp,throw_exception] noreturn:[String,throw_exception]
+tlssPush call:[push] noreturn:[push]
+tlssPop call:[pop] noreturn:[pop]
+getCurrentTicks call:[gettimeofday]
+start call:[getCurrentTicks] noreturn:[getCurrentTicks]
+getElapsedMicroseconds call:[getCurrentTicks]
+getElapsedSeconds call:[getCurrentTicks]
+resetRunData
+finalizeTestCaseData call:[Approx,epsilon,getElapsedSeconds]
+allocate call:[setLast,setOnHeap]
+setOnHeap
+setLast call:[char] noreturn:[char]
+copy call:[allocate,isOnStack,memcpy] noreturn:[memcpy]
+String call:[setLast] noreturn:[setLast]
+String call:[isOnStack]
+String
+String call:[allocate,memcpy] noreturn:[memcpy]
+String call:[allocate,read] noreturn:[read]
+String call:[copy] noreturn:[copy]
+operator= call:[copy,isOnStack] noreturn:[copy]
+operator+= call:[c_str,isOnStack,memcpy,setLast,setOnHeap,size] noreturn:[memcpy,setLast]
+String call:[memcpy,setLast] noreturn:[setLast]
+operator= call:[isOnStack,memcpy,setLast] noreturn:[setLast]
+operator[] call:[operator[]] noreturn:[operator[]]
+operator[] call:[isOnStack]
+size call:[int,isOnStack]
+capacity call:[isOnStack]
+compare call:[c_str,strcmp,stricmp] noreturn:[strcmp,stricmp]
+compare call:[c_str,compare] noreturn:[compare]
+operator+ call:[String]
+operator== call:[compare]
+operator!= call:[compare]
+operator< call:[compare]
+operator> call:[compare]
+operator<= call:[compare,return]
+operator>= call:[compare,return]
+operator<< call:[c_str] noreturn:[c_str]
+operator<< call:[color_to_stream]
+assertString
+failureString
+skipPathFromFilename call:[getContextOptions,strrchr]
+operator< call:[compare,strcmp]

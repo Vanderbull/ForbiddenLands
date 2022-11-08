@@ -73,7 +73,7 @@ struct SGenericItem
     // item types
     enum {ARMOUR,SHIELD,MISCELLANEOUS,POTION,RING,SCROLL,WEAPON};
 
-    std::string icon = "./icons/uiAtlas/ui_game_symbol_other.png";
+    std::string icon = "./assets/data/textures/icons/uiAtlas/ui_game_symbol_other.png";
     std::string name;
     std::string description = "a very generic type of item";
     int unidentified = 0;
@@ -462,6 +462,7 @@ public:
 
     void initPortal(std::string _dataFilePath)
     {
+        std::cout << _dataFilePath.c_str() << std::endl;
         int x,y = 0;
         bool west,east,south,north = false;
         std::string west_map,east_map,south_map,north_map = _dataFilePath;
@@ -494,7 +495,7 @@ public:
     {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading portals\n");
 
-        initPortal("./data/maps/phlan/phlan_portals");
+        initPortal("./assets(data/textures/maps/phlan/phlan_portals");
         for( int y = 0; y < 16; y++)
             for( int x = 0; x < 16; x++)
                 savePortal[x][y].setupStruct(mapPortal[x][y]);

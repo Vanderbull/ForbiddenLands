@@ -157,9 +157,9 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
 
         if( strcmp(uts.machine, "x86_64") == 0 )
-            gSurface = IMG_Load( "./icons/64-bit-100.png" );
+            gSurface = IMG_Load( "./assets/data/textures/icons/64-bit-100.png" );
         else
-            gSurface = IMG_Load( "./icons/64-bit-100-filled.png" );
+            gSurface = IMG_Load( "./assets/data/textures/icons/64-bit-100-filled.png" );
 
         if(!gSurface)
         {
@@ -200,14 +200,14 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
     initShop();
 
-    gameTitleFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    gameTitleFont = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
     if(!gameTitleFont)
     {
         SDL_Log("TTF_OpenFont: %s %s %d",TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
-    gameBreadTextFont = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    gameBreadTextFont = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
     if(!gameBreadTextFont)
     {
@@ -218,9 +218,10 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     North = LoadTexture("./assets/data/textures/compass/north.png",255);
     if( North == NULL)
         exit(99);
-    West = LoadTexture("./images/compass/west.png",255);
-    South = LoadTexture("./images/compass/south.png",255);
-    East = LoadTexture("./images/compass/east.png",255);
+    West = LoadTexture("./assets/data/textures/compass/west.png",255);
+    South = LoadTexture("./assets/data/textures/compass/south.png",255);
+    East = LoadTexture("./assets/data/textures/compass/east.png",255);
+    North = LoadTexture("./assets/data/textures/compass/north.png",255);
 
 	m_fullscreen = fullscreen;
 	m_running = true;
@@ -307,7 +308,7 @@ void CGameEngine::Draw()
 int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
 
     gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -330,7 +331,7 @@ int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX
 int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", 48);
+    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", 48);
 
     gSurface = TTF_RenderText_Blended(gameTitleFont, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -353,7 +354,7 @@ int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int i
 int CGameEngine::RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
 
     gSurface = TTF_RenderText_Blended(gameBreadTextFont, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -376,7 +377,7 @@ int CGameEngine::RenderBreadText(std::string renderText, SDL_Color colorValue, i
 int CGameEngine::RenderText2(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
 
     gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -399,7 +400,7 @@ int CGameEngine::RenderText2(std::string renderText, SDL_Color colorValue, int i
 int CGameEngine::RenderText3(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
 
     gSurface = TTF_RenderText_Blended_Wrapped(m_font, renderText.c_str(), colorValue,1000);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -422,7 +423,7 @@ int CGameEngine::RenderText3(std::string renderText, SDL_Color colorValue, int i
 int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize, int wrapped)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./font/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
 
     gSurface = TTF_RenderText_Blended_Wrapped(m_font, renderText.c_str(), colorValue,wrapped);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -445,7 +446,7 @@ int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue,
 SDL_Texture* CGameEngine::LoadTexture( const std::string &str, int alpha )
 {
 	SDL_Texture* texture = IMG_LoadTexture(renderer, str.c_str() );
-	//std:cout << str.c_str();
+	std:cout << str.c_str();
 	if( texture == NULL)
         exit(88);
     SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
@@ -704,9 +705,9 @@ void CGameEngine::renderDaytime()
         SDL_Texture* dayTimeTexture = NULL;
 
         if( currentTimeElapse() == night )
-            dayTimeTexture = LoadTexture("./icons/night.png",255);
+            dayTimeTexture = LoadTexture("./assets/data/textures/icons/night.png",255);
         else
-            dayTimeTexture = LoadTexture("./icons/day.png",255);
+            dayTimeTexture = LoadTexture("./assets/data/textures/icons/day.png",255);
 
         SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
         SDL_DestroyTexture(dayTimeTexture);

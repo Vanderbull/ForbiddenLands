@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="2238370273">
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="GenerateNumber" lineNumber="3"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="from"/>
+    <functioncall functionName="int"/>
+    <functioncall functionName="myRandomDevice"/>
+    <functioncall functionName="myRandomEngine"/>
+    <functioncall functionName="myUnifIntDist"/>
+    <functioncall functionName="seed"/>
+    <functioncall functionName="to"/>
+  </FileInfo>
+</analyzerinfo>

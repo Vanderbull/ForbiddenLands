@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<analyzerinfo checksum="1375713349">
+  <FileInfo check="ctu">
+<function-call call-id="/home/rickard/Documents/Vanderbull/ForbiddenLands/Server/main.cpp:42:6" call-funcname="CloseSocket" call-argnr="1" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/Server/main.cpp" line="191" col="20" call-argexpr="i" call-argvaluetype="0" call-argvalue="0">
+  <path file="/home/rickard/Documents/Vanderbull/ForbiddenLands/Server/main.cpp" line="190" col="23" info="Assuming condition is false"/>
+</function-call>  </FileInfo>
+  <FileInfo check="Class">
+<class name="Client" file="/home/rickard/Documents/Vanderbull/ForbiddenLands/Server/main.cpp" line="28" col="9" hash="12734334240922619610"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="CloseSocket" lineNumber="42"/>
+    <functiondecl functionName="AcceptSocket" lineNumber="57"/>
+    <functiondecl functionName="main" lineNumber="75"/>
+    <functioncall functionName="AcceptSocket"/>
+    <functioncall functionName="CloseSocket"/>
+    <functioncall functionName="FLAG_WOOD_UPDATE"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="RecvData"/>
+    <functioncall functionName="SDLNet_AllocSocketSet"/>
+    <functioncall functionName="SDLNet_CheckSockets"/>
+    <functioncall functionName="SDLNet_FreeSocketSet"/>
+    <functioncall functionName="SDLNet_GetError"/>
+    <functioncall functionName="SDLNet_Init"/>
+    <functioncall functionName="SDLNet_ResolveHost"/>
+    <functioncall functionName="SDLNet_SocketReady"/>
+    <functioncall functionName="SDLNet_TCP_Accept"/>
+    <functioncall functionName="SDLNet_TCP_AddSocket"/>
+    <functioncall functionName="SDLNet_TCP_Close"/>
+    <functioncall functionName="SDLNet_TCP_DelSocket"/>
+    <functioncall functionName="SDLNet_TCP_Open"/>
+    <functioncall functionName="SDL_GetError"/>
+    <functioncall functionName="SDL_INIT_EVENTS"/>
+    <functioncall functionName="SDL_Init"/>
+    <functioncall functionName="SDL_Quit"/>
+    <functioncall functionName="SendData"/>
+    <functioncall functionName="amt_wood"/>
+    <functioncall functionName="break"/>
+    <functioncall functionName="chk_count"/>
+    <functioncall functionName="continue"/>
+    <functioncall functionName="data"/>
+    <functioncall functionName="exit"/>
+    <functioncall functionName="flag"/>
+    <functioncall functionName="for"/>
+    <functioncall functionName="fprintf"/>
+    <functioncall functionName="free"/>
+    <functioncall functionName="got_socket"/>
+    <functioncall functionName="i"/>
+    <functioncall functionName="if"/>
+    <functioncall functionName="in_use"/>
+    <functioncall functionName="ind"/>
+    <functioncall functionName="index"/>
+    <functioncall functionName="ip"/>
+    <functioncall functionName="length"/>
+    <functioncall functionName="memcpy"/>
+    <functioncall functionName="memset"/>
+    <functioncall functionName="next_ind"/>
+    <functioncall functionName="offset"/>
+    <functioncall functionName="printf"/>
+    <functioncall functionName="return"/>
+    <functioncall functionName="running"/>
+    <functioncall functionName="send_data"/>
+    <functioncall functionName="server_socket"/>
+    <functioncall functionName="sizeof"/>
+    <functioncall functionName="socket_set"/>
+    <functioncall functionName="stderr"/>
+    <functioncall functionName="switch"/>
+    <functioncall functionName="uint8_t"/>
+    <functioncall functionName="while"/>
+  </FileInfo>
+</analyzerinfo>

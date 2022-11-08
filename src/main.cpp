@@ -123,63 +123,63 @@ uintmax_t ComputeFileSize(const fs::path& pathToCheck)
     return static_cast<uintmax_t>(-1);
 }
 
-void DisplayPathInfo(const fs::path& pathToShow)
-{
-	int i = 0;
-	std::cout << "Displaying path info for: " << pathToShow << "\n";
-	for (const auto& part : pathToShow)
-	{
-		std::cout << "path part: " << i++ << " = " << part << "\n";
-	}
+//void DisplayPathInfo(const fs::path& pathToShow)
+//{
+//	int i = 0;
+//	std::cout << "Displaying path info for: " << pathToShow << "\n";
+//	for (const auto& part : pathToShow)
+//	{
+//		std::cout << "path part: " << i++ << " = " << part << "\n";
+//	}
+//
+//	std::cout << "exists() = " << fs::exists(pathToShow) << "\n"
+//		<< "root_name() = " << pathToShow.root_name() << "\n"
+//		<< "root_path() = " << pathToShow.root_path() << "\n"
+//		<< "relative_path() = " << pathToShow.relative_path() << "\n"
+//		<< "parent_path() = " << pathToShow.parent_path() << "\n"
+//		<< "filename() = " << pathToShow.filename() << "\n"
+//		<< "stem() = " << pathToShow.stem() << "\n"
+//		<< "extension() = " << pathToShow.extension() << "\n";
+//
+//	try
+//	{
+//		std::cout << "canonical() = " << fs::canonical(pathToShow) << "\n";
+//	}
+//	catch (fs::filesystem_error err)
+//	{
+//		std::cout << "exception: " << err.what() << "\n";
+//	}
+//}
 
-	std::cout << "exists() = " << fs::exists(pathToShow) << "\n"
-		<< "root_name() = " << pathToShow.root_name() << "\n"
-		<< "root_path() = " << pathToShow.root_path() << "\n"
-		<< "relative_path() = " << pathToShow.relative_path() << "\n"
-		<< "parent_path() = " << pathToShow.parent_path() << "\n"
-		<< "filename() = " << pathToShow.filename() << "\n"
-		<< "stem() = " << pathToShow.stem() << "\n"
-		<< "extension() = " << pathToShow.extension() << "\n";
-
-	try
-	{
-		std::cout << "canonical() = " << fs::canonical(pathToShow) << "\n";
-	}
-	catch (fs::filesystem_error err)
-	{
-		std::cout << "exception: " << err.what() << "\n";
-	}
-}
-
-void DisplayFileInfo(const std::experimental::filesystem::v1::directory_entry & entry, std::string &lead, std::experimental::filesystem::v1::path &filename)
-{
-	time_t cftime = std::chrono::system_clock::to_time_t(fs::last_write_time(entry));
-	std::cout << lead << " " << filename << ", "
-		 << ComputeFileSize(entry)
-		 << ", time: " << std::asctime(std::localtime(&cftime));
-}
-
-void DisplayDirTree(const fs::path& pathToShow, int level)
-{
-    if (fs::exists(pathToShow) && fs::is_directory(pathToShow))
-    {
-        auto lead = std::string(level * 3, ' ');
-        for (const auto& entry : fs::directory_iterator(pathToShow))
-        {
-            auto filename = entry.path().filename();
-            if (fs::is_directory(entry.status()))
-            {
-                std::cout << lead << "[+] " << filename << "\n";
-                DisplayDirTree(entry, level + 1);
-                std::cout << "\n";
-            }
-            else if (fs::is_regular_file(entry.status()))
-                DisplayFileInfo(entry, lead, filename);
-            else
-                std::cout << lead << " [?]" << filename << "\n";
-        }
-    }
-}
+//void DisplayFileInfo(const std::experimental::filesystem::v1::directory_entry & entry, std::string &lead, std::experimental::filesystem::v1::path &filename)
+//{
+//	time_t cftime = std::chrono::system_clock::to_time_t(fs::last_write_time(entry));
+//	std::cout << lead << " " << filename << ", "
+//		 << ComputeFileSize(entry)
+//		 << ", time: " << std::asctime(std::localtime(&cftime));
+//}
+//
+//void DisplayDirTree(const fs::path& pathToShow, int level)
+//{
+//    if (fs::exists(pathToShow) && fs::is_directory(pathToShow))
+//    {
+//        auto lead = std::string(level * 3, ' ');
+//        for (const auto& entry : fs::directory_iterator(pathToShow))
+//        {
+//            auto filename = entry.path().filename();
+//            if (fs::is_directory(entry.status()))
+//            {
+//                std::cout << lead << "[+] " << filename << "\n";
+//                DisplayDirTree(entry, level + 1);
+//                std::cout << "\n";
+//            }
+//            else if (fs::is_regular_file(entry.status()))
+//                DisplayFileInfo(entry, lead, filename);
+//            else
+//                std::cout << lead << " [?]" << filename << "\n";
+//        }
+//    }
+//}
 
 std::string return_current_time_and_date()
 {
@@ -191,38 +191,38 @@ std::string return_current_time_and_date()
     return buf;
 }
 
-void initFileSystem()
-{
-    return;
-    std::string currentDate;
-    currentDate = return_current_time_and_date();
-
-    fs::path cwd = fs::current_path();
-    cwd += "/output_log_ ";
-    cwd += currentDate.c_str();
-    std::ofstream file(cwd.string());
-
-    fs::path pathToShow(".");
-    file << "exists() = " << fs::exists(pathToShow) << "\n"
-     << "root_name() = " << pathToShow.root_name() << "\n"
-     << "root_path() = " << pathToShow.root_path() << "\n"
-     << "relative_path() = " << pathToShow.relative_path() << "\n"
-     << "parent_path() = " << pathToShow.parent_path() << "\n"
-     << "filename() = " << pathToShow.filename() << "\n"
-     << "stem() = " << pathToShow.stem() << "\n"
-     << "extension() = " << pathToShow.extension() << "\n";
-
-    int i = 0;
-    for (const auto& part : pathToShow)
-        file << "path part: " << i++ << " = " << part << "\n";
-
-    auto timeEntry = fs::last_write_time(cwd);
-    time_t cftime = std::chrono::system_clock::to_time_t(timeEntry);
-
-    file << std::asctime(std::localtime(&cftime));
-
-    file.close();
-}
+//void initFileSystem()
+//{
+//    return;
+//    std::string currentDate;
+//    currentDate = return_current_time_and_date();
+//
+//    fs::path cwd = fs::current_path();
+//    cwd += "/output_log_ ";
+//    cwd += currentDate.c_str();
+//    std::ofstream file(cwd.string());
+//
+//    fs::path pathToShow(".");
+//    file << "exists() = " << fs::exists(pathToShow) << "\n"
+//     << "root_name() = " << pathToShow.root_name() << "\n"
+//     << "root_path() = " << pathToShow.root_path() << "\n"
+//     << "relative_path() = " << pathToShow.relative_path() << "\n"
+//     << "parent_path() = " << pathToShow.parent_path() << "\n"
+//     << "filename() = " << pathToShow.filename() << "\n"
+//     << "stem() = " << pathToShow.stem() << "\n"
+//     << "extension() = " << pathToShow.extension() << "\n";
+//
+//    int i = 0;
+//    for (const auto& part : pathToShow)
+//        file << "path part: " << i++ << " = " << part << "\n";
+//
+//    auto timeEntry = fs::last_write_time(cwd);
+//    time_t cftime = std::chrono::system_clock::to_time_t(timeEntry);
+//
+//    file << std::asctime(std::localtime(&cftime));
+//
+//    file.close();
+//}
 
 typedef std::vector<std::string> stringvec;
 
