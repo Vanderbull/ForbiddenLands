@@ -15,7 +15,7 @@ void CEncampmentState::Init()
 	SDL_Log("CEncampmentState Init\n");
 
     MenuChoices.clear();
-    MenuChoices.push_back("EXIT");
+    MenuChoices.push_back("BREAK UP CAMP");
 }
 
 void CEncampmentState::Cleanup()
@@ -154,7 +154,7 @@ void CEncampmentState::Draw(CGameEngine* game)
 
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
-                if( MenuChoice == "EXIT")
+                if( MenuChoice == "BREAK UP CAMP")
                     game->ChangeState( CPlayState::Instance() );
             }
         }

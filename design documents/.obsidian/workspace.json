@@ -11,8 +11,26 @@
             "id": "cb364274d9532503",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Forbidden Lands/playstate.h.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cc7d18dd87472964",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dialog view.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           },
           {
@@ -93,7 +111,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -159,6 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Dialog view.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,6 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Dialog view.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -196,7 +217,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Dialog view.md"
+              }
             }
           }
         ],
@@ -207,17 +230,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "cb364274d9532503",
+  "active": "cc7d18dd87472964",
   "lastOpenFiles": [
-    "Skill Groups.md",
-    "Skills.md",
-    "Shops & traders.md",
-    "Battles.md",
-    "2022-10-23.md",
-    "2022-11-05.md",
-    "2022-10-26.md",
-    "Untitled.md",
-    "2022-10-25.md",
-    "2022-10-24.md"
+    "Forbidden Lands/playstate.h.md",
+    "Forbidden Lands/encampmentstate.h.md",
+    "Forbidden Lands/worldmapstate.h.md",
+    "Forbidden Lands/gameengine.h.md",
+    "Forbidden Lands/characterstate.h.md",
+    "Forbidden Lands/battlestate.h.md",
+    "Actor.md",
+    "2022-11-08.md",
+    "[.md",
+    "Skill Groups.md"
   ]
 }
