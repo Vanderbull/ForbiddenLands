@@ -75,10 +75,6 @@ void CBattleState::Update(CGameEngine* game)
 
 void CBattleState::Draw(CGameEngine* game)
 {
-    static int NPC_hitpoints = 10;
-    static int PC_Hitpoints = 10;
-    static bool trigger = false;
-
     SDL_Log("CBattleState Draw");
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 255 );
     SDL_RenderClear(game->renderer);
@@ -96,7 +92,8 @@ void CBattleState::Draw(CGameEngine* game)
 
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
-            NPC_hitpoints--;
+            game->SNpc.hitpoints_current--;
+
         }
     }
 
@@ -113,6 +110,6 @@ void CBattleState::Draw(CGameEngine* game)
             game->SActor.hitpoints_current--;
         }
     }
-    game->RenderText("NPC HP: " + std::to_string(NPC_hitpoints) + " / " + std::to_string(NPC_hitpoints), White, game->current.w - 200,50,24);
+    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, game->current.w - 200,50,24);
     game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, game->current.w - 200,100,24);
 }

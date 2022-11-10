@@ -135,7 +135,6 @@ void CCharacterState::Draw(CGameEngine* game)
   	game->RenderBreadText(std::to_string(game->SActor.damage).c_str(),game->White,game->current.w - 100, 300 );
   	game->RenderBreadText(std::to_string(game->SActor.encumbrance).c_str(),game->White,game->current.w - 100, 325 );
 
-  	game->RenderBreadText(std::to_string(game->SActor.healingPotions).c_str(),game->White,game->current.w - 100, 400 );
   	game->RenderBreadText(std::to_string(game->SActor.hitpoints_current).c_str(),game->White,game->current.w - 100, 425 );
   	game->RenderBreadText(std::to_string(game->SActor.hitpoints_max).c_str(),game->White,game->current.w - 100, 450 );
   	game->RenderBreadText(std::to_string(game->SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );

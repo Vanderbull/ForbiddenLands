@@ -38,14 +38,7 @@ protected:
 private:
 	static CBattleState m_BattleState;
 
-	SDL_Surface* gSurface;
-	SDL_Texture* gTexture;
-	SDL_Rect gRect;
-	int iX;
-	int iY;
-	SDL_Texture* MainMenuBackgroundTexture;
 	SDL_Color White = {255, 255, 255, 255};
-	TTF_Font* gameTitleFont = NULL;
     std::vector<std::string> MenuChoices;
 
     /// Information about the state of the mouse
@@ -60,17 +53,6 @@ private:
     ///information about the state of thw wheel
     Sint32 m_iWheelX;
     Sint32 m_iWheelY;
-
-    int SettingsMenu = 0;
-    int activeView = 1;
-    int LoadMenu = 0;
-    int SaveMenu = 0;
-    int CreateCharacter = 0;
-    int quit = 0;
-
-    int Repeat = 0;
-    int buttonWidth = 600;
-    int buttonHeight = 60;
 };
 
 #endif

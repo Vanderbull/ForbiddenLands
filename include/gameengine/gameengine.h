@@ -156,6 +156,7 @@ class CGameEngine
 public:
 
     ACTOR SActor;
+    ACTOR SNpc;
 
 	void Init(const char* title, int width=640, int height=480,
 		      int bpp=0, bool fullscreen=false);

@@ -84,7 +84,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Add before="#mkdir -p $(TARGET_OUTPUT_DIR)/data" />
 			<Add before="#python3  ~/Documents/Vanderbull/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph" />
 			<Add after="#Syncing images files" />
-			<Add after="rsync -rtvu --delete images images $(TARGET_OUTPUT_DIR)/" />
+			<Add after="#rsync -rtvu --delete images images $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing sound files" />
 			<Add after="#rsync -rtvu --delete soundbible soundbible $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing data files" />
@@ -96,7 +96,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Add after="# Syncing icons files" />
 			<Add after="#rsync -rtvu --delete icons icons $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing data files" />
-			<Add after="#rsync -rtvu --delete assets assets $(TARGET_OUTPUT_DIR)/" />
+			<Add after="rsync -rtvu --delete assets assets $(TARGET_OUTPUT_DIR)/" />
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="README.md" />

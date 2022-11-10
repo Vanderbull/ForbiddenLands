@@ -27,8 +27,7 @@ struct ACTOR
     int damage = 0;
     int hunger = 0;
     int thirst = 0;
-    SDL_Texture* faceImage;
-    int healingPotions = 1;
+    int faceImageID = 0;
 
     ACTOR()
     {
@@ -40,8 +39,8 @@ struct ACTOR
         for (std::string textElement : professionTextElements)
         {
             SDL_Rect rect;
-            rect.x = 1200 - 150; // game->SActor.professionElements[counter].w / 2
-            rect.y = 225+(counter*50) - 15; // game->SActor.professionElements[counter].h / 2
+            rect.x = 1200 - 150;
+            rect.y = 225+(counter*50) - 15;
             rect.w = 300;
             rect.h = 30;
             professionElements.push_back(rect);
@@ -49,41 +48,6 @@ struct ACTOR
         };
         calculateStats();
     };
-
-//    void sleeping(int hours)
-//    {
-//        daily_stamina += hours;
-//        action_stamina += hours*10;
-//    };
-
-//    void generateInitiative()
-//    {
-//        initiative = GenerateNumber(1,6);
-//    };
-//
-//    void increaseHunger()
-//    {
-//        if( hunger < 100 )
-//        hunger++;
-//    };
-//
-//    void decreaseHunger()
-//    {
-//        if( hunger > 0 )
-//        hunger--;
-//    };
-//
-//    void increaseThirst()
-//    {
-//        if( thirst < 100 )
-//        thirst++;
-//    };
-
-//    void decreaseThirst()
-//    {
-//        if( thirst > 0 )
-//        thirst--;
-//    };
 
     void calculateStats()
     {

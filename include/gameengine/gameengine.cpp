@@ -77,6 +77,9 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 //    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3") ));
 //    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3") ));
 
+    SNpc.hitpoints_current = 10;
+    SNpc.hitpoints_max = 10;
+
     g_myglobal = 10;
 
 	int flags = 0;

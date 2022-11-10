@@ -1,4 +1,23 @@
-# Currency
+
+Suffix
+Name
+In gold coins
+Description
+
+1Kg
+1 Kilogold
+1,000g
+1 thousand gold coins
+
+1Mg
+1 Megagold
+1,000,000g
+1 million gold coins
+
+1Tg
+1 Teragold
+1,000,000,000g
+1 billion gold coins
 
 ## 2022-09-17
 The currency in the game was changed from gold to silver and where the weight and size of a particular metal is used as a method of evaluating value, as opposed to the value being determined by the specific type of coin where the weight is about 1,6g.
