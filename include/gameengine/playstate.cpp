@@ -182,7 +182,7 @@ void CPlayState::Draw(CGameEngine* game)
     renderMinimapCharacterLocation(game);
 
     static int goblinmovey = 0;
-    SDL_Texture* goblin = game->LoadTexture("./images/goblin.png",255);
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
     texW = 0;
     texH = 0;
     SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
