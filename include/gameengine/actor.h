@@ -31,7 +31,6 @@ struct ACTOR
 
     ACTOR()
     {
-        // Profession /////////////////////////////
         int counter = 0;
 
         professionElements.clear();
