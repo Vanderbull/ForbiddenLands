@@ -158,6 +158,10 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
+//    SDL_Texture* texture = game->LoadTexture("./assets/data/textures/backgrounds/create_character_1.png",255);
+//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+//    SDL_DestroyTexture(texture);
+
     gRect = { 0,0, 64, 64 };
     SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);

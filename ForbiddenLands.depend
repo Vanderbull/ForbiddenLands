@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1668113659 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/battlestate.cpp
+1668211682 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/battlestate.cpp
 	<chrono>
 	<iostream>
 	<thread>
@@ -8,6 +8,7 @@
 	"gamestate.h"
 	"menustate.h"
 	"playstate.h"
+	"gameoverstate.h"
 	"battlestate.h"
 
 1668108097 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gameengine.h
@@ -58,7 +59,7 @@
 1667948909 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/gamestate.h
 	"gameengine.h"
 
-1668130018 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/actor.h
+1668211855 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/actor.h
 	<string>
 	<SDL2/SDL.h>
 	"randomizer.h"
