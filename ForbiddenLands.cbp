@@ -111,6 +111,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/encampmentstate.h" />
 		<Unit filename="include/gameengine/gameengine.cpp" />
 		<Unit filename="include/gameengine/gameengine.h" />
+		<Unit filename="include/gameengine/gameoverstate.cpp" />
+		<Unit filename="include/gameengine/gameoverstate.h" />
 		<Unit filename="include/gameengine/gamestate.h" />
 		<Unit filename="include/gameengine/ingametime.h" />
 		<Unit filename="include/gameengine/introstate.cpp" />

@@ -7,6 +7,7 @@ using namespace std;
 #include "gamestate.h"
 #include "menustate.h"
 #include "playstate.h"
+#include "gameoverstate.h"
 #include "battlestate.h"
 
 using namespace std::chrono;
@@ -93,9 +94,14 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             game->SNpc.hitpoints_current--;
-
+            if(game->SNpc.hitpoints_current <= 0)
+            {
+                game->ChangeState(CPlayState::Instance());
+            }
         }
     }
+
+    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
 
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     buttonPosition.x = game->current.w - 256;
@@ -108,8 +114,12 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             game->SActor.hitpoints_current--;
+            if(game->SActor.hitpoints_current <= 0)
+            {
+                game->ChangeState(CGameoverState::Instance());
+            }
         }
     }
-    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, game->current.w - 200,50,24);
-    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, game->current.w - 200,100,24);
+
+    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
 }
