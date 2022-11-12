@@ -22,8 +22,8 @@ struct ACTOR
     int experience = 0;
     int encumbrance = 0;
     int armour_class = 0;
-    int hitpoints_current = 0;
-    int hitpoints_max = 0;
+    int hitpoints_current = 10;
+    int hitpoints_max = 10;
     int damage = 0;
     int hunger = 0;
     int thirst = 0;
