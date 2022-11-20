@@ -37,7 +37,7 @@ private:
 	static CCreateCharacterState m_CreateCharacterState;
 
 	string input;
-	string ScreenName = "";
+	string ScreenName = "Portrait";
 
 	SDL_Surface* gSurface;
 	SDL_Texture* gTexture;

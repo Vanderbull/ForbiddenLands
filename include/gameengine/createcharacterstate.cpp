@@ -167,81 +167,113 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(game->renderer, &gRect);
-    game->RenderText("Portrait",White,gRect.x,gRect.y,24);
+
 
     if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             ScreenName = "Portrait";
         }
     }
+    game->RenderText("Portrait",White,gRect.x,gRect.y,24);
 
     gRect = { 0,65, 64, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(game->renderer, &gRect);
-    game->RenderText("Class",White,gRect.x,gRect.y,24);
+
 
     if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             ScreenName = "Class";
         }
     }
+    game->RenderText("Class",White,gRect.x,gRect.y,24);
 
     gRect = { 0,129, 64, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(game->renderer, &gRect);
-    game->RenderText("Skills",White,gRect.x,gRect.y,24);
+
 
     if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             ScreenName = "Skills";
         }
     }
+    game->RenderText("Skills",White,gRect.x,gRect.y,24);
 
     gRect = { 0,193, 64, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(game->renderer, &gRect);
-    game->RenderText("Abilities",White,gRect.x,gRect.y,24);
+
 
     if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             ScreenName = "Abilities";
         }
     }
+    game->RenderText("Abilities",White,gRect.x,gRect.y,24);
 
     gRect = { 0,257, 64, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(game->renderer, &gRect);
-    game->RenderText("Character",White,gRect.x,gRect.y,24);
+
 
     if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             ScreenName = "Character";
         }
     }
+    game->RenderText("Character",White,gRect.x,gRect.y,24);
 
     gRect = { 0,321, 64, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(game->renderer, &gRect);
+
+
+    if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            ScreenName = "Total";
+        }
+    }
     game->RenderText("Total",White,gRect.x,gRect.y,24);
 
     // Back and Next
@@ -285,11 +317,31 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
     if( ScreenName == "Portrait")
     {
-        game->RenderText("Protrait",White,game->current.w / 2,game->current.h / 2,24);
+        gRect = { 0,0, 64, 64 };
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
+        game->RenderText("Protrait",White,game->current.w / 2,0,24);
+
+        int texW = 0;
+        int texH = 0;
+        int ScalingFactor = 4;
+        SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+        SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+
+        gRect = { game->current.w / 2 - texW * ScalingFactor / 3,game->current.h / 2 - texH * ScalingFactor / 2, texW*ScalingFactor, texH*ScalingFactor };
+        SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+        gRect = { 0,game->current.h / 2, game->current.w / 2, 1 };
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &gRect);
     }
     else if( ScreenName == "Class")
     {
-        game->RenderText("Class",White,game->current.w / 2,game->current.h / 2,24);
+        gRect = { 0,65, 64, 64 };
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
+        game->RenderText("Class",White,game->current.w / 2,0,24);
 
         gRect = { 1200,170, 0, 0 };
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
@@ -300,9 +352,17 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
         for (std::string textElement : game->SActor.professionTextElements)
         {
+            gRect = { game->SActor.professionElements[counter].x,
+                    game->SActor.professionElements[counter].y ,
+                    game->SActor.professionElements[counter].w, game->SActor.professionElements[counter].h
+            };
+
+            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+            SDL_RenderFillRect(game->renderer, &gRect);
+
             //game->RenderText2("CRAP",White,500,game->SActor.professionElements[counter].y,24);
 
-            game->RenderText2(textElement.c_str(),White,game->SActor.professionElements[counter].x + game->SActor.professionElements[counter].w / 2,game->SActor.professionElements[counter].y + game->SActor.professionElements[counter].h / 2,24);
+            game->RenderText2(textElement.c_str(),Black,game->SActor.professionElements[counter].x + game->SActor.professionElements[counter].w / 2,game->SActor.professionElements[counter].y + game->SActor.professionElements[counter].h / 2,24);
 
             //game->SActor.professionElements[counter].x -= game->SActor.professionElements[counter].w / 2;
             //game->SActor.professionElements[counter].y -= game->SActor.professionElements[counter].h / 2;
@@ -321,31 +381,49 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     else if( ScreenName == "Skills")
     {
-        game->RenderText("Skills",White,game->current.w / 2,game->current.h / 2,24);
+        gRect = { 0,129, 64, 64 };
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &gRect);
 
-           // Skills ////////////////////////////
-            counter = 0;
+        game->RenderText("Skills",White,game->current.w / 2,0,24);
 
-            int slide =0;
-            game->SkillRect.clear();
-            for (std::string textElement : game->Skill)
+        // Skills ////////////////////////////
+        int TextWidth = 0;
+        int TextHeight = 0;
+
+        for (SkillObject textElement : game->v_Skill)
+        {
+            int texW = 0;
+            int texH = 0;
+            TTF_SizeText(game->gameBreadTextFont, textElement.Name.c_str(), &texW, &texH);
+            if( texW > TextWidth)
+                TextWidth = texW;
+            if( texH > TextHeight)
+                TextHeight = texH;
+        }
+
+        counter = 0;
+
+        int slide =0;
+        game->SkillRect.clear();
+        for (SkillObject textElement : game->v_Skill)
+        {
+            SDL_Rect rect;
+            rect.h = 30;
+            if(counter > 10)
             {
-                SDL_Rect rect;
-                rect.h = 30;
-                if(counter > 10)
-                {
-                    counter = 0;
-                    slide++;
-                }
-                //else
-                    rect.x = 1400 +( 200*slide);
-                rect.y = 225+(counter*50);
+                counter = 0;
+                slide++;
+            }
+            //else
+                rect.x = 1000 +( 200*slide);
+            rect.y = 225+(counter*50);
 
-                rect.w = 300;
+            rect.w = TextWidth;
 
-                game->SkillRect.push_back(rect);
-                counter++;
-            };
+            game->SkillRect.push_back(rect);
+            counter++;
+        };
 
             counter = 0;
 
@@ -355,26 +433,27 @@ void CCreateCharacterState::Draw(CGameEngine* game)
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
             SDL_RenderFillRect(game->renderer, &gRect);
 
-            game->RenderText2("Skills",White,gRect.x,gRect.y,24);
-
-            if( !game->Skill.empty())
-            for (std::string textElement : game->Skill)
+            if( !game->v_Skill.empty())
+            for (SkillObject textElement : game->v_Skill)
             {
-                game->RenderText2(textElement.c_str(),White,game->SkillRect[counter].x,game->SkillRect[counter].y,24);
-
                 game->SkillRect[counter].x -= game->SkillRect[counter].w / 2;
                 game->SkillRect[counter].y -= game->SkillRect[counter].h / 2;
+
+                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+                SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
+
+                game->RenderText(textElement.Name.c_str(),Black,game->SkillRect[counter].x,game->SkillRect[counter].y,24);
 
                 if( SDL_PointInRect(&mousePosition, &game->SkillRect[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
                 {
                     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-                    gRect = { 1800,225, 500, 800 };
+                    gRect = { 1400,225, 500, 400 };
                     SDL_RenderFillRect(game->renderer, &gRect);
-                    game->RenderText2(textElement.c_str(),Black,1920,390,24);
-                    game->RenderText2("Inital requirements stat: " + std::to_string(game->v_Skill.at(counter).InitialRequirementsAttribute),Black,1920,410,24);
-                    game->RenderText2("Inital requirements value: " + std::to_string(game->v_Skill.at(counter).InitialRequirementsValue),Black,1920,430,24);
-                    game->RenderText2("Group: " + std::to_string(game->v_Skill.at(counter).Group),Black,1920,450,24);
-                    game->RenderText2("Description: " + game->v_Skill.at(counter).Description,Black,1920,470,24);
+                    game->RenderText(textElement.Name.c_str(),Black,1420,390,24);
+                    game->RenderText("Inital requirements stat: " + std::to_string(game->v_Skill.at(counter).InitialRequirementsAttribute),Black,1420,410,24);
+                    game->RenderText("Inital requirements value: " + std::to_string(game->v_Skill.at(counter).InitialRequirementsValue),Black,1420,430,24);
+                    game->RenderText("Group: " + std::to_string(game->v_Skill.at(counter).Group),Black,1420,450,24);
+                    game->RenderText("Description: " + game->v_Skill.at(counter).Description,Black,1420,470,24);
 
                     if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                     {
@@ -382,12 +461,12 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                         SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
 
                         choosen = counter;
-                        SDL_Delay(50);
+                        //SDL_Delay(50);
                     }
                 }
                 counter++;
             }
-            if( !game->Skill.empty())
+            if( !game->v_Skill.empty())
                 if( SDL_PointInRect(&mousePosition, &game->SkillRect[choosen]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
                 {
                     if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -395,16 +474,16 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                         auto size = game->LearnedSkill.size();
                         if( size < 3 )
                         {
-                            game->LearnedSkill.push_back(game->Skill.at(choosen));
-                            game->Skill.erase(game->Skill.begin() + choosen);
-                            SDL_Delay(50);
+                            game->LearnedSkill.push_back(game->v_Skill.at(choosen).Name);
+                            game->v_Skill.erase(game->v_Skill.begin() + choosen);
+                            //SDL_Delay(50);
                         }
                     }
                 }
 
             counter = 0;
 
-            gRect = { 1400,970, 0, 0 };
+            gRect = { 500,100, 0, 0 };
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
             SDL_RenderFillRect(game->renderer, &gRect);
 
@@ -414,8 +493,8 @@ void CCreateCharacterState::Draw(CGameEngine* game)
             for (std::string textElement : game->LearnedSkill)
             {
                 SDL_Rect rect;
-                rect.x = 1400;
-                rect.y = 1000+(counter*50);
+                rect.x = 500;
+                rect.y = 170+(counter*50);
                 rect.w = 300;
                 rect.h = 30;
                 game->SkillRect.push_back(rect);
@@ -449,7 +528,11 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                 {
                     if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                     {
-                        game->Skill.push_back(game->LearnedSkill.at(choosen));
+                        SkillObject emptyObject;
+                        emptyObject.Name = game->LearnedSkill.at(choosen);
+                        game->v_Skill.push_back(emptyObject);
+
+                        //game->v_Skill.push_back(game->LearnedSkill.at(choosen));
                         game->LearnedSkill.erase(game->LearnedSkill.begin() + choosen);
                         SDL_Delay(50);
                     }
@@ -457,7 +540,11 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     else if( ScreenName == "Abilities")
     {
-        game->RenderText("Abilities",White,game->current.w / 2,game->current.h / 2,24);
+        gRect = { 0,192, 64, 64 };
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
+        game->RenderText("Abilities",White,game->current.w / 2,0,24);
 
         // Abilities ///////////////////////////////////
 
@@ -525,10 +612,18 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     else if( ScreenName == "Character")
     {
+        gRect = { 0,256, 64, 64 };
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
         game->RenderText(game->SActor.name.c_str(),White,game->current.w / 2,game->current.h / 2,24);
     }
     else
     {
+        gRect = { 0,320, 64, 64 };
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_RenderFillRect(game->renderer, &gRect);
+
         SDL_Texture *texture = game->LoadTexture("./assets/data/textures/ui/gearslots.png",255);
         int w, h;
         SDL_QueryTexture(texture, NULL, NULL, &w, &h);
@@ -541,51 +636,51 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
         SDL_DestroyTexture(texture);
 
-        int Repeat = 0;
-        int buttonWidth = 600;
-        int buttonHeight = 60;
-
-        for(auto MenuChoice : MenuChoices)
-        {
-            SDL_Rect buttonPosition = { (game->current.w - buttonWidth) - 20, (game->current.h - buttonHeight) - 20,buttonWidth,buttonHeight};
-
-            SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-            SDL_RenderFillRect(game->renderer, &buttonPosition);
-            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-            SDL_RenderDrawRect(game->renderer,&buttonPosition);
-
-            gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), White);
-            gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
-            int texW = 0;
-            int texH = 0;
-            SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
-
-            gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
-            SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
-
-            //Destroy resources
-            SDL_FreeSurface(gSurface);
-            SDL_DestroyTexture(gTexture);
-
-            SDL_Point mousePosition;
-            SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-
-            if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-            {
-                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-                SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-                if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-                {
-                    if( MenuChoice == "EXIT")
-                        game->ChangeState( CMenuState::Instance() );
-                }
-
-                SDL_PumpEvents();
-                SDL_GetMouseState(NULL, NULL);
-
-            }
-            ++Repeat;
-        }
+//        int Repeat = 0;
+//        int buttonWidth = 600;
+//        int buttonHeight = 60;
+//
+//        for(auto MenuChoice : MenuChoices)
+//        {
+//            SDL_Rect buttonPosition = { (game->current.w - buttonWidth) - 20, (game->current.h - buttonHeight) - 20,buttonWidth,buttonHeight};
+//
+//            SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+//            SDL_RenderFillRect(game->renderer, &buttonPosition);
+//            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+//            SDL_RenderDrawRect(game->renderer,&buttonPosition);
+//
+//            gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), White);
+//            gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
+//            int texW = 0;
+//            int texH = 0;
+//            SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+//
+//            gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
+//            SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
+//
+//            //Destroy resources
+//            SDL_FreeSurface(gSurface);
+//            SDL_DestroyTexture(gTexture);
+//
+//            SDL_Point mousePosition;
+//            SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+//
+//            if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//            {
+//                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+//                SDL_RenderFillRect(game->renderer, &buttonPosition);
+//
+//                if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+//                {
+//                    if( MenuChoice == "EXIT")
+//                        game->ChangeState( CMenuState::Instance() );
+//                }
+//
+//                SDL_PumpEvents();
+//                SDL_GetMouseState(NULL, NULL);
+//
+//            }
+//            ++Repeat;
+//        }
     }
 }

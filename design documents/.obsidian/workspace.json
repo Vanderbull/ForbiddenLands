@@ -4,180 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "2aa975185a1713d0",
+        "id": "6e4950db17c97bce",
         "type": "tabs",
         "children": [
           {
-            "id": "cb364274d9532503",
+            "id": "166835f9f282dd60",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Forbidden Lands/playstate.h.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cc7d18dd87472964",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2022-11-10.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "027ed6d4b5b0a2cd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Forbidden Lands/battlestate.cpp.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d1c5e62183647b17",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hitpoints.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4ba40ca7b77c02b1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Rulebook_v1.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "163ab50ebbeb3113",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2022-11-12.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a1380e200d7b3b52",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Professions.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ad9caaee9ebd6745",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2022-10-23.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "46ecf4952add36ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2022-10-23.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "81a487f4c8fe7f73",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Skill Groups.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cfd86433643796ec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Skills.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cdf43e42a3bddf86",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Shops & traders.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f4977c4863806cda",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Skills.md",
+                "file": "2022-11-20.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -243,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Professions.md",
+                "file": "2022-11-20.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -260,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Professions.md",
+                "file": "2022-11-20.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -283,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Professions.md"
+                "file": "2022-11-20.md"
               }
             }
           }
@@ -292,19 +135,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "active": "a1380e200d7b3b52",
+  "active": "166835f9f282dd60",
   "lastOpenFiles": [
+    "Skills.md",
+    "Skill Groups.md",
+    "Chapter 14. Character creation.md",
+    "Actor.md",
+    "Shops & traders.md",
+    "2022-10-23.md",
+    "Weather.md",
     "2022-11-12.md",
-    "Forbidden Lands/queststate.h.md",
-    "Untitled 1.md",
-    "Professions.md",
-    "2022-11-11.md",
-    "Dialog view.md",
-    "Dataview.md",
-    "Currency.md",
     "Rulebook_v1.md",
-    "2022-10-23.md"
+    "Hitpoints.md"
   ]
 }

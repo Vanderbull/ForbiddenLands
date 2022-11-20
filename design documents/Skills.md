@@ -1,4 +1,4 @@
-Fitness 
+Fitness
 Lore
 Persuasion
 Taming
