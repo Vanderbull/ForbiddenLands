@@ -53,6 +53,9 @@ private:
     ///information about the state of thw wheel
     Sint32 m_iWheelX;
     Sint32 m_iWheelY;
+
+    bool m_PlayerActive = true;
+    bool m_PlayerDefending = false;
 };
 
 #endif

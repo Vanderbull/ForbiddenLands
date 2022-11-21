@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2022-11-20.md",
+                "file": "2022-11-21.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2022-11-20.md",
+                "file": "2022-11-21.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2022-11-20.md",
+                "file": "2022-11-21.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2022-11-20.md"
+                "file": "2022-11-21.md"
               }
             }
           }
@@ -140,6 +140,7 @@
   },
   "active": "166835f9f282dd60",
   "lastOpenFiles": [
+    "2022-11-20.md",
     "Skills.md",
     "Skill Groups.md",
     "Chapter 14. Character creation.md",
@@ -148,7 +149,6 @@
     "2022-10-23.md",
     "Weather.md",
     "2022-11-12.md",
-    "Rulebook_v1.md",
-    "Hitpoints.md"
+    "Rulebook_v1.md"
   ]
 }

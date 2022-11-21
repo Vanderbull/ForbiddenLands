@@ -51,7 +51,7 @@ void CBattleState::HandleEvents(CGameEngine* game)
                 switch (event.key.keysym.sym)
                 {
                     case SDLK_ESCAPE:
-                        game->ChangeState(CMenuState::Instance());
+                        game->ChangeState(CPlayState::Instance());
                         break;
                 } break;
 		}
@@ -77,15 +77,83 @@ void CBattleState::Update(CGameEngine* game)
 void CBattleState::Draw(CGameEngine* game)
 {
     SDL_Log("CBattleState Draw");
+
+    SDL_Rect AttackButtonPosition = { 0, 0, 64, 64};
+    SDL_Rect DefendButtonPosition = { 65, 0, 64, 64};
+
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 255 );
     SDL_RenderClear(game->renderer);
+
+    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
+    SDL_RenderFillRect(game->renderer, &AttackButtonPosition);
+    SDL_RenderFillRect(game->renderer, &DefendButtonPosition);
+
+    game->RenderText("A", game->Black, AttackButtonPosition.x,AttackButtonPosition.y,24);
+    game->RenderText("D", game->Black, DefendButtonPosition.x,DefendButtonPosition.y,24);
+
+    int texW = 0;
+    int texH = 0;
+    int ScalingFactor = 4;
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+
+    SDL_Rect gRect = { game->current.w / 2 - texW * ScalingFactor / 3,game->current.h / 2 - texH * ScalingFactor / 2, texW*ScalingFactor, texH*ScalingFactor };
+    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
 
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
     SDL_Rect buttonPosition = { 0, (0.33*game->current.h) / 2,256,0.66*game->current.h};
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     SDL_RenderFillRect(game->renderer, &buttonPosition);
+    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
 
+    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    buttonPosition.x = game->current.w - 256;
+    SDL_RenderFillRect(game->renderer, &buttonPosition);
+    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
+
+    if(!m_PlayerActive)
+    {
+        if(!m_PlayerDefending)
+            game->SActor.hitpoints_current--;
+        else
+            m_PlayerDefending = false;
+        m_PlayerActive = true;
+        if(game->SActor.hitpoints_current <= 0)
+        {
+            m_PlayerActive = true;
+            game->SNpc.hitpoints_current = game->SNpc.hitpoints_max;
+            game->ChangeState(CGameoverState::Instance());
+        }
+    }
+    else if(m_PlayerActive)
+    if( SDL_PointInRect(&mousePosition, &AttackButtonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+        SDL_RenderFillRect(game->renderer, &AttackButtonPosition);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            game->SNpc.hitpoints_current--;
+            m_PlayerActive = false;
+            if(game->SNpc.hitpoints_current <= 0)
+            {
+                m_PlayerActive = true;
+                game->SNpc.hitpoints_current = game->SNpc.hitpoints_max;
+                game->ChangeState(CPlayState::Instance());
+            }
+        }
+    }
+    else if( SDL_PointInRect(&mousePosition, &DefendButtonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+        SDL_RenderFillRect(game->renderer, &DefendButtonPosition);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            m_PlayerActive = false;
+            m_PlayerDefending = true;
+        }
+    }
+    else if(m_PlayerActive)
     if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
@@ -94,32 +162,13 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             game->SNpc.hitpoints_current--;
+            m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)
             {
+                m_PlayerActive = true;
+                game->SNpc.hitpoints_current = game->SNpc.hitpoints_max;
                 game->ChangeState(CPlayState::Instance());
             }
         }
     }
-
-    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = game->current.w - 256;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-            game->SActor.hitpoints_current--;
-            if(game->SActor.hitpoints_current <= 0)
-            {
-                game->ChangeState(CGameoverState::Instance());
-            }
-        }
-    }
-
-    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
 }

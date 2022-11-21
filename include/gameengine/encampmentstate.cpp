@@ -155,7 +155,10 @@ void CEncampmentState::Draw(CGameEngine* game)
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
                 if( MenuChoice == "BREAK UP CAMP")
+                {
+                    game->SActor.hitpoints_current = game->SActor.hitpoints_max;
                     game->ChangeState( CPlayState::Instance() );
+                }
             }
         }
         ++Repeat;

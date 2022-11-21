@@ -6,6 +6,7 @@
 #include "createcharacterstate.h"
 #include "loadmenustate.h"
 #include "savemenustate.h"
+#include "menustate.h"
 #include "gameoverstate.h"
 
 CGameoverState CGameoverState::m_GameoverState;
@@ -55,7 +56,7 @@ void CGameoverState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
-						game->PopState();
+						game->ChangeState(CMenuState::Instance());
 						break;
 				} break;
 		}
@@ -85,4 +86,6 @@ void CGameoverState::Draw(CGameEngine* game)
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
+    game->RenderText("GAME OVER", game->Black, game->current.w / 3,game->current.h / 3,72);
+
 }
