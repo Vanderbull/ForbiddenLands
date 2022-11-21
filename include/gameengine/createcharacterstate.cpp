@@ -137,10 +137,10 @@ void CCreateCharacterState::Update(CGameEngine* game)
         scroll_range_max = scroll_range_min + 10;
     }
 
-    if (scroll_range_max > game->Skill.size() )
+    if (scroll_range_max > game->v_Skill.size() )
     {
-        scroll_range_min = game->Skill.size() -10;
-        scroll_range_max = game->Skill.size();
+        scroll_range_min = game->v_Skill.size() -10;
+        scroll_range_max = game->v_Skill.size();
     }
 }
 
@@ -452,7 +452,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                     game->RenderText(textElement.Name.c_str(),Black,1420,390,24);
                     game->RenderText("Inital requirements stat: " + std::to_string(game->v_Skill.at(counter).InitialRequirementsAttribute),Black,1420,410,24);
                     game->RenderText("Inital requirements value: " + std::to_string(game->v_Skill.at(counter).InitialRequirementsValue),Black,1420,430,24);
-                    game->RenderText("Group: " + std::to_string(game->v_Skill.at(counter).Group),Black,1420,450,24);
+                    game->RenderText("Group: " + std::to_string(game->v_Skill.at(counter).GroupID),Black,1420,450,24);
                     game->RenderText("Description: " + game->v_Skill.at(counter).Description,Black,1420,470,24);
 
                     if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -550,14 +550,17 @@ void CCreateCharacterState::Draw(CGameEngine* game)
 
         std::string StatPoints_String = std::to_string(game->StartAbilityPoints) + " Points Left";
 
-        game->RenderText2(StatPoints_String,White,600,970,24);
+        game->RenderText2(StatPoints_String,White,400,570,24);
 
         counter = 0;
 
         for (std::string textElement : abilityElements)
         {
             gRect = { 400,225+(counter*50), 0, 0 };
-            game->RenderText2(std::to_string(game->Ability[counter]).c_str(),White,gRect.x,gRect.y,24);
+
+            game->RenderText2(textElement.c_str(),White,gRect.x - 150,gRect.y,24);
+
+            game->RenderText2(std::to_string(game->SActor.current_stats[counter]).c_str(),White,gRect.x,gRect.y,24);
 
             StatPoints_String = "[+]";
 
@@ -574,12 +577,10 @@ void CCreateCharacterState::Draw(CGameEngine* game)
             {
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                 {
-                    StatPoints_String = "Pressing the matter" + std::to_string(counter);
-                    game->RenderText2(StatPoints_String.c_str(),White,gRect.x,gRect.y,24);
-                    if( game->Ability[counter] >= 0 && game->StartAbilityPoints > 0)
+                    if( game->SActor.current_stats[counter] >= 0 && game->StartAbilityPoints > 0)
                     {
                         game->StartAbilityPoints--;
-                        game->Ability[counter]++;
+                        game->SActor.current_stats[counter]++;
                     }
                 }
             }
@@ -598,12 +599,10 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                 {
                     if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                     {
-                        StatPoints_String = "Pressing the matter" + std::to_string(counter);
-                        game->RenderText2(StatPoints_String.c_str(),White,gRect.x,gRect.y,24);
-                        if( game->Ability[counter] > 5 && game->StartAbilityPoints >= 0)
+                        if( game->SActor.current_stats[counter] > 5 && game->StartAbilityPoints >= 0)
                         {
                             game->StartAbilityPoints++;
-                            game->Ability[counter]--;
+                            game->SActor.current_stats[counter]--;
                         }
                     }
                 }

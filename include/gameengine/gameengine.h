@@ -30,16 +30,18 @@ extern int testing;
 class SkillObject {
 public:
 
-    std::string Name;
-    int MaximumExpertise;
-    int InitialRequirementsAttribute;
-    int InitialRequirementsValue;
-    int Group;
-    std::vector<std::string> UtilizedBy;
-    std::string Description;
+    std::string Name = "";
+    std::string Group = "";
+    int Learned = 0;
+    int MaximumExpertise = 0;
+    int InitialRequirementsAttribute = 0;
+    int InitialRequirementsValue = 0;
+    int GroupID = 0;
+    //std::vector<std::string> UtilizedBy;
+    std::string Description = "";
 
     SkillObject(void);
-    SkillObject(std::string,char,int);
+    SkillObject(std::string N_);
 };
 
 class Item {
@@ -287,16 +289,7 @@ public:
     };
     CoordinatePair PlayerCoordinate = {15,1,0};
 
-    // Abilities
-//    int Power = 15;
-//    int Intelligence = 15;
-//    int Personality = 15;
-//    int Toughness = 15;
-//    int Technique = 15;
-//    int Quickness = 15;
-//    int Perception = 15;
-
-    int Ability[7] = {15,15,13,15,15,15,15};
+    //int Ability[7] = {15,15,13,15,15,15,15};
 
     int StartAbilityPoints = 20;
 
@@ -359,11 +352,6 @@ public:
         return (uint32_t)exp;
     };
 
-    std::vector<std::string> SkillGroups = { "Weapon", "Armour","Magic","Misc"};
-
-   std::vector<std::string> Skill = { "Fitness", "Lore","Persuasion","Taming","Quickhand","Stealth","Awareness","Short blade",
-                                    "Long blade","Bow","Bludgeon","Short axe","Long axe","Poleblade","Pole","Shield","Leather armour",
-                                    "Chained armour","Scaled armour","Plated armour","Rune magic"};
     std::vector<std::string> LearnedSkill;
 
     std::vector<SDL_Rect> SkillRect;
@@ -382,6 +370,7 @@ public:
     int AllowedSkills = 3;
 
     // effect = the value indicated by the enchantment i.e. Power +2
+    SkillObject test{};
 
     std::vector<std::string> v_ItemNames = {"Bardiche","Battle Axe","Bow",
                                             "Broad Axe","Club","Crossbow",
@@ -415,12 +404,9 @@ public:
 
     std::vector<std::string> v_ItemNamesShop;
 
-    std::vector<std::string> v_SkillNames = {"Short blade","Long blade","Bow","Bludgeon","Short axe","Long axe","Poleblade","Pole","Shield",
-                                            "Leather armor","Chained armor","Scaled armor", "Plated armor","Fitness","Lore","Persuasion",
-                                            "Taming","Quickhand","Stealth","Awareness"};
-
     std::vector<Item> v_Item;
     std::vector<SkillObject> v_Skill;
+    SkillObject Skill;
 	void AddItem();
 	void AddSkill();
 

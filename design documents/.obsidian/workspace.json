@@ -14,13 +14,43 @@
               "type": "markdown",
               "state": {
                 "file": "2022-11-21.md",
+<<<<<<< HEAD
+=======
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a8a9f117d42a3731",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Actor.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "645bc14e6e7ead9a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Skills.md",
+>>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -86,7 +116,11 @@
             "state": {
               "type": "backlink",
               "state": {
+<<<<<<< HEAD
                 "file": "2022-11-21.md",
+=======
+                "file": "Skills.md",
+>>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +137,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+<<<<<<< HEAD
                 "file": "2022-11-21.md",
+=======
+                "file": "Skills.md",
+>>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +164,11 @@
             "state": {
               "type": "outline",
               "state": {
+<<<<<<< HEAD
                 "file": "2022-11-21.md"
+=======
+                "file": "Skills.md"
+>>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
               }
             }
           }
@@ -138,8 +180,9 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "166835f9f282dd60",
+  "active": "645bc14e6e7ead9a",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "2022-11-20.md",
     "Skills.md",
     "Skill Groups.md",
@@ -149,6 +192,17 @@
     "2022-10-23.md",
     "Weather.md",
     "2022-11-12.md",
+=======
+    "Abilities.md",
+    "Cities.md",
+    "Currency.md",
+    "Encumbrance.md",
+    "Actor.md",
+    "Dataview.md",
+    "Chapter 14. Character creation.md",
+    "Chapter 2. The world.md",
+    "Battles.md",
+>>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
     "Rulebook_v1.md"
   ]
 }

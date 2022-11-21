@@ -138,27 +138,7 @@ SuffixNameIn gold coinsDescription
 1Kg1 Kilogold1,000g1 thousand gold coins
 1Mg1 Megagold1,000,000g1 million gold coins
 1Tg1 Teragold1,000,000,000g1 billion gold coins
-3. Abilities
-Capability is measured through seven (7) primary abilities, which are defining
-the magnitude of a skill for any entity, character, monster etc. These abilities are:
-NameShort Description
-PowerPOWThe amount of force that muscles can exert against a target.
-It's used on skill requirements, melee damage and bare hands damage
-IntelligenceINTThe ability to logically think & acquiring knowledge.
-It's used on skill requirements and generating spells total
-PersonalityPERSThe ability to verbally impose, persuade & cope with conversations.
-ToughnessTOUThe ability to exercise and develop the muscular system.
-It's used on calculating hit points
-TechniqueTECHThe ability of handling difficult or highly sensitive tasks, by hand.
-It's used on skill requirements, ranged damage and protective armor
-QuicknessQUIThe ability of moving fast & accurately for a short time.
-It's used on combat order
-PerceptionPERCThe ability of sensing & coherently interpreting the environment.
-The above abilities can result to so called static ability scores. These numbers
-only provide a general representation of the ability’s magnitude. Each static ability
-score can compute an ability modifier value, that is, the actual numbers applied to
-computations. Ability modifiers starts with negative values, indicating weakness on
-that ability and increasing as static abilities increase.
+
 3.1. Relation to D&D attributes
 D&D provides a number of attributes like Strength, Intelligence etc. A close
 interpretation of D&D attributes and ORS abilities is shown on the following table:
