@@ -122,10 +122,10 @@ void CShopState::Update(CGameEngine* game)
         scroll_range_max = scroll_range_min + 10;
     }
 
-    if (scroll_range_max > game->Skill.size() )
+    if (scroll_range_max > game->v_Skill.size() )
     {
-        scroll_range_min = game->Skill.size() -10;
-        scroll_range_max = game->Skill.size();
+        scroll_range_min = game->v_Skill.size() -10;
+        scroll_range_max = game->v_Skill.size();
     }
 }
 

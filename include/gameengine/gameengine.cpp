@@ -26,9 +26,9 @@ SkillObject::SkillObject(void)
 {
 
 };
-SkillObject::SkillObject(std::string,char,int)
+SkillObject::SkillObject(std::string N_)
 {
-
+    Name = N_;
 };
 
 int CGameEngine::Generate(const int from, const int to)
@@ -631,20 +631,32 @@ void CGameEngine::AddSkill()
 {
     SDL_Log("CGameEngine AddSkill %s %d", __FILE__, __LINE__);
 
-    for (auto i = v_SkillNames.begin(); i != v_SkillNames.end(); i++)
-    {
-        SkillObject tempObject;
-        tempObject.Name = *i;
+//    std::vector<std::string> v_SkillNames = {"Short blade","Long blade","Bow","Bludgeon","Short axe","Long axe","Poleblade","Pole","Shield",
+//                                            "Leather armor","Chained armor","Scaled armor", "Plated armor","Fitness","Lore","Persuasion",
+//                                            "Taming","Quickhand","Stealth","Awareness"};
 
+    std::vector<SkillObject> test{{"Short blade"},{"Long blade"},{"Bow"},{"Bludgeon"},{"Short axe"},{"Long axe"},{"Poleblade"},{"Shield"},
+                                {"Leather armor"},{"Chained armor"},{"SCaled armor"},{"Plated armor"},{"Fitness"},{"Lore"},{"Persuasion"},
+                                {"Taming"},{"Quickhand"},{"Stealth"},{"Awareness"}};
+
+    for (auto i = test.begin(); i != test.end(); i++)
+    {
+         v_Skill.push_back(*i);
+    }
+//    for (auto i = v_SkillNames.begin(); i != v_SkillNames.end(); i++)
+//    {
+//        SkillObject tempObject;
+//        tempObject.Name = *i;
+//
 //        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
 //        SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);
 //        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsAttribute = 0);
 //        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
-//        SDL_Log("Adding '%s'\n",tempObject.Group = 0);
+//        SDL_Log("Adding '%s'\n",tempObject.GroupID = 0);
 //        SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
-
-        v_Skill.push_back(tempObject);
-    }
+//
+//        v_Skill.push_back(tempObject);
+//    }
 };
 
 void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)

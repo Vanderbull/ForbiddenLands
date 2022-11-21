@@ -76,10 +76,6 @@ void CSettingsMenuState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_DestroyTexture(texture);
-
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
@@ -125,4 +121,5 @@ void CSettingsMenuState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
+    game->RenderText("Resolution: " + std::to_string(game->current.w) + " x " + std::to_string(game->current.h) + " @ " + std::to_string(SDL_BITSPERPIXEL(game->current.format)), game->Black, 50,50,48);
 }

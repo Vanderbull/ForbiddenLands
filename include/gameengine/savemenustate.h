@@ -55,6 +55,7 @@ public:
 
         if( saveFile == "./assets/data/savegames/new.dat")
         {
+            saveFile = "./assets/data/savegames/";
             std::stringstream sstream;
             sstream << std::put_time(gmtm, "%c");
             saveFile += sstream.str();
