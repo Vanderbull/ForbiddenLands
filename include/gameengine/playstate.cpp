@@ -78,33 +78,33 @@ void CPlayState::HandleEvents(CGameEngine* game)
                         {
                             if( Rotation == "N")
                             {
-                                if( game->PlayerCoordinate.y > 0 )
+                                if( game->SActor.PlayerCoordinate.y > 0 )
                                 {
-                                    game->PlayerCoordinate.y--;
+                                    game->SActor.PlayerCoordinate.y--;
                                     //DateAndTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "S")
                             {
-                                if( game->PlayerCoordinate.y < 15 )
+                                if( game->SActor.PlayerCoordinate.y < 15 )
                                 {
-                                    game->PlayerCoordinate.y++;
+                                    game->SActor.PlayerCoordinate.y++;
                                     //DateAndTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "W")
                             {
-                                if( game->PlayerCoordinate.x > 0 )
+                                if( game->SActor.PlayerCoordinate.x > 0 )
                                 {
-                                    game->PlayerCoordinate.x--;
+                                    game->SActor.PlayerCoordinate.x--;
                                     //DateAndTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "E")
                             {
-                                if( game->PlayerCoordinate.x < 15 )
+                                if( game->SActor.PlayerCoordinate.x < 15 )
                                 {
-                                    game->PlayerCoordinate.x++;
+                                    game->SActor.PlayerCoordinate.x++;
                                     //DateAndTime.tm_min++;
                                 }
                             }
@@ -113,23 +113,23 @@ void CPlayState::HandleEvents(CGameEngine* game)
                         {
                             if( Rotation == "N")
                             {
-                                if( game->PlayerCoordinate.y > 0 )
-                                    game->PlayerCoordinate.y++;
+                                if( game->SActor.PlayerCoordinate.y > 0 )
+                                    game->SActor.PlayerCoordinate.y++;
                             } break;
                             if( Rotation == "S")
                             {
-                                if( game->PlayerCoordinate.y < 15 )
-                                    game->PlayerCoordinate.y--;
+                                if( game->SActor.PlayerCoordinate.y < 15 )
+                                    game->SActor.PlayerCoordinate.y--;
                             } break;
                             if( Rotation == "W")
                             {
-                                if( game->PlayerCoordinate.x > 0 )
-                                    game->PlayerCoordinate.x++;
+                                if( game->SActor.PlayerCoordinate.x > 0 )
+                                    game->SActor.PlayerCoordinate.x++;
                             } break;
                             if( Rotation == "E")
                             {
-                                if( game->PlayerCoordinate.x < 15 )
-                                    game->PlayerCoordinate.x--;
+                                if( game->SActor.PlayerCoordinate.x < 15 )
+                                    game->SActor.PlayerCoordinate.x--;
                             } break;
                         } break;
 				} break;
@@ -149,13 +149,13 @@ void CPlayState::Update(CGameEngine* game)
     getCompassDirection();
 
     if(Rotation == "N")
-        game->PlayerCoordinate.z = NORTH;
+        game->SActor.PlayerCoordinate.z = NORTH;
     if(Rotation == "S")
-        game->PlayerCoordinate.z = SOUTH;
+        game->SActor.PlayerCoordinate.z = SOUTH;
     if(Rotation == "W")
-        game->PlayerCoordinate.z = WEST;
+        game->SActor.PlayerCoordinate.z = WEST;
     if(Rotation == "E")
-        game->PlayerCoordinate.z = EAST;
+        game->SActor.PlayerCoordinate.z = EAST;
 }
 
 void CPlayState::Draw(CGameEngine* game)
@@ -167,7 +167,7 @@ void CPlayState::Draw(CGameEngine* game)
 
     SDL_RendererFlip flip = (SDL_RendererFlip)(SDL_FLIP_NONE);//(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL);
 
-    SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, NULL, 0, NULL, flip);
+    SDL_RenderCopyEx(game->renderer, game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z], NULL, NULL, 0, NULL, flip);
 //    static int rotate = 0;
 //    if( rotate >359)
 //        rotate = 0;

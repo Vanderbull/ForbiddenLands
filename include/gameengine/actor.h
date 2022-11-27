@@ -29,6 +29,14 @@ struct ACTOR
     int thirst = 0;
     int faceImageID = 0;
 
+    struct CoordinatePair
+    {
+        int x;
+        int y;
+        int z;
+    };
+    CoordinatePair PlayerCoordinate = {15,1,0};
+
     ACTOR()
     {
         int counter = 0;

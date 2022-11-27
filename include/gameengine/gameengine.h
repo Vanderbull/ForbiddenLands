@@ -230,22 +230,16 @@ public:
 	SoundHolder SoundManager;
 
 	SDL_Texture* BackgroundTexture;
-
 	SDL_Event event;
-
 	SDL_Rect gRect;
-	//SDL_Surface* screen;
     SDL_Surface* gSurface;
-
 	SDL_Texture* gTexture;
-
     SDL_Window * window;
     SDL_DisplayMode monitor[6];
     SDL_DisplayMode current;
 
     struct utsname uts;
     SDL_Renderer * renderer;
-	//SDL_Renderer * renderer2;
 
     SDL_Color Yellow = {255, 255, 255, 255};
     SDL_Color YellowGreen = {255, 255, 255, 255};
@@ -266,80 +260,16 @@ public:
     SDL_Texture* East;
     SDL_Texture* South;
     SDL_Texture* West;
-    //SDL_Texture* menuBackgroundTexture;
-    //SDL_Texture* currentViewTexture;
-    //SDL_Texture* encampTexture;
-    //SDL_Texture* gTexture;
 
     // Make these a blob
     SDL_Texture* mapTexture[16][16][4];
     //std::string mapTextureFile[16][16][4];
 
-    //SDL_Texture* MainMenuBackgroundTexture;
-
     //Make these a blob
     TTF_Font* gameTitleFont;
     TTF_Font* gameBreadTextFont;
 
-    struct CoordinatePair
-    {
-        int x;
-        int y;
-        int z;
-    };
-    CoordinatePair PlayerCoordinate = {15,1,0};
-
-    //int Ability[7] = {15,15,13,15,15,15,15};
-
     int StartAbilityPoints = 20;
-
-//    enum {POW, INT, PERS, TOU, TECH, QUI, PERC};
-
-//    int PowerMod = floor( Power - 20 / 2 );
-//    int IntelligenceMod = floor( Intelligence - 20 / 2 );
-//    int PersonalityMod = floor( Personality - 20 / 2 );
-//    int ToughnessMod = floor( Toughness - 20 / 2 );
-//    int TechniqueMod = floor( Technique - 20 / 2 );
-//    int QuicknessMod = floor( Quickness - 20 / 2 );
-//    int PerceptionMod = floor( Perception - 20 / 2 );
-
-//    int AbilityMod[7] = {PowerMod,IntelligenceMod,PersonalityMod,ToughnessMod,TechniqueMod,QuicknessMod,PerceptionMod};
-//
-//    int PowerBonus = 0;
-//    int IntelligenceBonus = 4;
-//    int PersonalityBonus = 0;
-//    int ToughnessBonus = 4;
-//    int TechniqueBonus = 0;
-//    int QuicknessBonus = 0;
-//    int PerceptionBonus = 0;
-
-//    int KnightBaseHP = 40 + (5 * ToughnessMod);
-//    int ClericBaseHP = 28 + (3 * ToughnessMod);
-//    int WizardBaseHP = 28 + (3 * ToughnessMod);
-
-//    int KnightHPLevel = 6;
-//    int ClericHPLevel = 3;
-//    int WizardHPLevel = 3;
-
-//    int TotalSpells = IntelligenceMod;
-//
-//    int InitiateSpellAllocation = 10 + IntelligenceMod;
-//    int ApprenticeSpellAllocation = floor(7*0.7);
-//    int AdeptSpellAllocation = floor(4*0.7);
-//    int MasterSpellAllocation = floor(2*0.7);
-//    int GrandMasterSpellAllocation = floor(1*0.7);
-
-//    int KnightStrongAbilityPower = 7;
-//    int KnightStrongAbilityThoughness = 7;
-//    int KnightWeakAbilityIntelligence = 7;
-//
-//    int ClericStrongAbilityIntelligence = 7;
-//    int ClericStrongAbilityPersonality = 7;
-//    int ClericWeakAbilityPower = 7;
-//
-//    int WizardStrongAbilityIntelligence = 7;
-//    int WizardStrongAbilityPerception = 7;
-//    int WizardWeakAbilityPower = 7;
 
     uint32_t experience_required_for_level(double level)
     {
@@ -430,10 +360,6 @@ public:
 	    int Vunerability;
 	};
 	std::vector<std::string> v_BaseMonsters = {"Cube, Ooze","Doppelganger","Goblin","Goblin, Warrior", "Goblin Chief", "Snail","Snail Fire","Snake Constrictor"};
-//    std::vector<std::string> generalStoreItems;
-//    std::vector<std::string> jewelleryStoreItems;
-//    std::vector<std::string> silverStoreItems;
-//    std::vector<std::string> armsAndArmours;
 
     std::array<int, 300> armsAndArmoursValue;
     std::vector<SGenericItem> generalShopItems;
@@ -499,7 +425,7 @@ public:
         if( mapPortal[x][y].getMap(rotation) != "phlan" )
         {
             if( mapPortal[x][y].getX() != -1 )
-                PlayerCoordinate.x = mapPortal[x][y].getX();
+                SActor.PlayerCoordinate.x = mapPortal[x][y].getX();
         }
         return mapPortal[x][y].active_portal(rotation);
     };

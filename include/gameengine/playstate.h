@@ -75,8 +75,8 @@ public:
         SDL_RenderFillRect(game->renderer, &needle);
         SDL_RenderFillRect(game->renderer, &needleRight);
 
-        std::string xcoord = std::to_string(game->PlayerCoordinate.x);
-        std::string ycoord = std::to_string(game->PlayerCoordinate.y);
+        std::string xcoord = std::to_string(game->SActor.PlayerCoordinate.x);
+        std::string ycoord = std::to_string(game->SActor.PlayerCoordinate.y);
 
         std::string rotationString = "";
         std::string coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
@@ -88,8 +88,8 @@ public:
 
     void renderMinimapCharacterLocation(CGameEngine* game)
     {
-        gRect.x = game->PlayerCoordinate.x*16 + OFFSET;
-        gRect.y = game->PlayerCoordinate.y*16 + OFFSET;
+        gRect.x = game->SActor.PlayerCoordinate.x*16 + OFFSET;
+        gRect.y = game->SActor.PlayerCoordinate.y*16 + OFFSET;
         gRect.h = 16;
         gRect.w = 16;
 
