@@ -15,7 +15,7 @@ CPlayState CPlayState::m_PlayState;
 
 void CPlayState::Init()
 {
-    loadPortals();
+    LoadMapExits();
 	SDL_Log("CPlayState Init\n");
 }
 
@@ -80,7 +80,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.y > 0 )
                                 {
-                                    game->SActor.PlayerCoordinate.y--;
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] <= RAND_MAX / 2 )
+                                        game->SActor.PlayerCoordinate.y--;
                                     //DateAndTime.tm_min++;
                                 }
                             }
@@ -88,7 +89,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.y < 15 )
                                 {
-                                    game->SActor.PlayerCoordinate.y++;
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] <= RAND_MAX / 2 )
+                                        game->SActor.PlayerCoordinate.y++;
                                     //DateAndTime.tm_min++;
                                 }
                             }
@@ -96,7 +98,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.x > 0 )
                                 {
-                                    game->SActor.PlayerCoordinate.x--;
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] <= RAND_MAX / 2 )
+                                        game->SActor.PlayerCoordinate.x--;
                                     //DateAndTime.tm_min++;
                                 }
                             }
@@ -104,7 +107,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.x < 15 )
                                 {
-                                    game->SActor.PlayerCoordinate.x++;
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] <= RAND_MAX / 2 )
+                                        game->SActor.PlayerCoordinate.x++;
                                     //DateAndTime.tm_min++;
                                 }
                             }
@@ -168,11 +172,7 @@ void CPlayState::Draw(CGameEngine* game)
     SDL_RendererFlip flip = (SDL_RendererFlip)(SDL_FLIP_NONE);//(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL);
 
     SDL_RenderCopyEx(game->renderer, game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z], NULL, NULL, 0, NULL, flip);
-//    static int rotate = 0;
-//    if( rotate >359)
-//        rotate = 0;
-//    SDL_RenderCopyEx(game->renderer, game->mapTexture[game->PlayerCoordinate.x][game->PlayerCoordinate.y][game->PlayerCoordinate.z], NULL, NULL,rotate,NULL,flip);
-//    rotate++;
+
     int texW = 0;
     int texH = 0;
 
@@ -180,6 +180,7 @@ void CPlayState::Draw(CGameEngine* game)
     renderCompass(game);
     renderMinimap(game);
     renderMinimapCharacterLocation(game);
+    renderPassable(game);
 
     static int goblinmovey = 0;
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);

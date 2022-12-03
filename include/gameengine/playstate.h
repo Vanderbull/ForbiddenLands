@@ -113,21 +113,77 @@ public:
 
     void renderMinimap(CGameEngine* game)
     {
-//        if( !std::filesystem::exists("./assets/data/textures/maps/phlan/phlan.png") )
-//        {
-//            SDL_Log("verifying ./data/maps/phlan/phlan.png exists failed");
-//            exit(999);
-//        }
-        SDL_Texture* gTexture = game->LoadTexture("./assets/data/textures/maps/phlan/phlan.png",255);
+        SDL_Texture* gTexture = game->LoadTexture("./assets/data/textures/maps/kustenstad/kustenstad.png",255);
 
         SDL_Rect imageSize = {0, 0,256,256};
         SDL_Rect renderLocation = {50, 50,256,256};
         SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 128);
         SDL_RenderCopy(game->renderer, gTexture, &imageSize, &renderLocation);
         SDL_DestroyTexture(gTexture);
+
+        for(int x = 0; x < 16; x++)
+            for(int y = 0; y < 16; y++)
+            {
+                if( random_events[x][y] <= (RAND_MAX / 2) )
+                {
+                    SDL_Rect imageSize = {x*16 + 50, y*16 + 50,8,8};
+                    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+                    SDL_RenderFillRect(game->renderer, &imageSize);
+                }
+            }
+    }
+
+    void LoadMapExits()
+    {
+        for(int x = 0; x < 16; x++)
+            for(int y = 0; y < 16; y++)
+            {
+                mapExits[x][y].Direction[mapExits[x][y].WEST] = rand();
+                mapExits[x][y].Direction[mapExits[x][y].EAST] = rand();
+                mapExits[x][y].Direction[mapExits[x][y].NORTH] = rand();
+                mapExits[x][y].Direction[mapExits[x][y].SOUTH] = rand();
+            }
+    };
+
+    void renderPassable(CGameEngine* game)
+    {
+        SDL_Rect WEST = {0, 64,64,64};
+        SDL_Rect EAST = {128, 64,64,64};
+        SDL_Rect NORTH = {64, 0,64,64};
+        SDL_Rect SOUTH = {64, 128,64,64};
+        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] <= RAND_MAX / 2 )
+            SDL_RenderFillRect(game->renderer, &WEST);
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] <= RAND_MAX / 2 )
+            SDL_RenderFillRect(game->renderer, &EAST);
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] <= RAND_MAX / 2 )
+            SDL_RenderFillRect(game->renderer, &NORTH);
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] <= RAND_MAX / 2 )
+            SDL_RenderFillRect(game->renderer, &SOUTH);
     }
 
     SDL_Point mousePosition;
+
+    int random_events[16][16] =  {
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
+    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()}
+    };
+
+    Passable mapExits[16][16];
 
 protected:
 	CPlayState() { }
@@ -136,11 +192,8 @@ private:
 	static CPlayState m_PlayState;
 
 	SDL_Surface* gSurface;
-
 	SDL_Texture* gTexture;
-
 	SDL_Rect gRect;
-
 	int iX,iY;
 
 	SDL_Color White = {255, 255, 255, 255};

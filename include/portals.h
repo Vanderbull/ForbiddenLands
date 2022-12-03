@@ -10,6 +10,12 @@
 
 #include "randomizer.h"
 
+struct Passable
+{
+    enum {WEST,EAST,SOUTH,NORTH};
+    int Direction[4];
+};
+
 struct portal
 {
     bool droppedLoot = false;
