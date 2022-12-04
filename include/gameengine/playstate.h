@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <filesystem>
+#include <string>
 using namespace std;
 
 #include <SDL2/SDL.h>
@@ -135,30 +136,64 @@ public:
 
     void LoadMapExits()
     {
-        for(int x = 0; x < 16; x++)
-            for(int y = 0; y < 16; y++)
+        std::vector<vector<string>> content;
+        std::vector<string> row;
+        std::string line, word;
+        fstream file ("./assets/data/maps/kustenstad/kustenstad_portals", ios::in);
+        if(file.is_open())
+        {
+            while(getline(file, line))
             {
-                mapExits[x][y].Direction[mapExits[x][y].WEST] = rand();
-                mapExits[x][y].Direction[mapExits[x][y].EAST] = rand();
-                mapExits[x][y].Direction[mapExits[x][y].NORTH] = rand();
-                mapExits[x][y].Direction[mapExits[x][y].SOUTH] = rand();
+                row.clear();
+                stringstream str(line);
+                while(getline(str, word, ' '))
+                    row.push_back(word);
+                content.push_back(row);
             }
+
+            for(int i=0; i < content.size(); i++)
+            {
+                for(int j=0; j < content[i].size(); j++)
+                {
+//                    if( j == 2)
+//                    mapExits[i][j].Direction[mapExits[i][j].WEST] = std::stoi(content[i][j]);
+//                    if( j == 3)
+//                    mapExits[i][j].Direction[mapExits[i][j].EAST] = std::stoi(content[i][j]);
+//                    if( j == 4)
+//                    mapExits[i][j].Direction[mapExits[i][j].NORTH] = std::stoi(content[i][j]);
+//                    if( j == 5)
+//                    mapExits[i][j].Direction[mapExits[i][j].SOUTH] = std::stoi(content[i][j]);
+                    cout << content[i][j] << " ";
+                }
+                cout << endl;
+            }
+        }
+
+//        for(int x = 0; x < 16; x++)
+//            for(int y = 0; y < 16; y++)
+//            {
+//                mapExits[x][y].Direction[mapExits[x][y].WEST] = rand();
+//                mapExits[x][y].Direction[mapExits[x][y].EAST] = rand();
+//                mapExits[x][y].Direction[mapExits[x][y].NORTH] = rand();
+//                mapExits[x][y].Direction[mapExits[x][y].SOUTH] = rand();
+//            }
     };
 
     void renderPassable(CGameEngine* game)
     {
+        return;
         SDL_Rect WEST = {0, 64,64,64};
         SDL_Rect EAST = {128, 64,64,64};
         SDL_Rect NORTH = {64, 0,64,64};
         SDL_Rect SOUTH = {64, 128,64,64};
         SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] <= RAND_MAX / 2 )
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
             SDL_RenderFillRect(game->renderer, &WEST);
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] <= RAND_MAX / 2 )
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
             SDL_RenderFillRect(game->renderer, &EAST);
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] <= RAND_MAX / 2 )
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] == 1 )
             SDL_RenderFillRect(game->renderer, &NORTH);
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] <= RAND_MAX / 2 )
+        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] == 1 )
             SDL_RenderFillRect(game->renderer, &SOUTH);
     }
 

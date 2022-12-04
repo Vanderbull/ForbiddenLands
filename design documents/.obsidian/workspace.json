@@ -1,70 +1,40 @@
 {
   "main": {
-    "id": "0dff556cfbb76175",
+    "id": "e0ebce67d66e5027",
     "type": "split",
     "children": [
       {
-        "id": "6e4950db17c97bce",
+        "id": "39a29120da7a203b",
         "type": "tabs",
         "children": [
           {
-            "id": "166835f9f282dd60",
+            "id": "49bbb18dc92a4cbb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2022-11-21.md",
-<<<<<<< HEAD
-=======
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a8a9f117d42a3731",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Actor.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "645bc14e6e7ead9a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Skills.md",
->>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
+                "file": "Rulebook_v1.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "5d27c4b9557b0d7e",
+    "id": "168cf6f831585232",
     "type": "split",
     "children": [
       {
-        "id": "31ef8de68a879c0c",
+        "id": "42c6c2eaa929168d",
         "type": "tabs",
         "children": [
           {
-            "id": "ca99217cbdc5cf9b",
+            "id": "5ec39c5633d3ff9f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -74,12 +44,12 @@
             }
           },
           {
-            "id": "fdd4ab6b658d0813",
+            "id": "2d6888133193d6ac",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#mure",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +59,7 @@
             }
           },
           {
-            "id": "8334ea7a3a4f3c99",
+            "id": "b42e153027aee9ed",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -103,24 +73,20 @@
     "width": 300
   },
   "right": {
-    "id": "c30a98c9ff6ee348",
+    "id": "94a10d1c9d9ba62f",
     "type": "split",
     "children": [
       {
-        "id": "f5716bb9826cd760",
+        "id": "4fc5d8c2ddfc88ba",
         "type": "tabs",
         "children": [
           {
-            "id": "d7a3ca40700fb779",
+            "id": "f90bbb1b869bd4b3",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-<<<<<<< HEAD
-                "file": "2022-11-21.md",
-=======
-                "file": "Skills.md",
->>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
+                "file": "Rulebook_v1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,23 +98,19 @@
             }
           },
           {
-            "id": "71f208f556f7ff2e",
+            "id": "a3272948feb18633",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-<<<<<<< HEAD
-                "file": "2022-11-21.md",
-=======
-                "file": "Skills.md",
->>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
+                "file": "Rulebook_v1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "92f84e8598f12e20",
+            "id": "4125534502c5eebc",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -159,50 +121,22 @@
             }
           },
           {
-            "id": "5d4b1eaf51fffd86",
+            "id": "57763abddc0f2d4f",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-<<<<<<< HEAD
-                "file": "2022-11-21.md"
-=======
-                "file": "Skills.md"
->>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
+                "file": "Rulebook_v1.md"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
   },
-  "active": "645bc14e6e7ead9a",
-  "lastOpenFiles": [
-<<<<<<< HEAD
-    "2022-11-20.md",
-    "Skills.md",
-    "Skill Groups.md",
-    "Chapter 14. Character creation.md",
-    "Actor.md",
-    "Shops & traders.md",
-    "2022-10-23.md",
-    "Weather.md",
-    "2022-11-12.md",
-=======
-    "Abilities.md",
-    "Cities.md",
-    "Currency.md",
-    "Encumbrance.md",
-    "Actor.md",
-    "Dataview.md",
-    "Chapter 14. Character creation.md",
-    "Chapter 2. The world.md",
-    "Battles.md",
->>>>>>> 3d58b5d26bcba29d12c82d7ca655de77feefd6f4
-    "Rulebook_v1.md"
-  ]
+  "active": "5ec39c5633d3ff9f",
+  "lastOpenFiles": []
 }

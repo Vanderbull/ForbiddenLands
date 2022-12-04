@@ -5,7 +5,6 @@
 #include <chrono>
 #include <SDL2/SDL.h>
 
-
 #include "gameengine.h"
 #include "gamestate.h"
 //#include "portals.h"
