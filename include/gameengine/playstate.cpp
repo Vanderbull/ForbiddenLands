@@ -188,16 +188,49 @@ void CPlayState::Draw(CGameEngine* game)
     renderMinimapCharacterLocation(game);
     renderPassable(game);
 
-    static int goblinmovey = 0;
+    //static int goblinmovey = 0;
+    if( (game->SActor.PlayerCoordinate.z == WEST ) && random_events[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y] <= RAND_MAX / 2)
+    {
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
     texW = 0;
     texH = 0;
     SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
 
-    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2+ goblinmovey, texW, texH };
+    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
     SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
-    if(goblinmovey < game->current.h - texH)
-        goblinmovey++;
+    }
+    if( (game->SActor.PlayerCoordinate.z == EAST ) && random_events[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y] <= RAND_MAX / 2)
+    {
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+
+    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+    }
+    if( (game->SActor.PlayerCoordinate.z == SOUTH ) && random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1] <= RAND_MAX / 2)
+    {
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+
+    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+    }
+    if( (game->SActor.PlayerCoordinate.z == NORTH ) && random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1] <= RAND_MAX / 2)
+    {
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+
+    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+    }
+    //if(goblinmovey < game->current.h - texH)
+    //    goblinmovey++;
 
     SDL_Rect left_weapon = {0,game->current.h - 120, 120,120};
     SDL_Rect right_weapon = {game->current.w - 120,game->current.h - 120, 120,120};
