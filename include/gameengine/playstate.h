@@ -5,6 +5,8 @@
 #include <vector>
 #include <filesystem>
 #include <string>
+#include <random>
+#include <time.h>
 using namespace std;
 
 #include <SDL2/SDL.h>
@@ -226,23 +228,31 @@ public:
 
     SDL_Point mousePosition;
 
+    int myrandom ()
+    {
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(0, RAND_MAX);
+        return dis(gen);
+    }
+
     int random_events[16][16] =  {
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()},
-    {rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand(),rand()}
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
+    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()}
     };
 
     Passable mapExits[16][16];

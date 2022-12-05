@@ -70,11 +70,13 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1670230851 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h
+1670234485 /home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.h
 	<string>
 	<vector>
 	<filesystem>
 	<string>
+	<random>
+	<time.h>
 	<SDL2/SDL.h>
 	"gamestate.h"
 
@@ -258,7 +260,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1670230916 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
+1670232900 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/include/gameengine/playstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -315,7 +317,7 @@
 1667225818 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/globals.cpp
 	"globals.h"
 
-1670061158 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
+1670233792 source:/home/rickard/Documents/Vanderbull/ForbiddenLands/src/main.cpp
 	<chrono>
 	<thread>
 	<cassert>

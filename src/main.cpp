@@ -406,6 +406,7 @@ void LogSDL(void *userdata, int category, SDL_LogPriority priority, const char *
 int main(int argc, char ** argv)
 {
     srand(time(0));
+    //mt19937 mt(time(nullptr));
     pFile = fopen ("./logs/GameEngineLOG.log","w");
     SDL_LogSetOutputFunction(&LogSDL, NULL);
     SDL_Log("./logs/GameEngineLOG.txt file opened: Success");
