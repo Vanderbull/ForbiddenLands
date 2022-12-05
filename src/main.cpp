@@ -46,6 +46,9 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "../include/doctest.h"
 
+#include "../asciichart-master/include/ascii/ascii.h"
+
+using namespace ascii;
 using namespace std;
 using namespace rapidxml;
 using namespace std::chrono;
@@ -403,6 +406,25 @@ void LogSDL(void *userdata, int category, SDL_LogPriority priority, const char *
     fprintf(pFile,"[Log] %s %s\n", ctime_no_newline, message);
 };
 
+void animation() {
+  using namespace ascii;
+  std::vector<double> series;
+  std::vector<double> series2;
+  int height = 6;
+  for (int i = 0; i < 100; i += 2) {
+    series.push_back(15 * std::cos(i * (kPI * 8) / 120));
+    series2.push_back(15 * std::sin(i * ((kPI * 4) / 100)));
+    Asciichart asciichart(std::vector<std::vector<double>>{series, series2});
+    if (i != 0) {
+      for (int j = 0; j <= height; j++) {
+        std::cout << "\033[A\033[2K";
+      }
+      std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+    std::cout << asciichart.height(height).Plot();
+  }
+}
+
 int main(int argc, char ** argv)
 {
     srand(time(0));
@@ -642,6 +664,10 @@ int main(int argc, char ** argv)
 
     srand (time(NULL));
 
+      setlocale(LC_ALL, "");
+
+animation();
+//exit(10);
 //    std::vector<std::string> fontFiles;
 //    std::vector<std::string> imagesFiles;
 //    std::vector<std::string> dataFiles;

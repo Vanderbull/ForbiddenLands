@@ -74,6 +74,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Add option="-std=gnu++20" />
 			<Add option="-lstdc++fs" />
 			<Add directory="../../../../../usr/include/SDL2" />
+			<Add directory="asciichart-master/include/ascii" />
 		</Compiler>
 		<Linker>
 			<Add option="-lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2_net" />
@@ -100,6 +101,11 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="README.md" />
+		<Unit filename="asciichart-master/include/ascii/ascii.h" />
+		<Unit filename="asciichart-master/include/ascii/color.h" />
+		<Unit filename="asciichart-master/include/ascii/constants.h" />
+		<Unit filename="asciichart-master/include/ascii/style.h" />
+		<Unit filename="asciichart-master/include/ascii/text.h" />
 		<Unit filename="include/gameengine/actor.h" />
 		<Unit filename="include/gameengine/battlestate.cpp" />
 		<Unit filename="include/gameengine/battlestate.h" />
