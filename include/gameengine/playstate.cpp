@@ -160,6 +160,12 @@ void CPlayState::Update(CGameEngine* game)
         game->SActor.PlayerCoordinate.z = WEST;
     if(Rotation == "E")
         game->SActor.PlayerCoordinate.z = EAST;
+
+    if( random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] <= (RAND_MAX / 2) )
+    {
+        random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] = RAND_MAX;
+        game->ChangeState( CBattleState::Instance() );
+    }
 }
 
 void CPlayState::Draw(CGameEngine* game)
