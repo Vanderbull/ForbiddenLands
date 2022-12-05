@@ -77,22 +77,6 @@ void CWorldMapState::Draw(CGameEngine* game)
 
     SDL_RenderClear(game->renderer);
 
-    SDL_SetRenderDrawColor(game->renderer, 0, 255, 255, 128);
-
-    //Danmark
-    SDL_RenderFillRect(game->renderer, &Marlmo);
-    SDL_RenderFillRect(game->renderer, &Saeby);
-    SDL_RenderFillRect(game->renderer, &Odense);
-    SDL_RenderFillRect(game->renderer, &Zealfort);
-    //Norway
-    SDL_RenderFillRect(game->renderer, &Trollheim);
-    SDL_RenderFillRect(game->renderer, &Trondeland);
-    SDL_RenderFillRect(game->renderer, &Aerendal);
-    //Finland
-    SDL_RenderFillRect(game->renderer, &Kiiri);
-    SDL_RenderFillRect(game->renderer, &Kamilarvi);
-    SDL_RenderFillRect(game->renderer, &Muoni);
-
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
@@ -104,6 +88,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Kustenstad);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
+            game->SActor.worldMap = 0;
         }
     }
     else
@@ -122,6 +107,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Vallentuna);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
+            game->SActor.worldMap = 1;
         }
     }
     else
@@ -140,6 +126,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Mora);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
+            game->SActor.worldMap = 1;
         }
     }
     else
@@ -149,4 +136,12 @@ void CWorldMapState::Draw(CGameEngine* game)
         // Sweden
         SDL_RenderFillRect(game->renderer, &Mora);
     }
+
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+    if( game->SActor.worldMap == 0)
+        SDL_RenderFillRect(game->renderer, &Kustenstad);
+
+    game->renderWorldMapTiles();
+
 }

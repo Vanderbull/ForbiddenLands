@@ -28,6 +28,7 @@ struct ACTOR
     int hunger = 0;
     int thirst = 0;
     int faceImageID = 0;
+    int worldMap = 0;
 
     struct CoordinatePair
     {

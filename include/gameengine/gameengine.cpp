@@ -227,6 +227,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
 	m_fullscreen = fullscreen;
 	m_running = true;
+
+	generateWorldMapTiles();
 }
 
 void CGameEngine::Cleanup()

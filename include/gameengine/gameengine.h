@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <sys/utsname.h>
 #include <array>
@@ -391,6 +392,53 @@ public:
     bool newGame = true;
 
     weather_engine WeatherEngine;
+
+    SDL_Rect worldMapTiles[17][41];
+
+    void generateWorldMapTiles()
+    {
+        for(int x = 0; x < 17; x++)
+            for(int y = 0; y < 41; y++)
+            {
+                SDL_Rect imageSize = {x*16 + 50, y*16 + 50,8,8};
+                worldMapTiles[x][y] = imageSize;
+            }
+    }
+
+    void renderWorldMapTiles()
+    {
+        std::vector<vector<string>> content;
+        std::vector<string> row;
+        std::string line, word;
+        int counterx,countery = 0;
+
+        fstream file ("./assets/data/textures/sweden_data", ios::in);
+        if(file.is_open())
+        {
+            while(getline(file, line))
+            {
+                row.clear();
+                stringstream str(line);
+                RenderText(line.c_str(), White, current.w / 2,countery*24,48);
+                //RenderText(line.c_str(), White, 0,countery*24,48);
+//                while(getline(str, word, ' '))
+//                {
+//                }
+                content.push_back(row);
+                countery++;
+            }
+        }
+        else
+        {
+        exit(99);
+        }
+//        for(int x = 0; x < 17; x++)
+//            for(int y = 0; y < 41; y++)
+//            {
+//                SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
+//                SDL_RenderFillRect(renderer, &worldMapTiles[x][y]);
+//            }
+    }
 
 private:
 	// the stack of states
