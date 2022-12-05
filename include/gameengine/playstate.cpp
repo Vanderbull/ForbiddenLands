@@ -80,7 +80,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.y > 0 )
                                 {
-                                    //if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] == 1 )
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] == 1 )
                                         game->SActor.PlayerCoordinate.y--;
                                     //DateAndTime.tm_min++;
                                 }
@@ -89,7 +89,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.y < 15 )
                                 {
-                                    //if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] == 1 )
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] == 1 )
                                         game->SActor.PlayerCoordinate.y++;
                                     //DateAndTime.tm_min++;
                                 }
@@ -98,7 +98,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.x > 0 )
                                 {
-                                    //if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
                                         game->SActor.PlayerCoordinate.x--;
                                     //DateAndTime.tm_min++;
                                 }
@@ -107,7 +107,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.x < 15 )
                                 {
-                                    //if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
+                                    if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
                                         game->SActor.PlayerCoordinate.x++;
                                     //DateAndTime.tm_min++;
                                 }

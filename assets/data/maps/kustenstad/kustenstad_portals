@@ -29,7 +29,7 @@
 12 1 1 1 0 0 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
 13 1 1 1 0 0 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
 14 1 1 1 0 0 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
-15 1 1 0 0 0 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
+15 1 1 1 0 0
 0 2 0 0 1 1 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
 1 2 0 0 1 1 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
 2 2 0 1 1 0 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
@@ -253,4 +253,4 @@
 12 15 1 1 0 1 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
 13 15 1 1 0 1 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
 14 15 1 1 0 1 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
-15 15 1 0 0 1 kustenstad kustenstad kustenstad kustenstad -1 -1 no_description
+15 15 1 0 0 1

@@ -139,49 +139,53 @@ public:
         std::vector<vector<string>> content;
         std::vector<string> row;
         std::string line, word;
+        int counterx,countery;
+        int index = 0;
+        int west,east,south,north;
         fstream file ("./assets/data/maps/kustenstad/kustenstad_portals", ios::in);
         if(file.is_open())
         {
             while(getline(file, line))
             {
+                index = 0;
+                counterx = 0;
+                countery = 0;
+                west = east = north = south = 0;
                 row.clear();
                 stringstream str(line);
                 while(getline(str, word, ' '))
-                    row.push_back(word);
-                content.push_back(row);
-            }
-
-            for(int i=0; i < content.size(); i++)
-            {
-                for(int j=0; j < content[i].size(); j++)
                 {
-//                    if( j == 2)
-//                    mapExits[i][j].Direction[mapExits[i][j].WEST] = std::stoi(content[i][j]);
-//                    if( j == 3)
-//                    mapExits[i][j].Direction[mapExits[i][j].EAST] = std::stoi(content[i][j]);
-//                    if( j == 4)
-//                    mapExits[i][j].Direction[mapExits[i][j].NORTH] = std::stoi(content[i][j]);
-//                    if( j == 5)
-//                    mapExits[i][j].Direction[mapExits[i][j].SOUTH] = std::stoi(content[i][j]);
-                    cout << content[i][j] << " ";
+                    if( index == 0)
+                        counterx = std::stoi(word);
+                    if( index == 1)
+                        countery = std::stoi(word);
+                    if( index == 2)
+                        west = std::stoi(word);
+                    if( index == 3)
+                        east = std::stoi(word);
+                    if( index == 4)
+                        north = std::stoi(word);
+                    if( index == 5)
+                        south = std::stoi(word);
+
+                    //row.push_back(word);
+                    std::cout << word <<  "¦";
+                    index++;
                 }
-                cout << endl;
+                mapExits[counterx][countery].Direction[Passable::WEST] = west;
+                mapExits[counterx][countery].Direction[Passable::EAST] = east;
+                mapExits[counterx][countery].Direction[Passable::NORTH] = north;
+                mapExits[counterx][countery].Direction[Passable::SOUTH] = south;
+
+                std::cout << std::endl;
+                //content.push_back(row);
             }
         }
-
-//        for(int x = 0; x < 16; x++)
-//            for(int y = 0; y < 16; y++)
-//            {
-//                mapExits[x][y].Direction[mapExits[x][y].WEST] = rand();
-//                mapExits[x][y].Direction[mapExits[x][y].EAST] = rand();
-//                mapExits[x][y].Direction[mapExits[x][y].NORTH] = rand();
-//                mapExits[x][y].Direction[mapExits[x][y].SOUTH] = rand();
-//            }
+    //exit(99);
     };
 
     void renderPassable(CGameEngine* game)
     {
-        return;
         SDL_Rect WEST = {0, 64,64,64};
         SDL_Rect EAST = {128, 64,64,64};
         SDL_Rect NORTH = {64, 0,64,64};
