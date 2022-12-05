@@ -151,7 +151,7 @@ public:
                 counterx = 0;
                 countery = 0;
                 west = east = north = south = 0;
-                row.clear();
+                //row.clear();
                 stringstream str(line);
                 while(getline(str, word, ' '))
                 {
@@ -164,21 +164,35 @@ public:
                     if( index == 3)
                         east = std::stoi(word);
                     if( index == 4)
-                        north = std::stoi(word);
-                    if( index == 5)
                         south = std::stoi(word);
+                    if( index == 5)
+                        north = std::stoi(word);
 
                     //row.push_back(word);
                     std::cout << word <<  "¦";
                     index++;
+                    //counterx++;
                 }
+
+                //std::cout << counterx << " " << countery << " " << west << " " << east << " "<< south << " "<< north << std::endl;
+                //exit(99);
                 mapExits[counterx][countery].Direction[Passable::WEST] = west;
                 mapExits[counterx][countery].Direction[Passable::EAST] = east;
                 mapExits[counterx][countery].Direction[Passable::NORTH] = north;
                 mapExits[counterx][countery].Direction[Passable::SOUTH] = south;
 
+
+                std::cout << "counterx:" << counterx << std::endl;
+                std::cout << "countery:" << countery<< std::endl;
+                std::cout << " WEST:" << mapExits[counterx][countery].Direction[Passable::WEST] << std::endl;
+                std::cout << " EAST:" << mapExits[counterx][countery].Direction[Passable::EAST] << std::endl;
+                std::cout << " NORTH:" << mapExits[counterx][countery].Direction[Passable::NORTH] << std::endl;
+                std::cout << " SOUTH" << mapExits[counterx][countery].Direction[Passable::SOUTH] << std::endl;
+
+
                 std::cout << std::endl;
                 //content.push_back(row);
+                //countery++;
             }
         }
     //exit(99);
@@ -191,6 +205,15 @@ public:
         SDL_Rect NORTH = {64, 0,64,64};
         SDL_Rect SOUTH = {64, 128,64,64};
         SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+
+        std::cout << " game->SActor.PlayerCoordinate.x:" << game->SActor.PlayerCoordinate.x << std::endl;
+        std::cout << " game->SActor.PlayerCoordinate.y:" << game->SActor.PlayerCoordinate.y << std::endl;
+        std::cout << " WEST:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] << std::endl;
+        std::cout << " EAST:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] << std::endl;
+        std::cout << " NORTH:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] << std::endl;
+        std::cout << " SOUTH" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] << std::endl;
+        //exit(99);
+
         if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
             SDL_RenderFillRect(game->renderer, &WEST);
         if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
