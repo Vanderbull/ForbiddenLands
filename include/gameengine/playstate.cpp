@@ -61,9 +61,6 @@ void CPlayState::HandleEvents(CGameEngine* game)
                     case SDLK_r:
                         game->ChangeState( CEncampmentState::Instance() );
                         break;
-					case SDLK_1:
-                        game->ChangeState( CShopState::Instance() );
-						break;
                     case SDLK_m:
                         game->ChangeState( CWorldMapState::Instance() );
                         break;

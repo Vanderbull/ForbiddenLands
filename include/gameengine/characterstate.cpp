@@ -94,7 +94,7 @@ void CCharacterState::Draw(CGameEngine* game)
     SDL_RenderClear(game->renderer);
 
     if( game->BackgroundTexture == NULL )
-        game->BackgroundTexture = game->LoadTexture("./assets/data/textures/backgrounds/characterstate.png",255);
+        game->BackgroundTexture = game->LoadTexture("./assets/data/textures/backgrounds/characterstate-new_1920.png",255);
 
     SDL_RenderCopy(game->renderer, game->BackgroundTexture, NULL, NULL);
 

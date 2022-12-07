@@ -132,11 +132,11 @@ void CShopState::Update(CGameEngine* game)
 }
 
 // Return true if the string is 3 characters or less.
-bool is_short_str(string str)
-{
-   if(str.size() <= 3) return true;
-   return false;
-}
+//bool is_short_str(string str)
+//{
+//   if(str.size() <= 3) return true;
+//   return false;
+//}
 
 void CShopState::Draw(CGameEngine* game)
 {
@@ -157,30 +157,6 @@ void CShopState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
-//    SDL_Texture* backgroundTexture = game->LoadTexture("./images/shops/shop3.jpg",255);
-//    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, NULL);
-//    SDL_DestroyTexture(backgroundTexture);
-//
-//    SDL_Texture* backgroundTexture = game->LoadTexture("./images/ui/inventory.png",255);
-//    int texW = 0;
-//    int texH = 0;
-//    SDL_QueryTexture(backgroundTexture, NULL, NULL, &texW, &texH);
-//    SDL_Rect InventoryPosition = {0, 0, texW, texH};
-//
-//    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, &InventoryPosition);
-//
-//    SDL_DestroyTexture(backgroundTexture);
-//
-//    backgroundTexture = game->LoadTexture("./images/ui/inventory.png",255);
-//    SDL_QueryTexture(backgroundTexture, NULL, NULL, &texW, &texH);
-//    InventoryPosition = {0, texH + 64, texW, texH};
-//
-//    SDL_RenderCopy(game->renderer, backgroundTexture, NULL, &InventoryPosition);
-//
-//    SDL_DestroyTexture(backgroundTexture);
-
-    //game->RenderText("GENERAL SHOP", White, game->current.w - 400, 20,48);
-    //game->RenderText(std::to_string(game->v_ItemNames.size()).c_str(), White, game->current.w - 400, 60,48);
     game->RenderText(std::to_string(shop_coins).c_str(), White, game->current.w - 40, 20,24);
     game->RenderText(std::to_string(game->SActor.coins_gold).c_str(), White, game->current.w - 40, 40,24);
 
@@ -195,27 +171,6 @@ void CShopState::Draw(CGameEngine* game)
 
     SDL_Texture* iconImage = game->LoadTexture("./assets/data/textures/shield.png",255);
     SDL_Texture* iconImage2 = game->LoadTexture("./assets/data/textures/shield.jpg",255);
-
-//    vector<string>::iterator itr;
-//    cout << "Searching for \"NONE\"\n";
-//    itr = find(game->v_ItemNames.begin(), game->v_ItemNames.end(), "NONE");
-//    if(itr != game->v_ItemNames.end()) {
-//      cout << "Found \"NONE\", Replacing with \"NONE\"\n";
-//      *itr = "NONE";
-//      game->v_ItemNames.erase(itr);
-//    }
-//
-//   cout << endl;
-//   // Find all strings that are less than 4 characters long.
-//   cout << "Searching for all strings that have 3 or fewer characters.\n";
-//   itr = game->v_ItemNames.begin();
-//   do {
-//      itr = find_if(itr, game->v_ItemNames.end(), is_short_str);
-//      if(itr != game->v_ItemNames.end()) {
-//         cout << "Found " << *itr << endl;
-//         ++itr;
-//      }
-//   } while(itr != game->v_ItemNames.end());
 
     for (std::string textElement : game->v_ItemNames)
     {
