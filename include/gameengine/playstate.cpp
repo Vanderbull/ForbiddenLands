@@ -38,6 +38,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
 {
     SDL_Log("CPlayState HandleEvents\n");
 
+    game->SActor.PlayerLastCoordinate = game->SActor.PlayerCoordinate;
+
 	SDL_Event event;
 
 	while (SDL_PollEvent(&event)!= 0)
@@ -144,6 +146,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
 void CPlayState::Update(CGameEngine* game)
 {
     SDL_Log("CPlayState Update\n");
+
     if( game->newGame )
     {
         game->SActor.calculateStats();
@@ -165,6 +168,11 @@ void CPlayState::Update(CGameEngine* game)
     {
         random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] = RAND_MAX;
         game->ChangeState( CBattleState::Instance() );
+    }
+
+    if( game->SActor.PlayerCoordinate.x == 9 && game->SActor.PlayerCoordinate.y == 0 )
+    {
+        game->ChangeState( CShopState::Instance() );
     }
 }
 

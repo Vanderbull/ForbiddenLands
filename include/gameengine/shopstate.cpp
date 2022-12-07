@@ -55,8 +55,10 @@ void CShopState::HandleEvents(CGameEngine* game)
 			case SDL_KEYDOWN:
 				switch (game->event.key.keysym.sym) {
 					case SDLK_ESCAPE:
+					{
+                        game->SActor.PlayerCoordinate = game->SActor.PlayerLastCoordinate;
 						game->ChangeState( CPlayState::Instance() );
-						break;
+                    } break;
                     case SDLK_UP:
                         {
                               scroll_acceleration = 1;

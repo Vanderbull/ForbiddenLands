@@ -37,6 +37,7 @@ struct ACTOR
         int z;
     };
     CoordinatePair PlayerCoordinate = {15,1,0};
+    CoordinatePair PlayerLastCoordinate = {15,1,0};
 
     ACTOR()
     {
