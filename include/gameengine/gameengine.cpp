@@ -123,6 +123,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
+//    if( current.w > 1920 )
+//    {
+//        current.w = 1920;
+//        current.h = 1080;
+//    }
+
     window = SDL_CreateWindow("",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,

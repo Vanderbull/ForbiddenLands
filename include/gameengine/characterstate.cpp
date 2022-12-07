@@ -5,6 +5,8 @@
 #include "menustate.h"
 #include "playstate.h"
 #include "characterstate.h"
+#include "inventorystate.h"
+#include "worldmapstate.h"
 
 CCharacterState CCharacterState::m_CharacterState;
 
@@ -96,62 +98,76 @@ void CCharacterState::Draw(CGameEngine* game)
 
     SDL_RenderCopy(game->renderer, game->BackgroundTexture, NULL, NULL);
 
-    //gRect = { 205,103, 400, 100 };
-    //SDL_SetRenderDrawColor(game->renderer, 0, 0, 0,255);
-    //SDL_RenderFillRect(game->renderer,&gRect);
-    game->RenderText(game->SActor.name.c_str(),White,300,118,48);
+    game->RenderText(game->SActor.name.c_str(),White,300,90,48);
 
     std::string Experience = std::to_string(game->SActor.experience) + " / 10000";
-    game->RenderBreadText(Experience.c_str(),game->Black,725, 225 );
+    game->RenderBreadText(Experience.c_str(),game->White,300, 150 );
 
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[0]).c_str(),game->Black,810, 302 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[1]).c_str(),game->Black,810, 357 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[2]).c_str(),game->Black,810, 412 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[3]).c_str(),game->Black,810, 467 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[4]).c_str(),game->Black,810, 522 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[5]).c_str(),game->Black,810, 577 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[6]).c_str(),game->Black,810, 632 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[0]).c_str(),game->White,610, 225 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[1]).c_str(),game->White,610, 269 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[2]).c_str(),game->White,610, 310 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[3]).c_str(),game->White,610, 350 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[4]).c_str(),game->White,610, 390 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[5]).c_str(),game->White,610, 430 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[6]).c_str(),game->White,610, 470 );
 
-  	game->RenderBreadText(game->SActor.professionTextElements[game->ChoosenProfession].c_str(),game->Black,658, 718 );
+  	game->RenderBreadText(game->SActor.professionTextElements[game->ChoosenProfession].c_str(),game->White,444, 530 );
 
-//  	for (auto& iter: AbilityScore)
-//    {
-//        game->RenderBreadText(iter.first.c_str(),game->White,125,500 + (25*counter) );
-//        game->RenderBreadText(std::to_string(iter.second).c_str(),game->White,250,500 + (25*counter) );
-//    	counter++;
-//  	}
-//  	counter = 0;
-//
-//  	for (auto& iter: AbilityMod)
-//    {
-//        game->RenderBreadText(std::to_string(iter.second).c_str(),game->White,300,500 + (25*counter) );
-//    	counter++;
-//  	}
+//  	game->RenderBreadText(std::to_string(game->SActor.uid).c_str(),game->White,game->current.w - 100, 0 );
+  	game->RenderBreadText(std::to_string(game->SActor.armour_class).c_str(),game->White,338,600 );
+  	game->RenderBreadText(std::to_string(game->SActor.coins_gold).c_str(),game->White,338, 790 );
 
-  	game->RenderBreadText(std::to_string(game->SActor.uid).c_str(),game->White,game->current.w - 100, 0 );
-  	game->RenderBreadText(std::to_string(game->SActor.armour_class).c_str(),game->White,game->current.w - 100, 50 );
-  	game->RenderBreadText(std::to_string(game->SActor.coins_gold).c_str(),game->White,game->current.w - 100, 100 );
+  	game->RenderBreadText(std::to_string(game->SActor.damage).c_str(),game->White,338, 670 );
+  	game->RenderBreadText(std::to_string(game->SActor.encumbrance).c_str(),game->White,400, 670 );
 
-  	game->RenderBreadText(std::to_string(game->SActor.damage).c_str(),game->White,game->current.w - 100, 300 );
-  	game->RenderBreadText(std::to_string(game->SActor.encumbrance).c_str(),game->White,game->current.w - 100, 325 );
+  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_current).c_str(),game->White,120, 540 );
+  	game->RenderBreadText("/",game->White,135, 540 );
+  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_max).c_str(),game->White,150, 540 );
+//  	game->RenderBreadText(std::to_string(game->SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );
+//  	game->RenderBreadText(std::to_string(game->SActor.thirst).c_str(),game->White,game->current.w - 100, 575 );
+//    game->RenderBreadText(game->SActor.name.c_str(),game->White,game->current.w - 100, 600 );
 
-  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_current).c_str(),game->White,game->current.w - 100, 425 );
-  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_max).c_str(),game->White,game->current.w - 100, 450 );
-  	game->RenderBreadText(std::to_string(game->SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );
-  	game->RenderBreadText(std::to_string(game->SActor.thirst).c_str(),game->White,game->current.w - 100, 575 );
-    game->RenderBreadText(game->SActor.name.c_str(),game->White,game->current.w - 100, 600 );
-
-    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255,255);
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255,128);
     SDL_RenderFillRect(game->renderer,&ExitButton2);
-
-    game->RenderBreadText(std::to_string(game->current.w).c_str(),game->White,0,0 );
-    game->RenderBreadText(std::to_string(game->current.h).c_str(),game->White,200,0 );
 
     if( SDL_PointInRect(&mousePosition, &ExitButton2) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
         {
             game->ChangeState( CPlayState::Instance() );
+        }
+    }
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255,128);
+    SDL_RenderFillRect(game->renderer,&InventoryButton);
+
+    if( SDL_PointInRect(&mousePosition, &InventoryButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            game->ChangeState( CInventoryState::Instance() );
+        }
+    }
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255,128);
+    SDL_RenderFillRect(game->renderer,&CharacterButton);
+
+    if( SDL_PointInRect(&mousePosition, &CharacterButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            game->ChangeState( CCharacterState::Instance() );
+        }
+    }
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255,128);
+    SDL_RenderFillRect(game->renderer,&MapButton);
+
+    if( SDL_PointInRect(&mousePosition, &MapButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            game->ChangeState( CWorldMapState::Instance() );
         }
     }
 }

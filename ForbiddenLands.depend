@@ -437,3 +437,474 @@
 	"menustate.h"
 	"settingsmenustate.h"
 
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/battlestate.cpp
+	<chrono>
+	<iostream>
+	<thread>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"playstate.h"
+	"gameoverstate.h"
+	"battlestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/gameengine.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	<iostream>
+	<string>
+	<fstream>
+	<sstream>
+	<vector>
+	<sys/utsname.h>
+	<array>
+	<map>
+	<dirent.h>
+	"globals.h"
+	"actor.h"
+	"portals.h"
+	"randomizer.h"
+	"weather/weather.h"
+	"../version.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/globals.h
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/actor.h
+	<string>
+	<SDL2/SDL.h>
+	"randomizer.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/randomizer.h
+	<iostream>
+	<string>
+	<vector>
+	<random>
+	<SDL2/SDL.h>
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/portals.h
+	<iostream>
+	<string>
+	<vector>
+	<random>
+	<SDL2/SDL.h>
+	"randomizer.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/weather/weather.h
+	<iostream>
+	<string>
+	<vector>
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/version.h
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/gamestate.h
+	"gameengine.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/menustate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/playstate.h
+	<string>
+	<vector>
+	<filesystem>
+	<string>
+	<random>
+	<time.h>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/gameoverstate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/battlestate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/createcharacterstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"loadingstate.h"
+	"playstate.h"
+	"createcharacterstate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/loadingstate.h
+	<chrono>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/createcharacterstate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/encampmentstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"createcharacterstate.h"
+	"loadmenustate.h"
+	"savemenustate.h"
+	"encampmentstate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/loadmenustate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/savemenustate.h
+	<string>
+	<vector>
+	<dirent.h>
+	<sstream>
+	<iomanip>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/encampmentstate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/gameoverstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"createcharacterstate.h"
+	"loadmenustate.h"
+	"savemenustate.h"
+	"menustate.h"
+	"gameoverstate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/introstate.cpp
+	<stdio.h>
+	<sys/types.h>
+	<sys/sysinfo.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"introstate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/introstate.h
+	<chrono>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/inventorystate.cpp
+	<chrono>
+	<iostream>
+	<thread>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"inventorystate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/inventorystate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/loadingstate.cpp
+	<stdio.h>
+	<sys/types.h>
+	<sys/sysinfo.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"loadingstate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/loadmenustate.cpp
+	<stdio.h>
+	<dirent.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"loadmenustate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/menustate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"loadingstate.h"
+	"playstate.h"
+	"createcharacterstate.h"
+	"loadmenustate.h"
+	"savemenustate.h"
+	"settingsmenustate.h"
+	"menustate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/settingsmenustate.h
+	<string>
+	<vector>
+	<dirent.h>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/playstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"menustate.h"
+	"battlestate.h"
+	"characterstate.h"
+	"shopstate.h"
+	"encampmentstate.h"
+	"worldmapstate.h"
+	"inventorystate.h"
+
+1670419989 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/characterstate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/shopstate.h
+	<string>
+	<vector>
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/worldmapstate.h
+	<SDL2/SDL.h>
+	"gamestate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/savemenustate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"savemenustate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/settingsmenustate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"settingsmenustate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/shopstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"playstate.h"
+	"shopstate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/worldmapstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"playstate.h"
+	"worldmapstate.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/globals.cpp
+	"globals.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/portals.cpp
+	"portals.h"
+
+1670402070 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/randomizer.cpp
+	"randomizer.h"
+
+1670420191 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/characterstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"menustate.h"
+	"playstate.h"
+	"characterstate.h"
+	"inventorystate.h"
+	"worldmapstate.h"
+
+1670417210 source:/home/rickard/Documents/GitHub/ForbiddenLands/src/main.cpp
+	<chrono>
+	<thread>
+	<cassert>
+	<ctime>
+	<iostream>
+	<string>
+	<list>
+	<array>
+	<stack>
+	<deque>
+	<queue>
+	<fstream>
+	<sstream>
+	<iterator>
+	<vector>
+	<iomanip>
+	<map>
+	<algorithm>
+	<string>
+	<limits.h>
+	<unistd.h>
+	<sys/stat.h>
+	<stdint.h>
+	<sys/utsname.h>
+	<experimental/filesystem>
+	<iostream>
+	<chrono>
+	<iomanip>
+	<fstream>
+	<sys/types.h>
+	<dirent.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<stdio.h>
+	<random>
+	<sys/socket.h>
+	<arpa/inet.h>
+	<errno.h>
+	<netinet/in.h>
+	<sys/time.h>
+	<sqlite3.h>
+	"../rapidxml-1.13/rapidxml.hpp"
+	"../include/doctest.h"
+	"../asciichart-master/include/ascii/ascii.h"
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
+	<SDL2/SDL_net.h>
+	"../include/gameengine/gameengine.h"
+	"../include/gameengine/introstate.h"
+	"../include/gameengine/menustate.h"
+	<direct.h>
+	<unistd.h>
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/rapidxml-1.13/rapidxml.hpp
+	<cstdlib>
+	<cassert>
+	<new>
+	<exception>
+
+1670402070 /home/rickard/Documents/GitHub/ForbiddenLands/include/doctest.h
+	<signal.h>
+	<ciso646>
+	<cstddef>
+	<ostream>
+	<istream>
+	<type_traits>
+	"doctest_fwd.h"
+	<ctime>
+	<cmath>
+	<climits>
+	<math.h>
+	<new>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<limits>
+	<utility>
+	<fstream>
+	<sstream>
+	<iostream>
+	<algorithm>
+	<iomanip>
+	<vector>
+	<atomic>
+	<mutex>
+	<set>
+	<map>
+	<exception>
+	<stdexcept>
+	<csignal>
+	<cfloat>
+	<cctype>
+	<cstdint>
+	<sys/types.h>
+	<unistd.h>
+	<sys/sysctl.h>
+	<AfxWin.h>
+	<windows.h>
+	<io.h>
+	<sys/time.h>
+	<unistd.h>
+
+1670402067 /home/rickard/Documents/GitHub/ForbiddenLands/asciichart-master/include/ascii/ascii.h
+	<cmath>
+	<codecvt>
+	<iomanip>
+	<map>
+	<sstream>
+	<string>
+	<unordered_map>
+	<vector>
+	"color.h"
+	"constants.h"
+	"text.h"
+
+1670402067 /home/rickard/Documents/GitHub/ForbiddenLands/asciichart-master/include/ascii/color.h
+	<iostream>
+	<ostream>
+	<sstream>
+	<string>
+	<type_traits>
+	<vector>
+
+1670402067 /home/rickard/Documents/GitHub/ForbiddenLands/asciichart-master/include/ascii/constants.h
+	<limits>
+
+1670402067 /home/rickard/Documents/GitHub/ForbiddenLands/asciichart-master/include/ascii/text.h
+	"style.h"
+
+1670402067 /home/rickard/Documents/GitHub/ForbiddenLands/asciichart-master/include/ascii/style.h
+	"color.h"
+
+1670418596 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/gameengine.cpp
+	<stdio.h>
+	<iostream>
+	<ctime>
+	<ratio>
+	<chrono>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+
