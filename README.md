@@ -243,6 +243,9 @@ sudo apt install git git-lfs
 
 sudo apt install codeblocks
 
+sudo apt install libsdl2-*
+
+
 ## SDL 2 and supporting libraries:
 
 ## SDL2 base:
