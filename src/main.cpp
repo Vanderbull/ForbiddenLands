@@ -666,7 +666,7 @@ int main(int argc, char ** argv)
 
       setlocale(LC_ALL, "");
 
-animation();
+//animation();
 //exit(10);
 //    std::vector<std::string> fontFiles;
 //    std::vector<std::string> imagesFiles;
