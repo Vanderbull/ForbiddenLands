@@ -26,6 +26,7 @@ void CLoadingState::Init()
     int progress_value = 0;
 
     ofstream myfile;
+
     myfile.open ("example.txt");
     for(int x = 0; x < 16; x++ )
     {
@@ -128,6 +129,27 @@ void CLoadingState::Update(CGameEngine* game)
 void CLoadingState::Draw(CGameEngine* game)
 {
 	SDL_Log("CLoadingState Draw\n");
+
+    // Extract the x,y,z position from the filename
+    // ./assets/data/textures/test_map/0000E-fs8.png
+    // EWNS
+
+    std::cout << "Character starting position: " << game->SActor.PlayerCoordinate.x << ","
+                                                << game->SActor.PlayerCoordinate.y << ","
+                                                << game->SActor.PlayerCoordinate.z << ",";
+
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501E-fs8.png");
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501W-fs8.png");
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501N-fs8.png");
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501S-fs8.png");
+
+    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401E-fs8.png");
+    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][1] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401W-fs8.png");
+    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401N-fs8.png");
+    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401S-fs8.png");
+
+    game->ChangeState( CPlayState::Instance() );
+
     static int progress_value = 0;
     static int finished = 0;
 

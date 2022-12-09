@@ -171,6 +171,35 @@ void CPlayState::Update(CGameEngine* game)
     {
         game->ChangeState( CShopState::Instance() );
     }
+
+    std::string coordinates_modified = "";
+    if(game->SActor.PlayerCoordinate.x < 10)
+    {
+        coordinates_modified += "0";
+    }
+
+    coordinates_modified += std::to_string(game->SActor.PlayerCoordinate.x);
+
+    if(game->SActor.PlayerCoordinate.y < 10)
+    {
+        coordinates_modified += "0";
+    }
+
+    coordinates_modified += std::to_string(game->SActor.PlayerCoordinate.y);
+
+    std::string east = "./assets/data/textures/test_map/" + coordinates_modified + "E" + "-fs8.png";
+    std::string west = "./assets/data/textures/test_map/" + coordinates_modified + "W" + "-fs8.png";
+    std::string north = "./assets/data/textures/test_map/" + coordinates_modified + "N" + "-fs8.png";
+    std::string south = "./assets/data/textures/test_map/" + coordinates_modified + "S" + "-fs8.png";
+
+    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] == NULL)
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] = IMG_LoadTexture(game->renderer,east.c_str());
+    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] == NULL)
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] = IMG_LoadTexture(game->renderer,west.c_str());
+    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] == NULL)
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,north.c_str());
+    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] == NULL)
+    game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,south.c_str());
 }
 
 void CPlayState::Draw(CGameEngine* game)
