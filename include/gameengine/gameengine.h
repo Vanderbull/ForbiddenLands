@@ -440,6 +440,8 @@ public:
 //            }
     }
 
+    Mix_Chunk* _sample[2];
+
 private:
 	// the stack of states
 	vector<CGameState*> states;

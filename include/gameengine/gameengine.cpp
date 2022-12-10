@@ -4,6 +4,10 @@
 #include <ratio>
 #include <chrono>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_net.h>
 
 #include "gameengine.h"
 #include "gamestate.h"
@@ -195,7 +199,17 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         {
             SDL_Log("Audio successfully initiated... %s %d", __FILE__, __LINE__);
         }
+
+        int result = Mix_AllocateChannels(4);
+        if( result < 0 )
+        {
+            fprintf(stderr, "Unable to allocate mixing channels: %s\n", SDL_GetError());
+            exit(-1);
+        }
     }
+
+    _sample[0] = Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg");
+    Mix_PlayChannel(-1, _sample[0], 0);
 
 	SDL_Log("Loading items... %s %d", __FILE__, __LINE__);
 	AddItem();
