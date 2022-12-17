@@ -161,7 +161,7 @@ void CPlayState::Update(CGameEngine* game)
     if(Rotation == "E")
         game->SActor.PlayerCoordinate.z = EAST;
 
-    if( random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] <= (RAND_MAX / 2) )
+    if( random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] <= (RAND_MAX / 4) )
     {
         random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] = RAND_MAX;
         game->ChangeState( CBattleState::Instance() );
@@ -192,13 +192,18 @@ void CPlayState::Update(CGameEngine* game)
     std::string north = "./assets/data/textures/test_map/" + coordinates_modified + "N" + "-fs8.png";
     std::string south = "./assets/data/textures/test_map/" + coordinates_modified + "S" + "-fs8.png";
 
-    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] == NULL)
+    SDL_DestroyTexture(game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0]);
+    SDL_DestroyTexture(game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1]);
+    SDL_DestroyTexture(game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2]);
+    SDL_DestroyTexture(game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3]);
+
+    //if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] == NULL)
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] = IMG_LoadTexture(game->renderer,east.c_str());
-    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] == NULL)
+    //if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] == NULL)
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] = IMG_LoadTexture(game->renderer,west.c_str());
-    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] == NULL)
+    //if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] == NULL)
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,north.c_str());
-    if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] == NULL)
+    //if( game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] == NULL)
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,south.c_str());
 }
 

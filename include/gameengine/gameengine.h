@@ -440,7 +440,7 @@ public:
 //            }
     }
 
-    Mix_Chunk* _sample[2];
+    Mix_Chunk* _sample[20];
 
 private:
 	// the stack of states

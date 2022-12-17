@@ -208,7 +208,16 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
+    Mix_VolumeMusic(16);
+    Mix_Volume(-1,16);
+
     _sample[0] = Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg");
+    _sample[1] = Mix_LoadWAV("./assets/data/sounds/Hit.wav");
+    _sample[2] = Mix_LoadWAV("./assets/data/sounds/Pain.wav");
+    _sample[3] = Mix_LoadWAV("./assets/data/sounds/Punch.wav");
+    _sample[4] = Mix_LoadWAV("./assets/data/sounds/buttonclick.mp3");
+    _sample[5] = Mix_LoadWAV("./assets/data/sounds/interface-click-hover.wav");
+
     Mix_PlayChannel(-1, _sample[0], 0);
 
 	SDL_Log("Loading items... %s %d", __FILE__, __LINE__);

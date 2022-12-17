@@ -127,7 +127,7 @@ public:
         for(int x = 0; x < 16; x++)
             for(int y = 0; y < 16; y++)
             {
-                if( random_events[x][y] <= (RAND_MAX / 2) )
+                if( random_events[x][y] <= (RAND_MAX / 4) )
                 {
                     SDL_Rect imageSize = {x*16 + 50, y*16 + 50,8,8};
                     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);

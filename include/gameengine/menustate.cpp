@@ -115,18 +115,36 @@ void CMenuState::Draw(CGameEngine* game)
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
                 if( MenuChoice == "NEW COLONY")
+                {
+                    Mix_PlayChannel(-1, game->_sample[4], 0);
                     game->ChangeState( CLoadingState::Instance() );
-                    //game->ChangeState( CPlayState::Instance() );
-                if( MenuChoice == "LOAD")
+                }
+                else if( MenuChoice == "LOAD")
+                {
+                    Mix_PlayChannel(-1, game->_sample[4], 0);
                     game->ChangeState( CLoadMenuState::Instance() );
-                if( MenuChoice == "SAVE")
+                }
+                else if( MenuChoice == "SAVE")
+                {
+                    Mix_PlayChannel(-1, game->_sample[4], 0);
                     game->ChangeState( CSaveMenuState::Instance() );
-                if( MenuChoice == "CHARACTER MANAGER")
+                }
+                else if( MenuChoice == "CHARACTER MANAGER")
+                {
+                    Mix_PlayChannel(-1, game->_sample[4], 0);
                     game->ChangeState( CCreateCharacterState::Instance() );
-                if( MenuChoice == "SETTINGS")
+                }
+                else if( MenuChoice == "SETTINGS")
+                {
+                    Mix_PlayChannel(-1, game->_sample[4], 0);
                     game->ChangeState( CSettingsMenuState::Instance() );
-                if( MenuChoice == "EXIT")
+                }
+                else if( MenuChoice == "EXIT")
+                {
+                    Mix_PlayChannel(-1, game->_sample[4], 0);
                     game->Quit();
+
+                }
             }
         }
         ++Repeat;

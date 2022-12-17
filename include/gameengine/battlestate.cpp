@@ -133,6 +133,8 @@ void CBattleState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &AttackButtonPosition);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
+            Mix_PlayChannel(-1, game->_sample[3], 0);
+            Mix_PlayChannel(-1, game->_sample[2], 0);
             game->SNpc.hitpoints_current--;
             m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)
@@ -149,6 +151,8 @@ void CBattleState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &DefendButtonPosition);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
+            Mix_PlayChannel(-1, game->_sample[3], 0);
+            Mix_PlayChannel(-1, game->_sample[2], 0);
             m_PlayerActive = false;
             m_PlayerDefending = true;
         }
@@ -161,6 +165,8 @@ void CBattleState::Draw(CGameEngine* game)
 
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
+            Mix_PlayChannel(-1, game->_sample[3], 0);
+            Mix_PlayChannel(-1, game->_sample[2], 0);
             game->SNpc.hitpoints_current--;
             m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)

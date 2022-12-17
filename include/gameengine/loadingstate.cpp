@@ -143,10 +143,10 @@ void CLoadingState::Draw(CGameEngine* game)
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501N-fs8.png");
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501S-fs8.png");
 
-    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401E-fs8.png");
-    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][1] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401W-fs8.png");
-    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401N-fs8.png");
-    game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401S-fs8.png");
+    //game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401E-fs8.png");
+    //game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][1] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401W-fs8.png");
+    //game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401N-fs8.png");
+    //game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401S-fs8.png");
 
     game->ChangeState( CPlayState::Instance() );
 
