@@ -114,10 +114,17 @@ void CBattleState::Draw(CGameEngine* game)
 
     if(!m_PlayerActive)
     {
-        if(!m_PlayerDefending)
-            game->SActor.hitpoints_current--;
-        else
+        if(m_PlayerDefending)
+        {
+            game->SActor.hitpoints_current;
             m_PlayerDefending = false;
+        }
+        else
+        {
+            m_PlayerDefending = false;
+            game->SActor.hitpoints_current -= GenerateNumber(0,3);
+        }
+
         m_PlayerActive = true;
         if(game->SActor.hitpoints_current <= 0)
         {
@@ -134,13 +141,14 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             Mix_PlayChannel(-1, game->_sample[3], 0);
-            Mix_PlayChannel(-1, game->_sample[2], 0);
-            game->SNpc.hitpoints_current--;
+            //Mix_PlayChannel(-1, game->_sample[2], 0);
+            game->SNpc.hitpoints_current -= GenerateNumber(0,3);
             m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)
             {
                 m_PlayerActive = true;
                 game->SNpc.hitpoints_current = game->SNpc.hitpoints_max;
+                game->SActor.hitpoints_current = game->SActor.hitpoints_max;
                 game->ChangeState(CPlayState::Instance());
             }
         }
@@ -152,7 +160,7 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             Mix_PlayChannel(-1, game->_sample[3], 0);
-            Mix_PlayChannel(-1, game->_sample[2], 0);
+            //Mix_PlayChannel(-1, game->_sample[2], 0);
             m_PlayerActive = false;
             m_PlayerDefending = true;
         }
@@ -167,12 +175,13 @@ void CBattleState::Draw(CGameEngine* game)
         {
             Mix_PlayChannel(-1, game->_sample[3], 0);
             Mix_PlayChannel(-1, game->_sample[2], 0);
-            game->SNpc.hitpoints_current--;
+            game->SNpc.hitpoints_current -= GenerateNumber(0,3);
             m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)
             {
                 m_PlayerActive = true;
                 game->SNpc.hitpoints_current = game->SNpc.hitpoints_max;
+                game->SActor.hitpoints_current = game->SActor.hitpoints_max;
                 game->ChangeState(CPlayState::Instance());
             }
         }

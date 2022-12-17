@@ -208,8 +208,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
-    Mix_VolumeMusic(16);
-    Mix_Volume(-1,16);
+    Mix_VolumeMusic(0);
+    Mix_Volume(-1,0);
 
     _sample[0] = Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg");
     _sample[1] = Mix_LoadWAV("./assets/data/sounds/Hit.wav");
