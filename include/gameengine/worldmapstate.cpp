@@ -83,8 +83,6 @@ void CWorldMapState::Draw(CGameEngine* game)
     if( SDL_PointInRect(&mousePosition, &Kustenstad) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-
-        // Sweden
         SDL_RenderFillRect(game->renderer, &Kustenstad);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
@@ -94,16 +92,12 @@ void CWorldMapState::Draw(CGameEngine* game)
     else
     {
         SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-
-        // Sweden
         SDL_RenderFillRect(game->renderer, &Kustenstad);
     }
 
     if( SDL_PointInRect(&mousePosition, &Vallentuna) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-
-        // Sweden
         SDL_RenderFillRect(game->renderer, &Vallentuna);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
@@ -113,27 +107,21 @@ void CWorldMapState::Draw(CGameEngine* game)
     else
     {
         SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-
-        // Sweden
         SDL_RenderFillRect(game->renderer, &Vallentuna);
     }
 
     if( SDL_PointInRect(&mousePosition, &Mora) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
         SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-
-        // Sweden
         SDL_RenderFillRect(game->renderer, &Mora);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
-            game->SActor.worldMap = 1;
+            game->SActor.worldMap = 2;
         }
     }
     else
     {
         SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-
-        // Sweden
         SDL_RenderFillRect(game->renderer, &Mora);
     }
 
@@ -141,6 +129,10 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     if( game->SActor.worldMap == 0)
         SDL_RenderFillRect(game->renderer, &Kustenstad);
+    if( game->SActor.worldMap == 1)
+        SDL_RenderFillRect(game->renderer, &Vallentuna);
+    if( game->SActor.worldMap == 2)
+        SDL_RenderFillRect(game->renderer, &Mora);
 
     game->renderWorldMapTiles();
 

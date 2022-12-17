@@ -172,6 +172,7 @@ void CPlayState::Update(CGameEngine* game)
         game->ChangeState( CShopState::Instance() );
     }
 
+
     std::string coordinates_modified = "";
     if(game->SActor.PlayerCoordinate.x < 10)
     {
