@@ -1,0 +1,6 @@
+17 December 2022
+   released version 1.0.5 of Forbidden Lands
+
+     Change log:
+        -Updated: New font for the text in the game.
+

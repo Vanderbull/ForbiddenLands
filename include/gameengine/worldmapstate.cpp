@@ -125,7 +125,6 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Mora);
     }
 
-
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     if( game->SActor.worldMap == 0)
         SDL_RenderFillRect(game->renderer, &Kustenstad);
@@ -135,5 +134,4 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Mora);
 
     game->renderWorldMapTiles();
-
 }

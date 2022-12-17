@@ -127,18 +127,11 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
-//    if( current.w > 1920 )
-//    {
-//        current.w = 1920;
-//        current.h = 1080;
-//    }
-
     window = SDL_CreateWindow("",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
         current.w, current.h,
         SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
-
 
     SDL_GLContext Context = SDL_GL_CreateContext(window);
 
@@ -149,6 +142,10 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     }
     else
     {
+        string version = AutoVersion::FULLVERSION_STRING; //C++ example
+
+        SDL_Log("Version: %s FILE:%s LINE:%d",version , __FILE__, __LINE__);
+
         SDL_Log("SDL Window creation: SUCCESS %s %d", __FILE__, __LINE__);
 
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -231,14 +228,14 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
     initShop();
 
-    gameTitleFont = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    gameTitleFont = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", g_breadTextFontSize);
 
     if(!gameTitleFont)
     {
         SDL_Log("TTF_OpenFont: %s %s %d",TTF_GetError(), __FILE__, __LINE__);
         exit(EXIT_FAILURE);
     }
-    gameBreadTextFont = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    gameBreadTextFont = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", g_breadTextFontSize);
 
     if(!gameBreadTextFont)
     {
@@ -341,7 +338,7 @@ void CGameEngine::Draw()
 int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.ttf", fontSize);
 
     gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -364,7 +361,7 @@ int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX
 int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", 48);
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", 48);
 
     gSurface = TTF_RenderText_Blended(gameTitleFont, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -387,7 +384,7 @@ int CGameEngine::RenderTitle(std::string renderText, SDL_Color colorValue, int i
 int CGameEngine::RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", g_breadTextFontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", g_breadTextFontSize);
 
     gSurface = TTF_RenderText_Blended(gameBreadTextFont, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -410,7 +407,7 @@ int CGameEngine::RenderBreadText(std::string renderText, SDL_Color colorValue, i
 int CGameEngine::RenderText2(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", fontSize);
 
     gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -433,7 +430,7 @@ int CGameEngine::RenderText2(std::string renderText, SDL_Color colorValue, int i
 int CGameEngine::RenderText3(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", fontSize);
 
     gSurface = TTF_RenderText_Blended_Wrapped(m_font, renderText.c_str(), colorValue,1000);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
@@ -456,7 +453,7 @@ int CGameEngine::RenderText3(std::string renderText, SDL_Color colorValue, int i
 int CGameEngine::RenderTextWrapped(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize, int wrapped)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./assets/data/fonts/droid-sans-mono/DroidSansMono.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", fontSize);
 
     gSurface = TTF_RenderText_Blended_Wrapped(m_font, renderText.c_str(), colorValue,wrapped);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
