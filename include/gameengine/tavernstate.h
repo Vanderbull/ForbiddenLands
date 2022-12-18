@@ -1,5 +1,5 @@
-#ifndef CRAPSTATE_H
-#define CRAPSTATE_H
+#ifndef TAVERNSTATE_H
+#define TAVERNSTATE_H
 
 #include <string>
 #include <vector>
@@ -8,7 +8,7 @@ using namespace std;
 #include <SDL2/SDL.h>
 #include "gamestate.h"
 
-class CCrapState : public CGameState
+class CTavernState : public CGameState
 {
 public:
 	void Init();
@@ -21,8 +21,8 @@ public:
 	void Update(CGameEngine* game);
 	void Draw(CGameEngine* game);
 
-	static CCrapState* Instance() {
-		return &m_CrapState;
+	static CTavernState* Instance() {
+		return &m_TavernState;
 	}
 
     bool IsButtonReleased(const Uint32 uButton)
@@ -33,10 +33,10 @@ public:
     SDL_Point mousePosition;
 
 protected:
-	CCrapState() { }
+	CTavernState() { }
 
 private:
-	static CCrapState m_CrapState;
+	static CTavernState m_TavernState;
 
 	SDL_Color White = {255, 255, 255, 255};
     std::vector<std::string> MenuChoices;

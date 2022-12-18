@@ -10,7 +10,7 @@
 #include "encampmentstate.h"
 #include "worldmapstate.h"
 #include "inventorystate.h"
-#include "crapstate.h"
+#include "tavernstate.h"
 
 CPlayState CPlayState::m_PlayState;
 
@@ -173,9 +173,9 @@ void CPlayState::Update(CGameEngine* game)
         game->ChangeState( CShopState::Instance() );
     }
 
-    if( game->SActor.PlayerCoordinate.x == 9 && game->SActor.PlayerCoordinate.y == 1 )
+    if( game->SActor.PlayerCoordinate.x == 12 && game->SActor.PlayerCoordinate.y == 0 )
     {
-        game->ChangeState( CCrapState::Instance() );
+        game->ChangeState( CTavernState::Instance() );
     }
 
     std::string coordinates_modified = "";

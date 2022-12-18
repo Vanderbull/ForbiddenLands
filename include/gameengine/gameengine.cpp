@@ -338,7 +338,7 @@ void CGameEngine::Draw()
 int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
 {
     TTF_Font* m_font = NULL;
-    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.ttf", fontSize);
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", fontSize);
 
     gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);

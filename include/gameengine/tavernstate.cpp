@@ -8,35 +8,35 @@ using namespace std;
 #include "menustate.h"
 #include "playstate.h"
 #include "gameoverstate.h"
-#include "crapstate.h"
+#include "tavernstate.h"
 
 using namespace std::chrono;
 
-CCrapState CCrapState::m_CrapState;
+CTavernState CTavernState::m_TavernState;
 
-void CCrapState::Init()
+void CTavernState::Init()
 {
-    SDL_Log("CCrapState Init\n");
+    SDL_Log("CTavernState Init\n");
 }
 
-void CCrapState::Cleanup()
+void CTavernState::Cleanup()
 {
-	SDL_Log("CCrapState Pause\n");
+	SDL_Log("CTavernState Pause\n");
 }
 
-void CCrapState::Pause()
+void CTavernState::Pause()
 {
-	SDL_Log("CCrapState Pause\n");
+	SDL_Log("CTavernState Pause\n");
 }
 
-void CCrapState::Resume()
+void CTavernState::Resume()
 {
-	SDL_Log("CCrapState Resume\n");
+	SDL_Log("CTavernState Resume\n");
 }
 
-void CCrapState::HandleEvents(CGameEngine* game)
+void CTavernState::HandleEvents(CGameEngine* game)
 {
-    SDL_Log("CCrapState HandleEvents\n");
+    SDL_Log("CTavernState HandleEvents\n");
 	SDL_Event event;
 
 	if (SDL_PollEvent(&event))
@@ -58,9 +58,9 @@ void CCrapState::HandleEvents(CGameEngine* game)
 	}
 }
 
-void CCrapState::Update(CGameEngine* game)
+void CTavernState::Update(CGameEngine* game)
 {
-    SDL_Log("CCrapState Update\n");
+    SDL_Log("CTavernState Update\n");
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
     m_iPreviousCoordY=m_iCurrentCoordY;
@@ -74,9 +74,9 @@ void CCrapState::Update(CGameEngine* game)
     m_iWheelY=0;
 }
 
-void CCrapState::Draw(CGameEngine* game)
+void CTavernState::Draw(CGameEngine* game)
 {
-    SDL_Log("CCrapState Draw");
+    SDL_Log("CTavernState Draw");
 
     SDL_Rect AttackButtonPosition = { 0, 0, 64, 64};
     SDL_Rect DefendButtonPosition = { 65, 0, 64, 64};
