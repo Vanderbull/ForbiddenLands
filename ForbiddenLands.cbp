@@ -111,8 +111,6 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/battlestate.h" />
 		<Unit filename="include/gameengine/characterstate.cpp" />
 		<Unit filename="include/gameengine/characterstate.h" />
-		<Unit filename="include/gameengine/crapstate.cpp" />
-		<Unit filename="include/gameengine/crapstate.h" />
 		<Unit filename="include/gameengine/createcharacterstate.cpp" />
 		<Unit filename="include/gameengine/createcharacterstate.h" />
 		<Unit filename="include/gameengine/encampmentstate.cpp" />
@@ -141,6 +139,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/settingsmenustate.h" />
 		<Unit filename="include/gameengine/shopstate.cpp" />
 		<Unit filename="include/gameengine/shopstate.h" />
+		<Unit filename="include/gameengine/tavernstate.cpp" />
+		<Unit filename="include/gameengine/tavernstate.h" />
 		<Unit filename="include/gameengine/weather/weather.h" />
 		<Unit filename="include/gameengine/worldmapstate.cpp" />
 		<Unit filename="include/gameengine/worldmapstate.h" />
