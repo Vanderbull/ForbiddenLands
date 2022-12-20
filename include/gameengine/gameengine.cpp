@@ -29,7 +29,7 @@ SkillObject::SkillObject(void)
 {
 
 };
-SkillObject::SkillObject(std::string N_)
+SkillObject::SkillObject( std::string N_, std::string Group_, int Learned_, int MaxExp_ )
 {
     Name = N_;
 };
@@ -658,32 +658,14 @@ void CGameEngine::AddSkill()
 {
     SDL_Log("CGameEngine AddSkill %s %d", __FILE__, __LINE__);
 
-//    std::vector<std::string> v_SkillNames = {"Short blade","Long blade","Bow","Bludgeon","Short axe","Long axe","Poleblade","Pole","Shield",
-//                                            "Leather armor","Chained armor","Scaled armor", "Plated armor","Fitness","Lore","Persuasion",
-//                                            "Taming","Quickhand","Stealth","Awareness"};
-
-    std::vector<SkillObject> test{{"Short blade"},{"Long blade"},{"Bow"},{"Bludgeon"},{"Short axe"},{"Long axe"},{"Poleblade"},{"Shield"},
-                                {"Leather armor"},{"Chained armor"},{"SCaled armor"},{"Plated armor"},{"Fitness"},{"Lore"},{"Persuasion"},
-                                {"Taming"},{"Quickhand"},{"Stealth"},{"Awareness"}};
+    std::vector<SkillObject> test{{"Short blade","",0,0},{"Long blade","",0,0},{"Bow","",0,0},{"Bludgeon","",0,0},{"Short axe","",0,0},{"Long axe","",0,0},{"Poleblade","",0,0},{"Shield","",0,0},
+                                {"Leather armor","",0,0},{"Chained armor","",0,0},{"SCaled armor","",0,0},{"Plated armor","",0,0},{"Fitness","",0,0},{"Lore","",0,0},{"Persuasion","",0,0},
+                                {"Taming","",0,0},{"Quickhand","",0,0},{"Stealth","",0,0},{"Awareness","",0,0}};
 
     for (auto i = test.begin(); i != test.end(); i++)
     {
          v_Skill.push_back(*i);
     }
-//    for (auto i = v_SkillNames.begin(); i != v_SkillNames.end(); i++)
-//    {
-//        SkillObject tempObject;
-//        tempObject.Name = *i;
-//
-//        SDL_Log("Adding '%s'\n",tempObject.Name.c_str());
-//        SDL_Log("Adding '%s'\n",tempObject.MaximumExpertise = 0);
-//        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsAttribute = 0);
-//        SDL_Log("Adding '%s'\n",tempObject.InitialRequirementsValue = 0);
-//        SDL_Log("Adding '%s'\n",tempObject.GroupID = 0);
-//        SDL_Log("Adding '%s'\n",tempObject.Description.c_str());
-//
-//        v_Skill.push_back(tempObject);
-//    }
 };
 
 void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)

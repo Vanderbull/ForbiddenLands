@@ -669,7 +669,7 @@
 	<SDL2/SDL.h>
 	"gamestate.h"
 
-1671296447 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/playstate.cpp
+1671384361 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/playstate.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"gameengine.h"
@@ -682,6 +682,7 @@
 	"encampmentstate.h"
 	"worldmapstate.h"
 	"inventorystate.h"
+	"tavernstate.h"
 
 1670419989 /home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/characterstate.h
 	<string>
@@ -893,7 +894,7 @@
 1670402067 /home/rickard/Documents/GitHub/ForbiddenLands/asciichart-master/include/ascii/style.h
 	"color.h"
 
-1671383858 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/gameengine.cpp
+1671384450 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/gameengine.cpp
 	<stdio.h>
 	<iostream>
 	<ctime>

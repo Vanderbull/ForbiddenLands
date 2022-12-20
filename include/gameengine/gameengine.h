@@ -38,11 +38,10 @@ public:
     int InitialRequirementsAttribute = 0;
     int InitialRequirementsValue = 0;
     int GroupID = 0;
-    //std::vector<std::string> UtilizedBy;
     std::string Description = "";
 
     SkillObject(void);
-    SkillObject(std::string N_);
+    SkillObject( std::string N_, std::string Group_, int Learned_, int MaxExp_ );
 };
 
 class Item {
