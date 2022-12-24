@@ -20,7 +20,7 @@ using namespace std;
 
 #include "globals.h"
 #include "actor.h"
-//#include "ingametime.h"
+#include "ingametime.h"
 #include "portals.h"
 #include "randomizer.h"
 #include "weather/weather.h"
@@ -157,6 +157,7 @@ class CGameEngine
 {
 public:
 
+    InGameTime gameTime;
     ACTOR SActor;
     ACTOR SNpc;
 
@@ -202,24 +203,42 @@ public:
     int currentTime = 0;
     int currentTimeOfDay = day;
 
+    // Live ticking time or by movement
     int currentTimeElapse(bool tick = false )
     {
         if( tick )
         {
-            currentTime++;
-            if( currentTime > 24 )
+            gameTime.tm_sec++;
+
+            if( gameTime.tm_sec == 60 )
             {
-                currentTime = 0;
-                currentDay++;
+                gameTime.tm_sec = 0;
+                gameTime.tm_min++;
             }
-            if( currentTime > 6 && currentTime < 18 )
+            if( gameTime.tm_min == 59 )
             {
-                currentTimeOfDay = day;
+                gameTime.tm_min = 0;
+                gameTime.tm_hour++;
             }
-            else
+            if( gameTime.tm_hour == 23 )
             {
-                currentTimeOfDay = night;
+                gameTime.tm_hour = 0;
+                gameTime.tm_mday++;
+               if( gameTime.tm_hour > 6 && gameTime.tm_hour < 18 )
+                {
+                    currentTimeOfDay = day;
+                }
+                else
+                {
+                    currentTimeOfDay = night;
+                }
             }
+            if( gameTime.tm_mon == 11 )
+            {
+                gameTime.tm_mon = 0;
+                gameTime.tm_year++;
+            }
+
         }
         return currentTimeOfDay;
     };

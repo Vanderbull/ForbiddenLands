@@ -738,6 +738,6 @@ void CGameEngine::renderDaytime()
 
         RenderText("Season: " + cweather_engine.get_season(), White, current.w - 1050,100,24);
         RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 1050,124,24);
-        RenderText("currentTime: " + std::to_string(currentTime),White, current.w - 1050, 170,24);
-        RenderText("currentDay: " + std::to_string(currentDay),White, current.w - 1050, 190,24);
+        RenderText("currentTime: " + std::to_string(gameTime.tm_hour)+std::to_string(gameTime.tm_min)+std::to_string(gameTime.tm_sec),White, current.w - 1050, 170,24);
+        RenderText("currentDay: " + std::to_string(gameTime.tm_mday),White, current.w - 1050, 190,24);
 }

@@ -82,7 +82,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] == 1 )
                                         game->SActor.PlayerCoordinate.y--;
-                                    //DateAndTime.tm_min++;
+                                    //game->gameTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "S")
@@ -91,7 +91,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] == 1 )
                                         game->SActor.PlayerCoordinate.y++;
-                                    //DateAndTime.tm_min++;
+                                    //game->gameTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "W")
@@ -100,7 +100,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
                                         game->SActor.PlayerCoordinate.x--;
-                                    //DateAndTime.tm_min++;
+                                    //game->gameTime.tm_min++;
                                 }
                             }
                             else if( Rotation == "E")
@@ -109,7 +109,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
                                         game->SActor.PlayerCoordinate.x++;
-                                    //DateAndTime.tm_min++;
+                                    //game->gameTime.tm_min++;
                                 }
                             }
                         } break;
@@ -119,21 +119,25 @@ void CPlayState::HandleEvents(CGameEngine* game)
                             {
                                 if( game->SActor.PlayerCoordinate.y > 0 )
                                     game->SActor.PlayerCoordinate.y++;
+                                    //game->gameTime.tm_min++;
                             } break;
                             if( Rotation == "S")
                             {
                                 if( game->SActor.PlayerCoordinate.y < 15 )
                                     game->SActor.PlayerCoordinate.y--;
+                                    //game->gameTime.tm_min++;
                             } break;
                             if( Rotation == "W")
                             {
                                 if( game->SActor.PlayerCoordinate.x > 0 )
                                     game->SActor.PlayerCoordinate.x++;
+                                    //game->gameTime.tm_min++;
                             } break;
                             if( Rotation == "E")
                             {
                                 if( game->SActor.PlayerCoordinate.x < 15 )
                                     game->SActor.PlayerCoordinate.x--;
+                                    //game->gameTime.tm_min++;
                             } break;
                         } break;
 				} break;
@@ -144,6 +148,8 @@ void CPlayState::HandleEvents(CGameEngine* game)
 void CPlayState::Update(CGameEngine* game)
 {
     SDL_Log("CPlayState Update\n");
+
+    game->currentTimeElapse(true);
 
     if( game->newGame )
     {
