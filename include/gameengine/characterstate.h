@@ -88,11 +88,11 @@ private:
 //    	{"PERCEPTION", 0}
 //  	};
 
-  	SDL_Rect ExitButton{1846,10,64,64};
-  	SDL_Rect ExitButton2{1846,13,80,58};
-    SDL_Rect InventoryButton{8,8,321-8,58};
-    SDL_Rect CharacterButton{326,8,641-326,58};
-    SDL_Rect MapButton{647,8,961-647,58};
+  	SDL_Rect ExitButton{1830,10,80,80};
+  	SDL_Rect ExitButton2{1830,10,80,80};
+    SDL_Rect InventoryButton{10,10,400,80};
+    SDL_Rect CharacterButton{420,10,400,80};
+    SDL_Rect MapButton{830,10,400,80};
 
 };
 

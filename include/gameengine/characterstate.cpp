@@ -94,7 +94,7 @@ void CCharacterState::Draw(CGameEngine* game)
     SDL_RenderClear(game->renderer);
 
     if( game->BackgroundTexture == NULL )
-        game->BackgroundTexture = game->LoadTexture("./assets/data/textures/backgrounds/characterstate-new_1920.png",255);
+        game->BackgroundTexture = game->LoadTexture("./assets/data/textures/backgrounds/characterstate.png",255);
 
     SDL_RenderCopy(game->renderer, game->BackgroundTexture, NULL, NULL);
 
@@ -149,7 +149,7 @@ void CCharacterState::Draw(CGameEngine* game)
         }
     }
 
-    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255,128);
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255,128);
     SDL_RenderFillRect(game->renderer,&CharacterButton);
 
     if( SDL_PointInRect(&mousePosition, &CharacterButton) & SDL_BUTTON(SDL_BUTTON_LEFT) )
