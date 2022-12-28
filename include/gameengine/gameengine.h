@@ -39,9 +39,11 @@ public:
     int InitialRequirementsValue = 0;
     int GroupID = 0;
     std::string Description = "";
+    SDL_Rect Position = {0,0,0,0};
 
     SkillObject(void);
     SkillObject( std::string N_, std::string Group_, int Learned_, int MaxExp_ );
+    SkillObject( SDL_Rect Pos);
 };
 
 class Item {
@@ -199,8 +201,8 @@ public:
         night
     };
 
-    int currentDay = 0;
-    int currentTime = 0;
+//    int currentDay = 0;
+//    int currentTime = 0;
     int currentTimeOfDay = day;
 
     // Live ticking time or by movement
@@ -282,7 +284,6 @@ public:
 
     // Make these a blob
     SDL_Texture* mapTexture[16][16][4];
-
 
     //Make these a blob
     TTF_Font* gameTitleFont;
@@ -378,13 +379,7 @@ public:
 	    int Resistance;
 	    int Vunerability;
 	};
-	std::vector<std::string> v_BaseMonsters = {"Cube, Ooze","Doppelganger","Goblin","Goblin, Warrior", "Goblin Chief", "Snail","Snail Fire","Snake Constrictor"};
 
-    std::array<int, 300> armsAndArmoursValue;
-    std::vector<SGenericItem> generalShopItems;
-    std::vector<SGenericItem> jewelleryShopItems;
-    std::vector<SGenericItem> silverShopItems;
-    std::vector<SGenericItem> armsAndArmoursShopItems;
     weather_engine cweather_engine;
 
     void read_directory(const std::string& name, std::vector<string>& v)

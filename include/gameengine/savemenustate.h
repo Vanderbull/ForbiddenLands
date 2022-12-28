@@ -78,15 +78,12 @@ public:
         else
         {
             FILE *SaveGame;
-            // open file for writing
             SaveGame = fopen (saveFile.c_str(), "w");
             if (SaveGame == NULL)
             {
                 SDL_Log("Error opening file: %s", stderr );
             }
-
             fwrite (&game->SActor, sizeof(struct ACTOR), 1, SaveGame);
-            std::cout << game->currentDay;
             fclose(SaveGame);
             Init();
         }

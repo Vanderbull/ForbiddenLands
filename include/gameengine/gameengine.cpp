@@ -16,6 +16,7 @@
 
 int testing = 0;
 
+
 Item::Item(void)
 {
 
@@ -32,6 +33,16 @@ SkillObject::SkillObject(void)
 SkillObject::SkillObject( std::string N_, std::string Group_, int Learned_, int MaxExp_ )
 {
     Name = N_;
+};
+
+SkillObject::SkillObject( SDL_Rect Pos)
+{
+//    SDL_Rect rect;
+//    rect.x = 500;
+//    rect.y = 170+(counter*50);
+//    rect.w = 300;
+//    rect.h = 30;
+    Position = {Pos.x,Pos.y,Pos.w,Pos.h};
 };
 
 int CGameEngine::Generate(const int from, const int to)
@@ -658,13 +669,43 @@ void CGameEngine::AddSkill()
 {
     SDL_Log("CGameEngine AddSkill %s %d", __FILE__, __LINE__);
 
-    std::vector<SkillObject> test{{"Short blade","",0,0},{"Long blade","",0,0},{"Bow","",0,0},{"Bludgeon","",0,0},{"Short axe","",0,0},{"Long axe","",0,0},{"Poleblade","",0,0},{"Shield","",0,0},
-                                {"Leather armor","",0,0},{"Chained armor","",0,0},{"SCaled armor","",0,0},{"Plated armor","",0,0},{"Fitness","",0,0},{"Lore","",0,0},{"Persuasion","",0,0},
-                                {"Taming","",0,0},{"Quickhand","",0,0},{"Stealth","",0,0},{"Awareness","",0,0}};
+    std::vector<SkillObject> test{
+    {"Short blade","",0,0},
+    {"Long blade","",0,0},
+    {"Bow","",0,0},
+    {"Bludgeon","",0,0},
+    {"Short axe","",0,0},
+    {"Long axe","",0,0},
+    {"Poleblade","",0,0},
+    {"Shield","",0,0},
+    {"Leather armor","",0,0},
+    {"Chained armor","",0,0},
+    {"SCaled armor","",0,0},
+    {"Plated armor","",0,0},
+    {"Fitness","",0,0},
+    {"Lore","",0,0},
+    {"Persuasion","",0,0},
+    {"Taming","",0,0},
+    {"Quickhand","",0,0},
+    {"Stealth","",0,0},
+    {"Awareness","",0,0}
+    };
 
+    int counter = 0;
     for (auto i = test.begin(); i != test.end(); i++)
     {
-         v_Skill.push_back(*i);
+        SDL_Rect rect;
+        rect.x = 500;
+        rect.y = 170+(counter*50);
+        rect.w = 300;
+        rect.h = 30;
+        i->Position.x = 500;
+        i->Position.y = 170+(counter*50);
+        i->Position.w = 300;
+        i->Position.h = 30;
+        v_Skill.push_back(*i);
+        SkillRect.push_back(i->Position);
+        counter++;
     }
 };
 
@@ -716,10 +757,10 @@ void LoadShopData(std::string in_file, std::vector<SGenericItem> &out_data)
 
 void CGameEngine::initShop()
 {
-    LoadShopData("./data/general_shop_data",generalShopItems);
-    LoadShopData("./data/jewellery_shop_data",jewelleryShopItems);
-    LoadShopData("./data/silver_shop_data",silverShopItems);
-    LoadShopData("./data/arms_and_armours_data",armsAndArmoursShopItems);
+//    LoadShopData("./data/general_shop_data",generalShopItems);
+//    LoadShopData("./data/jewellery_shop_data",jewelleryShopItems);
+//    LoadShopData("./data/silver_shop_data",silverShopItems);
+//    LoadShopData("./data/arms_and_armours_data",armsAndArmoursShopItems);
 };
 
 void CGameEngine::renderDaytime()

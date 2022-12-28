@@ -471,12 +471,14 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                 {
                     if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                     {
+                        //int sum_of_elems = std::accumulate(game->v_Skill.begin(), game->v_Skill.end(), 0);
+                        //int res = count(game->v_Skill.begin(), game->v_Skill.end(), IsPrime);
+                        //game->v_Skill.erase(game->v_Skill.begin() + choosen);
                         auto size = game->LearnedSkill.size();
                         if( size < 3 )
                         {
                             game->LearnedSkill.push_back(game->v_Skill.at(choosen).Name);
                             game->v_Skill.erase(game->v_Skill.begin() + choosen);
-                            //SDL_Delay(50);
                         }
                     }
                 }
@@ -490,6 +492,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
             game->RenderText2("Learned skills",White,gRect.x,gRect.y,24);
 
             game->SkillRect.clear();
+
             for (std::string textElement : game->LearnedSkill)
             {
                 SDL_Rect rect;
