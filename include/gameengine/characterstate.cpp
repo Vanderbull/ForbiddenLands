@@ -94,35 +94,35 @@ void CCharacterState::Draw(CGameEngine* game)
     SDL_RenderClear(game->renderer);
 
     if( game->BackgroundTexture == NULL )
-        game->BackgroundTexture = game->LoadTexture("./assets/data/textures/backgrounds/characterstate.png",255);
+        game->BackgroundTexture = game->LoadTexture("./assets/data/textures/backgrounds/characterstate-new.png",255);
 
     SDL_RenderCopy(game->renderer, game->BackgroundTexture, NULL, NULL);
 
-    game->RenderText(game->SActor.name.c_str(),White,300,90,48);
+    game->RenderText(game->SActor.name.c_str(),White,300,115,48);
 
     std::string Experience = std::to_string(game->SActor.experience) + " / 10000";
-    game->RenderBreadText(Experience.c_str(),game->White,300, 150 );
+    game->RenderBreadText(Experience.c_str(),game->White,300, 175 );
 
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[0]).c_str(),game->White,610, 225 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[1]).c_str(),game->White,610, 269 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[2]).c_str(),game->White,610, 310 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[3]).c_str(),game->White,610, 350 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[4]).c_str(),game->White,610, 390 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[5]).c_str(),game->White,610, 430 );
-  	game->RenderBreadText(std::to_string(game->SActor.current_stats[6]).c_str(),game->White,610, 470 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[0]).c_str(),game->Black,560, 250 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[1]).c_str(),game->Black,560, 295 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[2]).c_str(),game->Black,560, 340 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[3]).c_str(),game->Black,560, 385 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[4]).c_str(),game->Black,560, 430 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[5]).c_str(),game->Black,560, 475 );
+  	game->RenderBreadText(std::to_string(game->SActor.current_stats[6]).c_str(),game->Black,560, 520 );
 
-  	game->RenderBreadText(game->SActor.professionTextElements[game->ChoosenProfession].c_str(),game->White,444, 530 );
+  	game->RenderBreadText(game->SActor.professionTextElements[game->ChoosenProfession].c_str(),game->White,444, 575 );
 
 //  	game->RenderBreadText(std::to_string(game->SActor.uid).c_str(),game->White,game->current.w - 100, 0 );
-  	game->RenderBreadText(std::to_string(game->SActor.armour_class).c_str(),game->White,338,600 );
-  	game->RenderBreadText(std::to_string(game->SActor.coins_gold).c_str(),game->White,338, 790 );
+//  	game->RenderBreadText(std::to_string(game->SActor.armour_class).c_str(),game->White,338,600 );
+//  	game->RenderBreadText(std::to_string(game->SActor.coins_gold).c_str(),game->White,338, 790 );
+//
+//  	game->RenderBreadText(std::to_string(game->SActor.damage).c_str(),game->White,338, 670 );
+//  	game->RenderBreadText(std::to_string(game->SActor.encumbrance).c_str(),game->White,400, 670 );
 
-  	game->RenderBreadText(std::to_string(game->SActor.damage).c_str(),game->White,338, 670 );
-  	game->RenderBreadText(std::to_string(game->SActor.encumbrance).c_str(),game->White,400, 670 );
-
-  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_current).c_str(),game->White,120, 540 );
-  	game->RenderBreadText("/",game->White,135, 540 );
-  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_max).c_str(),game->White,150, 540 );
+  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_current).c_str(),game->White,30, 600 );
+  	game->RenderBreadText("/",game->White,45, 600 );
+  	game->RenderBreadText(std::to_string(game->SActor.hitpoints_max).c_str(),game->White,60, 600 );
 //  	game->RenderBreadText(std::to_string(game->SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );
 //  	game->RenderBreadText(std::to_string(game->SActor.thirst).c_str(),game->White,game->current.w - 100, 575 );
 //    game->RenderBreadText(game->SActor.name.c_str(),game->White,game->current.w - 100, 600 );

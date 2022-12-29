@@ -17,14 +17,14 @@
 int testing = 0;
 
 
-Item::Item(void)
-{
-
-};
-Item::Item(std::string,char,int)
-{
-
-};
+//Item::Item(void)
+//{
+//
+//};
+//Item::Item(std::string,char,int)
+//{
+//
+//};
 
 //SkillObject::SkillObject(void)
 //{

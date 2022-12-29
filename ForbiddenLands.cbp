@@ -106,6 +106,12 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="asciichart-master/include/ascii/constants.h" />
 		<Unit filename="asciichart-master/include/ascii/style.h" />
 		<Unit filename="asciichart-master/include/ascii/text.h" />
+		<Unit filename="include/classes/itemobject.cpp" />
+		<Unit filename="include/classes/itemobject.h" />
+		<Unit filename="include/classes/skillobject.cpp" />
+		<Unit filename="include/classes/skillobject.h" />
+		<Unit filename="include/classes/textureholder.cpp" />
+		<Unit filename="include/classes/textureholder.h" />
 		<Unit filename="include/gameengine/actor.h" />
 		<Unit filename="include/gameengine/battlestate.cpp" />
 		<Unit filename="include/gameengine/battlestate.h" />
