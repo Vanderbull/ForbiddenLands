@@ -219,7 +219,7 @@ void CShopState::Draw(CGameEngine* game)
     {
         SDL_Rect icon;
 
-        icon.x = 64 * x_counter;
+        icon.x = 320 + 64 * x_counter;
         icon.y = 640 + 64 + 64 * y_counter;
         icon.w = 64;
         icon.h = 64;
