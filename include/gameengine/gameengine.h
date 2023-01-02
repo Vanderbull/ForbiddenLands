@@ -28,6 +28,7 @@ using namespace std;
 #include "classes/skillobject.h"
 #include "classes/itemobject.h"
 #include "classes/textureholder.h"
+#include "classes/soundholder.h"
 
 extern int testing;
 
@@ -145,13 +146,13 @@ extern int testing;
 //    //static Texture& GetTexture(string const& filename);
 //};
 
-class SoundHolder
-{
-public:
-    map<string, Mix_Chunk*> m_Sounds;
-
-    SoundHolder(){};
-};
+//class SoundHolder
+//{
+//public:
+//    map<string, Mix_Chunk*> m_Sounds;
+//
+//    SoundHolder(){};
+//};
 
 class TextureHolder;
 class SoundHolder;
