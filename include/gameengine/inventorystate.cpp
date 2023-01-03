@@ -153,10 +153,13 @@ void CInventoryState::Draw(CGameEngine* game)
 
     SDL_Rect Description = {640, 300, 640, 480};
 
+    SDL_Rect DropButton = {640, 1000, 192, 64};
+
     int counter = 0;
     static int last_counter = 0;
     SDL_Rect icon;
     static SDL_Rect active_icon;
+    static int active_icon_id = -1;
 
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
@@ -173,17 +176,29 @@ void CInventoryState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &icon);
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(game->renderer, &icon);
+
+        if( counter < game->v_ItemNames.size() )
+        if( game->v_ItemNames.at(counter).empty() )
+        {
+            SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+            SDL_RenderFillRect(game->renderer, &icon);
+        }
+        else
+        {
+            SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 128);
+            SDL_RenderFillRect(game->renderer, &icon);
+        }
+
         SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 128);
         SDL_RenderDrawRect(game->renderer, &active_icon);
         if( counter < game->v_ItemNames.size() )
         if( SDL_PointInRect(&mousePosition, &icon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
-            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-            SDL_RenderFillRect(game->renderer, &icon);
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
             {
                 active_icon = icon;
                 last_counter = counter;
+                active_icon_id = counter;
             }
         }
         counter++;
@@ -197,6 +212,22 @@ void CInventoryState::Draw(CGameEngine* game)
     //game->RenderText("TITLE", White, 660, 320,48);
     game->RenderText(game->v_ItemNames.at(last_counter).c_str(), White, 660, 320,48);
 
+    SDL_RenderDrawRect(game->renderer, &DropButton);
+    if( SDL_PointInRect(&mousePosition, &DropButton) )
+    {
+        if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
+        {
+            if( active_icon_id != -1)
+            {
+                game->v_ItemNames.at(active_icon_id).erase();
+                active_icon_id = -1;
+                active_icon = {0,0,0,0};
+                game->v_ItemNames.push_back(game->v_ItemNames.at(0));
+
+            }
+        }
+    }
+    game->RenderText("DROP", White, DropButton.x, DropButton.y,48);
 
     //game->RenderText(std::to_string(counter).c_str(), White, 0, 20,24);
 //    game->RenderText(std::to_string(last_counter).c_str(), White, 100, 20,24);
