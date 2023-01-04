@@ -16,35 +16,6 @@
 
 int testing = 0;
 
-
-//Item::Item(void)
-//{
-//
-//};
-//Item::Item(std::string,char,int)
-//{
-//
-//};
-
-//SkillObject::SkillObject(void)
-//{
-//
-//};
-//SkillObject::SkillObject( std::string N_, std::string Group_, int Learned_, int MaxExp_ )
-//{
-//    Name = N_;
-//};
-//
-//SkillObject::SkillObject( SDL_Rect Pos)
-//{
-////    SDL_Rect rect;
-////    rect.x = 500;
-////    rect.y = 170+(counter*50);
-////    rect.w = 300;
-////    rect.h = 30;
-//    Position = {Pos.x,Pos.y,Pos.w,Pos.h};
-//};
-
 int CGameEngine::Generate(const int from, const int to)
 {
     // Create a random device and use it to generate a random seed
@@ -66,8 +37,67 @@ int CGameEngine::Generate(const int from, const int to)
     return myUnifIntDist(myRandomEngine);
 };
 
+void CGameEngine::CreateItem(int index = 0, std::string Name = "",int Efficiency = 0,int MinDamage = 0,int MaxDamage = 0,
+    int DmgType = 0,int NumHands = 0,int Bodypart = 0,int UsedBy = 0,int Skill = 0,
+    int BaseWorth = 0,int Price = 0,int Protection = 0,int Enchantments = 0,int Effect = 0,
+    int EffectCharges = 0,int MinEffect = 0,int MaxEffect = 0,int Features = 0)
+{
+    v_Item.at(index).Name = Name;
+
+    // Test item in inventory
+    v_InventoryItem.at(0).Name = Name;
+};
+
+Item CGameEngine::SpawnRandomItem()
+{
+    return v_Item.at(GenerateNumber(0,89));
+};
+
 void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
 {
+    CreateItem(0,"Bardiche");
+    CreateItem(1,"Battle Axe");
+    CreateItem(2,"Bow");
+    CreateItem(3,"Broad Axe");
+    CreateItem(4,"Club");
+    CreateItem(5,"Crossbow");
+    CreateItem(6,"Dagger");
+    CreateItem(7,"Falchion");
+    CreateItem(8,"Flail");
+    CreateItem(9,"Greatsword");
+    CreateItem(10,"Halberd");
+    CreateItem(11,"Hammer");
+    CreateItem(12,"HandAxe");
+    CreateItem(13,"Long sword");
+    CreateItem(14,"Mace");
+    CreateItem(15,"Morning star");
+    CreateItem(16,"Quarterstaff");
+    CreateItem(17,"Scimitar");
+    CreateItem(18,"Scythe");
+    CreateItem(19,"Short sword");
+    CreateItem(20,"Spear");
+    CreateItem(21,"War axe");
+    CreateItem(22,"Chainmail");
+    CreateItem(23,"Leather armor");
+    CreateItem(24,"Plate mail");
+    CreateItem(25,"Ring mail");
+    CreateItem(26,"Robe");
+    CreateItem(27,"Buckler");
+    CreateItem(28,"Shield");
+    CreateItem(29,"Kite shield");
+    CreateItem(30,"Gauntlets");
+    CreateItem(31,"Helmet");
+    CreateItem(32,"Mage hat");
+    CreateItem(33,"Bone amulet");
+    CreateItem(34,"Celtic amulet");
+    CreateItem(35,"Stone amulet");
+    CreateItem(36,"Crystal amulet");
+    CreateItem(36,"Idol amulet");
+    CreateItem(36,"Pentagram amulet");
+    CreateItem(36,"Cloak");
+    CreateItem(36,"Boots");
+    CreateItem(36,"Staff");
+
 //    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/north.png", LoadTexture("./images/compass/north.png",255) ));
 //    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/south.png", LoadTexture("./images/compass/south.png",255) ));
 //    TextureManager.m_Textures.insert(pair<string,SDL_Texture*>("./images/compass/west.png", LoadTexture("./images/compass/west.png",255) ));
@@ -661,7 +691,7 @@ void CGameEngine::AddItem()
 //        SDL_Log("   Setting MinEffect: '%i'\n",tempObject.MinEffect = 0);
 //        SDL_Log("   Setting MaxEffect: '%i'\n",tempObject.MaxEffect = 0);
 //        SDL_Log("   Setting Features: '%i'\n",tempObject.Features = 0);
-        v_Item.push_back(tempObject);
+//        v_Item.push_back(tempObject);
     }
 };
 

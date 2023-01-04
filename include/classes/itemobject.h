@@ -12,24 +12,26 @@ using namespace std;
 class Item {
 public:
 
-    std::string Name;
-    int Efficiency;
-    int MinDamage;
-    int MaxDamage;
-    int DmgType;
-    int NumHands;
-    int Bodypart;
-    int UsedBy;
-    int Skill;
-    int BaseWorth;
-    int Price;
-    int Protection;
-    int Enchantments;
-    int Effect;
-    int EffectCharges;
-    int MinEffect;
-    int MaxEffect;
-    int Features;
+    std::string icon = "./assets/data/textures/icons/uiAtlas/ui_game_symbol_other.png";
+    std::string Name = "EMPTY";
+    int Efficiency = 0;
+    int MinDamage= 0;
+    int MaxDamage= 0;
+    int DmgType= 0;
+    int NumHands= 0;
+    int Bodypart= 0;
+    int UsedBy= 0;
+    int Skill= 0;
+    int BaseWorth= 0;
+    int Price= 0;
+    int Protection= 0;
+    int Enchantments= 0;
+    int Effect= 0;
+    int EffectCharges= 0;
+    int MinEffect= 0;
+    int MaxEffect= 0;
+    int Features= 0;
+    SDL_Rect iconBox = {0,0,0,0};
 
     Item(void);
     Item(std::string,char,int);

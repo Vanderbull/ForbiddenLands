@@ -14,22 +14,22 @@ CInventoryState CInventoryState::m_InventoryState;
 
 void CInventoryState::Init()
 {
-	SDL_Log("CBattleState Init\n");
+	SDL_Log("CInventoryState Init\n");
 }
 
 void CInventoryState::Cleanup()
 {
-	SDL_Log("CBattleState Pause\n");
+	SDL_Log("CInventoryState Pause\n");
 }
 
 void CInventoryState::Pause()
 {
-	SDL_Log("CBattleState Pause\n");
+	SDL_Log("CInventoryState Pause\n");
 }
 
 void CInventoryState::Resume()
 {
-	SDL_Log("CBattleState Resume\n");
+	SDL_Log("CInventoryState Resume\n");
 }
 
 void CInventoryState::HandleEvents(CGameEngine* game)
@@ -117,29 +117,6 @@ void CInventoryState::Update(CGameEngine* game)
     ///--- Set the wheel back to 0
     m_iWheelX=0;
     m_iWheelY=0;
-
-//    if(scrolling){
-//      if(scroll_acceleration > 0) scroll_acceleration -= scroll_friction;
-//      if(scroll_acceleration < 0) scroll_acceleration += scroll_friction;
-//      if(abs(scroll_acceleration) < 0.0005) scroll_acceleration = 0;
-//      scroll_Y += scroll_sensitivity * scroll_acceleration;
-//      // Here you have to set your scrolling bounds i.e. if(scroll_Y < 0) scroll_Y = 0;
-//      if(scroll_Y < 0) scroll_Y = 0;
-//      if(scroll_Y > 1040) scroll_Y = 1040;
-//    }
-//    scrolling = 0;
-//
-//    if (scroll_range_min < 0 )
-//    {
-//        scroll_range_min = 0;
-//        scroll_range_max = scroll_range_min + 10;
-//    }
-//
-//    if (scroll_range_max > game->v_Skill.size() )
-//    {
-//        scroll_range_min = game->v_Skill.size() -10;
-//        scroll_range_max = game->v_Skill.size();
-//    }
 }
 
 void CInventoryState::Draw(CGameEngine* game)
@@ -152,17 +129,17 @@ void CInventoryState::Draw(CGameEngine* game)
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
     SDL_Rect Description = {640, 300, 640, 480};
-
     SDL_Rect DropButton = {640, 1000, 192, 64};
 
     int counter = 0;
     static int last_counter = 0;
     SDL_Rect icon;
-    static SDL_Rect active_icon;
-    static int active_icon_id = -1;
+    static SDL_Rect active_icon = {(game->current.w - (64*10)),64,64,64};
+    static int active_icon_id = 0;
 
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
+
 
     for( int y = 0; y < 10; y++ )
     for( int x = 0; x < 9; x++ )
@@ -177,21 +154,61 @@ void CInventoryState::Draw(CGameEngine* game)
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderDrawRect(game->renderer, &icon);
 
-        if( counter < game->v_ItemNames.size() )
-        if( game->v_ItemNames.at(counter).empty() )
+        if( SDL_PointInRect(&mousePosition, &icon) )
         {
-            SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
-            SDL_RenderFillRect(game->renderer, &icon);
+            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+            SDL_RenderDrawRect(game->renderer, &icon);
+            if( game->v_InventoryItem.at(last_counter).Name != "" )
+            {
+                SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+                SDL_RenderFillRect(game->renderer, &Description);
+                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+                SDL_RenderDrawRect(game->renderer, &Description);
+                game->RenderText(game->v_InventoryItem.at(counter).Name.c_str(), White, 660, 320,48);
+                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).Efficiency).c_str(), White, 660, 360,48);
+                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).MinDamage).c_str(), White, 660, 400,48);
+                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).MaxDamage).c_str(), White, 660, 440,48);
+                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).DmgType).c_str(), White, 660, 480,48);
+                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).NumHands).c_str(), White, 660, 520,48);
+                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).Bodypart).c_str(), White, 660, 560,48);
+            }
         }
-        else
+//        else
+//        if(counter == active_icon_id )
+//        {
+//            if( game->v_InventoryItem.at(last_counter).Name != "" )
+//            {
+//                game->RenderText(game->v_InventoryItem.at(last_counter).Name.c_str(), White, 660, 320,48);
+//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).Efficiency).c_str(), White, 660, 360,48);
+//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).MinDamage).c_str(), White, 660, 400,48);
+//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).MaxDamage).c_str(), White, 660, 440,48);
+//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).DmgType).c_str(), White, 660, 480,48);
+//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).NumHands).c_str(), White, 660, 520,48);
+//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).Bodypart).c_str(), White, 660, 560,48);
+//            }
+//        }
+        counter++;
+    }
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 128);
+    SDL_RenderDrawRect(game->renderer, &active_icon);
+
+    counter = 0;
+
+    for( int y = 0; y < 10; y++ )
+    for( int x = 0; x < 9; x++ )
+    {
+        icon.x = (game->current.w - (64*10)) + 64 * x;
+        icon.y = 64 + 64 * y;
+        icon.w = 64;
+        icon.h = 64;
+
+        if( game->v_InventoryItem.at(counter).Name != "EMPTY")
         {
-            SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 128);
+            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
             SDL_RenderFillRect(game->renderer, &icon);
         }
 
-        SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 128);
-        SDL_RenderDrawRect(game->renderer, &active_icon);
-        if( counter < game->v_ItemNames.size() )
         if( SDL_PointInRect(&mousePosition, &icon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
             if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -204,14 +221,6 @@ void CInventoryState::Draw(CGameEngine* game)
         counter++;
     }
 
-    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
-    SDL_RenderFillRect(game->renderer, &Description);
-    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-    SDL_RenderDrawRect(game->renderer, &Description);
-
-    //game->RenderText("TITLE", White, 660, 320,48);
-    game->RenderText(game->v_ItemNames.at(last_counter).c_str(), White, 660, 320,48);
-
     SDL_RenderDrawRect(game->renderer, &DropButton);
     if( SDL_PointInRect(&mousePosition, &DropButton) )
     {
@@ -219,14 +228,12 @@ void CInventoryState::Draw(CGameEngine* game)
         {
             if( active_icon_id != -1)
             {
-                game->v_ItemNames.at(active_icon_id).erase();
-                active_icon_id = -1;
+                game->v_InventoryItem.at(active_icon_id) = game->SpawnRandomItem();
                 active_icon = {0,0,0,0};
             }
         }
     }
     game->RenderText("DROP", White, DropButton.x, DropButton.y,48);
 
-    game->RenderText(std::to_string(game->v_ItemNames.size()).c_str(), White, 0, 0,48);
-    game->RenderText(std::to_string(game->v_ItemNames.capacity()).c_str(), White, 0, 48,48);
+    game->RenderText(std::to_string(game->v_InventoryItem.size()).c_str(), White, 0, 0,48);
 }

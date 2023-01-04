@@ -187,6 +187,13 @@ public:
 	int RenderTextWrapped(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize, int wrapped);
 	SDL_Texture* LoadTexture( const std::string &str, int alpha );
 
+	void CreateItem(int index, std::string Name,int Efficiency,int MinDamage,int MaxDamage,
+    int DmgType,int NumHands,int Bodypart,int UsedBy,int Skill,
+    int BaseWorth,int Price,int Protection,int Enchantments,int Effect,
+    int EffectCharges,int MinEffect,int MaxEffect,int Features);
+
+    Item SpawnRandomItem();
+
 	void loadMapTextures();
 	void initShop();
 
@@ -322,24 +329,8 @@ public:
 
     int AllowedSkills = 3;
 
-    // effect = the value indicated by the enchantment i.e. Power +2
-    SkillObject test{};
-
-    std::vector<std::string> v_ItemNames = {"Bardiche","Battle Axe","Bow",
-                                            "Broad Axe","Club","Crossbow",
-                                            "Dagger","Falchion","Flail",
-                                            "Greatsword","Halberd","Hammer",
-                                            "HandAxe","Long sword","Mace",
-                                            "Morning star","Quarterstaff","Scimitar",
-                                            "Scythe","Short sword","Spear",
-                                            "War axe","Chainmail","Leather armor",
-                                            "Plate mail","Ring mail","Robe",
-                                            "Scale mail","Buckler","Shield",
-                                            "Kite shield","Gauntlets","Helmet",
-                                            "Mage hat","Bone amulet","Celtic amulet",
-                                            "Stone amulet","Crystal amulet","Idol amulet",
-                                            "Pentagram amulet","Cloak","Boots",
-                                            "Staff","Bronze ring","Iron ring",
+    std::vector<std::string> v_ItemNames = {
+                                            "Bronze ring","Iron ring",
                                             "Silver ring","Golden ring","Jewel ring",
                                             "Pearl ring", "Emerald ring", "Opal ring",
                                             "Rune of Power","Rune of Personality","Rune of Intelligence",
@@ -357,7 +348,10 @@ public:
 
     std::vector<std::string> v_ItemNamesShop;
 
-    std::vector<Item> v_Item;
+    //std::vector<Item> v_Item;
+    //access to the elements will be a bit harder (v[width * y +x] or v[height * x + y])
+    std::array<Item,9*10> v_Item;
+    std::array<Item,9*10> v_InventoryItem;
     std::vector<SkillObject> v_Skill;
     SkillObject Skill;
 	void AddItem();
@@ -460,7 +454,7 @@ public:
 
 private:
 	// the stack of states
-	vector<CGameState*> states;
+	std::vector<CGameState*> states;
 
 	bool m_running;
 	bool m_fullscreen;
