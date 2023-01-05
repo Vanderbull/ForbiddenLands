@@ -292,7 +292,10 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     East = LoadTexture("./assets/data/textures/compass/east.png",255);
     North = LoadTexture("./assets/data/textures/compass/north.png",255);
 
-    encampTexture = LoadTexture("./assets/data/textures/encamp/encamp0.png",255);
+    encampTexture[0] = LoadTexture("./assets/data/textures/encamp/encamp0.png",255);
+    encampTexture[1] = LoadTexture("./assets/data/textures/encamp/encamp1.png",255);
+    encampTexture[2] = LoadTexture("./assets/data/textures/encamp/encamp2.png",255);
+    encampTexture[3] = LoadTexture("./assets/data/textures/encamp/encamp3.png",255);
 
 	m_fullscreen = fullscreen;
 	m_running = true;

@@ -10,9 +10,16 @@
 
 CEncampmentState CEncampmentState::m_EncampmentState;
 
+//Current time start time
+Uint32 startTime = 0;
+
+
+
 void CEncampmentState::Init()
 {
 	SDL_Log("CEncampmentState Init\n");
+
+	startTime = SDL_GetTicks();
 
     MenuChoices.clear();
     MenuChoices.push_back("BREAK UP CAMP");
@@ -83,10 +90,6 @@ void CEncampmentState::Draw(CGameEngine* game)
 {
     static int counter = 0;
 
-//    if(counter>4)
-//    counter = 0;
-//    else
-//    counter++;
     SDL_Log("CEncampmenttate Draw\n");
 
     //game->encampTexture = IMG_LoadTexture(game->renderer,"./assets/data/textures/encamp/encamp0.png");
@@ -94,7 +97,13 @@ void CEncampmentState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-    SDL_RenderCopy(game->renderer, game->encampTexture, NULL, NULL);
+    SDL_RenderCopy(game->renderer, game->encampTexture[counter], NULL, NULL);
+    if( SDL_GetTicks() - startTime > 500)
+    {
+        counter++;
+        startTime = SDL_GetTicks();
+    }
+
     //MainMenuBackgroundTexture = NULL;
 
 //    std::string imageLoaded = "./assets/data/textures/encamp/encamp" + std::to_string(counter) + ".png";
@@ -184,5 +193,7 @@ void CEncampmentState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
+    if( counter > 3)
+        counter = 0;
 }
 

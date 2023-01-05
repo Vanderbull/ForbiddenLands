@@ -294,7 +294,7 @@ public:
 
     // Make these a blob
     SDL_Texture* mapTexture[16][16][4];
-    SDL_Texture* encampTexture;
+    SDL_Texture* encampTexture[4];
 
     //Make these a blob
     TTF_Font* gameTitleFont;
