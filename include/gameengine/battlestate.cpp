@@ -78,8 +78,8 @@ void CBattleState::Draw(CGameEngine* game)
 {
     SDL_Log("CBattleState Draw");
 
-    SDL_Rect AttackButtonPosition = { 0, 0, 64, 64};
-    SDL_Rect DefendButtonPosition = { 65, 0, 64, 64};
+    SDL_Rect AttackButtonPosition = { 0, game->current.h - 64, 64, 64};
+    SDL_Rect DefendButtonPosition = { 65, game->current.h - 64, 64, 64};
 
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 255 );
     SDL_RenderClear(game->renderer);
@@ -102,15 +102,8 @@ void CBattleState::Draw(CGameEngine* game)
 
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
-    SDL_Rect buttonPosition = { 0, (0.33*game->current.h) / 2,256,0.66*game->current.h};
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
-
-    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-    buttonPosition.x = game->current.w - 256;
-    SDL_RenderFillRect(game->renderer, &buttonPosition);
-    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, buttonPosition.x,buttonPosition.y,24);
+    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, game->current.w / 2, 64,24);
+    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, game->current.w / 2, game->current.h - 64,24);
 
     if(!m_PlayerActive)
     {
@@ -163,27 +156,6 @@ void CBattleState::Draw(CGameEngine* game)
             //Mix_PlayChannel(-1, game->_sample[2], 0);
             m_PlayerActive = false;
             m_PlayerDefending = true;
-        }
-    }
-    else if(m_PlayerActive)
-    if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
-        SDL_RenderFillRect(game->renderer, &buttonPosition);
-
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-            Mix_PlayChannel(-1, game->_sample[3], 0);
-            Mix_PlayChannel(-1, game->_sample[2], 0);
-            game->SNpc.hitpoints_current -= GenerateNumber(0,3);
-            m_PlayerActive = false;
-            if(game->SNpc.hitpoints_current <= 0)
-            {
-                m_PlayerActive = true;
-                game->SNpc.hitpoints_current = game->SNpc.hitpoints_max;
-                game->SActor.hitpoints_current = game->SActor.hitpoints_max;
-                game->ChangeState(CPlayState::Instance());
-            }
         }
     }
 }
