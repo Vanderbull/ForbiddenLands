@@ -8,6 +8,6 @@
  */
 extern int g_myglobal; /* _Declare_ g_myglobal, that is promise it will be _defined_ by
                         * some module. */
-extern int g_breadTextFontSize; /* _Declare_ g_myglobal, that is promise it will be _defined_ by
-                        * some module. */
+extern int g_breadTextFontSize;
+extern int g_titleFontSize;
 #endif /* GLOBAL_DOT_H */

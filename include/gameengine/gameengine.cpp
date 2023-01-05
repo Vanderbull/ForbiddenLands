@@ -269,7 +269,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
     initShop();
 
-    gameTitleFont = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", g_breadTextFontSize);
+    gameTitleFont = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", g_titleFontSize);
 
     if(!gameTitleFont)
     {
@@ -291,6 +291,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     South = LoadTexture("./assets/data/textures/compass/south.png",255);
     East = LoadTexture("./assets/data/textures/compass/east.png",255);
     North = LoadTexture("./assets/data/textures/compass/north.png",255);
+
+    encampTexture = LoadTexture("./assets/data/textures/encamp/encamp0.png",255);
 
 	m_fullscreen = fullscreen;
 	m_running = true;

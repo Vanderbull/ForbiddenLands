@@ -81,25 +81,46 @@ void CEncampmentState::Update(CGameEngine* game)
 
 void CEncampmentState::Draw(CGameEngine* game)
 {
+    static int counter = 0;
+
+//    if(counter>4)
+//    counter = 0;
+//    else
+//    counter++;
     SDL_Log("CEncampmenttate Draw\n");
+
+    //game->encampTexture = IMG_LoadTexture(game->renderer,"./assets/data/textures/encamp/encamp0.png");
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-    MainMenuBackgroundTexture = NULL;
+    SDL_RenderCopy(game->renderer, game->encampTexture, NULL, NULL);
+    //MainMenuBackgroundTexture = NULL;
 
-	SDL_Surface* surface = IMG_Load( "./assets/data/textures/menus/menu_backdrop.png" );
-	if( !surface )
-	{
-        exit(-1);
-	}
+//    std::string imageLoaded = "./assets/data/textures/encamp/encamp" + std::to_string(counter) + ".png";
+//
+    int texW = 0;
+    int texH = 0;
+//    SDL_Texture* goblin = game->LoadTexture(imageLoaded.c_str(),255);
+//    texW = 0;
+//    texH = 0;
+//    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+//
+//    gRect = { 0,0, 128, 128 };
+//    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
 
-	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_SetTextureAlphaMod( texture, 255 );
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_FreeSurface(surface);
-    SDL_DestroyTexture(texture);
+//	SDL_Surface* surface = IMG_Load( imageLoaded.c_str() );
+//	if( !surface )
+//	{
+//        exit(-1);
+//	}
+//
+//	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+//    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//    SDL_SetTextureAlphaMod( texture, 255 );
+//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+//    SDL_FreeSurface(surface);
+//    SDL_DestroyTexture(texture);
 
     gSurface = TTF_RenderText_Blended(game->gameTitleFont, "A Viking Saga", White);
 	if( !gSurface )
@@ -107,8 +128,8 @@ void CEncampmentState::Draw(CGameEngine* game)
         exit(-1);
 	}
     gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
-    int texW = 0;
-    int texH = 0;
+//    int texW = 0;
+//    int texH = 0;
     SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
 
     gRect = { game->current.w / 2 - (texW / 2),200- (texH / 2), texW, texH };
