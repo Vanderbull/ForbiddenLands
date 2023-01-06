@@ -242,7 +242,7 @@ void CPlayState::Draw(CGameEngine* game)
     //static int goblinmovey = 0;
     if( (game->SActor.PlayerCoordinate.z == WEST ) && random_events[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y] <= RAND_MAX / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;
     texH = 0;
     SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
@@ -252,7 +252,7 @@ void CPlayState::Draw(CGameEngine* game)
     }
     if( (game->SActor.PlayerCoordinate.z == EAST ) && random_events[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y] <= RAND_MAX / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;
     texH = 0;
     SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
@@ -262,7 +262,7 @@ void CPlayState::Draw(CGameEngine* game)
     }
     if( (game->SActor.PlayerCoordinate.z == SOUTH ) && random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1] <= RAND_MAX / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;
     texH = 0;
     SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
@@ -272,7 +272,7 @@ void CPlayState::Draw(CGameEngine* game)
     }
     if( (game->SActor.PlayerCoordinate.z == NORTH ) && random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1] <= RAND_MAX / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;
     texH = 0;
     SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);

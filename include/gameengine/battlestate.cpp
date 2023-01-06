@@ -94,7 +94,7 @@ void CBattleState::Draw(CGameEngine* game)
     int texW = 0;
     int texH = 0;
     int ScalingFactor = 4;
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/goblin.png",255);
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
 
     SDL_Rect gRect = { game->current.w / 2 - texW * ScalingFactor / 3,game->current.h / 2 - texH * ScalingFactor / 2, texW*ScalingFactor, texH*ScalingFactor };
