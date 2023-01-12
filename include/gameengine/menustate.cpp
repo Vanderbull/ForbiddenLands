@@ -101,6 +101,12 @@ void CMenuState::Draw(CGameEngine* game)
     int buttonWidth = 600;
     int buttonHeight = 60;
 
+    std::cout << game->current.w << std::endl;
+    std::cout << game->current.h << std::endl;
+    std::cout << game->current.refresh_rate << std::endl;
+    std::cout << game->current.format << std::endl;
+    //exit(2);
+
     for(auto MenuChoice : MenuChoices)
     {
         SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 300 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};

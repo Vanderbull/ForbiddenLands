@@ -167,12 +167,37 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
             SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz. %s %d", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate, __FILE__, __LINE__);
         }
     }
+    current.w = 1920;
+    current.h = 1080;
+
+//    std::cout << current.w <<"X"<< current.h <<"X"<< current.refresh_rate << std::endl;
+//
+//    SDL_DisplayMode displaymode;
+//
+//    std::cout << "GetNUDISPLAYMODES" << SDL_GetNumDisplayModes(0) << std::endl;
+//    for(int i = 0; i < SDL_GetNumDisplayModes(0); ++i)
+//    {
+//        SDL_GetDisplayMode(0, i, &displaymode);
+//        std::cout << displaymode.w << std::endl;
+//        if(displaymode.w == 1920 && displaymode.h == 1080 && displaymode.refresh_rate == 60 )
+//            current = displaymode;
+//    }
+//    std::cout << current.w <<"X"<< current.h <<"X"<< current.refresh_rate << std::endl;
+//    //exit(0);
+//    window = SDL_CreateWindow("",
+//        SDL_WINDOWPOS_CENTERED,
+//        SDL_WINDOWPOS_CENTERED,
+//        1920, 1080,
+//        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
+
+
+    atexit( SDL_Quit );
 
     window = SDL_CreateWindow("",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
-        current.w, current.h,
-        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
+        1920, 1080,
+        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
 
     SDL_GLContext Context = SDL_GL_CreateContext(window);
 
@@ -313,9 +338,6 @@ void CGameEngine::Cleanup()
 	}
 
     SDL_Log("CGameEngine Cleanup %s %d", __FILE__, __LINE__);
-
-	// shutdown SDL
-	SDL_Quit();
 }
 
 void CGameEngine::ChangeState(CGameState* state)
