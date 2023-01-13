@@ -1,0 +1,13 @@
+{
+    "volume": {
+        "music": "0",
+        "sfx": "0"
+    },
+    "npc_hitpoints": {
+        "current": "10",
+        "max": "10"
+    },
+    "foo": {
+        "moo": "12345"
+    }
+}

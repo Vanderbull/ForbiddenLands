@@ -56,6 +56,8 @@ private:
 
     bool m_PlayerActive = true;
     bool m_PlayerDefending = false;
+
+    int number_of_enemies = 10;
 };
 
 #endif

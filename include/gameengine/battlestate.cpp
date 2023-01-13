@@ -139,6 +139,7 @@ void CBattleState::Draw(CGameEngine* game)
             m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)
             {
+                game->number_of_enemies--;
                 m_PlayerActive = true;
                 game->SNpc.hitpoints_current = game->SNpc.hitpoints_max;
                 game->SActor.hitpoints_current = game->SActor.hitpoints_max;

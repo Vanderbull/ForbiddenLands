@@ -162,6 +162,14 @@ class CGameEngine
 {
 public:
 
+    // Sound settings
+    int music_volume = 0;
+    int sfx_volume = 0;
+
+    // NPC hitpoints
+    int npc_hitpoints_current = 0;
+    int npc_hitpoints_max = 0;
+
     InGameTime gameTime;
     ACTOR SActor;
     ACTOR SNpc;
@@ -362,7 +370,7 @@ public:
 	int ChoosenRace;
 
 	// Look at enums with flags later
-	enum BodyParts {HEAD,NECK,SHOULDER,CHEST,ARM,HAND,FINGER,FEET};
+	enum BodyParts {HEAD,NECK,SHOULDER,CHEST,LEFT_ARM,RIGHT_ARM,HANDS,LEGS,FEET};
 
 	class BaseMonster
 	{
@@ -453,12 +461,16 @@ public:
 
     Mix_Chunk* _sample[20];
 
+
+	int number_of_enemies = 10;
+
 private:
 	// the stack of states
 	std::vector<CGameState*> states;
 
 	bool m_running;
 	bool m_fullscreen;
+
 };
 
 

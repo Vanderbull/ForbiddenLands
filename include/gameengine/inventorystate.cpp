@@ -140,6 +140,43 @@ void CInventoryState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
+    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+
+    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+
+    icon.x = 0;
+    icon.y = 128;
+    icon.w = 64;
+    icon.h = 64;
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+    SDL_RenderFillRect(game->renderer, &icon);
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+    SDL_RenderDrawRect(game->renderer, &icon);
+
+    icon.x = 128;
+    icon.y = 128;
+    icon.w = 64;
+    icon.h = 64;
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+    SDL_RenderFillRect(game->renderer, &icon);
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+    SDL_RenderDrawRect(game->renderer, &icon);
+
+    icon.x = 64;
+    icon.y = 0;
+    icon.w = 64;
+    icon.h = 64;
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+    SDL_RenderFillRect(game->renderer, &icon);
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+    SDL_RenderDrawRect(game->renderer, &icon);
 
     for( int y = 0; y < 10; y++ )
     for( int x = 0; x < 9; x++ )
@@ -165,28 +202,15 @@ void CInventoryState::Draw(CGameEngine* game)
                 SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
                 SDL_RenderDrawRect(game->renderer, &Description);
                 game->RenderText(game->v_InventoryItem.at(counter).Name.c_str(), White, 660, 320,48);
-                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).Efficiency).c_str(), White, 660, 360,48);
-                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).MinDamage).c_str(), White, 660, 400,48);
-                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).MaxDamage).c_str(), White, 660, 440,48);
-                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).DmgType).c_str(), White, 660, 480,48);
-                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).NumHands).c_str(), White, 660, 520,48);
-                game->RenderText(std::to_string(game->v_InventoryItem.at(counter).Bodypart).c_str(), White, 660, 560,48);
+                game->RenderText("Efficiency: " + std::to_string(game->v_InventoryItem.at(counter).Efficiency), White, 660, 360,48);
+                game->RenderText("Min damage: " + std::to_string(game->v_InventoryItem.at(counter).MinDamage), White, 660, 400,48);
+                game->RenderText("Max damage: " + std::to_string(game->v_InventoryItem.at(counter).MaxDamage), White, 660, 440,48);
+                game->RenderText("Damage type: " + std::to_string(game->v_InventoryItem.at(counter).DmgType), White, 660, 480,48);
+                game->RenderText("Number of hands: " + std::to_string(game->v_InventoryItem.at(counter).NumHands), White, 660, 520,48);
+                game->RenderText("Bodypart: " + std::to_string(game->v_InventoryItem.at(counter).Bodypart), White, 660, 560,48);
+                game->RenderText("Equipped: " + std::to_string(game->v_InventoryItem.at(counter).Equipped), White, 660, 600,48);
             }
         }
-//        else
-//        if(counter == active_icon_id )
-//        {
-//            if( game->v_InventoryItem.at(last_counter).Name != "" )
-//            {
-//                game->RenderText(game->v_InventoryItem.at(last_counter).Name.c_str(), White, 660, 320,48);
-//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).Efficiency).c_str(), White, 660, 360,48);
-//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).MinDamage).c_str(), White, 660, 400,48);
-//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).MaxDamage).c_str(), White, 660, 440,48);
-//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).DmgType).c_str(), White, 660, 480,48);
-//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).NumHands).c_str(), White, 660, 520,48);
-//                game->RenderText(std::to_string(game->v_InventoryItem.at(last_counter).Bodypart).c_str(), White, 660, 560,48);
-//            }
-//        }
         counter++;
     }
 
@@ -216,7 +240,28 @@ void CInventoryState::Draw(CGameEngine* game)
                 active_icon = icon;
                 last_counter = counter;
                 active_icon_id = counter;
+                game->v_InventoryItem.at(counter).Equipped = !game->v_InventoryItem.at(counter).Equipped;
+                SDL_Delay(150);
             }
+        }
+        counter++;
+    }
+
+    counter = 0;
+    for( int y = 0; y < 10; y++ )
+    for( int x = 0; x < 9; x++ )
+    {
+        if( game->v_InventoryItem.at(counter).Equipped == 1)
+        {
+            icon.x = 64;
+            icon.y = 0;
+            icon.w = 64;
+            icon.h = 64;
+
+            SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+            SDL_RenderFillRect(game->renderer, &icon);
+            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+            SDL_RenderDrawRect(game->renderer, &icon);
         }
         counter++;
     }

@@ -14,9 +14,6 @@ CGameoverState CGameoverState::m_GameoverState;
 void CGameoverState::Init()
 {
 	SDL_Log("CGameoverState Init\n");
-
-    MenuChoices.clear();
-    MenuChoices.push_back("BREAK UP CAMP");
 }
 
 void CGameoverState::Cleanup()
@@ -67,17 +64,11 @@ void CGameoverState::Update(CGameEngine* game)
 {
     SDL_Log("CGameoverState Update\n");
 
-    ///--- Store the current information to the previous
-    m_iPreviousCoordX=m_iCurrentCoordX;
-    m_iPreviousCoordY=m_iCurrentCoordY;
-    m_uPreviousMouseState=m_uCurrentMouseState;
-
-    ///--- Update the current state of the mouse
-    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
-
-    ///--- Set the wheel back to 0
-    m_iWheelX=0;
-    m_iWheelY=0;
+    game->SActor.PlayerCoordinate = {15,1,0};
+    game->SActor.PlayerLastCoordinate = {15,1,0};
+    game->SActor.hitpoints_current = 10;
+    game->SActor.hitpoints_max = 10;
+    game->number_of_enemies = 10;
 }
 
 void CGameoverState::Draw(CGameEngine* game)
@@ -86,6 +77,5 @@ void CGameoverState::Draw(CGameEngine* game)
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
-    game->RenderText("GAME OVER", game->Black, game->current.w / 3,game->current.h / 3,72);
-
+    game->RenderTextWrapped("The second key belief of Norsemen is that the time of one's death is determined by fate and is chosen by the Norns at the time of one's birth. Therefore, nothing one did could change the moment of one's death. However, what one did up until that moment was strictly one's own doing. Therefore, one ought to make the very best of every moment of life, because the worst that could happen would be death, and the best that could happen would be fame and an enhancement to one's reputation. Since one couldn't effect the time of one's own death, which was predestined anyway, there was nothing to lose and everything to gain by being bold and adventurous.", game->Black, game->current.w / 3 + 200,game->current.h / 3,24,1520);
 }

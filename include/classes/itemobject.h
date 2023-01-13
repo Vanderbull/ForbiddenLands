@@ -23,14 +23,16 @@ public:
     int UsedBy= 0;
     int Skill= 0;
     int BaseWorth= 0;
-    int Price= 0;
-    int Protection= 0;
-    int Enchantments= 0;
-    int Effect= 0;
-    int EffectCharges= 0;
-    int MinEffect= 0;
-    int MaxEffect= 0;
-    int Features= 0;
+    int Price = 0;
+    int Protection = 0;
+    int Enchantments = 0;
+    int Effect = 0;
+    int EffectCharges = 0;
+    int MinEffect = 0;
+    int MaxEffect = 0;
+    int Features = 0;
+    int Equipped = 0;
+    int Equipable = 0;
     SDL_Rect iconBox = {0,0,0,0};
 
     Item(void);

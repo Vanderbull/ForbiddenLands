@@ -221,17 +221,19 @@ void CPlayState::Update(CGameEngine* game)
 
 void CPlayState::Draw(CGameEngine* game)
 {
+    int texW = 0;
+    int texH = 0;
+
     SDL_Log("CPlayState Draw\n");
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
 
-    SDL_RendererFlip flip = (SDL_RendererFlip)(SDL_FLIP_NONE);//(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL);
+    SDL_RendererFlip flip = (SDL_RendererFlip)(SDL_FLIP_NONE);
 
     SDL_RenderCopyEx(game->renderer, game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z], NULL, NULL, 0, NULL, flip);
 
-    int texW = 0;
-    int texH = 0;
+    game->RenderText("number of enemies: " + std::to_string(game->number_of_enemies), White, 0, 0,24);
 
     renderDaytime(game);
     renderCompass(game);

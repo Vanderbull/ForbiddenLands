@@ -8,6 +8,11 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_net.h>
+#include <boost/property_tree/json_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
+
+using namespace std;
+namespace pt = boost::property_tree;
 
 #include "gameengine.h"
 #include "gamestate.h"
@@ -53,8 +58,45 @@ Item CGameEngine::SpawnRandomItem()
     return v_Item.at(GenerateNumber(0,89));
 };
 
+boost::property_tree::ptree foo()
+{
+  boost::property_tree::ptree retval;
+  retval.put("moo","12345");
+  //retval.put("zoo",12345);
+  return retval;
+}
+
 void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
 {
+    atexit( SDL_Quit );
+
+    boost::property_tree::ptree root;
+    boost::property_tree::read_json("file.json", root);
+
+    for (pt::ptree::value_type & v : root.get_child("volume"))
+    {
+
+        if( v.first == "music" )
+            music_volume = v.second.get_value<int>();
+        if( v.first == "sfx" )
+            sfx_volume = v.second.get_value<int>();
+    }
+
+    for (pt::ptree::value_type & v : root.get_child("npc_hitpoints"))
+    {
+        if( v.first == "current" )
+            npc_hitpoints_current = v.second.get_value<int>();
+        if( v.first == "max" )
+            npc_hitpoints_max = v.second.get_value<int>();
+    }
+
+    SNpc.hitpoints_current = npc_hitpoints_current;
+    SNpc.hitpoints_max = npc_hitpoints_max;
+
+    root.put_child("foo", foo() );
+    boost::property_tree::write_json("file.json", root );
+
+
     CreateItem(0,"Bardiche");
     CreateItem(1,"Battle Axe");
     CreateItem(2,"Bow");
@@ -121,9 +163,6 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 //    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/4_Night Owl Tavern by Ean Grimm.mp3") ));
 //    SoundManager.m_Sounds.insert(pair<string,Mix_Chunk*>("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3", Mix_LoadWAV("./assets/data/sounds/tavern/5_Dark Woods Tavern by Ean Grimm.mp3") ));
 
-    SNpc.hitpoints_current = 10;
-    SNpc.hitpoints_max = 10;
-
     g_myglobal = 10;
 
 	int flags = 0;
@@ -133,7 +172,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     if( SDL_Init(SDL_INIT_EVERYTHING) != 0 )
     {
         SDL_Log("Unable to initialize SDL: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
-        //throw runtime_error("Unable to initialize SDL: " + string(SDL_GetError()));
+        throw runtime_error("Unable to initialize SDL: " + string(SDL_GetError()));
     }
     else
     {
@@ -143,7 +182,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     if(!TTF_WasInit() && TTF_Init()==-1)
     {
         SDL_Log("TTF_Init: %s %s %d", TTF_GetError(), __FILE__, __LINE__);
-        //exit(EXIT_FAILURE);
+        throw runtime_error("TTF_Init: " + string(SDL_GetError()));
     }
     else
     {
@@ -160,43 +199,20 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         if(should_be_zero != 0)
         {
             SDL_Log("Could not get display mode for video display #%d: %s 5s %d", i, SDL_GetError(), __FILE__, __LINE__);
-            exit(EXIT_FAILURE);
+            throw runtime_error("Could not get display mode for video display: " + string(SDL_GetError()));
         }
         else
         {
             SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz. %s %d", i, monitor[i].w, monitor[i].h, monitor[i].refresh_rate, __FILE__, __LINE__);
         }
     }
-    current.w = 1920;
-    current.h = 1080;
-
-//    std::cout << current.w <<"X"<< current.h <<"X"<< current.refresh_rate << std::endl;
-//
-//    SDL_DisplayMode displaymode;
-//
-//    std::cout << "GetNUDISPLAYMODES" << SDL_GetNumDisplayModes(0) << std::endl;
-//    for(int i = 0; i < SDL_GetNumDisplayModes(0); ++i)
-//    {
-//        SDL_GetDisplayMode(0, i, &displaymode);
-//        std::cout << displaymode.w << std::endl;
-//        if(displaymode.w == 1920 && displaymode.h == 1080 && displaymode.refresh_rate == 60 )
-//            current = displaymode;
-//    }
-//    std::cout << current.w <<"X"<< current.h <<"X"<< current.refresh_rate << std::endl;
-//    //exit(0);
-//    window = SDL_CreateWindow("",
-//        SDL_WINDOWPOS_CENTERED,
-//        SDL_WINDOWPOS_CENTERED,
-//        1920, 1080,
-//        SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
-
-
-    atexit( SDL_Quit );
+    current.w = width;
+    current.h = height;
 
     window = SDL_CreateWindow("",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
-        1920, 1080,
+        current.w, current.h,
         SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
 
     SDL_GLContext Context = SDL_GL_CreateContext(window);
@@ -271,8 +287,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
-    Mix_VolumeMusic(0);
-    Mix_Volume(-1,0);
+    Mix_VolumeMusic(music_volume);
+    Mix_Volume(-1,sfx_volume);
 
     _sample[0] = Mix_LoadWAV("./assets/data/sounds/153_Secret_Garden.ogg");
     _sample[1] = Mix_LoadWAV("./assets/data/sounds/Hit.wav");
@@ -288,7 +304,6 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 	SDL_Log("Loading skills... %w %d", __FILE__, __LINE__);
 	AddSkill();
 
-	//read_directory("./images",imagesFiles);
 	read_directory("./assets/data/textures",imagesFiles);
 
 	SDL_Log("Loading shop... %s %d", __FILE__, __LINE__);
