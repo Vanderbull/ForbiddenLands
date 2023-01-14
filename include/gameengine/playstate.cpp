@@ -147,6 +147,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
 
 void CPlayState::Update(CGameEngine* game)
 {
+    std::random_device rd;
     SDL_Log("CPlayState Update\n");
 
     game->currentTimeElapse(true);
@@ -168,21 +169,21 @@ void CPlayState::Update(CGameEngine* game)
     if(Rotation == "E")
         game->SActor.PlayerCoordinate.z = EAST;
 
-    if( random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] <= (RAND_MAX / 4) )
+    if( game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] <= ( rd.max() / 4) )
     {
-        random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y] = RAND_MAX;
+        game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] = rd.max();
         game->ChangeState( CBattleState::Instance() );
     }
 
-    if( game->SActor.PlayerCoordinate.x == 9 && game->SActor.PlayerCoordinate.y == 0 )
-    {
-        game->ChangeState( CShopState::Instance() );
-    }
-
-    if( game->SActor.PlayerCoordinate.x == 12 && game->SActor.PlayerCoordinate.y == 0 )
-    {
-        game->ChangeState( CTavernState::Instance() );
-    }
+//    if( game->SActor.PlayerCoordinate.x == 9 && game->SActor.PlayerCoordinate.y == 0 )
+//    {
+//        game->ChangeState( CShopState::Instance() );
+//    }
+//
+//    if( game->SActor.PlayerCoordinate.x == 12 && game->SActor.PlayerCoordinate.y == 0 )
+//    {
+//        game->ChangeState( CTavernState::Instance() );
+//    }
 
     std::string coordinates_modified = "";
     if(game->SActor.PlayerCoordinate.x < 10)
@@ -223,6 +224,7 @@ void CPlayState::Draw(CGameEngine* game)
 {
     int texW = 0;
     int texH = 0;
+    std::random_device rd;
 
     SDL_Log("CPlayState Draw\n");
 
@@ -242,7 +244,7 @@ void CPlayState::Draw(CGameEngine* game)
     renderPassable(game);
 
     //static int goblinmovey = 0;
-    if( (game->SActor.PlayerCoordinate.z == WEST ) && random_events[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y] <= RAND_MAX / 2)
+    if( (game->SActor.PlayerCoordinate.z == WEST ) && game->random_events[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] <= rd.max() / 2)
     {
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;
@@ -252,7 +254,7 @@ void CPlayState::Draw(CGameEngine* game)
     gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
     SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
-    if( (game->SActor.PlayerCoordinate.z == EAST ) && random_events[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y] <= RAND_MAX / 2)
+    if( (game->SActor.PlayerCoordinate.z == EAST ) && game->random_events[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][0] <=  rd.max() / 2)
     {
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;
@@ -262,7 +264,7 @@ void CPlayState::Draw(CGameEngine* game)
     gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
     SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
-    if( (game->SActor.PlayerCoordinate.z == SOUTH ) && random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1] <= RAND_MAX / 2)
+    if( (game->SActor.PlayerCoordinate.z == SOUTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][0] <=  rd.max() / 2)
     {
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;
@@ -272,7 +274,7 @@ void CPlayState::Draw(CGameEngine* game)
     gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
     SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
-    if( (game->SActor.PlayerCoordinate.z == NORTH ) && random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1] <= RAND_MAX / 2)
+    if( (game->SActor.PlayerCoordinate.z == NORTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][0] <=  rd.max() / 2)
     {
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     texW = 0;

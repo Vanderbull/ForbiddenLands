@@ -116,6 +116,7 @@ public:
 
     void renderMinimap(CGameEngine* game)
     {
+        std::random_device rd;
         SDL_Texture* gTexture = game->LoadTexture("./assets/data/textures/maps/kustenstad/kustenstad.png",255);
 
         SDL_Rect imageSize = {0, 0,256,256};
@@ -124,10 +125,11 @@ public:
         SDL_RenderCopy(game->renderer, gTexture, &imageSize, &renderLocation);
         SDL_DestroyTexture(gTexture);
 
+        int z = 0;
         for(int x = 0; x < 16; x++)
             for(int y = 0; y < 16; y++)
             {
-                if( random_events[x][y] <= (RAND_MAX / 4) )
+                if( game->random_events[x][y][z] <= ( rd.max() / 4) )
                 {
                     SDL_Rect imageSize = {x*16 + 50, y*16 + 50,8,8};
                     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
@@ -228,32 +230,7 @@ public:
 
     SDL_Point mousePosition;
 
-    int myrandom ()
-    {
-        std::random_device rd;
-        std::mt19937 gen(rd());
-        std::uniform_int_distribution<> dis(0, RAND_MAX);
-        return dis(gen);
-    }
 
-    int random_events[16][16] =  {
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()},
-    {myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom(),myrandom()}
-    };
 
     Passable mapExits[16][16];
 

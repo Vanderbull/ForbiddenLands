@@ -425,9 +425,11 @@ void animation() {
   }
 }
 
+
+
 int main(int argc, char ** argv)
 {
-    srand(time(0));
+    //srand(time(0));
     //mt19937 mt(time(nullptr));
     pFile = fopen ("./logs/GameEngineLOG.log","w");
     SDL_LogSetOutputFunction(&LogSDL, NULL);

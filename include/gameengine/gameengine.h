@@ -16,6 +16,8 @@
 #include <array>
 #include <map>
 #include <dirent.h>
+#include <algorithm>
+
 using namespace std;
 
 #include "globals.h"
@@ -31,102 +33,6 @@ using namespace std;
 #include "classes/soundholder.h"
 
 extern int testing;
-
-//class SkillObject {
-//public:
-//
-//    std::string Name = "";
-//    std::string Group = "";
-//    int Learned = 0;
-//    int MaximumExpertise = 0;
-//    int InitialRequirementsAttribute = 0;
-//    int InitialRequirementsValue = 0;
-//    int GroupID = 0;
-//    std::string Description = "";
-//    SDL_Rect Position = {0,0,0,0};
-//
-//    SkillObject(void);
-//    SkillObject( std::string N_, std::string Group_, int Learned_, int MaxExp_ );
-//    SkillObject( SDL_Rect Pos);
-//};
-
-//class Item {
-//public:
-//
-//    std::string Name;
-//    int Efficiency;
-//    int MinDamage;
-//    int MaxDamage;
-//    int DmgType;
-//    int NumHands;
-//    int Bodypart;
-//    int UsedBy;
-//    int Skill;
-//    int BaseWorth;
-//    int Price;
-//    int Protection;
-//    int Enchantments;
-//    int Effect;
-//    int EffectCharges;
-//    int MinEffect;
-//    int MaxEffect;
-//    int Features;
-//
-//    Item(void);
-//    Item(std::string,char,int);
-//};
-
-//struct SGenericItem
-//{
-//    // item types
-//    enum {ARMOUR,SHIELD,MISCELLANEOUS,POTION,RING,SCROLL,WEAPON};
-//
-//    std::string icon = "./assets/data/textures/icons/uiAtlas/ui_game_symbol_other.png";
-//    std::string name;
-//    std::string description = "a very generic type of item";
-//    int unidentified = 0;
-//    std::string type = "";
-//    int cursed = 0;
-//    int amount = 0;
-//    int weight = 0;
-//
-//    int equipped = 0;
-//    int damage = 0;
-//
-//    bool edible = false;
-//    int calories = 0;
-//
-//    bool equipable = false;
-//    int slot = 0;
-//    int armour_class = 0;
-//
-//    bool sellable = false;
-//    int value = 0;
-//
-//    SGenericItem()
-//    {
-//        value = GenerateNumber(0,256);
-//        amount = GenerateNumber(0,256);
-//    };
-//
-//    std::string getName()
-//    {
-//        return name;
-//    };
-//
-//    friend std::ostream& operator <<(std::ostream& os, SGenericItem const& a)
-//    {
-//        return os << a.name << ' '
-//                  << a.unidentified << ' '
-//                  << a.type << ' '
-//                  << a.armour_class << ' '
-//                  << a.cursed << ' '
-//                  << a.amount << ' '
-//                  << a.weight << ' '
-//                  << a.value << ' '
-//                  << a.equipped << ' ';
-//    }
-//};
 
 //class TextureHolder
 //{
@@ -463,6 +369,46 @@ public:
 
 
 	int number_of_enemies = 10;
+
+	int random_events[16][16][28];
+	//float random_events[16][16][28];
+
+    template<class Engine, class Integer, size_t SIZE>
+    void fill_array(Engine& eng, std::array<Integer, SIZE>& a, Integer lower = 0, Integer upper = 1000)
+    {
+        std::uniform_int_distribution<Integer> uid1(lower, upper);
+
+        std::generate(a.begin(), a.end(), [&]
+        {
+            return uid1(eng);
+        });
+    }
+
+    template<typename Type, std::size_t M, std::size_t N, std::size_t O>
+    constexpr void fill_3D_array(Type(&arr3D)[M][N][O], const Type val = Type{}) noexcept
+    {
+       std::fill_n(&arr3D[0][0][0], M * N * O, val);
+       // or using std::fill
+       // std::fill(&arr3D[0][0][0], &arr3D[0][0][0] + (M * N * O), val);
+    }
+
+    template<typename Type, std::size_t M, std::size_t N, std::size_t O>
+    constexpr void print_3D_array(Type(&arr3D)[M][N][O]) noexcept
+    {
+       for (auto& arr2D : arr3D)
+       {
+          std::cout << "Array2D:.....\n";
+          for (auto& arr : arr2D)
+          {
+             std::cout << "Array:.....\n";
+             for (const Type ele : arr)
+             {
+                std::cout << ele << " ";
+             }
+             std::cout << "\n";
+          }
+       }
+    }
 
 private:
 	// the stack of states

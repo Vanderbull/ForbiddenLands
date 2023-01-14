@@ -70,6 +70,28 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
+    std::random_device rnd;  // a source of machine-wide entropy
+    std::default_random_engine eng(rnd()); // use it to initialise the psuedo-random engine
+
+    std::array<int, 100> arr;
+    fill_array(eng, arr);
+
+std::default_random_engine generator;
+std::uniform_int_distribution<int> distribution(0,RAND_MAX);
+
+std::random_device rd;
+
+//auto dice = std::bind ( rd, generator );
+
+//int wisdom = dice()+dice()+dice();
+
+            int z = 0;
+        for(int x = 0; x < 16; x++)
+            for(int y = 0; y < 16; y++)
+            {
+                random_events[x][y][z] = rd();//dice();
+            }
+
     boost::property_tree::ptree root;
     boost::property_tree::read_json("file.json", root);
 
@@ -345,14 +367,13 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
 void CGameEngine::Cleanup()
 {
+    SDL_Log("CGameEngine Cleanup %s %d", __FILE__, __LINE__);
 	// cleanup the all states
 	while ( !states.empty() )
     {
 		states.back()->Cleanup();
 		states.pop_back();
 	}
-
-    SDL_Log("CGameEngine Cleanup %s %d", __FILE__, __LINE__);
 }
 
 void CGameEngine::ChangeState(CGameState* state)

@@ -69,6 +69,51 @@ void CGameoverState::Update(CGameEngine* game)
     game->SActor.hitpoints_current = 10;
     game->SActor.hitpoints_max = 10;
     game->number_of_enemies = 10;
+
+std::random_device rd;
+
+
+            int z = 0;
+        for(int x = 0; x < 16; x++)
+            for(int y = 0; y < 16; y++)
+            {
+                game->random_events[x][y][z] = rd();//dice();
+            }
+
+    //std::fill( &game->random_events[0][0], &game->random_events[16][0], game->myrandom() );
+
+//    std::cout << "Array3D of floats with val = 2.f:.....\n";
+//    {
+//        //float histogram3D[2][4][28];    // 3d array of floats
+//        game->fill_3D_array(game->random_events, 0);// initialize with 2.f
+//        game->print_3D_array(game->random_events);
+//    }
+
+//   std::cout << "\n\nArray3D of Integers with default val:.....\n";
+//   {
+//      int histogram3D[2][4][28];   // 3d array of integers
+//      game->fill_3D_array(game->random_events);  // no val specified: default val
+//      game->print_3D_array(game->random_events);
+//   }
+
+//    game->random_events[16][16] =  {
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()},
+//    {game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom(),game->myrandom()}
+//    };
 }
 
 void CGameoverState::Draw(CGameEngine* game)
