@@ -137,7 +137,7 @@ void CInventoryState::Draw(CGameEngine* game)
     static SDL_Rect active_icon = {(game->current.w - (64*10)),64,64,64};
     static int active_icon_id = 0;
 
-    SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 255);
     SDL_RenderClear(game->renderer);
 
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
@@ -186,10 +186,12 @@ void CInventoryState::Draw(CGameEngine* game)
         icon.w = 64;
         icon.h = 64;
 
-        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
-        SDL_RenderFillRect(game->renderer, &icon);
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderDrawRect(game->renderer, &icon);
+        SDL_RenderCopy(game->renderer, game->slot, NULL, &icon);
+
+//        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+//        SDL_RenderFillRect(game->renderer, &icon);
+//        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+//        SDL_RenderDrawRect(game->renderer, &icon);
 
         if( SDL_PointInRect(&mousePosition, &icon) )
         {

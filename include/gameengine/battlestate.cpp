@@ -8,6 +8,7 @@ using namespace std;
 #include "menustate.h"
 #include "playstate.h"
 #include "gameoverstate.h"
+#include "lootstate.h"
 #include "battlestate.h"
 
 using namespace std::chrono;
@@ -78,18 +79,13 @@ void CBattleState::Draw(CGameEngine* game)
 {
     SDL_Log("CBattleState Draw");
 
-    SDL_Rect AttackButtonPosition = { 0, game->current.h - 64, 64, 64};
-    SDL_Rect DefendButtonPosition = { 65, game->current.h - 64, 64, 64};
+    SDL_Rect AttackButtonPosition = { 16, 16, 64, 64};
+    SDL_Rect DefendButtonPosition = { 88, 16, 64, 64};
 
     SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 255 );
     SDL_RenderClear(game->renderer);
 
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-    SDL_RenderFillRect(game->renderer, &AttackButtonPosition);
-    SDL_RenderFillRect(game->renderer, &DefendButtonPosition);
-
-    game->RenderText("A", game->Black, AttackButtonPosition.x,AttackButtonPosition.y,24);
-    game->RenderText("D", game->Black, DefendButtonPosition.x,DefendButtonPosition.y,24);
+    SDL_RenderCopy(game->renderer, game->battleState, NULL, NULL);
 
     int texW = 0;
     int texH = 0;
@@ -102,22 +98,21 @@ void CBattleState::Draw(CGameEngine* game)
 
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
-    game->RenderText("NPC HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), White, game->current.w / 2, 64,24);
-    game->RenderText("PC HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, game->current.w / 2, game->current.h - 64,24);
+    game->RenderText("HP: " + std::to_string(game->SNpc.hitpoints_current) + " / " + std::to_string(game->SNpc.hitpoints_max), Black, 864, 176,64);
+    game->RenderText("HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, 864, 964,64);
 
     if(!m_PlayerActive)
     {
         if(m_PlayerDefending)
         {
-            game->SActor.hitpoints_current;
+            game->SActor.hitpoints_current -= GenerateNumber(0,3) / 2;
             m_PlayerDefending = false;
         }
         else
         {
-            m_PlayerDefending = false;
             game->SActor.hitpoints_current -= GenerateNumber(0,3);
+            m_PlayerDefending = false;
         }
-
         m_PlayerActive = true;
         if(game->SActor.hitpoints_current <= 0)
         {
@@ -134,7 +129,6 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             Mix_PlayChannel(-1, game->_sample[3], 0);
-            //Mix_PlayChannel(-1, game->_sample[2], 0);
             game->SNpc.hitpoints_current -= GenerateNumber(0,3);
             m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)
@@ -154,9 +148,13 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             Mix_PlayChannel(-1, game->_sample[3], 0);
-            //Mix_PlayChannel(-1, game->_sample[2], 0);
             m_PlayerActive = false;
             m_PlayerDefending = true;
         }
+    }
+
+    if(game->number_of_enemies <= 0)
+    {
+        game->ChangeState(CLootState::Instance());
     }
 }

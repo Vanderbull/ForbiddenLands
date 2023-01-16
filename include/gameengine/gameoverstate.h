@@ -1,5 +1,5 @@
-#ifndef QUESTSTATE_H
-#define QUESTSTATE_H
+#ifndef GAMEOVERSTATE_H
+#define GAMEOVERSTATE_H
 
 #include <string>
 #include <vector>

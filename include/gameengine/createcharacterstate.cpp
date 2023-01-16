@@ -49,12 +49,12 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
             case SDL_MOUSEBUTTONDOWN:
                 switch (game->event.button.button)
                 {
-                case SDL_BUTTON_RIGHT:
-                default:
-                {
-                m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
+                    case SDL_BUTTON_RIGHT:
+                    default:
+                    {
+                    m_uCurrentMouseState=SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
+                    } break;
                 } break;
-            } break;
 			case SDL_QUIT:
 				game->Quit();
 				break;
@@ -70,12 +70,12 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
                         }
                     } break;
 					case SDLK_ESCAPE:
-						game->PopState();
+						game->ChangeState(CMenuState::Instance());
 						break;
                     case SDLK_UP:
                         {
-                              scroll_acceleration = 1;
-                              scrolling = 1;
+                            scroll_acceleration = 1;
+                            scrolling = 1;
                         }break;
                     case SDLK_DOWN:
                         {
@@ -89,15 +89,15 @@ void CCreateCharacterState::HandleEvents(CGameEngine* game)
                         {
                             scroll_range_min--;
                             scroll_range_max--;
-                              scroll_acceleration = 0;
-                              scrolling = 0;
+                            scroll_acceleration = 0;
+                            scrolling = 0;
                         }break;
                     case SDLK_DOWN:
                         {
                             scroll_range_min++;
                             scroll_range_max++;
-                              scroll_acceleration = 0;
-                              scrolling = 0;
+                            scroll_acceleration = 0;
+                            scrolling = 0;
                         }break;
                 } break;
 		}
@@ -158,20 +158,15 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
     SDL_RenderClear(game->renderer);
 
-//    SDL_Texture* texture = game->LoadTexture("./assets/data/textures/backgrounds/create_character_1.png",255);
-//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-//    SDL_DestroyTexture(texture);
-
-    gRect = { 0,0, 64, 64 };
+    gRect = { 0,0, 128, 64 };
     SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(game->renderer, &gRect);
 
-
     if( SDL_PointInRect(&mousePosition, &gRect) & SDL_BUTTON(SDL_BUTTON_LEFT) )
     {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 12);
         SDL_RenderFillRect(game->renderer, &gRect);
 
         if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
@@ -181,7 +176,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     game->RenderText("Portrait",White,gRect.x,gRect.y,24);
 
-    gRect = { 0,65, 64, 64 };
+    gRect = { 0,64, 128, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
@@ -200,7 +195,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     game->RenderText("Class",White,gRect.x,gRect.y,24);
 
-    gRect = { 0,129, 64, 64 };
+    gRect = { 0,129, 128, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
@@ -219,7 +214,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     game->RenderText("Skills",White,gRect.x,gRect.y,24);
 
-    gRect = { 0,193, 64, 64 };
+    gRect = { 0,193, 128, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
@@ -238,7 +233,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     game->RenderText("Abilities",White,gRect.x,gRect.y,24);
 
-    gRect = { 0,257, 64, 64 };
+    gRect = { 0,257, 128, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
@@ -257,7 +252,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     }
     game->RenderText("Character",White,gRect.x,gRect.y,24);
 
-    gRect = { 0,321, 64, 64 };
+    gRect = { 0,321, 128, 64 };
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
@@ -318,7 +313,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     if( ScreenName == "Portrait")
     {
         gRect = { 0,0, 64, 64 };
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &gRect);
 
         game->RenderText("Protrait",White,game->current.w / 2,0,24);
@@ -338,7 +333,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     else if( ScreenName == "Class")
     {
         gRect = { 0,65, 64, 64 };
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &gRect);
 
         game->RenderText("Class",White,game->current.w / 2,0,24);
@@ -382,7 +377,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     else if( ScreenName == "Skills")
     {
         gRect = { 0,129, 64, 64 };
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &gRect);
 
         game->RenderText("Skills",White,game->current.w / 2,0,24);
@@ -478,6 +473,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                         if( size < 3 )
                         {
                             game->LearnedSkill.push_back(game->v_Skill.at(choosen).Name);
+                            game->v_LearnedSkill.push_back(game->v_Skill.at(choosen));
                             game->v_Skill.erase(game->v_Skill.begin() + choosen);
                         }
                     }
@@ -544,7 +540,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     else if( ScreenName == "Abilities")
     {
         gRect = { 0,192, 64, 64 };
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &gRect);
 
         game->RenderText("Abilities",White,game->current.w / 2,0,24);
@@ -615,7 +611,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     else if( ScreenName == "Character")
     {
         gRect = { 0,256, 64, 64 };
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &gRect);
 
         game->RenderText(game->SActor.name.c_str(),White,game->current.w / 2,game->current.h / 2,24);
@@ -623,7 +619,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     else
     {
         gRect = { 0,320, 64, 64 };
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
         SDL_RenderFillRect(game->renderer, &gRect);
 
         SDL_Texture *texture = game->LoadTexture("./assets/data/textures/ui/gearslots.png",255);
@@ -637,52 +633,5 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         SrcR.h = h*2;
         SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
         SDL_DestroyTexture(texture);
-
-//        int Repeat = 0;
-//        int buttonWidth = 600;
-//        int buttonHeight = 60;
-//
-//        for(auto MenuChoice : MenuChoices)
-//        {
-//            SDL_Rect buttonPosition = { (game->current.w - buttonWidth) - 20, (game->current.h - buttonHeight) - 20,buttonWidth,buttonHeight};
-//
-//            SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
-//            SDL_RenderFillRect(game->renderer, &buttonPosition);
-//            SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-//            SDL_RenderDrawRect(game->renderer,&buttonPosition);
-//
-//            gSurface = TTF_RenderText_Blended(game->gameBreadTextFont, MenuChoice.c_str(), White);
-//            gTexture = SDL_CreateTextureFromSurface(game->renderer, gSurface);
-//            int texW = 0;
-//            int texH = 0;
-//            SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
-//
-//            gRect = { buttonPosition.x + (buttonWidth / 2) - (texW / 2), buttonPosition.y + (buttonHeight / 2) - (texH / 2), texW, texH };
-//            SDL_RenderCopy(game->renderer, gTexture, NULL, &gRect);
-//
-//            //Destroy resources
-//            SDL_FreeSurface(gSurface);
-//            SDL_DestroyTexture(gTexture);
-//
-//            SDL_Point mousePosition;
-//            SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-//
-//            if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//            {
-//                SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-//                SDL_RenderFillRect(game->renderer, &buttonPosition);
-//
-//                if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-//                {
-//                    if( MenuChoice == "EXIT")
-//                        game->ChangeState( CMenuState::Instance() );
-//                }
-//
-//                SDL_PumpEvents();
-//                SDL_GetMouseState(NULL, NULL);
-//
-//            }
-//            ++Repeat;
-//        }
     }
 }

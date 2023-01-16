@@ -54,16 +54,14 @@ void CMenuState::HandleEvents(CGameEngine* game)
             {
                 SDL_GetMouseState( &mousePosition.x, &mousePosition.y );
             } break;
-			case SDL_QUIT:
-				game->Quit();
-				break;
 
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
-						game->Quit();
-						break;
+					{
+                        game->Quit();
+                    }break;
 				} break;
 		}
 	}

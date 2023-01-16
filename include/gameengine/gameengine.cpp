@@ -359,6 +359,9 @@ std::random_device rd;
     encampTexture[2] = LoadTexture("./assets/data/textures/encamp/encamp2.png",255);
     encampTexture[3] = LoadTexture("./assets/data/textures/encamp/encamp3.png",255);
 
+    battleState = LoadTexture("./assets/data/textures/backgrounds/battle.png",255);
+    slot = LoadTexture("./assets/data/textures/ui/slot.png",255);
+
 	m_fullscreen = fullscreen;
 	m_running = true;
 

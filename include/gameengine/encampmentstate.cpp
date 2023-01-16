@@ -62,8 +62,9 @@ void CEncampmentState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
-						game->PopState();
-						break;
+					{
+						game->Quit();
+                    }break;
 				} break;
 		}
 	}

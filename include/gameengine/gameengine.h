@@ -209,6 +209,8 @@ public:
     // Make these a blob
     SDL_Texture* mapTexture[16][16][4];
     SDL_Texture* encampTexture[4];
+    SDL_Texture* battleState;
+    SDL_Texture* slot;
 
     //Make these a blob
     TTF_Font* gameTitleFont;
@@ -268,6 +270,7 @@ public:
     std::array<Item,9*10> v_Item;
     std::array<Item,9*10> v_InventoryItem;
     std::vector<SkillObject> v_Skill;
+    std::vector<SkillObject> v_LearnedSkill;
     SkillObject Skill;
 	void AddItem();
 	void AddSkill();
@@ -368,7 +371,7 @@ public:
     Mix_Chunk* _sample[20];
 
 
-	int number_of_enemies = 10;
+	int number_of_enemies = 1;
 
 	int random_events[16][16][28];
 	//float random_events[16][16][28];

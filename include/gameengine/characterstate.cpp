@@ -170,4 +170,30 @@ void CCharacterState::Draw(CGameEngine* game)
             game->ChangeState( CWorldMapState::Instance() );
         }
     }
+
+    counter = 0;
+    for (SkillObject textElement : game->v_LearnedSkill)
+    {
+        SDL_Rect skillbox = {1600,300+(64*counter),128,64};
+        //game->SkillRect[counter].x -= game->SkillRect[counter].w / 2;
+        //game->SkillRect[counter].y -= game->SkillRect[counter].h / 2;
+
+        //SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+        //SDL_RenderFillRect(game->renderer, &game->SkillRect[counter]);
+
+        game->RenderText(textElement.Name.c_str(),White,skillbox.x,skillbox.y,24);
+        counter++;
+    }
+
+    SDL_Texture *texture = game->LoadTexture("./assets/data/textures/ui/gearslots.png",255);
+    int w, h;
+    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
+    SDL_Rect SrcR;
+
+    SrcR.x = game->current.w / 3 + 100;
+    SrcR.y = game->current.h / 3 - 100;
+    SrcR.w = w*2;
+    SrcR.h = h*2;
+    SDL_RenderCopy(game->renderer, texture, NULL, &SrcR);
+    SDL_DestroyTexture(texture);
 }

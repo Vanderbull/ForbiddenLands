@@ -39,6 +39,7 @@ private:
 	static CBattleState m_BattleState;
 
 	SDL_Color White = {255, 255, 255, 255};
+	SDL_Color Black = {0, 0, 0, 255};
     std::vector<std::string> MenuChoices;
 
     /// Information about the state of the mouse

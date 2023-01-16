@@ -150,6 +150,12 @@ void CPlayState::Update(CGameEngine* game)
     std::random_device rd;
     SDL_Log("CPlayState Update\n");
 
+    if( game->number_of_enemies <= 0 )
+    {
+        game->number_of_enemies = 1;
+        game->ChangeState( CMenuState::Instance() );
+    }
+
     game->currentTimeElapse(true);
 
     if( game->newGame )
@@ -284,8 +290,6 @@ void CPlayState::Draw(CGameEngine* game)
     gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
     SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
-    //if(goblinmovey < game->current.h - texH)
-    //    goblinmovey++;
 
     SDL_Rect left_weapon = {0,game->current.h - 120, 120,120};
     SDL_Rect right_weapon = {game->current.w - 120,game->current.h - 120, 120,120};
