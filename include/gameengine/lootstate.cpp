@@ -90,4 +90,7 @@ void CLootState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
     game->RenderTextWrapped("LOOT LOOT LOOT", game->Black, game->current.w / 3 + 200,game->current.h / 3,24,1520);
+
+    Item randomized("SCRAP");
+    game->v_InventoryItem.at(9) = randomized;
 }

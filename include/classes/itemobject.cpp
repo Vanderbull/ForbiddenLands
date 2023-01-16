@@ -6,7 +6,7 @@ Item::Item(void)
 {
 
 };
-Item::Item(std::string,char,int)
+Item::Item(std::string _name)
 {
-
+    Name = _name;
 };

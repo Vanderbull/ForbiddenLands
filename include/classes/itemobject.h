@@ -36,7 +36,7 @@ public:
     SDL_Rect iconBox = {0,0,0,0};
 
     Item(void);
-    Item(std::string,char,int);
+    Item(std::string);
 };
 
 struct SGenericItem

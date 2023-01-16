@@ -990,12 +990,12 @@
 	<vector>
 	<SDL2/SDL.h>
 
-1673534920 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/classes/itemobject.cpp
+1673909836 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/classes/itemobject.cpp
 	<stdio.h>
 	<SDL2/SDL.h>
 	"itemobject.h"
 
-1673597808 /home/rickard/Documents/GitHub/ForbiddenLands/include/classes/itemobject.h
+1673909836 /home/rickard/Documents/GitHub/ForbiddenLands/include/classes/itemobject.h
 	<string>
 	<vector>
 	<SDL2/SDL.h>
@@ -1046,4 +1046,18 @@
 	<vector>
 	<SDL2/SDL.h>
 	"gamestate.h"
+
+1673909654 source:/home/rickard/Documents/GitHub/ForbiddenLands/include/gameengine/lootstate.cpp
+	<stdio.h>
+	<SDL2/SDL.h>
+	"gameengine.h"
+	"gamestate.h"
+	"playstate.h"
+	"createcharacterstate.h"
+	"loadmenustate.h"
+	"savemenustate.h"
+	"menustate.h"
+	"gameoverstate.h"
+	"villagestate.h"
+	"lootstate.h"
 
