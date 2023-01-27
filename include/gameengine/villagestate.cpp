@@ -72,22 +72,24 @@ void CVillageState::Update(CGameEngine* game)
     game->SActor.hitpoints_max = 10;
     game->number_of_enemies = 1;
 
-std::random_device rd;
+    std::random_device rd;
 
-
-            int z = 0;
-        for(int x = 0; x < 16; x++)
-            for(int y = 0; y < 16; y++)
-            {
-                game->random_events[x][y][z] = rd();//dice();
-            }
+    int z = 0;
+    for(int x = 0; x < 16; x++)
+        for(int y = 0; y < 16; y++)
+        {
+            game->random_events[x][y][z] = rd();
+        }
 }
 
 void CVillageState::Draw(CGameEngine* game)
 {
     SDL_Log("CVillageState Draw\n");
 
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-    SDL_RenderClear(game->renderer);
-    game->RenderTextWrapped("Village Village Village", game->Black, game->current.w / 3 + 200,game->current.h / 3,24,1520);
+    game->RenderText("hides: " + std::to_string(game->hides), game->White, 0,0,24);
+    game->RenderText("slaves: " + std::to_string(game->slaves), game->White, 0,32,24);
+    game->RenderText("gold: " + std::to_string(game->gold), game->White, 0,64,24);
+    game->RenderText("silver: " + std::to_string(game->silver), game->White, 0,96,24);
+
+    game->RenderTextWrapped("Village Village Village", game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
 }

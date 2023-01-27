@@ -69,6 +69,7 @@ void CGameoverState::Update(CGameEngine* game)
     game->SActor.hitpoints_current = 10;
     game->SActor.hitpoints_max = 10;
     game->number_of_enemies = 1;
+    game->SActor.PlayerCoordinate.z = game->WEST;
 
 std::random_device rd;
 

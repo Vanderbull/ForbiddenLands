@@ -137,9 +137,6 @@ void CInventoryState::Draw(CGameEngine* game)
     static SDL_Rect active_icon = {(game->current.w - (64*10)),64,64,64};
     static int active_icon_id = 0;
 
-    SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 255);
-    SDL_RenderClear(game->renderer);
-
     SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
     int texW = 0;
     int texH = 0;

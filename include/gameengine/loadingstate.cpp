@@ -162,10 +162,6 @@ void CLoadingState::Draw(CGameEngine* game)
     game->mapTexture[x][y][z] = IMG_LoadTexture(game->renderer,load_location.c_str());
     imagesFiles.erase(imagesFiles.begin());
 
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-
-    SDL_RenderClear(game->renderer);
-
     if( texture == NULL )
         texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
 

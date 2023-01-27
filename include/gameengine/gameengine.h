@@ -31,37 +31,13 @@ using namespace std;
 #include "classes/itemobject.h"
 #include "classes/textureholder.h"
 #include "classes/soundholder.h"
+#include "classes/worldmap.h"
 
 extern int testing;
 
-//class TextureHolder
-//{
-//private:
-//    // A pointer of the same type as the class itself
-//    // the one and only instance
-//    //static TextureHolder* m_s_Instance;
-//public:
-//    // A map container from the STL,
-//    // that holds related pairs of String and Texture
-//    map<string, SDL_Texture*> m_Textures;
-//
-//    // Texture textureBackground = TextureHolder::GetTexture(
-//    // "graphics/background_sheet.png");
-//
-//    TextureHolder(){};
-//    //static Texture& GetTexture(string const& filename);
-//};
-
-//class SoundHolder
-//{
-//public:
-//    map<string, Mix_Chunk*> m_Sounds;
-//
-//    SoundHolder(){};
-//};
-
 class TextureHolder;
 class SoundHolder;
+class WorldMap;
 class CGameState;
 
 class CGameEngine
@@ -71,10 +47,6 @@ public:
     // Sound settings
     int music_volume = 0;
     int sfx_volume = 0;
-
-    // NPC hitpoints
-    int npc_hitpoints_current = 0;
-    int npc_hitpoints_max = 0;
 
     InGameTime gameTime;
     ACTOR SActor;
@@ -125,8 +97,6 @@ public:
         night
     };
 
-//    int currentDay = 0;
-//    int currentTime = 0;
     int currentTimeOfDay = day;
 
     // Live ticking time or by movement
@@ -275,8 +245,7 @@ public:
 	void AddItem();
 	void AddSkill();
 
-	int ChoosenProfession;
-	int ChoosenRace;
+
 
 	// Look at enums with flags later
 	enum BodyParts {HEAD,NECK,SHOULDER,CHEST,LEFT_ARM,RIGHT_ARM,HANDS,LEGS,FEET};
@@ -347,25 +316,15 @@ public:
             {
                 row.clear();
                 stringstream str(line);
-                RenderText(line.c_str(), White, current.w / 2,countery*24,48);
-                //RenderText(line.c_str(), White, 0,countery*24,48);
-//                while(getline(str, word, ' '))
-//                {
-//                }
+                RenderText(line.c_str(), Black, current.w / 2,countery*24,48);
                 content.push_back(row);
                 countery++;
             }
         }
         else
         {
-        exit(99);
+            exit(99);
         }
-//        for(int x = 0; x < 17; x++)
-//            for(int y = 0; y < 41; y++)
-//            {
-//                SDL_SetRenderDrawColor(renderer, 255, 255, 255, 128);
-//                SDL_RenderFillRect(renderer, &worldMapTiles[x][y]);
-//            }
     }
 
     Mix_Chunk* _sample[20];
@@ -412,6 +371,14 @@ public:
           }
        }
     }
+
+    //Loot state variables
+    int hides = 0;
+    int slaves = 0;
+    int gold = 0;
+    int silver = 0;
+
+    enum {WEST,EAST,SOUTH,NORTH};
 
 private:
 	// the stack of states

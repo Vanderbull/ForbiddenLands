@@ -55,8 +55,10 @@ void CLootState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
+					{
+                        looting = true;
 						game->ChangeState(CVillageState::Instance());
-						break;
+					}break;
 				} break;
 		}
 	}
@@ -71,25 +73,31 @@ void CLootState::Update(CGameEngine* game)
     game->SActor.hitpoints_current = 10;
     game->SActor.hitpoints_max = 10;
     game->number_of_enemies = 1;
+    game->SActor.PlayerCoordinate.z = game->WEST;
 
-std::random_device rd;
+    if( looting )
+    {
+        std::random_device rd;
+        std::uniform_int_distribution<int> dist(0, 9);
 
-
-            int z = 0;
-        for(int x = 0; x < 16; x++)
-            for(int y = 0; y < 16; y++)
-            {
-                game->random_events[x][y][z] = rd();//dice();
-            }
+        game->hides += dist(rd);
+        game->slaves += dist(rd);
+        game->gold += dist(rd);
+        game->silver += dist(rd);
+        looting = false;
+    }
 }
 
 void CLootState::Draw(CGameEngine* game)
 {
     SDL_Log("CLootState Draw\n");
 
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-    SDL_RenderClear(game->renderer);
-    game->RenderTextWrapped("LOOT LOOT LOOT", game->Black, game->current.w / 3 + 200,game->current.h / 3,24,1520);
+    game->RenderText("hides: " + std::to_string(game->hides), game->White, 0,0,24);
+    game->RenderText("slaves: " + std::to_string(game->slaves), game->White, 0,32,24);
+    game->RenderText("gold: " + std::to_string(game->gold), game->White, 0,64,24);
+    game->RenderText("silver: " + std::to_string(game->silver), game->White, 0,96,24);
+
+    game->RenderTextWrapped("LOOT LOOT LOOT", game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
 
     Item randomized("SCRAP");
     game->v_InventoryItem.at(9) = randomized;

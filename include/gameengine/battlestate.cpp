@@ -81,9 +81,7 @@ void CBattleState::Draw(CGameEngine* game)
 
     SDL_Rect AttackButtonPosition = { 16, 16, 64, 64};
     SDL_Rect DefendButtonPosition = { 88, 16, 64, 64};
-
-    SDL_SetRenderDrawColor( game->renderer, 0, 0, 0, 255 );
-    SDL_RenderClear(game->renderer);
+    SDL_Rect FleeButtonPosition = { 160, 16, 64, 64};
 
     SDL_RenderCopy(game->renderer, game->battleState, NULL, NULL);
 
@@ -105,12 +103,24 @@ void CBattleState::Draw(CGameEngine* game)
     {
         if(m_PlayerDefending)
         {
-            game->SActor.hitpoints_current -= GenerateNumber(0,3) / 2;
+            if( game->SActor.ChoosenProfession == game->SActor.VIKING )
+                game->SActor.hitpoints_current -= GenerateNumber(0,3) / 2;
+            else if( game->SActor.ChoosenProfession == game->SActor.MARAUDER )
+                game->SActor.hitpoints_current -= GenerateNumber(0,3);
+            else if( game->SActor.ChoosenProfession == game->SActor.SHIELDMAIDEN )
+                game->SActor.hitpoints_current -= GenerateNumber(0,3) / 3;
+
             m_PlayerDefending = false;
         }
         else
         {
-            game->SActor.hitpoints_current -= GenerateNumber(0,3);
+            if( game->SActor.ChoosenProfession == game->SActor.VIKING )
+                game->SActor.hitpoints_current -= GenerateNumber(0,3) / 2;
+            else if( game->SActor.ChoosenProfession == game->SActor.MARAUDER )
+                game->SActor.hitpoints_current -= GenerateNumber(0,3);
+            else if( game->SActor.ChoosenProfession == game->SActor.SHIELDMAIDEN )
+                game->SActor.hitpoints_current -= GenerateNumber(0,3) / 3;
+
             m_PlayerDefending = false;
         }
         m_PlayerActive = true;
@@ -129,7 +139,14 @@ void CBattleState::Draw(CGameEngine* game)
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             Mix_PlayChannel(-1, game->_sample[3], 0);
-            game->SNpc.hitpoints_current -= GenerateNumber(0,3);
+
+            if( game->SActor.ChoosenProfession == game->SActor.VIKING )
+                game->SNpc.hitpoints_current -= GenerateNumber(0,3) / 2;
+            else if( game->SActor.ChoosenProfession == game->SActor.MARAUDER )
+                game->SNpc.hitpoints_current -= GenerateNumber(0,3);
+            else if( game->SActor.ChoosenProfession == game->SActor.SHIELDMAIDEN )
+                game->SNpc.hitpoints_current -= GenerateNumber(0,3) / 3;
+
             m_PlayerActive = false;
             if(game->SNpc.hitpoints_current <= 0)
             {
@@ -150,6 +167,17 @@ void CBattleState::Draw(CGameEngine* game)
             Mix_PlayChannel(-1, game->_sample[3], 0);
             m_PlayerActive = false;
             m_PlayerDefending = true;
+        }
+    }
+    else if( SDL_PointInRect(&mousePosition, &FleeButtonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
+        SDL_RenderFillRect(game->renderer, &FleeButtonPosition);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            game->SActor.PlayerCoordinate.x = GenerateNumber(0,16);
+            game->SActor.PlayerCoordinate.y = GenerateNumber(0,16);
+            game->ChangeState(CPlayState::Instance());
         }
     }
 

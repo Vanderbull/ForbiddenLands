@@ -95,9 +95,6 @@ void CEncampmentState::Draw(CGameEngine* game)
 
     //game->encampTexture = IMG_LoadTexture(game->renderer,"./assets/data/textures/encamp/encamp0.png");
 
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-    SDL_RenderClear(game->renderer);
-
     SDL_RenderCopy(game->renderer, game->encampTexture[counter], NULL, NULL);
     if( SDL_GetTicks() - startTime > 500)
     {

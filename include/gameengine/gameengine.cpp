@@ -76,14 +76,14 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     std::array<int, 100> arr;
     fill_array(eng, arr);
 
-std::default_random_engine generator;
-std::uniform_int_distribution<int> distribution(0,RAND_MAX);
+    std::default_random_engine generator;
+    std::uniform_int_distribution<int> distribution(0,RAND_MAX);
 
-std::random_device rd;
+    std::random_device rd;
 
-//auto dice = std::bind ( rd, generator );
+    //auto dice = std::bind ( rd, generator );
 
-//int wisdom = dice()+dice()+dice();
+    //int wisdom = dice()+dice()+dice();
 
             int z = 0;
         for(int x = 0; x < 16; x++)
@@ -107,13 +107,13 @@ std::random_device rd;
     for (pt::ptree::value_type & v : root.get_child("npc_hitpoints"))
     {
         if( v.first == "current" )
-            npc_hitpoints_current = v.second.get_value<int>();
+            SNpc.hitpoints_current = v.second.get_value<int>();//npc_hitpoints_current = v.second.get_value<int>();
         if( v.first == "max" )
-            npc_hitpoints_max = v.second.get_value<int>();
+            SNpc.hitpoints_max = v.second.get_value<int>();
     }
 
-    SNpc.hitpoints_current = npc_hitpoints_current;
-    SNpc.hitpoints_max = npc_hitpoints_max;
+    //SNpc.hitpoints_current = npc_hitpoints_current;
+    //SNpc.hitpoints_max = npc_hitpoints_max;
 
     root.put_child("foo", foo() );
     boost::property_tree::write_json("file.json", root );
@@ -438,6 +438,9 @@ void CGameEngine::Update()
 void CGameEngine::Draw()
 {
     SDL_Log("CGameEngine Draw %s %d", __FILE__, __LINE__);
+
+    SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+    SDL_RenderClear( renderer);
 	// let the state draw the screen
 	states.back()->Draw(this);
 }

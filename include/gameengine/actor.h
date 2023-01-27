@@ -17,6 +17,13 @@ struct ACTOR
     std::vector<std::string> professionTextElements = { "VIKING", "MARAUDER","SHIELDMAIDEN"};
     std::vector<SDL_Rect> professionElements;
 
+    int ChoosenProfession = 0;
+    enum {
+        VIKING,
+        MARAUDER,
+        SHIELDMAIDEN
+    };
+
     int current_stats[7];
     int coins_gold = 0;
     int experience = 0;

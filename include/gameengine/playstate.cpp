@@ -234,9 +234,6 @@ void CPlayState::Draw(CGameEngine* game)
 
     SDL_Log("CPlayState Draw\n");
 
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-    SDL_RenderClear(game->renderer);
-
     SDL_RendererFlip flip = (SDL_RendererFlip)(SDL_FLIP_NONE);
 
     SDL_RenderCopyEx(game->renderer, game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z], NULL, NULL, 0, NULL, flip);

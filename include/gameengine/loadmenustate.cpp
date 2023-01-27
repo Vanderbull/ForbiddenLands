@@ -93,9 +93,6 @@ void CLoadMenuState::Draw(CGameEngine* game)
 {
     SDL_Log("CLoadMenuState Draw\n");
 
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-    SDL_RenderClear(game->renderer);
-
     MainMenuBackgroundTexture = NULL;
 
 	SDL_Surface* surface = IMG_Load( "./assets/data/textures/menus/menu_backdrop.png" );

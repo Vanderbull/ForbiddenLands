@@ -64,6 +64,9 @@ private:
     int Repeat = 0;
     int buttonWidth = 600;
     int buttonHeight = 60;
+
+    bool looting = true;
+
 };
 
 #endif

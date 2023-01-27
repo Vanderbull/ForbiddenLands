@@ -89,8 +89,6 @@ void CSaveMenuState::Update(CGameEngine* game)
 void CSaveMenuState::Draw(CGameEngine* game)
 {
     SDL_Log("CSaveMentState Draw");
-    SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
-    SDL_RenderClear(game->renderer);
 
 	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
     SDL_RenderCopy(game->renderer, texture, NULL, NULL);

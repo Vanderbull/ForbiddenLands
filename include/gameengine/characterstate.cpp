@@ -90,9 +90,6 @@ void CCharacterState::Draw(CGameEngine* game)
 
     int counter = 0;
 
-    SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
-    SDL_RenderClear(game->renderer);
-
     if( game->BackgroundTexture == NULL )
         game->BackgroundTexture = game->LoadTexture("./assets/data/textures/backgrounds/characterstate-new.png",255);
 
@@ -111,7 +108,7 @@ void CCharacterState::Draw(CGameEngine* game)
   	game->RenderBreadText(std::to_string(game->SActor.current_stats[5]).c_str(),game->Black,560, 475 );
   	game->RenderBreadText(std::to_string(game->SActor.current_stats[6]).c_str(),game->Black,560, 520 );
 
-  	game->RenderBreadText(game->SActor.professionTextElements[game->ChoosenProfession].c_str(),game->White,444, 575 );
+  	game->RenderBreadText(game->SActor.professionTextElements[game->SActor.ChoosenProfession].c_str(),game->White,444, 575 );
 
 //  	game->RenderBreadText(std::to_string(game->SActor.uid).c_str(),game->White,game->current.w - 100, 0 );
 //  	game->RenderBreadText(std::to_string(game->SActor.armour_class).c_str(),game->White,338,600 );

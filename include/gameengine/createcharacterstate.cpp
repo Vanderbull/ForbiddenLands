@@ -155,9 +155,6 @@ void CCreateCharacterState::Draw(CGameEngine* game)
     SDL_Rect TextFrame = {0, 0, 0, 0};
     SDL_Rect TextFrame2 = {0, 0, 0, 0};
 
-    SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, 255);
-    SDL_RenderClear(game->renderer);
-
     gRect = { 0,0, 128, 64 };
     SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 255);
     SDL_RenderFillRect(game->renderer, &gRect);
@@ -341,7 +338,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         gRect = { 1200,170, 0, 0 };
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(game->renderer, &gRect);
-        game->RenderText2(game->SActor.professionTextElements[game->ChoosenProfession].c_str(),White,gRect.x,gRect.y,24);
+        game->RenderText2(game->SActor.professionTextElements[game->SActor.ChoosenProfession].c_str(),White,gRect.x,gRect.y,24);
 
         counter = 0;
 
@@ -368,7 +365,7 @@ void CCreateCharacterState::Draw(CGameEngine* game)
                 {
                     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
                     SDL_RenderFillRect(game->renderer, &game->SActor.professionElements[counter]);
-                    game->ChoosenProfession = counter;
+                    game->SActor.ChoosenProfession = counter;
                 }
             }
             counter++;
