@@ -1,3 +1,0 @@
-Viking
-Marauder
-Shieldmaiden
