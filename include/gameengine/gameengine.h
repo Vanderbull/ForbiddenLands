@@ -180,6 +180,7 @@ public:
     SDL_Texture* mapTexture[16][16][4];
     SDL_Texture* encampTexture[4];
     SDL_Texture* battleState;
+    SDL_Texture* gameoverState;
     SDL_Texture* slot;
 
     //Make these a blob

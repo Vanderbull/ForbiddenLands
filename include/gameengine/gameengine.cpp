@@ -360,6 +360,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     encampTexture[3] = LoadTexture("./assets/data/textures/encamp/encamp3.png",255);
 
     battleState = LoadTexture("./assets/data/textures/backgrounds/battle.png",255);
+    gameoverState = LoadTexture("./assets/data/textures/backgrounds/gameover.png",255);
+
     slot = LoadTexture("./assets/data/textures/ui/slot.png",255);
 
 	m_fullscreen = fullscreen;
