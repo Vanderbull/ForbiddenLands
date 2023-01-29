@@ -32,9 +32,13 @@
 *.app
 
 # Other
+obj/*
 bin/*
 images/blender/*
 logs/*
 *.layout
 ForbiddenLands.layout
 dependency-graph.pdf
+ForbiddenLands.depend
+ForbiddenLands.cbp.mak
+Makefile
