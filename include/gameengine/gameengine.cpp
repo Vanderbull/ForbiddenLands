@@ -871,9 +871,9 @@ void CGameEngine::renderDaytime()
         SDL_Texture* dayTimeTexture = NULL;
 
         if( currentTimeElapse() == night )
-            dayTimeTexture = LoadTexture("./assets/data/textures/icons/night.png",255);
-        else
             dayTimeTexture = LoadTexture("./assets/data/textures/icons/day.png",255);
+        else
+            dayTimeTexture = LoadTexture("./assets/data/textures/icons/night.png",255);
 
         SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
         SDL_DestroyTexture(dayTimeTexture);
