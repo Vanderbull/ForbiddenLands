@@ -32,8 +32,8 @@ struct ACTOR
     int hitpoints_current = 10;
     int hitpoints_max = 10;
     int damage = 0;
-    int hunger = 0;
-    int thirst = 0;
+    //int hunger = 0;
+    //int thirst = 0;
     int faceImageID = 0;
     int worldMap = 0;
 

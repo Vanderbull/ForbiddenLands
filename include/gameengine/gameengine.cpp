@@ -90,6 +90,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
             for(int y = 0; y < 16; y++)
             {
                 random_events[x][y][z] = rd();//dice();
+                fog_of_war_raiding[x][y][z] = 0;
             }
 
     boost::property_tree::ptree root;

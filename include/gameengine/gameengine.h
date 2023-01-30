@@ -334,6 +334,8 @@ public:
 	int number_of_enemies = 1;
 
 	int random_events[16][16][28];
+
+	int fog_of_war_raiding[16][16][28];
 	//float random_events[16][16][28];
 
     template<class Engine, class Integer, size_t SIZE>
