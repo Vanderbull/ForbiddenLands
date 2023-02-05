@@ -43,8 +43,11 @@ struct ACTOR
         int y;
         int z;
     };
+
     CoordinatePair PlayerCoordinate = {15,1,0};
     CoordinatePair PlayerLastCoordinate = {15,1,0};
+    CoordinatePair WorldmapCoordinate = {0,0,0};
+    CoordinatePair WorldmapLastCoordinate = {0,0,0};
 
     ACTOR()
     {

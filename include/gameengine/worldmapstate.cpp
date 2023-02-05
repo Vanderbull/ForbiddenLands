@@ -48,6 +48,22 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 					case SDLK_ESCAPE:
                         game->ChangeState( CPlayState::Instance() );
 						break;
+                    case SDLK_w:
+                        if( game->SActor.WorldmapCoordinate.y > 0 )
+                            game->SActor.WorldmapCoordinate.y--;
+                        break;
+                    case SDLK_d:
+                        if( game->SActor.WorldmapCoordinate.x >= 0 )
+                            game->SActor.WorldmapCoordinate.x++;
+                        break;
+                    case SDLK_s:
+                        if( game->SActor.WorldmapCoordinate.y < 15 )
+                            game->SActor.WorldmapCoordinate.y++;
+                        break;
+                    case SDLK_a:
+                        if( game->SActor.WorldmapCoordinate.x > 0 )
+                            game->SActor.WorldmapCoordinate.x--;
+                        break;
 				}
 				break;
 		}
@@ -152,4 +168,13 @@ void CWorldMapState::Draw(CGameEngine* game)
         }
     }
     //game->renderWorldMapTiles();
+    SDL_Rect WorldmapLocation;
+
+    OFFSET = 0;
+    WorldmapLocation.x = game->SActor.WorldmapCoordinate.x*32 + OFFSET;
+    WorldmapLocation.y = game->SActor.WorldmapCoordinate.y*32 + OFFSET;
+    WorldmapLocation.h = 32;
+    WorldmapLocation.w = 32;
+
+    SDL_RenderCopy(game->renderer, game->North, NULL, &WorldmapLocation);
 }
