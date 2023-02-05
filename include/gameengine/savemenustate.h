@@ -1,6 +1,7 @@
 #ifndef SAVEMENUSTATE_H
 #define SAVEMENUSTATE_H
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <dirent.h>
@@ -57,8 +58,16 @@ public:
         {
             saveFile = "./assets/data/savegames/";
             std::stringstream sstream;
+            std::stringstream item;
+
             sstream << std::put_time(gmtm, "%c");
+
+
             saveFile += sstream.str();
+            saveFile += ".dat";
+
+            std::replace( saveFile.begin(), saveFile.end(), ' ', '_'); // replace all 'x' to 'y'
+
             FILE *SaveGame;
             // open file for writing
             SaveGame = fopen (saveFile.c_str(), "w");

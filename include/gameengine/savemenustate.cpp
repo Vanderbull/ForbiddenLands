@@ -15,18 +15,25 @@ void CSaveMenuState::Init()
 
     DIR *dpdf;
     struct dirent *epdf;
-    std::vector<std::string> filenames;
+    //std::vector<std::string> filenames;
     dpdf = opendir("./assets/data/savegames");
-    if (dpdf != NULL) {
-       while (epdf = readdir(dpdf))
-       {
-             if (epdf->d_name[0] != '.' && epdf->d_name[strlen(epdf->d_name)-1] != '~' )
+    if (dpdf != NULL)
+    {
+        while (epdf = readdir(dpdf))
+        {
+            std::string filename;
+            filename = epdf->d_name;
+            std::cout << filename << std::endl;
+            if( filename == "dummy" || filename == ".." || filename == ".")
+            {
+            }
+            else if (epdf->d_name[strlen(epdf->d_name)-1] != '~')
             {
                 MenuChoices.push_back(std::string(epdf->d_name));
             }
-
-       }
+        }
     }
+
     MenuChoices.push_back("NEW SAVE");
     MenuChoices.push_back("EXIT");
 }
@@ -165,16 +172,6 @@ void CSaveMenuState::Draw(CGameEngine* game)
         //Destroy resources
         SDL_FreeSurface(gSurface);
         SDL_DestroyTexture(gTexture);
-
-        if( SDL_PointInRect(&mousePosition, &buttonPositionDelete) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-        {
-            SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
-            SDL_RenderFillRect(game->renderer, &buttonPositionDelete);
-            if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-            {
-                SDL_Log("Simulating file deletion... %s", MenuChoice.c_str());
-            }
-        }
 
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {

@@ -36,6 +36,7 @@ obj/*
 bin/*
 images/blender/*
 logs/*
+assets/data/savegames/*.dat
 *.layout
 ForbiddenLands.layout
 dependency-graph.pdf
