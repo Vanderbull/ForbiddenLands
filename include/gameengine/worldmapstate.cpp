@@ -53,11 +53,11 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                             game->SActor.WorldmapCoordinate.y--;
                         break;
                     case SDLK_d:
-                        if( game->SActor.WorldmapCoordinate.x >= 0 )
+                        if( game->SActor.WorldmapCoordinate.x < (1920 / 32) - 1 )
                             game->SActor.WorldmapCoordinate.x++;
                         break;
                     case SDLK_s:
-                        if( game->SActor.WorldmapCoordinate.y < 15 )
+                        if( game->SActor.WorldmapCoordinate.y < (1080 / 32) - 1 )
                             game->SActor.WorldmapCoordinate.y++;
                         break;
                     case SDLK_a:
