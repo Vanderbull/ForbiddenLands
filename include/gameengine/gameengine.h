@@ -32,6 +32,7 @@ using namespace std;
 #include "classes/textureholder.h"
 #include "classes/soundholder.h"
 #include "classes/worldmap.h"
+#include "classes/questobject.h"
 
 extern int testing;
 

@@ -70,6 +70,14 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
+    QuestList questList;
+    questList.addQuest("Defeat the dragon");
+    questList.addQuest("Rescue the princess");
+    questList.addQuest("Retrieve the stolen artifact");
+    questList.displayQuests();
+    questList.completeQuest("Defeat the dragon");
+    questList.displayQuests();
+
     std::random_device rnd;  // a source of machine-wide entropy
     std::default_random_engine eng(rnd()); // use it to initialise the psuedo-random engine
 
