@@ -82,6 +82,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] == 1 )
                                         game->SActor.PlayerCoordinate.y--;
+                                    //game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z] = 1;
                                     //game->gameTime.tm_min++;
                                 }
                             }
@@ -91,6 +92,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] == 1 )
                                         game->SActor.PlayerCoordinate.y++;
+                                    //game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z] = 1;
                                     //game->gameTime.tm_min++;
                                 }
                             }
@@ -100,6 +102,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
                                         game->SActor.PlayerCoordinate.x--;
+                                    //game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z] = 1;
                                     //game->gameTime.tm_min++;
                                 }
                             }
@@ -109,6 +112,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                 {
                                     if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
                                         game->SActor.PlayerCoordinate.x++;
+                                    //game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][game->SActor.PlayerCoordinate.z] = 1;
                                     //game->gameTime.tm_min++;
                                 }
                             }
@@ -149,6 +153,31 @@ void CPlayState::Update(CGameEngine* game)
 {
     std::random_device rd;
     SDL_Log("CPlayState Update\n");
+
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][2] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][3] = 1;
+
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][1] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][2] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][3] = 1;
+
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][0] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][1] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][2] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][3] = 1;
+
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][0] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][1] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][2] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][3] = 1;
+
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][0] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][1] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][2] = 1;
+    game->fog_of_war_raiding[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][3] = 1;
 
     if( game->number_of_enemies <= 0 )
     {
@@ -249,72 +278,72 @@ void CPlayState::Draw(CGameEngine* game)
     //static int goblinmovey = 0;
     if( (game->SActor.PlayerCoordinate.z == WEST ) && game->random_events[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] <= rd.max() / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
-    texW = 0;
-    texH = 0;
-    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+        SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
+        texW = 0;
+        texH = 0;
+        SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
 
-    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
-    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+        gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+        SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
     if( (game->SActor.PlayerCoordinate.z == EAST ) && game->random_events[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][0] <=  rd.max() / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
-    texW = 0;
-    texH = 0;
-    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+        SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
+        texW = 0;
+        texH = 0;
+        SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
 
-    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
-    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+        gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+        SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
     if( (game->SActor.PlayerCoordinate.z == SOUTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][0] <=  rd.max() / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
-    texW = 0;
-    texH = 0;
-    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+        SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
+        texW = 0;
+        texH = 0;
+        SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
 
-    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
-    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+        gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+        SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
     if( (game->SActor.PlayerCoordinate.z == NORTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][0] <=  rd.max() / 2)
     {
-    SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
-    texW = 0;
-    texH = 0;
-    SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
+        SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
+        texW = 0;
+        texH = 0;
+        SDL_QueryTexture(goblin, NULL, NULL, &texW, &texH);
 
-    gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
-    SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
+        gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
+        SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
 
-    SDL_Rect left_weapon = {0,game->current.h - 120, 120,120};
-    SDL_Rect right_weapon = {game->current.w - 120,game->current.h - 120, 120,120};
-    SDL_SetRenderDrawColor(game->renderer, 0, 255, 0,255);
-    SDL_RenderFillRect(game->renderer, &left_weapon);
-    SDL_RenderFillRect(game->renderer, &right_weapon);
+//    SDL_Rect left_weapon = {0,game->current.h - 120, 120,120};
+//    SDL_Rect right_weapon = {game->current.w - 120,game->current.h - 120, 120,120};
+//    SDL_SetRenderDrawColor(game->renderer, 0, 255, 0,255);
+//    SDL_RenderFillRect(game->renderer, &left_weapon);
+//    SDL_RenderFillRect(game->renderer, &right_weapon);
     game->renderDaytime();
 
-    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-
-    if( SDL_PointInRect(&mousePosition, &left_weapon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &left_weapon);
-
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-        }
-    }
-    if( SDL_PointInRect(&mousePosition, &right_weapon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-        SDL_RenderFillRect(game->renderer, &right_weapon);
-
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-        }
-    }
+//    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+//
+//    if( SDL_PointInRect(&mousePosition, &left_weapon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+//        SDL_RenderFillRect(game->renderer, &left_weapon);
+//
+//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+//        {
+//        }
+//    }
+//    if( SDL_PointInRect(&mousePosition, &right_weapon) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+//        SDL_RenderFillRect(game->renderer, &right_weapon);
+//
+//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+//        {
+//        }
+//    }
 
     game->RenderText("HP: " + std::to_string(game->SActor.hitpoints_current) + " / " + std::to_string(game->SActor.hitpoints_max), White, game->current.w - 200,50,24);
 }

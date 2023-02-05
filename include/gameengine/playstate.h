@@ -140,10 +140,10 @@ public:
         for(int x = 0; x < 16; x++)
             for(int y = 0; y < 16; y++)
             {
-                if( game->fog_of_war_raiding[x][y][z] <= ( rd.max() / 4) )
+                if( game->fog_of_war_raiding[x][y][z] == 0 )
                 {
-                    SDL_Rect imageSize = {x*16 + 50, y*16 + 50,8,8};
-                    SDL_SetRenderDrawColor(game->renderer, 255,0, 255, 128);
+                    SDL_Rect imageSize = {x*16 + 50, y*16 + 50,16,16};
+                    SDL_SetRenderDrawColor(game->renderer, 255,255, 255, 255);
                     SDL_RenderFillRect(game->renderer, &imageSize);
                 }
             }
@@ -221,22 +221,21 @@ public:
         SDL_Rect SOUTH = {64, 128,64,64};
         SDL_SetRenderDrawColor(game->renderer, 255, 0, 255, 128);
 
-        std::cout << " game->SActor.PlayerCoordinate.x:" << game->SActor.PlayerCoordinate.x << std::endl;
-        std::cout << " game->SActor.PlayerCoordinate.y:" << game->SActor.PlayerCoordinate.y << std::endl;
-        std::cout << " WEST:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] << std::endl;
-        std::cout << " EAST:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] << std::endl;
-        std::cout << " NORTH:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] << std::endl;
-        std::cout << " SOUTH" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] << std::endl;
-        //exit(99);
+//        std::cout << " game->SActor.PlayerCoordinate.x:" << game->SActor.PlayerCoordinate.x << std::endl;
+//        std::cout << " game->SActor.PlayerCoordinate.y:" << game->SActor.PlayerCoordinate.y << std::endl;
+//        std::cout << " WEST:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] << std::endl;
+//        std::cout << " EAST:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] << std::endl;
+//        std::cout << " NORTH:" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] << std::endl;
+//        std::cout << " SOUTH" << mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] << std::endl;
 
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
-            SDL_RenderFillRect(game->renderer, &WEST);
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
-            SDL_RenderFillRect(game->renderer, &EAST);
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] == 1 )
-            SDL_RenderFillRect(game->renderer, &NORTH);
-        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] == 1 )
-            SDL_RenderFillRect(game->renderer, &SOUTH);
+//        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::WEST] == 1 )
+//            SDL_RenderFillRect(game->renderer, &WEST);
+//        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::EAST] == 1 )
+//            SDL_RenderFillRect(game->renderer, &EAST);
+//        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::NORTH] == 1 )
+//            SDL_RenderFillRect(game->renderer, &NORTH);
+//        if( mapExits[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y].Direction[Passable::SOUTH] == 1 )
+//            SDL_RenderFillRect(game->renderer, &SOUTH);
     }
 
     SDL_Point mousePosition;

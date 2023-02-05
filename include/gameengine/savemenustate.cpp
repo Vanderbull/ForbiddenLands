@@ -15,7 +15,6 @@ void CSaveMenuState::Init()
 
     DIR *dpdf;
     struct dirent *epdf;
-    //std::vector<std::string> filenames;
     dpdf = opendir("./assets/data/savegames");
     if (dpdf != NULL)
     {
