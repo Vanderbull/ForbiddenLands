@@ -39,6 +39,8 @@ extern int testing;
 class TextureHolder;
 class SoundHolder;
 class WorldMap;
+class QuestList;
+
 class CGameState;
 
 class CGameEngine
@@ -65,6 +67,7 @@ public:
 	bool Running() { return m_running; }
 	void Quit() { m_running = false; }
 
+	void DisplayQuests();
 	int Generate(const int from, const int to);
 	int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
 	int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY);

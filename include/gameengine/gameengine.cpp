@@ -74,7 +74,6 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
     questList.addQuest("Defeat the dragon");
     questList.addQuest("Rescue the princess");
     questList.addQuest("Retrieve the stolen artifact");
-    questList.displayQuests();
     questList.completeQuest("Defeat the dragon");
     questList.displayQuests();
 

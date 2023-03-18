@@ -4,30 +4,35 @@
 #include <iostream>
 #include <string>
 
-class Quest {
+class Quest
+{
 public:
   std::string task;
   bool completed;
   Quest *next;
 
-  Quest(std::string task) {
+  Quest(std::string task)
+  {
     this->task = task;
     this->completed = false;
     this->next = nullptr;
   }
 };
 
-class QuestList {
+class QuestList
+{
 public:
   Quest *head;
   int size;
 
-  QuestList() {
+  QuestList()
+  {
     this->head = nullptr;
     this->size = 0;
   }
 
-  void addQuest(std::string task) {
+  void addQuest(std::string task)
+  {
     Quest *newQuest = new Quest(task);
     if (this->head == nullptr) {
       this->head = newQuest;
@@ -41,7 +46,8 @@ public:
     this->size++;
   }
 
-  void completeQuest(std::string task) {
+  void completeQuest(std::string task)
+  {
     Quest *curr = this->head;
     while (curr != nullptr) {
       if (curr->task == task) {
@@ -52,14 +58,15 @@ public:
     }
   }
 
-  void displayQuests() {
-    Quest *curr = this->head;
-    std::cout << "Quests:" << std::endl;
-    while (curr != nullptr) {
-      std::cout << curr->task << ": " << (curr->completed ? "Completed" : "Incomplete") << std::endl;
-      curr = curr->next;
-    }
-  }
+  void displayQuests();
+//  {
+//    Quest *curr = this->head;
+//    std::cout << "Quests:" << std::endl;
+//    while (curr != nullptr) {
+//      std::cout << curr->task << ": " << (curr->completed ? "Completed" : "Incomplete") << std::endl;
+//      curr = curr->next;
+//    }
+//  }
 };
 
 #endif
