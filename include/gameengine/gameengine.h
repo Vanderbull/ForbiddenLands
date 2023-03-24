@@ -54,6 +54,7 @@ public:
     InGameTime gameTime;
     ACTOR SActor;
     ACTOR SNpc;
+    QuestList questList;
 
 	void Init(const char* title, int width=640, int height=480,
 		      int bpp=0, bool fullscreen=false);

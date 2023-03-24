@@ -5,9 +5,41 @@
 
 class GameEngine;
 
+void QuestList::addQuest(std::string task)
+{
+    Quest *newQuest = new Quest(task);
+    if (this->head == nullptr)
+    {
+      this->head = newQuest;
+    }
+    else
+    {
+      Quest *curr = this->head;
+      while (curr->next != nullptr)
+      {
+        curr = curr->next;
+      }
+      curr->next = newQuest;
+    }
+    this->size++;
+}
+
+void QuestList::completeQuest(std::string task)
+{
+    Quest *curr = this->head;
+    while (curr != nullptr)
+    {
+      if (curr->task == task)
+      {
+        curr->completed = true;
+        break;
+      }
+      curr = curr->next;
+    }
+}
+
 void QuestList::displayQuests()
 {
-    SDL_Color REDRIC = {255,255,255,255};
     Quest *curr = this->head;
     std::cout << "Quests:" << std::endl;
     while (curr != nullptr)
