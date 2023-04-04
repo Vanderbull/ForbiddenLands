@@ -39,6 +39,8 @@ extern int testing;
 class TextureHolder;
 class SoundHolder;
 class WorldMap;
+class QuestList;
+
 class CGameState;
 
 class CGameEngine
@@ -54,6 +56,7 @@ public:
     InGameTime gameTime;
     ACTOR SActor;
     ACTOR SNpc;
+    QuestList questList;
 
 	void Init(const char* title, int width=640, int height=480,
 		      int bpp=0, bool fullscreen=false);
@@ -67,6 +70,7 @@ public:
 	bool Running() { return m_running; }
 	void Quit() { m_running = false; }
 
+	void DisplayQuests();
 	int Generate(const int from, const int to);
 	int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
 	int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY);
