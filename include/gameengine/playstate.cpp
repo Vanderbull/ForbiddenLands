@@ -323,6 +323,7 @@ void CPlayState::Draw(CGameEngine* game)
 //    SDL_RenderFillRect(game->renderer, &left_weapon);
 //    SDL_RenderFillRect(game->renderer, &right_weapon);
     game->renderDaytime();
+    game->renderQuests();
 
 //    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 //

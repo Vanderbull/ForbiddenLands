@@ -45,6 +45,8 @@ class CGameEngine
 {
 public:
 
+    QuestList Quests;
+
     // Sound settings
     int music_volume = 0;
     int sfx_volume = 0;
@@ -141,6 +143,7 @@ public:
     };
 
 	void renderDaytime();
+	void renderQuests();
 
 	TextureHolder TextureManager;
 	SoundHolder SoundManager;

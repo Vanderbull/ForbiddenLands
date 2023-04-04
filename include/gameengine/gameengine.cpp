@@ -16,6 +16,7 @@ namespace pt = boost::property_tree;
 
 #include "gameengine.h"
 #include "gamestate.h"
+#include "classes/questobject.h"
 //#include "portals.h"
 
 
@@ -70,13 +71,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
-    QuestList questList;
-    questList.addQuest("Defeat the dragon");
-    questList.addQuest("Rescue the princess");
-    questList.addQuest("Retrieve the stolen artifact");
-    questList.displayQuests();
-    questList.completeQuest("Defeat the dragon");
-    questList.displayQuests();
+
+    Quests.addQuest("Defeat the dragon");
+    Quests.addQuest("Retrieve the stolen artifact");
+    Quests.displayQuests();
+    Quests.completeQuest("Defeat the dragon");
+    Quests.displayQuests();
 
     std::random_device rnd;  // a source of machine-wide entropy
     std::default_random_engine eng(rnd()); // use it to initialise the psuedo-random engine
@@ -891,4 +891,17 @@ void CGameEngine::renderDaytime()
         RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 1050,124,24);
         RenderText("currentTime: " + std::to_string(gameTime.tm_hour)+std::to_string(gameTime.tm_min)+std::to_string(gameTime.tm_sec),White, current.w - 1050, 170,24);
         RenderText("currentDay: " + std::to_string(gameTime.tm_mday),White, current.w - 1050, 190,24);
+}
+
+void CGameEngine::renderQuests()
+{
+    int position_y = 0;
+    Quest *curr = Quests.head;
+    while (curr != nullptr)
+    {
+        RenderText(curr->task + ": " + (curr->completed ? "Completed" : "Incomplete"), Black, 0,current.h - 600 + position_y,24);
+        curr = curr->next;
+        position_y += 30;
+    }
+
 }

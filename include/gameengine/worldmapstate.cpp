@@ -177,4 +177,6 @@ void CWorldMapState::Draw(CGameEngine* game)
     WorldmapLocation.w = 32;
 
     SDL_RenderCopy(game->renderer, game->North, NULL, &WorldmapLocation);
+
+    game->RenderText("Abilities",White,gRect.x,gRect.y,24);
 }
