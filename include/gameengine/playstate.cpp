@@ -11,6 +11,7 @@
 #include "worldmapstate.h"
 #include "inventorystate.h"
 #include "tavernstate.h"
+#include "queststate.h"
 
 CPlayState CPlayState::m_PlayState;
 
@@ -67,6 +68,9 @@ void CPlayState::HandleEvents(CGameEngine* game)
                         break;
                     case SDLK_b:
                         game->ChangeState( CBattleState::Instance() );
+                        break;
+                    case SDLK_q:
+                        game->ChangeState( CQuestState::Instance() );
                         break;
                     case SDLK_d:
                         rotateClockWise();
@@ -323,7 +327,8 @@ void CPlayState::Draw(CGameEngine* game)
 //    SDL_RenderFillRect(game->renderer, &left_weapon);
 //    SDL_RenderFillRect(game->renderer, &right_weapon);
     game->renderDaytime();
-    game->renderQuests();
+    game->renderQuestsList();
+    game->Quests.completeQuest("Retrieve the stolen artifact");
 
 //    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 //

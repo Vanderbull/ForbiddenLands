@@ -8,12 +8,14 @@ class Quest
 {
 public:
     std::string task;
+    std::string description;
     bool completed;
     Quest *next;
 
-    Quest(std::string task)
+    Quest(std::string task,std::string description)
     {
         this->task = task;
+        this->description = description;
         this->completed = false;
         this->next = nullptr;
     }
@@ -31,7 +33,7 @@ public:
         this->size = 0;
     }
 
-    void addQuest(std::string task);
+    void addQuest(std::string task,std::string description);
 //    {
 //        Quest *newQuest = new Quest(task);
 //        if (this->head == nullptr)

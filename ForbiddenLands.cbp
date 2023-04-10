@@ -147,6 +147,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/gameengine/menustate.h" />
 		<Unit filename="include/gameengine/playstate.cpp" />
 		<Unit filename="include/gameengine/playstate.h" />
+		<Unit filename="include/gameengine/queststate.cpp" />
+		<Unit filename="include/gameengine/queststate.h" />
 		<Unit filename="include/gameengine/savemenustate.cpp" />
 		<Unit filename="include/gameengine/savemenustate.h" />
 		<Unit filename="include/gameengine/settingsmenustate.cpp" />

@@ -55,7 +55,7 @@ void CQuestState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
-						game->PopState();
+						game->ChangeState(CPlayState::Instance());
 						break;
 				} break;
 		}
@@ -85,4 +85,5 @@ void CQuestState::Draw(CGameEngine* game)
 
     SDL_SetRenderDrawColor( game->renderer, 255, 255, 255, 255 );
     SDL_RenderClear(game->renderer);
+    game->renderQuests();
 }

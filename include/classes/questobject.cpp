@@ -2,9 +2,9 @@
 #include <SDL2/SDL.h>
 #include "questobject.h"
 
-void QuestList::addQuest(std::string task)
+void QuestList::addQuest(std::string task,std::string description)
 {
-    Quest *newQuest = new Quest(task);
+    Quest *newQuest = new Quest(task,description);
     if (this->head == nullptr)
     {
       this->head = newQuest;

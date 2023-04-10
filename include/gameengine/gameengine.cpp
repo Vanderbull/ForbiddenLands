@@ -71,12 +71,9 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
-
-    Quests.addQuest("Defeat the dragon");
-    Quests.addQuest("Retrieve the stolen artifact");
-    Quests.displayQuests();
-    Quests.completeQuest("Defeat the dragon");
-    Quests.displayQuests();
+    Quests.addQuest("Defeat the dragon","You should defeat the mighty dragon luffe");
+    Quests.addQuest("Retrieve the stolen artifact","Find a mighty stolen artifact from the evil drunkards");
+    Quests.addQuest("Plunder the village","Plunder a village to get some nice loot");
 
     std::random_device rnd;  // a source of machine-wide entropy
     std::default_random_engine eng(rnd()); // use it to initialise the psuedo-random engine
@@ -899,9 +896,44 @@ void CGameEngine::renderQuests()
     Quest *curr = Quests.head;
     while (curr != nullptr)
     {
+        SDL_Rect hooverBox = {0,current.h - 600 + position_y,1000,30};
+        unsigned char r, g, b, a;
+        SDL_GetRenderDrawColor(renderer, &r, &g, &b, &a);
+
+        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 128);
+        SDL_RenderDrawRect(renderer,&hooverBox);
+
+        SDL_SetRenderDrawColor(renderer, r,g,b,a);
+
         RenderText(curr->task + ": " + (curr->completed ? "Completed" : "Incomplete"), Black, 0,current.h - 600 + position_y,24);
+
+        RenderText(curr->description, Black, 1000,current.h - 600 + position_y,24);
+
         curr = curr->next;
         position_y += 30;
-    }
 
+    }
+}
+
+void CGameEngine::renderQuestsList()
+{
+    int position_y = 0;
+    Quest *curr = Quests.head;
+    while (curr != nullptr)
+    {
+        SDL_Rect hooverBox = {0,current.h - 600 + position_y,500,30};
+        unsigned char r, g, b, a;
+        SDL_GetRenderDrawColor(renderer, &r, &g, &b, &a);
+
+        SDL_SetRenderDrawColor(renderer, 255, 0, 255, 128);
+        SDL_RenderDrawRect(renderer,&hooverBox);
+
+        SDL_SetRenderDrawColor(renderer, r,g,b,a);
+
+        RenderText(curr->task + ": " + (curr->completed ? "Completed" : "Incomplete"), Black, 0,current.h - 600 + position_y,24);
+
+        curr = curr->next;
+        position_y += 30;
+
+    }
 }
