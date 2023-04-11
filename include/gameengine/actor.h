@@ -36,6 +36,7 @@ struct ACTOR
     //int thirst = 0;
     int faceImageID = 0;
     int worldMap = 0;
+    int cityMap = 0;
 
     struct CoordinatePair
     {
@@ -46,8 +47,8 @@ struct ACTOR
 
     CoordinatePair PlayerCoordinate = {15,1,0};
     CoordinatePair PlayerLastCoordinate = {15,1,0};
-    CoordinatePair WorldmapCoordinate = {0,0,0};
-    CoordinatePair WorldmapLastCoordinate = {0,0,0};
+    CoordinatePair WorldmapCoordinate = {35,14,0};
+    CoordinatePair WorldmapLastCoordinate = {35,14,0};
 
     ACTOR()
     {

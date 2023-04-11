@@ -99,7 +99,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Kustenstad);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
-            game->SActor.worldMap = 0;
+            game->SActor.cityMap = 0;
         }
     }
     else
@@ -114,7 +114,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Vallentuna);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
-            game->SActor.worldMap = 1;
+            game->SActor.cityMap = 1;
         }
     }
     else
@@ -129,7 +129,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         SDL_RenderFillRect(game->renderer, &Mora);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
-            game->SActor.worldMap = 2;
+            game->SActor.cityMap = 2;
         }
     }
     else
@@ -139,11 +139,11 @@ void CWorldMapState::Draw(CGameEngine* game)
     }
 
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 0, 255);
-    if( game->SActor.worldMap == 0)
+    if( game->SActor.cityMap == 0)
         SDL_RenderFillRect(game->renderer, &Kustenstad);
-    if( game->SActor.worldMap == 1)
+    if( game->SActor.cityMap == 1)
         SDL_RenderFillRect(game->renderer, &Vallentuna);
-    if( game->SActor.worldMap == 2)
+    if( game->SActor.cityMap == 2)
         SDL_RenderFillRect(game->renderer, &Mora);
 
 	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
@@ -169,6 +169,14 @@ void CWorldMapState::Draw(CGameEngine* game)
     }
     //game->renderWorldMapTiles();
     SDL_Rect WorldmapLocation;
+    SDL_Rect moraMapLocation = {35*32,5*32,32,32};
+    SDL_Rect vallentunaMapLocation = {35*32,25*32,32,32};
+    SDL_Rect kustenstadMapLocation = {35*32,15*32,32,32};
+
+
+    SDL_RenderFillRect(game->renderer, &moraMapLocation);
+    SDL_RenderFillRect(game->renderer, &vallentunaMapLocation);
+    SDL_RenderFillRect(game->renderer, &kustenstadMapLocation);
 
     OFFSET = 0;
     WorldmapLocation.x = game->SActor.WorldmapCoordinate.x*32 + OFFSET;
@@ -178,5 +186,25 @@ void CWorldMapState::Draw(CGameEngine* game)
 
     SDL_RenderCopy(game->renderer, game->North, NULL, &WorldmapLocation);
 
-    game->RenderText("Abilities",White,gRect.x,gRect.y,24);
+    if( SDL_RectEquals(&WorldmapLocation, &moraMapLocation) )
+    {
+        game->SActor.cityMap = 2;
+        game->ChangeState( CPlayState::Instance() );
+        game->SActor.WorldmapCoordinate.x += 1;
+    }
+    if( SDL_RectEquals(&WorldmapLocation, &vallentunaMapLocation) )
+    {
+        game->SActor.cityMap = 1;
+        game->ChangeState( CPlayState::Instance() );
+        game->SActor.WorldmapCoordinate.x += 1;
+    }
+    if( SDL_RectEquals(&WorldmapLocation, &kustenstadMapLocation) )
+    {
+        game->SActor.cityMap = 0;
+        game->ChangeState( CPlayState::Instance() );
+        game->SActor.WorldmapCoordinate.x += 1;
+    }
+
+
+    //game->RenderText("Abilities",White,gRect.x,gRect.y,24);
 }
