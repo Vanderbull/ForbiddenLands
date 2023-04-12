@@ -98,6 +98,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 			<Add after="#rsync -rtvu --delete icons icons $(TARGET_OUTPUT_DIR)/" />
 			<Add after="# Syncing data files" />
 			<Add after="rsync -rtvu --delete assets assets $(TARGET_OUTPUT_DIR)/" />
+			<Add after="# Syncing json files" />
+			<Add after="rsync -rtvu --delete file.json file.json $(TARGET_OUTPUT_DIR)/" />
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="README.md" />
