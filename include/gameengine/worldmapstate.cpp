@@ -53,7 +53,7 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                             game->SActor.WorldmapCoordinate.y--;
                         break;
                     case SDLK_d:
-                        if( game->SActor.WorldmapCoordinate.x < (1920 / 32) - 1 )
+                        if( game->SActor.WorldmapCoordinate.x < 39 )
                             game->SActor.WorldmapCoordinate.x++;
                         break;
                     case SDLK_s:
@@ -61,7 +61,7 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                             game->SActor.WorldmapCoordinate.y++;
                         break;
                     case SDLK_a:
-                        if( game->SActor.WorldmapCoordinate.x > 0 )
+                        if( game->SActor.WorldmapCoordinate.x > 30 )
                             game->SActor.WorldmapCoordinate.x--;
                         break;
 				}
@@ -146,6 +146,47 @@ void CWorldMapState::Draw(CGameEngine* game)
     if( game->SActor.cityMap == 2)
         SDL_RenderFillRect(game->renderer, &Mora);
 
+    SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+
+    for(int x = 30; x < 40; x++ )
+    {
+        for(int y = 0; y < game->current.h / 32; y++ )
+        {
+            SDL_Rect gRect = { x*32,y*32, 32, 32 };
+            SDL_RenderFillRect(game->renderer, &gRect);
+        }
+    }
+	SDL_Texture* water_texture = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
+	SDL_Texture* water_texture2 = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
+
+	SDL_SetTextureBlendMode(water_texture,SDL_BLENDMODE_NONE);
+
+	SDL_SetTextureBlendMode(water_texture2,SDL_BLENDMODE_BLEND);
+    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect);
+    //SDL_DestroyTexture(water_texture);
+    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect2);
+    SDL_DestroyTexture(water_texture);
+
+    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect);
+    //SDL_DestroyTexture(water_texture2);
+    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect2);
+    SDL_DestroyTexture(water_texture2);
+
+
+    water_x_rect.x+=2;
+    if(water_x_rect.x > 1919)
+        water_x_rect.x = 0;
+    water_x_rect2.x+=2;
+    if(water_x_rect2.x > 1919)
+        water_x_rect2.x = -1919;
+
+    water_y_rect.y++;
+    if(water_y_rect.y > 1079)
+        water_y_rect.y = 0;
+    water_y_rect2.y++;
+    if(water_y_rect2.y > 1079)
+        water_y_rect2.y = -1079;
+
 	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
 
     int texW = 0;
@@ -159,7 +200,7 @@ void CWorldMapState::Draw(CGameEngine* game)
 
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
 
-    for(int x = 0; x < game->current.w / 32; x++ )
+    for(int x = 30; x < 40; x++ )
     {
         for(int y = 0; y < game->current.h / 32; y++ )
         {
@@ -205,6 +246,6 @@ void CWorldMapState::Draw(CGameEngine* game)
         game->SActor.WorldmapCoordinate.x += 1;
     }
 
-
-    //game->RenderText("Abilities",White,gRect.x,gRect.y,24);
+    game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.x),White,gRect.x,gRect.y,24);
+    game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.y),White,gRect.x + 40,gRect.y,24);
 }

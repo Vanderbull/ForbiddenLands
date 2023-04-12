@@ -65,6 +65,12 @@ private:
     SDL_Rect Kiiri{0,768,128,128};
     SDL_Rect Kamilarvi{256,768,128,128};
     SDL_Rect Muoni{512,768,128,128};
+
+    SDL_Rect water_x_rect = { 0,0, 1920, 1080 };
+    SDL_Rect water_x_rect2 = { -1919,0, 1920, 1080 };
+
+    SDL_Rect water_y_rect = { 0,0, 1920, 1080 };
+    SDL_Rect water_y_rect2 = { 0,-1079, 1920, 1080 };
 };
 
 #endif
