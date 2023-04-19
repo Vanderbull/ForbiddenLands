@@ -71,6 +71,8 @@ private:
 
     SDL_Rect water_y_rect = { 0,0, 1920, 1080 };
     SDL_Rect water_y_rect2 = { 0,-1079, 1920, 1080 };
+
+    SDL_Rect Point_Of_Interest[10];
 };
 
 #endif

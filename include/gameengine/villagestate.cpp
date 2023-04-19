@@ -9,6 +9,7 @@
 #include "menustate.h"
 #include "gameoverstate.h"
 #include "lootstate.h"
+#include "worldmapstate.h"
 #include "villagestate.h"
 
 CVillageState CVillageState::m_VillageState;
@@ -55,7 +56,7 @@ void CVillageState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
-						game->ChangeState(CPlayState::Instance());
+						game->ChangeState(CWorldMapState::Instance());
 						break;
 				} break;
 		}
@@ -161,7 +162,7 @@ void CVillageState::Draw(CGameEngine* game)
         }
     }
 
-    SDL_Rect Buy_Slaves_Button = { 100, 32,90,23};
+    SDL_Rect Buy_Slaves_Button = { 200, 32,90,23};
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     SDL_RenderFillRect(game->renderer, &Buy_Slaves_Button);
     game->RenderText("buy slaves", White, Buy_Slaves_Button.x,Buy_Slaves_Button.y,24);

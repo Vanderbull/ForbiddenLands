@@ -13,6 +13,7 @@
 #include "gamestate.h"
 //#include "menustate.h"
 #include "playstate.h"
+#include "villagestate.h"
 #include "loadingstate.h"
 
 CLoadingState CLoadingState::m_LoadingState;
@@ -148,7 +149,7 @@ void CLoadingState::Draw(CGameEngine* game)
     //game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][2] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401N-fs8.png");
     //game->mapTexture[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][3] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1401S-fs8.png");
 
-    game->ChangeState( CPlayState::Instance() );
+    game->ChangeState( CVillageState::Instance() );
 
     static int progress_value = 0;
     static int finished = 0;

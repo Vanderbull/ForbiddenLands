@@ -17,6 +17,13 @@ CWorldMapState CWorldMapState::m_WorldMapState;
 void CWorldMapState::Init()
 {
 	SDL_Log("CWorldMapState Init\n");
+	for( int i=0; i <10; i++)
+	{
+        Point_Of_Interest[i].x = (30 + rand()%10)*32;
+        Point_Of_Interest[i].y = rand()%33*32;
+        Point_Of_Interest[i].h = 32;
+        Point_Of_Interest[i].w = 32;
+	}
 }
 
 void CWorldMapState::Cleanup()
@@ -288,6 +295,18 @@ void CWorldMapState::Draw(CGameEngine* game)
             }
         }
     }
+
+	for( int i=0; i <10; i++)
+	{
+        SDL_RenderFillRect(game->renderer, &Point_Of_Interest[i]);
+
+        if( SDL_RectEquals(&WorldmapLocation, &Point_Of_Interest[i]) )
+        {
+            game->SActor.cityMap = 2;
+            game->ChangeState( CPlayState::Instance() );
+            game->SActor.WorldmapCoordinate.x += 1;
+        }
+	}
 
     game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.x),White,gRect.x,gRect.y,24);
     game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.y),White,gRect.x + 40,gRect.y,24);
