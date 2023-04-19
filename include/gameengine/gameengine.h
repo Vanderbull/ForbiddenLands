@@ -377,8 +377,8 @@ public:
     }
 
     //Loot state variables
-    int hides = 0;
-    int slaves = 0;
+    int hides = 10;
+    int slaves = 10;
     int gold = 0;
     int silver = 0;
 

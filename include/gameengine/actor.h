@@ -2,15 +2,13 @@
 #define ACTOR_H
 
 #include <string>
-using namespace std;
 
 #include <SDL2/SDL.h>
-//#include "gameengine.h"
-//#include "gamestate.h"
 #include "randomizer.h"
 
-struct ACTOR
+class ACTOR
 {
+public:
     uint32_t uid;
     std::string name = "Enter name...";
 
@@ -32,11 +30,11 @@ struct ACTOR
     int hitpoints_current = 10;
     int hitpoints_max = 10;
     int damage = 0;
-    //int hunger = 0;
-    //int thirst = 0;
     int faceImageID = 0;
     int worldMap = 0;
     int cityMap = 0;
+    int hunger = 0;
+    int thirst = 0;
 
     struct CoordinatePair
     {
@@ -50,35 +48,9 @@ struct ACTOR
     CoordinatePair WorldmapCoordinate = {35,14,0};
     CoordinatePair WorldmapLastCoordinate = {35,14,0};
 
-    ACTOR()
-    {
-        int counter = 0;
+    ACTOR(void);
+    void calculateStats();
 
-        professionElements.clear();
-
-        for (std::string textElement : professionTextElements)
-        {
-            SDL_Rect rect;
-            rect.x = 1200 - 150;
-            rect.y = 225+(counter*50) - 15;
-            rect.w = 300;
-            rect.h = 30;
-            professionElements.push_back(rect);
-            counter++;
-        };
-        calculateStats();
-    };
-
-    void calculateStats()
-    {
-        this->uid = GenerateNumber(0, 10000);
-        int count = 0;
-        for (int aNumber : current_stats)
-        {
-            current_stats[count] = GenerateNumber(3, 18);
-            count++;
-        }
-    };
 };
 
 #endif

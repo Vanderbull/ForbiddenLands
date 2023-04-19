@@ -120,6 +120,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/classes/textureholder.h" />
 		<Unit filename="include/classes/worldmap.cpp" />
 		<Unit filename="include/classes/worldmap.h" />
+		<Unit filename="include/gameengine/actor.cpp" />
 		<Unit filename="include/gameengine/actor.h" />
 		<Unit filename="include/gameengine/battlestate.cpp" />
 		<Unit filename="include/gameengine/battlestate.h" />

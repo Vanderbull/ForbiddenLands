@@ -9,6 +9,7 @@
 #include "gamestate.h"
 #include "menustate.h"
 #include "playstate.h"
+#include "villagestate.h"
 #include "worldmapstate.h"
 
 CWorldMapState CWorldMapState::m_WorldMapState;
@@ -46,23 +47,31 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_ESCAPE:
-                        game->ChangeState( CPlayState::Instance() );
+                        game->ChangeState( CMenuState::Instance() );
 						break;
                     case SDLK_w:
                         if( game->SActor.WorldmapCoordinate.y > 0 )
                             game->SActor.WorldmapCoordinate.y--;
+                        game->SActor.hunger++;
+                        game->SActor.thirst++;
                         break;
                     case SDLK_d:
                         if( game->SActor.WorldmapCoordinate.x < 39 )
                             game->SActor.WorldmapCoordinate.x++;
+                        game->SActor.hunger++;
+                        game->SActor.thirst++;
                         break;
                     case SDLK_s:
                         if( game->SActor.WorldmapCoordinate.y < (1080 / 32) - 1 )
                             game->SActor.WorldmapCoordinate.y++;
+                        game->SActor.hunger++;
+                        game->SActor.thirst++;
                         break;
                     case SDLK_a:
                         if( game->SActor.WorldmapCoordinate.x > 30 )
                             game->SActor.WorldmapCoordinate.x--;
+                        game->SActor.hunger++;
+                        game->SActor.thirst++;
                         break;
 				}
 				break;
@@ -93,84 +102,84 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
-    if( SDL_PointInRect(&mousePosition, &Kustenstad) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-        SDL_RenderFillRect(game->renderer, &Kustenstad);
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-            game->SActor.cityMap = 0;
-        }
-    }
-    else
-    {
-        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-        SDL_RenderFillRect(game->renderer, &Kustenstad);
-    }
-
-    if( SDL_PointInRect(&mousePosition, &Vallentuna) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-        SDL_RenderFillRect(game->renderer, &Vallentuna);
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-            game->SActor.cityMap = 1;
-        }
-    }
-    else
-    {
-        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-        SDL_RenderFillRect(game->renderer, &Vallentuna);
-    }
-
-    if( SDL_PointInRect(&mousePosition, &Mora) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-    {
-        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-        SDL_RenderFillRect(game->renderer, &Mora);
-        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-        {
-            game->SActor.cityMap = 2;
-        }
-    }
-    else
-    {
-        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-        SDL_RenderFillRect(game->renderer, &Mora);
-    }
+//    if( SDL_PointInRect(&mousePosition, &Kustenstad) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
+//        SDL_RenderFillRect(game->renderer, &Kustenstad);
+//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+//        {
+//            game->SActor.cityMap = 0;
+//        }
+//    }
+//    else
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+//        SDL_RenderFillRect(game->renderer, &Kustenstad);
+//    }
+//
+//    if( SDL_PointInRect(&mousePosition, &Vallentuna) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
+//        SDL_RenderFillRect(game->renderer, &Vallentuna);
+//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+//        {
+//            game->SActor.cityMap = 1;
+//        }
+//    }
+//    else
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+//        SDL_RenderFillRect(game->renderer, &Vallentuna);
+//    }
+//
+//    if( SDL_PointInRect(&mousePosition, &Mora) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
+//        SDL_RenderFillRect(game->renderer, &Mora);
+//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+//        {
+//            game->SActor.cityMap = 2;
+//        }
+//    }
+//    else
+//    {
+//        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
+//        SDL_RenderFillRect(game->renderer, &Mora);
+//    }
 
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 0, 255);
-    if( game->SActor.cityMap == 0)
-        SDL_RenderFillRect(game->renderer, &Kustenstad);
-    if( game->SActor.cityMap == 1)
-        SDL_RenderFillRect(game->renderer, &Vallentuna);
-    if( game->SActor.cityMap == 2)
-        SDL_RenderFillRect(game->renderer, &Mora);
+//    if( game->SActor.cityMap == 0)
+//        SDL_RenderFillRect(game->renderer, &Kustenstad);
+//    if( game->SActor.cityMap == 1)
+//        SDL_RenderFillRect(game->renderer, &Vallentuna);
+//    if( game->SActor.cityMap == 2)
+//        SDL_RenderFillRect(game->renderer, &Mora);
 
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
 
-    for(int x = 30; x < 40; x++ )
-    {
-        for(int y = 0; y < game->current.h / 32; y++ )
-        {
-            SDL_Rect gRect = { x*32,y*32, 32, 32 };
-            SDL_RenderFillRect(game->renderer, &gRect);
-        }
-    }
-	SDL_Texture* water_texture = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
-	SDL_Texture* water_texture2 = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
-
-	SDL_SetTextureBlendMode(water_texture,SDL_BLENDMODE_NONE);
-
-	SDL_SetTextureBlendMode(water_texture2,SDL_BLENDMODE_BLEND);
-    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect);
-    //SDL_DestroyTexture(water_texture);
-    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect2);
-    SDL_DestroyTexture(water_texture);
-
-    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect);
-    //SDL_DestroyTexture(water_texture2);
-    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect2);
-    SDL_DestroyTexture(water_texture2);
+//    for(int x = 30; x < 40; x++ )
+//    {
+//        for(int y = 0; y < game->current.h / 32; y++ )
+//        {
+//            SDL_Rect gRect = { x*32,y*32, 32, 32 };
+//            SDL_RenderFillRect(game->renderer, &gRect);
+//        }
+//    }
+//	SDL_Texture* water_texture = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
+//	SDL_Texture* water_texture2 = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
+//
+//	SDL_SetTextureBlendMode(water_texture,SDL_BLENDMODE_NONE);
+//
+//	SDL_SetTextureBlendMode(water_texture2,SDL_BLENDMODE_BLEND);
+//    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect);
+//    //SDL_DestroyTexture(water_texture);
+//    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect2);
+//    SDL_DestroyTexture(water_texture);
+//
+//    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect);
+//    //SDL_DestroyTexture(water_texture2);
+//    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect2);
+//    SDL_DestroyTexture(water_texture2);
 
 
     water_x_rect.x+=2;
@@ -187,27 +196,27 @@ void CWorldMapState::Draw(CGameEngine* game)
     if(water_y_rect2.y > 1079)
         water_y_rect2.y = -1079;
 
-	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
-
-    int texW = 0;
-    int texH = 0;
-    SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
-
+//	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
+//
+//    int texW = 0;
+//    int texH = 0;
+//    SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
+//
     SDL_Rect gRect = { game->current.w/2,0, 300, 1080 };
-
-    SDL_RenderCopy(game->renderer, texture, NULL, &gRect);
-    SDL_DestroyTexture(texture);
+//
+//    SDL_RenderCopy(game->renderer, texture, NULL, &gRect);
+//    SDL_DestroyTexture(texture);
 
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
 
-    for(int x = 30; x < 40; x++ )
-    {
-        for(int y = 0; y < game->current.h / 32; y++ )
-        {
-            SDL_Rect gRect = { x*32,y*32, 32, 32 };
-            SDL_RenderDrawRect(game->renderer, &gRect);
-        }
-    }
+//    for(int x = 30; x < 40; x++ )
+//    {
+//        for(int y = 0; y < game->current.h / 32; y++ )
+//        {
+//            SDL_Rect gRect = { x*32,y*32, 32, 32 };
+//            SDL_RenderDrawRect(game->renderer, &gRect);
+//        }
+//    }
     //game->renderWorldMapTiles();
     SDL_Rect WorldmapLocation;
     SDL_Rect moraMapLocation = {35*32,5*32,32,32};
@@ -230,22 +239,60 @@ void CWorldMapState::Draw(CGameEngine* game)
     if( SDL_RectEquals(&WorldmapLocation, &moraMapLocation) )
     {
         game->SActor.cityMap = 2;
-        game->ChangeState( CPlayState::Instance() );
+        game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
     if( SDL_RectEquals(&WorldmapLocation, &vallentunaMapLocation) )
     {
         game->SActor.cityMap = 1;
-        game->ChangeState( CPlayState::Instance() );
+        game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
     if( SDL_RectEquals(&WorldmapLocation, &kustenstadMapLocation) )
     {
         game->SActor.cityMap = 0;
-        game->ChangeState( CPlayState::Instance() );
+        game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
+    }
+
+    SDL_Rect Forage_Button = { 200, 32,90,23};
+    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    SDL_RenderFillRect(game->renderer, &Forage_Button);
+    game->RenderText("forage", White, Forage_Button.x,Forage_Button.y,24);
+
+    if( SDL_PointInRect(&mousePosition, &Forage_Button) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 128, 128, 192);
+        SDL_RenderFillRect(game->renderer, &Forage_Button);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            if( game->SActor.thirst > 0 || game->SActor.hunger > 0)
+            {
+                game->gameTime.tm_hour += 24;
+                if(game->SActor.hunger > 0)
+                {
+                    game->SActor.hunger -= rand()%5;
+                    if(game->SActor.hunger < 0)
+                    {
+                        game->SActor.hunger = 0;
+                    }
+                }
+                if(game->SActor.thirst > 0)
+                {
+                    game->SActor.thirst -= rand()%5;
+                    if(game->SActor.thirst < 0)
+                    {
+                        game->SActor.thirst = 0;
+                    }
+                }
+            }
+        }
     }
 
     game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.x),White,gRect.x,gRect.y,24);
     game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.y),White,gRect.x + 40,gRect.y,24);
+    game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),White,80,gRect.y +  40,24);
+    game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),White,80,gRect.y +  80,24);
+    game->currentTimeElapse(true);
+    game->renderDaytime();
 }
