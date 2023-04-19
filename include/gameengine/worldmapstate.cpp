@@ -203,16 +203,16 @@ void CWorldMapState::Draw(CGameEngine* game)
     if(water_y_rect2.y > 1079)
         water_y_rect2.y = -1079;
 
-//	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
-//
-//    int texW = 0;
-//    int texH = 0;
-//    SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
-//
+	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
+
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
+
     SDL_Rect gRect = { game->current.w/2,0, 300, 1080 };
-//
-//    SDL_RenderCopy(game->renderer, texture, NULL, &gRect);
-//    SDL_DestroyTexture(texture);
+
+    SDL_RenderCopy(game->renderer, texture, NULL, &gRect);
+    SDL_DestroyTexture(texture);
 
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
 
