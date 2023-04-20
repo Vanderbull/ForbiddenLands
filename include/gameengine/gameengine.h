@@ -384,6 +384,8 @@ public:
 
     enum {WEST,EAST,SOUTH,NORTH};
 
+    Mix_Music* song = NULL;
+
 private:
 	// the stack of states
 	std::vector<CGameState*> states;

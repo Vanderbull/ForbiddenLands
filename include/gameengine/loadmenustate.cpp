@@ -93,20 +93,18 @@ void CLoadMenuState::Draw(CGameEngine* game)
 {
     SDL_Log("CLoadMenuState Draw\n");
 
-    MainMenuBackgroundTexture = NULL;
-
-	SDL_Surface* surface = IMG_Load( "./assets/data/textures/menus/menu_backdrop.png" );
-	if( !surface )
-	{
-        exit(-1);
-	}
-
-	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
-    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
-    SDL_SetTextureAlphaMod( texture, 255 );
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_FreeSurface(surface);
-    SDL_DestroyTexture(texture);
+//	SDL_Surface* surface = IMG_Load( "./assets/data/textures/backgrounds/water.png" );
+//	if( !surface )
+//	{
+//        exit(-1);
+//	}
+//
+//	SDL_Texture* texture = SDL_CreateTextureFromSurface( game->renderer, surface );
+//    SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+//    SDL_SetTextureAlphaMod( texture, 255 );
+//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+//    SDL_FreeSurface(surface);
+//    SDL_DestroyTexture(texture);
 
     gSurface = TTF_RenderText_Blended(game->gameTitleFont, "A Viking Saga", White);
 	if( !gSurface )

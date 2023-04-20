@@ -121,5 +121,9 @@ void CSettingsMenuState::Draw(CGameEngine* game)
         }
         ++Repeat;
     }
+
+    Mix_Volume(-1, -1);
     game->RenderText("Resolution: " + std::to_string(game->current.w) + " x " + std::to_string(game->current.h) + " @ " + std::to_string(SDL_BITSPERPIXEL(game->current.format)), game->Black, 50,50,48);
+    game->RenderText("Volume: " + std::to_string( Mix_Volume(-1, -1) ), game->Black, 50,100,48);
+
 }

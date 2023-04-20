@@ -96,9 +96,9 @@ void CSaveMenuState::Draw(CGameEngine* game)
 {
     SDL_Log("CSaveMentState Draw");
 
-	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_DestroyTexture(texture);
+//	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
+//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+//    SDL_DestroyTexture(texture);
 
     gSurface = TTF_RenderText_Blended(game->gameTitleFont, "Save", game->White);
 	if( !gSurface )

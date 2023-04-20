@@ -315,6 +315,15 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
+    // Get the version of SDL_mixer
+    const SDL_version* version = Mix_Linked_Version();
+
+    cout << "SDL_mixer version: "
+         << static_cast<int>(version->major) << "."
+         << static_cast<int>(version->minor) << "."
+         << static_cast<int>(version->patch)
+         << endl;
+
     Mix_VolumeMusic(music_volume);
     Mix_Volume(-1,sfx_volume);
 

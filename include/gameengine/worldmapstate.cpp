@@ -24,6 +24,24 @@ void CWorldMapState::Init()
         Point_Of_Interest[i].h = 32;
         Point_Of_Interest[i].w = 32;
 	}
+
+	float scale  = 1.0f;
+	SDL_Rect offset;
+
+    for(int x = 0; x < 10; ++x)
+    {
+        for(int y = 0; y < 33; ++y)
+        {
+            // calculate the sample positions
+            float samplePosX = (float)x * scale + offset.x;
+            float samplePosY = (float)y * scale + offset.y;
+            float normalization = 0.0f;
+            // loop through each wave
+            // TODO
+            // normalize the value
+            Noise_Map[x][y] /= normalization;
+        }
+    }
 }
 
 void CWorldMapState::Cleanup()
