@@ -337,7 +337,6 @@ public:
 	int random_events[16][16][28];
 
 	int fog_of_war_raiding[16][16][28];
-	//float random_events[16][16][28];
 
     template<class Engine, class Integer, size_t SIZE>
     void fill_array(Engine& eng, std::array<Integer, SIZE>& a, Integer lower = 0, Integer upper = 1000)
@@ -385,6 +384,15 @@ public:
     enum {WEST,EAST,SOUTH,NORTH};
 
     Mix_Music* song = NULL;
+
+    struct Army
+    {
+        int old;
+        int middleage;
+        int young;
+    };
+
+    Army Raiding_Party;
 
 private:
 	// the stack of states

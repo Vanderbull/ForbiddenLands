@@ -71,10 +71,9 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
-    Quests.addQuest("Defeat the dragon","You should defeat the mighty dragon luffe");
-    Quests.addQuest("Retrieve the stolen artifact","Find a mighty stolen artifact from the evil drunkards");
-    Quests.addQuest("Plunder the village","Plunder a village to get some nice loot");
-
+    Raiding_Party.young = rand()%6 + 1;
+    Raiding_Party.middleage = rand()%6 +1;
+    Raiding_Party.old = rand()%6 +1;
     std::random_device rnd;  // a source of machine-wide entropy
     std::default_random_engine eng(rnd()); // use it to initialise the psuedo-random engine
 

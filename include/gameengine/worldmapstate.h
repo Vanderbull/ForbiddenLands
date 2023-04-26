@@ -75,6 +75,28 @@ private:
     SDL_Rect Point_Of_Interest[10];
 
     float Noise_Map[10][33];
+
+    int SCREEN_WIDTH = 640;
+    int SCREEN_HEIGHT = 480;
+    int CELL_SIZE = 20;
+    int GRID_WIDTH= SCREEN_WIDTH / CELL_SIZE;
+    int GRID_HEIGHT = SCREEN_HEIGHT / CELL_SIZE;
+
+    enum CellType {
+        WATER,
+        LAND
+    };
+
+    CellType grid[32][24] = {
+        {WATER, WATER, WATER, WATER, WATER, WATER, WATER, WATER},
+        {WATER, LAND, LAND, LAND, LAND, LAND, LAND, WATER},
+        {WATER, LAND, LAND, LAND, LAND, LAND, LAND, WATER},
+        {WATER, LAND, LAND, WATER, WATER,LAND,LAND,WATER},
+        {WATER,LAND,LAND,WATER,WATER,LAND,LAND,WATER},
+        {WATER,LAND,LAND,WATER,WATER,LAND,LAND,WATER},
+        {WATER,LAND,LAND,WATER,WATER,LAND,LAND,WATER},
+        {WATER,WATER,WATER,WATER,WATER,WATER,WATER,WATER}
+    };
 };
 
 #endif

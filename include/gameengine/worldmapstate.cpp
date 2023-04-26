@@ -324,12 +324,46 @@ void CWorldMapState::Draw(CGameEngine* game)
             game->ChangeState( CPlayState::Instance() );
             game->SActor.WorldmapCoordinate.x += 1;
         }
+        if( SDL_PointInRect(&mousePosition, &Point_Of_Interest[i]) )
+        {
+            game->RenderText("Point of interest: " + std::to_string(i),White,game->current.w - 300,gRect.y +  80,24);
+        }
 	}
+
+    if( SDL_PointInRect(&mousePosition, &moraMapLocation) )
+    {
+        game->RenderText("Mora city location",White,game->current.w - 300,gRect.y +  80,24);
+    }
+    if( SDL_PointInRect(&mousePosition, &vallentunaMapLocation) )
+    {
+        game->RenderText("Vallentuna city location",White,game->current.w - 300,gRect.y +  80,24);
+    }
+    if( SDL_PointInRect(&mousePosition, &kustenstadMapLocation) )
+    {
+        game->RenderText("Kustenstad city location",White,game->current.w - 300,gRect.y +  80,24);
+    }
 
     game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.x),White,gRect.x,gRect.y,24);
     game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.y),White,gRect.x + 40,gRect.y,24);
     game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),White,80,gRect.y +  40,24);
     game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),White,80,gRect.y +  80,24);
+
+    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),White,80,gRect.y +  120,24);
+    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
+    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
+
     game->currentTimeElapse(true);
     game->renderDaytime();
+//
+//   for (int x = 0; x < GRID_WIDTH; x++) {
+//        for (int y = 0; y < GRID_HEIGHT; y++) {
+//            SDL_Rect rect = {x * CELL_SIZE,y * CELL_SIZE ,CELL_SIZE ,CELL_SIZE };
+//            if (grid[x][y] == WATER) {
+//                SDL_SetRenderDrawColor(game->renderer ,0x00 ,0x00 ,0xFF ,0xFF );
+//            } else if (grid[x][y] == LAND) {
+//                SDL_SetRenderDrawColor(game->renderer ,0x00 ,0xFF ,0x00 ,0xFF );
+//            }
+//            SDL_RenderFillRect(game->renderer ,&rect );
+//        }
+//    }
 }

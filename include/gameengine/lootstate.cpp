@@ -9,6 +9,7 @@
 #include "menustate.h"
 #include "gameoverstate.h"
 #include "villagestate.h"
+#include "worldmapstate.h"
 #include "lootstate.h"
 
 CLootState CLootState::m_LootState;
@@ -57,7 +58,7 @@ void CLootState::HandleEvents(CGameEngine* game)
 					case SDLK_ESCAPE:
 					{
                         looting = true;
-						game->ChangeState(CVillageState::Instance());
+						game->ChangeState(CWorldMapState::Instance());
 					}break;
 				} break;
 		}
@@ -72,7 +73,7 @@ void CLootState::Update(CGameEngine* game)
     game->SActor.PlayerLastCoordinate = {15,1,0};
     game->SActor.hitpoints_current = 10;
     game->SActor.hitpoints_max = 10;
-    game->number_of_enemies = 1;
+    game->number_of_enemies = rand()%3;
     game->SActor.PlayerCoordinate.z = game->WEST;
 
     if( looting )
@@ -85,6 +86,17 @@ void CLootState::Update(CGameEngine* game)
         game->gold += dist(rd);
         game->silver += dist(rd);
         looting = false;
+
+        game->Raiding_Party.old -= rand()%game->number_of_enemies;
+        if( game->Raiding_Party.old < 0)
+            game->Raiding_Party.old = 0;
+        game->Raiding_Party.middleage -= rand()%game->number_of_enemies;
+        if( game->Raiding_Party.middleage < 0)
+            game->Raiding_Party.middleage = 0;
+        game->Raiding_Party.young -= rand()%game->number_of_enemies;
+        if( game->Raiding_Party.young < 0)
+            game->Raiding_Party.young = 0;
+
     }
 }
 
@@ -96,6 +108,10 @@ void CLootState::Draw(CGameEngine* game)
     game->RenderText("slaves: " + std::to_string(game->slaves), game->White, 0,32,24);
     game->RenderText("gold: " + std::to_string(game->gold), game->White, 0,64,24);
     game->RenderText("silver: " + std::to_string(game->silver), game->White, 0,96,24);
+
+    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),White,80,gRect.y +  120,24);
+    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
+    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
 
     game->RenderTextWrapped("LOOT LOOT LOOT", game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
 

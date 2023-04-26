@@ -186,7 +186,7 @@ void CPlayState::Update(CGameEngine* game)
     if( game->number_of_enemies <= 0 )
     {
         game->number_of_enemies = 1;
-        game->ChangeState( CMenuState::Instance() );
+        game->ChangeState( CWorldMapState::Instance() );
     }
 
     game->currentTimeElapse(true);
