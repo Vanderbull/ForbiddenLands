@@ -118,6 +118,16 @@ void CWorldMapState::Update(CGameEngine* game)
     ///--- Set the wheel back to 0
     m_iWheelX=0;
     m_iWheelY=0;
+
+//    game->fog_of_war_worldmap[0][0] = 1;
+    game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-30][game->SActor.WorldmapCoordinate.y] = 1;
+
+    game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-31][game->SActor.WorldmapCoordinate.y] = 1;
+    game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-29][game->SActor.WorldmapCoordinate.y] = 1;
+
+    game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-30][game->SActor.WorldmapCoordinate.y-1] = 1;
+    game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-30][game->SActor.WorldmapCoordinate.y+1] = 1;
+
 }
 
 void CWorldMapState::Draw(CGameEngine* game)
@@ -126,70 +136,17 @@ void CWorldMapState::Draw(CGameEngine* game)
 
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-
-//    if( SDL_PointInRect(&mousePosition, &Kustenstad) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-//        SDL_RenderFillRect(game->renderer, &Kustenstad);
-//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-//        {
-//            game->SActor.cityMap = 0;
-//        }
-//    }
-//    else
-//    {
-//        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-//        SDL_RenderFillRect(game->renderer, &Kustenstad);
-//    }
-//
-//    if( SDL_PointInRect(&mousePosition, &Vallentuna) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-//        SDL_RenderFillRect(game->renderer, &Vallentuna);
-//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-//        {
-//            game->SActor.cityMap = 1;
-//        }
-//    }
-//    else
-//    {
-//        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-//        SDL_RenderFillRect(game->renderer, &Vallentuna);
-//    }
-//
-//    if( SDL_PointInRect(&mousePosition, &Mora) & SDL_BUTTON(SDL_BUTTON_LEFT) )
-//    {
-//        SDL_SetRenderDrawColor(game->renderer, 0, 255, 0, 128);
-//        SDL_RenderFillRect(game->renderer, &Mora);
-//        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
-//        {
-//            game->SActor.cityMap = 2;
-//        }
-//    }
-//    else
-//    {
-//        SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-//        SDL_RenderFillRect(game->renderer, &Mora);
-//    }
-
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 0, 255);
-//    if( game->SActor.cityMap == 0)
-//        SDL_RenderFillRect(game->renderer, &Kustenstad);
-//    if( game->SActor.cityMap == 1)
-//        SDL_RenderFillRect(game->renderer, &Vallentuna);
-//    if( game->SActor.cityMap == 2)
-//        SDL_RenderFillRect(game->renderer, &Mora);
-
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
 
-//    for(int x = 30; x < 40; x++ )
-//    {
-//        for(int y = 0; y < game->current.h / 32; y++ )
-//        {
-//            SDL_Rect gRect = { x*32,y*32, 32, 32 };
-//            SDL_RenderFillRect(game->renderer, &gRect);
-//        }
-//    }
+    for(int x = 30; x < 40; x++ )
+    {
+        for(int y = 0; y < game->current.h / 31; y++ )
+        {
+            SDL_Rect gRect = { x*32,y*32, 32, 32 };
+            SDL_RenderFillRect(game->renderer, &gRect);
+        }
+    }
 //	SDL_Texture* water_texture = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
 //	SDL_Texture* water_texture2 = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
 //
@@ -268,18 +225,21 @@ void CWorldMapState::Draw(CGameEngine* game)
 
     if( SDL_RectEquals(&WorldmapLocation, &moraMapLocation) )
     {
+        game->Village_Name = "Mora";
         game->SActor.cityMap = 2;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
     if( SDL_RectEquals(&WorldmapLocation, &vallentunaMapLocation) )
     {
+        game->Village_Name = "Vallentuna";
         game->SActor.cityMap = 1;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
     if( SDL_RectEquals(&WorldmapLocation, &kustenstadMapLocation) )
     {
+        game->Village_Name = "Kustenstad";
         game->SActor.cityMap = 0;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
@@ -373,4 +333,25 @@ void CWorldMapState::Draw(CGameEngine* game)
 //            SDL_RenderFillRect(game->renderer ,&rect );
 //        }
 //    }
+
+
+
+    for(int x = 0; x < 10; x++ )
+    {
+        for(int y = 0; y < 35; y++ )
+        {
+            if( game->fog_of_war_worldmap[x][y] == 0 )
+            {
+                SDL_Rect imageSize = {x*32+30*32, y*32,32,32};
+                SDL_SetRenderDrawColor(game->renderer, 128,128, 128, 255);
+                SDL_RenderFillRect(game->renderer, &imageSize);
+            }
+//            else
+//            {
+//                SDL_Rect imageSize = {x*32+30*32, y*32,32,32};
+//                SDL_SetRenderDrawColor(game->renderer, 0,255, 0, 255);
+//                SDL_RenderFillRect(game->renderer, &imageSize);
+//            }
+        }
+    }
 }

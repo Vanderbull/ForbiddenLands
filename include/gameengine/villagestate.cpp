@@ -169,8 +169,8 @@ void CVillageState::Draw(CGameEngine* game)
 
     if( SDL_PointInRect(&mousePosition, &Buy_Slaves_Button) )
     {
-            SDL_SetRenderDrawColor(game->renderer, 255, 128, 128, 192);
-    SDL_RenderFillRect(game->renderer, &Buy_Slaves_Button);
+        SDL_SetRenderDrawColor(game->renderer, 255, 128, 128, 192);
+        SDL_RenderFillRect(game->renderer, &Buy_Slaves_Button);
         if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
         {
             if( game->gold > 0 )
@@ -180,5 +180,31 @@ void CVillageState::Draw(CGameEngine* game)
             }
         }
     }
-    game->RenderTextWrapped("Village", game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
+
+    SDL_Rect Recruit_Soldier_Button = { 200, 64,90,23};
+    SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
+    SDL_RenderFillRect(game->renderer, &Recruit_Soldier_Button);
+    game->RenderText("recruit soldiers", White, Recruit_Soldier_Button.x,Recruit_Soldier_Button.y,24);
+
+    if( SDL_PointInRect(&mousePosition, &Recruit_Soldier_Button) )
+    {
+        SDL_SetRenderDrawColor(game->renderer, 255, 128, 128, 192);
+        SDL_RenderFillRect(game->renderer, &Recruit_Soldier_Button);
+        if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
+        {
+            if( game->gold > 0 )
+            {
+                game->gold -= 1;
+                game->Raiding_Party.old += 1;
+                game->Raiding_Party.middleage += 1;
+                game->Raiding_Party.young += 1;
+            }
+        }
+    }
+
+    game->RenderTextWrapped(game->Village_Name.c_str(), game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
+
+    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),White,80,gRect.y +  120,24);
+    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
+    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
 }

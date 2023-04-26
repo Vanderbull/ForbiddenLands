@@ -96,7 +96,13 @@ void CLootState::Update(CGameEngine* game)
         game->Raiding_Party.young -= rand()%game->number_of_enemies;
         if( game->Raiding_Party.young < 0)
             game->Raiding_Party.young = 0;
-
+        game->SActor.thirst -= random()%10;
+        if(game->SActor.thirst < 0)
+        game->SActor.thirst = 0;
+        game->SActor.hunger -= random()%10;
+        if(game->SActor.hunger < 0)
+        game->SActor.hunger = 0;
+        game->Quests.completeQuest("Raid");
     }
 }
 
@@ -113,7 +119,7 @@ void CLootState::Draw(CGameEngine* game)
     game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
     game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
 
-    game->RenderTextWrapped("LOOT LOOT LOOT", game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
+    game->RenderTextWrapped("SPOILS OF WAR", game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
 
     Item randomized("SCRAP");
     game->v_InventoryItem.at(9) = randomized;

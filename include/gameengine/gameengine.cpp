@@ -71,6 +71,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
+    Quests.addQuest("Raid", "Raid a nearby village to gather resources and loot.");
+
     Raiding_Party.young = rand()%6 + 1;
     Raiding_Party.middleage = rand()%6 +1;
     Raiding_Party.old = rand()%6 +1;
@@ -95,6 +97,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
             {
                 random_events[x][y][z] = rd();//dice();
                 fog_of_war_raiding[x][y][z] = 0;
+            }
+
+        for(int x = 0; x < 10; x++)
+            for(int y = 0; y < 35; y++)
+            {
+                fog_of_war_worldmap[x][y] = 0;
             }
 
     boost::property_tree::ptree root;
