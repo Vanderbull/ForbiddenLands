@@ -249,6 +249,7 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_Rect kustenstadMapLocation = {35*32,15*32,32,32};
 
 
+
     SDL_RenderFillRect(game->renderer, &moraMapLocation);
     SDL_RenderFillRect(game->renderer, &vallentunaMapLocation);
     SDL_RenderFillRect(game->renderer, &kustenstadMapLocation);
@@ -259,7 +260,11 @@ void CWorldMapState::Draw(CGameEngine* game)
     WorldmapLocation.h = 32;
     WorldmapLocation.w = 32;
 
-    SDL_RenderCopy(game->renderer, game->North, NULL, &WorldmapLocation);
+    //SDL_RenderCopy(game->renderer, game->North, NULL, &WorldmapLocation);
+
+    SDL_Texture* Raiding_Party_Icon = game->LoadTexture("./assets/data/textures/icons/army-32.png",255);
+
+    SDL_RenderCopy(game->renderer, Raiding_Party_Icon, NULL, &WorldmapLocation);
 
     if( SDL_RectEquals(&WorldmapLocation, &moraMapLocation) )
     {
@@ -316,7 +321,9 @@ void CWorldMapState::Draw(CGameEngine* game)
 
 	for( int i=0; i <10; i++)
 	{
-        SDL_RenderFillRect(game->renderer, &Point_Of_Interest[i]);
+        //SDL_RenderFillRect(game->renderer, &Point_Of_Interest[i]);
+        SDL_RenderCopy(game->renderer, game->North, NULL, &Point_Of_Interest[i]);
+
 
         if( SDL_RectEquals(&WorldmapLocation, &Point_Of_Interest[i]) )
         {
