@@ -71,6 +71,20 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
+    ItemObject["Bronze Ring"] = ItemRecord{"Bronze Ring"};
+    ItemObject["Iron Ring"] = ItemRecord{"Iron Ring"};
+    ItemObject["Silver Ring"] = ItemRecord{"Silver Ring"};
+    ItemObject["Golden Ring"] = ItemRecord{"Golden Ring"};
+    ItemObject["Jewel Ring"] = ItemRecord{"Jewel Ring"};
+
+    ItemRecord& Bronze_Ring_Data = ItemObject["Bronze Ring"];
+
+//    for( auto& [name, item] : ItemObject)
+//    {
+//        std::cout << name << item.Icon << std::endl;
+//    }
+//    exit(99);
+
     Quests.addQuest("Raid", "Raid a nearby village to gather resources and loot.");
 
     Raiding_Party.young = rand()%6 + 1;
@@ -250,7 +264,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         current.w, current.h,
         SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
 
-    SDL_GLContext Context = SDL_GL_CreateContext(window);
+    //SDL_GLContext Context = SDL_GL_CreateContext(window);
+    //SDL_GL_SetSwapInterval(1);
 
     if (window == NULL)
     {
@@ -900,8 +915,8 @@ void CGameEngine::renderDaytime()
         SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
         SDL_DestroyTexture(dayTimeTexture);
 
-        RenderText("Season: " + cweather_engine.get_season(), White, current.w - 1050,100,24);
-        RenderText("Temperature: " + std::to_string(cweather_engine.get_temperature()), White, current.w - 1050,124,24);
+        RenderText("Season: " + WeatherEngine.get_season(), White, current.w - 1050,100,24);
+        RenderText("Temperature: " + std::to_string(WeatherEngine.get_temperature()), White, current.w - 1050,124,24);
         RenderText("currentTime: " + std::to_string(gameTime.tm_hour)+std::to_string(gameTime.tm_min)+std::to_string(gameTime.tm_sec),White, current.w - 1050, 170,24);
         RenderText("currentDay: " + std::to_string(gameTime.tm_mday),White, current.w - 1050, 190,24);
 }

@@ -406,26 +406,11 @@ void LogSDL(void *userdata, int category, SDL_LogPriority priority, const char *
     fprintf(pFile,"[Log] %s %s\n", ctime_no_newline, message);
 };
 
-void animation() {
-  using namespace ascii;
-  std::vector<double> series;
-  std::vector<double> series2;
-  int height = 6;
-  for (int i = 0; i < 100; i += 2) {
-    series.push_back(15 * std::cos(i * (kPI * 8) / 120));
-    series2.push_back(15 * std::sin(i * ((kPI * 4) / 100)));
-    Asciichart asciichart(std::vector<std::vector<double>>{series, series2});
-    if (i != 0) {
-      for (int j = 0; j <= height; j++) {
-        std::cout << "\033[A\033[2K";
-      }
-      std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
-    std::cout << asciichart.height(height).Plot();
-  }
-}
+// Set up the game loop timer
+const int fps = 60;
+const int frame_time = 1000 / fps;
 
-
+Uint32 last_frame_time = SDL_GetTicks();
 
 int main(int argc, char ** argv)
 {
@@ -865,6 +850,18 @@ int main(int argc, char ** argv)
         //SDL_RenderPresent(game.renderer);
 
         //start = high_resolution_clock::now();
+
+        // Control the frame rate
+        Uint32 current_time = SDL_GetTicks();
+
+        if (current_time - last_frame_time < frame_time) {
+            Uint32 delay_time = frame_time - (current_time - last_frame_time);
+            SDL_Delay(delay_time);
+        }
+
+        last_frame_time = current_time;
+
+        std::cout << last_frame_time << std::endl;
 
         SDL_RenderPresent(game.renderer);
 

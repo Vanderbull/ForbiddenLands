@@ -197,12 +197,12 @@ public:
                 mapExits[counterx][countery].Direction[Passable::SOUTH] = south;
 
 
-                std::cout << "counterx:" << counterx << std::endl;
-                std::cout << "countery:" << countery<< std::endl;
-                std::cout << " WEST:" << mapExits[counterx][countery].Direction[Passable::WEST] << std::endl;
-                std::cout << " EAST:" << mapExits[counterx][countery].Direction[Passable::EAST] << std::endl;
-                std::cout << " NORTH:" << mapExits[counterx][countery].Direction[Passable::NORTH] << std::endl;
-                std::cout << " SOUTH" << mapExits[counterx][countery].Direction[Passable::SOUTH] << std::endl;
+//                std::cout << "counterx:" << counterx << std::endl;
+//                std::cout << "countery:" << countery<< std::endl;
+//                std::cout << " WEST:" << mapExits[counterx][countery].Direction[Passable::WEST] << std::endl;
+//                std::cout << " EAST:" << mapExits[counterx][countery].Direction[Passable::EAST] << std::endl;
+//                std::cout << " NORTH:" << mapExits[counterx][countery].Direction[Passable::NORTH] << std::endl;
+//                std::cout << " SOUTH" << mapExits[counterx][countery].Direction[Passable::SOUTH] << std::endl;
 
 
                 std::cout << std::endl;
@@ -239,8 +239,6 @@ public:
     }
 
     SDL_Point mousePosition;
-
-
 
     Passable mapExits[16][16];
 

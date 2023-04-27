@@ -9,6 +9,12 @@ using namespace std;
 
 #include "randomizer.h"
 
+struct ItemRecord
+{
+    std::string Name;
+    std::string Icon = "./assets/data/textures/icons/uiAtlas/ui_game_symbol_other.png";
+};
+
 class Item {
 public:
 

@@ -4,6 +4,14 @@
 #include <string>
 #include <vector>
 #include <dirent.h>
+#include <fstream>
+#include <iostream>
+#include <cmath>
+#include <sstream>
+#include <iomanip>
+#include <sys/resource.h>
+#include <unistd.h>
+
 using namespace std;
 
 #include <SDL2/SDL.h>

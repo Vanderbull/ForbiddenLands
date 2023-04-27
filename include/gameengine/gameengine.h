@@ -15,6 +15,7 @@
 #include <sys/utsname.h>
 #include <array>
 #include <map>
+#include <unordered_map>
 #include <dirent.h>
 #include <algorithm>
 
@@ -218,6 +219,8 @@ public:
 
     int AllowedSkills = 3;
 
+    std::map<std::string, ItemRecord> ItemObject;
+
     std::vector<std::string> v_ItemNames = {
                                             "Bronze ring","Iron ring",
                                             "Silver ring","Golden ring","Jewel ring",
@@ -247,8 +250,6 @@ public:
 	void AddItem();
 	void AddSkill();
 
-
-
 	// Look at enums with flags later
 	enum BodyParts {HEAD,NECK,SHOULDER,CHEST,LEFT_ARM,RIGHT_ARM,HANDS,LEGS,FEET};
 
@@ -265,8 +266,6 @@ public:
 	    int Resistance;
 	    int Vunerability;
 	};
-
-    weather_engine cweather_engine;
 
     void read_directory(const std::string& name, std::vector<string>& v)
     {
@@ -330,7 +329,6 @@ public:
     }
 
     Mix_Chunk* _sample[20];
-
 
 	int number_of_enemies = 1;
 

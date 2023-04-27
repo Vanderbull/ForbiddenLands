@@ -17,6 +17,7 @@ CWorldMapState CWorldMapState::m_WorldMapState;
 void CWorldMapState::Init()
 {
 	SDL_Log("CWorldMapState Init\n");
+
 	for( int i=0; i <10; i++)
 	{
         Point_Of_Interest[i].x = (30 + rand()%10)*32;

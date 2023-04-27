@@ -131,13 +131,18 @@ void CLoadingState::Draw(CGameEngine* game)
 {
 	SDL_Log("CLoadingState Draw\n");
 
+    for( auto& [name, item] : game->ItemObject)
+    {
+        std::cout << name << item.Icon << std::endl;
+    }
+
     // Extract the x,y,z position from the filename
     // ./assets/data/textures/test_map/0000E-fs8.png
     // EWNS
 
-    std::cout << "Character starting position: " << game->SActor.PlayerCoordinate.x << ","
-                                                << game->SActor.PlayerCoordinate.y << ","
-                                                << game->SActor.PlayerCoordinate.z << ",";
+//    std::cout << "Character starting position: " << game->SActor.PlayerCoordinate.x << ","
+//                                                << game->SActor.PlayerCoordinate.y << ","
+//                                                << game->SActor.PlayerCoordinate.z << ",";
 
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501E-fs8.png");
     game->mapTexture[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][1] = IMG_LoadTexture(game->renderer,"./assets/data/textures/test_map/1501W-fs8.png");

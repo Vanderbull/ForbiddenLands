@@ -70,6 +70,7 @@ void CSettingsMenuState::Update(CGameEngine* game)
     m_iWheelY=0;
 }
 
+float angle = 0.0f;
 void CSettingsMenuState::Draw(CGameEngine* game)
 {
     SDL_Log("CSettingsMenuState Draw");
@@ -125,5 +126,88 @@ void CSettingsMenuState::Draw(CGameEngine* game)
     Mix_Volume(-1, -1);
     game->RenderText("Resolution: " + std::to_string(game->current.w) + " x " + std::to_string(game->current.h) + " @ " + std::to_string(SDL_BITSPERPIXEL(game->current.format)), game->Black, 50,50,48);
     game->RenderText("Volume: " + std::to_string( Mix_Volume(-1, -1) ), game->Black, 50,100,48);
+
+    std::ifstream status_file("/proc/self/status");
+    std::string line;
+
+    while (std::getline(status_file, line)) {
+        if (line.substr(0, 6) == "VmSize") {
+            double VmSize = std::stod(line.substr(7));
+            std::ostringstream ss;
+            ss << std::fixed << std::setprecision(2) << VmSize/1024;
+            std::string VmSize_String = ss.str();
+            //VmSize = std::round(static_cast<double>(VmSize) / 1024.0);
+            //VmSize = std::round(VmSize * 100) / 100;
+            game->RenderText("Virtual memory size: " + VmSize_String + " MB", game->Black, 50,150,48);
+        }
+        else if (line.substr(0, 5) == "VmRSS") {
+            game->RenderText("Resident set size: " + line.substr(6), game->Black, 50,200,48);
+        }
+    }
+
+    // Get system information
+    int num_cpus = SDL_GetCPUCount();
+    int ram_mb = SDL_GetSystemRAM();
+    std::string platform_str = SDL_GetPlatform();
+
+    // Get power info
+    int secs_left = -1;
+    int percent_left = -1;
+
+    if (SDL_GetPowerInfo(&secs_left, &percent_left) == SDL_POWERSTATE_ON_BATTERY) {
+    game->RenderText("Battery: " + std::to_string(percent_left) + "%", game->Black, 50,450,48);
+    }
+    if (SDL_GetPowerInfo(&secs_left, &percent_left) == SDL_POWERSTATE_CHARGING) {
+    game->RenderText("Charging: " + std::to_string(percent_left) + "%", game->Black, 50,450,48);
+    }
+    if (SDL_GetPowerInfo(&secs_left, &percent_left) == SDL_POWERSTATE_CHARGED) {
+    game->RenderText("Charged: " + std::to_string(percent_left) + "%", game->Black, 50,450,48);
+    }
+#ifdef _WIN32
+    SYSTEM_INFO sys_info;
+
+    GetSystemInfo(&sys_info);
+
+    int num_logical_cpus = sys_info.dwNumberOfProcessors;
+#else
+    int num_logical_cpus = sysconf(_SC_NPROCESSORS_ONLN);
+#endif
+
+    game->RenderText("Number of CPUs: " + std::to_string(num_cpus), game->Black, 50,250,48);
+    game->RenderText("Number of logical CPUs: " + std::to_string(num_logical_cpus), game->Black, 50,300,48);
+    game->RenderText("System RAM: " + std::to_string(ram_mb), game->Black, 50,350,48);
+    game->RenderText("Platform: " + platform_str, game->Black, 50,400,48);
+
+	const SDL_Vertex triangleVertex[3] = {
+		{
+			{ 600.f, 10.f },
+			{ 220, 220, 220, 0xFF },
+			{ 0.f, 0.f }
+		},
+		{
+			{ 600.f, 310.f },
+			{ 220, 220, 220, 0xFF },
+			{ 0.f, 0.f }
+		},
+		{
+			{ 910.f, 120.f },
+			{ 220, 220, 220, 0xFF },
+			{ 0.f, 0.f }
+		}
+	};
+
+        // Set up the model matrix
+        float model_matrix[16];
+        model_matrix[0] = std::cos(angle);
+        model_matrix[1] = -std::sin(angle);
+        model_matrix[4] = std::sin(angle);
+        model_matrix[5] = std::cos(angle);
+        model_matrix[10] = 1.0f;
+        model_matrix[15] = 1.0f;
+
+		if ( SDL_RenderGeometry(game->renderer, NULL, triangleVertex, 3, NULL, 0) < 0 )
+		{
+			SDL_Log("%s\n", SDL_GetError());
+		}
 
 }
