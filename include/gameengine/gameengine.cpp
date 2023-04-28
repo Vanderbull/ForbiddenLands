@@ -904,8 +904,10 @@ void CGameEngine::initShop()
 void CGameEngine::renderDaytime()
 {
         SDL_Rect dayTimeBox = {current.w - 75,25,50,50};
+        SDL_Rect Season_Position = {current.w - 75,100,50,50};
 
         SDL_Texture* dayTimeTexture = NULL;
+        SDL_Texture* Season_Texture = NULL;
 
         if( Daytime == 0)
             dayTimeTexture = LoadTexture("./assets/data/textures/icons/day-white.png",128);
@@ -916,8 +918,19 @@ void CGameEngine::renderDaytime()
         else if( Daytime == 3)
             dayTimeTexture = LoadTexture("./assets/data/textures/icons/night-white.png",255);
 
+        if( Season == 0)
+            Season_Texture = LoadTexture("./assets/data/textures/icons/summer.jpg",128);
+        else if ( Season == 1)
+            Season_Texture = LoadTexture("./assets/data/textures/icons/spring.jpg",255);
+        else if( Season == 2)
+            Season_Texture = LoadTexture("./assets/data/textures/icons/fall.jpg",128);
+        else if( Season == 3)
+            Season_Texture = LoadTexture("./assets/data/textures/icons/winter.png",255);
+
         SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
         SDL_DestroyTexture(dayTimeTexture);
+        SDL_RenderCopy(renderer, Season_Texture, NULL, &Season_Position);
+        SDL_DestroyTexture(Season_Texture);
 
         RenderText("Season: " + WeatherEngine.get_season(), White, current.w - 1050,100,24);
         RenderText("Temperature: " + std::to_string(WeatherEngine.get_temperature()), White, current.w - 1050,124,24);

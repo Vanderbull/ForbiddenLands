@@ -394,6 +394,7 @@ public:
     std::string Village_Name = "";
 
     int Daytime = 0; // Morning, Afternoon, Evening, Night
+    int Season = 0; // Summer, Spring, Fall, Winter
 
 private:
 	// the stack of states
