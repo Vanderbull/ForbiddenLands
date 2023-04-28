@@ -80,24 +80,28 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                             game->SActor.WorldmapCoordinate.y--;
                         game->SActor.hunger++;
                         game->SActor.thirst++;
+                        game->Daytime++;
                         break;
                     case SDLK_d:
                         if( game->SActor.WorldmapCoordinate.x < 39 )
                             game->SActor.WorldmapCoordinate.x++;
                         game->SActor.hunger++;
                         game->SActor.thirst++;
+                        game->Daytime++;
                         break;
                     case SDLK_s:
                         if( game->SActor.WorldmapCoordinate.y < (1080 / 32) - 1 )
                             game->SActor.WorldmapCoordinate.y++;
                         game->SActor.hunger++;
                         game->SActor.thirst++;
+                        game->Daytime++;
                         break;
                     case SDLK_a:
                         if( game->SActor.WorldmapCoordinate.x > 30 )
                             game->SActor.WorldmapCoordinate.x--;
                         game->SActor.hunger++;
                         game->SActor.thirst++;
+                        game->Daytime++;
                         break;
 				}
 				break;
@@ -108,6 +112,9 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 void CWorldMapState::Update(CGameEngine* game)
 {
     SDL_Log("CWorldMapState Update");
+
+    if( game->Daytime >3)
+        game->Daytime = 0;
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
     m_iPreviousCoordY=m_iCurrentCoordY;
@@ -320,7 +327,6 @@ void CWorldMapState::Draw(CGameEngine* game)
     game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
     game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
 
-    game->currentTimeElapse(true);
     game->renderDaytime();
 //
 //   for (int x = 0; x < GRID_WIDTH; x++) {

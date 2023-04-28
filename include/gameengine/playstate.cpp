@@ -189,8 +189,6 @@ void CPlayState::Update(CGameEngine* game)
         game->ChangeState( CWorldMapState::Instance() );
     }
 
-    game->currentTimeElapse(true);
-
     if( game->newGame )
     {
         game->SActor.calculateStats();
@@ -213,16 +211,6 @@ void CPlayState::Update(CGameEngine* game)
         game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] = rd.max();
         game->ChangeState( CBattleState::Instance() );
     }
-
-//    if( game->SActor.PlayerCoordinate.x == 9 && game->SActor.PlayerCoordinate.y == 0 )
-//    {
-//        game->ChangeState( CShopState::Instance() );
-//    }
-//
-//    if( game->SActor.PlayerCoordinate.x == 12 && game->SActor.PlayerCoordinate.y == 0 )
-//    {
-//        game->ChangeState( CTavernState::Instance() );
-//    }
 
     std::string coordinates_modified = "";
     if(game->SActor.PlayerCoordinate.x < 10)
@@ -326,7 +314,7 @@ void CPlayState::Draw(CGameEngine* game)
 //    SDL_SetRenderDrawColor(game->renderer, 0, 255, 0,255);
 //    SDL_RenderFillRect(game->renderer, &left_weapon);
 //    SDL_RenderFillRect(game->renderer, &right_weapon);
-    game->renderDaytime();
+    //game->renderDaytime();
     game->renderQuestsList();
     game->Quests.completeQuest("Retrieve the stolen artifact");
 

@@ -903,14 +903,18 @@ void CGameEngine::initShop()
 
 void CGameEngine::renderDaytime()
 {
-        SDL_Rect dayTimeBox = {current.w - 1150,25,50,50};
+        SDL_Rect dayTimeBox = {current.w - 75,25,50,50};
 
         SDL_Texture* dayTimeTexture = NULL;
 
-        if( currentTimeElapse() == night )
-            dayTimeTexture = LoadTexture("./assets/data/textures/icons/night.png",255);
-        else
-            dayTimeTexture = LoadTexture("./assets/data/textures/icons/day.png",255);
+        if( Daytime == 0)
+            dayTimeTexture = LoadTexture("./assets/data/textures/icons/day-white.png",128);
+        else if ( Daytime == 1)
+            dayTimeTexture = LoadTexture("./assets/data/textures/icons/day-white.png",255);
+        else if( Daytime == 2)
+            dayTimeTexture = LoadTexture("./assets/data/textures/icons/night-white.png",128);
+        else if( Daytime == 3)
+            dayTimeTexture = LoadTexture("./assets/data/textures/icons/night-white.png",255);
 
         SDL_RenderCopy(renderer, dayTimeTexture, NULL, &dayTimeBox);
         SDL_DestroyTexture(dayTimeTexture);

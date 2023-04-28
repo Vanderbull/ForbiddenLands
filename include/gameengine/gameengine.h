@@ -107,45 +107,44 @@ public:
 
     int currentTimeOfDay = day;
 
-    // Live ticking time or by movement
-    int currentTimeElapse(bool tick = false )
-    {
-        if( tick )
-        {
-            gameTime.tm_sec++;
-
-            if( gameTime.tm_sec == 60 )
-            {
-                gameTime.tm_sec = 0;
-                gameTime.tm_min++;
-            }
-            if( gameTime.tm_min == 59 )
-            {
-                gameTime.tm_min = 0;
-                gameTime.tm_hour++;
-            }
-            if( gameTime.tm_hour == 23 )
-            {
-                gameTime.tm_hour = 0;
-                gameTime.tm_mday++;
-               if( gameTime.tm_hour > 6 && gameTime.tm_hour < 18 )
-                {
-                    currentTimeOfDay = day;
-                }
-                else
-                {
-                    currentTimeOfDay = night;
-                }
-            }
-            if( gameTime.tm_mon == 11 )
-            {
-                gameTime.tm_mon = 0;
-                gameTime.tm_year++;
-            }
-
-        }
-        return currentTimeOfDay;
-    };
+//    int currentTimeElapse(bool tick = false )
+//    {
+//        if( tick )
+//        {
+//            gameTime.tm_sec++;
+//
+//            if( gameTime.tm_sec == 60 )
+//            {
+//                gameTime.tm_sec = 0;
+//                gameTime.tm_min++;
+//            }
+//            if( gameTime.tm_min == 59 )
+//            {
+//                gameTime.tm_min = 0;
+//                gameTime.tm_hour++;
+//            }
+//            if( gameTime.tm_hour == 23 )
+//            {
+//                gameTime.tm_hour = 0;
+//                gameTime.tm_mday++;
+//               if( gameTime.tm_hour > 6 && gameTime.tm_hour < 18 )
+//                {
+//                    currentTimeOfDay = day;
+//                }
+//                else
+//                {
+//                    currentTimeOfDay = night;
+//                }
+//            }
+//            if( gameTime.tm_mon == 11 )
+//            {
+//                gameTime.tm_mon = 0;
+//                gameTime.tm_year++;
+//            }
+//
+//        }
+//        return currentTimeOfDay;
+//    };
 
 	void renderDaytime();
 	void renderQuests();
@@ -393,6 +392,8 @@ public:
 
     Army Raiding_Party;
     std::string Village_Name = "";
+
+    int Daytime = 0; // Morning, Afternoon, Evening, Night
 
 private:
 	// the stack of states

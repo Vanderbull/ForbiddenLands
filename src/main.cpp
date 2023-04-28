@@ -861,8 +861,6 @@ int main(int argc, char ** argv)
 
         last_frame_time = current_time;
 
-        std::cout << last_frame_time << std::endl;
-
         SDL_RenderPresent(game.renderer);
 
         //stop = high_resolution_clock::now();
