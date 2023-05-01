@@ -81,6 +81,7 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
+                        game->Elapsed_Time++;
                         break;
                     case SDLK_d:
                         if( game->SActor.WorldmapCoordinate.x < 39 )
@@ -88,6 +89,7 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
+                        game->Elapsed_Time++;
                         break;
                     case SDLK_s:
                         if( game->SActor.WorldmapCoordinate.y < (1080 / 32) - 1 )
@@ -95,6 +97,7 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
+                        game->Elapsed_Time++;
                         break;
                     case SDLK_a:
                         if( game->SActor.WorldmapCoordinate.x > 30 )
@@ -102,6 +105,7 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
+                        game->Elapsed_Time++;
                         break;
 				}
 				break;
@@ -209,15 +213,21 @@ void CWorldMapState::Draw(CGameEngine* game)
 //    }
     //game->renderWorldMapTiles();
     SDL_Rect WorldmapLocation;
-    SDL_Rect moraMapLocation = {35*32,5*32,32,32};
-    SDL_Rect vallentunaMapLocation = {35*32,25*32,32,32};
-    SDL_Rect kustenstadMapLocation = {35*32,15*32,32,32};
+    SDL_Rect Uppsala_Location = {34*32,21*32,32,32};
+    SDL_Rect Sigtuna_Location = {34*32,23*32,32,32};
+    SDL_Rect Birka_Location = {34*32,25*32,32,32};
+    SDL_Rect Lund_Location = {31*32,32*32,32,32};
+    SDL_Rect Soderkoping_Location = {32*32,27*32,32,32};
+    SDL_Rect Visby_Location = {36*32,27*32,32,32};
+    SDL_Rect Vastergarn_Location = {36*32,28*32,32,32};
 
-
-
-    SDL_RenderFillRect(game->renderer, &moraMapLocation);
-    SDL_RenderFillRect(game->renderer, &vallentunaMapLocation);
-    SDL_RenderFillRect(game->renderer, &kustenstadMapLocation);
+    SDL_RenderFillRect(game->renderer, &Uppsala_Location);
+    SDL_RenderFillRect(game->renderer, &Birka_Location);
+    SDL_RenderFillRect(game->renderer, &Sigtuna_Location);
+    SDL_RenderFillRect(game->renderer, &Lund_Location);
+    SDL_RenderFillRect(game->renderer, &Soderkoping_Location);
+    SDL_RenderFillRect(game->renderer, &Visby_Location);
+    SDL_RenderFillRect(game->renderer, &Vastergarn_Location);
 
     OFFSET = 0;
     WorldmapLocation.x = game->SActor.WorldmapCoordinate.x*32 + OFFSET;
@@ -231,23 +241,54 @@ void CWorldMapState::Draw(CGameEngine* game)
 
     SDL_RenderCopy(game->renderer, Raiding_Party_Icon, NULL, &WorldmapLocation);
 
-    if( SDL_RectEquals(&WorldmapLocation, &moraMapLocation) )
+    if( SDL_RectEquals(&WorldmapLocation, &Uppsala_Location) )
     {
-        game->Village_Name = "Mora";
+        game->Village_Name = "Uppsala";
         game->SActor.cityMap = 2;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
-    if( SDL_RectEquals(&WorldmapLocation, &vallentunaMapLocation) )
+    if( SDL_RectEquals(&WorldmapLocation, &Birka_Location) )
     {
-        game->Village_Name = "Vallentuna";
+        game->Village_Name = "Birka";
         game->SActor.cityMap = 1;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
-    if( SDL_RectEquals(&WorldmapLocation, &kustenstadMapLocation) )
+    if( SDL_RectEquals(&WorldmapLocation, &Sigtuna_Location) )
     {
-        game->Village_Name = "Kustenstad";
+        game->Village_Name = "Sigtuna";
+        game->SActor.cityMap = 0;
+        game->ChangeState( CVillageState::Instance() );
+        game->SActor.WorldmapCoordinate.x += 1;
+    }
+    if( SDL_RectEquals(&WorldmapLocation, &Lund_Location) )
+    {
+        game->Village_Name = "Lund";
+        game->SActor.cityMap = 0;
+        game->ChangeState( CVillageState::Instance() );
+        game->SActor.WorldmapCoordinate.x += 1;
+    }
+
+    if( SDL_RectEquals(&WorldmapLocation, &Soderkoping_Location) )
+    {
+        game->Village_Name = "Söderköping";
+        game->SActor.cityMap = 0;
+        game->ChangeState( CVillageState::Instance() );
+        game->SActor.WorldmapCoordinate.x += 1;
+    }
+
+    if( SDL_RectEquals(&WorldmapLocation, &Visby_Location) )
+    {
+        game->Village_Name = "Visby";
+        game->SActor.cityMap = 0;
+        game->ChangeState( CVillageState::Instance() );
+        game->SActor.WorldmapCoordinate.x += 1;
+    }
+
+    if( SDL_RectEquals(&WorldmapLocation, &Vastergarn_Location) )
+    {
+        game->Village_Name = "Västergarn";
         game->SActor.cityMap = 0;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
@@ -266,7 +307,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         {
             if( game->SActor.thirst > 0 || game->SActor.hunger > 0)
             {
-                game->gameTime.tm_hour += 24;
+                game->Elapsed_Time++;
                 if(game->SActor.hunger > 0)
                 {
                     game->SActor.hunger -= rand()%5;
@@ -305,17 +346,33 @@ void CWorldMapState::Draw(CGameEngine* game)
         }
 	}
 
-    if( SDL_PointInRect(&mousePosition, &moraMapLocation) )
+    if( SDL_PointInRect(&mousePosition, &Uppsala_Location) )
     {
-        game->RenderText("Mora city location",White,game->current.w - 300,gRect.y +  80,24);
+        game->RenderText("Uppsala",White,game->current.w - 300,gRect.y +  180,24);
     }
-    if( SDL_PointInRect(&mousePosition, &vallentunaMapLocation) )
+    if( SDL_PointInRect(&mousePosition, &Birka_Location) )
     {
-        game->RenderText("Vallentuna city location",White,game->current.w - 300,gRect.y +  80,24);
+        game->RenderText("Birka",White,game->current.w - 300,gRect.y +  180,24);
     }
-    if( SDL_PointInRect(&mousePosition, &kustenstadMapLocation) )
+    if( SDL_PointInRect(&mousePosition, &Sigtuna_Location) )
     {
-        game->RenderText("Kustenstad city location",White,game->current.w - 300,gRect.y +  80,24);
+        game->RenderText("Sigtuna",White,game->current.w - 300,gRect.y +  180,24);
+    }
+    if( SDL_PointInRect(&mousePosition, &Lund_Location) )
+    {
+        game->RenderText("Lund",White,game->current.w - 300,gRect.y +  180,24);
+    }
+    if( SDL_PointInRect(&mousePosition, &Soderkoping_Location) )
+    {
+        game->RenderText("Söderköping",White,game->current.w - 300,gRect.y +  180,24);
+    }
+    if( SDL_PointInRect(&mousePosition, &Visby_Location) )
+    {
+        game->RenderText("Visby",White,game->current.w - 300,gRect.y +  180,24);
+    }
+    if( SDL_PointInRect(&mousePosition, &Vastergarn_Location) )
+    {
+        game->RenderText("Västergarn",White,game->current.w - 300,gRect.y +  180,24);
     }
 
     game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.x),White,gRect.x,gRect.y,24);
@@ -326,6 +383,9 @@ void CWorldMapState::Draw(CGameEngine* game)
     game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),White,80,gRect.y +  120,24);
     game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
     game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
+
+    game->RenderText("Elapsed time: " + std::to_string(game->Elapsed_Time),White,80,gRect.y +  250,24);
+
 
     game->renderDaytime();
 //

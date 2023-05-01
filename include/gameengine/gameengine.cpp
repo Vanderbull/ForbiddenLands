@@ -932,10 +932,10 @@ void CGameEngine::renderDaytime()
         SDL_RenderCopy(renderer, Season_Texture, NULL, &Season_Position);
         SDL_DestroyTexture(Season_Texture);
 
-        RenderText("Season: " + WeatherEngine.get_season(), White, current.w - 1050,100,24);
-        RenderText("Temperature: " + std::to_string(WeatherEngine.get_temperature()), White, current.w - 1050,124,24);
-        RenderText("currentTime: " + std::to_string(gameTime.tm_hour)+std::to_string(gameTime.tm_min)+std::to_string(gameTime.tm_sec),White, current.w - 1050, 170,24);
-        RenderText("currentDay: " + std::to_string(gameTime.tm_mday),White, current.w - 1050, 190,24);
+        RenderText("Season: " + WeatherEngine.get_season(), White, current.w - 250,0,24);
+        RenderText("Temperature: " + std::to_string(WeatherEngine.get_temperature()), White, current.w - 250,50,24);
+        RenderText("currentTime: " + std::to_string(gameTime.tm_hour)+std::to_string(gameTime.tm_min)+std::to_string(gameTime.tm_sec),White, current.w - 250, 100,24);
+        RenderText("currentDay: " + std::to_string(gameTime.tm_mday),White, current.w - 250, 150,24);
 }
 
 void CGameEngine::renderQuests()

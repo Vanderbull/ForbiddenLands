@@ -395,6 +395,13 @@ public:
 
     int Daytime = 0; // Morning, Afternoon, Evening, Night
     int Season = 0; // Summer, Spring, Fall, Winter
+    int Season_Length = 90; // Number of days
+    int Elapsed_Time = 0;
+
+    int Get_Elapsed_Time()
+    {
+        return Elapsed_Time;
+    }
 
 private:
 	// the stack of states
