@@ -1,5 +1,11 @@
 # FORBIDDEN LANDS
 
+## Official homepage
+live at https://viking-saga.se/hem
+
+## Documentation (Test)
+live at https://vanderbull.github.io/ForbiddenLands-docs/
+
 ## Using GNOME Keyring as Git Credential Helper
 https://blog.scottlowe.org/2016/11/21/gnome-keyring-git-credential-helper/
 https://stackoverflow.com/questions/13385690/how-to-use-git-with-gnome-keyring-integration
