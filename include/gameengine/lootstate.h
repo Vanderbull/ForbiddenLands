@@ -44,7 +44,7 @@ private:
 	int iX;
 	int iY;
 	SDL_Texture* MainMenuBackgroundTexture;
-	SDL_Color White = {255, 255, 255, 255};
+	//SDL_Color White = {255, 255, 255, 255};
 	TTF_Font* gameTitleFont = NULL;
     std::vector<std::string> MenuChoices;
 
@@ -66,7 +66,6 @@ private:
     int buttonHeight = 60;
 
     bool looting = true;
-
 };
 
 #endif

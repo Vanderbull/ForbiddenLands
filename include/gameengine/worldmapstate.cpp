@@ -1,3 +1,4 @@
+/// @file worldmapstate.cpp
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
@@ -77,7 +78,10 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 						break;
                     case SDLK_w:
                         if( game->SActor.WorldmapCoordinate.y > 0 )
+                        {
                             game->SActor.WorldmapCoordinate.y--;
+                            game->Ship.Position_Y--;
+                        }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
@@ -85,7 +89,13 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         break;
                     case SDLK_d:
                         if( game->SActor.WorldmapCoordinate.x < 39 )
-                            game->SActor.WorldmapCoordinate.x++;
+                        {
+                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x - 29] == LAND)
+                            {
+                                game->SActor.WorldmapCoordinate.x++;
+                                game->Ship.Position_X++;
+                            }
+                        }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
@@ -93,7 +103,10 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         break;
                     case SDLK_s:
                         if( game->SActor.WorldmapCoordinate.y < (1080 / 32) - 1 )
+                        {
                             game->SActor.WorldmapCoordinate.y++;
+                            game->Ship.Position_Y++;
+                        }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
@@ -101,7 +114,10 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         break;
                     case SDLK_a:
                         if( game->SActor.WorldmapCoordinate.x > 30 )
+                        {
                             game->SActor.WorldmapCoordinate.x--;
+                            game->Ship.Position_X--;
+                        }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
                         game->Daytime++;
@@ -116,9 +132,6 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 void CWorldMapState::Update(CGameEngine* game)
 {
     SDL_Log("CWorldMapState Update");
-
-    if( game->Daytime >3)
-        game->Daytime = 0;
     ///--- Store the current information to the previous
     m_iPreviousCoordX=m_iCurrentCoordX;
     m_iPreviousCoordY=m_iCurrentCoordY;
@@ -131,12 +144,12 @@ void CWorldMapState::Update(CGameEngine* game)
     m_iWheelX=0;
     m_iWheelY=0;
 
-//    game->fog_of_war_worldmap[0][0] = 1;
-    game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-30][game->SActor.WorldmapCoordinate.y] = 1;
+    if( game->Daytime >3)
+        game->Daytime = 0;
 
+    game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-30][game->SActor.WorldmapCoordinate.y] = 1;
     game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-31][game->SActor.WorldmapCoordinate.y] = 1;
     game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-29][game->SActor.WorldmapCoordinate.y] = 1;
-
     game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-30][game->SActor.WorldmapCoordinate.y-1] = 1;
     game->fog_of_war_worldmap[game->SActor.WorldmapCoordinate.x-30][game->SActor.WorldmapCoordinate.y+1] = 1;
 
@@ -148,9 +161,10 @@ void CWorldMapState::Draw(CGameEngine* game)
 
     SDL_Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-    SDL_SetRenderDrawColor(game->renderer, 255, 255, 0, 255);
+
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
 
+    // Draw water squares
     for(int x = 30; x < 40; x++ )
     {
         for(int y = 0; y < game->current.h / 31; y++ )
@@ -159,60 +173,23 @@ void CWorldMapState::Draw(CGameEngine* game)
             SDL_RenderFillRect(game->renderer, &gRect);
         }
     }
-//	SDL_Texture* water_texture = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
-//	SDL_Texture* water_texture2 = game->LoadTexture("./assets/data/textures/backgrounds/water.png",255);
-//
-//	SDL_SetTextureBlendMode(water_texture,SDL_BLENDMODE_NONE);
-//
-//	SDL_SetTextureBlendMode(water_texture2,SDL_BLENDMODE_BLEND);
-//    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect);
-//    //SDL_DestroyTexture(water_texture);
-//    SDL_RenderCopy(game->renderer, water_texture, NULL, &water_x_rect2);
-//    SDL_DestroyTexture(water_texture);
-//
-//    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect);
-//    //SDL_DestroyTexture(water_texture2);
-//    SDL_RenderCopy(game->renderer, water_texture2, NULL, &water_y_rect2);
-//    SDL_DestroyTexture(water_texture2);
 
-
-    water_x_rect.x+=2;
-    if(water_x_rect.x > 1919)
-        water_x_rect.x = 0;
-    water_x_rect2.x+=2;
-    if(water_x_rect2.x > 1919)
-        water_x_rect2.x = -1919;
-
-    water_y_rect.y++;
-    if(water_y_rect.y > 1079)
-        water_y_rect.y = 0;
-    water_y_rect2.y++;
-    if(water_y_rect2.y > 1079)
-        water_y_rect2.y = -1079;
-
+    // Draw sweden
 	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
-
     int texW = 0;
     int texH = 0;
     SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
-
     SDL_Rect gRect = { game->current.w/2,0, 300, 1080 };
+
+    // Set the desired color modulation (e.g., red)
+    SDL_SetTextureColorMod(texture, 0, 192, 0);  // Set RGB values for red (255, 0, 0)
 
     SDL_RenderCopy(game->renderer, texture, NULL, &gRect);
     SDL_DestroyTexture(texture);
 
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
 
-//    for(int x = 30; x < 40; x++ )
-//    {
-//        for(int y = 0; y < game->current.h / 32; y++ )
-//        {
-//            SDL_Rect gRect = { x*32,y*32, 32, 32 };
-//            SDL_RenderDrawRect(game->renderer, &gRect);
-//        }
-//    }
-    //game->renderWorldMapTiles();
-    SDL_Rect WorldmapLocation;
+    SDL_Rect WorldmapLocation = {0,0,0,0};
     SDL_Rect Uppsala_Location = {34*32,21*32,32,32};
     SDL_Rect Sigtuna_Location = {34*32,23*32,32,32};
     SDL_Rect Birka_Location = {34*32,25*32,32,32};
@@ -235,37 +212,27 @@ void CWorldMapState::Draw(CGameEngine* game)
     WorldmapLocation.h = 32;
     WorldmapLocation.w = 32;
 
-    //SDL_RenderCopy(game->renderer, game->North, NULL, &WorldmapLocation);
-
-    SDL_Texture* Raiding_Party_Icon = game->LoadTexture("./assets/data/textures/icons/army-32.png",255);
-
-    SDL_RenderCopy(game->renderer, Raiding_Party_Icon, NULL, &WorldmapLocation);
-
     if( SDL_RectEquals(&WorldmapLocation, &Uppsala_Location) )
     {
         game->Village_Name = "Uppsala";
-        game->SActor.cityMap = 2;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
     if( SDL_RectEquals(&WorldmapLocation, &Birka_Location) )
     {
         game->Village_Name = "Birka";
-        game->SActor.cityMap = 1;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
     if( SDL_RectEquals(&WorldmapLocation, &Sigtuna_Location) )
     {
         game->Village_Name = "Sigtuna";
-        game->SActor.cityMap = 0;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
     if( SDL_RectEquals(&WorldmapLocation, &Lund_Location) )
     {
         game->Village_Name = "Lund";
-        game->SActor.cityMap = 0;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
@@ -273,7 +240,6 @@ void CWorldMapState::Draw(CGameEngine* game)
     if( SDL_RectEquals(&WorldmapLocation, &Soderkoping_Location) )
     {
         game->Village_Name = "Söderköping";
-        game->SActor.cityMap = 0;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
@@ -281,7 +247,6 @@ void CWorldMapState::Draw(CGameEngine* game)
     if( SDL_RectEquals(&WorldmapLocation, &Visby_Location) )
     {
         game->Village_Name = "Visby";
-        game->SActor.cityMap = 0;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
@@ -289,7 +254,6 @@ void CWorldMapState::Draw(CGameEngine* game)
     if( SDL_RectEquals(&WorldmapLocation, &Vastergarn_Location) )
     {
         game->Village_Name = "Västergarn";
-        game->SActor.cityMap = 0;
         game->ChangeState( CVillageState::Instance() );
         game->SActor.WorldmapCoordinate.x += 1;
     }
@@ -297,7 +261,7 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_Rect Forage_Button = { 200, 32,90,23};
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     SDL_RenderFillRect(game->renderer, &Forage_Button);
-    game->RenderText("forage", White, Forage_Button.x,Forage_Button.y,24);
+    game->RenderText("forage", game->White, Forage_Button.x,Forage_Button.y,24);
 
     if( SDL_PointInRect(&mousePosition, &Forage_Button) )
     {
@@ -330,95 +294,209 @@ void CWorldMapState::Draw(CGameEngine* game)
 
 	for( int i=0; i <10; i++)
 	{
-        //SDL_RenderFillRect(game->renderer, &Point_Of_Interest[i]);
         SDL_RenderCopy(game->renderer, game->North, NULL, &Point_Of_Interest[i]);
 
 
         if( SDL_RectEquals(&WorldmapLocation, &Point_Of_Interest[i]) )
         {
-            game->SActor.cityMap = 2;
             game->ChangeState( CPlayState::Instance() );
             game->SActor.WorldmapCoordinate.x += 1;
         }
         if( SDL_PointInRect(&mousePosition, &Point_Of_Interest[i]) )
         {
-            game->RenderText("Point of interest: " + std::to_string(i),White,game->current.w - 300,gRect.y +  80,24);
+            game->RenderText("Point of interest: " + std::to_string(i),game->White,game->current.w - 300,gRect.y +  80,24);
         }
 	}
 
     if( SDL_PointInRect(&mousePosition, &Uppsala_Location) )
     {
-        game->RenderText("Uppsala",White,game->current.w - 300,gRect.y +  180,24);
+        game->RenderText("Uppsala",game->White,game->current.w - 300,gRect.y +  180,24);
     }
     if( SDL_PointInRect(&mousePosition, &Birka_Location) )
     {
-        game->RenderText("Birka",White,game->current.w - 300,gRect.y +  180,24);
+        game->RenderText("Birka",game->White,game->current.w - 300,gRect.y +  180,24);
     }
     if( SDL_PointInRect(&mousePosition, &Sigtuna_Location) )
     {
-        game->RenderText("Sigtuna",White,game->current.w - 300,gRect.y +  180,24);
+        game->RenderText("Sigtuna",game->White,game->current.w - 300,gRect.y +  180,24);
     }
     if( SDL_PointInRect(&mousePosition, &Lund_Location) )
     {
-        game->RenderText("Lund",White,game->current.w - 300,gRect.y +  180,24);
+        game->RenderText("Lund",game->White,game->current.w - 300,gRect.y +  180,24);
     }
     if( SDL_PointInRect(&mousePosition, &Soderkoping_Location) )
     {
-        game->RenderText("Söderköping",White,game->current.w - 300,gRect.y +  180,24);
+        game->RenderText("Söderköping",game->White,game->current.w - 300,gRect.y +  180,24);
     }
     if( SDL_PointInRect(&mousePosition, &Visby_Location) )
     {
-        game->RenderText("Visby",White,game->current.w - 300,gRect.y +  180,24);
+        game->RenderText("Visby",game->White,game->current.w - 300,gRect.y +  180,24);
     }
     if( SDL_PointInRect(&mousePosition, &Vastergarn_Location) )
     {
-        game->RenderText("Västergarn",White,game->current.w - 300,gRect.y +  180,24);
+        game->RenderText("Västergarn",game->White,game->current.w - 300,gRect.y +  180,24);
     }
 
-    game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.x),White,gRect.x,gRect.y,24);
-    game->RenderText(std::to_string(game->SActor.WorldmapCoordinate.y),White,gRect.x + 40,gRect.y,24);
-    game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),White,80,gRect.y +  40,24);
-    game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),White,80,gRect.y +  80,24);
+    std::string Position = "(" + std::to_string(game->SActor.WorldmapCoordinate.x) + "," + std::to_string(game->SActor.WorldmapCoordinate.y) + ")";
+    std::string Position2 = "(" + std::to_string(game->SActor.WorldmapCoordinate.x - 30) + "," + std::to_string(game->SActor.WorldmapCoordinate.y) + ")";
 
-    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),White,80,gRect.y +  120,24);
-    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
-    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
-
-    game->RenderText("Elapsed time: " + std::to_string(game->Elapsed_Time),White,80,gRect.y +  250,24);
-
-
-    game->renderDaytime();
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 255);
+    game->RenderText(Position.c_str(),0,0,48);
+    game->RenderText(Position2.c_str(),0,50,48);
 //
-//   for (int x = 0; x < GRID_WIDTH; x++) {
-//        for (int y = 0; y < GRID_HEIGHT; y++) {
-//            SDL_Rect rect = {x * CELL_SIZE,y * CELL_SIZE ,CELL_SIZE ,CELL_SIZE };
-//            if (grid[x][y] == WATER) {
-//                SDL_SetRenderDrawColor(game->renderer ,0x00 ,0x00 ,0xFF ,0xFF );
-//            } else if (grid[x][y] == LAND) {
-//                SDL_SetRenderDrawColor(game->renderer ,0x00 ,0xFF ,0x00 ,0xFF );
+//    game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),game->White,80,gRect.y +  40,24);
+//    game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),game->White,80,gRect.y +  80,24);
+//
+//    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),game->White,80,gRect.y +  120,24);
+//    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),game->White,80,gRect.y +  160,24);
+//    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),game->White,80,gRect.y +  200,24);
+//
+//    game->RenderText("Elapsed time: " + std::to_string(game->Elapsed_Time),game->White,80,gRect.y +  250,24);
+
+    //game->renderDaytime();
+
+//    for(int x = 0; x < 10; x++ )
+//    {
+//        for(int y = 0; y < 35; y++ )
+//        {
+//            if( game->fog_of_war_worldmap[x][y] == 0 )
+//            {
+//                SDL_Rect imageSize = {x*32+30*32, y*32,32,32};
+//                SDL_SetRenderDrawColor(game->renderer, 128,128, 128, 255);
+//                SDL_RenderFillRect(game->renderer, &imageSize);
 //            }
-//            SDL_RenderFillRect(game->renderer ,&rect );
 //        }
 //    }
 
+    // Render ship
+    SDL_Texture* ship = game->LoadTexture("./assets/data/textures/icons/ship.png",255);
+    texW = 0;
+    texH = 0;
+    SDL_QueryTexture(ship, NULL, NULL, &texW, &texH);
 
+    gRect = { 32*game->Ship.Position_X,32*game->Ship.Position_Y, texW/16, texH/16 };
+    SDL_RenderCopy(game->renderer, ship, NULL, &gRect);
 
-    for(int x = 0; x < 10; x++ )
+    // Render raiding party
+    SDL_Texture* Raiding_Party_Icon = game->LoadTexture("./assets/data/textures/icons/army-32.png",255);
+    SDL_RenderCopy(game->renderer, Raiding_Party_Icon, NULL, &WorldmapLocation);
+
+//        // Render the button
+//        SDL_Rect buttonRect;
+//        buttonRect.x = (1920 - 200) / 2;
+//        buttonRect.y = (1080 - 100) / 2;
+//        buttonRect.w = 200;
+//        buttonRect.h = 100;
+//
+//        // Render the button with a gradient
+//        for (int i = 0; i < 100; i++)
+//        {
+//            // Calculate gradient color
+//            Uint8 r = 255 - (i * 255 / 100);
+//            Uint8 g = i * 255 / 100;
+//            Uint8 b = 0;
+//
+//            // Set the color
+//            SDL_SetRenderDrawColor(game->renderer, r, g, b, 255);
+//
+//            // Render the row of the button
+//            SDL_Rect rowRect = { buttonRect.x, buttonRect.y + i, buttonRect.w, 1 };
+//            SDL_RenderFillRect(game->renderer, &rowRect);
+//        }
+//
+//        buttonRect.x = 0;
+//        buttonRect.y = 0;
+//        buttonRect.w = 200;
+//        buttonRect.h = 100;
+//
+//        // Render the button with a pulsating effect
+//        Uint8 r = 255;
+//        Uint8 g = 0;
+//        Uint8 b = 0;
+//        Uint8 alpha = 255;
+//
+//        // Calculate the alpha value based on time for the pulsating effect
+//        alpha = static_cast<Uint8>((SDL_GetTicks() / 10) % 255);
+//
+//        // Set the color and alpha
+//        SDL_SetRenderDrawColor(game->renderer, r, g, b, alpha);
+//
+//        // Render the button
+//        SDL_RenderFillRect(game->renderer, &buttonRect);
+// Calculate the position of the rectangle
+// Screen dimensions
+    const int SCREEN_WIDTH = 1920;
+    const int SCREEN_HEIGHT = 1080;
+
+    // Rectangle dimensions
+    const int RECT_WIDTH = 200;
+    const int RECT_HEIGHT = 150;
+
+    // Border color
+    SDL_Color borderColor = { 255, 255, 255 };
+
+    // Centered text
+//    int rectX = (SCREEN_WIDTH - RECT_WIDTH) / 2;
+//    int rectY = (SCREEN_HEIGHT - RECT_HEIGHT) / 2;
+
+    int rectX = (SCREEN_WIDTH - RECT_WIDTH);
+    int rectY = 0;
+
+    // Draw the filled rectangle
+    SDL_Rect filledRect = { rectX, rectY, RECT_WIDTH, RECT_HEIGHT };
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 255); // Fill color: red
+    SDL_RenderFillRect(game->renderer, &filledRect);
+
+    // Draw the border
+    SDL_Rect borderRect = { rectX, rectY, RECT_WIDTH, RECT_HEIGHT };
+    SDL_SetRenderDrawColor(game->renderer, borderColor.r, borderColor.g, borderColor.b, 255); // Border color
+    SDL_RenderDrawRect(game->renderer, &borderRect);
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+
+    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),rectX,rectY,24);
+    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),rectX,rectY + 50,24);
+    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),rectX,rectY + 100,24);
+
+    // Rectangle dimensions
+    const int RECT_WIDTH2 = 200;
+    const int RECT_HEIGHT2 = 150;
+
+    // Border color
+    //SDL_Color borderColor = { 255, 255, 255 };
+
+    // Centered text
+//    int rectX = (SCREEN_WIDTH - RECT_WIDTH) / 2;
+//    int rectY = (SCREEN_HEIGHT - RECT_HEIGHT) / 2;
+
+    int rectX2 = (SCREEN_WIDTH - RECT_WIDTH2);
+    int rectY2 = RECT_HEIGHT;
+
+    // Draw the filled rectangle
+    SDL_Rect filledRect2 = { rectX2, rectY2, RECT_WIDTH2, RECT_HEIGHT2 };
+    SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 255); // Fill color: red
+    SDL_RenderFillRect(game->renderer, &filledRect2);
+
+    // Draw the border
+    SDL_Rect borderRect2 = { rectX2, rectY2, RECT_WIDTH2, RECT_HEIGHT2 };
+    SDL_SetRenderDrawColor(game->renderer, borderColor.r, borderColor.g, borderColor.b, 255); // Border color
+    SDL_RenderDrawRect(game->renderer, &borderRect2);
+
+    SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+
+    game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),rectX2,rectY2,24);
+    game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),rectX2,rectY2 + 50,24);
+    game->RenderText("Elapsed time: " + std::to_string(game->Elapsed_Time),rectX2,rectY2 + 100,24);
+
+    // Draw water squares
+    for(int x = 30; x < 40; x++ )
     {
-        for(int y = 0; y < 35; y++ )
+        for(int y = 0; y < game->current.h / 31; y++ )
         {
-            if( game->fog_of_war_worldmap[x][y] == 0 )
-            {
-                SDL_Rect imageSize = {x*32+30*32, y*32,32,32};
-                SDL_SetRenderDrawColor(game->renderer, 128,128, 128, 255);
-                SDL_RenderFillRect(game->renderer, &imageSize);
-            }
-//            else
-//            {
-//                SDL_Rect imageSize = {x*32+30*32, y*32,32,32};
-//                SDL_SetRenderDrawColor(game->renderer, 0,255, 0, 255);
-//                SDL_RenderFillRect(game->renderer, &imageSize);
-//            }
+            SDL_Rect gRect = { x*32,y*32, 32, 32 };
+            SDL_RenderDrawRect(game->renderer, &gRect);
         }
     }
+
+
 }

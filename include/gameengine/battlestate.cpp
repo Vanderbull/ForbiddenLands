@@ -103,22 +103,22 @@ void CBattleState::Draw(CGameEngine* game)
     {
         if(m_PlayerDefending)
         {
-            if( game->SActor.ChoosenProfession == game->SActor.VIKING )
+            if( game->SActor.Profession.Choosen == game->SActor.Profession.VIKING )
                 game->SActor.hitpoints_current -= GenerateNumber(0,3) / 2;
-            else if( game->SActor.ChoosenProfession == game->SActor.MARAUDER )
+            else if( game->SActor.Profession.Choosen == game->SActor.Profession.MARAUDER )
                 game->SActor.hitpoints_current -= GenerateNumber(0,3);
-            else if( game->SActor.ChoosenProfession == game->SActor.SHIELDMAIDEN )
+            else if( game->SActor.Profession.Choosen == game->SActor.Profession.SHIELDMAIDEN )
                 game->SActor.hitpoints_current -= GenerateNumber(0,3) / 3;
 
             m_PlayerDefending = false;
         }
         else
         {
-            if( game->SActor.ChoosenProfession == game->SActor.VIKING )
+            if( game->SActor.Profession.Choosen == game->SActor.Profession.VIKING )
                 game->SActor.hitpoints_current -= GenerateNumber(0,3) / 2;
-            else if( game->SActor.ChoosenProfession == game->SActor.MARAUDER )
+            else if( game->SActor.Profession.Choosen == game->SActor.Profession.MARAUDER )
                 game->SActor.hitpoints_current -= GenerateNumber(0,3);
-            else if( game->SActor.ChoosenProfession == game->SActor.SHIELDMAIDEN )
+            else if( game->SActor.Profession.Choosen == game->SActor.Profession.SHIELDMAIDEN )
                 game->SActor.hitpoints_current -= GenerateNumber(0,3) / 3;
 
             m_PlayerDefending = false;
@@ -140,11 +140,11 @@ void CBattleState::Draw(CGameEngine* game)
         {
             Mix_PlayChannel(-1, game->_sample[3], 0);
 
-            if( game->SActor.ChoosenProfession == game->SActor.VIKING )
+            if( game->SActor.Profession.Choosen == game->SActor.Profession.VIKING )
                 game->SNpc.hitpoints_current -= GenerateNumber(0,3) / 2;
-            else if( game->SActor.ChoosenProfession == game->SActor.MARAUDER )
+            else if( game->SActor.Profession.Choosen == game->SActor.Profession.MARAUDER )
                 game->SNpc.hitpoints_current -= GenerateNumber(0,3);
-            else if( game->SActor.ChoosenProfession == game->SActor.SHIELDMAIDEN )
+            else if( game->SActor.Profession.Choosen == game->SActor.Profession.SHIELDMAIDEN )
                 game->SNpc.hitpoints_current -= GenerateNumber(0,3) / 3;
 
             m_PlayerActive = false;

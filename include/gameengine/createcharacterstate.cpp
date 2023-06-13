@@ -338,34 +338,32 @@ void CCreateCharacterState::Draw(CGameEngine* game)
         gRect = { 1200,170, 0, 0 };
         SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
         SDL_RenderFillRect(game->renderer, &gRect);
-        game->RenderText2(game->SActor.professionTextElements[game->SActor.ChoosenProfession].c_str(),White,gRect.x,gRect.y,24);
+        game->RenderText2(game->SActor.Profession.Names.at(game->SActor.Profession.Choosen).c_str(),White,gRect.x,gRect.y,24);
 
         counter = 0;
 
-        for (std::string textElement : game->SActor.professionTextElements)
+        for (std::string textElement : game->SActor.Profession.Names)
         {
-            gRect = { game->SActor.professionElements[counter].x,
-                    game->SActor.professionElements[counter].y ,
-                    game->SActor.professionElements[counter].w, game->SActor.professionElements[counter].h
+            gRect = { game->SActor.Profession.Button_Elements[counter].x,
+                    game->SActor.Profession.Button_Elements[counter].y ,
+                    game->SActor.Profession.Button_Elements[counter].w, game->SActor.Profession.Button_Elements[counter].h
             };
 
             SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
             SDL_RenderFillRect(game->renderer, &gRect);
 
-            //game->RenderText2("CRAP",White,500,game->SActor.professionElements[counter].y,24);
-
-            game->RenderText2(textElement.c_str(),Black,game->SActor.professionElements[counter].x + game->SActor.professionElements[counter].w / 2,game->SActor.professionElements[counter].y + game->SActor.professionElements[counter].h / 2,24);
+            game->RenderText2(textElement.c_str(),Black,game->SActor.Profession.Button_Elements[counter].x + game->SActor.Profession.Button_Elements[counter].w / 2,game->SActor.Profession.Button_Elements[counter].y + game->SActor.Profession.Button_Elements[counter].h / 2,24);
 
             //game->SActor.professionElements[counter].x -= game->SActor.professionElements[counter].w / 2;
             //game->SActor.professionElements[counter].y -= game->SActor.professionElements[counter].h / 2;
 
-            if( SDL_PointInRect(&mousePosition, &game->SActor.professionElements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
+            if( SDL_PointInRect(&mousePosition, &game->SActor.Profession.Button_Elements[counter]) & SDL_BUTTON(SDL_BUTTON_LEFT) )
             {
                 if (SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(SDL_BUTTON_LEFT))
                 {
                     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
-                    SDL_RenderFillRect(game->renderer, &game->SActor.professionElements[counter]);
-                    game->SActor.ChoosenProfession = counter;
+                    SDL_RenderFillRect(game->renderer, &game->SActor.Profession.Button_Elements[counter]);
+                    game->SActor.Profession.Choosen = counter;
                 }
             }
             counter++;

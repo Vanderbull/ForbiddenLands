@@ -29,6 +29,7 @@ using namespace std;
 #include "weather/weather.h"
 #include "../version.h"
 #include "classes/skillobject.h"
+#include "classes/shipobject.h"
 #include "classes/itemobject.h"
 #include "classes/textureholder.h"
 #include "classes/soundholder.h"
@@ -47,7 +48,6 @@ class CGameState;
 class CGameEngine
 {
 public:
-
     QuestList Quests;
 
     // Sound settings
@@ -74,6 +74,7 @@ public:
 	void DisplayQuests();
 	int Generate(const int from, const int to);
 	int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
+	int RenderText(std::string renderText, int iX, int iY, int fontSize);
 	int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY);
 	int RenderBreadText(std::string renderText, SDL_Color colorValue, int iX, int iY);
 	int RenderText2(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
@@ -107,45 +108,6 @@ public:
 
     int currentTimeOfDay = day;
 
-//    int currentTimeElapse(bool tick = false )
-//    {
-//        if( tick )
-//        {
-//            gameTime.tm_sec++;
-//
-//            if( gameTime.tm_sec == 60 )
-//            {
-//                gameTime.tm_sec = 0;
-//                gameTime.tm_min++;
-//            }
-//            if( gameTime.tm_min == 59 )
-//            {
-//                gameTime.tm_min = 0;
-//                gameTime.tm_hour++;
-//            }
-//            if( gameTime.tm_hour == 23 )
-//            {
-//                gameTime.tm_hour = 0;
-//                gameTime.tm_mday++;
-//               if( gameTime.tm_hour > 6 && gameTime.tm_hour < 18 )
-//                {
-//                    currentTimeOfDay = day;
-//                }
-//                else
-//                {
-//                    currentTimeOfDay = night;
-//                }
-//            }
-//            if( gameTime.tm_mon == 11 )
-//            {
-//                gameTime.tm_mon = 0;
-//                gameTime.tm_year++;
-//            }
-//
-//        }
-//        return currentTimeOfDay;
-//    };
-
 	void renderDaytime();
 	void renderQuests();
 	void renderQuestsList();
@@ -160,6 +122,12 @@ public:
 	SDL_Texture* gTexture;
     SDL_Window * window;
     SDL_DisplayMode monitor[6];
+
+    /**
+     * @brief This is a resolution variable.
+
+     * @todo Rename it to Current_Resolution
+     */
     SDL_DisplayMode current;
 
     struct utsname uts;
@@ -246,6 +214,7 @@ public:
     std::vector<SkillObject> v_Skill;
     std::vector<SkillObject> v_LearnedSkill;
     SkillObject Skill;
+    ShipObject Ship;
 	void AddItem();
 	void AddSkill();
 
@@ -411,7 +380,5 @@ private:
 	bool m_fullscreen;
 
 };
-
-
 
 #endif

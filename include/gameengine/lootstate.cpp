@@ -12,6 +12,8 @@
 #include "worldmapstate.h"
 #include "lootstate.h"
 
+//std::random_device rd;
+
 CLootState CLootState::m_LootState;
 
 void CLootState::Init()
@@ -37,6 +39,7 @@ void CLootState::Resume()
 void CLootState::HandleEvents(CGameEngine* game)
 {
     SDL_Log("CLootState HandleEvents\n");
+    std::random_device rd;
 
 	SDL_Event event;
 
@@ -59,6 +62,19 @@ void CLootState::HandleEvents(CGameEngine* game)
 					{
                         looting = true;
 						game->ChangeState(CWorldMapState::Instance());
+						game->SActor.compassNeedle = game->SActor.NORTH;
+                        for(int x = 0; x < 16; x++)
+                            for(int y = 0; y < 16; y++)
+                            {
+                                game->random_events[x][y][0] = rd();
+                                game->fog_of_war_raiding[x][y][0] = 0;
+                            }
+                        game->SActor.PlayerCoordinate = {15,1,0};
+                        game->SActor.PlayerLastCoordinate = {15,1,0};
+                        game->SActor.hitpoints_current = 10;
+                        game->SActor.hitpoints_max = 10;
+                        game->number_of_enemies = 1;
+						game->ChangeState(CMenuState::Instance());
 					}break;
 				} break;
 		}
@@ -115,9 +131,9 @@ void CLootState::Draw(CGameEngine* game)
     game->RenderText("gold: " + std::to_string(game->gold), game->White, 0,64,24);
     game->RenderText("silver: " + std::to_string(game->silver), game->White, 0,96,24);
 
-    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),White,80,gRect.y +  120,24);
-    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),White,80,gRect.y +  160,24);
-    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,80,gRect.y +  200,24);
+    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),game->White,80,gRect.y +  120,24);
+    game->RenderText("Middleaage: " + std::to_string(game->Raiding_Party.middleage),game->White,80,gRect.y +  160,24);
+    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),game->White,80,game->gRect.y +  200,24);
 
     game->RenderTextWrapped("SPOILS OF WAR", game->White, game->current.w / 3 + 200,game->current.h / 3,24,1520);
 

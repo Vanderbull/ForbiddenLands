@@ -1,3 +1,4 @@
+/// @file battlestate.h
 #ifndef BATTLESTATE_H
 #define BATTLESTATE_H
 

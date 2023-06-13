@@ -42,7 +42,7 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 					<Add option="-no-pie -pthread -lstdc++fs -lsqlite3" />
 				</Linker>
 				<ExtraCommands>
-					<Add before="python3  ~/Documents/GitHub/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph" />
+					<Add before="python3  ~/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph" />
 				</ExtraCommands>
 			</Target>
 			<Target title="Release">
@@ -112,6 +112,8 @@ sudo apt-get install freeglut3 freeglut3-dev]]>
 		<Unit filename="include/classes/itemobject.h" />
 		<Unit filename="include/classes/questobject.cpp" />
 		<Unit filename="include/classes/questobject.h" />
+		<Unit filename="include/classes/shipobject.cpp" />
+		<Unit filename="include/classes/shipobject.h" />
 		<Unit filename="include/classes/skillobject.cpp" />
 		<Unit filename="include/classes/skillobject.h" />
 		<Unit filename="include/classes/soundholder.cpp" />

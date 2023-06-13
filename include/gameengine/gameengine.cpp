@@ -71,6 +71,8 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 {
     atexit( SDL_Quit );
 
+    //SActor.compassNeedle = SActor.NORTH;
+
     ItemObject["Bronze Ring"] = ItemRecord{"Bronze Ring"};
     ItemObject["Iron Ring"] = ItemRecord{"Iron Ring"};
     ItemObject["Silver Ring"] = ItemRecord{"Silver Ring"};
@@ -101,23 +103,19 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     std::random_device rd;
 
-    //auto dice = std::bind ( rd, generator );
+    int z = 0;
+    for(int x = 0; x < 16; x++)
+        for(int y = 0; y < 16; y++)
+        {
+            random_events[x][y][z] = rd();
+            fog_of_war_raiding[x][y][z] = 0;
+        }
 
-    //int wisdom = dice()+dice()+dice();
-
-            int z = 0;
-        for(int x = 0; x < 16; x++)
-            for(int y = 0; y < 16; y++)
-            {
-                random_events[x][y][z] = rd();//dice();
-                fog_of_war_raiding[x][y][z] = 0;
-            }
-
-        for(int x = 0; x < 10; x++)
-            for(int y = 0; y < 35; y++)
-            {
-                fog_of_war_worldmap[x][y] = 0;
-            }
+    for(int x = 0; x < 10; x++)
+        for(int y = 0; y < 35; y++)
+        {
+            fog_of_war_worldmap[x][y] = 0;
+        }
 
     boost::property_tree::ptree root;
     boost::property_tree::read_json("file.json", root);
@@ -238,7 +236,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         SDL_Log("TTF_Init: Success! %s %d", __FILE__, __LINE__);
     }
 
-    // Get current display mode of all displays.
+    /**
+     * @brief Get resolution information.
+     *
+     * @todo Rewrite it so that it only supports the main monitor.
+     *
+     */
     for(int i = 0; i < SDL_GetNumVideoDisplays(); ++i)
     {
         int should_be_zero = SDL_GetCurrentDisplayMode(i, &monitor[i]);
@@ -263,9 +266,6 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         SDL_WINDOWPOS_CENTERED,
         current.w, current.h,
         SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
-
-    //SDL_GLContext Context = SDL_GL_CreateContext(window);
-    //SDL_GL_SetSwapInterval(1);
 
     if (window == NULL)
     {
@@ -318,7 +318,12 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
         SDL_StopTextInput();
 
-        // Replace this with the new SDL2 OpenAudio
+        /**
+         * @brief Replace with SDL_OpenAudioDevice().
+         *
+         * @todo Replace current code with SDL_OpenAudioDevice().
+         *
+         */
         if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
         {
             SDL_Log("Audio broke down: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
@@ -337,7 +342,6 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
         }
     }
 
-    // Get the version of SDL_mixer
     const SDL_version* version = Mix_Linked_Version();
 
     cout << "SDL_mixer version: "
@@ -484,11 +488,12 @@ void CGameEngine::Draw()
 	states.back()->Draw(this);
 }
 
-int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize)
+int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize = 0)
 {
     TTF_Font* m_font = NULL;
     m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", fontSize);
 
+    //SDL_GetRenderDrawColor(renderer, &colorValue.r, &colorValue.g, &colorValue.b, &colorValue.a);
     gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
     gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
     int texW = 0;
@@ -503,7 +508,36 @@ int CGameEngine::RenderText(std::string renderText, SDL_Color colorValue, int iX
     SDL_DestroyTexture(gTexture);
     TTF_CloseFont(m_font);
     m_font = NULL;
-    fontSize = 0;
+    return 0;
+}
+
+int CGameEngine::RenderText(std::string renderText, int iX, int iY, int fontSize)
+{
+    TTF_Font* m_font = NULL;
+    m_font = TTF_OpenFont("./assets/data/fonts/viking-fonts/norse/NorseRegular.otf", fontSize);
+
+    SDL_Color colorValue;
+    //SDL_SetRenderDrawColor(renderer, 128, 255, 255, 255);
+    SDL_GetRenderDrawColor(renderer, &colorValue.r, &colorValue.g, &colorValue.b, &colorValue.a);
+    std::cout << "red: " << (int)colorValue.r << std::endl;
+    std::cout << "green: " << (int)colorValue.g << std::endl;
+    std::cout << "blue: " << (int)colorValue.b << std::endl;
+    std::cout << "alpha: " << (int)colorValue.a << std::endl;
+        //exit(99);
+    gSurface = TTF_RenderText_Blended(m_font, renderText.c_str(), colorValue);
+    gTexture = SDL_CreateTextureFromSurface(renderer, gSurface);
+    int texW = 0;
+    int texH = 0;
+    SDL_QueryTexture(gTexture, NULL, NULL, &texW, &texH);
+
+    gRect = { iX, iY, texW, texH };
+    SDL_RenderCopy(renderer, gTexture, NULL, &gRect);
+
+//    //Destroy resources
+    SDL_FreeSurface(gSurface);
+    SDL_DestroyTexture(gTexture);
+    TTF_CloseFont(m_font);
+    m_font = NULL;
     return 0;
 }
 

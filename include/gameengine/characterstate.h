@@ -1,3 +1,4 @@
+/// @file characterstate.h
 #ifndef CHARACTERSTATE_H
 #define CHARACTERSTATE_H
 

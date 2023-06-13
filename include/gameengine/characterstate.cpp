@@ -95,6 +95,9 @@ void CCharacterState::Draw(CGameEngine* game)
 
     SDL_RenderCopy(game->renderer, game->BackgroundTexture, NULL, NULL);
 
+    game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),game->White,80,gRect.y +  40,24);
+    game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),game->White,80,gRect.y +  80,24);
+
     game->RenderText(game->SActor.name.c_str(),White,300,115,48);
 
     std::string Experience = std::to_string(game->SActor.experience) + " / 10000";
@@ -108,21 +111,11 @@ void CCharacterState::Draw(CGameEngine* game)
   	game->RenderBreadText(std::to_string(game->SActor.current_stats[5]).c_str(),game->Black,560, 475 );
   	game->RenderBreadText(std::to_string(game->SActor.current_stats[6]).c_str(),game->Black,560, 520 );
 
-  	game->RenderBreadText(game->SActor.professionTextElements[game->SActor.ChoosenProfession].c_str(),game->White,444, 575 );
-
-//  	game->RenderBreadText(std::to_string(game->SActor.uid).c_str(),game->White,game->current.w - 100, 0 );
-//  	game->RenderBreadText(std::to_string(game->SActor.armour_class).c_str(),game->White,338,600 );
-//  	game->RenderBreadText(std::to_string(game->SActor.coins_gold).c_str(),game->White,338, 790 );
-//
-//  	game->RenderBreadText(std::to_string(game->SActor.damage).c_str(),game->White,338, 670 );
-//  	game->RenderBreadText(std::to_string(game->SActor.encumbrance).c_str(),game->White,400, 670 );
+  	game->RenderBreadText(game->SActor.Profession.Names.at(game->SActor.Profession.Choosen).c_str(),game->White,444, 575 );
 
   	game->RenderBreadText(std::to_string(game->SActor.hitpoints_current).c_str(),game->White,30, 600 );
   	game->RenderBreadText("/",game->White,45, 600 );
   	game->RenderBreadText(std::to_string(game->SActor.hitpoints_max).c_str(),game->White,60, 600 );
-//  	game->RenderBreadText(std::to_string(game->SActor.hunger).c_str(),game->White,game->current.w - 100, 475 );
-//  	game->RenderBreadText(std::to_string(game->SActor.thirst).c_str(),game->White,game->current.w - 100, 575 );
-//    game->RenderBreadText(game->SActor.name.c_str(),game->White,game->current.w - 100, 600 );
 
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255,128);
     SDL_RenderFillRect(game->renderer,&ExitButton2);

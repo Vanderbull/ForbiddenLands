@@ -40,9 +40,9 @@ OBJDIR_RELEASE = obj/Release
 DEP_RELEASE = 
 OUT_RELEASE = bin/Release/ForbiddenLands
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)/include/gameengine/menustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/shopstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/settingsmenustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/savemenustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/playstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/lootstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/loadmenustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/loadingstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/inventorystate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/tavernstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/villagestate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/worldmapstate.cpp.o $(OBJDIR_DEBUG)/src/globals.cpp.o $(OBJDIR_DEBUG)/src/main.cpp.o $(OBJDIR_DEBUG)/src/portals.cpp.o $(OBJDIR_DEBUG)/src/randomizer.cpp.o $(OBJDIR_DEBUG)/include/classes/skillobject.cpp.o $(OBJDIR_DEBUG)/include/classes/worldmap.cpp.o $(OBJDIR_DEBUG)/include/classes/textureholder.cpp.o $(OBJDIR_DEBUG)/include/classes/soundholder.cpp.o $(OBJDIR_DEBUG)/include/gameengine/battlestate.cpp.o $(OBJDIR_DEBUG)/include/classes/itemobject.cpp.o $(OBJDIR_DEBUG)/include/gameengine/characterstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/createcharacterstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/encampmentstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/gameengine.cpp.o $(OBJDIR_DEBUG)/include/gameengine/gameoverstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/introstate.cpp.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)/include/gameengine/menustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/settingsmenustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/savemenustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/queststate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/playstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/lootstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/loadmenustate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/loadingstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/inventorystate.cpp.o $(OBJDIR_DEBUG)/src/randomizer.cpp.o $(OBJDIR_DEBUG)/src/portals.cpp.o $(OBJDIR_DEBUG)/src/main.cpp.o $(OBJDIR_DEBUG)/src/globals.cpp.o $(OBJDIR_DEBUG)/include/gameengine/worldmapstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/villagestate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/tavernstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/shopstate.cpp.o $(OBJDIR_DEBUG)/include/classes/worldmap.cpp.o $(OBJDIR_DEBUG)/include/classes/textureholder.cpp.o $(OBJDIR_DEBUG)/include/classes/soundholder.cpp.o $(OBJDIR_DEBUG)/include/classes/skillobject.cpp.o $(OBJDIR_DEBUG)/include/gameengine/actor.cpp.o $(OBJDIR_DEBUG)/include/classes/questobject.cpp.o $(OBJDIR_DEBUG)/include/classes/itemobject.cpp.o $(OBJDIR_DEBUG)/include/gameengine/encampmentstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/introstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/gameoverstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/gameengine.cpp.o $(OBJDIR_DEBUG)/include/gameengine/createcharacterstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/characterstate.cpp.o $(OBJDIR_DEBUG)/include/gameengine/battlestate.cpp.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)/include/gameengine/menustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/shopstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/settingsmenustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/savemenustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/playstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/lootstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/loadmenustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/loadingstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/inventorystate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/tavernstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/villagestate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/worldmapstate.cpp.x $(OBJDIR_RELEASE)/src/globals.cpp.x $(OBJDIR_RELEASE)/src/main.cpp.x $(OBJDIR_RELEASE)/src/portals.cpp.x $(OBJDIR_RELEASE)/src/randomizer.cpp.x $(OBJDIR_RELEASE)/include/classes/skillobject.cpp.x $(OBJDIR_RELEASE)/include/classes/worldmap.cpp.x $(OBJDIR_RELEASE)/include/classes/textureholder.cpp.x $(OBJDIR_RELEASE)/include/classes/soundholder.cpp.x $(OBJDIR_RELEASE)/include/gameengine/battlestate.cpp.x $(OBJDIR_RELEASE)/include/classes/itemobject.cpp.x $(OBJDIR_RELEASE)/include/gameengine/characterstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/createcharacterstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/encampmentstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/gameengine.cpp.x $(OBJDIR_RELEASE)/include/gameengine/gameoverstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/introstate.cpp.x
+OBJ_RELEASE = $(OBJDIR_RELEASE)/include/gameengine/menustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/settingsmenustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/savemenustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/queststate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/playstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/lootstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/loadmenustate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/loadingstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/inventorystate.cpp.x $(OBJDIR_RELEASE)/src/randomizer.cpp.x $(OBJDIR_RELEASE)/src/portals.cpp.x $(OBJDIR_RELEASE)/src/main.cpp.x $(OBJDIR_RELEASE)/src/globals.cpp.x $(OBJDIR_RELEASE)/include/gameengine/worldmapstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/villagestate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/tavernstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/shopstate.cpp.x $(OBJDIR_RELEASE)/include/classes/worldmap.cpp.x $(OBJDIR_RELEASE)/include/classes/textureholder.cpp.x $(OBJDIR_RELEASE)/include/classes/soundholder.cpp.x $(OBJDIR_RELEASE)/include/classes/skillobject.cpp.x $(OBJDIR_RELEASE)/include/gameengine/actor.cpp.x $(OBJDIR_RELEASE)/include/classes/questobject.cpp.x $(OBJDIR_RELEASE)/include/classes/itemobject.cpp.x $(OBJDIR_RELEASE)/include/gameengine/encampmentstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/introstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/gameoverstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/gameengine.cpp.x $(OBJDIR_RELEASE)/include/gameengine/createcharacterstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/characterstate.cpp.x $(OBJDIR_RELEASE)/include/gameengine/battlestate.cpp.x
 
 all: before_build build_debug build_release after_build
 
@@ -67,9 +67,11 @@ after_build:
 	#rsync -rtvu --delete icons icons $(TARGET_OUTPUT_DIR)/
 	# Syncing data files
 	rsync -rtvu --delete assets assets $(TARGET_OUTPUT_DIR)/
+	# Syncing json files
+	rsync -rtvu --delete file.json file.json $(TARGET_OUTPUT_DIR)/
 
 before_debug: 
-	python3  ~/Documents/GitHub/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph
+	python3  ~/ForbiddenLands/dependency-graph-master/dependency_graph.py ../ForbiddenLands/ ../ForbiddenLands/dependency-graph
 	test -d bin/Debug || mkdir -p bin/Debug
 	test -d $(OBJDIR_DEBUG)/include/gameengine || mkdir -p $(OBJDIR_DEBUG)/include/gameengine
 	test -d $(OBJDIR_DEBUG)/src || mkdir -p $(OBJDIR_DEBUG)/src
@@ -87,14 +89,14 @@ out_debug: before_debug $(OBJ_DEBUG) $(DEP_DEBUG)
 $(OBJDIR_DEBUG)/include/gameengine/menustate.cpp.o: include/gameengine/menustate.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/menustate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/menustate.cpp.o
 
-$(OBJDIR_DEBUG)/include/gameengine/shopstate.cpp.o: include/gameengine/shopstate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/shopstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/shopstate.cpp.o
-
 $(OBJDIR_DEBUG)/include/gameengine/settingsmenustate.cpp.o: include/gameengine/settingsmenustate.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/settingsmenustate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/settingsmenustate.cpp.o
 
 $(OBJDIR_DEBUG)/include/gameengine/savemenustate.cpp.o: include/gameengine/savemenustate.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/savemenustate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/savemenustate.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/queststate.cpp.o: include/gameengine/queststate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/queststate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/queststate.cpp.o
 
 $(OBJDIR_DEBUG)/include/gameengine/playstate.cpp.o: include/gameengine/playstate.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/playstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/playstate.cpp.o
@@ -111,29 +113,29 @@ $(OBJDIR_DEBUG)/include/gameengine/loadingstate.cpp.o: include/gameengine/loadin
 $(OBJDIR_DEBUG)/include/gameengine/inventorystate.cpp.o: include/gameengine/inventorystate.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/inventorystate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/inventorystate.cpp.o
 
-$(OBJDIR_DEBUG)/include/gameengine/tavernstate.cpp.o: include/gameengine/tavernstate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/tavernstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/tavernstate.cpp.o
-
-$(OBJDIR_DEBUG)/include/gameengine/villagestate.cpp.o: include/gameengine/villagestate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/villagestate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/villagestate.cpp.o
-
-$(OBJDIR_DEBUG)/include/gameengine/worldmapstate.cpp.o: include/gameengine/worldmapstate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/worldmapstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/worldmapstate.cpp.o
-
-$(OBJDIR_DEBUG)/src/globals.cpp.o: src/globals.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/globals.cpp -o $(OBJDIR_DEBUG)/src/globals.cpp.o
-
-$(OBJDIR_DEBUG)/src/main.cpp.o: src/main.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/main.cpp -o $(OBJDIR_DEBUG)/src/main.cpp.o
+$(OBJDIR_DEBUG)/src/randomizer.cpp.o: src/randomizer.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/randomizer.cpp -o $(OBJDIR_DEBUG)/src/randomizer.cpp.o
 
 $(OBJDIR_DEBUG)/src/portals.cpp.o: src/portals.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/portals.cpp -o $(OBJDIR_DEBUG)/src/portals.cpp.o
 
-$(OBJDIR_DEBUG)/src/randomizer.cpp.o: src/randomizer.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/randomizer.cpp -o $(OBJDIR_DEBUG)/src/randomizer.cpp.o
+$(OBJDIR_DEBUG)/src/main.cpp.o: src/main.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/main.cpp -o $(OBJDIR_DEBUG)/src/main.cpp.o
 
-$(OBJDIR_DEBUG)/include/classes/skillobject.cpp.o: include/classes/skillobject.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/classes/skillobject.cpp -o $(OBJDIR_DEBUG)/include/classes/skillobject.cpp.o
+$(OBJDIR_DEBUG)/src/globals.cpp.o: src/globals.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src/globals.cpp -o $(OBJDIR_DEBUG)/src/globals.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/worldmapstate.cpp.o: include/gameengine/worldmapstate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/worldmapstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/worldmapstate.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/villagestate.cpp.o: include/gameengine/villagestate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/villagestate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/villagestate.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/tavernstate.cpp.o: include/gameengine/tavernstate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/tavernstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/tavernstate.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/shopstate.cpp.o: include/gameengine/shopstate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/shopstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/shopstate.cpp.o
 
 $(OBJDIR_DEBUG)/include/classes/worldmap.cpp.o: include/classes/worldmap.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/classes/worldmap.cpp -o $(OBJDIR_DEBUG)/include/classes/worldmap.cpp.o
@@ -144,29 +146,38 @@ $(OBJDIR_DEBUG)/include/classes/textureholder.cpp.o: include/classes/texturehold
 $(OBJDIR_DEBUG)/include/classes/soundholder.cpp.o: include/classes/soundholder.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/classes/soundholder.cpp -o $(OBJDIR_DEBUG)/include/classes/soundholder.cpp.o
 
-$(OBJDIR_DEBUG)/include/gameengine/battlestate.cpp.o: include/gameengine/battlestate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/battlestate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/battlestate.cpp.o
+$(OBJDIR_DEBUG)/include/classes/skillobject.cpp.o: include/classes/skillobject.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/classes/skillobject.cpp -o $(OBJDIR_DEBUG)/include/classes/skillobject.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/actor.cpp.o: include/gameengine/actor.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/actor.cpp -o $(OBJDIR_DEBUG)/include/gameengine/actor.cpp.o
+
+$(OBJDIR_DEBUG)/include/classes/questobject.cpp.o: include/classes/questobject.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/classes/questobject.cpp -o $(OBJDIR_DEBUG)/include/classes/questobject.cpp.o
 
 $(OBJDIR_DEBUG)/include/classes/itemobject.cpp.o: include/classes/itemobject.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/classes/itemobject.cpp -o $(OBJDIR_DEBUG)/include/classes/itemobject.cpp.o
 
-$(OBJDIR_DEBUG)/include/gameengine/characterstate.cpp.o: include/gameengine/characterstate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/characterstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/characterstate.cpp.o
-
-$(OBJDIR_DEBUG)/include/gameengine/createcharacterstate.cpp.o: include/gameengine/createcharacterstate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/createcharacterstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/createcharacterstate.cpp.o
-
 $(OBJDIR_DEBUG)/include/gameengine/encampmentstate.cpp.o: include/gameengine/encampmentstate.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/encampmentstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/encampmentstate.cpp.o
 
-$(OBJDIR_DEBUG)/include/gameengine/gameengine.cpp.o: include/gameengine/gameengine.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/gameengine.cpp -o $(OBJDIR_DEBUG)/include/gameengine/gameengine.cpp.o
+$(OBJDIR_DEBUG)/include/gameengine/introstate.cpp.o: include/gameengine/introstate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/introstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/introstate.cpp.o
 
 $(OBJDIR_DEBUG)/include/gameengine/gameoverstate.cpp.o: include/gameengine/gameoverstate.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/gameoverstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/gameoverstate.cpp.o
 
-$(OBJDIR_DEBUG)/include/gameengine/introstate.cpp.o: include/gameengine/introstate.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/introstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/introstate.cpp.o
+$(OBJDIR_DEBUG)/include/gameengine/gameengine.cpp.o: include/gameengine/gameengine.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/gameengine.cpp -o $(OBJDIR_DEBUG)/include/gameengine/gameengine.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/createcharacterstate.cpp.o: include/gameengine/createcharacterstate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/createcharacterstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/createcharacterstate.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/characterstate.cpp.o: include/gameengine/characterstate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/characterstate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/characterstate.cpp.o
+
+$(OBJDIR_DEBUG)/include/gameengine/battlestate.cpp.o: include/gameengine/battlestate.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c include/gameengine/battlestate.cpp -o $(OBJDIR_DEBUG)/include/gameengine/battlestate.cpp.o
 
 clean_debug: 
 	rm -f $(OBJ_DEBUG) $(OUT_DEBUG)
@@ -192,14 +203,14 @@ out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 $(OBJDIR_RELEASE)/include/gameengine/menustate.cpp.x: include/gameengine/menustate.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/menustate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/menustate.cpp.x
 
-$(OBJDIR_RELEASE)/include/gameengine/shopstate.cpp.x: include/gameengine/shopstate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/shopstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/shopstate.cpp.x
-
 $(OBJDIR_RELEASE)/include/gameengine/settingsmenustate.cpp.x: include/gameengine/settingsmenustate.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/settingsmenustate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/settingsmenustate.cpp.x
 
 $(OBJDIR_RELEASE)/include/gameengine/savemenustate.cpp.x: include/gameengine/savemenustate.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/savemenustate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/savemenustate.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/queststate.cpp.x: include/gameengine/queststate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/queststate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/queststate.cpp.x
 
 $(OBJDIR_RELEASE)/include/gameengine/playstate.cpp.x: include/gameengine/playstate.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/playstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/playstate.cpp.x
@@ -216,29 +227,29 @@ $(OBJDIR_RELEASE)/include/gameengine/loadingstate.cpp.x: include/gameengine/load
 $(OBJDIR_RELEASE)/include/gameengine/inventorystate.cpp.x: include/gameengine/inventorystate.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/inventorystate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/inventorystate.cpp.x
 
-$(OBJDIR_RELEASE)/include/gameengine/tavernstate.cpp.x: include/gameengine/tavernstate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/tavernstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/tavernstate.cpp.x
-
-$(OBJDIR_RELEASE)/include/gameengine/villagestate.cpp.x: include/gameengine/villagestate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/villagestate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/villagestate.cpp.x
-
-$(OBJDIR_RELEASE)/include/gameengine/worldmapstate.cpp.x: include/gameengine/worldmapstate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/worldmapstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/worldmapstate.cpp.x
-
-$(OBJDIR_RELEASE)/src/globals.cpp.x: src/globals.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/globals.cpp -o $(OBJDIR_RELEASE)/src/globals.cpp.x
-
-$(OBJDIR_RELEASE)/src/main.cpp.x: src/main.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/main.cpp -o $(OBJDIR_RELEASE)/src/main.cpp.x
+$(OBJDIR_RELEASE)/src/randomizer.cpp.x: src/randomizer.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/randomizer.cpp -o $(OBJDIR_RELEASE)/src/randomizer.cpp.x
 
 $(OBJDIR_RELEASE)/src/portals.cpp.x: src/portals.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/portals.cpp -o $(OBJDIR_RELEASE)/src/portals.cpp.x
 
-$(OBJDIR_RELEASE)/src/randomizer.cpp.x: src/randomizer.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/randomizer.cpp -o $(OBJDIR_RELEASE)/src/randomizer.cpp.x
+$(OBJDIR_RELEASE)/src/main.cpp.x: src/main.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/main.cpp -o $(OBJDIR_RELEASE)/src/main.cpp.x
 
-$(OBJDIR_RELEASE)/include/classes/skillobject.cpp.x: include/classes/skillobject.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/classes/skillobject.cpp -o $(OBJDIR_RELEASE)/include/classes/skillobject.cpp.x
+$(OBJDIR_RELEASE)/src/globals.cpp.x: src/globals.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src/globals.cpp -o $(OBJDIR_RELEASE)/src/globals.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/worldmapstate.cpp.x: include/gameengine/worldmapstate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/worldmapstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/worldmapstate.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/villagestate.cpp.x: include/gameengine/villagestate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/villagestate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/villagestate.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/tavernstate.cpp.x: include/gameengine/tavernstate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/tavernstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/tavernstate.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/shopstate.cpp.x: include/gameengine/shopstate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/shopstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/shopstate.cpp.x
 
 $(OBJDIR_RELEASE)/include/classes/worldmap.cpp.x: include/classes/worldmap.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/classes/worldmap.cpp -o $(OBJDIR_RELEASE)/include/classes/worldmap.cpp.x
@@ -249,29 +260,38 @@ $(OBJDIR_RELEASE)/include/classes/textureholder.cpp.x: include/classes/textureho
 $(OBJDIR_RELEASE)/include/classes/soundholder.cpp.x: include/classes/soundholder.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/classes/soundholder.cpp -o $(OBJDIR_RELEASE)/include/classes/soundholder.cpp.x
 
-$(OBJDIR_RELEASE)/include/gameengine/battlestate.cpp.x: include/gameengine/battlestate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/battlestate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/battlestate.cpp.x
+$(OBJDIR_RELEASE)/include/classes/skillobject.cpp.x: include/classes/skillobject.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/classes/skillobject.cpp -o $(OBJDIR_RELEASE)/include/classes/skillobject.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/actor.cpp.x: include/gameengine/actor.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/actor.cpp -o $(OBJDIR_RELEASE)/include/gameengine/actor.cpp.x
+
+$(OBJDIR_RELEASE)/include/classes/questobject.cpp.x: include/classes/questobject.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/classes/questobject.cpp -o $(OBJDIR_RELEASE)/include/classes/questobject.cpp.x
 
 $(OBJDIR_RELEASE)/include/classes/itemobject.cpp.x: include/classes/itemobject.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/classes/itemobject.cpp -o $(OBJDIR_RELEASE)/include/classes/itemobject.cpp.x
 
-$(OBJDIR_RELEASE)/include/gameengine/characterstate.cpp.x: include/gameengine/characterstate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/characterstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/characterstate.cpp.x
-
-$(OBJDIR_RELEASE)/include/gameengine/createcharacterstate.cpp.x: include/gameengine/createcharacterstate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/createcharacterstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/createcharacterstate.cpp.x
-
 $(OBJDIR_RELEASE)/include/gameengine/encampmentstate.cpp.x: include/gameengine/encampmentstate.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/encampmentstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/encampmentstate.cpp.x
 
-$(OBJDIR_RELEASE)/include/gameengine/gameengine.cpp.x: include/gameengine/gameengine.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/gameengine.cpp -o $(OBJDIR_RELEASE)/include/gameengine/gameengine.cpp.x
+$(OBJDIR_RELEASE)/include/gameengine/introstate.cpp.x: include/gameengine/introstate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/introstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/introstate.cpp.x
 
 $(OBJDIR_RELEASE)/include/gameengine/gameoverstate.cpp.x: include/gameengine/gameoverstate.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/gameoverstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/gameoverstate.cpp.x
 
-$(OBJDIR_RELEASE)/include/gameengine/introstate.cpp.x: include/gameengine/introstate.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/introstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/introstate.cpp.x
+$(OBJDIR_RELEASE)/include/gameengine/gameengine.cpp.x: include/gameengine/gameengine.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/gameengine.cpp -o $(OBJDIR_RELEASE)/include/gameengine/gameengine.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/createcharacterstate.cpp.x: include/gameengine/createcharacterstate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/createcharacterstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/createcharacterstate.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/characterstate.cpp.x: include/gameengine/characterstate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/characterstate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/characterstate.cpp.x
+
+$(OBJDIR_RELEASE)/include/gameengine/battlestate.cpp.x: include/gameengine/battlestate.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c include/gameengine/battlestate.cpp -o $(OBJDIR_RELEASE)/include/gameengine/battlestate.cpp.x
 
 clean_release: 
 	rm -f $(OBJ_RELEASE) $(OUT_RELEASE)

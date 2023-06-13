@@ -73,14 +73,14 @@ void CPlayState::HandleEvents(CGameEngine* game)
                         game->ChangeState( CQuestState::Instance() );
                         break;
                     case SDLK_d:
-                        rotateClockWise();
+                        rotateClockWise(game);
                         break;
                     case SDLK_a:
-                        rotateCounterClockWise();
+                        rotateCounterClockWise(game);
                         break;
                     case SDLK_w:
                         {
-                            if( Rotation == "N")
+                            if( game->SActor.compassNeedle == game->SActor.NORTH)
                             {
                                 if( game->SActor.PlayerCoordinate.y > 0 )
                                 {
@@ -90,7 +90,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                     //game->gameTime.tm_min++;
                                 }
                             }
-                            else if( Rotation == "S")
+                            else if( game->SActor.compassNeedle == game->SActor.SOUTH)
                             {
                                 if( game->SActor.PlayerCoordinate.y < 15 )
                                 {
@@ -100,7 +100,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                     //game->gameTime.tm_min++;
                                 }
                             }
-                            else if( Rotation == "W")
+                            else if( game->SActor.compassNeedle == game->SActor.WEST)
                             {
                                 if( game->SActor.PlayerCoordinate.x > 0 )
                                 {
@@ -110,7 +110,7 @@ void CPlayState::HandleEvents(CGameEngine* game)
                                     //game->gameTime.tm_min++;
                                 }
                             }
-                            else if( Rotation == "E")
+                            else if( game->SActor.compassNeedle == game->SActor.EAST)
                             {
                                 if( game->SActor.PlayerCoordinate.x < 15 )
                                 {
@@ -123,29 +123,25 @@ void CPlayState::HandleEvents(CGameEngine* game)
                         } break;
                     case SDLK_s:
                         {
-                            if( Rotation == "N")
+                            if( game->SActor.compassNeedle == game->SActor.NORTH)
                             {
                                 if( game->SActor.PlayerCoordinate.y > 0 )
                                     game->SActor.PlayerCoordinate.y++;
-                                    //game->gameTime.tm_min++;
                             } break;
-                            if( Rotation == "S")
+                            if( game->SActor.compassNeedle == game->SActor.SOUTH)
                             {
                                 if( game->SActor.PlayerCoordinate.y < 15 )
                                     game->SActor.PlayerCoordinate.y--;
-                                    //game->gameTime.tm_min++;
                             } break;
-                            if( Rotation == "W")
+                            if( game->SActor.compassNeedle == game->SActor.WEST)
                             {
                                 if( game->SActor.PlayerCoordinate.x > 0 )
                                     game->SActor.PlayerCoordinate.x++;
-                                    //game->gameTime.tm_min++;
                             } break;
-                            if( Rotation == "E")
+                            if( game->SActor.compassNeedle == game->SActor.EAST)
                             {
                                 if( game->SActor.PlayerCoordinate.x < 15 )
                                     game->SActor.PlayerCoordinate.x--;
-                                    //game->gameTime.tm_min++;
                             } break;
                         } break;
 				} break;
@@ -194,17 +190,6 @@ void CPlayState::Update(CGameEngine* game)
         game->SActor.calculateStats();
         game->newGame = false;
     }
-
-    getCompassDirection();
-
-    if(Rotation == "N")
-        game->SActor.PlayerCoordinate.z = NORTH;
-    if(Rotation == "S")
-        game->SActor.PlayerCoordinate.z = SOUTH;
-    if(Rotation == "W")
-        game->SActor.PlayerCoordinate.z = WEST;
-    if(Rotation == "E")
-        game->SActor.PlayerCoordinate.z = EAST;
 
     if( game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y][0] <= ( rd.max() / 4) )
     {
@@ -261,6 +246,13 @@ void CPlayState::Draw(CGameEngine* game)
 
     game->RenderText("number of enemies: " + std::to_string(game->number_of_enemies), White, 0, 0,24);
 
+    game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),game->White,80,gRect.y +  40,24);
+    game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),game->White,80,gRect.y +  80,24);
+
+    game->RenderText("Young: " + std::to_string(game->Raiding_Party.young),White,game->current.w - 300,gRect.y +  50,24);
+    game->RenderText("Middle aged: " + std::to_string(game->Raiding_Party.middleage),White,game->current.w - 300,gRect.y +  100,24);
+    game->RenderText("Old: " + std::to_string(game->Raiding_Party.old),White,game->current.w - 300,gRect.y +  150,24);
+
     renderDaytime(game);
     renderCompass(game);
     renderMinimap(game);
@@ -268,7 +260,7 @@ void CPlayState::Draw(CGameEngine* game)
     renderPassable(game);
 
     //static int goblinmovey = 0;
-    if( (game->SActor.PlayerCoordinate.z == WEST ) && game->random_events[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] <= rd.max() / 2)
+    if( (game->SActor.PlayerCoordinate.z == game->SActor.WEST ) && game->random_events[game->SActor.PlayerCoordinate.x-1][game->SActor.PlayerCoordinate.y][0] <= rd.max() / 2)
     {
         SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
         texW = 0;
@@ -278,7 +270,7 @@ void CPlayState::Draw(CGameEngine* game)
         gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
         SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
-    if( (game->SActor.PlayerCoordinate.z == EAST ) && game->random_events[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][0] <=  rd.max() / 2)
+    if( (game->SActor.PlayerCoordinate.z == game->SActor.EAST ) && game->random_events[game->SActor.PlayerCoordinate.x+1][game->SActor.PlayerCoordinate.y][0] <=  rd.max() / 2)
     {
         SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
         texW = 0;
@@ -288,7 +280,7 @@ void CPlayState::Draw(CGameEngine* game)
         gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
         SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
-    if( (game->SActor.PlayerCoordinate.z == SOUTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][0] <=  rd.max() / 2)
+    if( (game->SActor.PlayerCoordinate.z == game->SActor.SOUTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y+1][0] <=  rd.max() / 2)
     {
         SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
         texW = 0;
@@ -298,7 +290,7 @@ void CPlayState::Draw(CGameEngine* game)
         gRect = { game->current.w / 2 - texW/2,game->current.h / 2 + texH*2, texW, texH };
         SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
-    if( (game->SActor.PlayerCoordinate.z == NORTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][0] <=  rd.max() / 2)
+    if( (game->SActor.PlayerCoordinate.z == game->SActor.NORTH ) && game->random_events[game->SActor.PlayerCoordinate.x][game->SActor.PlayerCoordinate.y-1][0] <=  rd.max() / 2)
     {
         SDL_Texture* goblin = game->LoadTexture("./assets/data/textures/viking.png",255);
         texW = 0;
@@ -309,12 +301,6 @@ void CPlayState::Draw(CGameEngine* game)
         SDL_RenderCopy(game->renderer, goblin, NULL, &gRect);
     }
 
-//    SDL_Rect left_weapon = {0,game->current.h - 120, 120,120};
-//    SDL_Rect right_weapon = {game->current.w - 120,game->current.h - 120, 120,120};
-//    SDL_SetRenderDrawColor(game->renderer, 0, 255, 0,255);
-//    SDL_RenderFillRect(game->renderer, &left_weapon);
-//    SDL_RenderFillRect(game->renderer, &right_weapon);
-    //game->renderDaytime();
     game->renderQuestsList();
     game->Quests.completeQuest("Retrieve the stolen artifact");
 

@@ -9,6 +9,7 @@ sudo apt-get install -y libsqlite3-dev -y
 sudo apt-get install libboost-all-dev -y
 sudo apt install graphviz -y
 sudo apt install python3-pip -y
-cd ~/Documents/GitHub/ForbiddenLands/dependency-graph-master
+#cd ~/Documents/GitHub/ForbiddenLands/dependency-graph-master
+cd ~/ForbiddenLands/dependency-graph-master
 pip3 install -r requirements.txt
 pip install graphviz

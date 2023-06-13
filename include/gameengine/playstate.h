@@ -34,25 +34,20 @@ public:
         return ((SDL_BUTTON(uButton) & m_uCurrentMouseState)==0)&&((SDL_BUTTON(uButton) & m_uPreviousMouseState)!=0);
     }
 
-    void getCompassDirection()
+    void rotateCounterClockWise(CGameEngine* game)
     {
-        Rotation = compassDirection.at(compassNeedle);
+        if( game->SActor.compassNeedle == game->SActor.NORTH )
+            game->SActor.compassNeedle = game->SActor.WEST;
+        else
+            game->SActor.compassNeedle--;
     };
 
-    void rotateCounterClockWise()
+    void rotateClockWise(CGameEngine* game)
     {
-        if( compassNeedle == 0 )
-            compassNeedle = compassDirection.size()-1;
+        if( game->SActor.compassNeedle == game->SActor.WEST )
+            game->SActor.compassNeedle = game->SActor.NORTH;
         else
-            compassNeedle--;
-    };
-
-    void rotateClockWise()
-    {
-        if( compassNeedle == compassDirection.size()-1 )
-            compassNeedle = 0;
-        else
-            compassNeedle++;
+            game->SActor.compassNeedle++;
     };
 
     void renderDaytime(CGameEngine* game)
@@ -81,11 +76,18 @@ public:
         std::string xcoord = std::to_string(game->SActor.PlayerCoordinate.x);
         std::string ycoord = std::to_string(game->SActor.PlayerCoordinate.y);
 
-        std::string rotationString = "";
         std::string coordinateString = " ( " + xcoord + "," + ycoord + " ) ";
 
-        rotationString += Rotation.c_str();
-        game->RenderText2(rotationString.c_str(),Black,game->current.w / 2,40,20);
+        if( game->SActor.compassNeedle == game->SActor.NORTH)
+            game->RenderText2("N",Black,game->current.w / 2,40,20);
+        if( game->SActor.compassNeedle == game->SActor.SOUTH)
+            game->RenderText2("S",Black,game->current.w / 2,40,20);
+        if( game->SActor.compassNeedle == game->SActor.WEST)
+            game->RenderText2("W",Black,game->current.w / 2,40,20);
+        if( game->SActor.compassNeedle == game->SActor.EAST)
+            game->RenderText2("E",Black,game->current.w / 2,40,20);
+
+        game->RenderText2(std::to_string(game->SActor.compassNeedle),Black,game->current.w / 2,140,20);
         game->RenderText2(coordinateString.c_str(),Black, game->current.w / 2, 60,20);
     };
 
@@ -96,19 +98,19 @@ public:
         gRect.h = 16;
         gRect.w = 16;
 
-        if( Rotation == "N")
+        if( game->SActor.compassNeedle == game->SActor.NORTH)
         {
             SDL_RenderCopy(game->renderer, game->North, NULL, &gRect);
         }
-        if( Rotation == "E")
+        if( game->SActor.compassNeedle == game->SActor.EAST)
         {
             SDL_RenderCopy(game->renderer, game->East, NULL, &gRect);
         }
-        if( Rotation == "S")
+        if( game->SActor.compassNeedle == game->SActor.SOUTH)
         {
             SDL_RenderCopy(game->renderer, game->South, NULL, &gRect);
         }
-        if( Rotation == "W")
+        if( game->SActor.compassNeedle == game->SActor.WEST)
         {
             SDL_RenderCopy(game->renderer, game->West, NULL, &gRect);
         }
@@ -275,12 +277,8 @@ private:
     int buttonWidth = 600;
     int buttonHeight = 60;
 
-    std::string compassDirection = "NESW";
-    int compassNeedle = 0;
-    std::string Rotation = "W";
-
     int z = 0;
-    enum {EAST,WEST,NORTH,SOUTH};
+
 };
 
 #endif

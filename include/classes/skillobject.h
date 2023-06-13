@@ -1,3 +1,4 @@
+/// @file skillobject.h
 #ifndef SKILLOBJECT_H
 #define SKILLOBJECT_H
 

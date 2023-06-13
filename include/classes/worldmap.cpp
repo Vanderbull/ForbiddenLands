@@ -4,9 +4,7 @@
 
 WorldMap::WorldMap(void)
 {
-
 };
 WorldMap::WorldMap(std::string _name)
 {
-    Name = _name;
 };

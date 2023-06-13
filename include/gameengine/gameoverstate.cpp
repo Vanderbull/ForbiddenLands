@@ -9,6 +9,7 @@
 #include "menustate.h"
 #include "gameoverstate.h"
 
+
 CGameoverState CGameoverState::m_GameoverState;
 
 void CGameoverState::Init()
@@ -34,6 +35,7 @@ void CGameoverState::Resume()
 void CGameoverState::HandleEvents(CGameEngine* game)
 {
     SDL_Log("CGameoverState HandleEvents\n");
+    std::random_device rd;
 
 	SDL_Event event;
 
@@ -53,8 +55,32 @@ void CGameoverState::HandleEvents(CGameEngine* game)
 				switch (event.key.keysym.sym)
 				{
 					case SDLK_ESCAPE:
+					{
+						game->SActor.compassNeedle = game->SActor.NORTH;
+                        for(int x = 0; x < 16; x++)
+                            for(int y = 0; y < 16; y++)
+                            {
+                                game->random_events[x][y][0] = rd();
+                                game->fog_of_war_raiding[x][y][0] = 0;
+
+                            }
+
+						game->SActor.compassNeedle = game->SActor.NORTH;
+                        for(int x = 0; x < 10; x++)
+                            for(int y = 0; y < 35; y++)
+                            {
+                                game->fog_of_war_worldmap[x][y] = 0;
+                            }
+
+                        game->SActor.PlayerCoordinate = {15,1,0};
+                        game->SActor.PlayerLastCoordinate = {15,1,0};
+                        game->SActor.WorldmapCoordinate = {35,14,0};
+                        game->SActor.WorldmapLastCoordinate = {35,14,0};
+                        game->SActor.hitpoints_current = 10;
+                        game->SActor.hitpoints_max = 10;
+                        game->number_of_enemies = 1;
 						game->ChangeState(CMenuState::Instance());
-						break;
+                    } break;
 				} break;
 		}
 	}
@@ -63,23 +89,6 @@ void CGameoverState::HandleEvents(CGameEngine* game)
 void CGameoverState::Update(CGameEngine* game)
 {
     SDL_Log("CGameoverState Update\n");
-
-    game->SActor.PlayerCoordinate = {15,1,0};
-    game->SActor.PlayerLastCoordinate = {15,1,0};
-    game->SActor.hitpoints_current = 10;
-    game->SActor.hitpoints_max = 10;
-    game->number_of_enemies = 1;
-    game->SActor.PlayerCoordinate.z = game->WEST;
-
-std::random_device rd;
-
-
-            int z = 0;
-        for(int x = 0; x < 16; x++)
-            for(int y = 0; y < 16; y++)
-            {
-                game->random_events[x][y][z] = rd();//dice();
-            }
 }
 
 void CGameoverState::Draw(CGameEngine* game)

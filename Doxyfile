@@ -1,0 +1,45 @@
+# Project name
+PROJECT_NAME = "Forbidden Lands"
+
+GENERATE_TREEVIEW   = YES
+GENERATE_HTMLHELP   = NO
+
+# Output directory
+OUTPUT_DIRECTORY = /home/rickard/ForbiddenLands-docs
+
+# Input directories
+# INPUT = include src
+INPUT = . include src
+
+# Recursive input
+RECURSIVE = YES
+
+# Exclude patterns
+EXCLUDE_PATTERNS = */build/*
+EXCLUDE_PATTERNS = */bin/*
+EXCLUDE_PATTERNS = */assets/*
+EXCLUDE_PATTERNS = */dependency-graph-master/*
+EXCLUDE_PATTERNS = */rapidxml-1.13/*
+
+# Enable collaboration diagrams
+HAVE_DOT = YES
+UML_LOOK = YES
+
+# Generate HTML documentation
+GENERATE_HTML = YES
+HTML_OUTPUT = docs
+
+GENERATE_LATEX = NO
+
+# Enable cross-referencing of classes and functions
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION = YES
+
+# Generate a todo list
+GENERATE_TODOLIST = YES
+
+# Generate a call graph for each function
+CALL_GRAPH = YES
+
+# Enable detailed class diagrams
+CLASS_DIAGRAMS = YES
