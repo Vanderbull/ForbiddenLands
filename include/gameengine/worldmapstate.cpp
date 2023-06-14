@@ -19,24 +19,51 @@ void CWorldMapState::Init()
 {
 	SDL_Log("CWorldMapState Init\n");
 
-	for( int i=0; i <10; i++)
-	{
-        Point_Of_Interest[i].x = (rand()%10)*32;
-        Point_Of_Interest[i].y = rand()%33*32;
-        Point_Of_Interest[i].h = 32;
-        Point_Of_Interest[i].w = 32;
-        if( grid[Point_Of_Interest[i].y][Point_Of_Interest[i].x] == WATER )
+	std::cout << std::endl;
+    for(int y = 0; y < 34; y++)
+    {
+        for(int x = 0; x < 10; x++)
         {
-            i--;
+            std::cout << grid[y][x] << " ";
+            if( grid[y][x] == LAND )
+            if( rand()%50 < 3 )
+            {
+                grid[y][x] = POI;
+            }
         }
-	}
+        std:cout << std::endl;
+    }
+
+//	for( int i=0; i <10; i++)
+//	{
+//        do
+//        {
+//            Point_Of_Interest[i].x = (rand()%10)*32;
+//            Point_Of_Interest[i].y = rand()%33*32;
+//            Point_Of_Interest[i].h = 32;
+//            Point_Of_Interest[i].w = 32;
+//        } while( grid[Point_Of_Interest[i].y][Point_Of_Interest[i].x] == WATER );
+//	}
+
+//    for( int i=0; i <10; i++)
+//	{
+//        if( grid[Point_Of_Interest[i].y][Point_Of_Interest[i].x] == WATER )
+//        {
+//            exit(99);
+//        }
+//        else
+//        {
+//            std::cout << grid[Point_Of_Interest[i].y][Point_Of_Interest[i].x] << std::endl;
+//        }
+//	}
+//	exit(99);
 
 	float scale  = 1.0f;
 	SDL_Rect offset;
 
     for(int x = 0; x < 10; ++x)
     {
-        for(int y = 0; y < 33; ++y)
+        for(int y = 0; y < 34; ++y)
         {
             // calculate the sample positions
             float samplePosX = (float)x * scale + offset.x;
@@ -83,7 +110,7 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                     case SDLK_w:
                         if( game->SActor.WorldmapCoordinate.y > 0 )
                         {
-                            if( grid[game->SActor.WorldmapCoordinate.y - 1][game->SActor.WorldmapCoordinate.x - 30] == LAND)
+                            if( grid[game->SActor.WorldmapCoordinate.y - 1][game->SActor.WorldmapCoordinate.x] == LAND)
                             {
                                 game->SActor.WorldmapCoordinate.y--;
                                 game->Ship.Position_Y--;
@@ -95,9 +122,9 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->Elapsed_Time++;
                         break;
                     case SDLK_d:
-                        if( game->SActor.WorldmapCoordinate.x < 39 )
+                        if( game->SActor.WorldmapCoordinate.x < 10 )
                         {
-                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x - 29] == LAND)
+                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x + 1] == LAND)
                             {
                                 game->SActor.WorldmapCoordinate.x++;
                                 game->Ship.Position_X++;
@@ -109,9 +136,9 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->Elapsed_Time++;
                         break;
                     case SDLK_s:
-                        if( game->SActor.WorldmapCoordinate.y < (1080 / 32) - 1 )
+                        if( game->SActor.WorldmapCoordinate.y < 34 )
                         {
-                            if( grid[game->SActor.WorldmapCoordinate.y + 1][game->SActor.WorldmapCoordinate.x - 30] == LAND)
+                            if( grid[game->SActor.WorldmapCoordinate.y + 1][game->SActor.WorldmapCoordinate.x] == LAND)
                             {
                                 game->SActor.WorldmapCoordinate.y++;
                                 game->Ship.Position_Y++;
@@ -123,9 +150,9 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->Elapsed_Time++;
                         break;
                     case SDLK_a:
-                        if( game->SActor.WorldmapCoordinate.x > 30 )
+                        if( game->SActor.WorldmapCoordinate.x > 0 )
                         {
-                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x - 31] == LAND)
+                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x -1] == LAND)
                             {
                                 game->SActor.WorldmapCoordinate.x--;
                                 game->Ship.Position_X--;
@@ -305,21 +332,36 @@ void CWorldMapState::Draw(CGameEngine* game)
         }
     }
 
-	for( int i=0; i <10; i++)
-	{
-        SDL_RenderCopy(game->renderer, game->North, NULL, &Point_Of_Interest[i]);
-
-
-        if( SDL_RectEquals(&WorldmapLocation, &Point_Of_Interest[i]) )
+    for(int y = 0; y < 34; y++)
+    {
+        for(int x = 0; x < 10; x++)
         {
-            game->ChangeState( CPlayState::Instance() );
-            game->SActor.WorldmapCoordinate.x += 1;
+            if( grid[y][x] == POI)
+            {
+                Point_Of_Interest[0].x = x*32;
+                Point_Of_Interest[0].y = y*32;
+                Point_Of_Interest[0].h = 32;
+                Point_Of_Interest[0].w = 32;
+                SDL_RenderCopy(game->renderer, game->North, NULL, &Point_Of_Interest[0]);
+            }
+
         }
-        if( SDL_PointInRect(&mousePosition, &Point_Of_Interest[i]) )
-        {
-            game->RenderText("Point of interest: " + std::to_string(i),game->White,game->current.w - 300,gRect.y +  80,24);
-        }
-	}
+    }
+//	for( int i=0; i <10; i++)
+//	{
+//        SDL_RenderCopy(game->renderer, game->North, NULL, &Point_Of_Interest[i]);
+//
+//
+//        if( SDL_RectEquals(&WorldmapLocation, &Point_Of_Interest[i]) )
+//        {
+//            game->ChangeState( CPlayState::Instance() );
+//            game->SActor.WorldmapCoordinate.x += 1;
+//        }
+//        if( SDL_PointInRect(&mousePosition, &Point_Of_Interest[i]) )
+//        {
+//            game->RenderText("Point of interest: " + std::to_string(i),game->White,game->current.w - 300,gRect.y +  80,24);
+//        }
+//	}
 
     if( SDL_PointInRect(&mousePosition, &Uppsala_Location) )
     {
