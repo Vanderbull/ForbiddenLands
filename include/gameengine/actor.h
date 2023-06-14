@@ -76,8 +76,8 @@ public:
 
     CoordinatePair PlayerCoordinate = {15,1,0};
     CoordinatePair PlayerLastCoordinate = {15,1,0};
-    CoordinatePair WorldmapCoordinate = {35,14,0};
-    CoordinatePair WorldmapLastCoordinate = {35,14,0};
+    CoordinatePair WorldmapCoordinate = {5,14,0};
+    CoordinatePair WorldmapLastCoordinate = {5,14,0};
 
     ACTOR(void);
     void calculateStats();

@@ -21,10 +21,14 @@ void CWorldMapState::Init()
 
 	for( int i=0; i <10; i++)
 	{
-        Point_Of_Interest[i].x = (30 + rand()%10)*32;
+        Point_Of_Interest[i].x = (rand()%10)*32;
         Point_Of_Interest[i].y = rand()%33*32;
         Point_Of_Interest[i].h = 32;
         Point_Of_Interest[i].w = 32;
+        if( grid[Point_Of_Interest[i].y][Point_Of_Interest[i].x] == WATER )
+        {
+            i--;
+        }
 	}
 
 	float scale  = 1.0f;
@@ -79,8 +83,11 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                     case SDLK_w:
                         if( game->SActor.WorldmapCoordinate.y > 0 )
                         {
-                            game->SActor.WorldmapCoordinate.y--;
-                            game->Ship.Position_Y--;
+                            if( grid[game->SActor.WorldmapCoordinate.y - 1][game->SActor.WorldmapCoordinate.x - 30] == LAND)
+                            {
+                                game->SActor.WorldmapCoordinate.y--;
+                                game->Ship.Position_Y--;
+                            }
                         }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
@@ -104,8 +111,11 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                     case SDLK_s:
                         if( game->SActor.WorldmapCoordinate.y < (1080 / 32) - 1 )
                         {
-                            game->SActor.WorldmapCoordinate.y++;
-                            game->Ship.Position_Y++;
+                            if( grid[game->SActor.WorldmapCoordinate.y + 1][game->SActor.WorldmapCoordinate.x - 30] == LAND)
+                            {
+                                game->SActor.WorldmapCoordinate.y++;
+                                game->Ship.Position_Y++;
+                            }
                         }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
@@ -115,8 +125,11 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                     case SDLK_a:
                         if( game->SActor.WorldmapCoordinate.x > 30 )
                         {
-                            game->SActor.WorldmapCoordinate.x--;
-                            game->Ship.Position_X--;
+                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x - 31] == LAND)
+                            {
+                                game->SActor.WorldmapCoordinate.x--;
+                                game->Ship.Position_X--;
+                            }
                         }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
@@ -163,26 +176,26 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
 
     SDL_SetRenderDrawColor(game->renderer, 0, 0, 255, 255);
-
-    // Draw water squares
-    for(int x = 30; x < 40; x++ )
-    {
-        for(int y = 0; y < game->current.h / 31; y++ )
-        {
-            SDL_Rect gRect = { x*32,y*32, 32, 32 };
-            SDL_RenderFillRect(game->renderer, &gRect);
-        }
-    }
+//
+//    // Draw water squares
+//    for(int x = 30; x < 40; x++ )
+//    {
+//        for(int y = 0; y < game->current.h / 31; y++ )
+//        {
+//            SDL_Rect gRect = { x*32,y*32, 32, 32 };
+//            SDL_RenderFillRect(game->renderer, &gRect);
+//        }
+//    }
 
     // Draw sweden
 	SDL_Texture* texture = game->LoadTexture("./assets/data/textures/sweden.png",255);
     int texW = 0;
     int texH = 0;
     SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
-    SDL_Rect gRect = { game->current.w/2,0, 300, 1080 };
+    SDL_Rect gRect = { 0,0, texW, texH };
 
     // Set the desired color modulation (e.g., red)
-    SDL_SetTextureColorMod(texture, 0, 192, 0);  // Set RGB values for red (255, 0, 0)
+//    SDL_SetTextureColorMod(texture, 0, 192, 0);  // Set RGB values for red (255, 0, 0)
 
     SDL_RenderCopy(game->renderer, texture, NULL, &gRect);
     SDL_DestroyTexture(texture);
@@ -190,13 +203,13 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
 
     SDL_Rect WorldmapLocation = {0,0,0,0};
-    SDL_Rect Uppsala_Location = {34*32,21*32,32,32};
-    SDL_Rect Sigtuna_Location = {34*32,23*32,32,32};
-    SDL_Rect Birka_Location = {34*32,25*32,32,32};
-    SDL_Rect Lund_Location = {31*32,32*32,32,32};
-    SDL_Rect Soderkoping_Location = {32*32,27*32,32,32};
-    SDL_Rect Visby_Location = {36*32,27*32,32,32};
-    SDL_Rect Vastergarn_Location = {36*32,28*32,32,32};
+    SDL_Rect Uppsala_Location = {32,0,32,32};
+    SDL_Rect Sigtuna_Location = {64,0,32,32};
+    SDL_Rect Birka_Location = {96,0,32,32};
+    SDL_Rect Lund_Location = {128,0,32,32};
+    SDL_Rect Soderkoping_Location = {160,0,32,32};
+    SDL_Rect Visby_Location = {192,0,32,32};
+    SDL_Rect Vastergarn_Location = {288,0,32,32};
 
     SDL_RenderFillRect(game->renderer, &Uppsala_Location);
     SDL_RenderFillRect(game->renderer, &Birka_Location);
@@ -258,7 +271,7 @@ void CWorldMapState::Draw(CGameEngine* game)
         game->SActor.WorldmapCoordinate.x += 1;
     }
 
-    SDL_Rect Forage_Button = { 200, 32,90,23};
+    SDL_Rect Forage_Button = { 400, 32,90,23};
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
     SDL_RenderFillRect(game->renderer, &Forage_Button);
     game->RenderText("forage", game->White, Forage_Button.x,Forage_Button.y,24);
@@ -488,15 +501,15 @@ void CWorldMapState::Draw(CGameEngine* game)
     game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),rectX2,rectY2 + 50,24);
     game->RenderText("Elapsed time: " + std::to_string(game->Elapsed_Time),rectX2,rectY2 + 100,24);
 
-    // Draw water squares
-    for(int x = 30; x < 40; x++ )
-    {
-        for(int y = 0; y < game->current.h / 31; y++ )
-        {
-            SDL_Rect gRect = { x*32,y*32, 32, 32 };
-            SDL_RenderDrawRect(game->renderer, &gRect);
-        }
-    }
+//    // Draw water squares
+//    for(int x = 30; x < 40; x++ )
+//    {
+//        for(int y = 0; y < game->current.h / 31; y++ )
+//        {
+//            SDL_Rect gRect = { x*32,y*32, 32, 32 };
+//            SDL_RenderDrawRect(game->renderer, &gRect);
+//        }
+//    }
 
 
 }
