@@ -114,6 +114,12 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                             {
                                 game->SActor.WorldmapCoordinate.y--;
                                 game->Ship.Position_Y--;
+                                game->Army_On_Ship = false;
+                            }
+                            else if( grid[game->SActor.WorldmapCoordinate.y - 1][game->SActor.WorldmapCoordinate.x] == WATER)
+                            {
+                                game->SActor.WorldmapCoordinate.y--;
+                                game->Army_On_Ship = true;
                             }
                         }
                         game->SActor.hunger++;
@@ -122,12 +128,18 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->Elapsed_Time++;
                         break;
                     case SDLK_d:
-                        if( game->SActor.WorldmapCoordinate.x < 10 )
+                        if( game->SActor.WorldmapCoordinate.x < 9 )
                         {
                             if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x + 1] == LAND)
                             {
                                 game->SActor.WorldmapCoordinate.x++;
                                 game->Ship.Position_X++;
+                                game->Army_On_Ship = false;
+                            }
+                            else if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x + 1] == WATER)
+                            {
+                                game->SActor.WorldmapCoordinate.x++;
+                                game->Army_On_Ship = true;
                             }
                         }
                         game->SActor.hunger++;
@@ -136,12 +148,18 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                         game->Elapsed_Time++;
                         break;
                     case SDLK_s:
-                        if( game->SActor.WorldmapCoordinate.y < 34 )
+                        if( game->SActor.WorldmapCoordinate.y < 33 )
                         {
                             if( grid[game->SActor.WorldmapCoordinate.y + 1][game->SActor.WorldmapCoordinate.x] == LAND)
                             {
                                 game->SActor.WorldmapCoordinate.y++;
                                 game->Ship.Position_Y++;
+                                game->Army_On_Ship = false;
+                            }
+                            else if( grid[game->SActor.WorldmapCoordinate.y + 1][game->SActor.WorldmapCoordinate.x] == WATER)
+                            {
+                                game->SActor.WorldmapCoordinate.y++;
+                                game->Army_On_Ship = true;
                             }
                         }
                         game->SActor.hunger++;
@@ -156,6 +174,12 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                             {
                                 game->SActor.WorldmapCoordinate.x--;
                                 game->Ship.Position_X--;
+                                game->Army_On_Ship = false;
+                            }
+                            else if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x -1] == WATER)
+                            {
+                                game->SActor.WorldmapCoordinate.x--;
+                                game->Army_On_Ship = true;
                             }
                         }
                         game->SActor.hunger++;
@@ -393,11 +417,11 @@ void CWorldMapState::Draw(CGameEngine* game)
     }
 
     std::string Position = "(" + std::to_string(game->SActor.WorldmapCoordinate.x) + "," + std::to_string(game->SActor.WorldmapCoordinate.y) + ")";
-    std::string Position2 = "(" + std::to_string(game->SActor.WorldmapCoordinate.x - 30) + "," + std::to_string(game->SActor.WorldmapCoordinate.y) + ")";
+    //std::string Position2 = "(" + std::to_string(game->SActor.WorldmapCoordinate.x - 30) + "," + std::to_string(game->SActor.WorldmapCoordinate.y) + ")";
 
     SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 255);
     game->RenderText(Position.c_str(),0,0,48);
-    game->RenderText(Position2.c_str(),0,50,48);
+    //game->RenderText(Position2.c_str(),0,50,48);
 //
 //    game->RenderText("Hunger: " + std::to_string(game->SActor.hunger),game->White,80,gRect.y +  40,24);
 //    game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),game->White,80,gRect.y +  80,24);
@@ -423,18 +447,25 @@ void CWorldMapState::Draw(CGameEngine* game)
 //        }
 //    }
 
-    // Render ship
-    SDL_Texture* ship = game->LoadTexture("./assets/data/textures/icons/ship.png",255);
-    texW = 0;
-    texH = 0;
-    SDL_QueryTexture(ship, NULL, NULL, &texW, &texH);
 
-    gRect = { 32*game->Ship.Position_X,32*game->Ship.Position_Y, texW/16, texH/16 };
-    SDL_RenderCopy(game->renderer, ship, NULL, &gRect);
 
-    // Render raiding party
-    SDL_Texture* Raiding_Party_Icon = game->LoadTexture("./assets/data/textures/icons/army-32.png",255);
-    SDL_RenderCopy(game->renderer, Raiding_Party_Icon, NULL, &WorldmapLocation);
+    if( game->Army_On_Ship == false )
+    {
+        // Render raiding party
+        SDL_Texture* Raiding_Party_Icon = game->LoadTexture("./assets/data/textures/icons/army-32.png",255);
+        SDL_RenderCopy(game->renderer, Raiding_Party_Icon, NULL, &WorldmapLocation);
+    }
+    else
+    {
+        // Render ship
+        SDL_Texture* ship = game->LoadTexture("./assets/data/textures/icons/ship.png",255);
+        texW = 0;
+        texH = 0;
+        SDL_QueryTexture(ship, NULL, NULL, &texW, &texH);
+
+        gRect = { 32*game->SActor.WorldmapCoordinate.x,32*game->SActor.WorldmapCoordinate.y, texW/16, texH/16 };
+        SDL_RenderCopy(game->renderer, ship, NULL, &gRect);
+    }
 
 //        // Render the button
 //        SDL_Rect buttonRect;
@@ -543,15 +574,10 @@ void CWorldMapState::Draw(CGameEngine* game)
     game->RenderText("Thirst: " + std::to_string(game->SActor.thirst),rectX2,rectY2 + 50,24);
     game->RenderText("Elapsed time: " + std::to_string(game->Elapsed_Time),rectX2,rectY2 + 100,24);
 
-//    // Draw water squares
-//    for(int x = 30; x < 40; x++ )
-//    {
-//        for(int y = 0; y < game->current.h / 31; y++ )
-//        {
-//            SDL_Rect gRect = { x*32,y*32, 32, 32 };
-//            SDL_RenderDrawRect(game->renderer, &gRect);
-//        }
-//    }
+    if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x] == WATER)
+    {
+        game->RenderText("WATER",game->SActor.WorldmapCoordinate.x*32 + 100,game->SActor.WorldmapCoordinate.y*32,24);
+    }
 
-
+    game->RenderText("debug_array: " + std::to_string(debug_array_2[game->SActor.WorldmapCoordinate.x][game->SActor.WorldmapCoordinate.y]),0,1000,48);
 }

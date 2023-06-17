@@ -13,7 +13,7 @@ using namespace std;
 class ShipObject {
 public:
 
-    int Position_X = 37;
+    int Position_X = 5;
     int Position_Y = 14;
 
     ShipObject(void);

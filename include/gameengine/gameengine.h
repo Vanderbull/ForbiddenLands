@@ -48,6 +48,7 @@ class CGameState;
 class CGameEngine
 {
 public:
+    bool Army_On_Ship = false;
     QuestList Quests;
 
     // Sound settings
@@ -71,8 +72,21 @@ public:
 	bool Running() { return m_running; }
 	void Quit() { m_running = false; }
 
+struct TextRenderParams {
+    std::string text;
+    SDL_Color color;
+    int x;
+    int y;
+    int fontSize;
+};
+
+int RenderText(const TextRenderParams& renderParams){};
+
+
 	void DisplayQuests();
 	int Generate(const int from, const int to);
+
+	void RenderTextCentered(SDL_Renderer* renderer, TTF_Font* font, const std::string& text, SDL_Color textColor, int centerX, int centerY);
 	int RenderText(std::string renderText, SDL_Color colorValue, int iX, int iY, int fontSize);
 	int RenderText(std::string renderText, int iX, int iY, int fontSize);
 	int RenderTitle(std::string renderText, SDL_Color colorValue, int iX, int iY);

@@ -1019,3 +1019,30 @@ void CGameEngine::renderQuestsList()
 
     }
 }
+
+void CGameEngine::RenderTextCentered(SDL_Renderer* renderer, TTF_Font* font, const std::string& text, SDL_Color textColor, int centerX, int centerY)
+{
+    // Create a surface from the text
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), textColor);
+
+    // Create a texture from the surface
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+    // Get the dimensions of the text surface
+    int textWidth = textSurface->w;
+    int textHeight = textSurface->h;
+
+    // Calculate the position to center the text
+    int textX = centerX - textWidth / 2;
+    int textY = centerY - textHeight / 2;
+
+    // Create a destination rectangle for the text
+    SDL_Rect textRect = { textX, textY, textWidth, textHeight };
+
+    // Render the text
+    SDL_RenderCopy(renderer, textTexture, nullptr, &textRect);
+
+    // Cleanup
+    SDL_DestroyTexture(textTexture);
+    SDL_FreeSurface(textSurface);
+}
