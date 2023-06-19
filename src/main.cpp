@@ -442,8 +442,10 @@ int main(int argc, char ** argv)
 
     game.Init("A Viking Saga",1920,1080,32,true);
 
-    game.ChangeState( CIntroState::Instance() );
-
+    std::cout << game.GetSize() << std::endl;
+    game.PushState( CIntroState::Instance() );
+    std::cout << game.GetSize() << std::endl;
+    //exit(99);
     //game.ChangeState( CMenuState::Instance() );
 
 //    int opt = TRUE;

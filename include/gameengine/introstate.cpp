@@ -143,7 +143,6 @@ void CIntroState::HandleEvents(CGameEngine* game)
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_ESCAPE:
-						game->Quit();
 						break;
 				}
 				break;

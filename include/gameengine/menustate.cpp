@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include "gameengine.h"
 #include "gamestate.h"
+#include "worldmapstate.h"
 #include "loadingstate.h"
 #include "playstate.h"
 #include "createcharacterstate.h"
@@ -15,6 +16,7 @@ CMenuState CMenuState::m_MenuState;
 void CMenuState::Init()
 {
     MenuChoices.clear();
+    MenuChoices.push_back("CONTINUE");
     MenuChoices.push_back("NEW COLONY");
     MenuChoices.push_back("SAVE");
     MenuChoices.push_back("LOAD");
@@ -33,11 +35,13 @@ void CMenuState::Cleanup()
 void CMenuState::Pause()
 {
 	SDL_Log("CMenuState Pause\n");
+	std::cout << "Menu paused..." << std::endl;
 }
 
 void CMenuState::Resume()
 {
 	SDL_Log("CMenuState Resume\n");
+	std::cout << "Menu resumed..." << std::endl;
 }
 
 void CMenuState::HandleEvents(CGameEngine* game)
@@ -88,9 +92,9 @@ void CMenuState::Draw(CGameEngine* game)
 {
     SDL_Log("CMenuState Draw\n");
 
-    SDL_Texture* texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
-    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
-    SDL_DestroyTexture(texture);
+//    SDL_Texture* texture = game->LoadTexture("./assets/data/textures/menus/menu_backdrop.png",255);
+//    SDL_RenderCopy(game->renderer, texture, NULL, NULL);
+//    SDL_DestroyTexture(texture);
 
     int Repeat = 0;
     int buttonWidth = 600;
@@ -100,13 +104,17 @@ void CMenuState::Draw(CGameEngine* game)
     std::cout << game->current.h << std::endl;
     std::cout << game->current.refresh_rate << std::endl;
     std::cout << game->current.format << std::endl;
-    //exit(2);
 
     for(auto MenuChoice : MenuChoices)
     {
+        std::string Button_Caption = MenuChoice;
         SDL_Rect buttonPosition = { (game->current.w / 2) - (buttonWidth / 2), 300 + (Repeat*(buttonPosition.h+15)),buttonWidth,buttonHeight};
 
         SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+
+        SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 128);
+        SDL_RenderFillRect(game->renderer, &buttonPosition);
+        game->RenderText( Button_Caption.c_str(), game->Black, buttonPosition.x,buttonPosition.y,24);
 
         if( SDL_PointInRect(&mousePosition, &buttonPosition) & SDL_BUTTON(SDL_BUTTON_LEFT) )
         {
@@ -115,10 +123,23 @@ void CMenuState::Draw(CGameEngine* game)
 
             if( IsButtonReleased(SDL_BUTTON(SDL_BUTTON_LEFT)) )
             {
-                if( MenuChoice == "NEW COLONY")
+                if( MenuChoice == "CONTINUE")
                 {
-                    Mix_PlayChannel(-1, game->_sample[4], 0);
-                    game->ChangeState( CLoadingState::Instance() );
+                    if( !game->New_Game )
+                    {
+                        Mix_PlayChannel(-1, game->_sample[4], 0);
+                        game->PopState();
+                    }
+                }
+                else if( MenuChoice == "NEW COLONY")
+                {
+                    if( game->New_Game )
+                    {
+                        game->New_Game = false;
+                        Mix_PlayChannel(-1, game->_sample[4], 0);
+                        game->PushState( CWorldMapState::Instance() );
+                        //game->ChangeState( CLoadingState::Instance() );
+                    }
                 }
                 else if( MenuChoice == "LOAD")
                 {

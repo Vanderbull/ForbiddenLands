@@ -48,6 +48,8 @@ class CGameState;
 class CGameEngine
 {
 public:
+
+    bool New_Game = true;
     bool Army_On_Ship = false;
     QuestList Quests;
 
@@ -60,6 +62,7 @@ public:
     ACTOR SNpc;
     QuestList questList;
 
+    int GetSize();
 	void Init(const char* title, int width=640, int height=480,
 		      int bpp=0, bool fullscreen=false);
 	void Cleanup();
@@ -72,16 +75,15 @@ public:
 	bool Running() { return m_running; }
 	void Quit() { m_running = false; }
 
-struct TextRenderParams {
-    std::string text;
-    SDL_Color color;
-    int x;
-    int y;
-    int fontSize;
-};
+    struct TextRenderParams {
+        std::string text;
+        SDL_Color color;
+        int x;
+        int y;
+        int fontSize;
+    };
 
-int RenderText(const TextRenderParams& renderParams){};
-
+    int RenderText(const TextRenderParams& renderParams){};
 
 	void DisplayQuests();
 	int Generate(const int from, const int to);
@@ -164,6 +166,7 @@ int RenderText(const TextRenderParams& renderParams){};
     SDL_Texture* encampTexture[4];
     SDL_Texture* battleState;
     SDL_Texture* gameoverState;
+    SDL_Texture* villageState;
     SDL_Texture* slot;
 
     //Make these a blob
@@ -390,6 +393,7 @@ private:
 	// the stack of states
 	std::vector<CGameState*> states;
 
+	int tmp_counter = 0;
 	bool m_running;
 	bool m_fullscreen;
 

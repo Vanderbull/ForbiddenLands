@@ -67,6 +67,11 @@ boost::property_tree::ptree foo()
   return retval;
 }
 
+int CGameEngine::GetSize()
+{
+    return states.size();
+}
+
 void CGameEngine::Init(const char* title, int width, int height, int bpp, bool fullscreen)
 {
     atexit( SDL_Quit );
@@ -402,6 +407,7 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 
     battleState = LoadTexture("./assets/data/textures/backgrounds/battle.png",255);
     gameoverState = LoadTexture("./assets/data/textures/backgrounds/gameover.png",255);
+    villageState = LoadTexture("./assets/data/textures/backgrounds/village.png",255);
 
     slot = LoadTexture("./assets/data/textures/ui/slot.png",255);
 
@@ -409,6 +415,10 @@ void CGameEngine::Init(const char* title, int width, int height, int bpp, bool f
 	m_running = true;
 
 	generateWorldMapTiles();
+
+	tmp_counter++;
+	if( tmp_counter > 1 )
+        exit(99);
 }
 
 void CGameEngine::Cleanup()

@@ -105,7 +105,8 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 					case SDLK_ESCAPE:
-                        game->ChangeState( CMenuState::Instance() );
+                        //game->ChangeState( CMenuState::Instance() );
+                        game->PushState( CMenuState::Instance() );
 						break;
                     case SDLK_w:
                         if( game->SActor.WorldmapCoordinate.y > 0 )
@@ -120,6 +121,11 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                             {
                                 game->SActor.WorldmapCoordinate.y--;
                                 game->Army_On_Ship = true;
+                            }
+                            else if( grid[game->SActor.WorldmapCoordinate.y - 1][game->SActor.WorldmapCoordinate.x] == POI)
+                            {
+                                //game->ChangeState( CVillageState::Instance() );
+                                game->PushState( CVillageState::Instance() );
                             }
                         }
                         game->SActor.hunger++;
@@ -141,6 +147,10 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                                 game->SActor.WorldmapCoordinate.x++;
                                 game->Army_On_Ship = true;
                             }
+                            else if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x + 1] == POI)
+                            {
+                                game->ChangeState( CVillageState::Instance() );
+                            }
                         }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
@@ -161,6 +171,10 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                                 game->SActor.WorldmapCoordinate.y++;
                                 game->Army_On_Ship = true;
                             }
+                            else if( grid[game->SActor.WorldmapCoordinate.y + 1][game->SActor.WorldmapCoordinate.x] == POI)
+                            {
+                                game->ChangeState( CVillageState::Instance() );
+                            }
                         }
                         game->SActor.hunger++;
                         game->SActor.thirst++;
@@ -170,16 +184,20 @@ void CWorldMapState::HandleEvents(CGameEngine* game)
                     case SDLK_a:
                         if( game->SActor.WorldmapCoordinate.x > 0 )
                         {
-                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x -1] == LAND)
+                            if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x - 1] == LAND)
                             {
                                 game->SActor.WorldmapCoordinate.x--;
                                 game->Ship.Position_X--;
                                 game->Army_On_Ship = false;
                             }
-                            else if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x -1] == WATER)
+                            else if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x - 1] == WATER)
                             {
                                 game->SActor.WorldmapCoordinate.x--;
                                 game->Army_On_Ship = true;
+                            }
+                            else if( grid[game->SActor.WorldmapCoordinate.y][game->SActor.WorldmapCoordinate.x - 1] == POI)
+                            {
+                                game->ChangeState( CVillageState::Instance() );
                             }
                         }
                         game->SActor.hunger++;
@@ -262,13 +280,13 @@ void CWorldMapState::Draw(CGameEngine* game)
     SDL_Rect Visby_Location = {192,0,32,32};
     SDL_Rect Vastergarn_Location = {288,0,32,32};
 
-    SDL_RenderFillRect(game->renderer, &Uppsala_Location);
-    SDL_RenderFillRect(game->renderer, &Birka_Location);
-    SDL_RenderFillRect(game->renderer, &Sigtuna_Location);
-    SDL_RenderFillRect(game->renderer, &Lund_Location);
-    SDL_RenderFillRect(game->renderer, &Soderkoping_Location);
-    SDL_RenderFillRect(game->renderer, &Visby_Location);
-    SDL_RenderFillRect(game->renderer, &Vastergarn_Location);
+//    SDL_RenderFillRect(game->renderer, &Uppsala_Location);
+//    SDL_RenderFillRect(game->renderer, &Birka_Location);
+//    SDL_RenderFillRect(game->renderer, &Sigtuna_Location);
+//    SDL_RenderFillRect(game->renderer, &Lund_Location);
+//    SDL_RenderFillRect(game->renderer, &Soderkoping_Location);
+//    SDL_RenderFillRect(game->renderer, &Visby_Location);
+//    SDL_RenderFillRect(game->renderer, &Vastergarn_Location);
 
     OFFSET = 0;
     WorldmapLocation.x = game->SActor.WorldmapCoordinate.x*32 + OFFSET;
@@ -276,51 +294,51 @@ void CWorldMapState::Draw(CGameEngine* game)
     WorldmapLocation.h = 32;
     WorldmapLocation.w = 32;
 
-    if( SDL_RectEquals(&WorldmapLocation, &Uppsala_Location) )
-    {
-        game->Village_Name = "Uppsala";
-        game->ChangeState( CVillageState::Instance() );
-        game->SActor.WorldmapCoordinate.x += 1;
-    }
-    if( SDL_RectEquals(&WorldmapLocation, &Birka_Location) )
-    {
-        game->Village_Name = "Birka";
-        game->ChangeState( CVillageState::Instance() );
-        game->SActor.WorldmapCoordinate.x += 1;
-    }
-    if( SDL_RectEquals(&WorldmapLocation, &Sigtuna_Location) )
-    {
-        game->Village_Name = "Sigtuna";
-        game->ChangeState( CVillageState::Instance() );
-        game->SActor.WorldmapCoordinate.x += 1;
-    }
-    if( SDL_RectEquals(&WorldmapLocation, &Lund_Location) )
-    {
-        game->Village_Name = "Lund";
-        game->ChangeState( CVillageState::Instance() );
-        game->SActor.WorldmapCoordinate.x += 1;
-    }
-
-    if( SDL_RectEquals(&WorldmapLocation, &Soderkoping_Location) )
-    {
-        game->Village_Name = "Söderköping";
-        game->ChangeState( CVillageState::Instance() );
-        game->SActor.WorldmapCoordinate.x += 1;
-    }
-
-    if( SDL_RectEquals(&WorldmapLocation, &Visby_Location) )
-    {
-        game->Village_Name = "Visby";
-        game->ChangeState( CVillageState::Instance() );
-        game->SActor.WorldmapCoordinate.x += 1;
-    }
-
-    if( SDL_RectEquals(&WorldmapLocation, &Vastergarn_Location) )
-    {
-        game->Village_Name = "Västergarn";
-        game->ChangeState( CVillageState::Instance() );
-        game->SActor.WorldmapCoordinate.x += 1;
-    }
+//    if( SDL_RectEquals(&WorldmapLocation, &Uppsala_Location) )
+//    {
+//        game->Village_Name = "Uppsala";
+//        game->ChangeState( CVillageState::Instance() );
+//        game->SActor.WorldmapCoordinate.x += 1;
+//    }
+//    if( SDL_RectEquals(&WorldmapLocation, &Birka_Location) )
+//    {
+//        game->Village_Name = "Birka";
+//        game->ChangeState( CVillageState::Instance() );
+//        game->SActor.WorldmapCoordinate.x += 1;
+//    }
+//    if( SDL_RectEquals(&WorldmapLocation, &Sigtuna_Location) )
+//    {
+//        game->Village_Name = "Sigtuna";
+//        game->ChangeState( CVillageState::Instance() );
+//        game->SActor.WorldmapCoordinate.x += 1;
+//    }
+//    if( SDL_RectEquals(&WorldmapLocation, &Lund_Location) )
+//    {
+//        game->Village_Name = "Lund";
+//        game->ChangeState( CVillageState::Instance() );
+//        game->SActor.WorldmapCoordinate.x += 1;
+//    }
+//
+//    if( SDL_RectEquals(&WorldmapLocation, &Soderkoping_Location) )
+//    {
+//        game->Village_Name = "Söderköping";
+//        game->ChangeState( CVillageState::Instance() );
+//        game->SActor.WorldmapCoordinate.x += 1;
+//    }
+//
+//    if( SDL_RectEquals(&WorldmapLocation, &Visby_Location) )
+//    {
+//        game->Village_Name = "Visby";
+//        game->ChangeState( CVillageState::Instance() );
+//        game->SActor.WorldmapCoordinate.x += 1;
+//    }
+//
+//    if( SDL_RectEquals(&WorldmapLocation, &Vastergarn_Location) )
+//    {
+//        game->Village_Name = "Västergarn";
+//        game->ChangeState( CVillageState::Instance() );
+//        game->SActor.WorldmapCoordinate.x += 1;
+//    }
 
     SDL_Rect Forage_Button = { 400, 32,90,23};
     SDL_SetRenderDrawColor(game->renderer, 128, 128, 128, 192);
@@ -371,6 +389,7 @@ void CWorldMapState::Draw(CGameEngine* game)
 
         }
     }
+
 //	for( int i=0; i <10; i++)
 //	{
 //        SDL_RenderCopy(game->renderer, game->North, NULL, &Point_Of_Interest[i]);
